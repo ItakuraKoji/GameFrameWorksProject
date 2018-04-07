@@ -1,0 +1,38 @@
+左が意味、右は変数名
+
+基本的に、ピクセルシェーダーが受け取りたい値に合わせて頂点シェーダーを作る方針
+
+・頂点シェーダーへの入力の変数名
+
+	position   : inputPos
+	uv         : inputTexCoord
+	normal     : inputNormal
+	boneWeight : inputWeight
+	boneIndex  : inputIndex
+
+・ピクセルシェーダーへの入力（頂点シェーダーの出力）の変数名
+
+	座標情報                               : outPosition
+	法線情報                               : outNormal
+	色情報                                 : outColor
+	テクスチャサンプリングに使用するUV座標 : outTexCoord
+
+
+・各種のパラメーター(uniform変数)
+
+	・行列
+	matrixWMP  : 変換行列を全てかけたもの
+	worldMarix : カメラや法線の変換なんかに使うmatrixWVPのワールド行列だけ版
+	
+	・ディレクショナルライト
+	lightPower     : 強さ、ここでは照らされる度合いを指す
+	lightColor     : 色
+	lightDirection : 方向
+	
+	・アンビエントライト
+	ambientPower : 強さ
+	ambientColor : 色
+
+・その他
+	・以上に当てはまらない特殊な変数を使用したい場合は「SetValue(name, value)」を使用して値を渡す
+	・テクスチャなどはそうやって渡す
