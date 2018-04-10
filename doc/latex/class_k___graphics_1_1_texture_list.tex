@@ -1,0 +1,142 @@
+\hypertarget{class_k___graphics_1_1_texture_list}{}\section{K\+\_\+\+Graphics\+:\+:Texture\+List クラス}
+\label{class_k___graphics_1_1_texture_list}\index{K\+\_\+\+Graphics\+::\+Texture\+List@{K\+\_\+\+Graphics\+::\+Texture\+List}}
+
+
+テクスチャクラスをリストとして持ち、解放責任をもつクラス  
+
+
+
+
+{\ttfamily \#include $<$Texture\+List.\+h$>$}
+
+\subsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_k___graphics_1_1_texture_list_a32733fdf9b63714a2730fccfe6d4d39b}{Texture\+List}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_k___graphics_1_1_texture_list_a82c3a0615564dc2f016132b001093014}{Initialize()}}を呼ぶ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_k___graphics_1_1_texture_list_ad96337c9c60f13d1f6f9e088cab90ffc}{$\sim$\+Texture\+List}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_k___graphics_1_1_texture_list_a82c3a0615564dc2f016132b001093014}{Initialize()}}を呼ぶ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_texture_list_a82c3a0615564dc2f016132b001093014}{Initialize}} ()
+\begin{DoxyCompactList}\small\item\em リストのテクスチャを全て開放する \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_k___graphics_1_1_texture}{Texture}} $\ast$ \mbox{\hyperlink{class_k___graphics_1_1_texture_list_a71d4ef3f54b37dbc4b0c65e7b981678a}{Get\+Texture}} (const std\+::string \&texture\+Name)
+\begin{DoxyCompactList}\small\item\em テクスチャを取得 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_k___graphics_1_1_texture_list_ab743facbd1bda2b2bc665171bdb34b48}{Load\+Texture}} (const std\+::string \&texture\+Name, const std\+::string \&file\+Pass)
+\begin{DoxyCompactList}\small\item\em テクスチャ読み込み \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_k___graphics_1_1_texture_list_afab7447d6ed329a257436a20aad2cae3}{Add\+Empty\+Texture}} (const std\+::string \&texture\+Name, int texture\+Width, int texture\+Height)
+\begin{DoxyCompactList}\small\item\em 空のテクスチャを作成 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_texture_list_af5823a146cd8494b261ddcdf0d515859}{Delete\+Texture}} (const std\+::string \&texture\+Name)
+\begin{DoxyCompactList}\small\item\em テクスチャを削除 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{詳解}
+テクスチャクラスをリストとして持ち、解放責任をもつクラス 
+
+\subsection{構築子と解体子}
+\mbox{\Hypertarget{class_k___graphics_1_1_texture_list_a32733fdf9b63714a2730fccfe6d4d39b}\label{class_k___graphics_1_1_texture_list_a32733fdf9b63714a2730fccfe6d4d39b}} 
+\index{K\+\_\+\+Graphics\+::\+Texture\+List@{K\+\_\+\+Graphics\+::\+Texture\+List}!Texture\+List@{Texture\+List}}
+\index{Texture\+List@{Texture\+List}!K\+\_\+\+Graphics\+::\+Texture\+List@{K\+\_\+\+Graphics\+::\+Texture\+List}}
+\subsubsection{\texorpdfstring{Texture\+List()}{TextureList()}}
+{\footnotesize\ttfamily K\+\_\+\+Graphics\+::\+Texture\+List\+::\+Texture\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_k___graphics_1_1_texture_list_a82c3a0615564dc2f016132b001093014}{Initialize()}}を呼ぶ 
+
+\mbox{\Hypertarget{class_k___graphics_1_1_texture_list_ad96337c9c60f13d1f6f9e088cab90ffc}\label{class_k___graphics_1_1_texture_list_ad96337c9c60f13d1f6f9e088cab90ffc}} 
+\index{K\+\_\+\+Graphics\+::\+Texture\+List@{K\+\_\+\+Graphics\+::\+Texture\+List}!````~Texture\+List@{$\sim$\+Texture\+List}}
+\index{````~Texture\+List@{$\sim$\+Texture\+List}!K\+\_\+\+Graphics\+::\+Texture\+List@{K\+\_\+\+Graphics\+::\+Texture\+List}}
+\subsubsection{\texorpdfstring{$\sim$\+Texture\+List()}{~TextureList()}}
+{\footnotesize\ttfamily K\+\_\+\+Graphics\+::\+Texture\+List\+::$\sim$\+Texture\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_k___graphics_1_1_texture_list_a82c3a0615564dc2f016132b001093014}{Initialize()}}を呼ぶ 
+
+
+
+\subsection{関数詳解}
+\mbox{\Hypertarget{class_k___graphics_1_1_texture_list_afab7447d6ed329a257436a20aad2cae3}\label{class_k___graphics_1_1_texture_list_afab7447d6ed329a257436a20aad2cae3}} 
+\index{K\+\_\+\+Graphics\+::\+Texture\+List@{K\+\_\+\+Graphics\+::\+Texture\+List}!Add\+Empty\+Texture@{Add\+Empty\+Texture}}
+\index{Add\+Empty\+Texture@{Add\+Empty\+Texture}!K\+\_\+\+Graphics\+::\+Texture\+List@{K\+\_\+\+Graphics\+::\+Texture\+List}}
+\subsubsection{\texorpdfstring{Add\+Empty\+Texture()}{AddEmptyTexture()}}
+{\footnotesize\ttfamily bool K\+\_\+\+Graphics\+::\+Texture\+List\+::\+Add\+Empty\+Texture (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{texture\+Name,  }\item[{int}]{texture\+Width,  }\item[{int}]{texture\+Height }\end{DoxyParamCaption})}
+
+
+
+空のテクスチャを作成 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em texture\+Name} & 作成するテクスチャのユーザー定義名 \\
+\hline
+\mbox{\tt in}  & {\em texture\+Width} & テクスチャの画像幅 \\
+\hline
+\mbox{\tt in}  & {\em texture\+Height} & テクスチャの画像高さ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+成功するとtrue 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___graphics_1_1_texture_list_af5823a146cd8494b261ddcdf0d515859}\label{class_k___graphics_1_1_texture_list_af5823a146cd8494b261ddcdf0d515859}} 
+\index{K\+\_\+\+Graphics\+::\+Texture\+List@{K\+\_\+\+Graphics\+::\+Texture\+List}!Delete\+Texture@{Delete\+Texture}}
+\index{Delete\+Texture@{Delete\+Texture}!K\+\_\+\+Graphics\+::\+Texture\+List@{K\+\_\+\+Graphics\+::\+Texture\+List}}
+\subsubsection{\texorpdfstring{Delete\+Texture()}{DeleteTexture()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Texture\+List\+::\+Delete\+Texture (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{texture\+Name }\end{DoxyParamCaption})}
+
+
+
+テクスチャを削除 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em texture\+Name} & 削除するテクスチャの名前 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_texture_list_a71d4ef3f54b37dbc4b0c65e7b981678a}\label{class_k___graphics_1_1_texture_list_a71d4ef3f54b37dbc4b0c65e7b981678a}} 
+\index{K\+\_\+\+Graphics\+::\+Texture\+List@{K\+\_\+\+Graphics\+::\+Texture\+List}!Get\+Texture@{Get\+Texture}}
+\index{Get\+Texture@{Get\+Texture}!K\+\_\+\+Graphics\+::\+Texture\+List@{K\+\_\+\+Graphics\+::\+Texture\+List}}
+\subsubsection{\texorpdfstring{Get\+Texture()}{GetTexture()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_k___graphics_1_1_texture}{Texture}} $\ast$ K\+\_\+\+Graphics\+::\+Texture\+List\+::\+Get\+Texture (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{texture\+Name }\end{DoxyParamCaption})}
+
+
+
+テクスチャを取得 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em texture\+Name} & テクスチャの名前 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+その名前のテクスチャへのポインタ、無かったらnullptr 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___graphics_1_1_texture_list_a82c3a0615564dc2f016132b001093014}\label{class_k___graphics_1_1_texture_list_a82c3a0615564dc2f016132b001093014}} 
+\index{K\+\_\+\+Graphics\+::\+Texture\+List@{K\+\_\+\+Graphics\+::\+Texture\+List}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!K\+\_\+\+Graphics\+::\+Texture\+List@{K\+\_\+\+Graphics\+::\+Texture\+List}}
+\subsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Texture\+List\+::\+Initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+リストのテクスチャを全て開放する 
+
+\mbox{\Hypertarget{class_k___graphics_1_1_texture_list_ab743facbd1bda2b2bc665171bdb34b48}\label{class_k___graphics_1_1_texture_list_ab743facbd1bda2b2bc665171bdb34b48}} 
+\index{K\+\_\+\+Graphics\+::\+Texture\+List@{K\+\_\+\+Graphics\+::\+Texture\+List}!Load\+Texture@{Load\+Texture}}
+\index{Load\+Texture@{Load\+Texture}!K\+\_\+\+Graphics\+::\+Texture\+List@{K\+\_\+\+Graphics\+::\+Texture\+List}}
+\subsubsection{\texorpdfstring{Load\+Texture()}{LoadTexture()}}
+{\footnotesize\ttfamily bool K\+\_\+\+Graphics\+::\+Texture\+List\+::\+Load\+Texture (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{texture\+Name,  }\item[{const std\+::string \&}]{file\+Pass }\end{DoxyParamCaption})}
+
+
+
+テクスチャ読み込み 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em texture\+Name} & 作成するテクスチャのユーザー定義名 \\
+\hline
+\mbox{\tt in}  & {\em file\+Pass} & 画像のファイルパス \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+成功するとtrue 
+\end{DoxyReturn}

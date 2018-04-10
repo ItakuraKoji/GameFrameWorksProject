@@ -1,0 +1,36 @@
+var indexSectionsWithContent =
+{
+  0: "abcdefghijklmnopqrstuvwxy~",
+  1: "abcdefgijlmopstvw",
+  2: "k",
+  3: "abcdefgilmoprstuvw~",
+  4: "abcdefhiklmnoprstuvwxy",
+  5: "ademqtv",
+  6: "abclst",
+  7: "abfmnoprsuvw"
+};
+
+var indexSectionNames =
+{
+  0: "all",
+  1: "classes",
+  2: "namespaces",
+  3: "functions",
+  4: "variables",
+  5: "typedefs",
+  6: "enums",
+  7: "enumvalues"
+};
+
+var indexSectionLabels =
+{
+  0: "全て",
+  1: "クラス",
+  2: "名前空間",
+  3: "関数",
+  4: "変数",
+  5: "型定義",
+  6: "列挙型",
+  7: "列挙値"
+};
+

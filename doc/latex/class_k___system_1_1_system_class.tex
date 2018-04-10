@@ -1,0 +1,180 @@
+\hypertarget{class_k___system_1_1_system_class}{}\section{K\+\_\+\+System\+:\+:System\+Class クラス}
+\label{class_k___system_1_1_system_class}\index{K\+\_\+\+System\+::\+System\+Class@{K\+\_\+\+System\+::\+System\+Class}}
+
+
+{\ttfamily \#include $<$System\+Class.\+h$>$}
+
+\subsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_k___system_1_1_system_class_a0202cc960e52ef4b51f0decb3c3fb35d}{System\+Class}} (int window\+Width, int window\+Height, bool is\+Full\+Screen)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_k___system_1_1_system_class_a2db013b3b45f150df5355fd5265c8705}{Initialize()}}を呼ぶ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_k___system_1_1_system_class_a5bdd9b6b328727510a660dc7ab9ea8ac}{$\sim$\+System\+Class}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_k___system_1_1_system_class_a93d05d4f421da35f53c4969e53ca7d49}{Finalize()}}を呼ぶ \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_k___system_1_1_system_class_a2db013b3b45f150df5355fd5265c8705}{Initialize}} (int window\+Width, int window\+Height, bool is\+Full\+Screen)
+\begin{DoxyCompactList}\small\item\em 描画周りの初期化 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___system_1_1_system_class_a93d05d4f421da35f53c4969e53ca7d49}{Finalize}} ()
+\begin{DoxyCompactList}\small\item\em 終了処理、\+Initialize()の初めにも呼ばれている \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___system_1_1_system_class_a242be8d90313c17762b0013c30cafa47}{Process\+System}} ()
+\begin{DoxyCompactList}\small\item\em ウィンドウイベントと入力の更新処理を行う \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___system_1_1_system_class_afe66afc17d7cad5199f4e8a1dd62b472}{Swap\+Buffer}} ()
+\begin{DoxyCompactList}\small\item\em 描画を反映、これを呼ぶとフレームレートが60\+F\+P\+Sになる \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_k___system_1_1_system_class_ab36bf9672ef9967b829b95da744c5394}{Window\+Forcus}} ()
+\begin{DoxyCompactList}\small\item\em ウィンドウがフォーカスされているか \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_k___system_1_1_system_class_a5c776515e01bcba724c6fa64db4897c0}{Is\+System\+End}} ()
+\begin{DoxyCompactList}\small\item\em アプリの終了通知 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_k___system_1_1_system_class_a8b1226fbf696428544adfa890430cac1}{Get\+Window\+Width}} ()
+\begin{DoxyCompactList}\small\item\em アクセサー \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_k___system_1_1_system_class_a77b2bd403ce58a63f48151054ee2402e}{Get\+Window\+Height}} ()
+\begin{DoxyCompactList}\small\item\em アクセサー \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_k___input_1_1_input_g_l_f_w}{K\+\_\+\+Input\+::\+Input\+G\+L\+FW}} $\ast$ \mbox{\hyperlink{class_k___system_1_1_system_class_ac4f7977cb0325fe9ac581ed1942404a0}{Get\+Input}} ()
+\begin{DoxyCompactList}\small\item\em アクセサー \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{詳解}
+アプリケーションの動作を管理
+
+一番初めに初期化し、\+Is\+System\+End()がtrueになるまでの間アプリケーションを動かす~\newline
+なお、「キー入力・ゲームパッド入力」の情報はこのクラスにある 
+
+\subsection{構築子と解体子}
+\mbox{\Hypertarget{class_k___system_1_1_system_class_a0202cc960e52ef4b51f0decb3c3fb35d}\label{class_k___system_1_1_system_class_a0202cc960e52ef4b51f0decb3c3fb35d}} 
+\index{K\+\_\+\+System\+::\+System\+Class@{K\+\_\+\+System\+::\+System\+Class}!System\+Class@{System\+Class}}
+\index{System\+Class@{System\+Class}!K\+\_\+\+System\+::\+System\+Class@{K\+\_\+\+System\+::\+System\+Class}}
+\subsubsection{\texorpdfstring{System\+Class()}{SystemClass()}}
+{\footnotesize\ttfamily K\+\_\+\+System\+::\+System\+Class\+::\+System\+Class (\begin{DoxyParamCaption}\item[{int}]{window\+Width,  }\item[{int}]{window\+Height,  }\item[{bool}]{is\+Full\+Screen }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_k___system_1_1_system_class_a2db013b3b45f150df5355fd5265c8705}{Initialize()}}を呼ぶ 
+
+\mbox{\Hypertarget{class_k___system_1_1_system_class_a5bdd9b6b328727510a660dc7ab9ea8ac}\label{class_k___system_1_1_system_class_a5bdd9b6b328727510a660dc7ab9ea8ac}} 
+\index{K\+\_\+\+System\+::\+System\+Class@{K\+\_\+\+System\+::\+System\+Class}!````~System\+Class@{$\sim$\+System\+Class}}
+\index{````~System\+Class@{$\sim$\+System\+Class}!K\+\_\+\+System\+::\+System\+Class@{K\+\_\+\+System\+::\+System\+Class}}
+\subsubsection{\texorpdfstring{$\sim$\+System\+Class()}{~SystemClass()}}
+{\footnotesize\ttfamily K\+\_\+\+System\+::\+System\+Class\+::$\sim$\+System\+Class (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_k___system_1_1_system_class_a93d05d4f421da35f53c4969e53ca7d49}{Finalize()}}を呼ぶ 
+
+
+
+\subsection{関数詳解}
+\mbox{\Hypertarget{class_k___system_1_1_system_class_a93d05d4f421da35f53c4969e53ca7d49}\label{class_k___system_1_1_system_class_a93d05d4f421da35f53c4969e53ca7d49}} 
+\index{K\+\_\+\+System\+::\+System\+Class@{K\+\_\+\+System\+::\+System\+Class}!Finalize@{Finalize}}
+\index{Finalize@{Finalize}!K\+\_\+\+System\+::\+System\+Class@{K\+\_\+\+System\+::\+System\+Class}}
+\subsubsection{\texorpdfstring{Finalize()}{Finalize()}}
+{\footnotesize\ttfamily void K\+\_\+\+System\+::\+System\+Class\+::\+Finalize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+終了処理、\+Initialize()の初めにも呼ばれている 
+
+\mbox{\Hypertarget{class_k___system_1_1_system_class_ac4f7977cb0325fe9ac581ed1942404a0}\label{class_k___system_1_1_system_class_ac4f7977cb0325fe9ac581ed1942404a0}} 
+\index{K\+\_\+\+System\+::\+System\+Class@{K\+\_\+\+System\+::\+System\+Class}!Get\+Input@{Get\+Input}}
+\index{Get\+Input@{Get\+Input}!K\+\_\+\+System\+::\+System\+Class@{K\+\_\+\+System\+::\+System\+Class}}
+\subsubsection{\texorpdfstring{Get\+Input()}{GetInput()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_k___input_1_1_input_g_l_f_w}{K\+\_\+\+Input\+::\+Input\+G\+L\+FW}} $\ast$ K\+\_\+\+System\+::\+System\+Class\+::\+Get\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+アクセサー 
+
+\begin{DoxyReturn}{戻り値}
+入力クラスへのポインタ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___system_1_1_system_class_a77b2bd403ce58a63f48151054ee2402e}\label{class_k___system_1_1_system_class_a77b2bd403ce58a63f48151054ee2402e}} 
+\index{K\+\_\+\+System\+::\+System\+Class@{K\+\_\+\+System\+::\+System\+Class}!Get\+Window\+Height@{Get\+Window\+Height}}
+\index{Get\+Window\+Height@{Get\+Window\+Height}!K\+\_\+\+System\+::\+System\+Class@{K\+\_\+\+System\+::\+System\+Class}}
+\subsubsection{\texorpdfstring{Get\+Window\+Height()}{GetWindowHeight()}}
+{\footnotesize\ttfamily int K\+\_\+\+System\+::\+System\+Class\+::\+Get\+Window\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+アクセサー 
+
+\begin{DoxyReturn}{戻り値}
+ウィンドウの高さ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___system_1_1_system_class_a8b1226fbf696428544adfa890430cac1}\label{class_k___system_1_1_system_class_a8b1226fbf696428544adfa890430cac1}} 
+\index{K\+\_\+\+System\+::\+System\+Class@{K\+\_\+\+System\+::\+System\+Class}!Get\+Window\+Width@{Get\+Window\+Width}}
+\index{Get\+Window\+Width@{Get\+Window\+Width}!K\+\_\+\+System\+::\+System\+Class@{K\+\_\+\+System\+::\+System\+Class}}
+\subsubsection{\texorpdfstring{Get\+Window\+Width()}{GetWindowWidth()}}
+{\footnotesize\ttfamily int K\+\_\+\+System\+::\+System\+Class\+::\+Get\+Window\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+アクセサー 
+
+\begin{DoxyReturn}{戻り値}
+ウィンドウの幅 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___system_1_1_system_class_a2db013b3b45f150df5355fd5265c8705}\label{class_k___system_1_1_system_class_a2db013b3b45f150df5355fd5265c8705}} 
+\index{K\+\_\+\+System\+::\+System\+Class@{K\+\_\+\+System\+::\+System\+Class}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!K\+\_\+\+System\+::\+System\+Class@{K\+\_\+\+System\+::\+System\+Class}}
+\subsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily bool K\+\_\+\+System\+::\+System\+Class\+::\+Initialize (\begin{DoxyParamCaption}\item[{int}]{window\+Width,  }\item[{int}]{window\+Height,  }\item[{bool}]{is\+Full\+Screen }\end{DoxyParamCaption})}
+
+
+
+描画周りの初期化 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em window\+Width} & 作成するウィンドウの幅 \\
+\hline
+\mbox{\tt in}  & {\em window\+Height} & 作成するウィンドウの高さ \\
+\hline
+\mbox{\tt in}  & {\em is\+Full\+Screen} & フルスクリーンにするか（ウィンドウのサイズが解像度になります） \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+初期化に成功するとtrue 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___system_1_1_system_class_a5c776515e01bcba724c6fa64db4897c0}\label{class_k___system_1_1_system_class_a5c776515e01bcba724c6fa64db4897c0}} 
+\index{K\+\_\+\+System\+::\+System\+Class@{K\+\_\+\+System\+::\+System\+Class}!Is\+System\+End@{Is\+System\+End}}
+\index{Is\+System\+End@{Is\+System\+End}!K\+\_\+\+System\+::\+System\+Class@{K\+\_\+\+System\+::\+System\+Class}}
+\subsubsection{\texorpdfstring{Is\+System\+End()}{IsSystemEnd()}}
+{\footnotesize\ttfamily bool K\+\_\+\+System\+::\+System\+Class\+::\+Is\+System\+End (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+アプリの終了通知 
+
+\begin{DoxyReturn}{戻り値}
+ウィンドウが閉じられたり、\+Escキーが押下されたときにtrue 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___system_1_1_system_class_a242be8d90313c17762b0013c30cafa47}\label{class_k___system_1_1_system_class_a242be8d90313c17762b0013c30cafa47}} 
+\index{K\+\_\+\+System\+::\+System\+Class@{K\+\_\+\+System\+::\+System\+Class}!Process\+System@{Process\+System}}
+\index{Process\+System@{Process\+System}!K\+\_\+\+System\+::\+System\+Class@{K\+\_\+\+System\+::\+System\+Class}}
+\subsubsection{\texorpdfstring{Process\+System()}{ProcessSystem()}}
+{\footnotesize\ttfamily void K\+\_\+\+System\+::\+System\+Class\+::\+Process\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+ウィンドウイベントと入力の更新処理を行う 
+
+\mbox{\Hypertarget{class_k___system_1_1_system_class_afe66afc17d7cad5199f4e8a1dd62b472}\label{class_k___system_1_1_system_class_afe66afc17d7cad5199f4e8a1dd62b472}} 
+\index{K\+\_\+\+System\+::\+System\+Class@{K\+\_\+\+System\+::\+System\+Class}!Swap\+Buffer@{Swap\+Buffer}}
+\index{Swap\+Buffer@{Swap\+Buffer}!K\+\_\+\+System\+::\+System\+Class@{K\+\_\+\+System\+::\+System\+Class}}
+\subsubsection{\texorpdfstring{Swap\+Buffer()}{SwapBuffer()}}
+{\footnotesize\ttfamily void K\+\_\+\+System\+::\+System\+Class\+::\+Swap\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+描画を反映、これを呼ぶとフレームレートが60\+F\+P\+Sになる 
+
+\mbox{\Hypertarget{class_k___system_1_1_system_class_ab36bf9672ef9967b829b95da744c5394}\label{class_k___system_1_1_system_class_ab36bf9672ef9967b829b95da744c5394}} 
+\index{K\+\_\+\+System\+::\+System\+Class@{K\+\_\+\+System\+::\+System\+Class}!Window\+Forcus@{Window\+Forcus}}
+\index{Window\+Forcus@{Window\+Forcus}!K\+\_\+\+System\+::\+System\+Class@{K\+\_\+\+System\+::\+System\+Class}}
+\subsubsection{\texorpdfstring{Window\+Forcus()}{WindowForcus()}}
+{\footnotesize\ttfamily bool K\+\_\+\+System\+::\+System\+Class\+::\+Window\+Forcus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+ウィンドウがフォーカスされているか 
+
+\begin{DoxyReturn}{戻り値}
+ウィンドウがフォーカスされているときtrue 
+\end{DoxyReturn}

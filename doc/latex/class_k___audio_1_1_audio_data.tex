@@ -1,0 +1,227 @@
+\hypertarget{class_k___audio_1_1_audio_data}{}\section{K\+\_\+\+Audio\+:\+:Audio\+Data クラス}
+\label{class_k___audio_1_1_audio_data}\index{K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}}
+
+
+{\ttfamily \#include $<$Audio\+Data.\+h$>$}
+
+K\+\_\+\+Audio\+:\+:Audio\+Data の継承関係図\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_k___audio_1_1_audio_data}
+\end{center}
+\end{figure}
+\subsection*{公開型}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_k___audio_1_1_audio_data_a7ef9acd4f7d2140951605d835cff2435}{Sound\+Format}} \{ \mbox{\hyperlink{class_k___audio_1_1_audio_data_a7ef9acd4f7d2140951605d835cff2435a9cfb443c5ead7e17f06e768eb2a9e915}{Mono8}}, 
+\mbox{\hyperlink{class_k___audio_1_1_audio_data_a7ef9acd4f7d2140951605d835cff2435ad51581c07626d73329902c1587893768}{Mono16}}, 
+\mbox{\hyperlink{class_k___audio_1_1_audio_data_a7ef9acd4f7d2140951605d835cff2435aecf057ba8d0fde7613a07aa0be0fcd3b}{Stereo8}}, 
+\mbox{\hyperlink{class_k___audio_1_1_audio_data_a7ef9acd4f7d2140951605d835cff2435a4ebe72d0f83b3fc18973504a68c63f65}{Stereo16}}
+ \}
+\begin{DoxyCompactList}\small\item\em サウンド形式列挙型、数字はビット数を表す \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_k___audio_1_1_audio_data_a78c3668af550d54e5a16e5658afc4ec8}{Audio\+Data}} ()
+\item 
+virtual \mbox{\hyperlink{class_k___audio_1_1_audio_data_aebb74e1d7096a4580497da2bd72c019c}{$\sim$\+Audio\+Data}} ()
+\item 
+virtual bool \mbox{\hyperlink{class_k___audio_1_1_audio_data_a97453a72c7161214868303f6fdca9494}{Load\+File}} (const char $\ast$file\+Pass)=0
+\item 
+virtual int \mbox{\hyperlink{class_k___audio_1_1_audio_data_af42b123ad2ce45867401d697fd572392}{Read}} (char $\ast$buffer, int max\+Size)=0
+\item 
+virtual void \mbox{\hyperlink{class_k___audio_1_1_audio_data_a1ba3ab1b4bae0b460d26278cb29ce16e}{Seek}} (int \mbox{\hyperlink{class_k___audio_1_1_audio_data_a8c1a6d96d9c2c55467baf9c0e7e58c98}{pcm\+Offset}})=0
+\item 
+virtual int \mbox{\hyperlink{class_k___audio_1_1_audio_data_ae075eaedf3a552c083d0ed7e0c24fdce}{Get\+Pcm\+Offset}} ()
+\item 
+virtual int \mbox{\hyperlink{class_k___audio_1_1_audio_data_a94740233be10a58fba516fe6ae0aaa3a}{Get\+Loop\+Start}} ()
+\item 
+virtual int \mbox{\hyperlink{class_k___audio_1_1_audio_data_ae29cd0dcfcd55a12d6279f4b95956f1b}{Get\+Loop\+Length}} ()
+\item 
+virtual int \mbox{\hyperlink{class_k___audio_1_1_audio_data_ac44af4a5c1cecb476fff9faa2cab64b8}{Get\+Pcm\+Size}} ()
+\item 
+virtual int \mbox{\hyperlink{class_k___audio_1_1_audio_data_a2a5e7bf50936f9974a4e6f07bdb45037}{Get\+Block\+Size}} ()
+\item 
+virtual \mbox{\hyperlink{class_k___audio_1_1_audio_data_a7ef9acd4f7d2140951605d835cff2435}{Sound\+Format}} \mbox{\hyperlink{class_k___audio_1_1_audio_data_a7d2e29b72ce32c6b733b856b59d38492}{Get\+Format}} ()
+\item 
+virtual int \mbox{\hyperlink{class_k___audio_1_1_audio_data_a52ca0190e77d44e12ca222a7eb1b5e84}{Get\+Sampling\+Rate}} ()
+\end{DoxyCompactItemize}
+\subsection*{限定公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_k___audio_1_1_audio_data_a2d6bf30ca113346be54ac45e1ffcd05a}{pcm\+Size}}
+\item 
+int \mbox{\hyperlink{class_k___audio_1_1_audio_data_a8c1a6d96d9c2c55467baf9c0e7e58c98}{pcm\+Offset}}
+\item 
+int \mbox{\hyperlink{class_k___audio_1_1_audio_data_a94a2c5cc216653a4928e86953c03d0ba}{loop\+Start}}
+\item 
+int \mbox{\hyperlink{class_k___audio_1_1_audio_data_aeeeb3e8ef6215672507749088fe41266}{loop\+Length}}
+\item 
+\mbox{\hyperlink{class_k___audio_1_1_audio_data_a7ef9acd4f7d2140951605d835cff2435}{Sound\+Format}} \mbox{\hyperlink{class_k___audio_1_1_audio_data_a9dc7fef30a3ca815a829c1009a6ecc33}{format}}
+\item 
+int \mbox{\hyperlink{class_k___audio_1_1_audio_data_a6730a05b5833bbbeb5512d28a09df9ff}{sampling\+Rate}}
+\item 
+int \mbox{\hyperlink{class_k___audio_1_1_audio_data_a8e8445d5d8449b7b7bbafeaf893bad74}{block\+Size}}
+\end{DoxyCompactItemize}
+
+
+\subsection{列挙型メンバ詳解}
+\mbox{\Hypertarget{class_k___audio_1_1_audio_data_a7ef9acd4f7d2140951605d835cff2435}\label{class_k___audio_1_1_audio_data_a7ef9acd4f7d2140951605d835cff2435}} 
+\index{K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}!Sound\+Format@{Sound\+Format}}
+\index{Sound\+Format@{Sound\+Format}!K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}}
+\subsubsection{\texorpdfstring{Sound\+Format}{SoundFormat}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_k___audio_1_1_audio_data_a7ef9acd4f7d2140951605d835cff2435}{K\+\_\+\+Audio\+::\+Audio\+Data\+::\+Sound\+Format}}}
+
+
+
+サウンド形式列挙型、数字はビット数を表す 
+
+\begin{DoxyEnumFields}{列挙値}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Mono8@{Mono8}!K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}}\index{K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}!Mono8@{Mono8}}}\mbox{\Hypertarget{class_k___audio_1_1_audio_data_a7ef9acd4f7d2140951605d835cff2435a9cfb443c5ead7e17f06e768eb2a9e915}\label{class_k___audio_1_1_audio_data_a7ef9acd4f7d2140951605d835cff2435a9cfb443c5ead7e17f06e768eb2a9e915}} 
+Mono8&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Mono16@{Mono16}!K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}}\index{K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}!Mono16@{Mono16}}}\mbox{\Hypertarget{class_k___audio_1_1_audio_data_a7ef9acd4f7d2140951605d835cff2435ad51581c07626d73329902c1587893768}\label{class_k___audio_1_1_audio_data_a7ef9acd4f7d2140951605d835cff2435ad51581c07626d73329902c1587893768}} 
+Mono16&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Stereo8@{Stereo8}!K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}}\index{K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}!Stereo8@{Stereo8}}}\mbox{\Hypertarget{class_k___audio_1_1_audio_data_a7ef9acd4f7d2140951605d835cff2435aecf057ba8d0fde7613a07aa0be0fcd3b}\label{class_k___audio_1_1_audio_data_a7ef9acd4f7d2140951605d835cff2435aecf057ba8d0fde7613a07aa0be0fcd3b}} 
+Stereo8&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Stereo16@{Stereo16}!K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}}\index{K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}!Stereo16@{Stereo16}}}\mbox{\Hypertarget{class_k___audio_1_1_audio_data_a7ef9acd4f7d2140951605d835cff2435a4ebe72d0f83b3fc18973504a68c63f65}\label{class_k___audio_1_1_audio_data_a7ef9acd4f7d2140951605d835cff2435a4ebe72d0f83b3fc18973504a68c63f65}} 
+Stereo16&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{構築子と解体子}
+\mbox{\Hypertarget{class_k___audio_1_1_audio_data_a78c3668af550d54e5a16e5658afc4ec8}\label{class_k___audio_1_1_audio_data_a78c3668af550d54e5a16e5658afc4ec8}} 
+\index{K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}!Audio\+Data@{Audio\+Data}}
+\index{Audio\+Data@{Audio\+Data}!K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}}
+\subsubsection{\texorpdfstring{Audio\+Data()}{AudioData()}}
+{\footnotesize\ttfamily K\+\_\+\+Audio\+::\+Audio\+Data\+::\+Audio\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_k___audio_1_1_audio_data_aebb74e1d7096a4580497da2bd72c019c}\label{class_k___audio_1_1_audio_data_aebb74e1d7096a4580497da2bd72c019c}} 
+\index{K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}!````~Audio\+Data@{$\sim$\+Audio\+Data}}
+\index{````~Audio\+Data@{$\sim$\+Audio\+Data}!K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}}
+\subsubsection{\texorpdfstring{$\sim$\+Audio\+Data()}{~AudioData()}}
+{\footnotesize\ttfamily virtual K\+\_\+\+Audio\+::\+Audio\+Data\+::$\sim$\+Audio\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\subsection{関数詳解}
+\mbox{\Hypertarget{class_k___audio_1_1_audio_data_a2a5e7bf50936f9974a4e6f07bdb45037}\label{class_k___audio_1_1_audio_data_a2a5e7bf50936f9974a4e6f07bdb45037}} 
+\index{K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}!Get\+Block\+Size@{Get\+Block\+Size}}
+\index{Get\+Block\+Size@{Get\+Block\+Size}!K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}}
+\subsubsection{\texorpdfstring{Get\+Block\+Size()}{GetBlockSize()}}
+{\footnotesize\ttfamily virtual int K\+\_\+\+Audio\+::\+Audio\+Data\+::\+Get\+Block\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_k___audio_1_1_audio_data_a7d2e29b72ce32c6b733b856b59d38492}\label{class_k___audio_1_1_audio_data_a7d2e29b72ce32c6b733b856b59d38492}} 
+\index{K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}!Get\+Format@{Get\+Format}}
+\index{Get\+Format@{Get\+Format}!K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}}
+\subsubsection{\texorpdfstring{Get\+Format()}{GetFormat()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_k___audio_1_1_audio_data_a7ef9acd4f7d2140951605d835cff2435}{Sound\+Format}} K\+\_\+\+Audio\+::\+Audio\+Data\+::\+Get\+Format (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_k___audio_1_1_audio_data_ae29cd0dcfcd55a12d6279f4b95956f1b}\label{class_k___audio_1_1_audio_data_ae29cd0dcfcd55a12d6279f4b95956f1b}} 
+\index{K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}!Get\+Loop\+Length@{Get\+Loop\+Length}}
+\index{Get\+Loop\+Length@{Get\+Loop\+Length}!K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}}
+\subsubsection{\texorpdfstring{Get\+Loop\+Length()}{GetLoopLength()}}
+{\footnotesize\ttfamily virtual int K\+\_\+\+Audio\+::\+Audio\+Data\+::\+Get\+Loop\+Length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_k___audio_1_1_audio_data_a94740233be10a58fba516fe6ae0aaa3a}\label{class_k___audio_1_1_audio_data_a94740233be10a58fba516fe6ae0aaa3a}} 
+\index{K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}!Get\+Loop\+Start@{Get\+Loop\+Start}}
+\index{Get\+Loop\+Start@{Get\+Loop\+Start}!K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}}
+\subsubsection{\texorpdfstring{Get\+Loop\+Start()}{GetLoopStart()}}
+{\footnotesize\ttfamily virtual int K\+\_\+\+Audio\+::\+Audio\+Data\+::\+Get\+Loop\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_k___audio_1_1_audio_data_ae075eaedf3a552c083d0ed7e0c24fdce}\label{class_k___audio_1_1_audio_data_ae075eaedf3a552c083d0ed7e0c24fdce}} 
+\index{K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}!Get\+Pcm\+Offset@{Get\+Pcm\+Offset}}
+\index{Get\+Pcm\+Offset@{Get\+Pcm\+Offset}!K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}}
+\subsubsection{\texorpdfstring{Get\+Pcm\+Offset()}{GetPcmOffset()}}
+{\footnotesize\ttfamily virtual int K\+\_\+\+Audio\+::\+Audio\+Data\+::\+Get\+Pcm\+Offset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_k___audio_1_1_audio_data_ac44af4a5c1cecb476fff9faa2cab64b8}\label{class_k___audio_1_1_audio_data_ac44af4a5c1cecb476fff9faa2cab64b8}} 
+\index{K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}!Get\+Pcm\+Size@{Get\+Pcm\+Size}}
+\index{Get\+Pcm\+Size@{Get\+Pcm\+Size}!K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}}
+\subsubsection{\texorpdfstring{Get\+Pcm\+Size()}{GetPcmSize()}}
+{\footnotesize\ttfamily virtual int K\+\_\+\+Audio\+::\+Audio\+Data\+::\+Get\+Pcm\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_k___audio_1_1_audio_data_a52ca0190e77d44e12ca222a7eb1b5e84}\label{class_k___audio_1_1_audio_data_a52ca0190e77d44e12ca222a7eb1b5e84}} 
+\index{K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}!Get\+Sampling\+Rate@{Get\+Sampling\+Rate}}
+\index{Get\+Sampling\+Rate@{Get\+Sampling\+Rate}!K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}}
+\subsubsection{\texorpdfstring{Get\+Sampling\+Rate()}{GetSamplingRate()}}
+{\footnotesize\ttfamily virtual int K\+\_\+\+Audio\+::\+Audio\+Data\+::\+Get\+Sampling\+Rate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_k___audio_1_1_audio_data_a97453a72c7161214868303f6fdca9494}\label{class_k___audio_1_1_audio_data_a97453a72c7161214868303f6fdca9494}} 
+\index{K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}!Load\+File@{Load\+File}}
+\index{Load\+File@{Load\+File}!K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}}
+\subsubsection{\texorpdfstring{Load\+File()}{LoadFile()}}
+{\footnotesize\ttfamily virtual bool K\+\_\+\+Audio\+::\+Audio\+Data\+::\+Load\+File (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+Pass }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\mbox{\Hypertarget{class_k___audio_1_1_audio_data_af42b123ad2ce45867401d697fd572392}\label{class_k___audio_1_1_audio_data_af42b123ad2ce45867401d697fd572392}} 
+\index{K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}!Read@{Read}}
+\index{Read@{Read}!K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}}
+\subsubsection{\texorpdfstring{Read()}{Read()}}
+{\footnotesize\ttfamily virtual int K\+\_\+\+Audio\+::\+Audio\+Data\+::\+Read (\begin{DoxyParamCaption}\item[{char $\ast$}]{buffer,  }\item[{int}]{max\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+\mbox{\hyperlink{class_k___audio_1_1_wav_data_a9b64967d83ac218c71949335d0583e69}{K\+\_\+\+Audio\+::\+Wav\+Data}}, \mbox{\hyperlink{class_k___audio_1_1_ogg_data_ac4c50916e0f2eaa384539b2dbedc1d6e}{K\+\_\+\+Audio\+::\+Ogg\+Data}}で実装されています。
+
+\mbox{\Hypertarget{class_k___audio_1_1_audio_data_a1ba3ab1b4bae0b460d26278cb29ce16e}\label{class_k___audio_1_1_audio_data_a1ba3ab1b4bae0b460d26278cb29ce16e}} 
+\index{K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}!Seek@{Seek}}
+\index{Seek@{Seek}!K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}}
+\subsubsection{\texorpdfstring{Seek()}{Seek()}}
+{\footnotesize\ttfamily virtual void K\+\_\+\+Audio\+::\+Audio\+Data\+::\+Seek (\begin{DoxyParamCaption}\item[{int}]{pcm\+Offset }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+\mbox{\hyperlink{class_k___audio_1_1_wav_data_a2af2d93fb22fe25a4739c2b40526a7af}{K\+\_\+\+Audio\+::\+Wav\+Data}}, \mbox{\hyperlink{class_k___audio_1_1_ogg_data_aac0e955981398bf31053f27fbe19b2ba}{K\+\_\+\+Audio\+::\+Ogg\+Data}}で実装されています。
+
+
+
+\subsection{メンバ詳解}
+\mbox{\Hypertarget{class_k___audio_1_1_audio_data_a8e8445d5d8449b7b7bbafeaf893bad74}\label{class_k___audio_1_1_audio_data_a8e8445d5d8449b7b7bbafeaf893bad74}} 
+\index{K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}!block\+Size@{block\+Size}}
+\index{block\+Size@{block\+Size}!K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}}
+\subsubsection{\texorpdfstring{block\+Size}{blockSize}}
+{\footnotesize\ttfamily int K\+\_\+\+Audio\+::\+Audio\+Data\+::block\+Size\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_k___audio_1_1_audio_data_a9dc7fef30a3ca815a829c1009a6ecc33}\label{class_k___audio_1_1_audio_data_a9dc7fef30a3ca815a829c1009a6ecc33}} 
+\index{K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}!format@{format}}
+\index{format@{format}!K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}}
+\subsubsection{\texorpdfstring{format}{format}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_k___audio_1_1_audio_data_a7ef9acd4f7d2140951605d835cff2435}{Sound\+Format}} K\+\_\+\+Audio\+::\+Audio\+Data\+::format\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_k___audio_1_1_audio_data_aeeeb3e8ef6215672507749088fe41266}\label{class_k___audio_1_1_audio_data_aeeeb3e8ef6215672507749088fe41266}} 
+\index{K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}!loop\+Length@{loop\+Length}}
+\index{loop\+Length@{loop\+Length}!K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}}
+\subsubsection{\texorpdfstring{loop\+Length}{loopLength}}
+{\footnotesize\ttfamily int K\+\_\+\+Audio\+::\+Audio\+Data\+::loop\+Length\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_k___audio_1_1_audio_data_a94a2c5cc216653a4928e86953c03d0ba}\label{class_k___audio_1_1_audio_data_a94a2c5cc216653a4928e86953c03d0ba}} 
+\index{K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}!loop\+Start@{loop\+Start}}
+\index{loop\+Start@{loop\+Start}!K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}}
+\subsubsection{\texorpdfstring{loop\+Start}{loopStart}}
+{\footnotesize\ttfamily int K\+\_\+\+Audio\+::\+Audio\+Data\+::loop\+Start\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_k___audio_1_1_audio_data_a8c1a6d96d9c2c55467baf9c0e7e58c98}\label{class_k___audio_1_1_audio_data_a8c1a6d96d9c2c55467baf9c0e7e58c98}} 
+\index{K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}!pcm\+Offset@{pcm\+Offset}}
+\index{pcm\+Offset@{pcm\+Offset}!K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}}
+\subsubsection{\texorpdfstring{pcm\+Offset}{pcmOffset}}
+{\footnotesize\ttfamily int K\+\_\+\+Audio\+::\+Audio\+Data\+::pcm\+Offset\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_k___audio_1_1_audio_data_a2d6bf30ca113346be54ac45e1ffcd05a}\label{class_k___audio_1_1_audio_data_a2d6bf30ca113346be54ac45e1ffcd05a}} 
+\index{K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}!pcm\+Size@{pcm\+Size}}
+\index{pcm\+Size@{pcm\+Size}!K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}}
+\subsubsection{\texorpdfstring{pcm\+Size}{pcmSize}}
+{\footnotesize\ttfamily int K\+\_\+\+Audio\+::\+Audio\+Data\+::pcm\+Size\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_k___audio_1_1_audio_data_a6730a05b5833bbbeb5512d28a09df9ff}\label{class_k___audio_1_1_audio_data_a6730a05b5833bbbeb5512d28a09df9ff}} 
+\index{K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}!sampling\+Rate@{sampling\+Rate}}
+\index{sampling\+Rate@{sampling\+Rate}!K\+\_\+\+Audio\+::\+Audio\+Data@{K\+\_\+\+Audio\+::\+Audio\+Data}}
+\subsubsection{\texorpdfstring{sampling\+Rate}{samplingRate}}
+{\footnotesize\ttfamily int K\+\_\+\+Audio\+::\+Audio\+Data\+::sampling\+Rate\hspace{0.3cm}{\ttfamily [protected]}}
+

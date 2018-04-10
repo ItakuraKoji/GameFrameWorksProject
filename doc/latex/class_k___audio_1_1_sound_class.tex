@@ -1,0 +1,102 @@
+\hypertarget{class_k___audio_1_1_sound_class}{}\section{K\+\_\+\+Audio\+:\+:Sound\+Class クラス}
+\label{class_k___audio_1_1_sound_class}\index{K\+\_\+\+Audio\+::\+Sound\+Class@{K\+\_\+\+Audio\+::\+Sound\+Class}}
+
+
+Open\+A\+Lをラッピングしたクラス  
+
+
+
+
+{\ttfamily \#include $<$Sound\+Class.\+h$>$}
+
+\subsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_k___audio_1_1_sound_class_a9aba0743522979791ed9e6fe0d39c942}{Sound\+Class}} ()
+\begin{DoxyCompactList}\small\item\em Open\+A\+Lの初期化 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_k___audio_1_1_sound_class_ae2fe8f23da3db03d0fd664fc9dbb0caa}{$\sim$\+Sound\+Class}} ()
+\begin{DoxyCompactList}\small\item\em サウンドソースを全て破棄 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_k___audio_1_1_sound_class_a0f86040076fd10b6eddab46c78cc5009}{Create\+Source}} (const char $\ast$source\+Name, const char $\ast$file\+Pass, \mbox{\hyperlink{class_k___audio_1_1_sound_source_ad0e58f4cea821bc4087ed13830b06f69}{Sound\+Source\+::\+Load\+Mode}} mode)
+\begin{DoxyCompactList}\small\item\em サウンドソース作成 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___audio_1_1_sound_class_ab7f65f8816604bdc37cb6e30671b2494}{Delete\+Source}} (const char $\ast$source\+Name)
+\begin{DoxyCompactList}\small\item\em サウンドソースを削除 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_k___audio_1_1_sound_source}{Sound\+Source}} $\ast$ \mbox{\hyperlink{class_k___audio_1_1_sound_class_ab40ecce29808c35b2f37b29e36cf981d}{Get\+Source}} (const char $\ast$source\+Name)
+\end{DoxyCompactItemize}
+
+
+\subsection{詳解}
+Open\+A\+Lをラッピングしたクラス 
+
+\subsection{構築子と解体子}
+\mbox{\Hypertarget{class_k___audio_1_1_sound_class_a9aba0743522979791ed9e6fe0d39c942}\label{class_k___audio_1_1_sound_class_a9aba0743522979791ed9e6fe0d39c942}} 
+\index{K\+\_\+\+Audio\+::\+Sound\+Class@{K\+\_\+\+Audio\+::\+Sound\+Class}!Sound\+Class@{Sound\+Class}}
+\index{Sound\+Class@{Sound\+Class}!K\+\_\+\+Audio\+::\+Sound\+Class@{K\+\_\+\+Audio\+::\+Sound\+Class}}
+\subsubsection{\texorpdfstring{Sound\+Class()}{SoundClass()}}
+{\footnotesize\ttfamily K\+\_\+\+Audio\+::\+Sound\+Class\+::\+Sound\+Class (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Open\+A\+Lの初期化 
+
+\mbox{\Hypertarget{class_k___audio_1_1_sound_class_ae2fe8f23da3db03d0fd664fc9dbb0caa}\label{class_k___audio_1_1_sound_class_ae2fe8f23da3db03d0fd664fc9dbb0caa}} 
+\index{K\+\_\+\+Audio\+::\+Sound\+Class@{K\+\_\+\+Audio\+::\+Sound\+Class}!````~Sound\+Class@{$\sim$\+Sound\+Class}}
+\index{````~Sound\+Class@{$\sim$\+Sound\+Class}!K\+\_\+\+Audio\+::\+Sound\+Class@{K\+\_\+\+Audio\+::\+Sound\+Class}}
+\subsubsection{\texorpdfstring{$\sim$\+Sound\+Class()}{~SoundClass()}}
+{\footnotesize\ttfamily K\+\_\+\+Audio\+::\+Sound\+Class\+::$\sim$\+Sound\+Class (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+サウンドソースを全て破棄 
+
+
+
+\subsection{関数詳解}
+\mbox{\Hypertarget{class_k___audio_1_1_sound_class_a0f86040076fd10b6eddab46c78cc5009}\label{class_k___audio_1_1_sound_class_a0f86040076fd10b6eddab46c78cc5009}} 
+\index{K\+\_\+\+Audio\+::\+Sound\+Class@{K\+\_\+\+Audio\+::\+Sound\+Class}!Create\+Source@{Create\+Source}}
+\index{Create\+Source@{Create\+Source}!K\+\_\+\+Audio\+::\+Sound\+Class@{K\+\_\+\+Audio\+::\+Sound\+Class}}
+\subsubsection{\texorpdfstring{Create\+Source()}{CreateSource()}}
+{\footnotesize\ttfamily bool K\+\_\+\+Audio\+::\+Sound\+Class\+::\+Create\+Source (\begin{DoxyParamCaption}\item[{const char $\ast$}]{source\+Name,  }\item[{const char $\ast$}]{file\+Pass,  }\item[{\mbox{\hyperlink{class_k___audio_1_1_sound_source_ad0e58f4cea821bc4087ed13830b06f69}{Sound\+Source\+::\+Load\+Mode}}}]{mode }\end{DoxyParamCaption})}
+
+
+
+サウンドソース作成 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em source\+Name} & サウンドソースのユーザー定義名 \\
+\hline
+\mbox{\tt in}  & {\em file\+Pass} & サウンドのファイルパス（\+O\+GG と W\+A\+VE のみ） \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+成功するとtrue 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___audio_1_1_sound_class_ab7f65f8816604bdc37cb6e30671b2494}\label{class_k___audio_1_1_sound_class_ab7f65f8816604bdc37cb6e30671b2494}} 
+\index{K\+\_\+\+Audio\+::\+Sound\+Class@{K\+\_\+\+Audio\+::\+Sound\+Class}!Delete\+Source@{Delete\+Source}}
+\index{Delete\+Source@{Delete\+Source}!K\+\_\+\+Audio\+::\+Sound\+Class@{K\+\_\+\+Audio\+::\+Sound\+Class}}
+\subsubsection{\texorpdfstring{Delete\+Source()}{DeleteSource()}}
+{\footnotesize\ttfamily void K\+\_\+\+Audio\+::\+Sound\+Class\+::\+Delete\+Source (\begin{DoxyParamCaption}\item[{const char $\ast$}]{source\+Name }\end{DoxyParamCaption})}
+
+
+
+サウンドソースを削除 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em 削除するサウンドソースの名前} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___audio_1_1_sound_class_ab40ecce29808c35b2f37b29e36cf981d}\label{class_k___audio_1_1_sound_class_ab40ecce29808c35b2f37b29e36cf981d}} 
+\index{K\+\_\+\+Audio\+::\+Sound\+Class@{K\+\_\+\+Audio\+::\+Sound\+Class}!Get\+Source@{Get\+Source}}
+\index{Get\+Source@{Get\+Source}!K\+\_\+\+Audio\+::\+Sound\+Class@{K\+\_\+\+Audio\+::\+Sound\+Class}}
+\subsubsection{\texorpdfstring{Get\+Source()}{GetSource()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_k___audio_1_1_sound_source}{Sound\+Source}}$\ast$ K\+\_\+\+Audio\+::\+Sound\+Class\+::\+Get\+Source (\begin{DoxyParamCaption}\item[{const char $\ast$}]{source\+Name }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em サウンドソースの名前} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+サウンドソースへのポインタ 
+\end{DoxyReturn}

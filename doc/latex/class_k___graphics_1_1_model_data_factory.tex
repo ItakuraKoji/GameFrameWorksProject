@@ -1,0 +1,66 @@
+\hypertarget{class_k___graphics_1_1_model_data_factory}{}\section{K\+\_\+\+Graphics\+:\+:Model\+Data\+Factory クラス}
+\label{class_k___graphics_1_1_model_data_factory}\index{K\+\_\+\+Graphics\+::\+Model\+Data\+Factory@{K\+\_\+\+Graphics\+::\+Model\+Data\+Factory}}
+
+
+モデルクラスの初期化に必要なパラメーターの製作を担当するクラス  
+
+
+
+
+{\ttfamily \#include $<$Model\+Data\+Factory.\+h$>$}
+
+\subsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_k___graphics_1_1_model_datas}{Model\+Datas}} $\ast$ \mbox{\hyperlink{class_k___graphics_1_1_model_data_factory_a09661487ad0f3a9c563db193d6e12e08}{Load\+F\+B\+X\+Model}} (const std\+::string \&file\+Name, \mbox{\hyperlink{class_k___graphics_1_1_texture_list}{Texture\+List}} $\ast$texture\+List)
+\begin{DoxyCompactList}\small\item\em F\+B\+X形式の3\+Dモデルを読み込む \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_k___graphics_1_1_model_datas}{Model\+Datas}} $\ast$ \mbox{\hyperlink{class_k___graphics_1_1_model_data_factory_a01cb97a34c9f12ba7ae9270dc86b2644}{Create\+Square\+Model}} (float width, float height, \mbox{\hyperlink{class_k___graphics_1_1_texture}{Texture}} $\ast$texture, bool is\+Center=true)
+\begin{DoxyCompactList}\small\item\em 四角形の板ポリゴンを作成 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{詳解}
+モデルクラスの初期化に必要なパラメーターの製作を担当するクラス 
+
+\subsection{関数詳解}
+\mbox{\Hypertarget{class_k___graphics_1_1_model_data_factory_a01cb97a34c9f12ba7ae9270dc86b2644}\label{class_k___graphics_1_1_model_data_factory_a01cb97a34c9f12ba7ae9270dc86b2644}} 
+\index{K\+\_\+\+Graphics\+::\+Model\+Data\+Factory@{K\+\_\+\+Graphics\+::\+Model\+Data\+Factory}!Create\+Square\+Model@{Create\+Square\+Model}}
+\index{Create\+Square\+Model@{Create\+Square\+Model}!K\+\_\+\+Graphics\+::\+Model\+Data\+Factory@{K\+\_\+\+Graphics\+::\+Model\+Data\+Factory}}
+\subsubsection{\texorpdfstring{Create\+Square\+Model()}{CreateSquareModel()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_k___graphics_1_1_model_datas}{Model\+Datas}} $\ast$ K\+\_\+\+Graphics\+::\+Model\+Data\+Factory\+::\+Create\+Square\+Model (\begin{DoxyParamCaption}\item[{float}]{width,  }\item[{float}]{height,  }\item[{\mbox{\hyperlink{class_k___graphics_1_1_texture}{Texture}} $\ast$}]{texture,  }\item[{bool}]{is\+Center = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+四角形の板ポリゴンを作成 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em width} & 板ポリゴンの幅 \\
+\hline
+\mbox{\tt in}  & {\em height} & 板ポリゴンの高さ \\
+\hline
+\mbox{\tt in}  & {\em texture} & 使用するテクスチャ（nullptr可） \\
+\hline
+\mbox{\tt in}  & {\em is\+Center} & コントロールポイントを中央にするか（省略時true）~\newline
+スプライトではコントロールポイントが左上にある \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_model_data_factory_a09661487ad0f3a9c563db193d6e12e08}\label{class_k___graphics_1_1_model_data_factory_a09661487ad0f3a9c563db193d6e12e08}} 
+\index{K\+\_\+\+Graphics\+::\+Model\+Data\+Factory@{K\+\_\+\+Graphics\+::\+Model\+Data\+Factory}!Load\+F\+B\+X\+Model@{Load\+F\+B\+X\+Model}}
+\index{Load\+F\+B\+X\+Model@{Load\+F\+B\+X\+Model}!K\+\_\+\+Graphics\+::\+Model\+Data\+Factory@{K\+\_\+\+Graphics\+::\+Model\+Data\+Factory}}
+\subsubsection{\texorpdfstring{Load\+F\+B\+X\+Model()}{LoadFBXModel()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_k___graphics_1_1_model_datas}{Model\+Datas}} $\ast$ K\+\_\+\+Graphics\+::\+Model\+Data\+Factory\+::\+Load\+F\+B\+X\+Model (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Name,  }\item[{\mbox{\hyperlink{class_k___graphics_1_1_texture_list}{Texture\+List}} $\ast$}]{texture\+List }\end{DoxyParamCaption})}
+
+
+
+F\+B\+X形式の3\+Dモデルを読み込む 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em file\+Name} & F\+B\+Xモデルのファイルパス \\
+\hline
+\mbox{\tt in}  & {\em texture\+List} & テクスチャリストへのポインタ（\+F\+B\+Xで使われているテクスチャを読み込むのに使う） \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+モデルのデータクラスへのポインタ 
+\end{DoxyReturn}

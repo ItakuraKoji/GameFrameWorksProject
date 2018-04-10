@@ -1,0 +1,80 @@
+\hypertarget{class_k___graphics_1_1_font_generator}{}\section{K\+\_\+\+Graphics\+:\+:Font\+Generator クラス}
+\label{class_k___graphics_1_1_font_generator}\index{K\+\_\+\+Graphics\+::\+Font\+Generator@{K\+\_\+\+Graphics\+::\+Font\+Generator}}
+
+
+{\ttfamily \#include $<$Font\+Generator.\+h$>$}
+
+\subsection*{クラス}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_k___graphics_1_1_font_generator_1_1_char_data}{Char\+Data}}
+\item 
+struct \mbox{\hyperlink{struct_k___graphics_1_1_font_generator_1_1_font_atlas}{Font\+Atlas}}
+\item 
+struct \mbox{\hyperlink{struct_k___graphics_1_1_font_generator_1_1_font_data}{Font\+Data}}
+\end{DoxyCompactItemize}
+\subsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_k___graphics_1_1_font_generator_a832617f2e9d50a7c6c613fa701665901}{Font\+Generator}} (const char $\ast$font\+File\+Pass)
+\item 
+\mbox{\hyperlink{class_k___graphics_1_1_font_generator_ab79beb1d0cf1780577d5ea16c8d89d67}{$\sim$\+Font\+Generator}} ()
+\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_font_generator_a012e42323f6a295173f63e9acfc82dfc}{Set\+Font}} (wchar\+\_\+t character, int font\+Size)
+\item 
+\mbox{\hyperlink{class_k___graphics_1_1_texture}{Texture}} $\ast$ \mbox{\hyperlink{class_k___graphics_1_1_font_generator_a2b5d1ab68fcf0ffe83c65f4c694628bc}{Get\+Font\+Atlas}} (int font\+Size)
+\item 
+bool \mbox{\hyperlink{class_k___graphics_1_1_font_generator_ae6260c5ee857b4b95dc341d2160b1d6d}{Get\+Font\+Data}} (\mbox{\hyperlink{struct_k___graphics_1_1_font_generator_1_1_font_data}{Font\+Data}} \&result, wchar\+\_\+t font, int font\+Size)
+\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_font_generator_ae84e22ce5a6e38d03f77f8a3b9393012}{Clear\+Font\+Atlas}} (int font\+Size)
+\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_font_generator_a2e90321835a229436d378647aaddcab5}{Clear\+All\+Font\+Atlas}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{構築子と解体子}
+\mbox{\Hypertarget{class_k___graphics_1_1_font_generator_a832617f2e9d50a7c6c613fa701665901}\label{class_k___graphics_1_1_font_generator_a832617f2e9d50a7c6c613fa701665901}} 
+\index{K\+\_\+\+Graphics\+::\+Font\+Generator@{K\+\_\+\+Graphics\+::\+Font\+Generator}!Font\+Generator@{Font\+Generator}}
+\index{Font\+Generator@{Font\+Generator}!K\+\_\+\+Graphics\+::\+Font\+Generator@{K\+\_\+\+Graphics\+::\+Font\+Generator}}
+\subsubsection{\texorpdfstring{Font\+Generator()}{FontGenerator()}}
+{\footnotesize\ttfamily K\+\_\+\+Graphics\+::\+Font\+Generator\+::\+Font\+Generator (\begin{DoxyParamCaption}\item[{const char $\ast$}]{font\+File\+Pass }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_k___graphics_1_1_font_generator_ab79beb1d0cf1780577d5ea16c8d89d67}\label{class_k___graphics_1_1_font_generator_ab79beb1d0cf1780577d5ea16c8d89d67}} 
+\index{K\+\_\+\+Graphics\+::\+Font\+Generator@{K\+\_\+\+Graphics\+::\+Font\+Generator}!````~Font\+Generator@{$\sim$\+Font\+Generator}}
+\index{````~Font\+Generator@{$\sim$\+Font\+Generator}!K\+\_\+\+Graphics\+::\+Font\+Generator@{K\+\_\+\+Graphics\+::\+Font\+Generator}}
+\subsubsection{\texorpdfstring{$\sim$\+Font\+Generator()}{~FontGenerator()}}
+{\footnotesize\ttfamily K\+\_\+\+Graphics\+::\+Font\+Generator\+::$\sim$\+Font\+Generator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{関数詳解}
+\mbox{\Hypertarget{class_k___graphics_1_1_font_generator_a2e90321835a229436d378647aaddcab5}\label{class_k___graphics_1_1_font_generator_a2e90321835a229436d378647aaddcab5}} 
+\index{K\+\_\+\+Graphics\+::\+Font\+Generator@{K\+\_\+\+Graphics\+::\+Font\+Generator}!Clear\+All\+Font\+Atlas@{Clear\+All\+Font\+Atlas}}
+\index{Clear\+All\+Font\+Atlas@{Clear\+All\+Font\+Atlas}!K\+\_\+\+Graphics\+::\+Font\+Generator@{K\+\_\+\+Graphics\+::\+Font\+Generator}}
+\subsubsection{\texorpdfstring{Clear\+All\+Font\+Atlas()}{ClearAllFontAtlas()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Font\+Generator\+::\+Clear\+All\+Font\+Atlas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_k___graphics_1_1_font_generator_ae84e22ce5a6e38d03f77f8a3b9393012}\label{class_k___graphics_1_1_font_generator_ae84e22ce5a6e38d03f77f8a3b9393012}} 
+\index{K\+\_\+\+Graphics\+::\+Font\+Generator@{K\+\_\+\+Graphics\+::\+Font\+Generator}!Clear\+Font\+Atlas@{Clear\+Font\+Atlas}}
+\index{Clear\+Font\+Atlas@{Clear\+Font\+Atlas}!K\+\_\+\+Graphics\+::\+Font\+Generator@{K\+\_\+\+Graphics\+::\+Font\+Generator}}
+\subsubsection{\texorpdfstring{Clear\+Font\+Atlas()}{ClearFontAtlas()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Font\+Generator\+::\+Clear\+Font\+Atlas (\begin{DoxyParamCaption}\item[{int}]{font\+Size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_k___graphics_1_1_font_generator_a2b5d1ab68fcf0ffe83c65f4c694628bc}\label{class_k___graphics_1_1_font_generator_a2b5d1ab68fcf0ffe83c65f4c694628bc}} 
+\index{K\+\_\+\+Graphics\+::\+Font\+Generator@{K\+\_\+\+Graphics\+::\+Font\+Generator}!Get\+Font\+Atlas@{Get\+Font\+Atlas}}
+\index{Get\+Font\+Atlas@{Get\+Font\+Atlas}!K\+\_\+\+Graphics\+::\+Font\+Generator@{K\+\_\+\+Graphics\+::\+Font\+Generator}}
+\subsubsection{\texorpdfstring{Get\+Font\+Atlas()}{GetFontAtlas()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_k___graphics_1_1_texture}{Texture}} $\ast$ K\+\_\+\+Graphics\+::\+Font\+Generator\+::\+Get\+Font\+Atlas (\begin{DoxyParamCaption}\item[{int}]{font\+Size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_k___graphics_1_1_font_generator_ae6260c5ee857b4b95dc341d2160b1d6d}\label{class_k___graphics_1_1_font_generator_ae6260c5ee857b4b95dc341d2160b1d6d}} 
+\index{K\+\_\+\+Graphics\+::\+Font\+Generator@{K\+\_\+\+Graphics\+::\+Font\+Generator}!Get\+Font\+Data@{Get\+Font\+Data}}
+\index{Get\+Font\+Data@{Get\+Font\+Data}!K\+\_\+\+Graphics\+::\+Font\+Generator@{K\+\_\+\+Graphics\+::\+Font\+Generator}}
+\subsubsection{\texorpdfstring{Get\+Font\+Data()}{GetFontData()}}
+{\footnotesize\ttfamily bool K\+\_\+\+Graphics\+::\+Font\+Generator\+::\+Get\+Font\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_k___graphics_1_1_font_generator_1_1_font_data}{Font\+Data}} \&}]{result,  }\item[{wchar\+\_\+t}]{font,  }\item[{int}]{font\+Size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_k___graphics_1_1_font_generator_a012e42323f6a295173f63e9acfc82dfc}\label{class_k___graphics_1_1_font_generator_a012e42323f6a295173f63e9acfc82dfc}} 
+\index{K\+\_\+\+Graphics\+::\+Font\+Generator@{K\+\_\+\+Graphics\+::\+Font\+Generator}!Set\+Font@{Set\+Font}}
+\index{Set\+Font@{Set\+Font}!K\+\_\+\+Graphics\+::\+Font\+Generator@{K\+\_\+\+Graphics\+::\+Font\+Generator}}
+\subsubsection{\texorpdfstring{Set\+Font()}{SetFont()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Font\+Generator\+::\+Set\+Font (\begin{DoxyParamCaption}\item[{wchar\+\_\+t}]{character,  }\item[{int}]{font\+Size }\end{DoxyParamCaption})}
+

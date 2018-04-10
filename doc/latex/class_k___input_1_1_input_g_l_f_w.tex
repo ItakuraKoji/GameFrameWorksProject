@@ -1,0 +1,162 @@
+\hypertarget{class_k___input_1_1_input_g_l_f_w}{}\section{K\+\_\+\+Input\+:\+:Input\+G\+L\+FW クラス}
+\label{class_k___input_1_1_input_g_l_f_w}\index{K\+\_\+\+Input\+::\+Input\+G\+L\+FW@{K\+\_\+\+Input\+::\+Input\+G\+L\+FW}}
+
+
+G\+L\+F\+Wを利用したキー入力とジョイパッドの入力を扱うクラス  
+
+
+
+
+{\ttfamily \#include $<$Input\+G\+L\+F\+W.\+h$>$}
+
+\subsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_k___input_1_1_input_g_l_f_w_a733179261d9b94d99ca3a0a60c93437c}{Input\+G\+L\+FW}} (unsigned int joy\+ID, G\+L\+F\+Wwindow $\ast$handle)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_k___input_1_1_input_g_l_f_w_adebfa33e196d75a37714a452622cf90e}{Initialize()}}を呼ぶ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_k___input_1_1_input_g_l_f_w_a5125b026d330c14dccdb0399e7b6d38d}{$\sim$\+Input\+G\+L\+FW}} ()
+\begin{DoxyCompactList}\small\item\em Finalize()を呼ぶ \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_k___input_1_1_input_g_l_f_w_adebfa33e196d75a37714a452622cf90e}{Initialize}} (unsigned int joy\+ID, G\+L\+F\+Wwindow $\ast$handle)
+\begin{DoxyCompactList}\small\item\em 入力設定を初期化 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___input_1_1_input_g_l_f_w_a2e6aca10a49dfac3a8d49143910e0a2a}{Run}} ()
+\begin{DoxyCompactList}\small\item\em 入力情報を更新 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_k___input_1_1_input_g_l_f_w_aef09f80f0687dfe8f0463b79c95a7a3b}{is\+Press\+Button}} (\mbox{\hyperlink{namespace_k___input_a2a6df758ee5a36c29d234fe7a27beb2c}{Button\+ID}} button\+ID)
+\item 
+bool \mbox{\hyperlink{class_k___input_1_1_input_g_l_f_w_a09054346958c6a88196146cb3e3d9d08}{is\+Stay\+Button}} (\mbox{\hyperlink{namespace_k___input_a2a6df758ee5a36c29d234fe7a27beb2c}{Button\+ID}} button\+ID)
+\item 
+bool \mbox{\hyperlink{class_k___input_1_1_input_g_l_f_w_aa0352394805c13930acf444dbf728417}{is\+Reave\+Button}} (\mbox{\hyperlink{namespace_k___input_a2a6df758ee5a36c29d234fe7a27beb2c}{Button\+ID}} button\+ID)
+\item 
+float \mbox{\hyperlink{class_k___input_1_1_input_g_l_f_w_ab18a2edb87c07b7e4b6c747706a39081}{Get\+Stick\+State}} (\mbox{\hyperlink{namespace_k___input_a2a6df758ee5a36c29d234fe7a27beb2c}{Button\+ID}} axis\+ID)
+\item 
+float \mbox{\hyperlink{class_k___input_1_1_input_g_l_f_w_a98520dfa7ea9ca2042ef2711755f7909}{Get\+Stick\+Rotation}} (\mbox{\hyperlink{namespace_k___input_a2a6df758ee5a36c29d234fe7a27beb2c}{Button\+ID}} stick\+ID)
+\item 
+float \mbox{\hyperlink{class_k___input_1_1_input_g_l_f_w_a1b585f903d5c05d75375761fcc672a4c}{Get\+Stick\+Power}} (\mbox{\hyperlink{namespace_k___input_a2a6df758ee5a36c29d234fe7a27beb2c}{Button\+ID}} stick\+ID)
+\end{DoxyCompactItemize}
+
+
+\subsection{詳解}
+G\+L\+F\+Wを利用したキー入力とジョイパッドの入力を扱うクラス 
+
+\subsection{構築子と解体子}
+\mbox{\Hypertarget{class_k___input_1_1_input_g_l_f_w_a733179261d9b94d99ca3a0a60c93437c}\label{class_k___input_1_1_input_g_l_f_w_a733179261d9b94d99ca3a0a60c93437c}} 
+\index{K\+\_\+\+Input\+::\+Input\+G\+L\+FW@{K\+\_\+\+Input\+::\+Input\+G\+L\+FW}!Input\+G\+L\+FW@{Input\+G\+L\+FW}}
+\index{Input\+G\+L\+FW@{Input\+G\+L\+FW}!K\+\_\+\+Input\+::\+Input\+G\+L\+FW@{K\+\_\+\+Input\+::\+Input\+G\+L\+FW}}
+\subsubsection{\texorpdfstring{Input\+G\+L\+F\+W()}{InputGLFW()}}
+{\footnotesize\ttfamily K\+\_\+\+Input\+::\+Input\+G\+L\+F\+W\+::\+Input\+G\+L\+FW (\begin{DoxyParamCaption}\item[{unsigned int}]{joy\+ID,  }\item[{G\+L\+F\+Wwindow $\ast$}]{handle }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_k___input_1_1_input_g_l_f_w_adebfa33e196d75a37714a452622cf90e}{Initialize()}}を呼ぶ 
+
+\mbox{\Hypertarget{class_k___input_1_1_input_g_l_f_w_a5125b026d330c14dccdb0399e7b6d38d}\label{class_k___input_1_1_input_g_l_f_w_a5125b026d330c14dccdb0399e7b6d38d}} 
+\index{K\+\_\+\+Input\+::\+Input\+G\+L\+FW@{K\+\_\+\+Input\+::\+Input\+G\+L\+FW}!````~Input\+G\+L\+FW@{$\sim$\+Input\+G\+L\+FW}}
+\index{````~Input\+G\+L\+FW@{$\sim$\+Input\+G\+L\+FW}!K\+\_\+\+Input\+::\+Input\+G\+L\+FW@{K\+\_\+\+Input\+::\+Input\+G\+L\+FW}}
+\subsubsection{\texorpdfstring{$\sim$\+Input\+G\+L\+F\+W()}{~InputGLFW()}}
+{\footnotesize\ttfamily K\+\_\+\+Input\+::\+Input\+G\+L\+F\+W\+::$\sim$\+Input\+G\+L\+FW (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Finalize()を呼ぶ 
+
+
+
+\subsection{関数詳解}
+\mbox{\Hypertarget{class_k___input_1_1_input_g_l_f_w_a1b585f903d5c05d75375761fcc672a4c}\label{class_k___input_1_1_input_g_l_f_w_a1b585f903d5c05d75375761fcc672a4c}} 
+\index{K\+\_\+\+Input\+::\+Input\+G\+L\+FW@{K\+\_\+\+Input\+::\+Input\+G\+L\+FW}!Get\+Stick\+Power@{Get\+Stick\+Power}}
+\index{Get\+Stick\+Power@{Get\+Stick\+Power}!K\+\_\+\+Input\+::\+Input\+G\+L\+FW@{K\+\_\+\+Input\+::\+Input\+G\+L\+FW}}
+\subsubsection{\texorpdfstring{Get\+Stick\+Power()}{GetStickPower()}}
+{\footnotesize\ttfamily float K\+\_\+\+Input\+::\+Input\+G\+L\+F\+W\+::\+Get\+Stick\+Power (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_k___input_a2a6df758ee5a36c29d234fe7a27beb2c}{Button\+ID}}}]{stick\+ID }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{戻り値}
+２軸スティックの傾きを取得 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___input_1_1_input_g_l_f_w_a98520dfa7ea9ca2042ef2711755f7909}\label{class_k___input_1_1_input_g_l_f_w_a98520dfa7ea9ca2042ef2711755f7909}} 
+\index{K\+\_\+\+Input\+::\+Input\+G\+L\+FW@{K\+\_\+\+Input\+::\+Input\+G\+L\+FW}!Get\+Stick\+Rotation@{Get\+Stick\+Rotation}}
+\index{Get\+Stick\+Rotation@{Get\+Stick\+Rotation}!K\+\_\+\+Input\+::\+Input\+G\+L\+FW@{K\+\_\+\+Input\+::\+Input\+G\+L\+FW}}
+\subsubsection{\texorpdfstring{Get\+Stick\+Rotation()}{GetStickRotation()}}
+{\footnotesize\ttfamily float K\+\_\+\+Input\+::\+Input\+G\+L\+F\+W\+::\+Get\+Stick\+Rotation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_k___input_a2a6df758ee5a36c29d234fe7a27beb2c}{Button\+ID}}}]{stick\+ID }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{戻り値}
+２軸スティックの角度を取得（\+X軸方向から始まるラジアン角度） 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___input_1_1_input_g_l_f_w_ab18a2edb87c07b7e4b6c747706a39081}\label{class_k___input_1_1_input_g_l_f_w_ab18a2edb87c07b7e4b6c747706a39081}} 
+\index{K\+\_\+\+Input\+::\+Input\+G\+L\+FW@{K\+\_\+\+Input\+::\+Input\+G\+L\+FW}!Get\+Stick\+State@{Get\+Stick\+State}}
+\index{Get\+Stick\+State@{Get\+Stick\+State}!K\+\_\+\+Input\+::\+Input\+G\+L\+FW@{K\+\_\+\+Input\+::\+Input\+G\+L\+FW}}
+\subsubsection{\texorpdfstring{Get\+Stick\+State()}{GetStickState()}}
+{\footnotesize\ttfamily float K\+\_\+\+Input\+::\+Input\+G\+L\+F\+W\+::\+Get\+Stick\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_k___input_a2a6df758ee5a36c29d234fe7a27beb2c}{Button\+ID}}}]{axis\+ID }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{戻り値}
+スティック１つの軸の位置 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___input_1_1_input_g_l_f_w_adebfa33e196d75a37714a452622cf90e}\label{class_k___input_1_1_input_g_l_f_w_adebfa33e196d75a37714a452622cf90e}} 
+\index{K\+\_\+\+Input\+::\+Input\+G\+L\+FW@{K\+\_\+\+Input\+::\+Input\+G\+L\+FW}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!K\+\_\+\+Input\+::\+Input\+G\+L\+FW@{K\+\_\+\+Input\+::\+Input\+G\+L\+FW}}
+\subsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily bool K\+\_\+\+Input\+::\+Input\+G\+L\+F\+W\+::\+Initialize (\begin{DoxyParamCaption}\item[{unsigned int}]{joy\+ID,  }\item[{G\+L\+F\+Wwindow $\ast$}]{handle }\end{DoxyParamCaption})}
+
+
+
+入力設定を初期化 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em joy\+ID} & ジョイパッドの番号（0,1,2...とコントローラーの数に応じて一つずつ設定する） \\
+\hline
+\mbox{\tt in}  & {\em handle} & System\+Classの持つウィンドウのハンドル \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+成功するとtrue 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___input_1_1_input_g_l_f_w_aef09f80f0687dfe8f0463b79c95a7a3b}\label{class_k___input_1_1_input_g_l_f_w_aef09f80f0687dfe8f0463b79c95a7a3b}} 
+\index{K\+\_\+\+Input\+::\+Input\+G\+L\+FW@{K\+\_\+\+Input\+::\+Input\+G\+L\+FW}!is\+Press\+Button@{is\+Press\+Button}}
+\index{is\+Press\+Button@{is\+Press\+Button}!K\+\_\+\+Input\+::\+Input\+G\+L\+FW@{K\+\_\+\+Input\+::\+Input\+G\+L\+FW}}
+\subsubsection{\texorpdfstring{is\+Press\+Button()}{isPressButton()}}
+{\footnotesize\ttfamily bool K\+\_\+\+Input\+::\+Input\+G\+L\+F\+W\+::is\+Press\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_k___input_a2a6df758ee5a36c29d234fe7a27beb2c}{Button\+ID}}}]{button\+ID }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em button\+ID} & 調べる仮想キーの値 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+そのボタンが押された瞬間true 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___input_1_1_input_g_l_f_w_aa0352394805c13930acf444dbf728417}\label{class_k___input_1_1_input_g_l_f_w_aa0352394805c13930acf444dbf728417}} 
+\index{K\+\_\+\+Input\+::\+Input\+G\+L\+FW@{K\+\_\+\+Input\+::\+Input\+G\+L\+FW}!is\+Reave\+Button@{is\+Reave\+Button}}
+\index{is\+Reave\+Button@{is\+Reave\+Button}!K\+\_\+\+Input\+::\+Input\+G\+L\+FW@{K\+\_\+\+Input\+::\+Input\+G\+L\+FW}}
+\subsubsection{\texorpdfstring{is\+Reave\+Button()}{isReaveButton()}}
+{\footnotesize\ttfamily bool K\+\_\+\+Input\+::\+Input\+G\+L\+F\+W\+::is\+Reave\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_k___input_a2a6df758ee5a36c29d234fe7a27beb2c}{Button\+ID}}}]{button\+ID }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em button\+ID} & 調べる仮想キーの値 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+そのボタンが離された瞬間true 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___input_1_1_input_g_l_f_w_a09054346958c6a88196146cb3e3d9d08}\label{class_k___input_1_1_input_g_l_f_w_a09054346958c6a88196146cb3e3d9d08}} 
+\index{K\+\_\+\+Input\+::\+Input\+G\+L\+FW@{K\+\_\+\+Input\+::\+Input\+G\+L\+FW}!is\+Stay\+Button@{is\+Stay\+Button}}
+\index{is\+Stay\+Button@{is\+Stay\+Button}!K\+\_\+\+Input\+::\+Input\+G\+L\+FW@{K\+\_\+\+Input\+::\+Input\+G\+L\+FW}}
+\subsubsection{\texorpdfstring{is\+Stay\+Button()}{isStayButton()}}
+{\footnotesize\ttfamily bool K\+\_\+\+Input\+::\+Input\+G\+L\+F\+W\+::is\+Stay\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_k___input_a2a6df758ee5a36c29d234fe7a27beb2c}{Button\+ID}}}]{button\+ID }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em button\+ID} & 調べる仮想キーの値 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+そのボタンを押している間true 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___input_1_1_input_g_l_f_w_a2e6aca10a49dfac3a8d49143910e0a2a}\label{class_k___input_1_1_input_g_l_f_w_a2e6aca10a49dfac3a8d49143910e0a2a}} 
+\index{K\+\_\+\+Input\+::\+Input\+G\+L\+FW@{K\+\_\+\+Input\+::\+Input\+G\+L\+FW}!Run@{Run}}
+\index{Run@{Run}!K\+\_\+\+Input\+::\+Input\+G\+L\+FW@{K\+\_\+\+Input\+::\+Input\+G\+L\+FW}}
+\subsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily void K\+\_\+\+Input\+::\+Input\+G\+L\+F\+W\+::\+Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+入力情報を更新 
+

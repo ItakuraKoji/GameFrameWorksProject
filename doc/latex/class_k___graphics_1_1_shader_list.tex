@@ -1,0 +1,154 @@
+\hypertarget{class_k___graphics_1_1_shader_list}{}\section{K\+\_\+\+Graphics\+:\+:Shader\+List クラス}
+\label{class_k___graphics_1_1_shader_list}\index{K\+\_\+\+Graphics\+::\+Shader\+List@{K\+\_\+\+Graphics\+::\+Shader\+List}}
+
+
+シェーダークラスをリストとして持ち、解放責任をもつクラス  
+
+
+
+
+{\ttfamily \#include $<$Shader\+List.\+h$>$}
+
+\subsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_k___graphics_1_1_shader_list_a93645f83598573fa2695489fcac10b6f}{Shader\+List}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_k___graphics_1_1_shader_list_af5d3c07fdd3519e2c79792a462e26fc3}{Initialize()}}を呼ぶ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_k___graphics_1_1_shader_list_a77ff9ce6e8e54ca516fd5ac4281688f6}{$\sim$\+Shader\+List}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_k___graphics_1_1_shader_list_af5d3c07fdd3519e2c79792a462e26fc3}{Initialize()}}を呼ぶ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_shader_list_af5d3c07fdd3519e2c79792a462e26fc3}{Initialize}} ()
+\begin{DoxyCompactList}\small\item\em リストのシェーダーを全て開放する \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_k___graphics_1_1_shader_class}{Shader\+Class}} $\ast$ \mbox{\hyperlink{class_k___graphics_1_1_shader_list_a04083fe5c271e708da835e934cb57b6e}{Get\+Shader}} (const std\+::string \&shader\+Name)
+\begin{DoxyCompactList}\small\item\em シェーダーへのポインタを取得 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_k___graphics_1_1_shader_class}{Shader\+Class}} $\ast$ \mbox{\hyperlink{class_k___graphics_1_1_shader_list_ad903d8c4daca2f2296434afd5694a4c5}{Use\+Shader}} (const std\+::string \&shader\+Name)
+\begin{DoxyCompactList}\small\item\em シェーダーを描画用に設定し、そのシェーダーへのポインタを返す \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_shader_list_a5caa3b1fa44d6f4459e0471ead6c87e0}{Load\+Vertex\+Shader}} (const std\+::string \&file\+Name)
+\begin{DoxyCompactList}\small\item\em 頂点シェーダーを読み込み、失敗するとstring型のエラーメッセージを例外で送出する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_shader_list_a5daf641dfbc9472b9fb37126cfad27c7}{Load\+Fragment\+Shader}} (const std\+::string \&file\+Name)
+\begin{DoxyCompactList}\small\item\em フラグメントシェーダーを読み込み、失敗するとstring型のエラーメッセージを例外で送出する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_shader_list_ad59998f21d1830a48ce6a336813218aa}{Create\+Shader\+Program}} (const std\+::string \&shader\+Name, const std\+::string \&vertex\+Shader, const std\+::string \&fragment\+Shader)
+\begin{DoxyCompactList}\small\item\em 頂点シェーダーとフラグメントシェーダーを組み合わせてシェーダーを作成 元となるシェーダーがない場合はstring型のエラーメッセージを例外で送出する \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{詳解}
+シェーダークラスをリストとして持ち、解放責任をもつクラス 
+
+\subsection{構築子と解体子}
+\mbox{\Hypertarget{class_k___graphics_1_1_shader_list_a93645f83598573fa2695489fcac10b6f}\label{class_k___graphics_1_1_shader_list_a93645f83598573fa2695489fcac10b6f}} 
+\index{K\+\_\+\+Graphics\+::\+Shader\+List@{K\+\_\+\+Graphics\+::\+Shader\+List}!Shader\+List@{Shader\+List}}
+\index{Shader\+List@{Shader\+List}!K\+\_\+\+Graphics\+::\+Shader\+List@{K\+\_\+\+Graphics\+::\+Shader\+List}}
+\subsubsection{\texorpdfstring{Shader\+List()}{ShaderList()}}
+{\footnotesize\ttfamily K\+\_\+\+Graphics\+::\+Shader\+List\+::\+Shader\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_k___graphics_1_1_shader_list_af5d3c07fdd3519e2c79792a462e26fc3}{Initialize()}}を呼ぶ 
+
+\mbox{\Hypertarget{class_k___graphics_1_1_shader_list_a77ff9ce6e8e54ca516fd5ac4281688f6}\label{class_k___graphics_1_1_shader_list_a77ff9ce6e8e54ca516fd5ac4281688f6}} 
+\index{K\+\_\+\+Graphics\+::\+Shader\+List@{K\+\_\+\+Graphics\+::\+Shader\+List}!````~Shader\+List@{$\sim$\+Shader\+List}}
+\index{````~Shader\+List@{$\sim$\+Shader\+List}!K\+\_\+\+Graphics\+::\+Shader\+List@{K\+\_\+\+Graphics\+::\+Shader\+List}}
+\subsubsection{\texorpdfstring{$\sim$\+Shader\+List()}{~ShaderList()}}
+{\footnotesize\ttfamily K\+\_\+\+Graphics\+::\+Shader\+List\+::$\sim$\+Shader\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_k___graphics_1_1_shader_list_af5d3c07fdd3519e2c79792a462e26fc3}{Initialize()}}を呼ぶ 
+
+
+
+\subsection{関数詳解}
+\mbox{\Hypertarget{class_k___graphics_1_1_shader_list_ad59998f21d1830a48ce6a336813218aa}\label{class_k___graphics_1_1_shader_list_ad59998f21d1830a48ce6a336813218aa}} 
+\index{K\+\_\+\+Graphics\+::\+Shader\+List@{K\+\_\+\+Graphics\+::\+Shader\+List}!Create\+Shader\+Program@{Create\+Shader\+Program}}
+\index{Create\+Shader\+Program@{Create\+Shader\+Program}!K\+\_\+\+Graphics\+::\+Shader\+List@{K\+\_\+\+Graphics\+::\+Shader\+List}}
+\subsubsection{\texorpdfstring{Create\+Shader\+Program()}{CreateShaderProgram()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Shader\+List\+::\+Create\+Shader\+Program (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{shader\+Name,  }\item[{const std\+::string \&}]{vertex\+Shader,  }\item[{const std\+::string \&}]{fragment\+Shader }\end{DoxyParamCaption})}
+
+
+
+頂点シェーダーとフラグメントシェーダーを組み合わせてシェーダーを作成 元となるシェーダーがない場合はstring型のエラーメッセージを例外で送出する 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em shader\+Name} & 作成するシェーダーのユーザー定義名 \\
+\hline
+\mbox{\tt in}  & {\em vertex\+Shader} & 元となる頂点シェーダーへのパス（\+Load\+Vertex\+Shader()の時にパスでシェーダー名が登録されている） \\
+\hline
+\mbox{\tt in}  & {\em vertex\+Shader} & 元となるフラグメントシェーダーへのパス（\+Load\+Fragment\+Shader()の時にパスでシェーダー名が登録されている） \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_shader_list_a04083fe5c271e708da835e934cb57b6e}\label{class_k___graphics_1_1_shader_list_a04083fe5c271e708da835e934cb57b6e}} 
+\index{K\+\_\+\+Graphics\+::\+Shader\+List@{K\+\_\+\+Graphics\+::\+Shader\+List}!Get\+Shader@{Get\+Shader}}
+\index{Get\+Shader@{Get\+Shader}!K\+\_\+\+Graphics\+::\+Shader\+List@{K\+\_\+\+Graphics\+::\+Shader\+List}}
+\subsubsection{\texorpdfstring{Get\+Shader()}{GetShader()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_k___graphics_1_1_shader_class}{Shader\+Class}} $\ast$ K\+\_\+\+Graphics\+::\+Shader\+List\+::\+Get\+Shader (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{shader\+Name }\end{DoxyParamCaption})}
+
+
+
+シェーダーへのポインタを取得 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em shader\+Name} & シェーダーの名前 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+名前に対応したシェーダー 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___graphics_1_1_shader_list_af5d3c07fdd3519e2c79792a462e26fc3}\label{class_k___graphics_1_1_shader_list_af5d3c07fdd3519e2c79792a462e26fc3}} 
+\index{K\+\_\+\+Graphics\+::\+Shader\+List@{K\+\_\+\+Graphics\+::\+Shader\+List}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!K\+\_\+\+Graphics\+::\+Shader\+List@{K\+\_\+\+Graphics\+::\+Shader\+List}}
+\subsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Shader\+List\+::\+Initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+リストのシェーダーを全て開放する 
+
+\mbox{\Hypertarget{class_k___graphics_1_1_shader_list_a5daf641dfbc9472b9fb37126cfad27c7}\label{class_k___graphics_1_1_shader_list_a5daf641dfbc9472b9fb37126cfad27c7}} 
+\index{K\+\_\+\+Graphics\+::\+Shader\+List@{K\+\_\+\+Graphics\+::\+Shader\+List}!Load\+Fragment\+Shader@{Load\+Fragment\+Shader}}
+\index{Load\+Fragment\+Shader@{Load\+Fragment\+Shader}!K\+\_\+\+Graphics\+::\+Shader\+List@{K\+\_\+\+Graphics\+::\+Shader\+List}}
+\subsubsection{\texorpdfstring{Load\+Fragment\+Shader()}{LoadFragmentShader()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Shader\+List\+::\+Load\+Fragment\+Shader (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+フラグメントシェーダーを読み込み、失敗するとstring型のエラーメッセージを例外で送出する 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em filename} & シェーダーのパス \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_shader_list_a5caa3b1fa44d6f4459e0471ead6c87e0}\label{class_k___graphics_1_1_shader_list_a5caa3b1fa44d6f4459e0471ead6c87e0}} 
+\index{K\+\_\+\+Graphics\+::\+Shader\+List@{K\+\_\+\+Graphics\+::\+Shader\+List}!Load\+Vertex\+Shader@{Load\+Vertex\+Shader}}
+\index{Load\+Vertex\+Shader@{Load\+Vertex\+Shader}!K\+\_\+\+Graphics\+::\+Shader\+List@{K\+\_\+\+Graphics\+::\+Shader\+List}}
+\subsubsection{\texorpdfstring{Load\+Vertex\+Shader()}{LoadVertexShader()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Shader\+List\+::\+Load\+Vertex\+Shader (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+頂点シェーダーを読み込み、失敗するとstring型のエラーメッセージを例外で送出する 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em file\+Name} & シェーダーのパス \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_shader_list_ad903d8c4daca2f2296434afd5694a4c5}\label{class_k___graphics_1_1_shader_list_ad903d8c4daca2f2296434afd5694a4c5}} 
+\index{K\+\_\+\+Graphics\+::\+Shader\+List@{K\+\_\+\+Graphics\+::\+Shader\+List}!Use\+Shader@{Use\+Shader}}
+\index{Use\+Shader@{Use\+Shader}!K\+\_\+\+Graphics\+::\+Shader\+List@{K\+\_\+\+Graphics\+::\+Shader\+List}}
+\subsubsection{\texorpdfstring{Use\+Shader()}{UseShader()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_k___graphics_1_1_shader_class}{Shader\+Class}} $\ast$ K\+\_\+\+Graphics\+::\+Shader\+List\+::\+Use\+Shader (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{shader\+Name }\end{DoxyParamCaption})}
+
+
+
+シェーダーを描画用に設定し、そのシェーダーへのポインタを返す 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em shader\+Name} & シェーダーの名前 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+名前に対応したシェーダー 
+\end{DoxyReturn}

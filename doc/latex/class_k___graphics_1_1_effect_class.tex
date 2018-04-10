@@ -1,0 +1,186 @@
+\hypertarget{class_k___graphics_1_1_effect_class}{}\section{K\+\_\+\+Graphics\+:\+:Effect\+Class クラス}
+\label{class_k___graphics_1_1_effect_class}\index{K\+\_\+\+Graphics\+::\+Effect\+Class@{K\+\_\+\+Graphics\+::\+Effect\+Class}}
+
+
+エフェクト管理クラス~\newline
+ほぼ\+Effekseerの機能をラッピングしただけにとどまっている  
+
+
+
+
+{\ttfamily \#include $<$Effect\+Class.\+h$>$}
+
+\subsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_k___graphics_1_1_effect_class_a33755c964db87d459d46c28788b19dd2}{Effect\+Class}} ()
+\begin{DoxyCompactList}\small\item\em Effekseerを初期化 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_k___graphics_1_1_effect_class_ab51e3f43095aac4bb6f7826254c4723b}{$\sim$\+Effect\+Class}} ()
+\begin{DoxyCompactList}\small\item\em Effekseerの終了処理 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_effect_class_ac23549936fee9b53059d94dfd0679413}{Set\+Matrix}} (\mbox{\hyperlink{class_k___graphics_1_1_camera_class}{Camera\+Class}} $\ast$view\+Camera)
+\begin{DoxyCompactList}\small\item\em エフェクト描画に使うカメラを設定 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_effect_class_a60605a1855dbfc6ce6a97b7014a148c0}{Run}} ()
+\begin{DoxyCompactList}\small\item\em エフェクト全体の更新 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_effect_class_aee527e320342f218b88293f41beec6e7}{Draw}} ()
+\begin{DoxyCompactList}\small\item\em エフェクトはこの関数でまとめて描画される \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_effect_class_acdb2dd81e2e0877e42aff4d5b543b684}{Add\+Effect\+Source}} (const std\+::string \&effect\+Name, const char $\ast$file\+Pass)
+\begin{DoxyCompactList}\small\item\em エフェクトの読み込み \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_effect_class_abe5a20c2680329b045d3a60dddb886ed}{Delete\+Effect\+Source}} (const std\+::string \&effect\+Name)
+\begin{DoxyCompactList}\small\item\em エフェクトの消去 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespace_k___graphics_afb3a0fd0adc77eb95104e697c9b6b7a9}{Effect\+Handle}} \mbox{\hyperlink{class_k___graphics_1_1_effect_class_ab9559608debb6f33a0c92b5886eecada}{Play}} (const std\+::string \&effect\+Name, float posX, float posY, float posZ)
+\begin{DoxyCompactList}\small\item\em エフェクトを指定位置で再生 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_effect_class_aeeb968f668c73b1ffff7679c99328b45}{Stop}} (\mbox{\hyperlink{namespace_k___graphics_afb3a0fd0adc77eb95104e697c9b6b7a9}{Effect\+Handle}} handle)
+\begin{DoxyCompactList}\small\item\em エフェクトを明示的に停止、こちらは呼んだ瞬間にすぐ消える \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_effect_class_a16c4d3b8ab2775a782748ea409d2de2d}{Stop\+Root}} (\mbox{\hyperlink{namespace_k___graphics_afb3a0fd0adc77eb95104e697c9b6b7a9}{Effect\+Handle}} handle)
+\begin{DoxyCompactList}\small\item\em エフェクトを明示的に停止、ただしエフェクトの生成をやめるだけなのでしばらく残る \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{詳解}
+エフェクト管理クラス~\newline
+ほぼ\+Effekseerの機能をラッピングしただけにとどまっている 
+
+\subsection{構築子と解体子}
+\mbox{\Hypertarget{class_k___graphics_1_1_effect_class_a33755c964db87d459d46c28788b19dd2}\label{class_k___graphics_1_1_effect_class_a33755c964db87d459d46c28788b19dd2}} 
+\index{K\+\_\+\+Graphics\+::\+Effect\+Class@{K\+\_\+\+Graphics\+::\+Effect\+Class}!Effect\+Class@{Effect\+Class}}
+\index{Effect\+Class@{Effect\+Class}!K\+\_\+\+Graphics\+::\+Effect\+Class@{K\+\_\+\+Graphics\+::\+Effect\+Class}}
+\subsubsection{\texorpdfstring{Effect\+Class()}{EffectClass()}}
+{\footnotesize\ttfamily K\+\_\+\+Graphics\+::\+Effect\+Class\+::\+Effect\+Class (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Effekseerを初期化 
+
+\mbox{\Hypertarget{class_k___graphics_1_1_effect_class_ab51e3f43095aac4bb6f7826254c4723b}\label{class_k___graphics_1_1_effect_class_ab51e3f43095aac4bb6f7826254c4723b}} 
+\index{K\+\_\+\+Graphics\+::\+Effect\+Class@{K\+\_\+\+Graphics\+::\+Effect\+Class}!````~Effect\+Class@{$\sim$\+Effect\+Class}}
+\index{````~Effect\+Class@{$\sim$\+Effect\+Class}!K\+\_\+\+Graphics\+::\+Effect\+Class@{K\+\_\+\+Graphics\+::\+Effect\+Class}}
+\subsubsection{\texorpdfstring{$\sim$\+Effect\+Class()}{~EffectClass()}}
+{\footnotesize\ttfamily K\+\_\+\+Graphics\+::\+Effect\+Class\+::$\sim$\+Effect\+Class (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Effekseerの終了処理 
+
+
+
+\subsection{関数詳解}
+\mbox{\Hypertarget{class_k___graphics_1_1_effect_class_acdb2dd81e2e0877e42aff4d5b543b684}\label{class_k___graphics_1_1_effect_class_acdb2dd81e2e0877e42aff4d5b543b684}} 
+\index{K\+\_\+\+Graphics\+::\+Effect\+Class@{K\+\_\+\+Graphics\+::\+Effect\+Class}!Add\+Effect\+Source@{Add\+Effect\+Source}}
+\index{Add\+Effect\+Source@{Add\+Effect\+Source}!K\+\_\+\+Graphics\+::\+Effect\+Class@{K\+\_\+\+Graphics\+::\+Effect\+Class}}
+\subsubsection{\texorpdfstring{Add\+Effect\+Source()}{AddEffectSource()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Effect\+Class\+::\+Add\+Effect\+Source (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{effect\+Name,  }\item[{const char $\ast$}]{file\+Pass }\end{DoxyParamCaption})}
+
+
+
+エフェクトの読み込み 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em effect\+Name} & エフェクトのユーザー定義名（同じ名前は登録できない） \\
+\hline
+\mbox{\tt in}  & {\em file\+Pass} & Effekseerで製作したエフェクトへのファイルパス \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_effect_class_abe5a20c2680329b045d3a60dddb886ed}\label{class_k___graphics_1_1_effect_class_abe5a20c2680329b045d3a60dddb886ed}} 
+\index{K\+\_\+\+Graphics\+::\+Effect\+Class@{K\+\_\+\+Graphics\+::\+Effect\+Class}!Delete\+Effect\+Source@{Delete\+Effect\+Source}}
+\index{Delete\+Effect\+Source@{Delete\+Effect\+Source}!K\+\_\+\+Graphics\+::\+Effect\+Class@{K\+\_\+\+Graphics\+::\+Effect\+Class}}
+\subsubsection{\texorpdfstring{Delete\+Effect\+Source()}{DeleteEffectSource()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Effect\+Class\+::\+Delete\+Effect\+Source (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{effect\+Name }\end{DoxyParamCaption})}
+
+
+
+エフェクトの消去 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em effect\+Name} & エフェクト名 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_effect_class_aee527e320342f218b88293f41beec6e7}\label{class_k___graphics_1_1_effect_class_aee527e320342f218b88293f41beec6e7}} 
+\index{K\+\_\+\+Graphics\+::\+Effect\+Class@{K\+\_\+\+Graphics\+::\+Effect\+Class}!Draw@{Draw}}
+\index{Draw@{Draw}!K\+\_\+\+Graphics\+::\+Effect\+Class@{K\+\_\+\+Graphics\+::\+Effect\+Class}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Effect\+Class\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+エフェクトはこの関数でまとめて描画される 
+
+\mbox{\Hypertarget{class_k___graphics_1_1_effect_class_ab9559608debb6f33a0c92b5886eecada}\label{class_k___graphics_1_1_effect_class_ab9559608debb6f33a0c92b5886eecada}} 
+\index{K\+\_\+\+Graphics\+::\+Effect\+Class@{K\+\_\+\+Graphics\+::\+Effect\+Class}!Play@{Play}}
+\index{Play@{Play}!K\+\_\+\+Graphics\+::\+Effect\+Class@{K\+\_\+\+Graphics\+::\+Effect\+Class}}
+\subsubsection{\texorpdfstring{Play()}{Play()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_k___graphics_afb3a0fd0adc77eb95104e697c9b6b7a9}{Effect\+Handle}} K\+\_\+\+Graphics\+::\+Effect\+Class\+::\+Play (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{effect\+Name,  }\item[{float}]{posX,  }\item[{float}]{posY,  }\item[{float}]{posZ }\end{DoxyParamCaption})}
+
+
+
+エフェクトを指定位置で再生 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em effect\+Name} & エフェクト名 \\
+\hline
+\mbox{\tt in}  & {\em posX} & 位置\+X座標 \\
+\hline
+\mbox{\tt in}  & {\em posY} & 位置\+Y座標 \\
+\hline
+\mbox{\tt in}  & {\em posZ} & 位置\+Z座標 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+エフェクトを走査するハンドル番号、移動などの操作をしないなら変数で取っておかなくてもいい 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___graphics_1_1_effect_class_a60605a1855dbfc6ce6a97b7014a148c0}\label{class_k___graphics_1_1_effect_class_a60605a1855dbfc6ce6a97b7014a148c0}} 
+\index{K\+\_\+\+Graphics\+::\+Effect\+Class@{K\+\_\+\+Graphics\+::\+Effect\+Class}!Run@{Run}}
+\index{Run@{Run}!K\+\_\+\+Graphics\+::\+Effect\+Class@{K\+\_\+\+Graphics\+::\+Effect\+Class}}
+\subsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Effect\+Class\+::\+Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+エフェクト全体の更新 
+
+\mbox{\Hypertarget{class_k___graphics_1_1_effect_class_ac23549936fee9b53059d94dfd0679413}\label{class_k___graphics_1_1_effect_class_ac23549936fee9b53059d94dfd0679413}} 
+\index{K\+\_\+\+Graphics\+::\+Effect\+Class@{K\+\_\+\+Graphics\+::\+Effect\+Class}!Set\+Matrix@{Set\+Matrix}}
+\index{Set\+Matrix@{Set\+Matrix}!K\+\_\+\+Graphics\+::\+Effect\+Class@{K\+\_\+\+Graphics\+::\+Effect\+Class}}
+\subsubsection{\texorpdfstring{Set\+Matrix()}{SetMatrix()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Effect\+Class\+::\+Set\+Matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_k___graphics_1_1_camera_class}{Camera\+Class}} $\ast$}]{view\+Camera }\end{DoxyParamCaption})}
+
+
+
+エフェクト描画に使うカメラを設定 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em カメラのポインタ} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_effect_class_aeeb968f668c73b1ffff7679c99328b45}\label{class_k___graphics_1_1_effect_class_aeeb968f668c73b1ffff7679c99328b45}} 
+\index{K\+\_\+\+Graphics\+::\+Effect\+Class@{K\+\_\+\+Graphics\+::\+Effect\+Class}!Stop@{Stop}}
+\index{Stop@{Stop}!K\+\_\+\+Graphics\+::\+Effect\+Class@{K\+\_\+\+Graphics\+::\+Effect\+Class}}
+\subsubsection{\texorpdfstring{Stop()}{Stop()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Effect\+Class\+::\+Stop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_k___graphics_afb3a0fd0adc77eb95104e697c9b6b7a9}{Effect\+Handle}}}]{handle }\end{DoxyParamCaption})}
+
+
+
+エフェクトを明示的に停止、こちらは呼んだ瞬間にすぐ消える 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em handle} & \mbox{\hyperlink{class_k___graphics_1_1_effect_class_ab9559608debb6f33a0c92b5886eecada}{Play()}}で帰ってくるエフェクト番号 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_effect_class_a16c4d3b8ab2775a782748ea409d2de2d}\label{class_k___graphics_1_1_effect_class_a16c4d3b8ab2775a782748ea409d2de2d}} 
+\index{K\+\_\+\+Graphics\+::\+Effect\+Class@{K\+\_\+\+Graphics\+::\+Effect\+Class}!Stop\+Root@{Stop\+Root}}
+\index{Stop\+Root@{Stop\+Root}!K\+\_\+\+Graphics\+::\+Effect\+Class@{K\+\_\+\+Graphics\+::\+Effect\+Class}}
+\subsubsection{\texorpdfstring{Stop\+Root()}{StopRoot()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Effect\+Class\+::\+Stop\+Root (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_k___graphics_afb3a0fd0adc77eb95104e697c9b6b7a9}{Effect\+Handle}}}]{handle }\end{DoxyParamCaption})}
+
+
+
+エフェクトを明示的に停止、ただしエフェクトの生成をやめるだけなのでしばらく残る 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em handle} & \mbox{\hyperlink{class_k___graphics_1_1_effect_class_ab9559608debb6f33a0c92b5886eecada}{Play()}}で帰ってくるエフェクト番号 \\
+\hline
+\end{DoxyParams}

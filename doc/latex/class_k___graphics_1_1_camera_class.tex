@@ -1,0 +1,306 @@
+\hypertarget{class_k___graphics_1_1_camera_class}{}\section{K\+\_\+\+Graphics\+:\+:Camera\+Class クラス}
+\label{class_k___graphics_1_1_camera_class}\index{K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}}
+
+
+カメラの情報を管理し、ビュー行列と投影行列を提供するクラス  
+
+
+
+
+{\ttfamily \#include $<$Camera\+Class.\+h$>$}
+
+\subsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_k___graphics_1_1_camera_class_a2b371f16a80374ab07522af4bfe8f97c}{Camera\+Class}} (\mbox{\hyperlink{namespace_k___graphics_a46f486e742ad696f88bfbeb22f8af10f}{Camera\+Type}} type, int width, int height, float near, float far, float fov)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_k___graphics_1_1_camera_class_af9efd95b7a5b0285c5bda70ca01a002a}{Initialize()}}を呼ぶ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_k___graphics_1_1_camera_class_a6fadd430bd4da7c246c8e2042c5693af}{$\sim$\+Camera\+Class}} ()
+\begin{DoxyCompactList}\small\item\em 特に何もしない \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_camera_class_af9efd95b7a5b0285c5bda70ca01a002a}{Initialize}} (\mbox{\hyperlink{namespace_k___graphics_a46f486e742ad696f88bfbeb22f8af10f}{Camera\+Type}} type, int screen\+Width, int screen\+Height, float camera\+Neer, float camera\+Far, float field\+Of\+View)
+\begin{DoxyCompactList}\small\item\em カメラを一気に初期化 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_camera_class_a9ca92b03f3171a749da3fabd77743e05}{Draw}} ()
+\begin{DoxyCompactList}\small\item\em 行列を作成する、この関数を呼ばない限りカメラは更新されない \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{namespace_k___math_a345271af9d32dff2c964bc679b13b45c}{K\+\_\+\+Math\+::\+Matrix4x4}} \& \mbox{\hyperlink{class_k___graphics_1_1_camera_class_a25c8ec2869536e3ba080d5c34749defc}{Get\+View\+Matrix}} ()
+\begin{DoxyCompactList}\small\item\em ビュー行列を取得する \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{namespace_k___math_a345271af9d32dff2c964bc679b13b45c}{K\+\_\+\+Math\+::\+Matrix4x4}} \& \mbox{\hyperlink{class_k___graphics_1_1_camera_class_a8e972464a146b6f87198debd8571d4e9}{Get\+Camera\+Matrix}} ()
+\begin{DoxyCompactList}\small\item\em ビュー行列の逆行列を取得する \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{namespace_k___math_a345271af9d32dff2c964bc679b13b45c}{K\+\_\+\+Math\+::\+Matrix4x4}} \& \mbox{\hyperlink{class_k___graphics_1_1_camera_class_a660c15df166e940e7dac70f2dfed98e1}{Get\+Projection\+Matrix}} ()
+\begin{DoxyCompactList}\small\item\em 投影行列を取得する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_camera_class_af8264e04ed973e00f3c331d6988f15c1}{Set\+Position}} (float x, float y, float z)
+\begin{DoxyCompactList}\small\item\em カメラの座標を指定 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_camera_class_a06189cd5e4c554e46724204053e69a2d}{Set\+Position}} (float distance, const \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \&vector)
+\begin{DoxyCompactList}\small\item\em ターゲットからの方向と距離を指定してカメラ位置を設定 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_camera_class_af40a20fb1f670a489544774c30272188}{Set\+Target}} (float x, float y, float z)
+\begin{DoxyCompactList}\small\item\em ターゲット（注視点）を指定 \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \& \mbox{\hyperlink{class_k___graphics_1_1_camera_class_a7ed2ff417ce65d309fb37fdce4805ed1}{Get\+AxisX}} ()
+\item 
+const \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \& \mbox{\hyperlink{class_k___graphics_1_1_camera_class_ad66d73d5ab556f074f5d8d082b040f49}{Get\+AxisY}} ()
+\item 
+const \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \& \mbox{\hyperlink{class_k___graphics_1_1_camera_class_af7a6866617e0e004b95a6dd33c4396b1}{Get\+AxisZ}} ()
+\item 
+const \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \& \mbox{\hyperlink{class_k___graphics_1_1_camera_class_a681845d905fef611bbc88474bc145cdc}{Get\+Terget}} ()
+\item 
+const \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \& \mbox{\hyperlink{class_k___graphics_1_1_camera_class_a8ff01ed106d9ee0ac2a6baed8530fa34}{Get\+Position}} ()
+\item 
+int \mbox{\hyperlink{class_k___graphics_1_1_camera_class_af395ed2ac8596700200324379b38e2f1}{Get\+Screen\+Width}} ()
+\item 
+int \mbox{\hyperlink{class_k___graphics_1_1_camera_class_a62cca8a08a917056082dacc1f56d05ba}{Get\+Screen\+Height}} ()
+\item 
+float \mbox{\hyperlink{class_k___graphics_1_1_camera_class_a6d7954b3e2c543b10ccbbca7228f4435}{Get\+Screen\+Near}} ()
+\item 
+float \mbox{\hyperlink{class_k___graphics_1_1_camera_class_ad7b0263ca8ed5d8b36adda3d9209600d}{Get\+Screen\+Far}} ()
+\item 
+float \mbox{\hyperlink{class_k___graphics_1_1_camera_class_ae9b70a2f55f2784e14630ae221bcc386}{Get\+Field\+Of\+View}} ()
+\begin{DoxyCompactList}\small\item\em 平行投影カメラの場合は値が不定なので注意 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{詳解}
+カメラの情報を管理し、ビュー行列と投影行列を提供するクラス 
+
+\subsection{構築子と解体子}
+\mbox{\Hypertarget{class_k___graphics_1_1_camera_class_a2b371f16a80374ab07522af4bfe8f97c}\label{class_k___graphics_1_1_camera_class_a2b371f16a80374ab07522af4bfe8f97c}} 
+\index{K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}!Camera\+Class@{Camera\+Class}}
+\index{Camera\+Class@{Camera\+Class}!K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}}
+\subsubsection{\texorpdfstring{Camera\+Class()}{CameraClass()}}
+{\footnotesize\ttfamily K\+\_\+\+Graphics\+::\+Camera\+Class\+::\+Camera\+Class (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_k___graphics_a46f486e742ad696f88bfbeb22f8af10f}{Camera\+Type}}}]{type,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{float}]{near,  }\item[{float}]{far,  }\item[{float}]{fov }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_k___graphics_1_1_camera_class_af9efd95b7a5b0285c5bda70ca01a002a}{Initialize()}}を呼ぶ 
+
+\mbox{\Hypertarget{class_k___graphics_1_1_camera_class_a6fadd430bd4da7c246c8e2042c5693af}\label{class_k___graphics_1_1_camera_class_a6fadd430bd4da7c246c8e2042c5693af}} 
+\index{K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}!````~Camera\+Class@{$\sim$\+Camera\+Class}}
+\index{````~Camera\+Class@{$\sim$\+Camera\+Class}!K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}}
+\subsubsection{\texorpdfstring{$\sim$\+Camera\+Class()}{~CameraClass()}}
+{\footnotesize\ttfamily K\+\_\+\+Graphics\+::\+Camera\+Class\+::$\sim$\+Camera\+Class (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+特に何もしない 
+
+
+
+\subsection{関数詳解}
+\mbox{\Hypertarget{class_k___graphics_1_1_camera_class_a9ca92b03f3171a749da3fabd77743e05}\label{class_k___graphics_1_1_camera_class_a9ca92b03f3171a749da3fabd77743e05}} 
+\index{K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}!Draw@{Draw}}
+\index{Draw@{Draw}!K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Camera\+Class\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+行列を作成する、この関数を呼ばない限りカメラは更新されない 
+
+\mbox{\Hypertarget{class_k___graphics_1_1_camera_class_a7ed2ff417ce65d309fb37fdce4805ed1}\label{class_k___graphics_1_1_camera_class_a7ed2ff417ce65d309fb37fdce4805ed1}} 
+\index{K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}!Get\+AxisX@{Get\+AxisX}}
+\index{Get\+AxisX@{Get\+AxisX}!K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}}
+\subsubsection{\texorpdfstring{Get\+Axis\+X()}{GetAxisX()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \& K\+\_\+\+Graphics\+::\+Camera\+Class\+::\+Get\+AxisX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{戻り値}
+カメラ空間\+X軸の単位ベクトル 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___graphics_1_1_camera_class_ad66d73d5ab556f074f5d8d082b040f49}\label{class_k___graphics_1_1_camera_class_ad66d73d5ab556f074f5d8d082b040f49}} 
+\index{K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}!Get\+AxisY@{Get\+AxisY}}
+\index{Get\+AxisY@{Get\+AxisY}!K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}}
+\subsubsection{\texorpdfstring{Get\+Axis\+Y()}{GetAxisY()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \& K\+\_\+\+Graphics\+::\+Camera\+Class\+::\+Get\+AxisY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{戻り値}
+カメラ空間\+Y軸の単位ベクトル 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___graphics_1_1_camera_class_af7a6866617e0e004b95a6dd33c4396b1}\label{class_k___graphics_1_1_camera_class_af7a6866617e0e004b95a6dd33c4396b1}} 
+\index{K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}!Get\+AxisZ@{Get\+AxisZ}}
+\index{Get\+AxisZ@{Get\+AxisZ}!K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}}
+\subsubsection{\texorpdfstring{Get\+Axis\+Z()}{GetAxisZ()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \& K\+\_\+\+Graphics\+::\+Camera\+Class\+::\+Get\+AxisZ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{戻り値}
+カメラ空間\+Z軸の単位ベクトル 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___graphics_1_1_camera_class_a8e972464a146b6f87198debd8571d4e9}\label{class_k___graphics_1_1_camera_class_a8e972464a146b6f87198debd8571d4e9}} 
+\index{K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}!Get\+Camera\+Matrix@{Get\+Camera\+Matrix}}
+\index{Get\+Camera\+Matrix@{Get\+Camera\+Matrix}!K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}}
+\subsubsection{\texorpdfstring{Get\+Camera\+Matrix()}{GetCameraMatrix()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{namespace_k___math_a345271af9d32dff2c964bc679b13b45c}{K\+\_\+\+Math\+::\+Matrix4x4}} \& K\+\_\+\+Graphics\+::\+Camera\+Class\+::\+Get\+Camera\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+ビュー行列の逆行列を取得する 
+
+\begin{DoxyReturn}{戻り値}
+4x4のビュー変換行列の逆行列 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___graphics_1_1_camera_class_ae9b70a2f55f2784e14630ae221bcc386}\label{class_k___graphics_1_1_camera_class_ae9b70a2f55f2784e14630ae221bcc386}} 
+\index{K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}!Get\+Field\+Of\+View@{Get\+Field\+Of\+View}}
+\index{Get\+Field\+Of\+View@{Get\+Field\+Of\+View}!K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}}
+\subsubsection{\texorpdfstring{Get\+Field\+Of\+View()}{GetFieldOfView()}}
+{\footnotesize\ttfamily float K\+\_\+\+Graphics\+::\+Camera\+Class\+::\+Get\+Field\+Of\+View (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+平行投影カメラの場合は値が不定なので注意 
+
+\begin{DoxyReturn}{戻り値}
+カメラの視野角 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___graphics_1_1_camera_class_a8ff01ed106d9ee0ac2a6baed8530fa34}\label{class_k___graphics_1_1_camera_class_a8ff01ed106d9ee0ac2a6baed8530fa34}} 
+\index{K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}!Get\+Position@{Get\+Position}}
+\index{Get\+Position@{Get\+Position}!K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}}
+\subsubsection{\texorpdfstring{Get\+Position()}{GetPosition()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \& K\+\_\+\+Graphics\+::\+Camera\+Class\+::\+Get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{戻り値}
+カメラ位置ベクトル 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___graphics_1_1_camera_class_a660c15df166e940e7dac70f2dfed98e1}\label{class_k___graphics_1_1_camera_class_a660c15df166e940e7dac70f2dfed98e1}} 
+\index{K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}!Get\+Projection\+Matrix@{Get\+Projection\+Matrix}}
+\index{Get\+Projection\+Matrix@{Get\+Projection\+Matrix}!K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}}
+\subsubsection{\texorpdfstring{Get\+Projection\+Matrix()}{GetProjectionMatrix()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{namespace_k___math_a345271af9d32dff2c964bc679b13b45c}{K\+\_\+\+Math\+::\+Matrix4x4}} \& K\+\_\+\+Graphics\+::\+Camera\+Class\+::\+Get\+Projection\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+投影行列を取得する 
+
+\begin{DoxyReturn}{戻り値}
+4x4の投影変換行列 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___graphics_1_1_camera_class_ad7b0263ca8ed5d8b36adda3d9209600d}\label{class_k___graphics_1_1_camera_class_ad7b0263ca8ed5d8b36adda3d9209600d}} 
+\index{K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}!Get\+Screen\+Far@{Get\+Screen\+Far}}
+\index{Get\+Screen\+Far@{Get\+Screen\+Far}!K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}}
+\subsubsection{\texorpdfstring{Get\+Screen\+Far()}{GetScreenFar()}}
+{\footnotesize\ttfamily float K\+\_\+\+Graphics\+::\+Camera\+Class\+::\+Get\+Screen\+Far (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{戻り値}
+クリッピング平面の最遠面 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___graphics_1_1_camera_class_a62cca8a08a917056082dacc1f56d05ba}\label{class_k___graphics_1_1_camera_class_a62cca8a08a917056082dacc1f56d05ba}} 
+\index{K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}!Get\+Screen\+Height@{Get\+Screen\+Height}}
+\index{Get\+Screen\+Height@{Get\+Screen\+Height}!K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}}
+\subsubsection{\texorpdfstring{Get\+Screen\+Height()}{GetScreenHeight()}}
+{\footnotesize\ttfamily int K\+\_\+\+Graphics\+::\+Camera\+Class\+::\+Get\+Screen\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{戻り値}
+カメラに設定されたビューポート高さ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___graphics_1_1_camera_class_a6d7954b3e2c543b10ccbbca7228f4435}\label{class_k___graphics_1_1_camera_class_a6d7954b3e2c543b10ccbbca7228f4435}} 
+\index{K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}!Get\+Screen\+Near@{Get\+Screen\+Near}}
+\index{Get\+Screen\+Near@{Get\+Screen\+Near}!K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}}
+\subsubsection{\texorpdfstring{Get\+Screen\+Near()}{GetScreenNear()}}
+{\footnotesize\ttfamily float K\+\_\+\+Graphics\+::\+Camera\+Class\+::\+Get\+Screen\+Near (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{戻り値}
+クリッピング平面の最近面 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___graphics_1_1_camera_class_af395ed2ac8596700200324379b38e2f1}\label{class_k___graphics_1_1_camera_class_af395ed2ac8596700200324379b38e2f1}} 
+\index{K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}!Get\+Screen\+Width@{Get\+Screen\+Width}}
+\index{Get\+Screen\+Width@{Get\+Screen\+Width}!K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}}
+\subsubsection{\texorpdfstring{Get\+Screen\+Width()}{GetScreenWidth()}}
+{\footnotesize\ttfamily int K\+\_\+\+Graphics\+::\+Camera\+Class\+::\+Get\+Screen\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{戻り値}
+カメラに設定されたビューポート幅 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___graphics_1_1_camera_class_a681845d905fef611bbc88474bc145cdc}\label{class_k___graphics_1_1_camera_class_a681845d905fef611bbc88474bc145cdc}} 
+\index{K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}!Get\+Terget@{Get\+Terget}}
+\index{Get\+Terget@{Get\+Terget}!K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}}
+\subsubsection{\texorpdfstring{Get\+Terget()}{GetTerget()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \& K\+\_\+\+Graphics\+::\+Camera\+Class\+::\+Get\+Terget (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{戻り値}
+注視点ベクトル 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___graphics_1_1_camera_class_a25c8ec2869536e3ba080d5c34749defc}\label{class_k___graphics_1_1_camera_class_a25c8ec2869536e3ba080d5c34749defc}} 
+\index{K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}!Get\+View\+Matrix@{Get\+View\+Matrix}}
+\index{Get\+View\+Matrix@{Get\+View\+Matrix}!K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}}
+\subsubsection{\texorpdfstring{Get\+View\+Matrix()}{GetViewMatrix()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{namespace_k___math_a345271af9d32dff2c964bc679b13b45c}{K\+\_\+\+Math\+::\+Matrix4x4}} \& K\+\_\+\+Graphics\+::\+Camera\+Class\+::\+Get\+View\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+ビュー行列を取得する 
+
+\begin{DoxyReturn}{戻り値}
+4x4のビュー変換行列 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___graphics_1_1_camera_class_af9efd95b7a5b0285c5bda70ca01a002a}\label{class_k___graphics_1_1_camera_class_af9efd95b7a5b0285c5bda70ca01a002a}} 
+\index{K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}}
+\subsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Camera\+Class\+::\+Initialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_k___graphics_a46f486e742ad696f88bfbeb22f8af10f}{Camera\+Type}}}]{type,  }\item[{int}]{screen\+Width,  }\item[{int}]{screen\+Height,  }\item[{float}]{camera\+Neer,  }\item[{float}]{camera\+Far,  }\item[{float}]{field\+Of\+View }\end{DoxyParamCaption})}
+
+
+
+カメラを一気に初期化 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em type} & カメラのタイプ \\
+\hline
+\mbox{\tt in}  & {\em screen\+Width} & ビューポートの幅（アスペクト比を出すのに使用する） \\
+\hline
+\mbox{\tt in}  & {\em screen\+Height} & ビューポートの高さ（アスペクト比を出すのに使用する） \\
+\hline
+\mbox{\tt in}  & {\em camera\+Neer} & クリッピング平面の最近面 \\
+\hline
+\mbox{\tt in}  & {\em camera\+Far} & クリッピング平面の最遠面 \\
+\hline
+\mbox{\tt in}  & {\em field\+Of\+View} & 縦の視野角 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_camera_class_af8264e04ed973e00f3c331d6988f15c1}\label{class_k___graphics_1_1_camera_class_af8264e04ed973e00f3c331d6988f15c1}} 
+\index{K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}!Set\+Position@{Set\+Position}}
+\index{Set\+Position@{Set\+Position}!K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}}
+\subsubsection{\texorpdfstring{Set\+Position()}{SetPosition()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Camera\+Class\+::\+Set\+Position (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{z }\end{DoxyParamCaption})}
+
+
+
+カメラの座標を指定 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em x} & x座標 \\
+\hline
+\mbox{\tt in}  & {\em y} & y座標 \\
+\hline
+\mbox{\tt in}  & {\em z} & z座標 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_camera_class_a06189cd5e4c554e46724204053e69a2d}\label{class_k___graphics_1_1_camera_class_a06189cd5e4c554e46724204053e69a2d}} 
+\index{K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}!Set\+Position@{Set\+Position}}
+\index{Set\+Position@{Set\+Position}!K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}}
+\subsubsection{\texorpdfstring{Set\+Position()}{SetPosition()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Camera\+Class\+::\+Set\+Position (\begin{DoxyParamCaption}\item[{float}]{distance,  }\item[{const \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \&}]{vector }\end{DoxyParamCaption})}
+
+
+
+ターゲットからの方向と距離を指定してカメラ位置を設定 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em distance} & ターゲットからの距離 \\
+\hline
+\mbox{\tt in}  & {\em vector} & ターゲットから離れる向き \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_camera_class_af40a20fb1f670a489544774c30272188}\label{class_k___graphics_1_1_camera_class_af40a20fb1f670a489544774c30272188}} 
+\index{K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}!Set\+Target@{Set\+Target}}
+\index{Set\+Target@{Set\+Target}!K\+\_\+\+Graphics\+::\+Camera\+Class@{K\+\_\+\+Graphics\+::\+Camera\+Class}}
+\subsubsection{\texorpdfstring{Set\+Target()}{SetTarget()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Camera\+Class\+::\+Set\+Target (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{z }\end{DoxyParamCaption})}
+
+
+
+ターゲット（注視点）を指定 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em x} & x座標 \\
+\hline
+\mbox{\tt in}  & {\em y} & y座標 \\
+\hline
+\mbox{\tt in}  & {\em z} & z座標 \\
+\hline
+\end{DoxyParams}

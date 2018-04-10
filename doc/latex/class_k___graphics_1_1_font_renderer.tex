@@ -1,0 +1,182 @@
+\hypertarget{class_k___graphics_1_1_font_renderer}{}\section{K\+\_\+\+Graphics\+:\+:Font\+Renderer クラス}
+\label{class_k___graphics_1_1_font_renderer}\index{K\+\_\+\+Graphics\+::\+Font\+Renderer@{K\+\_\+\+Graphics\+::\+Font\+Renderer}}
+
+
+フォントを生成し、描画するクラス(ワイド文字列)  
+
+
+
+
+{\ttfamily \#include $<$Font\+Renderer.\+h$>$}
+
+\subsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_k___graphics_1_1_font_renderer_a1c3ac227f5eb40934d5d5ea84c80c96b}{Font\+Renderer}} ()
+\begin{DoxyCompactList}\small\item\em 描画に使用するスプライトを初期化 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_k___graphics_1_1_font_renderer_a0b3a9b0d7fa0e07342be6469e668b7cd}{$\sim$\+Font\+Renderer}} ()
+\begin{DoxyCompactList}\small\item\em スプライトのポインタを開放 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_font_renderer_a90ee7dabacdc9c324b6e422cd7402b89}{Draw}} (\mbox{\hyperlink{class_k___graphics_1_1_camera_class}{Camera\+Class}} $\ast$camera, \mbox{\hyperlink{class_k___graphics_1_1_shader_class}{Shader\+Class}} $\ast$shader)
+\begin{DoxyCompactList}\small\item\em 事前に呼ばれた描画命令をここで行う \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_k___graphics_1_1_font_renderer_a9fffd9b8ec36986810cfbaad1d58ab70}{Load\+Font}} (const char $\ast$font\+Name, const char $\ast$file\+Pass)
+\begin{DoxyCompactList}\small\item\em フォントを読み込む \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_k___graphics_1_1_font_renderer_afde212f8e56262e86ef01d12b2704dbd}{Set\+Cullent\+Font}} (const char $\ast$font\+Name)
+\begin{DoxyCompactList}\small\item\em 使用するフォントを設定、失敗するとfalseを返し、セットされない \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_font_renderer_a8d3687d4a4dad3682ab2bfa29e9cc15b}{Draw\+String2D}} (const std\+::string \&text, int font\+Size, int posX, int posY)
+\begin{DoxyCompactList}\small\item\em 指定座標からテキストの描画予約（位置はスクリーンの座標） \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_font_renderer_adfb9bb5d77fdcb2a52c5ce5b7f011a67}{Draw\+String3D}} (const std\+::string \&text, int font\+Size, float posX, float posY, float posZ)
+\begin{DoxyCompactList}\small\item\em 指定座標からテキストの描画予約（位置は3\+D空間の座標） \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_font_renderer_ace5f43f6cbd1a5b18e41350ca2e64dea}{Clear\+Font\+Texture}} (int size)
+\begin{DoxyCompactList}\small\item\em フォント描画に利用しているテクスチャを削除する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_font_renderer_a7e75db1a4ddf8bb6c888ece135783673}{Clear\+All\+Font\+Texture}} ()
+\begin{DoxyCompactList}\small\item\em フォント描画に利用しているテクスチャをすべて削除する \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{詳解}
+フォントを生成し、描画するクラス(ワイド文字列) 
+
+\subsection{構築子と解体子}
+\mbox{\Hypertarget{class_k___graphics_1_1_font_renderer_a1c3ac227f5eb40934d5d5ea84c80c96b}\label{class_k___graphics_1_1_font_renderer_a1c3ac227f5eb40934d5d5ea84c80c96b}} 
+\index{K\+\_\+\+Graphics\+::\+Font\+Renderer@{K\+\_\+\+Graphics\+::\+Font\+Renderer}!Font\+Renderer@{Font\+Renderer}}
+\index{Font\+Renderer@{Font\+Renderer}!K\+\_\+\+Graphics\+::\+Font\+Renderer@{K\+\_\+\+Graphics\+::\+Font\+Renderer}}
+\subsubsection{\texorpdfstring{Font\+Renderer()}{FontRenderer()}}
+{\footnotesize\ttfamily K\+\_\+\+Graphics\+::\+Font\+Renderer\+::\+Font\+Renderer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+描画に使用するスプライトを初期化 
+
+\mbox{\Hypertarget{class_k___graphics_1_1_font_renderer_a0b3a9b0d7fa0e07342be6469e668b7cd}\label{class_k___graphics_1_1_font_renderer_a0b3a9b0d7fa0e07342be6469e668b7cd}} 
+\index{K\+\_\+\+Graphics\+::\+Font\+Renderer@{K\+\_\+\+Graphics\+::\+Font\+Renderer}!````~Font\+Renderer@{$\sim$\+Font\+Renderer}}
+\index{````~Font\+Renderer@{$\sim$\+Font\+Renderer}!K\+\_\+\+Graphics\+::\+Font\+Renderer@{K\+\_\+\+Graphics\+::\+Font\+Renderer}}
+\subsubsection{\texorpdfstring{$\sim$\+Font\+Renderer()}{~FontRenderer()}}
+{\footnotesize\ttfamily K\+\_\+\+Graphics\+::\+Font\+Renderer\+::$\sim$\+Font\+Renderer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+スプライトのポインタを開放 
+
+
+
+\subsection{関数詳解}
+\mbox{\Hypertarget{class_k___graphics_1_1_font_renderer_a7e75db1a4ddf8bb6c888ece135783673}\label{class_k___graphics_1_1_font_renderer_a7e75db1a4ddf8bb6c888ece135783673}} 
+\index{K\+\_\+\+Graphics\+::\+Font\+Renderer@{K\+\_\+\+Graphics\+::\+Font\+Renderer}!Clear\+All\+Font\+Texture@{Clear\+All\+Font\+Texture}}
+\index{Clear\+All\+Font\+Texture@{Clear\+All\+Font\+Texture}!K\+\_\+\+Graphics\+::\+Font\+Renderer@{K\+\_\+\+Graphics\+::\+Font\+Renderer}}
+\subsubsection{\texorpdfstring{Clear\+All\+Font\+Texture()}{ClearAllFontTexture()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Font\+Renderer\+::\+Clear\+All\+Font\+Texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+フォント描画に利用しているテクスチャをすべて削除する 
+
+\mbox{\Hypertarget{class_k___graphics_1_1_font_renderer_ace5f43f6cbd1a5b18e41350ca2e64dea}\label{class_k___graphics_1_1_font_renderer_ace5f43f6cbd1a5b18e41350ca2e64dea}} 
+\index{K\+\_\+\+Graphics\+::\+Font\+Renderer@{K\+\_\+\+Graphics\+::\+Font\+Renderer}!Clear\+Font\+Texture@{Clear\+Font\+Texture}}
+\index{Clear\+Font\+Texture@{Clear\+Font\+Texture}!K\+\_\+\+Graphics\+::\+Font\+Renderer@{K\+\_\+\+Graphics\+::\+Font\+Renderer}}
+\subsubsection{\texorpdfstring{Clear\+Font\+Texture()}{ClearFontTexture()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Font\+Renderer\+::\+Clear\+Font\+Texture (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+フォント描画に利用しているテクスチャを削除する 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em size} & 削除するフォントのサイズ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_font_renderer_a90ee7dabacdc9c324b6e422cd7402b89}\label{class_k___graphics_1_1_font_renderer_a90ee7dabacdc9c324b6e422cd7402b89}} 
+\index{K\+\_\+\+Graphics\+::\+Font\+Renderer@{K\+\_\+\+Graphics\+::\+Font\+Renderer}!Draw@{Draw}}
+\index{Draw@{Draw}!K\+\_\+\+Graphics\+::\+Font\+Renderer@{K\+\_\+\+Graphics\+::\+Font\+Renderer}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Font\+Renderer\+::\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_k___graphics_1_1_camera_class}{Camera\+Class}} $\ast$}]{camera,  }\item[{\mbox{\hyperlink{class_k___graphics_1_1_shader_class}{Shader\+Class}} $\ast$}]{shader }\end{DoxyParamCaption})}
+
+
+
+事前に呼ばれた描画命令をここで行う 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em camera} & 使用するカメラ \\
+\hline
+\mbox{\tt in}  & {\em shader} & 使用するシェーダー（スプライトが描画できるもの） \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_font_renderer_a8d3687d4a4dad3682ab2bfa29e9cc15b}\label{class_k___graphics_1_1_font_renderer_a8d3687d4a4dad3682ab2bfa29e9cc15b}} 
+\index{K\+\_\+\+Graphics\+::\+Font\+Renderer@{K\+\_\+\+Graphics\+::\+Font\+Renderer}!Draw\+String2D@{Draw\+String2D}}
+\index{Draw\+String2D@{Draw\+String2D}!K\+\_\+\+Graphics\+::\+Font\+Renderer@{K\+\_\+\+Graphics\+::\+Font\+Renderer}}
+\subsubsection{\texorpdfstring{Draw\+String2\+D()}{DrawString2D()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Font\+Renderer\+::\+Draw\+String2D (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text,  }\item[{int}]{font\+Size,  }\item[{int}]{posX,  }\item[{int}]{posY }\end{DoxyParamCaption})}
+
+
+
+指定座標からテキストの描画予約（位置はスクリーンの座標） 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em text} & 描画するテキスト \\
+\hline
+\mbox{\tt in}  & {\em font\+Size} & フォントのサイズ \\
+\hline
+\mbox{\tt in}  & {\em posX} & 描画座標 \\
+\hline
+\mbox{\tt in}  & {\em posY} & 描画座標 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_font_renderer_adfb9bb5d77fdcb2a52c5ce5b7f011a67}\label{class_k___graphics_1_1_font_renderer_adfb9bb5d77fdcb2a52c5ce5b7f011a67}} 
+\index{K\+\_\+\+Graphics\+::\+Font\+Renderer@{K\+\_\+\+Graphics\+::\+Font\+Renderer}!Draw\+String3D@{Draw\+String3D}}
+\index{Draw\+String3D@{Draw\+String3D}!K\+\_\+\+Graphics\+::\+Font\+Renderer@{K\+\_\+\+Graphics\+::\+Font\+Renderer}}
+\subsubsection{\texorpdfstring{Draw\+String3\+D()}{DrawString3D()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Font\+Renderer\+::\+Draw\+String3D (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text,  }\item[{int}]{font\+Size,  }\item[{float}]{posX,  }\item[{float}]{posY,  }\item[{float}]{posZ }\end{DoxyParamCaption})}
+
+
+
+指定座標からテキストの描画予約（位置は3\+D空間の座標） 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em text} & 描画するテキスト \\
+\hline
+\mbox{\tt in}  & {\em font\+Size} & フォントのサイズ \\
+\hline
+\mbox{\tt in}  & {\em posX} & 描画座標 \\
+\hline
+\mbox{\tt in}  & {\em posY} & 描画座標 \\
+\hline
+\mbox{\tt in}  & {\em posZ} & 描画座標 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_font_renderer_a9fffd9b8ec36986810cfbaad1d58ab70}\label{class_k___graphics_1_1_font_renderer_a9fffd9b8ec36986810cfbaad1d58ab70}} 
+\index{K\+\_\+\+Graphics\+::\+Font\+Renderer@{K\+\_\+\+Graphics\+::\+Font\+Renderer}!Load\+Font@{Load\+Font}}
+\index{Load\+Font@{Load\+Font}!K\+\_\+\+Graphics\+::\+Font\+Renderer@{K\+\_\+\+Graphics\+::\+Font\+Renderer}}
+\subsubsection{\texorpdfstring{Load\+Font()}{LoadFont()}}
+{\footnotesize\ttfamily bool K\+\_\+\+Graphics\+::\+Font\+Renderer\+::\+Load\+Font (\begin{DoxyParamCaption}\item[{const char $\ast$}]{font\+Name,  }\item[{const char $\ast$}]{file\+Pass }\end{DoxyParamCaption})}
+
+
+
+フォントを読み込む 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em font\+Name} & フォントのユーザー定義名 \\
+\hline
+\mbox{\tt in}  & {\em file\+Pass} & フォントのファイルパス \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_font_renderer_afde212f8e56262e86ef01d12b2704dbd}\label{class_k___graphics_1_1_font_renderer_afde212f8e56262e86ef01d12b2704dbd}} 
+\index{K\+\_\+\+Graphics\+::\+Font\+Renderer@{K\+\_\+\+Graphics\+::\+Font\+Renderer}!Set\+Cullent\+Font@{Set\+Cullent\+Font}}
+\index{Set\+Cullent\+Font@{Set\+Cullent\+Font}!K\+\_\+\+Graphics\+::\+Font\+Renderer@{K\+\_\+\+Graphics\+::\+Font\+Renderer}}
+\subsubsection{\texorpdfstring{Set\+Cullent\+Font()}{SetCullentFont()}}
+{\footnotesize\ttfamily bool K\+\_\+\+Graphics\+::\+Font\+Renderer\+::\+Set\+Cullent\+Font (\begin{DoxyParamCaption}\item[{const char $\ast$}]{font\+Name }\end{DoxyParamCaption})}
+
+
+
+使用するフォントを設定、失敗するとfalseを返し、セットされない 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em font\+Name} & フォント名 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+成功するとtrue 
+\end{DoxyReturn}

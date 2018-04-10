@@ -1,0 +1,178 @@
+\hypertarget{namespace_k___graphics}{}\section{K\+\_\+\+Graphics 名前空間}
+\label{namespace_k___graphics}\index{K\+\_\+\+Graphics@{K\+\_\+\+Graphics}}
+\subsection*{クラス}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_k___graphics_1_1_ambient_light}{Ambient\+Light}}
+\item 
+class \mbox{\hyperlink{class_k___graphics_1_1_animation_data}{Animation\+Data}}
+\item 
+struct \mbox{\hyperlink{struct_k___graphics_1_1_anim_type}{Anim\+Type}}
+\item 
+struct \mbox{\hyperlink{struct_k___graphics_1_1_bone}{Bone}}
+\item 
+class \mbox{\hyperlink{class_k___graphics_1_1_bone_data}{Bone\+Data}}
+\item 
+class \mbox{\hyperlink{class_k___graphics_1_1_camera_class}{Camera\+Class}}
+\begin{DoxyCompactList}\small\item\em カメラの情報を管理し、ビュー行列と投影行列を提供するクラス \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_k___graphics_1_1_camera_list}{Camera\+List}}
+\begin{DoxyCompactList}\small\item\em カメラに名前を付けて管理するクラス \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_k___graphics_1_1_directional_light}{Directional\+Light}}
+\item 
+class \mbox{\hyperlink{class_k___graphics_1_1_effect_class}{Effect\+Class}}
+\begin{DoxyCompactList}\small\item\em エフェクト管理クラス~\newline
+ほぼ\+Effekseerの機能をラッピングしただけにとどまっている \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_k___graphics_1_1_fbx_data}{Fbx\+Data}}
+\item 
+class \mbox{\hyperlink{class_k___graphics_1_1_font_generator}{Font\+Generator}}
+\item 
+class \mbox{\hyperlink{class_k___graphics_1_1_font_renderer}{Font\+Renderer}}
+\begin{DoxyCompactList}\small\item\em フォントを生成し、描画するクラス(ワイド文字列) \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_k___graphics_1_1_framebuffer}{Framebuffer}}
+\item 
+class \mbox{\hyperlink{class_k___graphics_1_1_frame_buffer_list}{Frame\+Buffer\+List}}
+\item 
+class \mbox{\hyperlink{class_k___graphics_1_1_light_list}{Light\+List}}
+\begin{DoxyCompactList}\small\item\em 光源情報をまとめたクラス、複数光源はコストが高いので数を絞る アンビエント：１つ その他：４つ（まだ予定） \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_k___graphics_1_1_material}{Material}}
+\item 
+class \mbox{\hyperlink{class_k___graphics_1_1_material_data}{Material\+Data}}
+\item 
+class \mbox{\hyperlink{class_k___graphics_1_1_mesh_model}{Mesh\+Model}}
+\begin{DoxyCompactList}\small\item\em 3\+Dモデルクラス~\newline
+ファクトリーから生産されたモデルデータを受け取って初期化する 「形状」という扱いで、描画時には「\+Shader\+Class」のポインタが必須 \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_k___graphics_1_1_mesh_object}{Mesh\+Object}}
+\begin{DoxyCompactList}\small\item\em Mesh\+Modelの描画を\char`\"{}position\char`\"{}\char`\"{}rotation\char`\"{}\char`\"{}scale\char`\"{}の３つで行えるようにしたもの \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_k___graphics_1_1_model_data_factory}{Model\+Data\+Factory}}
+\begin{DoxyCompactList}\small\item\em モデルクラスの初期化に必要なパラメーターの製作を担当するクラス \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_k___graphics_1_1_model_datas}{Model\+Datas}}
+\item 
+class \mbox{\hyperlink{class_k___graphics_1_1_shader_class}{Shader\+Class}}
+\begin{DoxyCompactList}\small\item\em シェーダープログラムの管理とuniform変数の受け渡しを担当するクラス uniform変数名は固定的な機能を除くと、関数化にキリがないので汎用的な関数を用意 \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_k___graphics_1_1_shader_list}{Shader\+List}}
+\begin{DoxyCompactList}\small\item\em シェーダークラスをリストとして持ち、解放責任をもつクラス \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_k___graphics_1_1_sprite_object}{Sprite\+Object}}
+\begin{DoxyCompactList}\small\item\em 長さ1.0fの板ポリゴンの\+Model\+Classを内部で生成し、2\+D画像の描画に利用できる機能を付け加えたクラス \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_k___graphics_1_1_texture}{Texture}}
+\begin{DoxyCompactList}\small\item\em 外部から読み込まれた、あるいは作られたテクスチャを保持する~\newline
+このクラスは、保持しているテクスチャの解放責任を持つ \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_k___graphics_1_1_texture_list}{Texture\+List}}
+\begin{DoxyCompactList}\small\item\em テクスチャクラスをリストとして持ち、解放責任をもつクラス \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_k___graphics_1_1_vertex_buffer}{Vertex\+Buffer}}
+\item 
+class \mbox{\hyperlink{class_k___graphics_1_1_vertex_data}{Vertex\+Data}}
+\end{DoxyCompactItemize}
+\subsection*{型定義}
+\begin{DoxyCompactItemize}
+\item 
+typedef Effekseer\+::\+Handle \mbox{\hyperlink{namespace_k___graphics_afb3a0fd0adc77eb95104e697c9b6b7a9}{Effect\+Handle}}
+\end{DoxyCompactItemize}
+\subsection*{列挙型}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespace_k___graphics_a46f486e742ad696f88bfbeb22f8af10f}{Camera\+Type}} \{ \mbox{\hyperlink{namespace_k___graphics_a46f486e742ad696f88bfbeb22f8af10fa67cba19780ed061de0f9933d1ee626ff}{Perspective}}, 
+\mbox{\hyperlink{namespace_k___graphics_a46f486e742ad696f88bfbeb22f8af10fa79fd68c41cf0b31996c9757c8563a835}{Ortho}}
+ \}
+\begin{DoxyCompactList}\small\item\em カメラの種類を判別する列挙型 \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{namespace_k___graphics_a218722f1def83362c6b74680b8c1c529}{Texture\+Type}} \{ \mbox{\hyperlink{namespace_k___graphics_a218722f1def83362c6b74680b8c1c529ab0721b13f0b6d56efb5b01ac5c7eb718}{Unsigned\+\_\+\+Byte}} = G\+L\+\_\+\+U\+N\+S\+I\+G\+N\+E\+D\+\_\+\+B\+Y\+TE, 
+\mbox{\hyperlink{namespace_k___graphics_a218722f1def83362c6b74680b8c1c529ad9523c239c3ce59f58cc0fc4a6e8986c}{Float}} = G\+L\+\_\+\+F\+L\+O\+AT
+ \}
+\begin{DoxyCompactList}\small\item\em テクスチャが扱う値の型 \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{namespace_k___graphics_a9654dafb2cd6eaed24a292a6f8373955}{Texture\+Color\+Type}} \{ \newline
+\mbox{\hyperlink{namespace_k___graphics_a9654dafb2cd6eaed24a292a6f8373955a3f86f41090b77da22356d9010d1c0f66}{R\+GB}} = G\+L\+\_\+\+R\+GB, 
+\mbox{\hyperlink{namespace_k___graphics_a9654dafb2cd6eaed24a292a6f8373955a5982abbb33a2de38202a6a14430bfbd7}{B\+GR}} = G\+L\+\_\+\+B\+GR, 
+\mbox{\hyperlink{namespace_k___graphics_a9654dafb2cd6eaed24a292a6f8373955a9e29ef1d15d53abfdf21fd7cc6730d25}{R\+G\+B\+A32F}} = G\+L\+\_\+\+R\+G\+B\+A32F, 
+\mbox{\hyperlink{namespace_k___graphics_a9654dafb2cd6eaed24a292a6f8373955a535fd8e72dc86d416c6a3f32923645d2}{R\+G\+BA}} = G\+L\+\_\+\+R\+G\+BA, 
+\newline
+\mbox{\hyperlink{namespace_k___graphics_a9654dafb2cd6eaed24a292a6f8373955ad1ca23636fb9354fdba2dac99e77f1f9}{B\+G\+RA}} = G\+L\+\_\+\+B\+G\+RA, 
+\mbox{\hyperlink{namespace_k___graphics_a9654dafb2cd6eaed24a292a6f8373955a73b900220ca74e26dbc87b5baea6dd9c}{R\+ED}} = G\+L\+\_\+\+R\+ED
+ \}
+\begin{DoxyCompactList}\small\item\em テクスチャに渡される情報の解釈 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{型定義詳解}
+\mbox{\Hypertarget{namespace_k___graphics_afb3a0fd0adc77eb95104e697c9b6b7a9}\label{namespace_k___graphics_afb3a0fd0adc77eb95104e697c9b6b7a9}} 
+\index{K\+\_\+\+Graphics@{K\+\_\+\+Graphics}!Effect\+Handle@{Effect\+Handle}}
+\index{Effect\+Handle@{Effect\+Handle}!K\+\_\+\+Graphics@{K\+\_\+\+Graphics}}
+\subsubsection{\texorpdfstring{Effect\+Handle}{EffectHandle}}
+{\footnotesize\ttfamily typedef Effekseer\+::\+Handle \mbox{\hyperlink{namespace_k___graphics_afb3a0fd0adc77eb95104e697c9b6b7a9}{K\+\_\+\+Graphics\+::\+Effect\+Handle}}}
+
+
+
+\subsection{列挙型詳解}
+\mbox{\Hypertarget{namespace_k___graphics_a46f486e742ad696f88bfbeb22f8af10f}\label{namespace_k___graphics_a46f486e742ad696f88bfbeb22f8af10f}} 
+\index{K\+\_\+\+Graphics@{K\+\_\+\+Graphics}!Camera\+Type@{Camera\+Type}}
+\index{Camera\+Type@{Camera\+Type}!K\+\_\+\+Graphics@{K\+\_\+\+Graphics}}
+\subsubsection{\texorpdfstring{Camera\+Type}{CameraType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespace_k___graphics_a46f486e742ad696f88bfbeb22f8af10f}{K\+\_\+\+Graphics\+::\+Camera\+Type}}}
+
+
+
+カメラの種類を判別する列挙型 
+
+\begin{DoxyEnumFields}{列挙値}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Perspective@{Perspective}!K\+\_\+\+Graphics@{K\+\_\+\+Graphics}}\index{K\+\_\+\+Graphics@{K\+\_\+\+Graphics}!Perspective@{Perspective}}}\mbox{\Hypertarget{namespace_k___graphics_a46f486e742ad696f88bfbeb22f8af10fa67cba19780ed061de0f9933d1ee626ff}\label{namespace_k___graphics_a46f486e742ad696f88bfbeb22f8af10fa67cba19780ed061de0f9933d1ee626ff}} 
+Perspective&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Ortho@{Ortho}!K\+\_\+\+Graphics@{K\+\_\+\+Graphics}}\index{K\+\_\+\+Graphics@{K\+\_\+\+Graphics}!Ortho@{Ortho}}}\mbox{\Hypertarget{namespace_k___graphics_a46f486e742ad696f88bfbeb22f8af10fa79fd68c41cf0b31996c9757c8563a835}\label{namespace_k___graphics_a46f486e742ad696f88bfbeb22f8af10fa79fd68c41cf0b31996c9757c8563a835}} 
+Ortho&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{namespace_k___graphics_a9654dafb2cd6eaed24a292a6f8373955}\label{namespace_k___graphics_a9654dafb2cd6eaed24a292a6f8373955}} 
+\index{K\+\_\+\+Graphics@{K\+\_\+\+Graphics}!Texture\+Color\+Type@{Texture\+Color\+Type}}
+\index{Texture\+Color\+Type@{Texture\+Color\+Type}!K\+\_\+\+Graphics@{K\+\_\+\+Graphics}}
+\subsubsection{\texorpdfstring{Texture\+Color\+Type}{TextureColorType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespace_k___graphics_a9654dafb2cd6eaed24a292a6f8373955}{K\+\_\+\+Graphics\+::\+Texture\+Color\+Type}}}
+
+
+
+テクスチャに渡される情報の解釈 
+
+\begin{DoxyEnumFields}{列挙値}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+GB@{R\+GB}!K\+\_\+\+Graphics@{K\+\_\+\+Graphics}}\index{K\+\_\+\+Graphics@{K\+\_\+\+Graphics}!R\+GB@{R\+GB}}}\mbox{\Hypertarget{namespace_k___graphics_a9654dafb2cd6eaed24a292a6f8373955a3f86f41090b77da22356d9010d1c0f66}\label{namespace_k___graphics_a9654dafb2cd6eaed24a292a6f8373955a3f86f41090b77da22356d9010d1c0f66}} 
+R\+GB&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B\+GR@{B\+GR}!K\+\_\+\+Graphics@{K\+\_\+\+Graphics}}\index{K\+\_\+\+Graphics@{K\+\_\+\+Graphics}!B\+GR@{B\+GR}}}\mbox{\Hypertarget{namespace_k___graphics_a9654dafb2cd6eaed24a292a6f8373955a5982abbb33a2de38202a6a14430bfbd7}\label{namespace_k___graphics_a9654dafb2cd6eaed24a292a6f8373955a5982abbb33a2de38202a6a14430bfbd7}} 
+B\+GR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+G\+B\+A32F@{R\+G\+B\+A32F}!K\+\_\+\+Graphics@{K\+\_\+\+Graphics}}\index{K\+\_\+\+Graphics@{K\+\_\+\+Graphics}!R\+G\+B\+A32F@{R\+G\+B\+A32F}}}\mbox{\Hypertarget{namespace_k___graphics_a9654dafb2cd6eaed24a292a6f8373955a9e29ef1d15d53abfdf21fd7cc6730d25}\label{namespace_k___graphics_a9654dafb2cd6eaed24a292a6f8373955a9e29ef1d15d53abfdf21fd7cc6730d25}} 
+R\+G\+B\+A32F&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+G\+BA@{R\+G\+BA}!K\+\_\+\+Graphics@{K\+\_\+\+Graphics}}\index{K\+\_\+\+Graphics@{K\+\_\+\+Graphics}!R\+G\+BA@{R\+G\+BA}}}\mbox{\Hypertarget{namespace_k___graphics_a9654dafb2cd6eaed24a292a6f8373955a535fd8e72dc86d416c6a3f32923645d2}\label{namespace_k___graphics_a9654dafb2cd6eaed24a292a6f8373955a535fd8e72dc86d416c6a3f32923645d2}} 
+R\+G\+BA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B\+G\+RA@{B\+G\+RA}!K\+\_\+\+Graphics@{K\+\_\+\+Graphics}}\index{K\+\_\+\+Graphics@{K\+\_\+\+Graphics}!B\+G\+RA@{B\+G\+RA}}}\mbox{\Hypertarget{namespace_k___graphics_a9654dafb2cd6eaed24a292a6f8373955ad1ca23636fb9354fdba2dac99e77f1f9}\label{namespace_k___graphics_a9654dafb2cd6eaed24a292a6f8373955ad1ca23636fb9354fdba2dac99e77f1f9}} 
+B\+G\+RA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+ED@{R\+ED}!K\+\_\+\+Graphics@{K\+\_\+\+Graphics}}\index{K\+\_\+\+Graphics@{K\+\_\+\+Graphics}!R\+ED@{R\+ED}}}\mbox{\Hypertarget{namespace_k___graphics_a9654dafb2cd6eaed24a292a6f8373955a73b900220ca74e26dbc87b5baea6dd9c}\label{namespace_k___graphics_a9654dafb2cd6eaed24a292a6f8373955a73b900220ca74e26dbc87b5baea6dd9c}} 
+R\+ED&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{namespace_k___graphics_a218722f1def83362c6b74680b8c1c529}\label{namespace_k___graphics_a218722f1def83362c6b74680b8c1c529}} 
+\index{K\+\_\+\+Graphics@{K\+\_\+\+Graphics}!Texture\+Type@{Texture\+Type}}
+\index{Texture\+Type@{Texture\+Type}!K\+\_\+\+Graphics@{K\+\_\+\+Graphics}}
+\subsubsection{\texorpdfstring{Texture\+Type}{TextureType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespace_k___graphics_a218722f1def83362c6b74680b8c1c529}{K\+\_\+\+Graphics\+::\+Texture\+Type}}}
+
+
+
+テクスチャが扱う値の型 
+
+\begin{DoxyEnumFields}{列挙値}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Unsigned\+\_\+\+Byte@{Unsigned\+\_\+\+Byte}!K\+\_\+\+Graphics@{K\+\_\+\+Graphics}}\index{K\+\_\+\+Graphics@{K\+\_\+\+Graphics}!Unsigned\+\_\+\+Byte@{Unsigned\+\_\+\+Byte}}}\mbox{\Hypertarget{namespace_k___graphics_a218722f1def83362c6b74680b8c1c529ab0721b13f0b6d56efb5b01ac5c7eb718}\label{namespace_k___graphics_a218722f1def83362c6b74680b8c1c529ab0721b13f0b6d56efb5b01ac5c7eb718}} 
+Unsigned\+\_\+\+Byte&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Float@{Float}!K\+\_\+\+Graphics@{K\+\_\+\+Graphics}}\index{K\+\_\+\+Graphics@{K\+\_\+\+Graphics}!Float@{Float}}}\mbox{\Hypertarget{namespace_k___graphics_a218722f1def83362c6b74680b8c1c529ad9523c239c3ce59f58cc0fc4a6e8986c}\label{namespace_k___graphics_a218722f1def83362c6b74680b8c1c529ad9523c239c3ce59f58cc0fc4a6e8986c}} 
+Float&\\
+\hline
+
+\end{DoxyEnumFields}

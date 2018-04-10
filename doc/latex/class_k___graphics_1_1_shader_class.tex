@@ -1,0 +1,336 @@
+\hypertarget{class_k___graphics_1_1_shader_class}{}\section{K\+\_\+\+Graphics\+:\+:Shader\+Class クラス}
+\label{class_k___graphics_1_1_shader_class}\index{K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}}
+
+
+シェーダープログラムの管理とuniform変数の受け渡しを担当するクラス uniform変数名は固定的な機能を除くと、関数化にキリがないので汎用的な関数を用意  
+
+
+
+
+{\ttfamily \#include $<$Shader\+Class.\+h$>$}
+
+\subsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_k___graphics_1_1_shader_class_a3762d1f3d62a5b9fe6b37d36aeb8dd51}{Shader\+Class}} (G\+Luint vertex\+Shader, G\+Luint fragment\+Shader)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_k___graphics_1_1_shader_class_ac37343a738ce216a5f1f3fb501de79ed}{Initialize()}}を呼ぶ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_k___graphics_1_1_shader_class_ad007e6356bf230f441fd39a5127b76d7}{$\sim$\+Shader\+Class}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_k___graphics_1_1_shader_class_aac58eae7621bb220380364400f659549}{Finalize()}}を呼ぶ \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_k___graphics_1_1_shader_class_ac37343a738ce216a5f1f3fb501de79ed}{Initialize}} (G\+Luint vertex\+Shader, G\+Luint fragment\+Shader)
+\begin{DoxyCompactList}\small\item\em G\+L\+S\+Lシェーダープログラムを作成 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_shader_class_aac58eae7621bb220380364400f659549}{Finalize}} ()
+\begin{DoxyCompactList}\small\item\em シェーダーを開放する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_shader_class_a53590f2a34bbf3f1dc91398068f43754}{Use\+Shader}} ()
+\begin{DoxyCompactList}\small\item\em シェーダーを描画用に設定 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_shader_class_a8aa0f7eb6c2443df15d483653f9401e3}{Set\+Matrix}} (const \mbox{\hyperlink{namespace_k___math_a345271af9d32dff2c964bc679b13b45c}{K\+\_\+\+Math\+::\+Matrix4x4}} \&mat)
+\begin{DoxyCompactList}\small\item\em シェーダーに ワールド x ビュー x プロジェクション の行列を渡す \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_shader_class_ac697b99c625ac51a2dfeb01b85858506}{Set\+World\+Matrix}} (const \mbox{\hyperlink{namespace_k___math_a345271af9d32dff2c964bc679b13b45c}{K\+\_\+\+Math\+::\+Matrix4x4}} \&world)
+\begin{DoxyCompactList}\small\item\em シェーダーにワールド行列だけを渡す \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_shader_class_a9d8fd3a0ab36010e685eecd735e6d296}{Set\+Texture}} (const std\+::string \&uniform\+Name, G\+Luint texture\+Layer, G\+Luint texture\+Number)
+\begin{DoxyCompactList}\small\item\em シェーダーにテクスチャを渡す、モデル描画時に以下の番号が使われることがある レイヤー０番：モデルのマテリアルテクスチャ レイヤー１番：モデルのボーン行列テクスチャ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_shader_class_a7a28da0b8fc149324d904150b711c397}{Set\+Directional\+Light}} (float power, const \mbox{\hyperlink{namespace_k___math_a8d82de9de17eae460600de1e40e8a01f}{K\+\_\+\+Math\+::\+Vector4}} \&color, const \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \&direction)
+\begin{DoxyCompactList}\small\item\em ディレクショナルライト情報を渡す \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_shader_class_acc9f55081fe01121e1010cd4754d5214}{Set\+Ambient\+Light}} (float power, const \mbox{\hyperlink{namespace_k___math_a8d82de9de17eae460600de1e40e8a01f}{K\+\_\+\+Math\+::\+Vector4}} \&color)
+\begin{DoxyCompactList}\small\item\em アンビエントライト情報を渡す \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_shader_class_aa7151894bd962351e929e43f81490abe}{Set\+Value}} (const std\+::string \&uniform\+Name, int value)
+\begin{DoxyCompactList}\small\item\em 汎用的なuniform変数への受け渡し \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_shader_class_a5cbcd8eca343a5e614edaf4def827ce1}{Set\+Value}} (const std\+::string \&uniform\+Name, float value)
+\begin{DoxyCompactList}\small\item\em 汎用的なuniform変数への受け渡し \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_shader_class_a48af5c9168088ba35d222cb67f200a4e}{Set\+Value}} (const std\+::string \&uniform\+Name, const \mbox{\hyperlink{namespace_k___math_a345271af9d32dff2c964bc679b13b45c}{K\+\_\+\+Math\+::\+Matrix4x4}} \&value)
+\begin{DoxyCompactList}\small\item\em 汎用的なuniform変数への受け渡し \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_shader_class_a90c6b0fa2ffc9016b442833b138b8a5a}{Set\+Value}} (const std\+::string \&uniform\+Name, const \mbox{\hyperlink{namespace_k___math_a8d82de9de17eae460600de1e40e8a01f}{K\+\_\+\+Math\+::\+Vector4}} \&value)
+\begin{DoxyCompactList}\small\item\em 汎用的なuniform変数への受け渡し \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_shader_class_a0f81ce90173b0afe7dd98ea3c18f4913}{Set\+Value}} (const std\+::string \&uniform\+Name, const \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \&value)
+\begin{DoxyCompactList}\small\item\em 汎用的なuniform変数への受け渡し \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_shader_class_a37f4da2763c441b21cf9171268375d05}{Set\+Value}} (const std\+::string \&uniform\+Name, const \mbox{\hyperlink{namespace_k___math_a41eb0c2c69c938cd59989eb3241cefb2}{K\+\_\+\+Math\+::\+Vector2}} \&value)
+\begin{DoxyCompactList}\small\item\em 汎用的なuniform変数への受け渡し \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_shader_class_a48edec1492bfa0fe8d8cab265c24bbbd}{Set\+Vertex\+Shader\+Subroutine}} (const std\+::string \&subroutine\+Function\+Name)
+\begin{DoxyCompactList}\small\item\em subroutineの設定(vertex shader)、指定した名前の関数が選択される \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_shader_class_a8c25bbb391c95061db4d593679c96933}{Set\+Fragment\+Shader\+Subroutine}} (const std\+::string \&subroutine\+Function\+Name)
+\begin{DoxyCompactList}\small\item\em subroutineの設定(fragment shader)、指定した名前の関数が選択される \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{詳解}
+シェーダープログラムの管理とuniform変数の受け渡しを担当するクラス uniform変数名は固定的な機能を除くと、関数化にキリがないので汎用的な関数を用意 
+
+\subsection{構築子と解体子}
+\mbox{\Hypertarget{class_k___graphics_1_1_shader_class_a3762d1f3d62a5b9fe6b37d36aeb8dd51}\label{class_k___graphics_1_1_shader_class_a3762d1f3d62a5b9fe6b37d36aeb8dd51}} 
+\index{K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}!Shader\+Class@{Shader\+Class}}
+\index{Shader\+Class@{Shader\+Class}!K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}}
+\subsubsection{\texorpdfstring{Shader\+Class()}{ShaderClass()}}
+{\footnotesize\ttfamily K\+\_\+\+Graphics\+::\+Shader\+Class\+::\+Shader\+Class (\begin{DoxyParamCaption}\item[{G\+Luint}]{vertex\+Shader,  }\item[{G\+Luint}]{fragment\+Shader }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_k___graphics_1_1_shader_class_ac37343a738ce216a5f1f3fb501de79ed}{Initialize()}}を呼ぶ 
+
+\mbox{\Hypertarget{class_k___graphics_1_1_shader_class_ad007e6356bf230f441fd39a5127b76d7}\label{class_k___graphics_1_1_shader_class_ad007e6356bf230f441fd39a5127b76d7}} 
+\index{K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}!````~Shader\+Class@{$\sim$\+Shader\+Class}}
+\index{````~Shader\+Class@{$\sim$\+Shader\+Class}!K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}}
+\subsubsection{\texorpdfstring{$\sim$\+Shader\+Class()}{~ShaderClass()}}
+{\footnotesize\ttfamily K\+\_\+\+Graphics\+::\+Shader\+Class\+::$\sim$\+Shader\+Class (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_k___graphics_1_1_shader_class_aac58eae7621bb220380364400f659549}{Finalize()}}を呼ぶ 
+
+
+
+\subsection{関数詳解}
+\mbox{\Hypertarget{class_k___graphics_1_1_shader_class_aac58eae7621bb220380364400f659549}\label{class_k___graphics_1_1_shader_class_aac58eae7621bb220380364400f659549}} 
+\index{K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}!Finalize@{Finalize}}
+\index{Finalize@{Finalize}!K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}}
+\subsubsection{\texorpdfstring{Finalize()}{Finalize()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Shader\+Class\+::\+Finalize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+シェーダーを開放する 
+
+\mbox{\Hypertarget{class_k___graphics_1_1_shader_class_ac37343a738ce216a5f1f3fb501de79ed}\label{class_k___graphics_1_1_shader_class_ac37343a738ce216a5f1f3fb501de79ed}} 
+\index{K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}}
+\subsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily bool K\+\_\+\+Graphics\+::\+Shader\+Class\+::\+Initialize (\begin{DoxyParamCaption}\item[{G\+Luint}]{vertex\+Shader,  }\item[{G\+Luint}]{fragment\+Shader }\end{DoxyParamCaption})}
+
+
+
+G\+L\+S\+Lシェーダープログラムを作成 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em vertex\+Shader} & 頂点シェーダーのインデックス \\
+\hline
+\mbox{\tt in}  & {\em fragment\+Shader} & フラグメントシェーダーのインデックス \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+成功するとtrue 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___graphics_1_1_shader_class_acc9f55081fe01121e1010cd4754d5214}\label{class_k___graphics_1_1_shader_class_acc9f55081fe01121e1010cd4754d5214}} 
+\index{K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}!Set\+Ambient\+Light@{Set\+Ambient\+Light}}
+\index{Set\+Ambient\+Light@{Set\+Ambient\+Light}!K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}}
+\subsubsection{\texorpdfstring{Set\+Ambient\+Light()}{SetAmbientLight()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Shader\+Class\+::\+Set\+Ambient\+Light (\begin{DoxyParamCaption}\item[{float}]{power,  }\item[{const \mbox{\hyperlink{namespace_k___math_a8d82de9de17eae460600de1e40e8a01f}{K\+\_\+\+Math\+::\+Vector4}} \&}]{color }\end{DoxyParamCaption})}
+
+
+
+アンビエントライト情報を渡す 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em power} & 光の強さ \\
+\hline
+\mbox{\tt in}  & {\em color} & 光の色 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_shader_class_a7a28da0b8fc149324d904150b711c397}\label{class_k___graphics_1_1_shader_class_a7a28da0b8fc149324d904150b711c397}} 
+\index{K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}!Set\+Directional\+Light@{Set\+Directional\+Light}}
+\index{Set\+Directional\+Light@{Set\+Directional\+Light}!K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}}
+\subsubsection{\texorpdfstring{Set\+Directional\+Light()}{SetDirectionalLight()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Shader\+Class\+::\+Set\+Directional\+Light (\begin{DoxyParamCaption}\item[{float}]{power,  }\item[{const \mbox{\hyperlink{namespace_k___math_a8d82de9de17eae460600de1e40e8a01f}{K\+\_\+\+Math\+::\+Vector4}} \&}]{color,  }\item[{const \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \&}]{direction }\end{DoxyParamCaption})}
+
+
+
+ディレクショナルライト情報を渡す 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em power} & 光の強さ \\
+\hline
+\mbox{\tt in}  & {\em color} & 光の色 \\
+\hline
+\mbox{\tt in}  & {\em direction} & 光の向き \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_shader_class_a8c25bbb391c95061db4d593679c96933}\label{class_k___graphics_1_1_shader_class_a8c25bbb391c95061db4d593679c96933}} 
+\index{K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}!Set\+Fragment\+Shader\+Subroutine@{Set\+Fragment\+Shader\+Subroutine}}
+\index{Set\+Fragment\+Shader\+Subroutine@{Set\+Fragment\+Shader\+Subroutine}!K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}}
+\subsubsection{\texorpdfstring{Set\+Fragment\+Shader\+Subroutine()}{SetFragmentShaderSubroutine()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Shader\+Class\+::\+Set\+Fragment\+Shader\+Subroutine (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{subroutine\+Function\+Name }\end{DoxyParamCaption})}
+
+
+
+subroutineの設定(fragment shader)、指定した名前の関数が選択される 
+
+
+\begin{DoxyParams}{引数}
+{\em subroutine\+Function\+Name} & 使用するサブルーチン関数の名前 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_shader_class_a8aa0f7eb6c2443df15d483653f9401e3}\label{class_k___graphics_1_1_shader_class_a8aa0f7eb6c2443df15d483653f9401e3}} 
+\index{K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}!Set\+Matrix@{Set\+Matrix}}
+\index{Set\+Matrix@{Set\+Matrix}!K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}}
+\subsubsection{\texorpdfstring{Set\+Matrix()}{SetMatrix()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Shader\+Class\+::\+Set\+Matrix (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespace_k___math_a345271af9d32dff2c964bc679b13b45c}{K\+\_\+\+Math\+::\+Matrix4x4}} \&}]{mat }\end{DoxyParamCaption})}
+
+
+
+シェーダーに ワールド x ビュー x プロジェクション の行列を渡す 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em mat} & 渡す変換行列 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_shader_class_a9d8fd3a0ab36010e685eecd735e6d296}\label{class_k___graphics_1_1_shader_class_a9d8fd3a0ab36010e685eecd735e6d296}} 
+\index{K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}!Set\+Texture@{Set\+Texture}}
+\index{Set\+Texture@{Set\+Texture}!K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}}
+\subsubsection{\texorpdfstring{Set\+Texture()}{SetTexture()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Shader\+Class\+::\+Set\+Texture (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{uniform\+Name,  }\item[{G\+Luint}]{texture\+Layer,  }\item[{G\+Luint}]{texture\+Number }\end{DoxyParamCaption})}
+
+
+
+シェーダーにテクスチャを渡す、モデル描画時に以下の番号が使われることがある レイヤー０番：モデルのマテリアルテクスチャ レイヤー１番：モデルのボーン行列テクスチャ 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em uniform\+Name} & G\+L\+S\+Lのテクスチャを指す\+Uniform変数の名前 \\
+\hline
+\mbox{\tt in}  & {\em texture\+Layer} & テクスチャのレイヤー、複数枚のテクスチャを渡すときは数字を変える \\
+\hline
+\mbox{\tt in}  & {\em texture\+Number} & テクスチャのインデックス \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_shader_class_aa7151894bd962351e929e43f81490abe}\label{class_k___graphics_1_1_shader_class_aa7151894bd962351e929e43f81490abe}} 
+\index{K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}!Set\+Value@{Set\+Value}}
+\index{Set\+Value@{Set\+Value}!K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}}
+\subsubsection{\texorpdfstring{Set\+Value()}{SetValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Shader\+Class\+::\+Set\+Value (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{uniform\+Name,  }\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+汎用的なuniform変数への受け渡し 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em uniform\+Name} & G\+L\+S\+Lのテクスチャを指す\+Uniform変数の名前 \\
+\hline
+\mbox{\tt in}  & {\em value} & 渡す値 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_shader_class_a5cbcd8eca343a5e614edaf4def827ce1}\label{class_k___graphics_1_1_shader_class_a5cbcd8eca343a5e614edaf4def827ce1}} 
+\index{K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}!Set\+Value@{Set\+Value}}
+\index{Set\+Value@{Set\+Value}!K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}}
+\subsubsection{\texorpdfstring{Set\+Value()}{SetValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Shader\+Class\+::\+Set\+Value (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{uniform\+Name,  }\item[{float}]{value }\end{DoxyParamCaption})}
+
+
+
+汎用的なuniform変数への受け渡し 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em uniform\+Name} & G\+L\+S\+Lのテクスチャを指す\+Uniform変数の名前 \\
+\hline
+\mbox{\tt in}  & {\em value} & 渡す値 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_shader_class_a48af5c9168088ba35d222cb67f200a4e}\label{class_k___graphics_1_1_shader_class_a48af5c9168088ba35d222cb67f200a4e}} 
+\index{K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}!Set\+Value@{Set\+Value}}
+\index{Set\+Value@{Set\+Value}!K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}}
+\subsubsection{\texorpdfstring{Set\+Value()}{SetValue()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Shader\+Class\+::\+Set\+Value (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{uniform\+Name,  }\item[{const \mbox{\hyperlink{namespace_k___math_a345271af9d32dff2c964bc679b13b45c}{K\+\_\+\+Math\+::\+Matrix4x4}} \&}]{value }\end{DoxyParamCaption})}
+
+
+
+汎用的なuniform変数への受け渡し 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em uniform\+Name} & G\+L\+S\+Lのテクスチャを指す\+Uniform変数の名前 \\
+\hline
+\mbox{\tt in}  & {\em value} & 渡す値 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_shader_class_a90c6b0fa2ffc9016b442833b138b8a5a}\label{class_k___graphics_1_1_shader_class_a90c6b0fa2ffc9016b442833b138b8a5a}} 
+\index{K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}!Set\+Value@{Set\+Value}}
+\index{Set\+Value@{Set\+Value}!K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}}
+\subsubsection{\texorpdfstring{Set\+Value()}{SetValue()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Shader\+Class\+::\+Set\+Value (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{uniform\+Name,  }\item[{const \mbox{\hyperlink{namespace_k___math_a8d82de9de17eae460600de1e40e8a01f}{K\+\_\+\+Math\+::\+Vector4}} \&}]{value }\end{DoxyParamCaption})}
+
+
+
+汎用的なuniform変数への受け渡し 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em uniform\+Name} & G\+L\+S\+Lのテクスチャを指す\+Uniform変数の名前 \\
+\hline
+\mbox{\tt in}  & {\em value} & 渡す値 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_shader_class_a0f81ce90173b0afe7dd98ea3c18f4913}\label{class_k___graphics_1_1_shader_class_a0f81ce90173b0afe7dd98ea3c18f4913}} 
+\index{K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}!Set\+Value@{Set\+Value}}
+\index{Set\+Value@{Set\+Value}!K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}}
+\subsubsection{\texorpdfstring{Set\+Value()}{SetValue()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Shader\+Class\+::\+Set\+Value (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{uniform\+Name,  }\item[{const \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \&}]{value }\end{DoxyParamCaption})}
+
+
+
+汎用的なuniform変数への受け渡し 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em uniform\+Name} & G\+L\+S\+Lのテクスチャを指す\+Uniform変数の名前 \\
+\hline
+\mbox{\tt in}  & {\em value} & 渡す値 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_shader_class_a37f4da2763c441b21cf9171268375d05}\label{class_k___graphics_1_1_shader_class_a37f4da2763c441b21cf9171268375d05}} 
+\index{K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}!Set\+Value@{Set\+Value}}
+\index{Set\+Value@{Set\+Value}!K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}}
+\subsubsection{\texorpdfstring{Set\+Value()}{SetValue()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Shader\+Class\+::\+Set\+Value (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{uniform\+Name,  }\item[{const \mbox{\hyperlink{namespace_k___math_a41eb0c2c69c938cd59989eb3241cefb2}{K\+\_\+\+Math\+::\+Vector2}} \&}]{value }\end{DoxyParamCaption})}
+
+
+
+汎用的なuniform変数への受け渡し 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em uniform\+Name} & G\+L\+S\+Lのテクスチャを指す\+Uniform変数の名前 \\
+\hline
+\mbox{\tt in}  & {\em value} & 渡す値 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_shader_class_a48edec1492bfa0fe8d8cab265c24bbbd}\label{class_k___graphics_1_1_shader_class_a48edec1492bfa0fe8d8cab265c24bbbd}} 
+\index{K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}!Set\+Vertex\+Shader\+Subroutine@{Set\+Vertex\+Shader\+Subroutine}}
+\index{Set\+Vertex\+Shader\+Subroutine@{Set\+Vertex\+Shader\+Subroutine}!K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}}
+\subsubsection{\texorpdfstring{Set\+Vertex\+Shader\+Subroutine()}{SetVertexShaderSubroutine()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Shader\+Class\+::\+Set\+Vertex\+Shader\+Subroutine (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{subroutine\+Function\+Name }\end{DoxyParamCaption})}
+
+
+
+subroutineの設定(vertex shader)、指定した名前の関数が選択される 
+
+
+\begin{DoxyParams}{引数}
+{\em subroutine\+Function\+Name} & 使用するサブルーチン関数の名前 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_shader_class_ac697b99c625ac51a2dfeb01b85858506}\label{class_k___graphics_1_1_shader_class_ac697b99c625ac51a2dfeb01b85858506}} 
+\index{K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}!Set\+World\+Matrix@{Set\+World\+Matrix}}
+\index{Set\+World\+Matrix@{Set\+World\+Matrix}!K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}}
+\subsubsection{\texorpdfstring{Set\+World\+Matrix()}{SetWorldMatrix()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Shader\+Class\+::\+Set\+World\+Matrix (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespace_k___math_a345271af9d32dff2c964bc679b13b45c}{K\+\_\+\+Math\+::\+Matrix4x4}} \&}]{world }\end{DoxyParamCaption})}
+
+
+
+シェーダーにワールド行列だけを渡す 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em mat} & 渡す変換行列 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_shader_class_a53590f2a34bbf3f1dc91398068f43754}\label{class_k___graphics_1_1_shader_class_a53590f2a34bbf3f1dc91398068f43754}} 
+\index{K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}!Use\+Shader@{Use\+Shader}}
+\index{Use\+Shader@{Use\+Shader}!K\+\_\+\+Graphics\+::\+Shader\+Class@{K\+\_\+\+Graphics\+::\+Shader\+Class}}
+\subsubsection{\texorpdfstring{Use\+Shader()}{UseShader()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Shader\+Class\+::\+Use\+Shader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+シェーダーを描画用に設定 
+

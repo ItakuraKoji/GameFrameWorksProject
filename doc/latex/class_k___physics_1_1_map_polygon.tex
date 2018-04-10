@@ -1,0 +1,110 @@
+\hypertarget{class_k___physics_1_1_map_polygon}{}\section{K\+\_\+\+Physics\+:\+:Map\+Polygon クラス}
+\label{class_k___physics_1_1_map_polygon}\index{K\+\_\+\+Physics\+::\+Map\+Polygon@{K\+\_\+\+Physics\+::\+Map\+Polygon}}
+
+
+判定用モデルのポリゴン情報を持つクラス、描画は一切できない。行列による回転にも対応していない  
+
+
+
+
+{\ttfamily \#include $<$Map\+Polygon.\+h$>$}
+
+\subsection*{クラス}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_k___physics_1_1_map_polygon_1_1_polygon_data}{Polygon\+Data}}
+\item 
+struct \mbox{\hyperlink{struct_k___physics_1_1_map_polygon_1_1_polygon_type}{Polygon\+Type}}
+\end{DoxyCompactItemize}
+\subsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_k___physics_1_1_map_polygon_af64be549128b41d162dbddac6d7114ae}{Map\+Polygon}} ()
+\item 
+\mbox{\hyperlink{class_k___physics_1_1_map_polygon_a6d567c81fe82421013c75f23e11449ef}{$\sim$\+Map\+Polygon}} ()
+\item 
+bool \mbox{\hyperlink{class_k___physics_1_1_map_polygon_aa8c2e118294dd0dfd4ae8b1cf031d9d0}{Initialize}} ()
+\item 
+void \mbox{\hyperlink{class_k___physics_1_1_map_polygon_a103457df47925a3259bda50b796bc949}{Finalize}} ()
+\item 
+bool \mbox{\hyperlink{class_k___physics_1_1_map_polygon_a2d2b5c00e23782bf9b205b74b7458e1d}{Load\+Model}} (const char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em F\+B\+X読み込み \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___physics_1_1_map_polygon_a17a4ee0e3fce46e74be6ce43f5a51d7e}{set\+Collision\+World}} (\mbox{\hyperlink{class_k___physics_1_1_bullet_physics}{Bullet\+Physics}} $\ast$physics)
+\begin{DoxyCompactList}\small\item\em 読み込んだデータをもとに地形コリジョンを作成 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_k___physics_1_1_map_polygon_a6266c6eeaea35b2e037f247e837c306f}{Get\+Num\+Face}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{詳解}
+判定用モデルのポリゴン情報を持つクラス、描画は一切できない。行列による回転にも対応していない 
+
+\subsection{構築子と解体子}
+\mbox{\Hypertarget{class_k___physics_1_1_map_polygon_af64be549128b41d162dbddac6d7114ae}\label{class_k___physics_1_1_map_polygon_af64be549128b41d162dbddac6d7114ae}} 
+\index{K\+\_\+\+Physics\+::\+Map\+Polygon@{K\+\_\+\+Physics\+::\+Map\+Polygon}!Map\+Polygon@{Map\+Polygon}}
+\index{Map\+Polygon@{Map\+Polygon}!K\+\_\+\+Physics\+::\+Map\+Polygon@{K\+\_\+\+Physics\+::\+Map\+Polygon}}
+\subsubsection{\texorpdfstring{Map\+Polygon()}{MapPolygon()}}
+{\footnotesize\ttfamily K\+\_\+\+Physics\+::\+Map\+Polygon\+::\+Map\+Polygon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_k___physics_1_1_map_polygon_a6d567c81fe82421013c75f23e11449ef}\label{class_k___physics_1_1_map_polygon_a6d567c81fe82421013c75f23e11449ef}} 
+\index{K\+\_\+\+Physics\+::\+Map\+Polygon@{K\+\_\+\+Physics\+::\+Map\+Polygon}!````~Map\+Polygon@{$\sim$\+Map\+Polygon}}
+\index{````~Map\+Polygon@{$\sim$\+Map\+Polygon}!K\+\_\+\+Physics\+::\+Map\+Polygon@{K\+\_\+\+Physics\+::\+Map\+Polygon}}
+\subsubsection{\texorpdfstring{$\sim$\+Map\+Polygon()}{~MapPolygon()}}
+{\footnotesize\ttfamily K\+\_\+\+Physics\+::\+Map\+Polygon\+::$\sim$\+Map\+Polygon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{関数詳解}
+\mbox{\Hypertarget{class_k___physics_1_1_map_polygon_a103457df47925a3259bda50b796bc949}\label{class_k___physics_1_1_map_polygon_a103457df47925a3259bda50b796bc949}} 
+\index{K\+\_\+\+Physics\+::\+Map\+Polygon@{K\+\_\+\+Physics\+::\+Map\+Polygon}!Finalize@{Finalize}}
+\index{Finalize@{Finalize}!K\+\_\+\+Physics\+::\+Map\+Polygon@{K\+\_\+\+Physics\+::\+Map\+Polygon}}
+\subsubsection{\texorpdfstring{Finalize()}{Finalize()}}
+{\footnotesize\ttfamily void K\+\_\+\+Physics\+::\+Map\+Polygon\+::\+Finalize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_k___physics_1_1_map_polygon_a6266c6eeaea35b2e037f247e837c306f}\label{class_k___physics_1_1_map_polygon_a6266c6eeaea35b2e037f247e837c306f}} 
+\index{K\+\_\+\+Physics\+::\+Map\+Polygon@{K\+\_\+\+Physics\+::\+Map\+Polygon}!Get\+Num\+Face@{Get\+Num\+Face}}
+\index{Get\+Num\+Face@{Get\+Num\+Face}!K\+\_\+\+Physics\+::\+Map\+Polygon@{K\+\_\+\+Physics\+::\+Map\+Polygon}}
+\subsubsection{\texorpdfstring{Get\+Num\+Face()}{GetNumFace()}}
+{\footnotesize\ttfamily int K\+\_\+\+Physics\+::\+Map\+Polygon\+::\+Get\+Num\+Face (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{戻り値}
+読み込んだモデルのポリゴン数 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___physics_1_1_map_polygon_aa8c2e118294dd0dfd4ae8b1cf031d9d0}\label{class_k___physics_1_1_map_polygon_aa8c2e118294dd0dfd4ae8b1cf031d9d0}} 
+\index{K\+\_\+\+Physics\+::\+Map\+Polygon@{K\+\_\+\+Physics\+::\+Map\+Polygon}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!K\+\_\+\+Physics\+::\+Map\+Polygon@{K\+\_\+\+Physics\+::\+Map\+Polygon}}
+\subsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily bool K\+\_\+\+Physics\+::\+Map\+Polygon\+::\+Initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_k___physics_1_1_map_polygon_a2d2b5c00e23782bf9b205b74b7458e1d}\label{class_k___physics_1_1_map_polygon_a2d2b5c00e23782bf9b205b74b7458e1d}} 
+\index{K\+\_\+\+Physics\+::\+Map\+Polygon@{K\+\_\+\+Physics\+::\+Map\+Polygon}!Load\+Model@{Load\+Model}}
+\index{Load\+Model@{Load\+Model}!K\+\_\+\+Physics\+::\+Map\+Polygon@{K\+\_\+\+Physics\+::\+Map\+Polygon}}
+\subsubsection{\texorpdfstring{Load\+Model()}{LoadModel()}}
+{\footnotesize\ttfamily bool K\+\_\+\+Physics\+::\+Map\+Polygon\+::\+Load\+Model (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename }\end{DoxyParamCaption})}
+
+
+
+F\+B\+X読み込み 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em filename} & ファイルのパス \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+成功するとtrue 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_k___physics_1_1_map_polygon_a17a4ee0e3fce46e74be6ce43f5a51d7e}\label{class_k___physics_1_1_map_polygon_a17a4ee0e3fce46e74be6ce43f5a51d7e}} 
+\index{K\+\_\+\+Physics\+::\+Map\+Polygon@{K\+\_\+\+Physics\+::\+Map\+Polygon}!set\+Collision\+World@{set\+Collision\+World}}
+\index{set\+Collision\+World@{set\+Collision\+World}!K\+\_\+\+Physics\+::\+Map\+Polygon@{K\+\_\+\+Physics\+::\+Map\+Polygon}}
+\subsubsection{\texorpdfstring{set\+Collision\+World()}{setCollisionWorld()}}
+{\footnotesize\ttfamily void K\+\_\+\+Physics\+::\+Map\+Polygon\+::set\+Collision\+World (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_k___physics_1_1_bullet_physics}{Bullet\+Physics}} $\ast$}]{physics }\end{DoxyParamCaption})}
+
+
+
+読み込んだデータをもとに地形コリジョンを作成 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em physics} & コリジョンを管理する物理クラスへのポインタ \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,93 @@
+\hypertarget{class_k___physics_1_1bullet_debug_draw}{}\section{K\+\_\+\+Physics\+:\+:bullet\+Debug\+Draw クラス}
+\label{class_k___physics_1_1bullet_debug_draw}\index{K\+\_\+\+Physics\+::bullet\+Debug\+Draw@{K\+\_\+\+Physics\+::bullet\+Debug\+Draw}}
+
+
+{\ttfamily \#include $<$bullet\+Debug\+Draw.\+h$>$}
+
+K\+\_\+\+Physics\+:\+:bullet\+Debug\+Draw の継承関係図\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_k___physics_1_1bullet_debug_draw}
+\end{center}
+\end{figure}
+\subsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_k___physics_1_1bullet_debug_draw_ac969f58383a6b62a778bb16eb4026ad6}{bullet\+Debug\+Draw}} ()
+\item 
+\mbox{\hyperlink{class_k___physics_1_1bullet_debug_draw_a2b26e0588632a32ecef03088f0486378}{$\sim$bullet\+Debug\+Draw}} ()
+\item 
+void \mbox{\hyperlink{class_k___physics_1_1bullet_debug_draw_a361177ad23a76003b5e0811e4d3643d5}{draw\+Line}} (const bt\+Vector3 \&from, const bt\+Vector3 \&to, const bt\+Vector3 \&color)
+\item 
+void \mbox{\hyperlink{class_k___physics_1_1bullet_debug_draw_a0842dd424336cc1e332cd2c01f68ac86}{draw\+Line}} (const bt\+Vector3 \&from, const bt\+Vector3 \&to, const bt\+Vector3 \&from\+Color, const bt\+Vector3 \&to\+Color)
+\item 
+void \mbox{\hyperlink{class_k___physics_1_1bullet_debug_draw_aee36880ac9b46c4379317b8f6d77d312}{draw\+Contact\+Point}} (const bt\+Vector3 \&Point\+OnB, const bt\+Vector3 \&normal\+OnB, bt\+Scalar distance, int life\+Time, const bt\+Vector3 \&color)
+\item 
+void \mbox{\hyperlink{class_k___physics_1_1bullet_debug_draw_aa421c8d4afa407e1e8c9784fce42115e}{report\+Error\+Warning}} (const char $\ast$warning\+String)
+\item 
+void \mbox{\hyperlink{class_k___physics_1_1bullet_debug_draw_ad3e665ca605b58a03474ccafc02a5bd9}{draw3d\+Text}} (const bt\+Vector3 \&location, const char $\ast$text\+String)
+\item 
+void \mbox{\hyperlink{class_k___physics_1_1bullet_debug_draw_a1502ab78aca04f7cae91532fb24a4875}{set\+Debug\+Mode}} (int debug\+Mode)
+\item 
+int \mbox{\hyperlink{class_k___physics_1_1bullet_debug_draw_aafca54d1beeece0bcaaf3da4765e7699}{get\+Debug\+Mode}} () const
+\end{DoxyCompactItemize}
+
+
+\subsection{構築子と解体子}
+\mbox{\Hypertarget{class_k___physics_1_1bullet_debug_draw_ac969f58383a6b62a778bb16eb4026ad6}\label{class_k___physics_1_1bullet_debug_draw_ac969f58383a6b62a778bb16eb4026ad6}} 
+\index{K\+\_\+\+Physics\+::bullet\+Debug\+Draw@{K\+\_\+\+Physics\+::bullet\+Debug\+Draw}!bullet\+Debug\+Draw@{bullet\+Debug\+Draw}}
+\index{bullet\+Debug\+Draw@{bullet\+Debug\+Draw}!K\+\_\+\+Physics\+::bullet\+Debug\+Draw@{K\+\_\+\+Physics\+::bullet\+Debug\+Draw}}
+\subsubsection{\texorpdfstring{bullet\+Debug\+Draw()}{bulletDebugDraw()}}
+{\footnotesize\ttfamily K\+\_\+\+Physics\+::bullet\+Debug\+Draw\+::bullet\+Debug\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_k___physics_1_1bullet_debug_draw_a2b26e0588632a32ecef03088f0486378}\label{class_k___physics_1_1bullet_debug_draw_a2b26e0588632a32ecef03088f0486378}} 
+\index{K\+\_\+\+Physics\+::bullet\+Debug\+Draw@{K\+\_\+\+Physics\+::bullet\+Debug\+Draw}!````~bullet\+Debug\+Draw@{$\sim$bullet\+Debug\+Draw}}
+\index{````~bullet\+Debug\+Draw@{$\sim$bullet\+Debug\+Draw}!K\+\_\+\+Physics\+::bullet\+Debug\+Draw@{K\+\_\+\+Physics\+::bullet\+Debug\+Draw}}
+\subsubsection{\texorpdfstring{$\sim$bullet\+Debug\+Draw()}{~bulletDebugDraw()}}
+{\footnotesize\ttfamily K\+\_\+\+Physics\+::bullet\+Debug\+Draw\+::$\sim$bullet\+Debug\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{関数詳解}
+\mbox{\Hypertarget{class_k___physics_1_1bullet_debug_draw_ad3e665ca605b58a03474ccafc02a5bd9}\label{class_k___physics_1_1bullet_debug_draw_ad3e665ca605b58a03474ccafc02a5bd9}} 
+\index{K\+\_\+\+Physics\+::bullet\+Debug\+Draw@{K\+\_\+\+Physics\+::bullet\+Debug\+Draw}!draw3d\+Text@{draw3d\+Text}}
+\index{draw3d\+Text@{draw3d\+Text}!K\+\_\+\+Physics\+::bullet\+Debug\+Draw@{K\+\_\+\+Physics\+::bullet\+Debug\+Draw}}
+\subsubsection{\texorpdfstring{draw3d\+Text()}{draw3dText()}}
+{\footnotesize\ttfamily void K\+\_\+\+Physics\+::bullet\+Debug\+Draw\+::draw3d\+Text (\begin{DoxyParamCaption}\item[{const bt\+Vector3 \&}]{location,  }\item[{const char $\ast$}]{text\+String }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_k___physics_1_1bullet_debug_draw_aee36880ac9b46c4379317b8f6d77d312}\label{class_k___physics_1_1bullet_debug_draw_aee36880ac9b46c4379317b8f6d77d312}} 
+\index{K\+\_\+\+Physics\+::bullet\+Debug\+Draw@{K\+\_\+\+Physics\+::bullet\+Debug\+Draw}!draw\+Contact\+Point@{draw\+Contact\+Point}}
+\index{draw\+Contact\+Point@{draw\+Contact\+Point}!K\+\_\+\+Physics\+::bullet\+Debug\+Draw@{K\+\_\+\+Physics\+::bullet\+Debug\+Draw}}
+\subsubsection{\texorpdfstring{draw\+Contact\+Point()}{drawContactPoint()}}
+{\footnotesize\ttfamily void K\+\_\+\+Physics\+::bullet\+Debug\+Draw\+::draw\+Contact\+Point (\begin{DoxyParamCaption}\item[{const bt\+Vector3 \&}]{Point\+OnB,  }\item[{const bt\+Vector3 \&}]{normal\+OnB,  }\item[{bt\+Scalar}]{distance,  }\item[{int}]{life\+Time,  }\item[{const bt\+Vector3 \&}]{color }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_k___physics_1_1bullet_debug_draw_a361177ad23a76003b5e0811e4d3643d5}\label{class_k___physics_1_1bullet_debug_draw_a361177ad23a76003b5e0811e4d3643d5}} 
+\index{K\+\_\+\+Physics\+::bullet\+Debug\+Draw@{K\+\_\+\+Physics\+::bullet\+Debug\+Draw}!draw\+Line@{draw\+Line}}
+\index{draw\+Line@{draw\+Line}!K\+\_\+\+Physics\+::bullet\+Debug\+Draw@{K\+\_\+\+Physics\+::bullet\+Debug\+Draw}}
+\subsubsection{\texorpdfstring{draw\+Line()}{drawLine()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void K\+\_\+\+Physics\+::bullet\+Debug\+Draw\+::draw\+Line (\begin{DoxyParamCaption}\item[{const bt\+Vector3 \&}]{from,  }\item[{const bt\+Vector3 \&}]{to,  }\item[{const bt\+Vector3 \&}]{color }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_k___physics_1_1bullet_debug_draw_a0842dd424336cc1e332cd2c01f68ac86}\label{class_k___physics_1_1bullet_debug_draw_a0842dd424336cc1e332cd2c01f68ac86}} 
+\index{K\+\_\+\+Physics\+::bullet\+Debug\+Draw@{K\+\_\+\+Physics\+::bullet\+Debug\+Draw}!draw\+Line@{draw\+Line}}
+\index{draw\+Line@{draw\+Line}!K\+\_\+\+Physics\+::bullet\+Debug\+Draw@{K\+\_\+\+Physics\+::bullet\+Debug\+Draw}}
+\subsubsection{\texorpdfstring{draw\+Line()}{drawLine()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void K\+\_\+\+Physics\+::bullet\+Debug\+Draw\+::draw\+Line (\begin{DoxyParamCaption}\item[{const bt\+Vector3 \&}]{from,  }\item[{const bt\+Vector3 \&}]{to,  }\item[{const bt\+Vector3 \&}]{from\+Color,  }\item[{const bt\+Vector3 \&}]{to\+Color }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_k___physics_1_1bullet_debug_draw_aafca54d1beeece0bcaaf3da4765e7699}\label{class_k___physics_1_1bullet_debug_draw_aafca54d1beeece0bcaaf3da4765e7699}} 
+\index{K\+\_\+\+Physics\+::bullet\+Debug\+Draw@{K\+\_\+\+Physics\+::bullet\+Debug\+Draw}!get\+Debug\+Mode@{get\+Debug\+Mode}}
+\index{get\+Debug\+Mode@{get\+Debug\+Mode}!K\+\_\+\+Physics\+::bullet\+Debug\+Draw@{K\+\_\+\+Physics\+::bullet\+Debug\+Draw}}
+\subsubsection{\texorpdfstring{get\+Debug\+Mode()}{getDebugMode()}}
+{\footnotesize\ttfamily int K\+\_\+\+Physics\+::bullet\+Debug\+Draw\+::get\+Debug\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_k___physics_1_1bullet_debug_draw_aa421c8d4afa407e1e8c9784fce42115e}\label{class_k___physics_1_1bullet_debug_draw_aa421c8d4afa407e1e8c9784fce42115e}} 
+\index{K\+\_\+\+Physics\+::bullet\+Debug\+Draw@{K\+\_\+\+Physics\+::bullet\+Debug\+Draw}!report\+Error\+Warning@{report\+Error\+Warning}}
+\index{report\+Error\+Warning@{report\+Error\+Warning}!K\+\_\+\+Physics\+::bullet\+Debug\+Draw@{K\+\_\+\+Physics\+::bullet\+Debug\+Draw}}
+\subsubsection{\texorpdfstring{report\+Error\+Warning()}{reportErrorWarning()}}
+{\footnotesize\ttfamily void K\+\_\+\+Physics\+::bullet\+Debug\+Draw\+::report\+Error\+Warning (\begin{DoxyParamCaption}\item[{const char $\ast$}]{warning\+String }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_k___physics_1_1bullet_debug_draw_a1502ab78aca04f7cae91532fb24a4875}\label{class_k___physics_1_1bullet_debug_draw_a1502ab78aca04f7cae91532fb24a4875}} 
+\index{K\+\_\+\+Physics\+::bullet\+Debug\+Draw@{K\+\_\+\+Physics\+::bullet\+Debug\+Draw}!set\+Debug\+Mode@{set\+Debug\+Mode}}
+\index{set\+Debug\+Mode@{set\+Debug\+Mode}!K\+\_\+\+Physics\+::bullet\+Debug\+Draw@{K\+\_\+\+Physics\+::bullet\+Debug\+Draw}}
+\subsubsection{\texorpdfstring{set\+Debug\+Mode()}{setDebugMode()}}
+{\footnotesize\ttfamily void K\+\_\+\+Physics\+::bullet\+Debug\+Draw\+::set\+Debug\+Mode (\begin{DoxyParamCaption}\item[{int}]{debug\+Mode }\end{DoxyParamCaption})}
+

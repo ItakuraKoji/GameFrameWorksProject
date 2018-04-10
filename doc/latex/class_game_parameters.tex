@@ -1,0 +1,197 @@
+\hypertarget{class_game_parameters}{}\section{Game\+Parameters クラス}
+\label{class_game_parameters}\index{Game\+Parameters@{Game\+Parameters}}
+
+
+{\ttfamily \#include $<$Game\+Parameters.\+h$>$}
+
+\subsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_parameters_a67c9f7c3778fb7cceef8f3d3ebc76cc5}{Game\+Parameters}} (G\+L\+F\+Wwindow $\ast$window, int screen\+Width, int screen\+Height)
+\item 
+\mbox{\hyperlink{class_game_parameters_ac8659c496d90b1191d38b3e240fc0130}{$\sim$\+Game\+Parameters}} ()
+\item 
+bool \mbox{\hyperlink{class_game_parameters_a287904839ed6e402c89b3f3a3ce90f7b}{Initialize}} (G\+L\+F\+Wwindow $\ast$window, int screen\+Width, int screen\+Height)
+\item 
+void \mbox{\hyperlink{class_game_parameters_ad17a8da24d4b91cf1244add083f14465}{Finalize}} ()
+\item 
+void \mbox{\hyperlink{class_game_parameters_ae3ca4154f788d38285a27a62540880d2}{Run}} ()
+\item 
+void \mbox{\hyperlink{class_game_parameters_ab2a0cc4710c040091a3d9cd492045861}{Use\+Ambient}} (const std\+::string \&name)
+\item 
+void \mbox{\hyperlink{class_game_parameters_aed37c53833c53e577ec5ca7baf749040}{Use\+Directional}} (const std\+::string \&name)
+\item 
+void \mbox{\hyperlink{class_game_parameters_ac5606ec795c47e99ef20f8da2f7d0ed8}{Use\+Shader}} (const std\+::string \&name)
+\item 
+void \mbox{\hyperlink{class_game_parameters_a886b6f2a939dc5ceadf2667daa327168}{Use\+Camera}} (const std\+::string \&name)
+\item 
+\mbox{\hyperlink{class_k___input_1_1_input_g_l_f_w}{K\+\_\+\+Input\+::\+Input\+G\+L\+FW}} $\ast$ \mbox{\hyperlink{class_game_parameters_a7f547214ffbdf1a6fffe8f3153fe3d26}{Get\+Input}} ()
+\item 
+\mbox{\hyperlink{class_k___physics_1_1_bullet_physics}{K\+\_\+\+Physics\+::\+Bullet\+Physics}} $\ast$ \mbox{\hyperlink{class_game_parameters_a6fbc7ef320a7b72f3b7d7833070f5d3c}{Get\+Physics}} ()
+\item 
+\mbox{\hyperlink{class_k___graphics_1_1_texture_list}{K\+\_\+\+Graphics\+::\+Texture\+List}} $\ast$ \mbox{\hyperlink{class_game_parameters_ac8161d1198add063bd00058e40d17bc3}{Get\+Texture\+List}} ()
+\item 
+\mbox{\hyperlink{class_k___graphics_1_1_shader_list}{K\+\_\+\+Graphics\+::\+Shader\+List}} $\ast$ \mbox{\hyperlink{class_game_parameters_aa8d4bcae3fd46636db5e3873d43da1e7}{Get\+Shader\+List}} ()
+\item 
+\mbox{\hyperlink{class_k___graphics_1_1_light_list}{K\+\_\+\+Graphics\+::\+Light\+List}} $\ast$ \mbox{\hyperlink{class_game_parameters_a311ce21eaa2b395f9aefd494499efba2}{Get\+Light\+List}} ()
+\item 
+\mbox{\hyperlink{class_k___graphics_1_1_camera_list}{K\+\_\+\+Graphics\+::\+Camera\+List}} $\ast$ \mbox{\hyperlink{class_game_parameters_a9f7f396646b1237e067507635b855a61}{Get\+Camera\+List}} ()
+\item 
+\mbox{\hyperlink{class_k___audio_1_1_sound_class}{K\+\_\+\+Audio\+::\+Sound\+Class}} $\ast$ \mbox{\hyperlink{class_game_parameters_a6f4b624f15e67e3beda12f6b9a999106}{Get\+Audio\+List}} ()
+\item 
+\mbox{\hyperlink{class_k___graphics_1_1_effect_class}{K\+\_\+\+Graphics\+::\+Effect\+Class}} $\ast$ \mbox{\hyperlink{class_game_parameters_ad367332577a18a1d5968b5f1365d57c5}{Get\+Effects}} ()
+\item 
+\mbox{\hyperlink{class_k___graphics_1_1_font_renderer}{K\+\_\+\+Graphics\+::\+Font\+Renderer}} $\ast$ \mbox{\hyperlink{class_game_parameters_a37fd8d468387c01d40461ba6a86d156f}{Get\+Font\+Renderer}} ()
+\end{DoxyCompactItemize}
+\subsection*{公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_k___graphics_1_1_camera_class}{K\+\_\+\+Graphics\+::\+Camera\+Class}} $\ast$ \mbox{\hyperlink{class_game_parameters_a8c43ae868a40e67dcec8bab9150c7924}{current\+Camera}}
+\item 
+\mbox{\hyperlink{class_k___graphics_1_1_shader_class}{K\+\_\+\+Graphics\+::\+Shader\+Class}} $\ast$ \mbox{\hyperlink{class_game_parameters_a411132917bba3c33c5e911fcf6dd9cd1}{current\+Shader}}
+\item 
+int \mbox{\hyperlink{class_game_parameters_a73787aded537383f803465e8bf6cc9d6}{window\+Width}}
+\item 
+int \mbox{\hyperlink{class_game_parameters_ad58a3e9137610433664e1b81a8e883b0}{window\+Height}}
+\end{DoxyCompactItemize}
+
+
+\subsection{構築子と解体子}
+\mbox{\Hypertarget{class_game_parameters_a67c9f7c3778fb7cceef8f3d3ebc76cc5}\label{class_game_parameters_a67c9f7c3778fb7cceef8f3d3ebc76cc5}} 
+\index{Game\+Parameters@{Game\+Parameters}!Game\+Parameters@{Game\+Parameters}}
+\index{Game\+Parameters@{Game\+Parameters}!Game\+Parameters@{Game\+Parameters}}
+\subsubsection{\texorpdfstring{Game\+Parameters()}{GameParameters()}}
+{\footnotesize\ttfamily Game\+Parameters\+::\+Game\+Parameters (\begin{DoxyParamCaption}\item[{G\+L\+F\+Wwindow $\ast$}]{window,  }\item[{int}]{screen\+Width,  }\item[{int}]{screen\+Height }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_game_parameters_ac8659c496d90b1191d38b3e240fc0130}\label{class_game_parameters_ac8659c496d90b1191d38b3e240fc0130}} 
+\index{Game\+Parameters@{Game\+Parameters}!````~Game\+Parameters@{$\sim$\+Game\+Parameters}}
+\index{````~Game\+Parameters@{$\sim$\+Game\+Parameters}!Game\+Parameters@{Game\+Parameters}}
+\subsubsection{\texorpdfstring{$\sim$\+Game\+Parameters()}{~GameParameters()}}
+{\footnotesize\ttfamily Game\+Parameters\+::$\sim$\+Game\+Parameters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{関数詳解}
+\mbox{\Hypertarget{class_game_parameters_ad17a8da24d4b91cf1244add083f14465}\label{class_game_parameters_ad17a8da24d4b91cf1244add083f14465}} 
+\index{Game\+Parameters@{Game\+Parameters}!Finalize@{Finalize}}
+\index{Finalize@{Finalize}!Game\+Parameters@{Game\+Parameters}}
+\subsubsection{\texorpdfstring{Finalize()}{Finalize()}}
+{\footnotesize\ttfamily void Game\+Parameters\+::\+Finalize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_game_parameters_a6f4b624f15e67e3beda12f6b9a999106}\label{class_game_parameters_a6f4b624f15e67e3beda12f6b9a999106}} 
+\index{Game\+Parameters@{Game\+Parameters}!Get\+Audio\+List@{Get\+Audio\+List}}
+\index{Get\+Audio\+List@{Get\+Audio\+List}!Game\+Parameters@{Game\+Parameters}}
+\subsubsection{\texorpdfstring{Get\+Audio\+List()}{GetAudioList()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_k___audio_1_1_sound_class}{K\+\_\+\+Audio\+::\+Sound\+Class}} $\ast$ Game\+Parameters\+::\+Get\+Audio\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_game_parameters_a9f7f396646b1237e067507635b855a61}\label{class_game_parameters_a9f7f396646b1237e067507635b855a61}} 
+\index{Game\+Parameters@{Game\+Parameters}!Get\+Camera\+List@{Get\+Camera\+List}}
+\index{Get\+Camera\+List@{Get\+Camera\+List}!Game\+Parameters@{Game\+Parameters}}
+\subsubsection{\texorpdfstring{Get\+Camera\+List()}{GetCameraList()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_k___graphics_1_1_camera_list}{K\+\_\+\+Graphics\+::\+Camera\+List}} $\ast$ Game\+Parameters\+::\+Get\+Camera\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_game_parameters_ad367332577a18a1d5968b5f1365d57c5}\label{class_game_parameters_ad367332577a18a1d5968b5f1365d57c5}} 
+\index{Game\+Parameters@{Game\+Parameters}!Get\+Effects@{Get\+Effects}}
+\index{Get\+Effects@{Get\+Effects}!Game\+Parameters@{Game\+Parameters}}
+\subsubsection{\texorpdfstring{Get\+Effects()}{GetEffects()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_k___graphics_1_1_effect_class}{K\+\_\+\+Graphics\+::\+Effect\+Class}} $\ast$ Game\+Parameters\+::\+Get\+Effects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_game_parameters_a37fd8d468387c01d40461ba6a86d156f}\label{class_game_parameters_a37fd8d468387c01d40461ba6a86d156f}} 
+\index{Game\+Parameters@{Game\+Parameters}!Get\+Font\+Renderer@{Get\+Font\+Renderer}}
+\index{Get\+Font\+Renderer@{Get\+Font\+Renderer}!Game\+Parameters@{Game\+Parameters}}
+\subsubsection{\texorpdfstring{Get\+Font\+Renderer()}{GetFontRenderer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_k___graphics_1_1_font_renderer}{K\+\_\+\+Graphics\+::\+Font\+Renderer}} $\ast$ Game\+Parameters\+::\+Get\+Font\+Renderer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_game_parameters_a7f547214ffbdf1a6fffe8f3153fe3d26}\label{class_game_parameters_a7f547214ffbdf1a6fffe8f3153fe3d26}} 
+\index{Game\+Parameters@{Game\+Parameters}!Get\+Input@{Get\+Input}}
+\index{Get\+Input@{Get\+Input}!Game\+Parameters@{Game\+Parameters}}
+\subsubsection{\texorpdfstring{Get\+Input()}{GetInput()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_k___input_1_1_input_g_l_f_w}{K\+\_\+\+Input\+::\+Input\+G\+L\+FW}} $\ast$ Game\+Parameters\+::\+Get\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_game_parameters_a311ce21eaa2b395f9aefd494499efba2}\label{class_game_parameters_a311ce21eaa2b395f9aefd494499efba2}} 
+\index{Game\+Parameters@{Game\+Parameters}!Get\+Light\+List@{Get\+Light\+List}}
+\index{Get\+Light\+List@{Get\+Light\+List}!Game\+Parameters@{Game\+Parameters}}
+\subsubsection{\texorpdfstring{Get\+Light\+List()}{GetLightList()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_k___graphics_1_1_light_list}{K\+\_\+\+Graphics\+::\+Light\+List}} $\ast$ Game\+Parameters\+::\+Get\+Light\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_game_parameters_a6fbc7ef320a7b72f3b7d7833070f5d3c}\label{class_game_parameters_a6fbc7ef320a7b72f3b7d7833070f5d3c}} 
+\index{Game\+Parameters@{Game\+Parameters}!Get\+Physics@{Get\+Physics}}
+\index{Get\+Physics@{Get\+Physics}!Game\+Parameters@{Game\+Parameters}}
+\subsubsection{\texorpdfstring{Get\+Physics()}{GetPhysics()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_k___physics_1_1_bullet_physics}{K\+\_\+\+Physics\+::\+Bullet\+Physics}} $\ast$ Game\+Parameters\+::\+Get\+Physics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_game_parameters_aa8d4bcae3fd46636db5e3873d43da1e7}\label{class_game_parameters_aa8d4bcae3fd46636db5e3873d43da1e7}} 
+\index{Game\+Parameters@{Game\+Parameters}!Get\+Shader\+List@{Get\+Shader\+List}}
+\index{Get\+Shader\+List@{Get\+Shader\+List}!Game\+Parameters@{Game\+Parameters}}
+\subsubsection{\texorpdfstring{Get\+Shader\+List()}{GetShaderList()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_k___graphics_1_1_shader_list}{K\+\_\+\+Graphics\+::\+Shader\+List}} $\ast$ Game\+Parameters\+::\+Get\+Shader\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_game_parameters_ac8161d1198add063bd00058e40d17bc3}\label{class_game_parameters_ac8161d1198add063bd00058e40d17bc3}} 
+\index{Game\+Parameters@{Game\+Parameters}!Get\+Texture\+List@{Get\+Texture\+List}}
+\index{Get\+Texture\+List@{Get\+Texture\+List}!Game\+Parameters@{Game\+Parameters}}
+\subsubsection{\texorpdfstring{Get\+Texture\+List()}{GetTextureList()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_k___graphics_1_1_texture_list}{K\+\_\+\+Graphics\+::\+Texture\+List}} $\ast$ Game\+Parameters\+::\+Get\+Texture\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_game_parameters_a287904839ed6e402c89b3f3a3ce90f7b}\label{class_game_parameters_a287904839ed6e402c89b3f3a3ce90f7b}} 
+\index{Game\+Parameters@{Game\+Parameters}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!Game\+Parameters@{Game\+Parameters}}
+\subsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily bool Game\+Parameters\+::\+Initialize (\begin{DoxyParamCaption}\item[{G\+L\+F\+Wwindow $\ast$}]{window,  }\item[{int}]{screen\+Width,  }\item[{int}]{screen\+Height }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_game_parameters_ae3ca4154f788d38285a27a62540880d2}\label{class_game_parameters_ae3ca4154f788d38285a27a62540880d2}} 
+\index{Game\+Parameters@{Game\+Parameters}!Run@{Run}}
+\index{Run@{Run}!Game\+Parameters@{Game\+Parameters}}
+\subsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily void Game\+Parameters\+::\+Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_game_parameters_ab2a0cc4710c040091a3d9cd492045861}\label{class_game_parameters_ab2a0cc4710c040091a3d9cd492045861}} 
+\index{Game\+Parameters@{Game\+Parameters}!Use\+Ambient@{Use\+Ambient}}
+\index{Use\+Ambient@{Use\+Ambient}!Game\+Parameters@{Game\+Parameters}}
+\subsubsection{\texorpdfstring{Use\+Ambient()}{UseAmbient()}}
+{\footnotesize\ttfamily void Game\+Parameters\+::\+Use\+Ambient (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_game_parameters_a886b6f2a939dc5ceadf2667daa327168}\label{class_game_parameters_a886b6f2a939dc5ceadf2667daa327168}} 
+\index{Game\+Parameters@{Game\+Parameters}!Use\+Camera@{Use\+Camera}}
+\index{Use\+Camera@{Use\+Camera}!Game\+Parameters@{Game\+Parameters}}
+\subsubsection{\texorpdfstring{Use\+Camera()}{UseCamera()}}
+{\footnotesize\ttfamily void Game\+Parameters\+::\+Use\+Camera (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_game_parameters_aed37c53833c53e577ec5ca7baf749040}\label{class_game_parameters_aed37c53833c53e577ec5ca7baf749040}} 
+\index{Game\+Parameters@{Game\+Parameters}!Use\+Directional@{Use\+Directional}}
+\index{Use\+Directional@{Use\+Directional}!Game\+Parameters@{Game\+Parameters}}
+\subsubsection{\texorpdfstring{Use\+Directional()}{UseDirectional()}}
+{\footnotesize\ttfamily void Game\+Parameters\+::\+Use\+Directional (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_game_parameters_ac5606ec795c47e99ef20f8da2f7d0ed8}\label{class_game_parameters_ac5606ec795c47e99ef20f8da2f7d0ed8}} 
+\index{Game\+Parameters@{Game\+Parameters}!Use\+Shader@{Use\+Shader}}
+\index{Use\+Shader@{Use\+Shader}!Game\+Parameters@{Game\+Parameters}}
+\subsubsection{\texorpdfstring{Use\+Shader()}{UseShader()}}
+{\footnotesize\ttfamily void Game\+Parameters\+::\+Use\+Shader (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+
+
+\subsection{メンバ詳解}
+\mbox{\Hypertarget{class_game_parameters_a8c43ae868a40e67dcec8bab9150c7924}\label{class_game_parameters_a8c43ae868a40e67dcec8bab9150c7924}} 
+\index{Game\+Parameters@{Game\+Parameters}!current\+Camera@{current\+Camera}}
+\index{current\+Camera@{current\+Camera}!Game\+Parameters@{Game\+Parameters}}
+\subsubsection{\texorpdfstring{current\+Camera}{currentCamera}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_k___graphics_1_1_camera_class}{K\+\_\+\+Graphics\+::\+Camera\+Class}}$\ast$ Game\+Parameters\+::current\+Camera}
+
+\mbox{\Hypertarget{class_game_parameters_a411132917bba3c33c5e911fcf6dd9cd1}\label{class_game_parameters_a411132917bba3c33c5e911fcf6dd9cd1}} 
+\index{Game\+Parameters@{Game\+Parameters}!current\+Shader@{current\+Shader}}
+\index{current\+Shader@{current\+Shader}!Game\+Parameters@{Game\+Parameters}}
+\subsubsection{\texorpdfstring{current\+Shader}{currentShader}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_k___graphics_1_1_shader_class}{K\+\_\+\+Graphics\+::\+Shader\+Class}}$\ast$ Game\+Parameters\+::current\+Shader}
+
+\mbox{\Hypertarget{class_game_parameters_ad58a3e9137610433664e1b81a8e883b0}\label{class_game_parameters_ad58a3e9137610433664e1b81a8e883b0}} 
+\index{Game\+Parameters@{Game\+Parameters}!window\+Height@{window\+Height}}
+\index{window\+Height@{window\+Height}!Game\+Parameters@{Game\+Parameters}}
+\subsubsection{\texorpdfstring{window\+Height}{windowHeight}}
+{\footnotesize\ttfamily int Game\+Parameters\+::window\+Height}
+
+\mbox{\Hypertarget{class_game_parameters_a73787aded537383f803465e8bf6cc9d6}\label{class_game_parameters_a73787aded537383f803465e8bf6cc9d6}} 
+\index{Game\+Parameters@{Game\+Parameters}!window\+Width@{window\+Width}}
+\index{window\+Width@{window\+Width}!Game\+Parameters@{Game\+Parameters}}
+\subsubsection{\texorpdfstring{window\+Width}{windowWidth}}
+{\footnotesize\ttfamily int Game\+Parameters\+::window\+Width}
+
