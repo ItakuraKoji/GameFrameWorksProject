@@ -5,5 +5,5 @@ var searchData=
   ['animation',['animation',['../struct_k___graphics_1_1_model_datas.html#a2998f1b8e3bb0573ba89a91c73f5eb4e',1,'K_Graphics::ModelDatas']]],
   ['animid',['animID',['../struct_k___graphics_1_1_anim_type.html#a866adf75cd1f6cccc09424878a4f73df',1,'K_Graphics::AnimType']]],
   ['animname',['animName',['../struct_k___graphics_1_1_anim_type.html#a9237cfdcfb0a4c88b12fcda8c564e357',1,'K_Graphics::AnimType']]],
-  ['axis',['axis',['../struct_k___input_1_1_joy_stick_axis.html#aafa1b716934d276c7a8ac1b857effcc2',1,'K_Input::JoyStickAxis']]]
+  ['axis',['axis',['../struct_k___input_1_1_axis_state.html#a253890a432ae112fc57d39f7e06c88ad',1,'K_Input::AxisState']]]
 ];

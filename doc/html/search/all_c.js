@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['m',['M',['../namespace_k___input.html#af62d80c77b12db01035e4b9aa27a09d6a69691c7bdcc3ce6d5d8a1361f22d04ac',1,'K_Input']]],
   ['mappolygon',['MapPolygon',['../class_k___physics_1_1_map_polygon.html',1,'K_Physics::MapPolygon'],['../class_k___physics_1_1_map_polygon.html#af64be549128b41d162dbddac6d7114ae',1,'K_Physics::MapPolygon::MapPolygon()']]],
   ['material',['Material',['../struct_k___graphics_1_1_material.html',1,'K_Graphics::Material'],['../struct_k___graphics_1_1_model_datas.html#a7534ee37fab0a8398884dd398dcd0532',1,'K_Graphics::ModelDatas::material()']]],
   ['materialdata',['MaterialData',['../class_k___graphics_1_1_material_data.html',1,'K_Graphics::MaterialData'],['../class_k___graphics_1_1_material_data.html#a2b33d7d9cd004446593d6f761348e030',1,'K_Graphics::MaterialData::MaterialData()']]],
@@ -14,7 +15,7 @@ var searchData=
   ['maxdistance',['maxDistance',['../struct_k___physics_1_1_fix_contact_call_back.html#aba34225ba4a8474eaf9b22e9c18a1918',1,'K_Physics::FixContactCallBack']]],
   ['meshmodel',['MeshModel',['../class_k___graphics_1_1_mesh_model.html',1,'K_Graphics::MeshModel'],['../class_k___graphics_1_1_mesh_model.html#ab7ba0ef09b7548369c64fa306a017763',1,'K_Graphics::MeshModel::MeshModel()']]],
   ['meshobject',['MeshObject',['../class_k___graphics_1_1_mesh_object.html',1,'K_Graphics::MeshObject'],['../class_k___graphics_1_1_mesh_object.html#af59273310f07f67f766f9e90323ce641',1,'K_Graphics::MeshObject::MeshObject()']]],
-  ['minusbutton',['minusButton',['../struct_k___input_1_1_joy_stick_axis.html#a2af0190f45d6b917d4e998b47ef04ca2',1,'K_Input::JoyStickAxis']]],
+  ['minusbutton',['minusButton',['../struct_k___input_1_1_axis_state.html#ad1c843ecba70aa4035dfe71c498b26c1',1,'K_Input::AxisState']]],
   ['modeldatafactory',['ModelDataFactory',['../class_k___graphics_1_1_model_data_factory.html',1,'K_Graphics']]],
   ['modeldatas',['ModelDatas',['../struct_k___graphics_1_1_model_datas.html',1,'K_Graphics::ModelDatas'],['../struct_k___graphics_1_1_model_datas.html#a18293d9a4af2cec8e0fa6a32cefef8cd',1,'K_Graphics::ModelDatas::ModelDatas()']]],
   ['mono16',['Mono16',['../class_k___audio_1_1_audio_data.html#a7ef9acd4f7d2140951605d835cff2435ad51581c07626d73329902c1587893768',1,'K_Audio::AudioData']]],

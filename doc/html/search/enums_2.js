@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['cameratype',['CameraType',['../namespace_k___graphics.html#a46f486e742ad696f88bfbeb22f8af10f',1,'K_Graphics']]]
+  ['joyaxis',['JoyAxis',['../namespace_k___input.html#a82230ae06723a21cc710ae3d66fd078f',1,'K_Input']]],
+  ['joybutton',['JoyButton',['../namespace_k___input.html#a0fad93a64181d6776849d43118c26902',1,'K_Input']]]
 ];

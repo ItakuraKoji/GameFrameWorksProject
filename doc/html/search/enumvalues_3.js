@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['mono16',['Mono16',['../class_k___audio_1_1_audio_data.html#a7ef9acd4f7d2140951605d835cff2435ad51581c07626d73329902c1587893768',1,'K_Audio::AudioData']]],
-  ['mono8',['Mono8',['../class_k___audio_1_1_audio_data.html#a7ef9acd4f7d2140951605d835cff2435a9cfb443c5ead7e17f06e768eb2a9e915',1,'K_Audio::AudioData']]]
+  ['d',['D',['../namespace_k___input.html#af62d80c77b12db01035e4b9aa27a09d6af623e75af30e62bbd73d6df5b50bb7b5',1,'K_Input']]],
+  ['down',['Down',['../namespace_k___input.html#ab1b3c957b1b7070e86ccd1a908f3a101a08a38277b0309070706f6652eeae9a53',1,'K_Input']]]
 ];

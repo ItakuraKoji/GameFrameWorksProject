@@ -1,6 +1,5 @@
 #pragma once
 #include<fbxsdk\fbxsdk.h>
-#include<Eigen\Core>
 #include<vector>
 #include<unordered_map>
 #include<string>
@@ -68,6 +67,8 @@ namespace K_Loader {
 		//クラス内でアクセスするためのもの。deleteする責任はない
 		K_Graphics::TextureList *textureList;
 
+		//FBXファイルの場所をルートにする
+		char fileRoot[100];
 		int numVertex;
 		int numUV;
 		int numFace;

@@ -6,7 +6,5 @@ var searchData=
   ['controlpoint',['controlPoint',['../class_k___graphics_1_1_sprite_object.html#ad5d76b9b0a30102d01abbb20bab285f8',1,'K_Graphics::SpriteObject']]],
   ['count',['count',['../struct_k___physics_1_1_fix_contact_call_back.html#a38ab6408dd65772d2db8ac20435cd4ec',1,'K_Physics::FixContactCallBack']]],
   ['cullenttexture',['cullentTexture',['../class_k___graphics_1_1_sprite_object.html#a7cf528d065c242528bf0bd407a139f09',1,'K_Graphics::SpriteObject']]],
-  ['currentcamera',['currentCamera',['../class_game_parameters.html#a8c43ae868a40e67dcec8bab9150c7924',1,'GameParameters']]],
-  ['currentmat',['currentMat',['../struct_k___graphics_1_1_bone.html#a82de526d464ccddea11100c9f8705f61',1,'K_Graphics::Bone']]],
-  ['currentshader',['currentShader',['../class_game_parameters.html#a411132917bba3c33c5e911fcf6dd9cd1',1,'GameParameters']]]
+  ['currentmat',['currentMat',['../struct_k___graphics_1_1_bone.html#a82de526d464ccddea11100c9f8705f61',1,'K_Graphics::Bone']]]
 ];

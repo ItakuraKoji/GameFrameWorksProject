@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['c',['C',['../namespace_k___input.html#af62d80c77b12db01035e4b9aa27a09d6a0d61f8370cad1d412f80b84d143e1257',1,'K_Input']]],
   ['cameraclass',['CameraClass',['../class_k___graphics_1_1_camera_class.html',1,'K_Graphics::CameraClass'],['../class_k___graphics_1_1_camera_class.html#a2b371f16a80374ab07522af4bfe8f97c',1,'K_Graphics::CameraClass::CameraClass()']]],
   ['cameralist',['CameraList',['../class_k___graphics_1_1_camera_list.html',1,'K_Graphics::CameraList'],['../class_k___graphics_1_1_camera_list.html#a83eea14d2963da7f46309fc06675da86',1,'K_Graphics::CameraList::CameraList()']]],
   ['cameratype',['CameraType',['../namespace_k___graphics.html#a46f486e742ad696f88bfbeb22f8af10f',1,'K_Graphics']]],
@@ -14,7 +15,9 @@ var searchData=
   ['collisiondata',['CollisionData',['../class_k___physics_1_1_collision_data.html',1,'K_Physics::CollisionData'],['../class_k___physics_1_1_collision_data.html#abc664918f597d9ef7ccc00530d6f9c5c',1,'K_Physics::CollisionData::CollisionData()']]],
   ['collisiontag',['CollisionTag',['../struct_k___physics_1_1_collision_tag.html',1,'K_Physics']]],
   ['color',['color',['../class_k___graphics_1_1_ambient_light.html#ab1122a784c5ec44b828ace7013d1d7c8',1,'K_Graphics::AmbientLight::color()'],['../class_k___graphics_1_1_directional_light.html#a136a2152a4f66c7c8f9676abc2c7211c',1,'K_Graphics::DirectionalLight::color()']]],
+  ['controlleft',['ControlLeft',['../namespace_k___input.html#af62d80c77b12db01035e4b9aa27a09d6af37bbf0b270fca4b52a03cec0bf900f6',1,'K_Input']]],
   ['controlpoint',['controlPoint',['../class_k___graphics_1_1_sprite_object.html#ad5d76b9b0a30102d01abbb20bab285f8',1,'K_Graphics::SpriteObject']]],
+  ['controlright',['ControlRight',['../namespace_k___input.html#af62d80c77b12db01035e4b9aa27a09d6a6ff11445c5c9c2ed1c422621ebf2a03a',1,'K_Input']]],
   ['count',['count',['../struct_k___physics_1_1_fix_contact_call_back.html#a38ab6408dd65772d2db8ac20435cd4ec',1,'K_Physics::FixContactCallBack']]],
   ['create',['Create',['../class_k___audio_1_1_audio_data_factory.html#a2ab1886d205b300e8255b153ded7ffcb',1,'K_Audio::AudioDataFactory']]],
   ['createboxshape',['CreateBoxShape',['../class_k___physics_1_1_bullet_physics.html#a12af3e18b74c5dd8bf6a866f6eb1df03',1,'K_Physics::BulletPhysics']]],
@@ -30,7 +33,5 @@ var searchData=
   ['createtrianglemesh',['CreateTriangleMesh',['../class_k___physics_1_1_bullet_physics.html#a22e01fd34d8040fb70f4ccf12d69969e',1,'K_Physics::BulletPhysics']]],
   ['createtrianglemeshshape',['CreateTriangleMeshShape',['../class_k___physics_1_1_bullet_physics.html#ad78ad1e12f268bac61731b636ea040b4',1,'K_Physics::BulletPhysics']]],
   ['cullenttexture',['cullentTexture',['../class_k___graphics_1_1_sprite_object.html#a7cf528d065c242528bf0bd407a139f09',1,'K_Graphics::SpriteObject']]],
-  ['currentcamera',['currentCamera',['../class_game_parameters.html#a8c43ae868a40e67dcec8bab9150c7924',1,'GameParameters']]],
-  ['currentmat',['currentMat',['../struct_k___graphics_1_1_bone.html#a82de526d464ccddea11100c9f8705f61',1,'K_Graphics::Bone']]],
-  ['currentshader',['currentShader',['../class_game_parameters.html#a411132917bba3c33c5e911fcf6dd9cd1',1,'GameParameters']]]
+  ['currentmat',['currentMat',['../struct_k___graphics_1_1_bone.html#a82de526d464ccddea11100c9f8705f61',1,'K_Graphics::Bone']]]
 ];

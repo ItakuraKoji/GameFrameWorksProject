@@ -67,10 +67,11 @@ namespace K_Graphics {
 		this->renderer->EndRendering();
 	}
 
-	void EffectClass::AddEffectSource(const std::string& effectName, const char* filePass) {
+	bool EffectClass::AddEffectSource(const std::string& effectName, const char* filePass) {
 		//d•¡‚Í‹–‚³‚È‚¢
 		if (this->effect.find(effectName) != this->effect.end()) {
-			return;
+			printf("EffectName has existedF%s\n", filePass);
+			return false;
 		}
 
 		EFK_CHAR pass[64];
@@ -78,10 +79,12 @@ namespace K_Graphics {
 		Effekseer::Effect* efk = Effekseer::Effect::Create(this->manager, pass);
 		//Ž¸”s‚à‹–‚³‚È‚¢
 		if (efk == nullptr) {
-			return;
+			printf("Effect Load FailedF%s\n", filePass);
+			return false;
 		}
 		//‹–‚³‚ê‚½‚à‚Ì‚ÍƒŠƒXƒg‚Ö“o˜^
 		this->effect[effectName] = efk;
+		return true;
 	}
 
 	void EffectClass::DeleteEffectSource(const std::string& effectName) {

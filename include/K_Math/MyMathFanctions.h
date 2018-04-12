@@ -1,8 +1,8 @@
 #pragma once
 #define _USE_MATH_DEFINES
-#include<math.h>
 #include<Eigen\Core>
 #include<Eigen\Geometry>
+#include<math.h>
 
 //Eigenはずいぶん複雑なヘッダのようで、こいつは最初のほうにインクルードするほうがいいっぽい
 

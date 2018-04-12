@@ -1,21 +1,4 @@
 var searchData=
 [
-  ['vpad_5fbutton_5fa',['VPAD_BUTTON_A',['../namespace_k___input.html#a2a6df758ee5a36c29d234fe7a27beb2ca7c6fe16b06f428978d9e7ff3ce39dcc5',1,'K_Input']]],
-  ['vpad_5fbutton_5fb',['VPAD_BUTTON_B',['../namespace_k___input.html#a2a6df758ee5a36c29d234fe7a27beb2ca833ef85711e7fe949f129786720b0558',1,'K_Input']]],
-  ['vpad_5fbutton_5fdown',['VPAD_BUTTON_DOWN',['../namespace_k___input.html#a2a6df758ee5a36c29d234fe7a27beb2ca9fe0f4572d3b923713e350e1c271ca81',1,'K_Input']]],
-  ['vpad_5fbutton_5fl',['VPAD_BUTTON_L',['../namespace_k___input.html#a2a6df758ee5a36c29d234fe7a27beb2ca3cd96f74e75d2947d902b60b7ecca9d6',1,'K_Input']]],
-  ['vpad_5fbutton_5fleft',['VPAD_BUTTON_LEFT',['../namespace_k___input.html#a2a6df758ee5a36c29d234fe7a27beb2ca25b55a4701feef58c43d9372bd6e4e1e',1,'K_Input']]],
-  ['vpad_5fbutton_5fr',['VPAD_BUTTON_R',['../namespace_k___input.html#a2a6df758ee5a36c29d234fe7a27beb2ca94598101cdef548274e52d678ebfc878',1,'K_Input']]],
-  ['vpad_5fbutton_5fright',['VPAD_BUTTON_RIGHT',['../namespace_k___input.html#a2a6df758ee5a36c29d234fe7a27beb2cae7c9b94732730685a5b007a61004fd74',1,'K_Input']]],
-  ['vpad_5fbutton_5fup',['VPAD_BUTTON_UP',['../namespace_k___input.html#a2a6df758ee5a36c29d234fe7a27beb2ca729a8422ad8afd7439f1b8762537dbf5',1,'K_Input']]],
-  ['vpad_5fbutton_5fx',['VPAD_BUTTON_X',['../namespace_k___input.html#a2a6df758ee5a36c29d234fe7a27beb2ca2cb7bb8f3fd7886e7835d08b6772110c',1,'K_Input']]],
-  ['vpad_5fbutton_5fy',['VPAD_BUTTON_Y',['../namespace_k___input.html#a2a6df758ee5a36c29d234fe7a27beb2cabb1edc36963f9ddbffa000c0f7fe1ba9',1,'K_Input']]],
-  ['vpad_5fstick_5fl',['VPAD_STICK_L',['../namespace_k___input.html#a2a6df758ee5a36c29d234fe7a27beb2ca554b4642b6eb485219a03e75f05dc02e',1,'K_Input']]],
-  ['vpad_5fstick_5flx',['VPAD_STICK_LX',['../namespace_k___input.html#a2a6df758ee5a36c29d234fe7a27beb2cae0700e4b205966281235d17f234daae2',1,'K_Input']]],
-  ['vpad_5fstick_5fly',['VPAD_STICK_LY',['../namespace_k___input.html#a2a6df758ee5a36c29d234fe7a27beb2cae850d5e75b4b807cb016057d61a70a25',1,'K_Input']]],
-  ['vpad_5fstick_5fr',['VPAD_STICK_R',['../namespace_k___input.html#a2a6df758ee5a36c29d234fe7a27beb2ca4e48b3fdb996985d59f38dbd83645ba8',1,'K_Input']]],
-  ['vpad_5fstick_5frx',['VPAD_STICK_RX',['../namespace_k___input.html#a2a6df758ee5a36c29d234fe7a27beb2ca86b74335ded0e578d57fa0cf5bd5be0b',1,'K_Input']]],
-  ['vpad_5fstick_5fry',['VPAD_STICK_RY',['../namespace_k___input.html#a2a6df758ee5a36c29d234fe7a27beb2ca5de239acf096674e8e6e77fef14ac830',1,'K_Input']]],
-  ['vpad_5fstick_5fz1',['VPAD_STICK_Z1',['../namespace_k___input.html#a2a6df758ee5a36c29d234fe7a27beb2cae1f0e476305e4475b62fa802d2b34f84',1,'K_Input']]],
-  ['vpad_5fstick_5fz2',['VPAD_STICK_Z2',['../namespace_k___input.html#a2a6df758ee5a36c29d234fe7a27beb2cab8d5eb379665b8a590899a27d68f4e87',1,'K_Input']]]
+  ['k',['K',['../namespace_k___input.html#af62d80c77b12db01035e4b9aa27a09d6aa5f3c6a11b03839d46af9fb43c97c188',1,'K_Input']]]
 ];

@@ -31,6 +31,13 @@ namespace K_Loader {
 		}
 
 		printf("LoadModel... : %s\n", fileName.data());
+		for (int i = 0; i < fileName.size() - 1; ++i) {
+			this->fileRoot[i] = fileName.data()[i];
+			if (fileName.data()[i] == '\\' || fileName.data()[i] == '/') {
+				this->fileRoot[i + 1] = '\0';
+				break;
+			}
+		}
 
 		FbxNode *rootNode = this->fbxData->GetScene()->GetRootNode();
 		if (!RecursiveNode(rootNode)) {
@@ -330,16 +337,19 @@ namespace K_Loader {
 				const char *fullName = pTexture->GetRelativeFileName();
 				//最終的に使用するファイル名
 				char fileName[120] = "";
+				//Blenderから読み取った相対パスのディレクトリ
+				char directory[100] = "";
 				//Blenderから読み取った名前
 				char name[100] = "";
 				//拡張子
 				char ext[10] = "";
 				//ファイル名を取得(ファイル名と拡張子のみ)
-				_splitpath_s(fullName, 0, 0, fileName, 120, name, 100, ext, 10);
+				_splitpath_s(fullName, 0, 0, directory, 100, name, 100, ext, 10);
 
-				strcat_s(name, ext);
+				strcat_s(fileName, this->fileRoot);
+				strcat_s(fileName, directory);
 				strcat_s(fileName, name);
-
+				strcat_s(fileName, ext);
 
 				if (strcmp(ext, ".tga") == 0) {
 

@@ -6,6 +6,5 @@ var annotated_dup =
     [ "K_Loader", "namespace_k___loader.html", "namespace_k___loader" ],
     [ "K_Math", "namespace_k___math.html", "namespace_k___math" ],
     [ "K_Physics", "namespace_k___physics.html", "namespace_k___physics" ],
-    [ "K_System", "namespace_k___system.html", "namespace_k___system" ],
-    [ "GameParameters", "class_game_parameters.html", "class_game_parameters" ]
+    [ "K_System", "namespace_k___system.html", "namespace_k___system" ]
 ];

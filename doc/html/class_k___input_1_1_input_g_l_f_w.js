@@ -2,12 +2,15 @@ var class_k___input_1_1_input_g_l_f_w =
 [
     [ "InputGLFW", "class_k___input_1_1_input_g_l_f_w.html#a733179261d9b94d99ca3a0a60c93437c", null ],
     [ "~InputGLFW", "class_k___input_1_1_input_g_l_f_w.html#a5125b026d330c14dccdb0399e7b6d38d", null ],
-    [ "GetStickPower", "class_k___input_1_1_input_g_l_f_w.html#a1b585f903d5c05d75375761fcc672a4c", null ],
-    [ "GetStickRotation", "class_k___input_1_1_input_g_l_f_w.html#a98520dfa7ea9ca2042ef2711755f7909", null ],
-    [ "GetStickState", "class_k___input_1_1_input_g_l_f_w.html#ab18a2edb87c07b7e4b6c747706a39081", null ],
+    [ "GetStickPower", "class_k___input_1_1_input_g_l_f_w.html#a2c0ac7fae2b7f1c002a2649f28491cb9", null ],
+    [ "GetStickRotation", "class_k___input_1_1_input_g_l_f_w.html#ada9df50df10a8636445468d3f04ad98e", null ],
+    [ "GetStickState", "class_k___input_1_1_input_g_l_f_w.html#a8caecda410096801715a7393acb0f049", null ],
     [ "Initialize", "class_k___input_1_1_input_g_l_f_w.html#adebfa33e196d75a37714a452622cf90e", null ],
-    [ "isPressButton", "class_k___input_1_1_input_g_l_f_w.html#aef09f80f0687dfe8f0463b79c95a7a3b", null ],
-    [ "isReaveButton", "class_k___input_1_1_input_g_l_f_w.html#aa0352394805c13930acf444dbf728417", null ],
-    [ "isStayButton", "class_k___input_1_1_input_g_l_f_w.html#a09054346958c6a88196146cb3e3d9d08", null ],
-    [ "Run", "class_k___input_1_1_input_g_l_f_w.html#a2e6aca10a49dfac3a8d49143910e0a2a", null ]
+    [ "isPressButton", "class_k___input_1_1_input_g_l_f_w.html#a9cad25e32f1286a72592cdd5b9d40cf1", null ],
+    [ "isReaveButton", "class_k___input_1_1_input_g_l_f_w.html#ac766fb5152814895ceb4ca938dfcecdb", null ],
+    [ "isStayButton", "class_k___input_1_1_input_g_l_f_w.html#afe17965f8cf7f982aa5c207a8df320df", null ],
+    [ "Run", "class_k___input_1_1_input_g_l_f_w.html#a2e6aca10a49dfac3a8d49143910e0a2a", null ],
+    [ "SetAxisConfig", "class_k___input_1_1_input_g_l_f_w.html#aa396c3e7ebc8dc6cad834a8caa36d549", null ],
+    [ "SetButtonConfig", "class_k___input_1_1_input_g_l_f_w.html#aee6c383e0cdcf0f6eb8d3f51c0a4829f", null ],
+    [ "SetStickConfig", "class_k___input_1_1_input_g_l_f_w.html#a16d6ed6b11b759930d02655d208bdd3b", null ]
 ];

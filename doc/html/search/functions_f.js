@@ -1,8 +1,5 @@
 var searchData=
 [
   ['updateanimation',['UpdateAnimation',['../class_k___graphics_1_1_mesh_model.html#abdf4e1efb588647fa962296ac4bbed32',1,'K_Graphics::MeshModel::UpdateAnimation()'],['../class_k___graphics_1_1_mesh_object.html#a0e4446fa8a0b979d488210bca87df41a',1,'K_Graphics::MeshObject::UpdateAnimation()'],['../class_k___graphics_1_1_animation_data.html#ac21aed89fd93048943bfee6229ed5cef',1,'K_Graphics::AnimationData::UpdateAnimation()']]],
-  ['useambient',['UseAmbient',['../class_game_parameters.html#ab2a0cc4710c040091a3d9cd492045861',1,'GameParameters']]],
-  ['usecamera',['UseCamera',['../class_game_parameters.html#a886b6f2a939dc5ceadf2667daa327168',1,'GameParameters']]],
-  ['usedirectional',['UseDirectional',['../class_game_parameters.html#aed37c53833c53e577ec5ca7baf749040',1,'GameParameters']]],
-  ['useshader',['UseShader',['../class_game_parameters.html#ac5606ec795c47e99ef20f8da2f7d0ed8',1,'GameParameters::UseShader()'],['../class_k___graphics_1_1_shader_class.html#a53590f2a34bbf3f1dc91398068f43754',1,'K_Graphics::ShaderClass::UseShader()'],['../class_k___graphics_1_1_shader_list.html#ad903d8c4daca2f2296434afd5694a4c5',1,'K_Graphics::ShaderList::UseShader()']]]
+  ['useshader',['UseShader',['../class_k___graphics_1_1_shader_class.html#a53590f2a34bbf3f1dc91398068f43754',1,'K_Graphics::ShaderClass::UseShader()'],['../class_k___graphics_1_1_shader_list.html#ad903d8c4daca2f2296434afd5694a4c5',1,'K_Graphics::ShaderList::UseShader()']]]
 ];
