@@ -7,6 +7,8 @@ http://opensource.org/licenses/mit-license.php
 
 [Version1.1]
 
+リファレンス ： https://itakurakoji.github.io/GameFrameWorksProject/
+
 このライブラリは、ゲーム制作に使う機能を個人的にまとめたフレームワークです。
 もともと自分が使うためのものですが、MITライセンスでご自由に使用することができます。
 
