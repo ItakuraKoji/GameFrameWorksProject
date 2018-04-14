@@ -1,0 +1,531 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MyFrameWorks: K_Graphics::MeshObject クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">MyFrameWorks
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_k___graphics_1_1_mesh_object.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pro-methods">限定公開メンバ関数</a> &#124;
+<a href="#pro-attribs">限定公開変数類</a> &#124;
+<a href="class_k___graphics_1_1_mesh_object-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle">
+<div class="title">K_Graphics::MeshObject クラス</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>K_Graphics::MeshModelの描画を"position""rotation""scale"の３つで行えるようにしたもの<br />
+描画には「K_Graphics::CameraClass」「K_Graphics::ShaderClass」の二つが必要  
+ <a href="class_k___graphics_1_1_mesh_object.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_mesh_model_8h_source.html">MeshModel.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:af59273310f07f67f766f9e90323ce641"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#af59273310f07f67f766f9e90323ce641">MeshObject</a> (<a class="el" href="class_k___graphics_1_1_mesh_model.html">MeshModel</a> *model)</td></tr>
+<tr class="memdesc:af59273310f07f67f766f9e90323ce641"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_k___graphics_1_1_mesh_object.html#a248233630419973244851f5d2070b5aa" title="MeshModelへのポインタを渡して初期化 ">Initialize()</a>を呼ぶ  <a href="#af59273310f07f67f766f9e90323ce641">[詳解]</a><br /></td></tr>
+<tr class="separator:af59273310f07f67f766f9e90323ce641"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8c3f648521b8c14da19fa53fe1656f3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#ae8c3f648521b8c14da19fa53fe1656f3">~MeshObject</a> ()</td></tr>
+<tr class="memdesc:ae8c3f648521b8c14da19fa53fe1656f3"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_k___graphics_1_1_mesh_object.html#a2d7f1695e98aeba276e2f61b0bca00ab" title="Initialize()で渡したMeshModelへのポインタを開放している ">Finalize()</a>を呼ぶ  <a href="#ae8c3f648521b8c14da19fa53fe1656f3">[詳解]</a><br /></td></tr>
+<tr class="separator:ae8c3f648521b8c14da19fa53fe1656f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a248233630419973244851f5d2070b5aa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#a248233630419973244851f5d2070b5aa">Initialize</a> (<a class="el" href="class_k___graphics_1_1_mesh_model.html">MeshModel</a> *model)</td></tr>
+<tr class="memdesc:a248233630419973244851f5d2070b5aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">MeshModelへのポインタを渡して初期化  <a href="#a248233630419973244851f5d2070b5aa">[詳解]</a><br /></td></tr>
+<tr class="separator:a248233630419973244851f5d2070b5aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d7f1695e98aeba276e2f61b0bca00ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#a2d7f1695e98aeba276e2f61b0bca00ab">Finalize</a> ()</td></tr>
+<tr class="memdesc:a2d7f1695e98aeba276e2f61b0bca00ab"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_k___graphics_1_1_mesh_object.html#a248233630419973244851f5d2070b5aa" title="MeshModelへのポインタを渡して初期化 ">Initialize()</a>で渡したMeshModelへのポインタを開放している  <a href="#a2d7f1695e98aeba276e2f61b0bca00ab">[詳解]</a><br /></td></tr>
+<tr class="separator:a2d7f1695e98aeba276e2f61b0bca00ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53fca52d8b8b1abb8d91f666f97bb9ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#a53fca52d8b8b1abb8d91f666f97bb9ea">SetBoneAnimation</a> (const std::string &amp;animationName, bool playOnce, bool isLoop, int interpolationFrames=0)</td></tr>
+<tr class="memdesc:a53fca52d8b8b1abb8d91f666f97bb9ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">スキンメッシュアニメーションを選択、再生する  <a href="#a53fca52d8b8b1abb8d91f666f97bb9ea">[詳解]</a><br /></td></tr>
+<tr class="separator:a53fca52d8b8b1abb8d91f666f97bb9ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad45fbf9cf32b22335eeb994bfe3e1041"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#ad45fbf9cf32b22335eeb994bfe3e1041">SetSpeed</a> (float speed)</td></tr>
+<tr class="memdesc:ad45fbf9cf32b22335eeb994bfe3e1041"><td class="mdescLeft">&#160;</td><td class="mdescRight">アニメーションスピードを変更する  <a href="#ad45fbf9cf32b22335eeb994bfe3e1041">[詳解]</a><br /></td></tr>
+<tr class="separator:ad45fbf9cf32b22335eeb994bfe3e1041"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e4446fa8a0b979d488210bca87df41a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#a0e4446fa8a0b979d488210bca87df41a">UpdateAnimation</a> ()</td></tr>
+<tr class="memdesc:a0e4446fa8a0b979d488210bca87df41a"><td class="mdescLeft">&#160;</td><td class="mdescRight">アニメーションを更新  <a href="#a0e4446fa8a0b979d488210bca87df41a">[詳解]</a><br /></td></tr>
+<tr class="separator:a0e4446fa8a0b979d488210bca87df41a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86437d928a10a4ceaa0ccdb1ed174028"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#a86437d928a10a4ceaa0ccdb1ed174028">Draw</a> (<a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *camera, <a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *shader, const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;position, const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;rotation, const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;scale)</td></tr>
+<tr class="memdesc:a86437d928a10a4ceaa0ccdb1ed174028"><td class="mdescLeft">&#160;</td><td class="mdescRight">各種行列を作り、シェーダーに渡して描画を行う  <a href="#a86437d928a10a4ceaa0ccdb1ed174028">[詳解]</a><br /></td></tr>
+<tr class="separator:a86437d928a10a4ceaa0ccdb1ed174028"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a049000c7a45b4119fa4523ad1705bb9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#a049000c7a45b4119fa4523ad1705bb9a">InstanceDraw</a> (<a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *camera, <a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *shader, int numDraw, const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;position, const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;rotation, const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;scale)</td></tr>
+<tr class="memdesc:a049000c7a45b4119fa4523ad1705bb9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">インスタンス描画は未実装  <a href="#a049000c7a45b4119fa4523ad1705bb9a">[詳解]</a><br /></td></tr>
+<tr class="separator:a049000c7a45b4119fa4523ad1705bb9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+限定公開メンバ関数</h2></td></tr>
+<tr class="memitem:a29b665637b075b4839af390356c5bf3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#a29b665637b075b4839af390356c5bf3c">SetMatrix</a> (<a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *camera, <a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *shader, const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;position, const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;rotation, const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;scale)</td></tr>
+<tr class="separator:a29b665637b075b4839af390356c5bf3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+限定公開変数類</h2></td></tr>
+<tr class="memitem:a3691b447ef31ac253864166711b87ea7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_k___graphics_1_1_mesh_model.html">MeshModel</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#a3691b447ef31ac253864166711b87ea7">drawModel</a></td></tr>
+<tr class="separator:a3691b447ef31ac253864166711b87ea7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>K_Graphics::MeshModelの描画を"position""rotation""scale"の３つで行えるようにしたもの<br />
+描画には「K_Graphics::CameraClass」「K_Graphics::ShaderClass」の二つが必要 </p>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a id="af59273310f07f67f766f9e90323ce641"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af59273310f07f67f766f9e90323ce641">&#9670;&nbsp;</a></span>MeshObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">K_Graphics::MeshObject::MeshObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_mesh_model.html">MeshModel</a> *&#160;</td>
+          <td class="paramname"><em>model</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_k___graphics_1_1_mesh_object.html#a248233630419973244851f5d2070b5aa" title="MeshModelへのポインタを渡して初期化 ">Initialize()</a>を呼ぶ </p>
+
+</div>
+</div>
+<a id="ae8c3f648521b8c14da19fa53fe1656f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8c3f648521b8c14da19fa53fe1656f3">&#9670;&nbsp;</a></span>~MeshObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">K_Graphics::MeshObject::~MeshObject </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_k___graphics_1_1_mesh_object.html#a2d7f1695e98aeba276e2f61b0bca00ab" title="Initialize()で渡したMeshModelへのポインタを開放している ">Finalize()</a>を呼ぶ </p>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a86437d928a10a4ceaa0ccdb1ed174028"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86437d928a10a4ceaa0ccdb1ed174028">&#9670;&nbsp;</a></span>Draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Graphics::MeshObject::Draw </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *&#160;</td>
+          <td class="paramname"><em>camera</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *&#160;</td>
+          <td class="paramname"><em>shader</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>rotation</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>scale</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>各種行列を作り、シェーダーに渡して描画を行う </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">camera</td><td>使用するカメラクラスへのポインタ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">shader</td><td>使用するシェーダーへのポインタ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">position</td><td>3D空間上の位置座標 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rotation</td><td>XYZそれぞれの軸に関する回転角度（度数法でY→X→Zの順で回転する） </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">scale</td><td>スケーリング </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2d7f1695e98aeba276e2f61b0bca00ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d7f1695e98aeba276e2f61b0bca00ab">&#9670;&nbsp;</a></span>Finalize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Graphics::MeshObject::Finalize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_k___graphics_1_1_mesh_object.html#a248233630419973244851f5d2070b5aa" title="MeshModelへのポインタを渡して初期化 ">Initialize()</a>で渡したMeshModelへのポインタを開放している </p>
+
+</div>
+</div>
+<a id="a248233630419973244851f5d2070b5aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a248233630419973244851f5d2070b5aa">&#9670;&nbsp;</a></span>Initialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool K_Graphics::MeshObject::Initialize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_mesh_model.html">MeshModel</a> *&#160;</td>
+          <td class="paramname"><em>model</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>MeshModelへのポインタを渡して初期化 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">model</td><td>MeshModelへのポインタ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>成功するとtrue </dd></dl>
+
+</div>
+</div>
+<a id="a049000c7a45b4119fa4523ad1705bb9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a049000c7a45b4119fa4523ad1705bb9a">&#9670;&nbsp;</a></span>InstanceDraw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Graphics::MeshObject::InstanceDraw </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *&#160;</td>
+          <td class="paramname"><em>camera</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *&#160;</td>
+          <td class="paramname"><em>shader</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numDraw</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>rotation</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>scale</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>インスタンス描画は未実装 </p>
+
+</div>
+</div>
+<a id="a53fca52d8b8b1abb8d91f666f97bb9ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53fca52d8b8b1abb8d91f666f97bb9ea">&#9670;&nbsp;</a></span>SetBoneAnimation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Graphics::MeshObject::SetBoneAnimation </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>animationName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>playOnce</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isLoop</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>interpolationFrames</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>スキンメッシュアニメーションを選択、再生する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">animationName</td><td>アニメーションの名前（モデリングソフトで作成したときのアニメーション名） </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">playOnce</td><td>連続して同じアニメーションを再生したときに初めから再生しなおすか </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">isLoop</td><td>アニメーションをループ再生するか </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">inInterpolation</td><td>前のアニメーションと線形補間をするか(省略時は０になって補完しない) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a29b665637b075b4839af390356c5bf3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29b665637b075b4839af390356c5bf3c">&#9670;&nbsp;</a></span>SetMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Graphics::MeshObject::SetMatrix </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *&#160;</td>
+          <td class="paramname"><em>camera</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *&#160;</td>
+          <td class="paramname"><em>shader</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>rotation</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>scale</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad45fbf9cf32b22335eeb994bfe3e1041"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad45fbf9cf32b22335eeb994bfe3e1041">&#9670;&nbsp;</a></span>SetSpeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Graphics::MeshObject::SetSpeed </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>speed</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>アニメーションスピードを変更する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">1を通常の速度としたアニメーションの速度</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0e4446fa8a0b979d488210bca87df41a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e4446fa8a0b979d488210bca87df41a">&#9670;&nbsp;</a></span>UpdateAnimation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Graphics::MeshObject::UpdateAnimation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>アニメーションを更新 </p>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="a3691b447ef31ac253864166711b87ea7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3691b447ef31ac253864166711b87ea7">&#9670;&nbsp;</a></span>drawModel</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_k___graphics_1_1_mesh_model.html">MeshModel</a>* K_Graphics::MeshObject::drawModel</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_k___graphics.html">K_Graphics</a></li><li class="navelem"><a class="el" href="class_k___graphics_1_1_mesh_object.html">MeshObject</a></li>
+    <li class="footer">構築:
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
+</body>
+</html>

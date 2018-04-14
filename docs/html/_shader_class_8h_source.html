@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MyFrameWorks: C:/Users/こうちゃ/Documents/Visual Studio 2017/Projects/MyFrameWorks/include/K_Graphics/ShaderClass.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">MyFrameWorks
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('_shader_class_8h_source.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">ShaderClass.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include&lt;fstream&gt;</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include&lt;iostream&gt;</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include&lt;GLEW\glew.h&gt;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include&quot;K_Math\MyMathFanctions.h&quot;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_k___graphics.html">K_Graphics</a> {</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_k___graphics_1_1_shader_class.html">   11</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> {</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <a class="code" href="class_k___graphics_1_1_shader_class.html#a3762d1f3d62a5b9fe6b37d36aeb8dd51">ShaderClass</a>(GLuint vertexShader, GLuint fragmentShader);</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <a class="code" href="class_k___graphics_1_1_shader_class.html#ad007e6356bf230f441fd39a5127b76d7">~ShaderClass</a>();</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_k___graphics_1_1_shader_class.html#ac37343a738ce216a5f1f3fb501de79ed">Initialize</a>(GLuint vertexShader, GLuint fragmentShader);</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_k___graphics_1_1_shader_class.html#aac58eae7621bb220380364400f659549">Finalize</a>();</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_k___graphics_1_1_shader_class.html#a53590f2a34bbf3f1dc91398068f43754">UseShader</a>();</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_k___graphics_1_1_shader_class.html#a8aa0f7eb6c2443df15d483653f9401e3">SetMatrix</a>(<span class="keyword">const</span> <a class="code" href="namespace_k___math.html#a345271af9d32dff2c964bc679b13b45c">K_Math::Matrix4x4</a>&amp; mat);</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_k___graphics_1_1_shader_class.html#ac697b99c625ac51a2dfeb01b85858506">SetWorldMatrix</a>(<span class="keyword">const</span> <a class="code" href="namespace_k___math.html#a345271af9d32dff2c964bc679b13b45c">K_Math::Matrix4x4</a>&amp; world);</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_k___graphics_1_1_shader_class.html#a9d8fd3a0ab36010e685eecd735e6d296">SetTexture</a>(<span class="keyword">const</span> std::string&amp; uniformName, GLuint textureLayer, GLuint textureNumber);</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_k___graphics_1_1_shader_class.html#a7a28da0b8fc149324d904150b711c397">SetDirectionalLight</a>(<span class="keywordtype">float</span> power, <span class="keyword">const</span> <a class="code" href="namespace_k___math.html#a8d82de9de17eae460600de1e40e8a01f">K_Math::Vector4</a>&amp; color, <span class="keyword">const</span> <a class="code" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a>&amp; direction);</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_k___graphics_1_1_shader_class.html#acc9f55081fe01121e1010cd4754d5214">SetAmbientLight</a>(<span class="keywordtype">float</span> power, <span class="keyword">const</span> <a class="code" href="namespace_k___math.html#a8d82de9de17eae460600de1e40e8a01f">K_Math::Vector4</a>&amp; color);</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_k___graphics_1_1_shader_class.html#aa7151894bd962351e929e43f81490abe">SetValue</a>(<span class="keyword">const</span> std::string&amp; uniformName, <span class="keywordtype">int</span> value);</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_k___graphics_1_1_shader_class.html#aa7151894bd962351e929e43f81490abe">SetValue</a>(<span class="keyword">const</span> std::string&amp; uniformName, <span class="keywordtype">float</span> value);</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_k___graphics_1_1_shader_class.html#aa7151894bd962351e929e43f81490abe">SetValue</a>(<span class="keyword">const</span> std::string&amp; uniformName, <span class="keyword">const</span> <a class="code" href="namespace_k___math.html#a345271af9d32dff2c964bc679b13b45c">K_Math::Matrix4x4</a>&amp; value);</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_k___graphics_1_1_shader_class.html#aa7151894bd962351e929e43f81490abe">SetValue</a>(<span class="keyword">const</span> std::string&amp; uniformName, <span class="keyword">const</span> <a class="code" href="namespace_k___math.html#a8d82de9de17eae460600de1e40e8a01f">K_Math::Vector4</a>&amp; value);</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_k___graphics_1_1_shader_class.html#aa7151894bd962351e929e43f81490abe">SetValue</a>(<span class="keyword">const</span> std::string&amp; uniformName, <span class="keyword">const</span> <a class="code" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a>&amp; value);</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_k___graphics_1_1_shader_class.html#aa7151894bd962351e929e43f81490abe">SetValue</a>(<span class="keyword">const</span> std::string&amp; uniformName, <span class="keyword">const</span> <a class="code" href="namespace_k___math.html#a41eb0c2c69c938cd59989eb3241cefb2">K_Math::Vector2</a>&amp; value);</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_k___graphics_1_1_shader_class.html#a48edec1492bfa0fe8d8cab265c24bbbd">SetVertexShaderSubroutine</a>(<span class="keyword">const</span> std::string&amp; subroutineFunctionName);</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_k___graphics_1_1_shader_class.html#a8c25bbb391c95061db4d593679c96933">SetFragmentShaderSubroutine</a>(<span class="keyword">const</span> std::string&amp; subroutineFunctionName);</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">private</span>:</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordtype">char</span>* LoadTxtResource(<span class="keyword">const</span> std::string&amp; fileName);</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordtype">void</span> ShowShaderErrors(GLuint shaderID);</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordtype">void</span> ShowLinkErrors(GLuint shaderID);</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        GLuint shaderProgram;</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    };</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div><div class="ttc" id="namespace_k___math_html_a66884d78082c39ada4091c211f3570f8"><div class="ttname"><a href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a></div><div class="ttdeci">Eigen::Matrix&lt; float, 3, 1, Eigen::DontAlign &gt; Vector3</div><div class="ttdoc">float型３要素ベクトル 要素のアクセスに &quot;vector.x()&quot; と関数の形をとるのに注意 </div><div class="ttdef"><b>Definition:</b> MyMathFanctions.h:13</div></div>
+<div class="ttc" id="class_k___graphics_1_1_shader_class_html_acc9f55081fe01121e1010cd4754d5214"><div class="ttname"><a href="class_k___graphics_1_1_shader_class.html#acc9f55081fe01121e1010cd4754d5214">K_Graphics::ShaderClass::SetAmbientLight</a></div><div class="ttdeci">void SetAmbientLight(float power, const K_Math::Vector4 &amp;color)</div><div class="ttdoc">アンビエントライト情報を渡す </div><div class="ttdef"><b>Definition:</b> ShaderClass.cpp:79</div></div>
+<div class="ttc" id="namespace_k___graphics_html"><div class="ttname"><a href="namespace_k___graphics.html">K_Graphics</a></div><div class="ttdoc">グラフィック関連の名前空間 </div><div class="ttdef"><b>Definition:</b> AmbientLight.cpp:3</div></div>
+<div class="ttc" id="class_k___graphics_1_1_shader_class_html_a48edec1492bfa0fe8d8cab265c24bbbd"><div class="ttname"><a href="class_k___graphics_1_1_shader_class.html#a48edec1492bfa0fe8d8cab265c24bbbd">K_Graphics::ShaderClass::SetVertexShaderSubroutine</a></div><div class="ttdeci">void SetVertexShaderSubroutine(const std::string &amp;subroutineFunctionName)</div><div class="ttdoc">subroutineの設定(vertex shader)、指定した名前の関数が選択される </div><div class="ttdef"><b>Definition:</b> ShaderClass.cpp:129</div></div>
+<div class="ttc" id="class_k___graphics_1_1_shader_class_html_a3762d1f3d62a5b9fe6b37d36aeb8dd51"><div class="ttname"><a href="class_k___graphics_1_1_shader_class.html#a3762d1f3d62a5b9fe6b37d36aeb8dd51">K_Graphics::ShaderClass::ShaderClass</a></div><div class="ttdeci">ShaderClass(GLuint vertexShader, GLuint fragmentShader)</div><div class="ttdoc">Initialize()を呼ぶ </div><div class="ttdef"><b>Definition:</b> ShaderClass.cpp:7</div></div>
+<div class="ttc" id="class_k___graphics_1_1_shader_class_html_a53590f2a34bbf3f1dc91398068f43754"><div class="ttname"><a href="class_k___graphics_1_1_shader_class.html#a53590f2a34bbf3f1dc91398068f43754">K_Graphics::ShaderClass::UseShader</a></div><div class="ttdeci">void UseShader()</div><div class="ttdoc">シェーダーを描画用に設定 </div><div class="ttdef"><b>Definition:</b> ShaderClass.cpp:49</div></div>
+<div class="ttc" id="class_k___graphics_1_1_shader_class_html"><div class="ttname"><a href="class_k___graphics_1_1_shader_class.html">K_Graphics::ShaderClass</a></div><div class="ttdoc">シェーダープログラムの管理とuniform変数の受け渡しを担当するクラス uniform変数名は固定的な機能を除くと...</div><div class="ttdef"><b>Definition:</b> ShaderClass.h:11</div></div>
+<div class="ttc" id="namespace_k___math_html_a345271af9d32dff2c964bc679b13b45c"><div class="ttname"><a href="namespace_k___math.html#a345271af9d32dff2c964bc679b13b45c">K_Math::Matrix4x4</a></div><div class="ttdeci">Eigen::Matrix&lt; float, 4, 4, Eigen::DontAlign &gt; Matrix4x4</div><div class="ttdoc">float型４行４列行列 </div><div class="ttdef"><b>Definition:</b> MyMathFanctions.h:19</div></div>
+<div class="ttc" id="class_k___graphics_1_1_shader_class_html_a8c25bbb391c95061db4d593679c96933"><div class="ttname"><a href="class_k___graphics_1_1_shader_class.html#a8c25bbb391c95061db4d593679c96933">K_Graphics::ShaderClass::SetFragmentShaderSubroutine</a></div><div class="ttdeci">void SetFragmentShaderSubroutine(const std::string &amp;subroutineFunctionName)</div><div class="ttdoc">subroutineの設定(fragment shader)、指定した名前の関数が選択される </div><div class="ttdef"><b>Definition:</b> ShaderClass.cpp:135</div></div>
+<div class="ttc" id="namespace_k___math_html_a41eb0c2c69c938cd59989eb3241cefb2"><div class="ttname"><a href="namespace_k___math.html#a41eb0c2c69c938cd59989eb3241cefb2">K_Math::Vector2</a></div><div class="ttdeci">Eigen::Matrix&lt; float, 2, 1, Eigen::DontAlign &gt; Vector2</div><div class="ttdoc">float型２要素ベクトル 要素のアクセスに &quot;vector.x()&quot; と関数の形をとるのに注意 </div><div class="ttdef"><b>Definition:</b> MyMathFanctions.h:11</div></div>
+<div class="ttc" id="namespace_k___math_html_a8d82de9de17eae460600de1e40e8a01f"><div class="ttname"><a href="namespace_k___math.html#a8d82de9de17eae460600de1e40e8a01f">K_Math::Vector4</a></div><div class="ttdeci">Eigen::Matrix&lt; float, 4, 1, Eigen::DontAlign &gt; Vector4</div><div class="ttdoc">float型４要素ベクトル 要素のアクセスに &quot;vector.x()&quot; と関数の形をとるのに注意 </div><div class="ttdef"><b>Definition:</b> MyMathFanctions.h:15</div></div>
+<div class="ttc" id="class_k___graphics_1_1_shader_class_html_a8aa0f7eb6c2443df15d483653f9401e3"><div class="ttname"><a href="class_k___graphics_1_1_shader_class.html#a8aa0f7eb6c2443df15d483653f9401e3">K_Graphics::ShaderClass::SetMatrix</a></div><div class="ttdeci">void SetMatrix(const K_Math::Matrix4x4 &amp;mat)</div><div class="ttdoc">シェーダーに ワールド x ビュー x プロジェクション の行列を渡す </div><div class="ttdef"><b>Definition:</b> ShaderClass.cpp:54</div></div>
+<div class="ttc" id="class_k___graphics_1_1_shader_class_html_ad007e6356bf230f441fd39a5127b76d7"><div class="ttname"><a href="class_k___graphics_1_1_shader_class.html#ad007e6356bf230f441fd39a5127b76d7">K_Graphics::ShaderClass::~ShaderClass</a></div><div class="ttdeci">~ShaderClass()</div><div class="ttdoc">Finalize()を呼ぶ </div><div class="ttdef"><b>Definition:</b> ShaderClass.cpp:14</div></div>
+<div class="ttc" id="class_k___graphics_1_1_shader_class_html_aac58eae7621bb220380364400f659549"><div class="ttname"><a href="class_k___graphics_1_1_shader_class.html#aac58eae7621bb220380364400f659549">K_Graphics::ShaderClass::Finalize</a></div><div class="ttdeci">void Finalize()</div><div class="ttdoc">シェーダーを開放する </div><div class="ttdef"><b>Definition:</b> ShaderClass.cpp:44</div></div>
+<div class="ttc" id="class_k___graphics_1_1_shader_class_html_a9d8fd3a0ab36010e685eecd735e6d296"><div class="ttname"><a href="class_k___graphics_1_1_shader_class.html#a9d8fd3a0ab36010e685eecd735e6d296">K_Graphics::ShaderClass::SetTexture</a></div><div class="ttdeci">void SetTexture(const std::string &amp;uniformName, GLuint textureLayer, GLuint textureNumber)</div><div class="ttdoc">シェーダーにテクスチャを渡す、モデル描画時に以下の番号が使われることがある レイヤー０番：モデルのマテ...</div><div class="ttdef"><b>Definition:</b> ShaderClass.cpp:62</div></div>
+<div class="ttc" id="class_k___graphics_1_1_shader_class_html_aa7151894bd962351e929e43f81490abe"><div class="ttname"><a href="class_k___graphics_1_1_shader_class.html#aa7151894bd962351e929e43f81490abe">K_Graphics::ShaderClass::SetValue</a></div><div class="ttdeci">void SetValue(const std::string &amp;uniformName, int value)</div><div class="ttdoc">汎用的なuniform変数への受け渡し </div><div class="ttdef"><b>Definition:</b> ShaderClass.cpp:85</div></div>
+<div class="ttc" id="class_k___graphics_1_1_shader_class_html_ac697b99c625ac51a2dfeb01b85858506"><div class="ttname"><a href="class_k___graphics_1_1_shader_class.html#ac697b99c625ac51a2dfeb01b85858506">K_Graphics::ShaderClass::SetWorldMatrix</a></div><div class="ttdeci">void SetWorldMatrix(const K_Math::Matrix4x4 &amp;world)</div><div class="ttdoc">シェーダーにワールド行列だけを渡す </div><div class="ttdef"><b>Definition:</b> ShaderClass.cpp:58</div></div>
+<div class="ttc" id="class_k___graphics_1_1_shader_class_html_ac37343a738ce216a5f1f3fb501de79ed"><div class="ttname"><a href="class_k___graphics_1_1_shader_class.html#ac37343a738ce216a5f1f3fb501de79ed">K_Graphics::ShaderClass::Initialize</a></div><div class="ttdeci">bool Initialize(GLuint vertexShader, GLuint fragmentShader)</div><div class="ttdoc">GLSLシェーダープログラムを作成 </div><div class="ttdef"><b>Definition:</b> ShaderClass.cpp:19</div></div>
+<div class="ttc" id="class_k___graphics_1_1_shader_class_html_a7a28da0b8fc149324d904150b711c397"><div class="ttname"><a href="class_k___graphics_1_1_shader_class.html#a7a28da0b8fc149324d904150b711c397">K_Graphics::ShaderClass::SetDirectionalLight</a></div><div class="ttdeci">void SetDirectionalLight(float power, const K_Math::Vector4 &amp;color, const K_Math::Vector3 &amp;direction)</div><div class="ttdoc">ディレクショナルライト情報を渡す </div><div class="ttdef"><b>Definition:</b> ShaderClass.cpp:73</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_985859a0b4271b733ea36bfa48e47771.html">K_Graphics</a></li><li class="navelem"><b>ShaderClass.h</b></li>
+    <li class="footer">構築:
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
+</body>
+</html>

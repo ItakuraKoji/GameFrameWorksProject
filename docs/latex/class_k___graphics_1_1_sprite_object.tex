@@ -1,0 +1,204 @@
+\hypertarget{class_k___graphics_1_1_sprite_object}{}\section{K\+\_\+\+Graphics\+:\+:Sprite\+Object クラス}
+\label{class_k___graphics_1_1_sprite_object}\index{K\+\_\+\+Graphics\+::\+Sprite\+Object@{K\+\_\+\+Graphics\+::\+Sprite\+Object}}
+
+
+長さ1.0fの板ポリゴンの\+Model\+Classを内部で生成し、2\+D画像の描画に利用できる機能を付け加えたクラス~\newline
+描画には「\+K\+\_\+\+Graphics\+::\+Camera\+Class」「\+K\+\_\+\+Graphics\+::\+Shader\+Class」の二つが必要  
+
+
+
+
+{\ttfamily \#include $<$Mesh\+Model.\+h$>$}
+
+\subsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_k___graphics_1_1_sprite_object_a9fe538248d36f9b2c20688f0053af112}{Sprite\+Object}} (\mbox{\hyperlink{class_k___graphics_1_1_texture}{Texture}} $\ast$texture, float control\+PointX=0.\+0f, float control\+Point\+Y=0.\+0f)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_k___graphics_1_1_sprite_object_a7c0ebb444b7484f20c10ba657060d779}{Initialize()}}を呼ぶ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_k___graphics_1_1_sprite_object_a8df242841b57bc345eb790b1fd24dbb9}{$\sim$\+Sprite\+Object}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_k___graphics_1_1_sprite_object_ab07a1bdede7da183545bd155193d9f80}{Finalize()}}を呼ぶ \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_k___graphics_1_1_sprite_object_a7c0ebb444b7484f20c10ba657060d779}{Initialize}} (\mbox{\hyperlink{class_k___graphics_1_1_texture}{Texture}} $\ast$texture, float control\+PointX, float control\+PointY)
+\begin{DoxyCompactList}\small\item\em 初期化、テクスチャを設定し、変形のコントロールポイント座標を指定することもできる \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_sprite_object_ab07a1bdede7da183545bd155193d9f80}{Finalize}} ()
+\begin{DoxyCompactList}\small\item\em 終了処理 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_k___graphics_1_1_sprite_object_a0fa1e6994fc741d94c726c85e5f1ec99}{Set\+Texture}} (\mbox{\hyperlink{class_k___graphics_1_1_texture}{Texture}} $\ast$texture)
+\begin{DoxyCompactList}\small\item\em 表示するテクスチャを変更する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_sprite_object_a1d9eb5352fd073b17ea42b53786fa29a}{Draw2D}} (\mbox{\hyperlink{class_k___graphics_1_1_camera_class}{Camera\+Class}} $\ast$camera, \mbox{\hyperlink{class_k___graphics_1_1_shader_class}{Shader\+Class}} $\ast$shader, const \mbox{\hyperlink{struct_k___math_1_1_box2_d}{K\+\_\+\+Math\+::\+Box2D}} \&src, const \mbox{\hyperlink{struct_k___math_1_1_box2_d}{K\+\_\+\+Math\+::\+Box2D}} \&draw, float rotation)
+\begin{DoxyCompactList}\small\item\em 2\+D描画を行う 「スクリーンのサイズをカメラに設定している」「平行投影のカメラである」「\+Z軸方向を向きと\+Z軸と平行」 という３つの条件を満たしたカメラを設定するとスクリーン座標での描画ができる \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_sprite_object_af288c290560faa26460fbff16a677439}{Draw3D}} (\mbox{\hyperlink{class_k___graphics_1_1_camera_class}{Camera\+Class}} $\ast$camera, \mbox{\hyperlink{class_k___graphics_1_1_shader_class}{Shader\+Class}} $\ast$shader, const \mbox{\hyperlink{struct_k___math_1_1_box2_d}{K\+\_\+\+Math\+::\+Box2D}} \&src, const \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \&position, const \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \&rotation, const \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \&scale)
+\begin{DoxyCompactList}\small\item\em 3\+D空間上に描画する、ただし必ずカメラの方を向くビルボードになる \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespace_k___math_a41eb0c2c69c938cd59989eb3241cefb2}{K\+\_\+\+Math\+::\+Vector2}} \mbox{\hyperlink{class_k___graphics_1_1_sprite_object_ad5d76b9b0a30102d01abbb20bab285f8}{control\+Point}}
+\begin{DoxyCompactList}\small\item\em コントロールポイントの座標 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{限定公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_k___graphics_1_1_sprite_object_a4c731f8c8e7b35f4f2661a3d9d203f69}{Set\+Matrix}} (\mbox{\hyperlink{class_k___graphics_1_1_camera_class}{Camera\+Class}} $\ast$camera, \mbox{\hyperlink{class_k___graphics_1_1_shader_class}{Shader\+Class}} $\ast$shader, const \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \&position, const \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \&rotation, const \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \&scale, bool bill\+Board)
+\end{DoxyCompactItemize}
+\subsection*{限定公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_k___graphics_1_1_mesh_model}{Mesh\+Model}} $\ast$ \mbox{\hyperlink{class_k___graphics_1_1_sprite_object_a91966c81a550dd6b04ccc0bd210c289d}{draw\+Model}}
+\item 
+\mbox{\hyperlink{class_k___graphics_1_1_texture}{Texture}} $\ast$ \mbox{\hyperlink{class_k___graphics_1_1_sprite_object_a7cf528d065c242528bf0bd407a139f09}{cullent\+Texture}}
+\end{DoxyCompactItemize}
+
+
+\subsection{詳解}
+長さ1.0fの板ポリゴンの\+Model\+Classを内部で生成し、2\+D画像の描画に利用できる機能を付け加えたクラス~\newline
+描画には「\+K\+\_\+\+Graphics\+::\+Camera\+Class」「\+K\+\_\+\+Graphics\+::\+Shader\+Class」の二つが必要 
+
+\subsection{構築子と解体子}
+\mbox{\Hypertarget{class_k___graphics_1_1_sprite_object_a9fe538248d36f9b2c20688f0053af112}\label{class_k___graphics_1_1_sprite_object_a9fe538248d36f9b2c20688f0053af112}} 
+\index{K\+\_\+\+Graphics\+::\+Sprite\+Object@{K\+\_\+\+Graphics\+::\+Sprite\+Object}!Sprite\+Object@{Sprite\+Object}}
+\index{Sprite\+Object@{Sprite\+Object}!K\+\_\+\+Graphics\+::\+Sprite\+Object@{K\+\_\+\+Graphics\+::\+Sprite\+Object}}
+\subsubsection{\texorpdfstring{Sprite\+Object()}{SpriteObject()}}
+{\footnotesize\ttfamily K\+\_\+\+Graphics\+::\+Sprite\+Object\+::\+Sprite\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_k___graphics_1_1_texture}{Texture}} $\ast$}]{texture,  }\item[{float}]{control\+PointX = {\ttfamily 0.0f},  }\item[{float}]{control\+PointY = {\ttfamily 0.0f} }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_k___graphics_1_1_sprite_object_a7c0ebb444b7484f20c10ba657060d779}{Initialize()}}を呼ぶ 
+
+\mbox{\Hypertarget{class_k___graphics_1_1_sprite_object_a8df242841b57bc345eb790b1fd24dbb9}\label{class_k___graphics_1_1_sprite_object_a8df242841b57bc345eb790b1fd24dbb9}} 
+\index{K\+\_\+\+Graphics\+::\+Sprite\+Object@{K\+\_\+\+Graphics\+::\+Sprite\+Object}!````~Sprite\+Object@{$\sim$\+Sprite\+Object}}
+\index{````~Sprite\+Object@{$\sim$\+Sprite\+Object}!K\+\_\+\+Graphics\+::\+Sprite\+Object@{K\+\_\+\+Graphics\+::\+Sprite\+Object}}
+\subsubsection{\texorpdfstring{$\sim$\+Sprite\+Object()}{~SpriteObject()}}
+{\footnotesize\ttfamily K\+\_\+\+Graphics\+::\+Sprite\+Object\+::$\sim$\+Sprite\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_k___graphics_1_1_sprite_object_ab07a1bdede7da183545bd155193d9f80}{Finalize()}}を呼ぶ 
+
+
+
+\subsection{関数詳解}
+\mbox{\Hypertarget{class_k___graphics_1_1_sprite_object_a1d9eb5352fd073b17ea42b53786fa29a}\label{class_k___graphics_1_1_sprite_object_a1d9eb5352fd073b17ea42b53786fa29a}} 
+\index{K\+\_\+\+Graphics\+::\+Sprite\+Object@{K\+\_\+\+Graphics\+::\+Sprite\+Object}!Draw2D@{Draw2D}}
+\index{Draw2D@{Draw2D}!K\+\_\+\+Graphics\+::\+Sprite\+Object@{K\+\_\+\+Graphics\+::\+Sprite\+Object}}
+\subsubsection{\texorpdfstring{Draw2\+D()}{Draw2D()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Sprite\+Object\+::\+Draw2D (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_k___graphics_1_1_camera_class}{Camera\+Class}} $\ast$}]{camera,  }\item[{\mbox{\hyperlink{class_k___graphics_1_1_shader_class}{Shader\+Class}} $\ast$}]{shader,  }\item[{const \mbox{\hyperlink{struct_k___math_1_1_box2_d}{K\+\_\+\+Math\+::\+Box2D}} \&}]{src,  }\item[{const \mbox{\hyperlink{struct_k___math_1_1_box2_d}{K\+\_\+\+Math\+::\+Box2D}} \&}]{draw,  }\item[{float}]{rotation }\end{DoxyParamCaption})}
+
+
+
+2\+D描画を行う 「スクリーンのサイズをカメラに設定している」「平行投影のカメラである」「\+Z軸方向を向きと\+Z軸と平行」 という３つの条件を満たしたカメラを設定するとスクリーン座標での描画ができる 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em camera} & 使用するカメラ（上記の条件に注意） \\
+\hline
+\mbox{\tt in}  & {\em shader} & 使用するシェーダー \\
+\hline
+\mbox{\tt in}  & {\em src} & テクスチャの切り取り情報~\newline
+「テクスチャのピクセル座標\+X\+Y」「矩形の幅と高さ」をそれぞれ\char`\"{}x\char`\"{}\char`\"{}y\char`\"{}\char`\"{}w\char`\"{}\char`\"{}h\char`\"{}に設定する \\
+\hline
+\mbox{\tt in}  & {\em draw} & 実際に描画する場所と大きさを指定する~\newline
+「位置座標\+X\+Y」「矩形の幅と高さ」をそれぞれ\char`\"{}x\char`\"{}\char`\"{}y\char`\"{}\char`\"{}w\char`\"{}\char`\"{}h\char`\"{}に設定する \\
+\hline
+\mbox{\tt in}  & {\em rotation} & 右回転の角度（度数法） \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_sprite_object_af288c290560faa26460fbff16a677439}\label{class_k___graphics_1_1_sprite_object_af288c290560faa26460fbff16a677439}} 
+\index{K\+\_\+\+Graphics\+::\+Sprite\+Object@{K\+\_\+\+Graphics\+::\+Sprite\+Object}!Draw3D@{Draw3D}}
+\index{Draw3D@{Draw3D}!K\+\_\+\+Graphics\+::\+Sprite\+Object@{K\+\_\+\+Graphics\+::\+Sprite\+Object}}
+\subsubsection{\texorpdfstring{Draw3\+D()}{Draw3D()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Sprite\+Object\+::\+Draw3D (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_k___graphics_1_1_camera_class}{Camera\+Class}} $\ast$}]{camera,  }\item[{\mbox{\hyperlink{class_k___graphics_1_1_shader_class}{Shader\+Class}} $\ast$}]{shader,  }\item[{const \mbox{\hyperlink{struct_k___math_1_1_box2_d}{K\+\_\+\+Math\+::\+Box2D}} \&}]{src,  }\item[{const \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \&}]{position,  }\item[{const \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \&}]{rotation,  }\item[{const \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \&}]{scale }\end{DoxyParamCaption})}
+
+
+
+3\+D空間上に描画する、ただし必ずカメラの方を向くビルボードになる 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em camera} & 使用するカメラクラスへのポインタ \\
+\hline
+\mbox{\tt in}  & {\em shader} & 使用するシェーダーへのポインタ \\
+\hline
+\mbox{\tt in}  & {\em src} & テクスチャの切り取り情報~\newline
+「テクスチャのピクセル座標\+X\+Y」「矩形の幅と高さ」をそれぞれ\char`\"{}x\char`\"{}\char`\"{}y\char`\"{}\char`\"{}w\char`\"{}\char`\"{}h\char`\"{}に設定する \\
+\hline
+\mbox{\tt in}  & {\em position} & 3\+D空間上の位置座標 \\
+\hline
+\mbox{\tt in}  & {\em rotation} & X\+Y\+Zそれぞれの軸に関する回転角度（度数法で\+Y→\+X→\+Zの順で回転する） \\
+\hline
+\mbox{\tt in}  & {\em scale} & スケーリング \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_sprite_object_ab07a1bdede7da183545bd155193d9f80}\label{class_k___graphics_1_1_sprite_object_ab07a1bdede7da183545bd155193d9f80}} 
+\index{K\+\_\+\+Graphics\+::\+Sprite\+Object@{K\+\_\+\+Graphics\+::\+Sprite\+Object}!Finalize@{Finalize}}
+\index{Finalize@{Finalize}!K\+\_\+\+Graphics\+::\+Sprite\+Object@{K\+\_\+\+Graphics\+::\+Sprite\+Object}}
+\subsubsection{\texorpdfstring{Finalize()}{Finalize()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Sprite\+Object\+::\+Finalize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+終了処理 
+
+\mbox{\Hypertarget{class_k___graphics_1_1_sprite_object_a7c0ebb444b7484f20c10ba657060d779}\label{class_k___graphics_1_1_sprite_object_a7c0ebb444b7484f20c10ba657060d779}} 
+\index{K\+\_\+\+Graphics\+::\+Sprite\+Object@{K\+\_\+\+Graphics\+::\+Sprite\+Object}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!K\+\_\+\+Graphics\+::\+Sprite\+Object@{K\+\_\+\+Graphics\+::\+Sprite\+Object}}
+\subsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily bool K\+\_\+\+Graphics\+::\+Sprite\+Object\+::\+Initialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_k___graphics_1_1_texture}{Texture}} $\ast$}]{texture,  }\item[{float}]{control\+PointX,  }\item[{float}]{control\+PointY }\end{DoxyParamCaption})}
+
+
+
+初期化、テクスチャを設定し、変形のコントロールポイント座標を指定することもできる 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em texture} & 使用するテクスチャ、nullptrを指定することもできる \\
+\hline
+\mbox{\tt in}  & {\em control\+PointX} & コントロールポイント\+X座標~\newline
+板ポリゴンを左上原点で変形の影響を受けない \\
+\hline
+\mbox{\tt in}  & {\em control\+PointY} & コントロールポイント\+Y座標~\newline
+板ポリゴンを左上原点で変形の影響を受けない \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_k___graphics_1_1_sprite_object_a4c731f8c8e7b35f4f2661a3d9d203f69}\label{class_k___graphics_1_1_sprite_object_a4c731f8c8e7b35f4f2661a3d9d203f69}} 
+\index{K\+\_\+\+Graphics\+::\+Sprite\+Object@{K\+\_\+\+Graphics\+::\+Sprite\+Object}!Set\+Matrix@{Set\+Matrix}}
+\index{Set\+Matrix@{Set\+Matrix}!K\+\_\+\+Graphics\+::\+Sprite\+Object@{K\+\_\+\+Graphics\+::\+Sprite\+Object}}
+\subsubsection{\texorpdfstring{Set\+Matrix()}{SetMatrix()}}
+{\footnotesize\ttfamily void K\+\_\+\+Graphics\+::\+Sprite\+Object\+::\+Set\+Matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_k___graphics_1_1_camera_class}{Camera\+Class}} $\ast$}]{camera,  }\item[{\mbox{\hyperlink{class_k___graphics_1_1_shader_class}{Shader\+Class}} $\ast$}]{shader,  }\item[{const \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \&}]{position,  }\item[{const \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \&}]{rotation,  }\item[{const \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \&}]{scale,  }\item[{bool}]{bill\+Board }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_k___graphics_1_1_sprite_object_a0fa1e6994fc741d94c726c85e5f1ec99}\label{class_k___graphics_1_1_sprite_object_a0fa1e6994fc741d94c726c85e5f1ec99}} 
+\index{K\+\_\+\+Graphics\+::\+Sprite\+Object@{K\+\_\+\+Graphics\+::\+Sprite\+Object}!Set\+Texture@{Set\+Texture}}
+\index{Set\+Texture@{Set\+Texture}!K\+\_\+\+Graphics\+::\+Sprite\+Object@{K\+\_\+\+Graphics\+::\+Sprite\+Object}}
+\subsubsection{\texorpdfstring{Set\+Texture()}{SetTexture()}}
+{\footnotesize\ttfamily bool K\+\_\+\+Graphics\+::\+Sprite\+Object\+::\+Set\+Texture (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_k___graphics_1_1_texture}{Texture}} $\ast$}]{texture }\end{DoxyParamCaption})}
+
+
+
+表示するテクスチャを変更する 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em texture} & 使用するテクスチャのポインタ \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{メンバ詳解}
+\mbox{\Hypertarget{class_k___graphics_1_1_sprite_object_ad5d76b9b0a30102d01abbb20bab285f8}\label{class_k___graphics_1_1_sprite_object_ad5d76b9b0a30102d01abbb20bab285f8}} 
+\index{K\+\_\+\+Graphics\+::\+Sprite\+Object@{K\+\_\+\+Graphics\+::\+Sprite\+Object}!control\+Point@{control\+Point}}
+\index{control\+Point@{control\+Point}!K\+\_\+\+Graphics\+::\+Sprite\+Object@{K\+\_\+\+Graphics\+::\+Sprite\+Object}}
+\subsubsection{\texorpdfstring{control\+Point}{controlPoint}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_k___math_a41eb0c2c69c938cd59989eb3241cefb2}{K\+\_\+\+Math\+::\+Vector2}} K\+\_\+\+Graphics\+::\+Sprite\+Object\+::control\+Point}
+
+
+
+コントロールポイントの座標 
+
+\mbox{\Hypertarget{class_k___graphics_1_1_sprite_object_a7cf528d065c242528bf0bd407a139f09}\label{class_k___graphics_1_1_sprite_object_a7cf528d065c242528bf0bd407a139f09}} 
+\index{K\+\_\+\+Graphics\+::\+Sprite\+Object@{K\+\_\+\+Graphics\+::\+Sprite\+Object}!cullent\+Texture@{cullent\+Texture}}
+\index{cullent\+Texture@{cullent\+Texture}!K\+\_\+\+Graphics\+::\+Sprite\+Object@{K\+\_\+\+Graphics\+::\+Sprite\+Object}}
+\subsubsection{\texorpdfstring{cullent\+Texture}{cullentTexture}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_k___graphics_1_1_texture}{Texture}}$\ast$ K\+\_\+\+Graphics\+::\+Sprite\+Object\+::cullent\+Texture\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_k___graphics_1_1_sprite_object_a91966c81a550dd6b04ccc0bd210c289d}\label{class_k___graphics_1_1_sprite_object_a91966c81a550dd6b04ccc0bd210c289d}} 
+\index{K\+\_\+\+Graphics\+::\+Sprite\+Object@{K\+\_\+\+Graphics\+::\+Sprite\+Object}!draw\+Model@{draw\+Model}}
+\index{draw\+Model@{draw\+Model}!K\+\_\+\+Graphics\+::\+Sprite\+Object@{K\+\_\+\+Graphics\+::\+Sprite\+Object}}
+\subsubsection{\texorpdfstring{draw\+Model}{drawModel}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_k___graphics_1_1_mesh_model}{Mesh\+Model}}$\ast$ K\+\_\+\+Graphics\+::\+Sprite\+Object\+::draw\+Model\hspace{0.3cm}{\ttfamily [protected]}}
+

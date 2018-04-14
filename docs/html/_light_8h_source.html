@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MyFrameWorks: C:/Users/こうちゃ/Documents/Visual Studio 2017/Projects/MyFrameWorks/include/K_Graphics/Light.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">MyFrameWorks
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('_light_8h_source.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Light.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include&lt;Eigen\Core&gt;</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include&quot;ShaderClass.h&quot;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include&quot;K_Math\MyMathFanctions.h&quot;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_k___graphics.html">K_Graphics</a> {</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="comment">//ライトの設定を記録するクラス群、正直同じクラスにまとめたほうがよさそう。環境光がないライトとかありえないし。</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_k___graphics_1_1_ambient_light.html">   11</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_k___graphics_1_1_ambient_light.html">AmbientLight</a> {</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <a class="code" href="class_k___graphics_1_1_ambient_light.html#aed22ac89d7358c674ef23bdf2ad1e07b">AmbientLight</a>();</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_k___graphics_1_1_ambient_light.html#af990cb426bd0af248fe2584b46cc6781">SetLight</a>(<a class="code" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a>* shader);</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_k___graphics_1_1_ambient_light.html#a655a8ce910366da4101934750aaf384e">SetPower</a>(<span class="keywordtype">float</span> <a class="code" href="class_k___graphics_1_1_ambient_light.html#a94be03efb22dd26f3b99acc6858491bd">power</a>);</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_k___graphics_1_1_ambient_light.html#a9843ba2af23cf26e2a924bb858452b0f">SetColor</a>(<span class="keywordtype">float</span> r, <span class="keywordtype">float</span> g, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> a);</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">float</span> <a class="code" href="class_k___graphics_1_1_ambient_light.html#a6a06b70f058983367e1f444ca2d93ef1">GetPower</a>();</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">const</span> <a class="code" href="namespace_k___math.html#a8d82de9de17eae460600de1e40e8a01f">K_Math::Vector4</a>&amp; <a class="code" href="class_k___graphics_1_1_ambient_light.html#a0d6c492ee889625cd009f08284e8c586">GetColor</a>();</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">protected</span>:</div><div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_k___graphics_1_1_ambient_light.html#a94be03efb22dd26f3b99acc6858491bd">   23</a></span>&#160;        <span class="keywordtype">float</span>    <a class="code" href="class_k___graphics_1_1_ambient_light.html#a94be03efb22dd26f3b99acc6858491bd">power</a>;</div><div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_k___graphics_1_1_ambient_light.html#ab1122a784c5ec44b828ace7013d1d7c8">   24</a></span>&#160;        <a class="code" href="namespace_k___math.html#a8d82de9de17eae460600de1e40e8a01f">K_Math::Vector4</a> <a class="code" href="class_k___graphics_1_1_ambient_light.html#ab1122a784c5ec44b828ace7013d1d7c8">color</a>;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    };</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div><div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_k___graphics_1_1_directional_light.html">   27</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_k___graphics_1_1_directional_light.html">DirectionalLight</a> {</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <a class="code" href="class_k___graphics_1_1_directional_light.html#a59cd654e88bff0875908bf87bb5e0f05">DirectionalLight</a>();</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_k___graphics_1_1_directional_light.html#a402ab2c96733b3213ee79ee43b8b421b">SetLight</a>(<a class="code" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a>* shader);</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_k___graphics_1_1_directional_light.html#a69bbb0459bf12919943c80eb3d3ba69f">SetPower</a>(<span class="keywordtype">float</span> <a class="code" href="class_k___graphics_1_1_directional_light.html#a537dfbbe17c8c6cf0e827a74aa3d62c9">power</a>);</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_k___graphics_1_1_directional_light.html#a4fde47662dc631b7ae403272df4b8b41">SetColor</a>(<span class="keywordtype">float</span> r, <span class="keywordtype">float</span> g, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> a);</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordtype">float</span> <a class="code" href="class_k___graphics_1_1_directional_light.html#a787382b67a5603227533c674b68e2636">GetPower</a>();</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">const</span> <a class="code" href="namespace_k___math.html#a8d82de9de17eae460600de1e40e8a01f">K_Math::Vector4</a>&amp; <a class="code" href="class_k___graphics_1_1_directional_light.html#a091844225b764f4a59038b6f39f1f56e">GetColor</a>();</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordtype">void</span>  <a class="code" href="class_k___graphics_1_1_directional_light.html#a6efbacdc754be4209e5ddeb50fd7c3be">SetDirection</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> z);</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">const</span> <a class="code" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a>&amp; <a class="code" href="class_k___graphics_1_1_directional_light.html#a6f421195d534f3f5e6c62eb64bf5605f">GetDirection</a>();</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">protected</span>:</div><div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_k___graphics_1_1_directional_light.html#a537dfbbe17c8c6cf0e827a74aa3d62c9">   42</a></span>&#160;        <span class="keywordtype">float</span>    <a class="code" href="class_k___graphics_1_1_directional_light.html#a537dfbbe17c8c6cf0e827a74aa3d62c9">power</a>;</div><div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_k___graphics_1_1_directional_light.html#a136a2152a4f66c7c8f9676abc2c7211c">   43</a></span>&#160;        <a class="code" href="namespace_k___math.html#a8d82de9de17eae460600de1e40e8a01f">K_Math::Vector4</a> <a class="code" href="class_k___graphics_1_1_directional_light.html#a136a2152a4f66c7c8f9676abc2c7211c">color</a>;</div><div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_k___graphics_1_1_directional_light.html#aa2fe5f127475e2751039b9636e3e3487">   44</a></span>&#160;        <a class="code" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> <a class="code" href="class_k___graphics_1_1_directional_light.html#aa2fe5f127475e2751039b9636e3e3487">direction</a>;</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    };</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div><div class="ttc" id="class_k___graphics_1_1_ambient_light_html_af990cb426bd0af248fe2584b46cc6781"><div class="ttname"><a href="class_k___graphics_1_1_ambient_light.html#af990cb426bd0af248fe2584b46cc6781">K_Graphics::AmbientLight::SetLight</a></div><div class="ttdeci">void SetLight(ShaderClass *shader)</div><div class="ttdef"><b>Definition:</b> AmbientLight.cpp:11</div></div>
+<div class="ttc" id="class_k___graphics_1_1_directional_light_html_a69bbb0459bf12919943c80eb3d3ba69f"><div class="ttname"><a href="class_k___graphics_1_1_directional_light.html#a69bbb0459bf12919943c80eb3d3ba69f">K_Graphics::DirectionalLight::SetPower</a></div><div class="ttdeci">void SetPower(float power)</div><div class="ttdef"><b>Definition:</b> DirectionalLight.cpp:20</div></div>
+<div class="ttc" id="class_k___graphics_1_1_directional_light_html_a787382b67a5603227533c674b68e2636"><div class="ttname"><a href="class_k___graphics_1_1_directional_light.html#a787382b67a5603227533c674b68e2636">K_Graphics::DirectionalLight::GetPower</a></div><div class="ttdeci">float GetPower()</div><div class="ttdef"><b>Definition:</b> DirectionalLight.cpp:30</div></div>
+<div class="ttc" id="namespace_k___math_html_a66884d78082c39ada4091c211f3570f8"><div class="ttname"><a href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a></div><div class="ttdeci">Eigen::Matrix&lt; float, 3, 1, Eigen::DontAlign &gt; Vector3</div><div class="ttdoc">float型３要素ベクトル 要素のアクセスに &quot;vector.x()&quot; と関数の形をとるのに注意 </div><div class="ttdef"><b>Definition:</b> MyMathFanctions.h:13</div></div>
+<div class="ttc" id="namespace_k___graphics_html"><div class="ttname"><a href="namespace_k___graphics.html">K_Graphics</a></div><div class="ttdoc">グラフィック関連の名前空間 </div><div class="ttdef"><b>Definition:</b> AmbientLight.cpp:3</div></div>
+<div class="ttc" id="class_k___graphics_1_1_ambient_light_html_a655a8ce910366da4101934750aaf384e"><div class="ttname"><a href="class_k___graphics_1_1_ambient_light.html#a655a8ce910366da4101934750aaf384e">K_Graphics::AmbientLight::SetPower</a></div><div class="ttdeci">void SetPower(float power)</div><div class="ttdef"><b>Definition:</b> AmbientLight.cpp:14</div></div>
+<div class="ttc" id="class_k___graphics_1_1_directional_light_html_a59cd654e88bff0875908bf87bb5e0f05"><div class="ttname"><a href="class_k___graphics_1_1_directional_light.html#a59cd654e88bff0875908bf87bb5e0f05">K_Graphics::DirectionalLight::DirectionalLight</a></div><div class="ttdeci">DirectionalLight()</div><div class="ttdef"><b>Definition:</b> DirectionalLight.cpp:7</div></div>
+<div class="ttc" id="class_k___graphics_1_1_ambient_light_html_a0d6c492ee889625cd009f08284e8c586"><div class="ttname"><a href="class_k___graphics_1_1_ambient_light.html#a0d6c492ee889625cd009f08284e8c586">K_Graphics::AmbientLight::GetColor</a></div><div class="ttdeci">const K_Math::Vector4 &amp; GetColor()</div><div class="ttdef"><b>Definition:</b> AmbientLight.cpp:23</div></div>
+<div class="ttc" id="class_k___graphics_1_1_ambient_light_html_ab1122a784c5ec44b828ace7013d1d7c8"><div class="ttname"><a href="class_k___graphics_1_1_ambient_light.html#ab1122a784c5ec44b828ace7013d1d7c8">K_Graphics::AmbientLight::color</a></div><div class="ttdeci">K_Math::Vector4 color</div><div class="ttdef"><b>Definition:</b> Light.h:24</div></div>
+<div class="ttc" id="class_k___graphics_1_1_ambient_light_html"><div class="ttname"><a href="class_k___graphics_1_1_ambient_light.html">K_Graphics::AmbientLight</a></div><div class="ttdef"><b>Definition:</b> Light.h:11</div></div>
+<div class="ttc" id="class_k___graphics_1_1_directional_light_html_a6f421195d534f3f5e6c62eb64bf5605f"><div class="ttname"><a href="class_k___graphics_1_1_directional_light.html#a6f421195d534f3f5e6c62eb64bf5605f">K_Graphics::DirectionalLight::GetDirection</a></div><div class="ttdeci">const K_Math::Vector3 &amp; GetDirection()</div><div class="ttdef"><b>Definition:</b> DirectionalLight.cpp:36</div></div>
+<div class="ttc" id="class_k___graphics_1_1_shader_class_html"><div class="ttname"><a href="class_k___graphics_1_1_shader_class.html">K_Graphics::ShaderClass</a></div><div class="ttdoc">シェーダープログラムの管理とuniform変数の受け渡しを担当するクラス uniform変数名は固定的な機能を除くと...</div><div class="ttdef"><b>Definition:</b> ShaderClass.h:11</div></div>
+<div class="ttc" id="class_k___graphics_1_1_directional_light_html_a091844225b764f4a59038b6f39f1f56e"><div class="ttname"><a href="class_k___graphics_1_1_directional_light.html#a091844225b764f4a59038b6f39f1f56e">K_Graphics::DirectionalLight::GetColor</a></div><div class="ttdeci">const K_Math::Vector4 &amp; GetColor()</div><div class="ttdef"><b>Definition:</b> DirectionalLight.cpp:33</div></div>
+<div class="ttc" id="class_k___graphics_1_1_directional_light_html_a402ab2c96733b3213ee79ee43b8b421b"><div class="ttname"><a href="class_k___graphics_1_1_directional_light.html#a402ab2c96733b3213ee79ee43b8b421b">K_Graphics::DirectionalLight::SetLight</a></div><div class="ttdeci">void SetLight(ShaderClass *shader)</div><div class="ttdef"><b>Definition:</b> DirectionalLight.cpp:13</div></div>
+<div class="ttc" id="class_k___graphics_1_1_directional_light_html_a136a2152a4f66c7c8f9676abc2c7211c"><div class="ttname"><a href="class_k___graphics_1_1_directional_light.html#a136a2152a4f66c7c8f9676abc2c7211c">K_Graphics::DirectionalLight::color</a></div><div class="ttdeci">K_Math::Vector4 color</div><div class="ttdef"><b>Definition:</b> Light.h:43</div></div>
+<div class="ttc" id="class_k___graphics_1_1_directional_light_html_aa2fe5f127475e2751039b9636e3e3487"><div class="ttname"><a href="class_k___graphics_1_1_directional_light.html#aa2fe5f127475e2751039b9636e3e3487">K_Graphics::DirectionalLight::direction</a></div><div class="ttdeci">K_Math::Vector3 direction</div><div class="ttdef"><b>Definition:</b> Light.h:44</div></div>
+<div class="ttc" id="class_k___graphics_1_1_ambient_light_html_a6a06b70f058983367e1f444ca2d93ef1"><div class="ttname"><a href="class_k___graphics_1_1_ambient_light.html#a6a06b70f058983367e1f444ca2d93ef1">K_Graphics::AmbientLight::GetPower</a></div><div class="ttdeci">float GetPower()</div><div class="ttdef"><b>Definition:</b> AmbientLight.cpp:20</div></div>
+<div class="ttc" id="class_k___graphics_1_1_directional_light_html_a4fde47662dc631b7ae403272df4b8b41"><div class="ttname"><a href="class_k___graphics_1_1_directional_light.html#a4fde47662dc631b7ae403272df4b8b41">K_Graphics::DirectionalLight::SetColor</a></div><div class="ttdeci">void SetColor(float r, float g, float b, float a)</div><div class="ttdef"><b>Definition:</b> DirectionalLight.cpp:23</div></div>
+<div class="ttc" id="class_k___graphics_1_1_directional_light_html"><div class="ttname"><a href="class_k___graphics_1_1_directional_light.html">K_Graphics::DirectionalLight</a></div><div class="ttdef"><b>Definition:</b> Light.h:27</div></div>
+<div class="ttc" id="class_k___graphics_1_1_ambient_light_html_aed22ac89d7358c674ef23bdf2ad1e07b"><div class="ttname"><a href="class_k___graphics_1_1_ambient_light.html#aed22ac89d7358c674ef23bdf2ad1e07b">K_Graphics::AmbientLight::AmbientLight</a></div><div class="ttdeci">AmbientLight()</div><div class="ttdef"><b>Definition:</b> AmbientLight.cpp:7</div></div>
+<div class="ttc" id="namespace_k___math_html_a8d82de9de17eae460600de1e40e8a01f"><div class="ttname"><a href="namespace_k___math.html#a8d82de9de17eae460600de1e40e8a01f">K_Math::Vector4</a></div><div class="ttdeci">Eigen::Matrix&lt; float, 4, 1, Eigen::DontAlign &gt; Vector4</div><div class="ttdoc">float型４要素ベクトル 要素のアクセスに &quot;vector.x()&quot; と関数の形をとるのに注意 </div><div class="ttdef"><b>Definition:</b> MyMathFanctions.h:15</div></div>
+<div class="ttc" id="class_k___graphics_1_1_ambient_light_html_a9843ba2af23cf26e2a924bb858452b0f"><div class="ttname"><a href="class_k___graphics_1_1_ambient_light.html#a9843ba2af23cf26e2a924bb858452b0f">K_Graphics::AmbientLight::SetColor</a></div><div class="ttdeci">void SetColor(float r, float g, float b, float a)</div><div class="ttdef"><b>Definition:</b> AmbientLight.cpp:17</div></div>
+<div class="ttc" id="class_k___graphics_1_1_ambient_light_html_a94be03efb22dd26f3b99acc6858491bd"><div class="ttname"><a href="class_k___graphics_1_1_ambient_light.html#a94be03efb22dd26f3b99acc6858491bd">K_Graphics::AmbientLight::power</a></div><div class="ttdeci">float power</div><div class="ttdef"><b>Definition:</b> Light.h:23</div></div>
+<div class="ttc" id="class_k___graphics_1_1_directional_light_html_a6efbacdc754be4209e5ddeb50fd7c3be"><div class="ttname"><a href="class_k___graphics_1_1_directional_light.html#a6efbacdc754be4209e5ddeb50fd7c3be">K_Graphics::DirectionalLight::SetDirection</a></div><div class="ttdeci">void SetDirection(float x, float y, float z)</div><div class="ttdef"><b>Definition:</b> DirectionalLight.cpp:26</div></div>
+<div class="ttc" id="class_k___graphics_1_1_directional_light_html_a537dfbbe17c8c6cf0e827a74aa3d62c9"><div class="ttname"><a href="class_k___graphics_1_1_directional_light.html#a537dfbbe17c8c6cf0e827a74aa3d62c9">K_Graphics::DirectionalLight::power</a></div><div class="ttdeci">float power</div><div class="ttdef"><b>Definition:</b> Light.h:42</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_985859a0b4271b733ea36bfa48e47771.html">K_Graphics</a></li><li class="navelem"><b>Light.h</b></li>
+    <li class="footer">構築:
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
+</body>
+</html>

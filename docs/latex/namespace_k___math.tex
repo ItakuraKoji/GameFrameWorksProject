@@ -1,0 +1,289 @@
+\hypertarget{namespace_k___math}{}\section{K\+\_\+\+Math 名前空間}
+\label{namespace_k___math}\index{K\+\_\+\+Math@{K\+\_\+\+Math}}
+
+
+行列系の関数とベクトルや行列型を提供する  
+
+
+\subsection*{クラス}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_k___math_1_1_box2_d}{Box2D}}
+\begin{DoxyCompactList}\small\item\em 座標の\char`\"{}x\char`\"{}\char`\"{}y\char`\"{}、幅高さの\char`\"{}w\char`\"{}\char`\"{}h\char`\"{}を持つ~\newline
+全てint型で、2\+D描画用 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{型定義}
+\begin{DoxyCompactItemize}
+\item 
+typedef Eigen\+::\+Matrix$<$ float, 2, 1, Eigen\+::\+Dont\+Align $>$ \mbox{\hyperlink{namespace_k___math_a41eb0c2c69c938cd59989eb3241cefb2}{Vector2}}
+\begin{DoxyCompactList}\small\item\em float型２要素ベクトル~\newline
+要素のアクセスに \char`\"{}vector.\+x()\char`\"{} と関数の形をとるのに注意 \end{DoxyCompactList}\item 
+typedef Eigen\+::\+Matrix$<$ float, 3, 1, Eigen\+::\+Dont\+Align $>$ \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{Vector3}}
+\begin{DoxyCompactList}\small\item\em float型３要素ベクトル~\newline
+要素のアクセスに \char`\"{}vector.\+x()\char`\"{} と関数の形をとるのに注意 \end{DoxyCompactList}\item 
+typedef Eigen\+::\+Matrix$<$ float, 4, 1, Eigen\+::\+Dont\+Align $>$ \mbox{\hyperlink{namespace_k___math_a8d82de9de17eae460600de1e40e8a01f}{Vector4}}
+\begin{DoxyCompactList}\small\item\em float型４要素ベクトル~\newline
+要素のアクセスに \char`\"{}vector.\+x()\char`\"{} と関数の形をとるのに注意 \end{DoxyCompactList}\item 
+typedef Eigen\+::\+Matrix$<$ float, 3, 3, Eigen\+::\+Dont\+Align $>$ \mbox{\hyperlink{namespace_k___math_a560235ba0b8247680dfa595fc7c975dd}{Matrix3x3}}
+\begin{DoxyCompactList}\small\item\em float型３行３列行列 \end{DoxyCompactList}\item 
+typedef Eigen\+::\+Matrix$<$ float, 4, 4, Eigen\+::\+Dont\+Align $>$ \mbox{\hyperlink{namespace_k___math_a345271af9d32dff2c964bc679b13b45c}{Matrix4x4}}
+\begin{DoxyCompactList}\small\item\em float型４行４列行列 \end{DoxyCompactList}\item 
+typedef Eigen\+::\+Quaternion$<$ float, Eigen\+::\+Dont\+Align $>$ \mbox{\hyperlink{namespace_k___math_a9bc4dcabcbd509e9dc53ae0ecb07a17c}{Quaternion}}
+\begin{DoxyCompactList}\small\item\em float型のクォータニオン~\newline
+内部では回転行列はクォータニオンを利用している \end{DoxyCompactList}\item 
+typedef Eigen\+::\+Transform$<$ float, 3, 2, Eigen\+::\+Dont\+Align $>$ \mbox{\hyperlink{namespace_k___math_a1de8cd5bcdc049291da842729bf45aeb}{Affine3}}
+\item 
+typedef Eigen\+::\+Angle\+Axis$<$ float $>$ \mbox{\hyperlink{namespace_k___math_a0f5db7b05f161215069d86bce9dac011}{Angle\+Axis}}
+\item 
+typedef Eigen\+::\+Translation$<$ float, 3 $>$ \mbox{\hyperlink{namespace_k___math_a9a67bf2cbf95f0824bee5e5f79570ba4}{Translation}}
+\item 
+typedef Eigen\+::\+Diagonal\+Matrix$<$ float, 3 $>$ \mbox{\hyperlink{namespace_k___math_aff8bcbdc2a06207d456cb31f4d72d861}{Diagonal\+Matrix}}
+\end{DoxyCompactItemize}
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{namespace_k___math_a51746a69b3cdedea6ac164f799600c98}{Deg\+To\+Rad}} (float deg)
+\begin{DoxyCompactList}\small\item\em 「度数法　→　ラジアン」の変換 \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{namespace_k___math_a4ab382b67d996b4862e30be45875740d}{Rad\+To\+Deg}} (float rad)
+\begin{DoxyCompactList}\small\item\em 「ラジアン　→　度数法」の変換 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_k___math_ab1c2ee328b8f85662df5bd54dfd6c376}{Matrix\+Perspective\+LH}} (\mbox{\hyperlink{namespace_k___math_a345271af9d32dff2c964bc679b13b45c}{K\+\_\+\+Math\+::\+Matrix4x4}} \&result, float screen\+Width, float screen\+Height, float screen\+Near, float screen\+Far, float field\+Of\+View)
+\begin{DoxyCompactList}\small\item\em 左手座標系の射影変換行列を作る \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_k___math_acf1260b151f1893d96d46b75030a231c}{Matrix\+Perspective\+RH}} (\mbox{\hyperlink{namespace_k___math_a345271af9d32dff2c964bc679b13b45c}{K\+\_\+\+Math\+::\+Matrix4x4}} \&result, float screen\+Width, float screen\+Height, float screen\+Near, float screen\+Far, float field\+Of\+View)
+\begin{DoxyCompactList}\small\item\em 右手座標系の射影変換行列を作る~\newline
+詳細は\+Matrix\+Perspective\+L\+H()を参照のこと \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_k___math_a9109e2b71d7577a4628c69213f717438}{Matrix\+Ortho\+LH}} (\mbox{\hyperlink{namespace_k___math_a345271af9d32dff2c964bc679b13b45c}{K\+\_\+\+Math\+::\+Matrix4x4}} \&result, float screen\+Width, float screen\+Height, float screen\+Near, float screen\+Far)
+\begin{DoxyCompactList}\small\item\em 左手座標系の平行投影行列を作る \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_k___math_a817a68791367b9e515f7e096361ae1aa}{Matrix\+Ortho\+RH}} (\mbox{\hyperlink{namespace_k___math_a345271af9d32dff2c964bc679b13b45c}{K\+\_\+\+Math\+::\+Matrix4x4}} \&result, float screen\+Width, float screen\+Height, float screen\+Near, float screen\+Far)
+\begin{DoxyCompactList}\small\item\em 右手座標系の平行投影行列を作る~\newline
+詳細は\+Matrix\+Ortho\+L\+H()を参照のこと \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_k___math_a6b4f61bdcace7fe46cac98caa4db8931}{Matrix\+Look\+At}} (\mbox{\hyperlink{namespace_k___math_a345271af9d32dff2c964bc679b13b45c}{K\+\_\+\+Math\+::\+Matrix4x4}} \&result, \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \&position, \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \&look\+At, \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \&up)
+\begin{DoxyCompactList}\small\item\em ビュー行列を作る \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{詳解}
+行列系の関数とベクトルや行列型を提供する 
+
+主要クラスはなく、関数と型だけが定義されている 
+
+\subsection{型定義詳解}
+\mbox{\Hypertarget{namespace_k___math_a1de8cd5bcdc049291da842729bf45aeb}\label{namespace_k___math_a1de8cd5bcdc049291da842729bf45aeb}} 
+\index{K\+\_\+\+Math@{K\+\_\+\+Math}!Affine3@{Affine3}}
+\index{Affine3@{Affine3}!K\+\_\+\+Math@{K\+\_\+\+Math}}
+\subsubsection{\texorpdfstring{Affine3}{Affine3}}
+{\footnotesize\ttfamily typedef Eigen\+::\+Transform$<$float, 3, 2, Eigen\+::\+Dont\+Align$>$ \mbox{\hyperlink{namespace_k___math_a1de8cd5bcdc049291da842729bf45aeb}{K\+\_\+\+Math\+::\+Affine3}}}
+
+\mbox{\Hypertarget{namespace_k___math_a0f5db7b05f161215069d86bce9dac011}\label{namespace_k___math_a0f5db7b05f161215069d86bce9dac011}} 
+\index{K\+\_\+\+Math@{K\+\_\+\+Math}!Angle\+Axis@{Angle\+Axis}}
+\index{Angle\+Axis@{Angle\+Axis}!K\+\_\+\+Math@{K\+\_\+\+Math}}
+\subsubsection{\texorpdfstring{Angle\+Axis}{AngleAxis}}
+{\footnotesize\ttfamily typedef Eigen\+::\+Angle\+Axis$<$float$>$ \mbox{\hyperlink{namespace_k___math_a0f5db7b05f161215069d86bce9dac011}{K\+\_\+\+Math\+::\+Angle\+Axis}}}
+
+\mbox{\Hypertarget{namespace_k___math_aff8bcbdc2a06207d456cb31f4d72d861}\label{namespace_k___math_aff8bcbdc2a06207d456cb31f4d72d861}} 
+\index{K\+\_\+\+Math@{K\+\_\+\+Math}!Diagonal\+Matrix@{Diagonal\+Matrix}}
+\index{Diagonal\+Matrix@{Diagonal\+Matrix}!K\+\_\+\+Math@{K\+\_\+\+Math}}
+\subsubsection{\texorpdfstring{Diagonal\+Matrix}{DiagonalMatrix}}
+{\footnotesize\ttfamily typedef Eigen\+::\+Diagonal\+Matrix$<$float, 3$>$ \mbox{\hyperlink{namespace_k___math_aff8bcbdc2a06207d456cb31f4d72d861}{K\+\_\+\+Math\+::\+Diagonal\+Matrix}}}
+
+\mbox{\Hypertarget{namespace_k___math_a560235ba0b8247680dfa595fc7c975dd}\label{namespace_k___math_a560235ba0b8247680dfa595fc7c975dd}} 
+\index{K\+\_\+\+Math@{K\+\_\+\+Math}!Matrix3x3@{Matrix3x3}}
+\index{Matrix3x3@{Matrix3x3}!K\+\_\+\+Math@{K\+\_\+\+Math}}
+\subsubsection{\texorpdfstring{Matrix3x3}{Matrix3x3}}
+{\footnotesize\ttfamily typedef Eigen\+::\+Matrix$<$float, 3, 3, Eigen\+::\+Dont\+Align$>$ \mbox{\hyperlink{namespace_k___math_a560235ba0b8247680dfa595fc7c975dd}{K\+\_\+\+Math\+::\+Matrix3x3}}}
+
+
+
+float型３行３列行列 
+
+\mbox{\Hypertarget{namespace_k___math_a345271af9d32dff2c964bc679b13b45c}\label{namespace_k___math_a345271af9d32dff2c964bc679b13b45c}} 
+\index{K\+\_\+\+Math@{K\+\_\+\+Math}!Matrix4x4@{Matrix4x4}}
+\index{Matrix4x4@{Matrix4x4}!K\+\_\+\+Math@{K\+\_\+\+Math}}
+\subsubsection{\texorpdfstring{Matrix4x4}{Matrix4x4}}
+{\footnotesize\ttfamily typedef Eigen\+::\+Matrix$<$float, 4, 4, Eigen\+::\+Dont\+Align$>$ \mbox{\hyperlink{namespace_k___math_a345271af9d32dff2c964bc679b13b45c}{K\+\_\+\+Math\+::\+Matrix4x4}}}
+
+
+
+float型４行４列行列 
+
+\mbox{\Hypertarget{namespace_k___math_a9bc4dcabcbd509e9dc53ae0ecb07a17c}\label{namespace_k___math_a9bc4dcabcbd509e9dc53ae0ecb07a17c}} 
+\index{K\+\_\+\+Math@{K\+\_\+\+Math}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!K\+\_\+\+Math@{K\+\_\+\+Math}}
+\subsubsection{\texorpdfstring{Quaternion}{Quaternion}}
+{\footnotesize\ttfamily typedef Eigen\+::\+Quaternion$<$float, Eigen\+::\+Dont\+Align$>$ \mbox{\hyperlink{namespace_k___math_a9bc4dcabcbd509e9dc53ae0ecb07a17c}{K\+\_\+\+Math\+::\+Quaternion}}}
+
+
+
+float型のクォータニオン~\newline
+内部では回転行列はクォータニオンを利用している 
+
+\mbox{\Hypertarget{namespace_k___math_a9a67bf2cbf95f0824bee5e5f79570ba4}\label{namespace_k___math_a9a67bf2cbf95f0824bee5e5f79570ba4}} 
+\index{K\+\_\+\+Math@{K\+\_\+\+Math}!Translation@{Translation}}
+\index{Translation@{Translation}!K\+\_\+\+Math@{K\+\_\+\+Math}}
+\subsubsection{\texorpdfstring{Translation}{Translation}}
+{\footnotesize\ttfamily typedef Eigen\+::\+Translation$<$float, 3$>$ \mbox{\hyperlink{namespace_k___math_a9a67bf2cbf95f0824bee5e5f79570ba4}{K\+\_\+\+Math\+::\+Translation}}}
+
+\mbox{\Hypertarget{namespace_k___math_a41eb0c2c69c938cd59989eb3241cefb2}\label{namespace_k___math_a41eb0c2c69c938cd59989eb3241cefb2}} 
+\index{K\+\_\+\+Math@{K\+\_\+\+Math}!Vector2@{Vector2}}
+\index{Vector2@{Vector2}!K\+\_\+\+Math@{K\+\_\+\+Math}}
+\subsubsection{\texorpdfstring{Vector2}{Vector2}}
+{\footnotesize\ttfamily typedef Eigen\+::\+Matrix$<$float, 2, 1, Eigen\+::\+Dont\+Align$>$ \mbox{\hyperlink{namespace_k___math_a41eb0c2c69c938cd59989eb3241cefb2}{K\+\_\+\+Math\+::\+Vector2}}}
+
+
+
+float型２要素ベクトル~\newline
+要素のアクセスに \char`\"{}vector.\+x()\char`\"{} と関数の形をとるのに注意 
+
+\mbox{\Hypertarget{namespace_k___math_a66884d78082c39ada4091c211f3570f8}\label{namespace_k___math_a66884d78082c39ada4091c211f3570f8}} 
+\index{K\+\_\+\+Math@{K\+\_\+\+Math}!Vector3@{Vector3}}
+\index{Vector3@{Vector3}!K\+\_\+\+Math@{K\+\_\+\+Math}}
+\subsubsection{\texorpdfstring{Vector3}{Vector3}}
+{\footnotesize\ttfamily typedef Eigen\+::\+Matrix$<$float, 3, 1, Eigen\+::\+Dont\+Align$>$ \mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}}}
+
+
+
+float型３要素ベクトル~\newline
+要素のアクセスに \char`\"{}vector.\+x()\char`\"{} と関数の形をとるのに注意 
+
+\mbox{\Hypertarget{namespace_k___math_a8d82de9de17eae460600de1e40e8a01f}\label{namespace_k___math_a8d82de9de17eae460600de1e40e8a01f}} 
+\index{K\+\_\+\+Math@{K\+\_\+\+Math}!Vector4@{Vector4}}
+\index{Vector4@{Vector4}!K\+\_\+\+Math@{K\+\_\+\+Math}}
+\subsubsection{\texorpdfstring{Vector4}{Vector4}}
+{\footnotesize\ttfamily typedef Eigen\+::\+Matrix$<$float, 4, 1, Eigen\+::\+Dont\+Align$>$ \mbox{\hyperlink{namespace_k___math_a8d82de9de17eae460600de1e40e8a01f}{K\+\_\+\+Math\+::\+Vector4}}}
+
+
+
+float型４要素ベクトル~\newline
+要素のアクセスに \char`\"{}vector.\+x()\char`\"{} と関数の形をとるのに注意 
+
+
+
+\subsection{関数詳解}
+\mbox{\Hypertarget{namespace_k___math_a51746a69b3cdedea6ac164f799600c98}\label{namespace_k___math_a51746a69b3cdedea6ac164f799600c98}} 
+\index{K\+\_\+\+Math@{K\+\_\+\+Math}!Deg\+To\+Rad@{Deg\+To\+Rad}}
+\index{Deg\+To\+Rad@{Deg\+To\+Rad}!K\+\_\+\+Math@{K\+\_\+\+Math}}
+\subsubsection{\texorpdfstring{Deg\+To\+Rad()}{DegToRad()}}
+{\footnotesize\ttfamily float K\+\_\+\+Math\+::\+Deg\+To\+Rad (\begin{DoxyParamCaption}\item[{float}]{deg }\end{DoxyParamCaption})}
+
+
+
+「度数法　→　ラジアン」の変換 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em deg} & 度数法での角度 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+ラジアンでの角度 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespace_k___math_a6b4f61bdcace7fe46cac98caa4db8931}\label{namespace_k___math_a6b4f61bdcace7fe46cac98caa4db8931}} 
+\index{K\+\_\+\+Math@{K\+\_\+\+Math}!Matrix\+Look\+At@{Matrix\+Look\+At}}
+\index{Matrix\+Look\+At@{Matrix\+Look\+At}!K\+\_\+\+Math@{K\+\_\+\+Math}}
+\subsubsection{\texorpdfstring{Matrix\+Look\+At()}{MatrixLookAt()}}
+{\footnotesize\ttfamily void K\+\_\+\+Math\+::\+Matrix\+Look\+At (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_k___math_a345271af9d32dff2c964bc679b13b45c}{K\+\_\+\+Math\+::\+Matrix4x4}} \&}]{result,  }\item[{\mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \&}]{position,  }\item[{\mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \&}]{look\+At,  }\item[{\mbox{\hyperlink{namespace_k___math_a66884d78082c39ada4091c211f3570f8}{K\+\_\+\+Math\+::\+Vector3}} \&}]{up }\end{DoxyParamCaption})}
+
+
+
+ビュー行列を作る 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt out}  & {\em result} & 結果の4x4行列を格納する変数 \\
+\hline
+\mbox{\tt in}  & {\em position} & カメラの座標 \\
+\hline
+\mbox{\tt in}  & {\em look\+At} & 注視点の座標 \\
+\hline
+\mbox{\tt in}  & {\em up} & カメラの上を指す単位ベクトル \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespace_k___math_a9109e2b71d7577a4628c69213f717438}\label{namespace_k___math_a9109e2b71d7577a4628c69213f717438}} 
+\index{K\+\_\+\+Math@{K\+\_\+\+Math}!Matrix\+Ortho\+LH@{Matrix\+Ortho\+LH}}
+\index{Matrix\+Ortho\+LH@{Matrix\+Ortho\+LH}!K\+\_\+\+Math@{K\+\_\+\+Math}}
+\subsubsection{\texorpdfstring{Matrix\+Ortho\+L\+H()}{MatrixOrthoLH()}}
+{\footnotesize\ttfamily void K\+\_\+\+Math\+::\+Matrix\+Ortho\+LH (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_k___math_a345271af9d32dff2c964bc679b13b45c}{K\+\_\+\+Math\+::\+Matrix4x4}} \&}]{result,  }\item[{float}]{screen\+Width,  }\item[{float}]{screen\+Height,  }\item[{float}]{screen\+Near,  }\item[{float}]{screen\+Far }\end{DoxyParamCaption})}
+
+
+
+左手座標系の平行投影行列を作る 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt out}  & {\em result} & 結果の4x4行列を格納する変数 \\
+\hline
+\mbox{\tt in}  & {\em screen\+Width} & 描画スクリーンの幅~\newline
+ウィンドウではなく、ビューポートの幅を入れる \\
+\hline
+\mbox{\tt in}  & {\em screen\+Width} & 描画スクリーンの高さ~\newline
+ウィンドウではなく、ビューポートの高さを入れる \\
+\hline
+\mbox{\tt in}  & {\em screen\+Near} & 近いほうの、錐視台のクリッピング領域 \\
+\hline
+\mbox{\tt in}  & {\em screen\+Far} & 遠いほうの、錐視台のクリッピング領域 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespace_k___math_a817a68791367b9e515f7e096361ae1aa}\label{namespace_k___math_a817a68791367b9e515f7e096361ae1aa}} 
+\index{K\+\_\+\+Math@{K\+\_\+\+Math}!Matrix\+Ortho\+RH@{Matrix\+Ortho\+RH}}
+\index{Matrix\+Ortho\+RH@{Matrix\+Ortho\+RH}!K\+\_\+\+Math@{K\+\_\+\+Math}}
+\subsubsection{\texorpdfstring{Matrix\+Ortho\+R\+H()}{MatrixOrthoRH()}}
+{\footnotesize\ttfamily void K\+\_\+\+Math\+::\+Matrix\+Ortho\+RH (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_k___math_a345271af9d32dff2c964bc679b13b45c}{K\+\_\+\+Math\+::\+Matrix4x4}} \&}]{result,  }\item[{float}]{screen\+Width,  }\item[{float}]{screen\+Height,  }\item[{float}]{screen\+Near,  }\item[{float}]{screen\+Far }\end{DoxyParamCaption})}
+
+
+
+右手座標系の平行投影行列を作る~\newline
+詳細は\+Matrix\+Ortho\+L\+H()を参照のこと 
+
+\mbox{\Hypertarget{namespace_k___math_ab1c2ee328b8f85662df5bd54dfd6c376}\label{namespace_k___math_ab1c2ee328b8f85662df5bd54dfd6c376}} 
+\index{K\+\_\+\+Math@{K\+\_\+\+Math}!Matrix\+Perspective\+LH@{Matrix\+Perspective\+LH}}
+\index{Matrix\+Perspective\+LH@{Matrix\+Perspective\+LH}!K\+\_\+\+Math@{K\+\_\+\+Math}}
+\subsubsection{\texorpdfstring{Matrix\+Perspective\+L\+H()}{MatrixPerspectiveLH()}}
+{\footnotesize\ttfamily void K\+\_\+\+Math\+::\+Matrix\+Perspective\+LH (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_k___math_a345271af9d32dff2c964bc679b13b45c}{K\+\_\+\+Math\+::\+Matrix4x4}} \&}]{result,  }\item[{float}]{screen\+Width,  }\item[{float}]{screen\+Height,  }\item[{float}]{screen\+Near,  }\item[{float}]{screen\+Far,  }\item[{float}]{field\+Of\+View }\end{DoxyParamCaption})}
+
+
+
+左手座標系の射影変換行列を作る 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt out}  & {\em result} & 結果の4x4行列を格納する変数 \\
+\hline
+\mbox{\tt in}  & {\em screen\+Width} & 描画スクリーンの幅~\newline
+ウィンドウではなく、ビューポートの幅を入れる \\
+\hline
+\mbox{\tt in}  & {\em screen\+Width} & 描画スクリーンの高さ~\newline
+ウィンドウではなく、ビューポートの高さを入れる \\
+\hline
+\mbox{\tt in}  & {\em screen\+Near} & 近いほうの、錐視台のクリッピング領域 \\
+\hline
+\mbox{\tt in}  & {\em screen\+Far} & 遠いほうの、錐視台のクリッピング領域 \\
+\hline
+\mbox{\tt in}  & {\em field\+Of\+View} & 画面の縦に対する視野角 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespace_k___math_acf1260b151f1893d96d46b75030a231c}\label{namespace_k___math_acf1260b151f1893d96d46b75030a231c}} 
+\index{K\+\_\+\+Math@{K\+\_\+\+Math}!Matrix\+Perspective\+RH@{Matrix\+Perspective\+RH}}
+\index{Matrix\+Perspective\+RH@{Matrix\+Perspective\+RH}!K\+\_\+\+Math@{K\+\_\+\+Math}}
+\subsubsection{\texorpdfstring{Matrix\+Perspective\+R\+H()}{MatrixPerspectiveRH()}}
+{\footnotesize\ttfamily void K\+\_\+\+Math\+::\+Matrix\+Perspective\+RH (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_k___math_a345271af9d32dff2c964bc679b13b45c}{K\+\_\+\+Math\+::\+Matrix4x4}} \&}]{result,  }\item[{float}]{screen\+Width,  }\item[{float}]{screen\+Height,  }\item[{float}]{screen\+Near,  }\item[{float}]{screen\+Far,  }\item[{float}]{field\+Of\+View }\end{DoxyParamCaption})}
+
+
+
+右手座標系の射影変換行列を作る~\newline
+詳細は\+Matrix\+Perspective\+L\+H()を参照のこと 
+
+\mbox{\Hypertarget{namespace_k___math_a4ab382b67d996b4862e30be45875740d}\label{namespace_k___math_a4ab382b67d996b4862e30be45875740d}} 
+\index{K\+\_\+\+Math@{K\+\_\+\+Math}!Rad\+To\+Deg@{Rad\+To\+Deg}}
+\index{Rad\+To\+Deg@{Rad\+To\+Deg}!K\+\_\+\+Math@{K\+\_\+\+Math}}
+\subsubsection{\texorpdfstring{Rad\+To\+Deg()}{RadToDeg()}}
+{\footnotesize\ttfamily float K\+\_\+\+Math\+::\+Rad\+To\+Deg (\begin{DoxyParamCaption}\item[{float}]{rad }\end{DoxyParamCaption})}
+
+
+
+「ラジアン　→　度数法」の変換 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em rad} & ラジアンでの角度 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+度数法での角度 
+\end{DoxyReturn}

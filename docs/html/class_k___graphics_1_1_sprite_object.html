@@ -1,0 +1,557 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MyFrameWorks: K_Graphics::SpriteObject クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">MyFrameWorks
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_k___graphics_1_1_sprite_object.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-attribs">公開変数類</a> &#124;
+<a href="#pro-methods">限定公開メンバ関数</a> &#124;
+<a href="#pro-attribs">限定公開変数類</a> &#124;
+<a href="class_k___graphics_1_1_sprite_object-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle">
+<div class="title">K_Graphics::SpriteObject クラス</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>長さ1.0fの板ポリゴンのModelClassを内部で生成し、2D画像の描画に利用できる機能を付け加えたクラス<br />
+描画には「K_Graphics::CameraClass」「K_Graphics::ShaderClass」の二つが必要  
+ <a href="class_k___graphics_1_1_sprite_object.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_mesh_model_8h_source.html">MeshModel.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a9fe538248d36f9b2c20688f0053af112"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_sprite_object.html#a9fe538248d36f9b2c20688f0053af112">SpriteObject</a> (<a class="el" href="class_k___graphics_1_1_texture.html">Texture</a> *texture, float controlPointX=0.0f, float controlPointY=0.0f)</td></tr>
+<tr class="memdesc:a9fe538248d36f9b2c20688f0053af112"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_k___graphics_1_1_sprite_object.html#a7c0ebb444b7484f20c10ba657060d779" title="初期化、テクスチャを設定し、変形のコントロールポイント座標を指定することもできる ">Initialize()</a>を呼ぶ  <a href="#a9fe538248d36f9b2c20688f0053af112">[詳解]</a><br /></td></tr>
+<tr class="separator:a9fe538248d36f9b2c20688f0053af112"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8df242841b57bc345eb790b1fd24dbb9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_sprite_object.html#a8df242841b57bc345eb790b1fd24dbb9">~SpriteObject</a> ()</td></tr>
+<tr class="memdesc:a8df242841b57bc345eb790b1fd24dbb9"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_k___graphics_1_1_sprite_object.html#ab07a1bdede7da183545bd155193d9f80" title="終了処理 ">Finalize()</a>を呼ぶ  <a href="#a8df242841b57bc345eb790b1fd24dbb9">[詳解]</a><br /></td></tr>
+<tr class="separator:a8df242841b57bc345eb790b1fd24dbb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c0ebb444b7484f20c10ba657060d779"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_sprite_object.html#a7c0ebb444b7484f20c10ba657060d779">Initialize</a> (<a class="el" href="class_k___graphics_1_1_texture.html">Texture</a> *texture, float controlPointX, float controlPointY)</td></tr>
+<tr class="memdesc:a7c0ebb444b7484f20c10ba657060d779"><td class="mdescLeft">&#160;</td><td class="mdescRight">初期化、テクスチャを設定し、変形のコントロールポイント座標を指定することもできる  <a href="#a7c0ebb444b7484f20c10ba657060d779">[詳解]</a><br /></td></tr>
+<tr class="separator:a7c0ebb444b7484f20c10ba657060d779"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab07a1bdede7da183545bd155193d9f80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_sprite_object.html#ab07a1bdede7da183545bd155193d9f80">Finalize</a> ()</td></tr>
+<tr class="memdesc:ab07a1bdede7da183545bd155193d9f80"><td class="mdescLeft">&#160;</td><td class="mdescRight">終了処理  <a href="#ab07a1bdede7da183545bd155193d9f80">[詳解]</a><br /></td></tr>
+<tr class="separator:ab07a1bdede7da183545bd155193d9f80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fa1e6994fc741d94c726c85e5f1ec99"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_sprite_object.html#a0fa1e6994fc741d94c726c85e5f1ec99">SetTexture</a> (<a class="el" href="class_k___graphics_1_1_texture.html">Texture</a> *texture)</td></tr>
+<tr class="memdesc:a0fa1e6994fc741d94c726c85e5f1ec99"><td class="mdescLeft">&#160;</td><td class="mdescRight">表示するテクスチャを変更する  <a href="#a0fa1e6994fc741d94c726c85e5f1ec99">[詳解]</a><br /></td></tr>
+<tr class="separator:a0fa1e6994fc741d94c726c85e5f1ec99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d9eb5352fd073b17ea42b53786fa29a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_sprite_object.html#a1d9eb5352fd073b17ea42b53786fa29a">Draw2D</a> (<a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *camera, <a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *shader, const <a class="el" href="struct_k___math_1_1_box2_d.html">K_Math::Box2D</a> &amp;src, const <a class="el" href="struct_k___math_1_1_box2_d.html">K_Math::Box2D</a> &amp;draw, float rotation)</td></tr>
+<tr class="memdesc:a1d9eb5352fd073b17ea42b53786fa29a"><td class="mdescLeft">&#160;</td><td class="mdescRight">2D描画を行う 「スクリーンのサイズをカメラに設定している」「平行投影のカメラである」「Z軸方向を向きとZ軸と平行」 という３つの条件を満たしたカメラを設定するとスクリーン座標での描画ができる  <a href="#a1d9eb5352fd073b17ea42b53786fa29a">[詳解]</a><br /></td></tr>
+<tr class="separator:a1d9eb5352fd073b17ea42b53786fa29a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af288c290560faa26460fbff16a677439"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_sprite_object.html#af288c290560faa26460fbff16a677439">Draw3D</a> (<a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *camera, <a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *shader, const <a class="el" href="struct_k___math_1_1_box2_d.html">K_Math::Box2D</a> &amp;src, const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;position, const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;rotation, const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;scale)</td></tr>
+<tr class="memdesc:af288c290560faa26460fbff16a677439"><td class="mdescLeft">&#160;</td><td class="mdescRight">3D空間上に描画する、ただし必ずカメラの方を向くビルボードになる  <a href="#af288c290560faa26460fbff16a677439">[詳解]</a><br /></td></tr>
+<tr class="separator:af288c290560faa26460fbff16a677439"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+公開変数類</h2></td></tr>
+<tr class="memitem:ad5d76b9b0a30102d01abbb20bab285f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_k___math.html#a41eb0c2c69c938cd59989eb3241cefb2">K_Math::Vector2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_sprite_object.html#ad5d76b9b0a30102d01abbb20bab285f8">controlPoint</a></td></tr>
+<tr class="memdesc:ad5d76b9b0a30102d01abbb20bab285f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">コントロールポイントの座標  <a href="#ad5d76b9b0a30102d01abbb20bab285f8">[詳解]</a><br /></td></tr>
+<tr class="separator:ad5d76b9b0a30102d01abbb20bab285f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+限定公開メンバ関数</h2></td></tr>
+<tr class="memitem:a4c731f8c8e7b35f4f2661a3d9d203f69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_sprite_object.html#a4c731f8c8e7b35f4f2661a3d9d203f69">SetMatrix</a> (<a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *camera, <a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *shader, const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;position, const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;rotation, const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;scale, bool billBoard)</td></tr>
+<tr class="separator:a4c731f8c8e7b35f4f2661a3d9d203f69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+限定公開変数類</h2></td></tr>
+<tr class="memitem:a91966c81a550dd6b04ccc0bd210c289d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_k___graphics_1_1_mesh_model.html">MeshModel</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_sprite_object.html#a91966c81a550dd6b04ccc0bd210c289d">drawModel</a></td></tr>
+<tr class="separator:a91966c81a550dd6b04ccc0bd210c289d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cf528d065c242528bf0bd407a139f09"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_k___graphics_1_1_texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_sprite_object.html#a7cf528d065c242528bf0bd407a139f09">cullentTexture</a></td></tr>
+<tr class="separator:a7cf528d065c242528bf0bd407a139f09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>長さ1.0fの板ポリゴンのModelClassを内部で生成し、2D画像の描画に利用できる機能を付け加えたクラス<br />
+描画には「K_Graphics::CameraClass」「K_Graphics::ShaderClass」の二つが必要 </p>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a id="a9fe538248d36f9b2c20688f0053af112"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fe538248d36f9b2c20688f0053af112">&#9670;&nbsp;</a></span>SpriteObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">K_Graphics::SpriteObject::SpriteObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_texture.html">Texture</a> *&#160;</td>
+          <td class="paramname"><em>texture</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>controlPointX</em> = <code>0.0f</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>controlPointY</em> = <code>0.0f</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_k___graphics_1_1_sprite_object.html#a7c0ebb444b7484f20c10ba657060d779" title="初期化、テクスチャを設定し、変形のコントロールポイント座標を指定することもできる ">Initialize()</a>を呼ぶ </p>
+
+</div>
+</div>
+<a id="a8df242841b57bc345eb790b1fd24dbb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8df242841b57bc345eb790b1fd24dbb9">&#9670;&nbsp;</a></span>~SpriteObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">K_Graphics::SpriteObject::~SpriteObject </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_k___graphics_1_1_sprite_object.html#ab07a1bdede7da183545bd155193d9f80" title="終了処理 ">Finalize()</a>を呼ぶ </p>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a1d9eb5352fd073b17ea42b53786fa29a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d9eb5352fd073b17ea42b53786fa29a">&#9670;&nbsp;</a></span>Draw2D()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Graphics::SpriteObject::Draw2D </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *&#160;</td>
+          <td class="paramname"><em>camera</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *&#160;</td>
+          <td class="paramname"><em>shader</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_k___math_1_1_box2_d.html">K_Math::Box2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_k___math_1_1_box2_d.html">K_Math::Box2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>draw</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>rotation</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>2D描画を行う 「スクリーンのサイズをカメラに設定している」「平行投影のカメラである」「Z軸方向を向きとZ軸と平行」 という３つの条件を満たしたカメラを設定するとスクリーン座標での描画ができる </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">camera</td><td>使用するカメラ（上記の条件に注意） </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">shader</td><td>使用するシェーダー </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">src</td><td>テクスチャの切り取り情報<br />
+「テクスチャのピクセル座標XY」「矩形の幅と高さ」をそれぞれ"x""y""w""h"に設定する </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">draw</td><td>実際に描画する場所と大きさを指定する<br />
+「位置座標XY」「矩形の幅と高さ」をそれぞれ"x""y""w""h"に設定する </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rotation</td><td>右回転の角度（度数法） </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af288c290560faa26460fbff16a677439"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af288c290560faa26460fbff16a677439">&#9670;&nbsp;</a></span>Draw3D()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Graphics::SpriteObject::Draw3D </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *&#160;</td>
+          <td class="paramname"><em>camera</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *&#160;</td>
+          <td class="paramname"><em>shader</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_k___math_1_1_box2_d.html">K_Math::Box2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>rotation</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>scale</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>3D空間上に描画する、ただし必ずカメラの方を向くビルボードになる </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">camera</td><td>使用するカメラクラスへのポインタ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">shader</td><td>使用するシェーダーへのポインタ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">src</td><td>テクスチャの切り取り情報<br />
+「テクスチャのピクセル座標XY」「矩形の幅と高さ」をそれぞれ"x""y""w""h"に設定する </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">position</td><td>3D空間上の位置座標 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rotation</td><td>XYZそれぞれの軸に関する回転角度（度数法でY→X→Zの順で回転する） </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">scale</td><td>スケーリング </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab07a1bdede7da183545bd155193d9f80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab07a1bdede7da183545bd155193d9f80">&#9670;&nbsp;</a></span>Finalize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Graphics::SpriteObject::Finalize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>終了処理 </p>
+
+</div>
+</div>
+<a id="a7c0ebb444b7484f20c10ba657060d779"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c0ebb444b7484f20c10ba657060d779">&#9670;&nbsp;</a></span>Initialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool K_Graphics::SpriteObject::Initialize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_texture.html">Texture</a> *&#160;</td>
+          <td class="paramname"><em>texture</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>controlPointX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>controlPointY</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>初期化、テクスチャを設定し、変形のコントロールポイント座標を指定することもできる </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">texture</td><td>使用するテクスチャ、nullptrを指定することもできる </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">controlPointX</td><td>コントロールポイントX座標<br />
+板ポリゴンを左上原点で変形の影響を受けない </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">controlPointY</td><td>コントロールポイントY座標<br />
+板ポリゴンを左上原点で変形の影響を受けない </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4c731f8c8e7b35f4f2661a3d9d203f69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c731f8c8e7b35f4f2661a3d9d203f69">&#9670;&nbsp;</a></span>SetMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Graphics::SpriteObject::SetMatrix </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *&#160;</td>
+          <td class="paramname"><em>camera</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *&#160;</td>
+          <td class="paramname"><em>shader</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>rotation</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>scale</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>billBoard</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0fa1e6994fc741d94c726c85e5f1ec99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fa1e6994fc741d94c726c85e5f1ec99">&#9670;&nbsp;</a></span>SetTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool K_Graphics::SpriteObject::SetTexture </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_texture.html">Texture</a> *&#160;</td>
+          <td class="paramname"><em>texture</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>表示するテクスチャを変更する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">texture</td><td>使用するテクスチャのポインタ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="ad5d76b9b0a30102d01abbb20bab285f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5d76b9b0a30102d01abbb20bab285f8">&#9670;&nbsp;</a></span>controlPoint</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_k___math.html#a41eb0c2c69c938cd59989eb3241cefb2">K_Math::Vector2</a> K_Graphics::SpriteObject::controlPoint</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>コントロールポイントの座標 </p>
+
+</div>
+</div>
+<a id="a7cf528d065c242528bf0bd407a139f09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cf528d065c242528bf0bd407a139f09">&#9670;&nbsp;</a></span>cullentTexture</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_k___graphics_1_1_texture.html">Texture</a>* K_Graphics::SpriteObject::cullentTexture</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a91966c81a550dd6b04ccc0bd210c289d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91966c81a550dd6b04ccc0bd210c289d">&#9670;&nbsp;</a></span>drawModel</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_k___graphics_1_1_mesh_model.html">MeshModel</a>* K_Graphics::SpriteObject::drawModel</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_k___graphics.html">K_Graphics</a></li><li class="navelem"><a class="el" href="class_k___graphics_1_1_sprite_object.html">SpriteObject</a></li>
+    <li class="footer">構築:
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
+</body>
+</html>

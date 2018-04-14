@@ -1,0 +1,34 @@
+\hypertarget{namespace_k___physics}{}\section{K\+\_\+\+Physics 名前空間}
+\label{namespace_k___physics}\index{K\+\_\+\+Physics@{K\+\_\+\+Physics}}
+
+
+物理衝突判定関連の名前空間  
+
+
+\subsection*{クラス}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_k___physics_1_1bullet_debug_draw}{bullet\+Debug\+Draw}}
+\item 
+class \mbox{\hyperlink{class_k___physics_1_1_bullet_physics}{Bullet\+Physics}}
+\begin{DoxyCompactList}\small\item\em bulletのワールドを管理するクラス~\newline
+コリジョンの生成・判定関数を提供している \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_k___physics_1_1_collect_collision_call_back}{Collect\+Collision\+Call\+Back}}
+\item 
+class \mbox{\hyperlink{class_k___physics_1_1_collision_data}{Collision\+Data}}
+\begin{DoxyCompactList}\small\item\em コリジョンの移動機能を持つ、要はbulletのコリジョン情報を扱いやすくしたクラス \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_k___physics_1_1_collision_tag}{Collision\+Tag}}
+\begin{DoxyCompactList}\small\item\em 衝突時に返すタグ情報 \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_k___physics_1_1_fix_contact_call_back}{Fix\+Contact\+Call\+Back}}
+\item 
+class \mbox{\hyperlink{class_k___physics_1_1_map_polygon}{Map\+Polygon}}
+\begin{DoxyCompactList}\small\item\em 判定用モデルのポリゴン情報を持つクラス、描画は一切できない。行列による回転にも対応していない \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_k___physics_1_1_sweep_test_call_back}{Sweep\+Test\+Call\+Back}}
+\end{DoxyCompactItemize}
+
+
+\subsection{詳解}
+物理衝突判定関連の名前空間 
+
+・主要クラス~\newline
+コリジョン作成・衝突判定　：「\+Bullet\+Physics」 地形データ作成　　　　　　：「\+Map\+Polygon」 
