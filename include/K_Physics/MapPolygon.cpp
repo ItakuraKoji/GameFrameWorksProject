@@ -6,8 +6,8 @@ namespace K_Physics {
 	//public
 	////
 	MapPolygon::MapPolygon() {
-		mfbx_manager = nullptr;
-		mfbx_scene = nullptr;
+		this->mfbx_manager = nullptr;
+		this->mfbx_scene = nullptr;
 		Initialize();
 	}
 	MapPolygon::~MapPolygon() {
@@ -28,9 +28,11 @@ namespace K_Physics {
 
 		if (this->mfbx_manager != nullptr) {
 			this->mfbx_manager->Destroy();
+			this->mfbx_manager = nullptr;
 		}
 		if (this->collisionMesh != nullptr) {
 			delete collisionMesh;
+			this->collisionMesh = nullptr;
 		}
 	}
 
@@ -52,8 +54,8 @@ namespace K_Physics {
 	}
 
 	//bulletに地形の三角メッシュを剛体として追加
-	void MapPolygon::setCollisionWorld(BulletPhysics *physics) {
-		std::vector<btVector3> vectices;
+	void MapPolygon::setCollisionWorld(BulletPhysics *physics, int mask) {
+		std::vector<K_Math::Vector3> vectices;
 		for (int i = 0; i < this->m_numFace; ++i) {
 			for (int k = 0; k < 3; ++k) {
 				vectices.push_back(m_polygonStack[0].polygon[i].point[k]);
@@ -62,8 +64,8 @@ namespace K_Physics {
 
 		this->collisionMesh = physics->CreateTriangleMesh(vectices.data(), this->m_numFace);
 		btCollisionShape* collision = physics->CreateTriangleMeshShape(this->collisionMesh);
-		physics->CreateRigidBody(collision, 0.0f, 1, btVector3(0.0f, 0.0f, 0.0f));
-		//btCollisionObject* rigid = physics->CreateCollisionObject(collision, false, 1, btVector3(0.0f, 0.0f, 0.0f));
+		physics->CreateRigidBody(collision, 0.0f, mask, K_Math::Vector3(0.0f, 0.0f, 0.0f));
+		//physics->CreateCollisionObject(collision, false, mask, btVector3(0.0f, 0.0f, 0.0f));
 	}
 
 

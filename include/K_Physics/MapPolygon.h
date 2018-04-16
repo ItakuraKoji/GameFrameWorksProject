@@ -22,7 +22,7 @@ namespace K_Physics {
 
 		//bullet用
 		struct PolygonType {
-			btVector3 point[3];
+			K_Math::Vector3 point[3];
 		};
 		struct PolygonData {
 			int numPolygon;
@@ -41,7 +41,7 @@ namespace K_Physics {
 		bool LoadModel(const char *filename);
 		///@brief 読み込んだデータをもとに地形コリジョンを作成
 		///@param[in] physics コリジョンを管理する物理クラスへのポインタ
-		void setCollisionWorld(BulletPhysics *physics);
+		void setCollisionWorld(BulletPhysics *physics, int mask);
 		///@return 読み込んだモデルのポリゴン数
 		int GetNumFace();
 

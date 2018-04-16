@@ -6,7 +6,6 @@
 
 //Eigenはずいぶん複雑なヘッダのようで、こいつは最初のほうにインクルードするほうがいいっぽい
 
-//数学系はみんなこの名前空間がいいなあって
 namespace K_Math {
 	///float型２要素ベクトル\n要素のアクセスに "vector.x()" と関数の形をとるのに注意
 	typedef Eigen::Matrix<float, 2, 1, Eigen::DontAlign> Vector2;

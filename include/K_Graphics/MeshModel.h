@@ -6,8 +6,8 @@
 
 namespace K_Graphics {
 
-	///@brief 3Dモデルクラス\nファクトリーから生産されたモデルデータを受け取って初期化する
-	///「形状」という扱いで、描画時には「ShaderClass」のポインタが必須
+	///@brief 3Dモデルクラス\nファクトリーから生産されたモデルデータを受け取って初期化する\n
+	///「形状」という扱いで、描画時には「K_Graphics::ShaderClass」のポインタが必須
 	class MeshModel {
 	public:
 		///@brief Initialize()を呼ぶ
@@ -54,7 +54,8 @@ namespace K_Graphics {
 		bool isBoneProcessed;
 	};
 
-	///@brief MeshModelの描画を"position""rotation""scale"の３つで行えるようにしたもの
+	///@brief K_Graphics::MeshModelの描画を"position""rotation""scale"の３つで行えるようにしたもの\n
+	///描画には「K_Graphics::CameraClass」「K_Graphics::ShaderClass」の二つが必要
 	class MeshObject {
 	public:
 		///@brief Initialize()を呼ぶ
@@ -97,7 +98,8 @@ namespace K_Graphics {
 		MeshModel* drawModel;
 	};
 
-	///@brief 長さ1.0fの板ポリゴンのModelClassを内部で生成し、2D画像の描画に利用できる機能を付け加えたクラス
+	///@brief 長さ1.0fの板ポリゴンのModelClassを内部で生成し、2D画像の描画に利用できる機能を付け加えたクラス\n
+	///描画には「K_Graphics::CameraClass」「K_Graphics::ShaderClass」の二つが必要
 	class SpriteObject {
 	public:
 		

@@ -23,11 +23,11 @@ namespace K_Physics {
 	class CollisionData {
 	public:
 		CollisionData(btCollisionObject* obj, CollisionTag tag);
-		void SetCollisionPosition(const btVector3& position);
-		btVector3 GetCollisionPosition();
+		void SetCollisionPosition(const K_Math::Vector3& position);
+		K_Math::Vector3 GetCollisionPosition();
 
 	public:
-		btCollisionObject * const collision;
+		btCollisionObject* const collision;
 		CollisionTag tag;
 	};
 
@@ -57,11 +57,11 @@ namespace K_Physics {
 		///@param[in] point1 角の座標
 		///@param[in] point2 角の座標
 		///@param[in] point3 角の座標
-		btCollisionShape* CreateTriangleHullShape(const btVector3& point1, const btVector3& point2, const btVector3& point3);
+		btCollisionShape* CreateTriangleHullShape(const K_Math::Vector3& point1, const K_Math::Vector3& point2, const K_Math::Vector3& point3);
 		///@brief ポリゴンの集合形状を作成
 		///@param[in] vectice 三角形の角座標の配列
 		///@param[in] numFace 三角形の数
-		btTriangleMesh* CreateTriangleMesh(btVector3* vectice, int numFace);
+		btTriangleMesh* CreateTriangleMesh(K_Math::Vector3* vectice, int numFace);
 		///@brief btTriangleMeshからメッシュ形状を作成
 		///@param[in] mesh CreateTriangleMesh()が返す形状のポインタ
 		btCollisionShape* CreateTriangleMeshShape(btTriangleMesh* mesh);
@@ -85,14 +85,14 @@ namespace K_Physics {
 		///@param[in] mask 衝突フィルタに使うビットマスク
 		///@param[in] pos 剛体の初期位置（省略時はすべて０）
 		///@param[in] rot 剛体の回転（省略時はすべて０）
-		CollisionData* CreateRigidBody(btCollisionShape* shape, btScalar mass, int mask, const btVector3& pos = btVector3(0, 0, 0), const btVector3& rot = btVector3(0, 0, 0));
+		CollisionData* CreateRigidBody(btCollisionShape* shape, btScalar mass, int mask, const K_Math::Vector3& pos = K_Math::Vector3(0, 0, 0), const K_Math::Vector3& rot = K_Math::Vector3(0, 0, 0));
 		///@brief コリジョンオブジェクトを作成し、ポインタを返す
 		///@param[in] shape コリジョンの形状へのポインタ
 		///@param[in] ghost コリジョンが剛体と衝突するかのフラグ（trueで剛体とは衝突しない）
 		///@param[in] mask 衝突フィルタに使うビットマスク
 		///@param[in] pos コリジョンの初期位置（省略時はすべて０）
 		///@param[in] rot コリジョンの回転（省略時はすべて０）
-		CollisionData* CreateCollisionObject(btCollisionShape* shape, bool ghost, int mask, const btVector3& pos = btVector3(0, 0, 0), const btVector3& rot = btVector3(0, 0, 0));
+		CollisionData* CreateCollisionObject(btCollisionShape* shape, bool ghost, int mask, const K_Math::Vector3& pos = K_Math::Vector3(0, 0, 0), const K_Math::Vector3& rot = K_Math::Vector3(0, 0, 0));
 
 		///@brief 明示的に世界に登録している剛体を世界から外してからポインタをdeleteする\nこのクラスのデストラクタにてこの関数によって全て開放している
 		void RemoveCollisionObject(btCollisionObject* rigidbody);
@@ -105,13 +105,13 @@ namespace K_Physics {
 		///@brief 操作性を意識したコリジョンの移動、壁判定も行う(重いが正確)
 		///@param[in] obj 移動するコリジョンオブジェクト
 		///@param[in] move 移動ベクトル
-		void MoveCharacter(btCollisionObject* obj, const btVector3& move);
+		void MoveCharacter(btCollisionObject* obj, const K_Math::Vector3& move);
 
 		///@brief 離散的なコリジョンの移動、判定が MoveCharacter よりも大雑把(ただし軽い)
 		///@param[in] obj 移動するコリジョンオブジェクト
 		///@param[in] hMove 横移動ベクトル
 		///@param[in] vMove 縦移動ベクトル
-		void MoveCharacterDiscrete(btCollisionObject* obj, const btVector3& hMove, const btVector3& vMove);
+		void MoveCharacterDiscrete(btCollisionObject* obj, const K_Math::Vector3& hMove, const K_Math::Vector3& vMove);
 
 		///@brief 現在の物理世界での特定のオブジェクトに対する衝突のチェック
 		///@param[in] 衝突をチェックしたいオブジェクト
@@ -120,7 +120,7 @@ namespace K_Physics {
 
 		///@brief 重力とは反対方向を指す単位ベクトルを設定、キャラクターの移動に利用する
 		///@param[in] vector 重力と反対方向の単位ベクトル
-		void SetSkyVector(const btVector3& vector);
+		void SetSkyVector(const K_Math::Vector3& vector);
 	private:
 		//コリジョンを移動
 		void MoveCollisionObject(btCollisionObject* obj, const btVector3& moveVector);

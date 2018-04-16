@@ -12,10 +12,13 @@ namespace K_Physics {
 	//自身と衝突しないsweepTestのコールバック
 	btScalar SweepTestCallBack::addSingleResult(btCollisionWorld::LocalConvexResult& convexResult, bool normalInWorldSpace) {
 		if (this->myself->getCollisionFlags() && btCollisionObject::CF_NO_CONTACT_RESPONSE) {
-			return btScalar(1.0f);
+			return btScalar(0.0f);
+		}
+		if (convexResult.m_hitCollisionObject->getCollisionFlags() && btCollisionObject::CF_NO_CONTACT_RESPONSE) {
+			return btScalar(0.0f);
 		}
 		if (convexResult.m_hitCollisionObject == this->myself) {
-			return btScalar(1.0f);
+			return btScalar(0.0f);
 		}
 		ClosestConvexResultCallback::addSingleResult(convexResult, normalInWorldSpace);
 		return convexResult.m_hitFraction;
@@ -33,6 +36,9 @@ namespace K_Physics {
 		//「最近衝突物との距離が０（誤差含む）」「ループが一定回数に達した」ときループを抜ける
 		this->isLoop = false;
 		if (this->obj->getCollisionFlags() && btCollisionObject::CF_NO_CONTACT_RESPONSE) {
+			return btScalar(0.0f);
+		}
+		if (colObj1Wrap->getCollisionObject()->getCollisionFlags() && btCollisionObject::CF_NO_CONTACT_RESPONSE) {
 			return btScalar(0.0f);
 		}
 		if (this->obj == colObj1Wrap->getCollisionObject()) {

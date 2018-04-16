@@ -119,9 +119,9 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_map_polygon.html
 <tr class="memitem:a2d2b5c00e23782bf9b205b74b7458e1d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_map_polygon.html#a2d2b5c00e23782bf9b205b74b7458e1d">LoadModel</a> (const char *filename)</td></tr>
 <tr class="memdesc:a2d2b5c00e23782bf9b205b74b7458e1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">FBX読み込み  <a href="#a2d2b5c00e23782bf9b205b74b7458e1d">[詳解]</a><br /></td></tr>
 <tr class="separator:a2d2b5c00e23782bf9b205b74b7458e1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17a4ee0e3fce46e74be6ce43f5a51d7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_map_polygon.html#a17a4ee0e3fce46e74be6ce43f5a51d7e">setCollisionWorld</a> (<a class="el" href="class_k___physics_1_1_bullet_physics.html">BulletPhysics</a> *physics)</td></tr>
-<tr class="memdesc:a17a4ee0e3fce46e74be6ce43f5a51d7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">読み込んだデータをもとに地形コリジョンを作成  <a href="#a17a4ee0e3fce46e74be6ce43f5a51d7e">[詳解]</a><br /></td></tr>
-<tr class="separator:a17a4ee0e3fce46e74be6ce43f5a51d7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc329a0eb168ece6a9dfa5a57296cbe5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_map_polygon.html#acc329a0eb168ece6a9dfa5a57296cbe5">setCollisionWorld</a> (<a class="el" href="class_k___physics_1_1_bullet_physics.html">BulletPhysics</a> *physics, int mask)</td></tr>
+<tr class="memdesc:acc329a0eb168ece6a9dfa5a57296cbe5"><td class="mdescLeft">&#160;</td><td class="mdescRight">読み込んだデータをもとに地形コリジョンを作成  <a href="#acc329a0eb168ece6a9dfa5a57296cbe5">[詳解]</a><br /></td></tr>
+<tr class="separator:acc329a0eb168ece6a9dfa5a57296cbe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6266c6eeaea35b2e037f247e837c306f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_map_polygon.html#a6266c6eeaea35b2e037f247e837c306f">GetNumFace</a> ()</td></tr>
 <tr class="separator:a6266c6eeaea35b2e037f247e837c306f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -242,8 +242,8 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_map_polygon.html
 
 </div>
 </div>
-<a id="a17a4ee0e3fce46e74be6ce43f5a51d7e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17a4ee0e3fce46e74be6ce43f5a51d7e">&#9670;&nbsp;</a></span>setCollisionWorld()</h2>
+<a id="acc329a0eb168ece6a9dfa5a57296cbe5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc329a0eb168ece6a9dfa5a57296cbe5">&#9670;&nbsp;</a></span>setCollisionWorld()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -252,8 +252,18 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_map_polygon.html
           <td class="memname">void K_Physics::MapPolygon::setCollisionWorld </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_k___physics_1_1_bullet_physics.html">BulletPhysics</a> *&#160;</td>
-          <td class="paramname"><em>physics</em></td><td>)</td>
+          <td class="paramname"><em>physics</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>mask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
