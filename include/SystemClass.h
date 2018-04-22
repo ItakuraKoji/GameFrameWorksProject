@@ -1,8 +1,6 @@
 #pragma once
 #define GLEW_STATIC
 
-#include<Windows.h>
-#include<iostream>
 #include<chrono>
 
 #include<GLEW/glew.h>
@@ -76,6 +74,10 @@ namespace K_System {
 		///@brief アクセサー
 		///@return ウィンドウの高さ
 		int GetWindowHeight();
+		///@brief アクセサー
+		///@return FramePerSecondの値
+		float GetFPS();
+
 		///@brief アクセサー
 		///@return 入力クラスへのポインタ
 		K_Input::InputGLFW* GetInput();

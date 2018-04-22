@@ -77,8 +77,6 @@ namespace K_System {
 			cullentTime = std::chrono::system_clock::now();
 			this->fps = (float)framecount / std::chrono::duration_cast<std::chrono::milliseconds>(cullentTime - startTime).count() * 1000;
 			this->startTime = std::chrono::system_clock::now();
-
-			std::cout << this->fps << std::endl;
 			this->framecount = 0;
 		}
 	}
@@ -99,6 +97,9 @@ namespace K_System {
 	}
 	int SystemClass::GetWindowHeight() {
 		return this->windowHeight;
+	}
+	float SystemClass::GetFPS() {
+		return this->fps;
 	}
 	K_Input::InputGLFW* SystemClass::GetInput() {
 		return this->input;

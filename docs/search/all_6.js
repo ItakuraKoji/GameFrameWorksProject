@@ -17,6 +17,7 @@ var searchData=
   ['getfontatlas',['GetFontAtlas',['../class_k___graphics_1_1_font_generator.html#a2b5d1ab68fcf0ffe83c65f4c694628bc',1,'K_Graphics::FontGenerator']]],
   ['getfontdata',['GetFontData',['../class_k___graphics_1_1_font_generator.html#ae6260c5ee857b4b95dc341d2160b1d6d',1,'K_Graphics::FontGenerator']]],
   ['getformat',['GetFormat',['../class_k___audio_1_1_audio_data.html#ac7caf391a833756f1b292040ca481d9d',1,'K_Audio::AudioData']]],
+  ['getfps',['GetFPS',['../class_k___system_1_1_system_class.html#a3a7f4940ac8f1e1a13d3aaa69617e093',1,'K_System::SystemClass']]],
   ['getframebufferhandle',['GetFrameBufferHandle',['../class_k___graphics_1_1_framebuffer.html#a1f12c09991f4bb042206cd846b99b2ac',1,'K_Graphics::Framebuffer']]],
   ['getheight',['GetHeight',['../class_k___graphics_1_1_framebuffer.html#aade734f04f110482729a7031f8b6301b',1,'K_Graphics::Framebuffer::GetHeight()'],['../class_k___graphics_1_1_texture.html#a6e7ba63d4782a62b055474945578fae9',1,'K_Graphics::Texture::GetHeight()']]],
   ['getibo',['GetIBO',['../class_k___graphics_1_1_vertex_data.html#a33c0db86f835bc00362eafaecd255cea',1,'K_Graphics::VertexData']]],
