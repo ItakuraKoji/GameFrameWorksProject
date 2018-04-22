@@ -26,11 +26,10 @@ namespace K_Loader {
 
 		this->textureList = list;
 
+		printf("LoadModel... : %s\n", fileName.data());
 		if (!InitializeFBX(fileName)) {
 			return false;
 		}
-
-		printf("LoadModel... : %s\n", fileName.data());
 		for (int i = 0; i < fileName.size() - 1; ++i) {
 			this->fileRoot[i] = fileName.data()[i];
 			if (fileName.data()[i] == '\\' || fileName.data()[i] == '/') {

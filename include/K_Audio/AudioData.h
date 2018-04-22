@@ -6,7 +6,6 @@ namespace K_Audio {
 	//音声ファイル読み込みの基底クラス
 	class DLL_DECLSPEC AudioData {
 	public:
-		///@brief サウンド形式列挙型、数字はビット数を表す
 		enum SoundFormat {
 			Mono8,
 			Mono16,

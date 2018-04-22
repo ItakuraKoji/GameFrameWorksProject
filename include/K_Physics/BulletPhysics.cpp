@@ -141,8 +141,8 @@ namespace K_Physics {
 		return shape;
 	}
 
-	//剛体
-	CollisionData* BulletPhysics::CreateRigidBody(btCollisionShape* shape, btScalar mass, int mask, const K_Math::Vector3& pos, const K_Math::Vector3& rot) {
+	//剛体作成
+	CollisionData* BulletPhysics::CreateRigidBody(btCollisionShape* shape, btScalar mass, bool ghost, int mask, const K_Math::Vector3& pos, const K_Math::Vector3& rot) {
 		btTransform trans;
 		trans.setIdentity();
 		trans.setOrigin(btVector3(pos.x(), pos.y(), pos.z()));
@@ -156,17 +156,22 @@ namespace K_Physics {
 		btDefaultMotionState *state = new btDefaultMotionState(trans);
 		btRigidBody::btRigidBodyConstructionInfo info(mass, state, shape, inertia);
 		btRigidBody *rigid = new btRigidBody(info);
-		rigid->setCollisionFlags(rigid->getCollisionFlags() & !btCollisionObject::CF_NO_CONTACT_RESPONSE);
+		if (ghost) {
+			rigid->setCollisionFlags(rigid->getCollisionFlags() | btCollisionObject::CF_NO_CONTACT_RESPONSE);
+		}
+		else {
+			rigid->setCollisionFlags(rigid->getCollisionFlags() & !btCollisionObject::CF_NO_CONTACT_RESPONSE);
+		}
 
 		this->bulletWorld->addRigidBody(rigid, 1, mask);
-
 		CollisionTag tag = { "default", 0, nullptr };
-		CollisionData* colData = new CollisionData(rigid, tag);
+		CollisionData* colData = new CollisionData(rigid, mask, tag);
 		rigid->setUserPointer(colData);
 		return colData;
 
 	}
 
+	//コリジョン作成
 	CollisionData* BulletPhysics::CreateCollisionObject(btCollisionShape* shape, bool ghost, int mask, const K_Math::Vector3& pos, const K_Math::Vector3& rot) {
 		btTransform trans;
 		trans.setIdentity();
@@ -186,7 +191,7 @@ namespace K_Physics {
 		this->bulletWorld->addCollisionObject(collision, 1, mask);
 
 		CollisionTag tag = { "default", 0, nullptr };
-		CollisionData* colData = new CollisionData(collision, tag);
+		CollisionData* colData = new CollisionData(collision, mask, tag);
 		collision->setUserPointer(colData);
 		return colData;
 	}
@@ -208,7 +213,6 @@ namespace K_Physics {
 	void BulletPhysics::RemoveCollisionShape(btCollisionShape* shape) {
 		this->shapeArray.remove(shape);
 		delete shape;
-		shape = 0;
 	}
 
 	//衝突を検出し、結果をポインタで返す

@@ -5,7 +5,7 @@ var class_k___physics_1_1_bullet_physics =
     [ "CreateBoxShape", "class_k___physics_1_1_bullet_physics.html#a12af3e18b74c5dd8bf6a866f6eb1df03", null ],
     [ "CreateCapsuleShape", "class_k___physics_1_1_bullet_physics.html#a67e200395443fdfb27aef63b0e154078", null ],
     [ "CreateCollisionObject", "class_k___physics_1_1_bullet_physics.html#a8362cffb691791fc5f7f6ed6bacf64c0", null ],
-    [ "CreateRigidBody", "class_k___physics_1_1_bullet_physics.html#a4cf99359acd62115c1be82cfd3688130", null ],
+    [ "CreateRigidBody", "class_k___physics_1_1_bullet_physics.html#a2528986aa8da034426bb4968447726a5", null ],
     [ "CreateSphereShape", "class_k___physics_1_1_bullet_physics.html#af6f877441f5b5d7da250bcc39a694273", null ],
     [ "CreateTriangleHullShape", "class_k___physics_1_1_bullet_physics.html#a9057f52356c31df6bd4eaa574c1142a7", null ],
     [ "CreateTriangleMesh", "class_k___physics_1_1_bullet_physics.html#af05fb78c5fbc9ad62eee828f681c2f38", null ],

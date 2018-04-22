@@ -22,13 +22,14 @@ namespace K_Physics {
 	///@brief コリジョンの移動機能を持つ、要はbulletのコリジョン情報を扱いやすくしたクラス
 	class CollisionData {
 	public:
-		CollisionData(btCollisionObject* obj, CollisionTag tag);
+		CollisionData(btCollisionObject* obj, int mask, CollisionTag tag);
 		void SetCollisionPosition(const K_Math::Vector3& position);
 		K_Math::Vector3 GetCollisionPosition();
 
 	public:
 		btCollisionObject* const collision;
 		CollisionTag tag;
+		const int mask;
 	};
 
 	///@brief bulletのワールドを管理するクラス\nコリジョンの生成・判定関数を提供している
@@ -82,10 +83,11 @@ namespace K_Physics {
 		///@brief 剛体オブジェクトを作成し、ポインタを返す
 		///@param[in] shape 剛体の形状へのポインタ
 		///@param[in] mass 剛体の質量
+		///@param[in] ghost コリジョンが剛体と衝突するかのフラグ（trueで剛体とは衝突しない）
 		///@param[in] mask 衝突フィルタに使うビットマスク
 		///@param[in] pos 剛体の初期位置（省略時はすべて０）
 		///@param[in] rot 剛体の回転（省略時はすべて０）
-		CollisionData* CreateRigidBody(btCollisionShape* shape, btScalar mass, int mask, const K_Math::Vector3& pos = K_Math::Vector3(0, 0, 0), const K_Math::Vector3& rot = K_Math::Vector3(0, 0, 0));
+		CollisionData* CreateRigidBody(btCollisionShape* shape, btScalar mass, bool ghost, int mask, const K_Math::Vector3& pos = K_Math::Vector3(0, 0, 0), const K_Math::Vector3& rot = K_Math::Vector3(0, 0, 0));
 		///@brief コリジョンオブジェクトを作成し、ポインタを返す
 		///@param[in] shape コリジョンの形状へのポインタ
 		///@param[in] ghost コリジョンが剛体と衝突するかのフラグ（trueで剛体とは衝突しない）
@@ -185,7 +187,6 @@ namespace K_Physics {
 		virtual btScalar addSingleResult(btManifoldPoint& cp, const btCollisionObjectWrapper* colObj0Wrap, int partId0, int index0, const btCollisionObjectWrapper* colObj1Wrap, int partId1, int index1);
 
 	public:
-		btCollisionObject * obj;
 		std::vector<CollisionTag>& result;
 		bool isHit;
 	};

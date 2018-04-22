@@ -7,5 +7,5 @@ var class_k___audio_1_1_audio_data_factory =
     ] ],
     [ "AudioDataFactory", "class_k___audio_1_1_audio_data_factory.html#a13e01c1708127344b0f8b44b27b847e0", null ],
     [ "~AudioDataFactory", "class_k___audio_1_1_audio_data_factory.html#a922d66a38fbf21340c291283487388da", null ],
-    [ "Create", "class_k___audio_1_1_audio_data_factory.html#a2ab1886d205b300e8255b153ded7ffcb", null ]
+    [ "Create", "class_k___audio_1_1_audio_data_factory.html#a6e3d1d2c660102733912fe4401963d92", null ]
 ];

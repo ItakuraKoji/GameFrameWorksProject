@@ -5,7 +5,7 @@ namespace K_Physics {
 	//public
 	////
 	//ƒRƒŠƒWƒ‡ƒ“‚ðˆµ‚¢‚â‚·‚­‚·‚é‚à‚Ì
-	CollisionData::CollisionData(btCollisionObject* obj, CollisionTag tag) : collision(obj), tag(tag) {
+	CollisionData::CollisionData(btCollisionObject* obj, int mask, CollisionTag tag) : collision(obj), mask(mask), tag(tag) {
 	}
 	void CollisionData::SetCollisionPosition(const K_Math::Vector3& position) {
 		btTransform trans = this->collision->getWorldTransform();

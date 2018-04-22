@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"struct_k___input_1_1_button_state.html#a98dffa8b4114f7dfef0750b6444713cb":[1,0,2,1,1],
 "struct_k___input_1_1_button_state.html#aec5fd955922f378e854cf9d39877113c":[1,0,2,1,3],
 "struct_k___input_1_1_stick_state.html":[1,0,2,3],
 "struct_k___input_1_1_stick_state.html#a05da68756276401e5c044c7bc7731efa":[1,0,2,3,1],
@@ -17,9 +18,8 @@ var NAVTREEINDEX2 =
 "struct_k___math_1_1_box2_d.html#af410df89cae1158f086bc1da564341c3":[1,0,4,0,6],
 "struct_k___physics_1_1_collect_collision_call_back.html":[1,0,5,2],
 "struct_k___physics_1_1_collect_collision_call_back.html#a22aa53d54265d3f318754626ba06031a":[1,0,5,2,2],
-"struct_k___physics_1_1_collect_collision_call_back.html#aa0b6872894b53f34f5c69d14eb23aada":[1,0,5,2,4],
+"struct_k___physics_1_1_collect_collision_call_back.html#aa0b6872894b53f34f5c69d14eb23aada":[1,0,5,2,3],
 "struct_k___physics_1_1_collect_collision_call_back.html#aab1f994d72f55d819b7cf0a1a371d0ac":[1,0,5,2,1],
-"struct_k___physics_1_1_collect_collision_call_back.html#ac95b38d8abfd6f8cf868ac42878d4dba":[1,0,5,2,3],
 "struct_k___physics_1_1_collect_collision_call_back.html#af31aa674f34cfe4dcf0e50a4ac7e0a28":[1,0,5,2,0],
 "struct_k___physics_1_1_collision_tag.html":[1,0,5,4],
 "struct_k___physics_1_1_collision_tag.html#a1909a79ab275b8d7498a2464c3164560":[1,0,5,4,0],

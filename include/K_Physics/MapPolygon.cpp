@@ -64,7 +64,7 @@ namespace K_Physics {
 
 		this->collisionMesh = physics->CreateTriangleMesh(vectices.data(), this->m_numFace);
 		btCollisionShape* collision = physics->CreateTriangleMeshShape(this->collisionMesh);
-		physics->CreateRigidBody(collision, 0.0f, mask, K_Math::Vector3(0.0f, 0.0f, 0.0f));
+		physics->CreateRigidBody(collision, 0.0f, false, mask, K_Math::Vector3(0.0f, 0.0f, 0.0f));
 		//physics->CreateCollisionObject(collision, false, mask, btVector3(0.0f, 0.0f, 0.0f));
 	}
 

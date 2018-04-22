@@ -101,8 +101,8 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_collision_data.h
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:abc664918f597d9ef7ccc00530d6f9c5c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_collision_data.html#abc664918f597d9ef7ccc00530d6f9c5c">CollisionData</a> (btCollisionObject *obj, <a class="el" href="struct_k___physics_1_1_collision_tag.html">CollisionTag</a> <a class="el" href="class_k___physics_1_1_collision_data.html#aca2f02c2b5deed664630c0a04c4f2b1f">tag</a>)</td></tr>
-<tr class="separator:abc664918f597d9ef7ccc00530d6f9c5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa816a8cd19756f9c482b4777a63222a1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_collision_data.html#aa816a8cd19756f9c482b4777a63222a1">CollisionData</a> (btCollisionObject *obj, int <a class="el" href="class_k___physics_1_1_collision_data.html#aa2ee40b89ec58f96dad15b78bf23af6f">mask</a>, <a class="el" href="struct_k___physics_1_1_collision_tag.html">CollisionTag</a> <a class="el" href="class_k___physics_1_1_collision_data.html#aca2f02c2b5deed664630c0a04c4f2b1f">tag</a>)</td></tr>
+<tr class="separator:aa816a8cd19756f9c482b4777a63222a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:affb7f66b30c1fed8314e02e96c821aa7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_collision_data.html#affb7f66b30c1fed8314e02e96c821aa7">SetCollisionPosition</a> (const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;position)</td></tr>
 <tr class="separator:affb7f66b30c1fed8314e02e96c821aa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43df22359dfa42883477a4958a809b9b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_collision_data.html#a43df22359dfa42883477a4958a809b9b">GetCollisionPosition</a> ()</td></tr>
@@ -114,12 +114,14 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_collision_data.h
 <tr class="separator:a45dc4d1f2a85cef93993b2872c49fc49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca2f02c2b5deed664630c0a04c4f2b1f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_k___physics_1_1_collision_tag.html">CollisionTag</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_collision_data.html#aca2f02c2b5deed664630c0a04c4f2b1f">tag</a></td></tr>
 <tr class="separator:aca2f02c2b5deed664630c0a04c4f2b1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2ee40b89ec58f96dad15b78bf23af6f"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_collision_data.html#aa2ee40b89ec58f96dad15b78bf23af6f">mask</a></td></tr>
+<tr class="separator:aa2ee40b89ec58f96dad15b78bf23af6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>コリジョンの移動機能を持つ、要はbulletのコリジョン情報を扱いやすくしたクラス </p>
 </div><h2 class="groupheader">構築子と解体子</h2>
-<a id="abc664918f597d9ef7ccc00530d6f9c5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc664918f597d9ef7ccc00530d6f9c5c">&#9670;&nbsp;</a></span>CollisionData()</h2>
+<a id="aa816a8cd19756f9c482b4777a63222a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa816a8cd19756f9c482b4777a63222a1">&#9670;&nbsp;</a></span>CollisionData()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -129,6 +131,12 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_collision_data.h
           <td>(</td>
           <td class="paramtype">btCollisionObject *&#160;</td>
           <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>mask</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -191,6 +199,20 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_collision_data.h
       <table class="memname">
         <tr>
           <td class="memname">btCollisionObject* const K_Physics::CollisionData::collision</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa2ee40b89ec58f96dad15b78bf23af6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2ee40b89ec58f96dad15b78bf23af6f">&#9670;&nbsp;</a></span>mask</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int K_Physics::CollisionData::mask</td>
         </tr>
       </table>
 </div><div class="memdoc">
