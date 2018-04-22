@@ -103,9 +103,11 @@ namespace K_Graphics {
 		material.resize(1);
 
 		material[0].ambient << 0.0f, 0.0f, 0.0f, 0.0f;
+		material[0].ambientPower = 0.0f;
 		material[0].diffuse << 1.0f, 1.0f, 1.0f, 1.0f;
 		material[0].specular << 0.0f, 0.0f, 0.0f, 0.0f;
-		material[0].power = 0.0f;
+		material[0].specurarShininess = 0.0f;
+		material[0].specurarPower = 0.0f;
 		material[0].numFace = 6;
 
 		//material[0].textureName = textureName;

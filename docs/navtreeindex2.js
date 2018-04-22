@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"struct_k___input_1_1_button_state.html":[1,0,2,1],
+"struct_k___input_1_1_button_state.html#a7f22bf8e7e2078e45af31f7a1f3a7d2d":[1,0,2,1,0],
 "struct_k___input_1_1_button_state.html#a8c2311c266401355c0ff149bd23a2f66":[1,0,2,1,2],
 "struct_k___input_1_1_button_state.html#a98dffa8b4114f7dfef0750b6444713cb":[1,0,2,1,1],
 "struct_k___input_1_1_button_state.html#aec5fd955922f378e854cf9d39877113c":[1,0,2,1,3],

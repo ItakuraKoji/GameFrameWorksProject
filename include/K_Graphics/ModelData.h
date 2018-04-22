@@ -16,8 +16,10 @@ namespace K_Graphics {
 		int numFace;
 		K_Math::Vector4 diffuse;
 		K_Math::Vector4 ambient;
+		float           ambientPower;
 		K_Math::Vector4 specular;
-		float power;
+		float           specurarShininess;
+		float           specurarPower;
 		EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 	};
 	struct VertexBuffer {
@@ -49,11 +51,11 @@ namespace K_Graphics {
 		~MaterialData();
 
 		void Add(std::vector<Material> material);
-		void SetTexture(Texture* texture, int arrayIndex, int materialIndex);
-		Material& GetMaterial(int arrayIndex, int materialIndex);
+		void SetTexture(Texture* texture, int hierarchyIndex, int materialIndex);
+		Material& GetMaterial(int hierarchyIndex, int materialIndex);
 
-		int GetNumMaterial(int arrayIndex);
-		int GetNumFace(int arrayIndex, int materialIndex);
+		int GetNumMaterial(int hierarchyIndex);
+		int GetNumFace(int hierarchyIndex, int materialIndex);
 
 	private:
 		std::vector<std::vector<Material>> materialArray;
@@ -69,10 +71,10 @@ namespace K_Graphics {
 		void Add(VertexBuffer& buffer);
 		int GetNumBuffer();
 
-		GLuint GetVAO(int arrayIndex);
-		GLuint GetVBO(int arrayIndex);
-		GLuint GetIBO(int arrayIndex, int materialIndex);
-		int GetNumFace(int arrayIndex);
+		GLuint GetVAO(int hierarchyIndex);
+		GLuint GetVBO(int hierarchyIndex);
+		GLuint GetIBO(int hierarchyIndex, int materialIndex);
+		int GetNumFace(int hierarchyIndex);
 
 	private:
 		std::vector<VertexBuffer> bufferArray;
@@ -108,14 +110,14 @@ namespace K_Graphics {
 		BoneData();
 		~BoneData();
 		void Add(std::vector<Bone>& boneData);
-		void SetClurrentBoneData(int arrayIndex, int time);
-		void SetMatrixTextureData(int arrayIndex, Texture* texture);
+		void SetClurrentBoneData(int hierarchyIndex, int time);
+		void SetMatrixTextureData(int hierarchyIndex, Texture* texture);
 		void StartInterporation(int frameCount);
-		int GetNumBone(int arrayIndex);
+		int GetNumBone(int hierarchyIndex);
 
 	private:
-		K_Math::Matrix4x4 CalculateBoneMatrix(int arrayIndex, int boneIndex);
-		void BoneInterporation(int arrayIndex, int boneIndex, float ratio);
+		K_Math::Matrix4x4 CalculateBoneMatrix(int hierarchyIndex, int boneIndex);
+		void BoneInterporation(int hierarchyIndex, int boneIndex, float ratio);
 
 	private:
 		std::vector<std::vector<Bone>> boneData;

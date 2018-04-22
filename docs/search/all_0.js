@@ -14,6 +14,7 @@ var searchData=
   ['allread',['AllRead',['../class_k___audio_1_1_sound_source.html#ad0e58f4cea821bc4087ed13830b06f69a510c98197d74c0c8ea23a66a1c8a3e53',1,'K_Audio::SoundSource']]],
   ['ambient',['ambient',['../struct_k___graphics_1_1_material.html#a90c85b825fe0712b7a45574620de5b47',1,'K_Graphics::Material']]],
   ['ambientlight',['AmbientLight',['../class_k___graphics_1_1_ambient_light.html',1,'K_Graphics::AmbientLight'],['../class_k___graphics_1_1_ambient_light.html#aed22ac89d7358c674ef23bdf2ad1e07b',1,'K_Graphics::AmbientLight::AmbientLight()']]],
+  ['ambientpower',['ambientPower',['../struct_k___graphics_1_1_material.html#a02507fae0e9ef3adb4006315e45f6a92',1,'K_Graphics::Material']]],
   ['angleaxis',['AngleAxis',['../namespace_k___math.html#a0f5db7b05f161215069d86bce9dac011',1,'K_Math']]],
   ['animation',['animation',['../struct_k___graphics_1_1_model_datas.html#a2998f1b8e3bb0573ba89a91c73f5eb4e',1,'K_Graphics::ModelDatas']]],
   ['animationdata',['AnimationData',['../class_k___graphics_1_1_animation_data.html',1,'K_Graphics::AnimationData'],['../class_k___graphics_1_1_animation_data.html#a71e4f6d6b43f4d263d8f9c2ba0ac4b14',1,'K_Graphics::AnimationData::AnimationData()']]],

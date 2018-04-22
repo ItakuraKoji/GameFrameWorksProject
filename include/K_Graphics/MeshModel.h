@@ -31,7 +31,7 @@ namespace K_Graphics {
 		///@param[in] texture 使用するテクスチャへのポインタ
 		///@param[in] arrayIndex 対象となるメッシュ階層のインデックス
 		///@param[in] materialIndex 対象となるメッシュ階層のなかのマテリアルインデックス
-		void SetTexture(Texture* texture, int arrayIndex, int materialIndex);
+		void SetTexture(Texture* texture, int hierarchyIndex, int materialIndex);
 		///@brief アニメーションスピードを変更する
 		///@param[in] 1を通常の速度としたアニメーションの速度
 		void SetSpeed(float speed);
@@ -45,8 +45,8 @@ namespace K_Graphics {
 		void InstanceDraw(int numInstance, ShaderClass* shader);
 
 	private:
-		void SetBone(int arrayIndex, ShaderClass* shader);
-		void DrawBuffers(int arrayIndex, ShaderClass* shader);
+		void SetBone(int hierarchyIndex, ShaderClass* shader);
+		void DrawBuffers(int hierarchyIndex, ShaderClass* shader);
 
 	private:
 		ModelDatas * data;

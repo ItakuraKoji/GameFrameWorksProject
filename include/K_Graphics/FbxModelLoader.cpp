@@ -289,6 +289,8 @@ namespace K_Loader {
 				material[i].ambient(1) = (float)(pPhong->Ambient.Get()[1]);
 				material[i].ambient(2) = (float)(pPhong->Ambient.Get()[2]);
 				material[i].ambient(3) = 1.0f;
+				//環境光強度
+				material[i].ambientPower = (float)(pPhong->AmbientFactor.Get());
 
 				material[i].diffuse(0) = (float)(pPhong->Diffuse.Get()[0]);
 				material[i].diffuse(1) = (float)(pPhong->Diffuse.Get()[1]);
@@ -301,8 +303,8 @@ namespace K_Loader {
 				material[i].specular(3) = 1.0f;
 
 				//鏡面反射強度
-				material[i].power = (float)(pPhong->Shininess.Get());
-
+				material[i].specurarShininess = (float)(pPhong->Shininess.Get());
+				material[i].specurarPower = (float)(pPhong->SpecularFactor.Get());
 			}
 			else if (materialType.Is(FbxSurfaceLambert::ClassId)) {
 				FbxSurfaceLambert *pLambert = (FbxSurfaceLambert*)pMaterial;
@@ -311,6 +313,8 @@ namespace K_Loader {
 				material[i].ambient(1) = (float)(pLambert->Ambient.Get()[1]);
 				material[i].ambient(2) = (float)(pLambert->Ambient.Get()[2]);
 				material[i].ambient(3) = 1.0f;
+				//環境光強度
+				material[i].ambientPower = (float)(pLambert->AmbientFactor.Get());
 
 				material[i].diffuse(0) = (float)(pLambert->Diffuse.Get()[0]);
 				material[i].diffuse(1) = (float)(pLambert->Diffuse.Get()[1]);
@@ -323,7 +327,8 @@ namespace K_Loader {
 				material[i].specular(3) = 1.0f;
 
 				//鏡面反射強度
-				material[i].power = 1.0f;
+				material[i].specurarShininess = 1.0f;
+				material[i].specurarPower = 0.0f;
 			}
 
 			//テクスチャ

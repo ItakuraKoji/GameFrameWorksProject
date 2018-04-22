@@ -132,11 +132,19 @@ namespace K_Graphics {
 
 		int numMaterial = this->data->material->GetNumMaterial(arrayIndex);
 		for (int k = 0; k < numMaterial; ++k) {
-			Texture* texture = this->data->material->GetMaterial(arrayIndex, k).texture;
+			Material& material = this->data->material->GetMaterial(arrayIndex, k);
+			Texture* texture = material.texture;
 			if (texture) {
 				GLuint TextureID = texture->GetTextureID();
 				shader->SetTexture("sampler", 0, TextureID);
 			}
+			shader->SetValue("materialDiffuse", material.diffuse);
+			shader->SetValue("materialSpecurar", material.specular);
+			shader->SetValue("materialSpecurarShininess", material.specurarShininess);
+			shader->SetValue("materialSpecurarPower", material.specurarPower);
+			shader->SetValue("materialAmbient", material.ambient);
+			shader->SetValue("materialAmbientPower", material.ambientPower);
+
 
 			GLuint IBO = this->data->vertexBuffer->GetIBO(arrayIndex, k);
 			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
