@@ -7,12 +7,16 @@
 #include"bulletDebugDraw.h"
 #include"K_Math\MyMathFanctions.h"
 
-#include<iostream>
 #include<vector>
 
 namespace K_Physics {
 
-	///@brief 衝突時に返すタグ情報
+	typedef btCollisionShape CollisionShape;
+
+	///@brief 衝突時に返すタグ情報\n
+	///tagName : タグの名前 デフォルトで "default"\n
+	///tagIndex : タグに付属させる数字 デフォルトで 0\n
+	///userData : タグと共に送りたい情報へのポインタ デフォルトで nullptr\n
 	struct CollisionTag {
 		std::string tagName;
 		int tagIndex;
@@ -25,12 +29,23 @@ namespace K_Physics {
 		CollisionData(btCollisionObject* obj, int mask, CollisionTag tag);
 		void SetCollisionPosition(const K_Math::Vector3& position);
 		K_Math::Vector3 GetCollisionPosition();
+		btCollisionObject* GetCollision();
 
 	public:
-		btCollisionObject* const collision;
 		CollisionTag tag;
 		const int mask;
+	protected:
+		btCollisionObject* const collision;
 	};
+
+	///@brief CollisionDataに加えて、物理系に必要な関数を追加した派生クラス
+	class RigidBodyData : public CollisionData {
+	public:
+		RigidBodyData(btRigidBody* obj, int mask, CollisionTag tag);
+		void AddForce(const K_Math::Vector3& vector);
+		
+	};
+
 
 	///@brief bulletのワールドを管理するクラス\nコリジョンの生成・判定関数を提供している
 	class BulletPhysics {
@@ -58,26 +73,26 @@ namespace K_Physics {
 		///@param[in] point1 角の座標
 		///@param[in] point2 角の座標
 		///@param[in] point3 角の座標
-		btCollisionShape* CreateTriangleHullShape(const K_Math::Vector3& point1, const K_Math::Vector3& point2, const K_Math::Vector3& point3);
-		///@brief ポリゴンの集合形状を作成
-		///@param[in] vectice 三角形の角座標の配列
-		///@param[in] numFace 三角形の数
-		btTriangleMesh* CreateTriangleMesh(K_Math::Vector3* vectice, int numFace);
+		CollisionShape* CreateTriangleHullShape(const K_Math::Vector3& point1, const K_Math::Vector3& point2, const K_Math::Vector3& point3);
 		///@brief btTriangleMeshからメッシュ形状を作成
 		///@param[in] mesh CreateTriangleMesh()が返す形状のポインタ
-		btCollisionShape* CreateTriangleMeshShape(btTriangleMesh* mesh);
+		CollisionShape* CreateTriangleMeshShape(btTriangleMesh* mesh);
 		///@brief 球の形状を作成
 		///@param[in] radius 球の半径
-		btCollisionShape* CreateSphereShape(float radius);
+		CollisionShape* CreateSphereShape(float radius);
 		///@brief カプセルの形状を作成
 		///@param[in] radius 球の半径
 		///@param[in] height カプセルの高さ
-		btCollisionShape* CreateCapsuleShape(float radius, float height);
+		CollisionShape* CreateCapsuleShape(float radius, float height);
 		///@brief 直方体の形状を作成
 		///@param[in] halfWidth 中心からの直方体の幅
 		///@param[in] halfHeight 中心からの直方体の高さ
 		///@param[in] halfDepth 中心からの直方体の奥行き
-		btCollisionShape* CreateBoxShape(float halfWidth, float halfHeight, float halfDepth);
+		CollisionShape* CreateBoxShape(float halfWidth, float halfHeight, float halfDepth);
+		///@brief ポリゴンの集合形状情報を作成
+		///@param[in] vectice 三角形の角座標の配列
+		///@param[in] numFace 三角形の数
+		btTriangleMesh* CreateTriangleMesh(K_Math::Vector3* vectice, int numFace);
 
 
 		///@brief 剛体オブジェクトを作成し、ポインタを返す
@@ -87,7 +102,7 @@ namespace K_Physics {
 		///@param[in] mask 衝突フィルタに使うビットマスク
 		///@param[in] pos 剛体の初期位置（省略時はすべて０）
 		///@param[in] rot 剛体の回転（省略時はすべて０）
-		CollisionData* CreateRigidBody(btCollisionShape* shape, btScalar mass, bool ghost, int mask, const K_Math::Vector3& pos = K_Math::Vector3(0, 0, 0), const K_Math::Vector3& rot = K_Math::Vector3(0, 0, 0));
+		RigidBodyData* CreateRigidBody(btCollisionShape* shape, btScalar mass, bool ghost, int mask, const K_Math::Vector3& pos = K_Math::Vector3(0, 0, 0), const K_Math::Vector3& rot = K_Math::Vector3(0, 0, 0));
 		///@brief コリジョンオブジェクトを作成し、ポインタを返す
 		///@param[in] shape コリジョンの形状へのポインタ
 		///@param[in] ghost コリジョンが剛体と衝突するかのフラグ（trueで剛体とは衝突しない）
@@ -97,33 +112,35 @@ namespace K_Physics {
 		CollisionData* CreateCollisionObject(btCollisionShape* shape, bool ghost, int mask, const K_Math::Vector3& pos = K_Math::Vector3(0, 0, 0), const K_Math::Vector3& rot = K_Math::Vector3(0, 0, 0));
 
 		///@brief 明示的に世界に登録している剛体を世界から外してからポインタをdeleteする\nこのクラスのデストラクタにてこの関数によって全て開放している
-		void RemoveCollisionObject(btCollisionObject* rigidbody);
+		void RemoveCollision(CollisionData** rigidbody);
 
 		///@brief 明示的にリストに存在する形状情報をリストから外してdeleteする
 		///この関数を呼ばなくても、このクラスのデストラクタで全て開放している
 		///この関数の後は、形状へのポインタは使えないので注意
-		void RemoveCollisionShape(btCollisionShape* shape);
+		void RemoveCollisionShape(CollisionShape** shape);
 
 		///@brief 操作性を意識したコリジョンの移動、壁判定も行う(重いが正確)
 		///@param[in] obj 移動するコリジョンオブジェクト
 		///@param[in] move 移動ベクトル
-		void MoveCharacter(btCollisionObject* obj, const K_Math::Vector3& move);
+		void MoveCharacter(CollisionData* obj, const K_Math::Vector3& move);
 
 		///@brief 離散的なコリジョンの移動、判定が MoveCharacter よりも大雑把(ただし軽い)
 		///@param[in] obj 移動するコリジョンオブジェクト
 		///@param[in] hMove 横移動ベクトル
 		///@param[in] vMove 縦移動ベクトル
-		void MoveCharacterDiscrete(btCollisionObject* obj, const K_Math::Vector3& hMove, const K_Math::Vector3& vMove);
+		void MoveCharacterDiscrete(CollisionData* obj, const K_Math::Vector3& hMove, const K_Math::Vector3& vMove);
 
 		///@brief 現在の物理世界での特定のオブジェクトに対する衝突のチェック
 		///@param[in] 衝突をチェックしたいオブジェクト
 		///@return 衝突が起こったオブジェクトのタグ情報
-		std::vector<CollisionTag>& FindConfrictionObjects(btCollisionObject* myself);
+		std::vector<CollisionTag>& FindConfrictionObjects(CollisionData* myself);
 
 		///@brief 重力とは反対方向を指す単位ベクトルを設定、キャラクターの移動に利用する
 		///@param[in] vector 重力と反対方向の単位ベクトル
 		void SetSkyVector(const K_Math::Vector3& vector);
 	private:
+		//コリジョンを削除
+		void RemoveCollisionObject(btCollisionObject* rigidbody);
 		//コリジョンを移動
 		void MoveCollisionObject(btCollisionObject* obj, const btVector3& moveVector);
 		//指定方向に移動（離散判定）
@@ -133,6 +150,7 @@ namespace K_Physics {
 		//移動部分をまとめ
 		btVector3 MoveBySweep(btCollisionObject* obj, const btVector3& moveVector, bool limitDirection, float allowDistance = 0.2f);
 	private:
+		//衝突結果格納用
 		std::vector<CollisionTag> confrictResult;
 		//空への単位ベクトル、あたり判定で使用
 		btVector3 toSkyVector;
@@ -143,7 +161,7 @@ namespace K_Physics {
 		btConstraintSolver*                     solver;
 		btBroadphaseInterface*                  broadphase;
 		bulletDebugDraw                         debugDrawer;
-		btAlignedObjectArray<btCollisionShape*> shapeArray;
+		btAlignedObjectArray<CollisionShape*>   shapeArray;
 	};
 
 

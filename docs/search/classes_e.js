@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['wavdata',['WavData',['../class_k___audio_1_1_wav_data.html',1,'K_Audio']]]
+  ['vertexbuffer',['VertexBuffer',['../struct_k___graphics_1_1_vertex_buffer.html',1,'K_Graphics']]],
+  ['vertexdata',['VertexData',['../class_k___graphics_1_1_vertex_data.html',1,'K_Graphics']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['quaternion',['Quaternion',['../namespace_k___math.html#a9bc4dcabcbd509e9dc53ae0ecb07a17c',1,'K_Math']]]
+  ['matrix3x3',['Matrix3x3',['../namespace_k___math.html#a560235ba0b8247680dfa595fc7c975dd',1,'K_Math']]],
+  ['matrix4x4',['Matrix4x4',['../namespace_k___math.html#a345271af9d32dff2c964bc679b13b45c',1,'K_Math']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['effecthandle',['EffectHandle',['../namespace_k___graphics.html#afb3a0fd0adc77eb95104e697c9b6b7a9',1,'K_Graphics']]]
+  ['diagonalmatrix',['DiagonalMatrix',['../namespace_k___math.html#aff8bcbdc2a06207d456cb31f4d72d861',1,'K_Math']]]
 ];

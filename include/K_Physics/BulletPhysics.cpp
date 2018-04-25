@@ -108,13 +108,13 @@ namespace K_Physics {
 		return mesh;
 	}
 	//複数の三角形からなるメッシュコリジョン
-	btCollisionShape* BulletPhysics::CreateTriangleMeshShape(btTriangleMesh* mesh) {
+	CollisionShape* BulletPhysics::CreateTriangleMeshShape(btTriangleMesh* mesh) {
 		btBvhTriangleMeshShape* bvhMesh = new btBvhTriangleMeshShape(mesh, true);
 		this->shapeArray.push_back(bvhMesh);
 		return bvhMesh;
 	}
 	//三角形
-	btCollisionShape* BulletPhysics::CreateTriangleHullShape(const K_Math::Vector3& point1, const K_Math::Vector3& point2, const K_Math::Vector3& point3) {
+	CollisionShape* BulletPhysics::CreateTriangleHullShape(const K_Math::Vector3& point1, const K_Math::Vector3& point2, const K_Math::Vector3& point3) {
 		btScalar points[9] = { point1.x(),point1.y(),point1.z(),
 							   point2.x(),point2.y(),point2.z(),
 							   point3.x(),point3.y(),point3.z() };
@@ -123,26 +123,26 @@ namespace K_Physics {
 		return shape;
 	}
 	//球
-	btCollisionShape* BulletPhysics::CreateSphereShape(float radius) {
+	CollisionShape* BulletPhysics::CreateSphereShape(float radius) {
 		btCollisionShape* shape = new btSphereShape(radius);
 		this->shapeArray.push_back(shape);
 		return shape;
 	}
 	//カプセル
-	btCollisionShape* BulletPhysics::CreateCapsuleShape(float radius, float height) {
+	CollisionShape* BulletPhysics::CreateCapsuleShape(float radius, float height) {
 		btCollisionShape* shape = new btCapsuleShape(radius, height);
 		this->shapeArray.push_back(shape);
 		return shape;
 	}
 	//長方形
-	btCollisionShape* BulletPhysics::CreateBoxShape(float halfWidth, float halfHeight, float halfDepth) {
+	CollisionShape* BulletPhysics::CreateBoxShape(float halfWidth, float halfHeight, float halfDepth) {
 		btCollisionShape* shape = new btBoxShape(btVector3(halfWidth, halfHeight, halfDepth));
 		this->shapeArray.push_back(shape);
 		return shape;
 	}
 
 	//剛体作成
-	CollisionData* BulletPhysics::CreateRigidBody(btCollisionShape* shape, btScalar mass, bool ghost, int mask, const K_Math::Vector3& pos, const K_Math::Vector3& rot) {
+	RigidBodyData* BulletPhysics::CreateRigidBody(btCollisionShape* shape, btScalar mass, bool ghost, int mask, const K_Math::Vector3& pos, const K_Math::Vector3& rot) {
 		btTransform trans;
 		trans.setIdentity();
 		trans.setOrigin(btVector3(pos.x(), pos.y(), pos.z()));
@@ -165,10 +165,9 @@ namespace K_Physics {
 
 		this->bulletWorld->addRigidBody(rigid, 1, mask);
 		CollisionTag tag = { "default", 0, nullptr };
-		CollisionData* colData = new CollisionData(rigid, mask, tag);
+		RigidBodyData* colData = new RigidBodyData(rigid, mask, tag);
 		rigid->setUserPointer(colData);
 		return colData;
-
 	}
 
 	//コリジョン作成
@@ -197,35 +196,29 @@ namespace K_Physics {
 	}
 
 	//開放
-	void BulletPhysics::RemoveCollisionObject(btCollisionObject* obj) {
-		btRigidBody* rigid = btRigidBody::upcast(obj);
-		if (rigid != nullptr) {
-			if (rigid->getMotionState()) {
-				delete rigid->getMotionState();
-			}
-		}
-		if (obj->getUserPointer()) {
-			delete (CollisionData*)obj->getUserPointer();
-		}
-		this->bulletWorld->removeCollisionObject(obj);
-		delete obj;
+
+	void BulletPhysics::RemoveCollision(CollisionData** collision) {
+		RemoveCollisionObject((*collision)->GetCollision());
+		collision = nullptr;
 	}
-	void BulletPhysics::RemoveCollisionShape(btCollisionShape* shape) {
-		this->shapeArray.remove(shape);
-		delete shape;
+
+	void BulletPhysics::RemoveCollisionShape(CollisionShape** shape) {
+		this->shapeArray.remove(*shape);
+		delete *shape;
+		shape = nullptr;
 	}
 
 	//衝突を検出し、結果をポインタで返す
-	std::vector<CollisionTag>& BulletPhysics::FindConfrictionObjects(btCollisionObject* myself) {
+	std::vector<CollisionTag>& BulletPhysics::FindConfrictionObjects(CollisionData* myself) {
 		CollectCollisionCallBack callback(this->confrictResult);
-		this->bulletWorld->contactTest(myself, callback);
+		this->bulletWorld->contactTest(myself->GetCollision(), callback);
 		return this->confrictResult;
 	}
 
 	//新型衝突シミュレーション
-	void BulletPhysics::MoveCharacter(btCollisionObject *obj, const K_Math::Vector3& move) {
+	void BulletPhysics::MoveCharacter(CollisionData *obj, const K_Math::Vector3& move) {
 		//凹形状とは判定できない
-		if (!obj->getCollisionShape()->isConvex()) {
+		if (!obj->GetCollision()->getCollisionShape()->isConvex()) {
 			return;
 		}
 
@@ -250,60 +243,56 @@ namespace K_Physics {
 
 		//縦
 		btVector3 virtical = vMove;
-		MoveSmooth(obj, virtical, 40.0f, true);
+		MoveSmooth(obj->GetCollision(), virtical, 40.0f, true);
 
 		//横
 		//上に雑に移動
-		MoveDiscrete(obj, this->toSkyVector * 0.15f, true);
+		MoveDiscrete(obj->GetCollision(), this->toSkyVector * 0.15f, true);
 		
 		//横に移動
 		btVector3 horizontal = hMove;
-		MoveSmooth(obj, hMove, 0.0f, false);
+		MoveSmooth(obj->GetCollision(), hMove, 0.0f, false);
 
 		//そして下に雑に戻す
-		MoveDiscrete(obj, -this->toSkyVector * 0.15f, true);
+		MoveDiscrete(obj->GetCollision(), -this->toSkyVector * 0.15f, true);
 	}
 
 	//処理が　軽いほう
-	void BulletPhysics::MoveCharacterDiscrete(btCollisionObject *obj, const K_Math::Vector3& hMove, const K_Math::Vector3& vMove) {
+	void BulletPhysics::MoveCharacterDiscrete(CollisionData *obj, const K_Math::Vector3& hMove, const K_Math::Vector3& vMove) {
 		int fix = 10;
 
 		//凹形状とは判定できない
-		if (!obj->getCollisionShape()->isConvex()) {
+		if (!obj->GetCollision()->getCollisionShape()->isConvex()) {
 			return;
 		}
-		btVector3 horizontal = btVector3(hMove.x(), hMove.y(), hMove.z()) / (float)fix;
+		K_Math::Vector3 horizontal = hMove / (float)fix;
 		if (horizontal.norm() >= 0.001f) {
 			//移動
 			for (int i = 0; i < fix; ++i) {
-				btTransform to = obj->getWorldTransform();
-				to.setOrigin(to.getOrigin() + horizontal);
-				obj->setWorldTransform(to);
+				obj->SetCollisionPosition(obj->GetCollisionPosition() + horizontal);
 				//一番深くめり込んだものの法線方向へ押し出し
-				FixContactCallBack contact_cb(obj);
+				FixContactCallBack contact_cb(obj->GetCollision());
 				do {
-					this->bulletWorld->contactTest(obj, contact_cb);
+					this->bulletWorld->contactTest(obj->GetCollision(), contact_cb);
 				} while (contact_cb.isLoop);
 				//押し出し
-				MoveCollisionObject(obj, contact_cb.fixVec * -contact_cb.maxDistance);
+				MoveCollisionObject(obj->GetCollision(), contact_cb.fixVec * -contact_cb.maxDistance);
 			}
 		}
 		//移動
-		btVector3 vertical = btVector3(vMove.x(), vMove.y(), vMove.z()) / (float)fix;
+		K_Math::Vector3 vertical = vMove / (float)fix;
 		if (vertical.norm() >= 0.001f) {
 			for (int i = 0; i < fix; ++i) {
-				btTransform to = obj->getWorldTransform();
-				to.setOrigin(to.getOrigin() + vertical);
-				obj->setWorldTransform(to);
+				obj->SetCollisionPosition(obj->GetCollisionPosition() + vertical);
 				//一番深くめり込んだものの法線方向へ押し出し
-				FixContactCallBack contact_cb(obj);
+				FixContactCallBack contact_cb(obj->GetCollision());
 				do {
-					this->bulletWorld->contactTest(obj, contact_cb);
+					this->bulletWorld->contactTest(obj->GetCollision(), contact_cb);
 				} while (contact_cb.isLoop);
 				//押し出し
 				//垂直成分はそのベクトルにしか押し出さない（坂を滑るので）
 				//MoveCollisionObject(obj, contact_cb.fixVec * -contact_cb.maxDistance);
-				MoveCollisionObject(obj, vertical.normalized() * contact_cb.maxDistance);
+				MoveCollisionObject(obj->GetCollision(), btVector3(vertical.x(), vertical.y(), vertical.z()).normalized() * contact_cb.maxDistance);
 			}
 		}
 	}
@@ -316,6 +305,19 @@ namespace K_Physics {
 	////////
 	//private
 	////
+	void BulletPhysics::RemoveCollisionObject(btCollisionObject* obj) {
+		btRigidBody* rigid = btRigidBody::upcast(obj);
+		if (rigid != nullptr) {
+			if (rigid->getMotionState()) {
+				delete rigid->getMotionState();
+			}
+		}
+		if (obj->getUserPointer()) {
+			delete (CollisionData*)obj->getUserPointer();
+		}
+		this->bulletWorld->removeCollisionObject(obj);
+		delete obj;
+	}
 
 	void BulletPhysics::MoveCollisionObject(btCollisionObject* obj, const btVector3& moveVector) {
 		btVector3 objPos = obj->getWorldTransform().getOrigin();

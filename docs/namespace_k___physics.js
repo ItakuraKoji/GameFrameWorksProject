@@ -7,5 +7,6 @@ var namespace_k___physics =
     [ "CollisionTag", "struct_k___physics_1_1_collision_tag.html", "struct_k___physics_1_1_collision_tag" ],
     [ "FixContactCallBack", "struct_k___physics_1_1_fix_contact_call_back.html", "struct_k___physics_1_1_fix_contact_call_back" ],
     [ "MapPolygon", "class_k___physics_1_1_map_polygon.html", "class_k___physics_1_1_map_polygon" ],
+    [ "RigidBodyData", "class_k___physics_1_1_rigid_body_data.html", "class_k___physics_1_1_rigid_body_data" ],
     [ "SweepTestCallBack", "struct_k___physics_1_1_sweep_test_call_back.html", "struct_k___physics_1_1_sweep_test_call_back" ]
 ];

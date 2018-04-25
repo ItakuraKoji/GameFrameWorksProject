@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['translation',['Translation',['../namespace_k___math.html#a9a67bf2cbf95f0824bee5e5f79570ba4',1,'K_Math']]]
+  ['quaternion',['Quaternion',['../namespace_k___math.html#a9bc4dcabcbd509e9dc53ae0ecb07a17c',1,'K_Math']]]
 ];

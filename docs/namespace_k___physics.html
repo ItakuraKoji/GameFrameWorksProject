@@ -86,7 +86,8 @@ $(document).ready(function(){initNavTree('namespace_k___physics.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">クラス</a>  </div>
+<a href="#nested-classes">クラス</a> &#124;
+<a href="#typedef-members">型定義</a>  </div>
   <div class="headertitle">
 <div class="title">K_Physics 名前空間</div>  </div>
 </div><!--header-->
@@ -109,21 +110,48 @@ $(document).ready(function(){initNavTree('namespace_k___physics.html','');});
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">コリジョンの移動機能を持つ、要はbulletのコリジョン情報を扱いやすくしたクラス  <a href="class_k___physics_1_1_collision_data.html#details">[詳解]</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_k___physics_1_1_collision_tag.html">CollisionTag</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">衝突時に返すタグ情報  <a href="struct_k___physics_1_1_collision_tag.html#details">[詳解]</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">衝突時に返すタグ情報<br />
+tagName : タグの名前 デフォルトで "default"<br />
+tagIndex : タグに付属させる数字 デフォルトで 0<br />
+userData : タグと共に送りたい情報へのポインタ デフォルトで nullptr<br />
+ <a href="struct_k___physics_1_1_collision_tag.html#details">[詳解]</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_k___physics_1_1_fix_contact_call_back.html">FixContactCallBack</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_map_polygon.html">MapPolygon</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">判定用モデルのポリゴン情報を持つクラス、描画は一切できない。行列による回転にも対応していない  <a href="class_k___physics_1_1_map_polygon.html#details">[詳解]</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_rigid_body_data.html">RigidBodyData</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">CollisionDataに加えて、物理系に必要な関数を追加した派生クラス  <a href="class_k___physics_1_1_rigid_body_data.html#details">[詳解]</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_k___physics_1_1_sweep_test_call_back.html">SweepTestCallBack</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+型定義</h2></td></tr>
+<tr class="memitem:aa0de61c2beb0d423efad313964d20f31"><td class="memItemLeft" align="right" valign="top">typedef btCollisionShape&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_k___physics.html#aa0de61c2beb0d423efad313964d20f31">CollisionShape</a></td></tr>
+<tr class="separator:aa0de61c2beb0d423efad313964d20f31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>物理衝突判定関連の名前空間 </p>
 <p>・主要クラス<br />
 コリジョン作成・衝突判定　：「BulletPhysics」 地形データ作成　　　　　　：「MapPolygon」 </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">型定義詳解</h2>
+<a id="aa0de61c2beb0d423efad313964d20f31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0de61c2beb0d423efad313964d20f31">&#9670;&nbsp;</a></span>CollisionShape</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef btCollisionShape <a class="el" href="namespace_k___physics.html#aa0de61c2beb0d423efad313964d20f31">K_Physics::CollisionShape</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

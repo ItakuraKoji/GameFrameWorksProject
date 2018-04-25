@@ -17,4 +17,17 @@ namespace K_Physics {
 		btVector3 pos = this->collision->getWorldTransform().getOrigin();
 		return K_Math::Vector3(pos.x(), pos.y(), pos.z());
 	}
+
+	btCollisionObject* CollisionData::GetCollision() {
+		return this->collision;
+	}
+
+	RigidBodyData::RigidBodyData(btRigidBody* obj, int mask, CollisionTag tag) : CollisionData(obj, mask, tag) {
+	}
+
+	void RigidBodyData::AddForce(const K_Math::Vector3& vector) {
+		btRigidBody* rigid = btRigidBody::upcast(this->collision);
+		rigid->activate(true);
+		rigid->applyForce(btVector3(vector.x(), vector.y(), vector.z()), this->collision->getWorldTransform().getOrigin());
+	}
 }

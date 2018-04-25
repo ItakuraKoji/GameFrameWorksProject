@@ -1,5 +1,9 @@
 var NAVTREEINDEX2 =
 {
+"struct_k___input_1_1_axis_state.html#a253890a432ae112fc57d39f7e06c88ad":[1,0,2,0,0],
+"struct_k___input_1_1_axis_state.html#ac23cfe9122fca5a53ca24fcacb3f2123":[1,0,2,0,3],
+"struct_k___input_1_1_axis_state.html#ad1c843ecba70aa4035dfe71c498b26c1":[1,0,2,0,1],
+"struct_k___input_1_1_axis_state.html#ad652895e754dfc2be58995677bf97ec6":[1,0,2,0,2],
 "struct_k___input_1_1_button_state.html":[1,0,2,1],
 "struct_k___input_1_1_button_state.html#a7f22bf8e7e2078e45af31f7a1f3a7d2d":[1,0,2,1,0],
 "struct_k___input_1_1_button_state.html#a8c2311c266401355c0ff149bd23a2f66":[1,0,2,1,2],
@@ -41,8 +45,8 @@ var NAVTREEINDEX2 =
 "struct_k___physics_1_1_map_polygon_1_1_polygon_data.html#a510e830758a360dd1e0fd25c17f3b972":[1,0,5,6,0,1],
 "struct_k___physics_1_1_map_polygon_1_1_polygon_type.html":[1,0,5,6,1],
 "struct_k___physics_1_1_map_polygon_1_1_polygon_type.html#ab4bef44a34f59e41ccdfdbecaa4e9ad7":[1,0,5,6,1,0],
-"struct_k___physics_1_1_sweep_test_call_back.html":[1,0,5,7],
-"struct_k___physics_1_1_sweep_test_call_back.html#a1832e2d592d2161787bfc22377069446":[1,0,5,7,1],
-"struct_k___physics_1_1_sweep_test_call_back.html#a54d36f38158c77a8aeca7aa015d255b5":[1,0,5,7,2],
-"struct_k___physics_1_1_sweep_test_call_back.html#ae8598d49a8cfdd4d2a9ed29c70db6f49":[1,0,5,7,0]
+"struct_k___physics_1_1_sweep_test_call_back.html":[1,0,5,8],
+"struct_k___physics_1_1_sweep_test_call_back.html#a1832e2d592d2161787bfc22377069446":[1,0,5,8,1],
+"struct_k___physics_1_1_sweep_test_call_back.html#a54d36f38158c77a8aeca7aa015d255b5":[1,0,5,8,2],
+"struct_k___physics_1_1_sweep_test_call_back.html#ae8598d49a8cfdd4d2a9ed29c70db6f49":[1,0,5,8,0]
 };

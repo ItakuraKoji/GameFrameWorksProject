@@ -6,6 +6,7 @@ var searchData=
   ['getblocksize',['GetBlockSize',['../class_k___audio_1_1_audio_data.html#a7dc633de5c4609374591032f0b246c9c',1,'K_Audio::AudioData']]],
   ['getcamera',['GetCamera',['../class_k___graphics_1_1_camera_list.html#aa4f8101671c5d4c548853891738b6265',1,'K_Graphics::CameraList']]],
   ['getcameramatrix',['GetCameraMatrix',['../class_k___graphics_1_1_camera_class.html#a8e972464a146b6f87198debd8571d4e9',1,'K_Graphics::CameraClass']]],
+  ['getcollision',['GetCollision',['../class_k___physics_1_1_collision_data.html#a463cfb5559cf0045fe43806820b01948',1,'K_Physics::CollisionData']]],
   ['getcollisionposition',['GetCollisionPosition',['../class_k___physics_1_1_collision_data.html#a43df22359dfa42883477a4958a809b9b',1,'K_Physics::CollisionData']]],
   ['getcolor',['GetColor',['../class_k___graphics_1_1_ambient_light.html#a0d6c492ee889625cd009f08284e8c586',1,'K_Graphics::AmbientLight::GetColor()'],['../class_k___graphics_1_1_directional_light.html#a091844225b764f4a59038b6f39f1f56e',1,'K_Graphics::DirectionalLight::GetColor()']]],
   ['getcurrentanimtime',['GetCurrentAnimTime',['../class_k___graphics_1_1_animation_data.html#a009d03ca3c4f41be2e2fa136b4382c63',1,'K_Graphics::AnimationData']]],

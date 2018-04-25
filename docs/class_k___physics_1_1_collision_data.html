@@ -88,6 +88,7 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_collision_data.h
   <div class="summary">
 <a href="#pub-methods">公開メンバ関数</a> &#124;
 <a href="#pub-attribs">公開変数類</a> &#124;
+<a href="#pro-attribs">限定公開変数類</a> &#124;
 <a href="class_k___physics_1_1_collision_data-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle">
 <div class="title">K_Physics::CollisionData クラス</div>  </div>
@@ -98,6 +99,15 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_collision_data.h
  <a href="class_k___physics_1_1_collision_data.html#details">[詳解]</a></p>
 
 <p><code>#include &lt;<a class="el" href="_bullet_physics_8h_source.html">BulletPhysics.h</a>&gt;</code></p>
+<div class="dynheader">
+K_Physics::CollisionData の継承関係図</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_k___physics_1_1_collision_data.png" usemap="#K_5FPhysics::CollisionData_map" alt=""/>
+  <map id="K_5FPhysics::CollisionData_map" name="K_5FPhysics::CollisionData_map">
+<area href="class_k___physics_1_1_rigid_body_data.html" title="CollisionDataに加えて、物理系に必要な関数を追加した派生クラス " alt="K_Physics::RigidBodyData" shape="rect" coords="0,56,160,80"/>
+</map>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
@@ -107,15 +117,20 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_collision_data.h
 <tr class="separator:affb7f66b30c1fed8314e02e96c821aa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43df22359dfa42883477a4958a809b9b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_collision_data.html#a43df22359dfa42883477a4958a809b9b">GetCollisionPosition</a> ()</td></tr>
 <tr class="separator:a43df22359dfa42883477a4958a809b9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a463cfb5559cf0045fe43806820b01948"><td class="memItemLeft" align="right" valign="top">btCollisionObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_collision_data.html#a463cfb5559cf0045fe43806820b01948">GetCollision</a> ()</td></tr>
+<tr class="separator:a463cfb5559cf0045fe43806820b01948"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 公開変数類</h2></td></tr>
-<tr class="memitem:a45dc4d1f2a85cef93993b2872c49fc49"><td class="memItemLeft" align="right" valign="top">btCollisionObject *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_collision_data.html#a45dc4d1f2a85cef93993b2872c49fc49">collision</a></td></tr>
-<tr class="separator:a45dc4d1f2a85cef93993b2872c49fc49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca2f02c2b5deed664630c0a04c4f2b1f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_k___physics_1_1_collision_tag.html">CollisionTag</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_collision_data.html#aca2f02c2b5deed664630c0a04c4f2b1f">tag</a></td></tr>
 <tr class="separator:aca2f02c2b5deed664630c0a04c4f2b1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2ee40b89ec58f96dad15b78bf23af6f"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_collision_data.html#aa2ee40b89ec58f96dad15b78bf23af6f">mask</a></td></tr>
 <tr class="separator:aa2ee40b89ec58f96dad15b78bf23af6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+限定公開変数類</h2></td></tr>
+<tr class="memitem:a45dc4d1f2a85cef93993b2872c49fc49"><td class="memItemLeft" align="right" valign="top">btCollisionObject *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_collision_data.html#a45dc4d1f2a85cef93993b2872c49fc49">collision</a></td></tr>
+<tr class="separator:a45dc4d1f2a85cef93993b2872c49fc49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>コリジョンの移動機能を持つ、要はbulletのコリジョン情報を扱いやすくしたクラス </p>
@@ -155,6 +170,23 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_collision_data.h
 </div>
 </div>
 <h2 class="groupheader">関数詳解</h2>
+<a id="a463cfb5559cf0045fe43806820b01948"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a463cfb5559cf0045fe43806820b01948">&#9670;&nbsp;</a></span>GetCollision()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">btCollisionObject * K_Physics::CollisionData::GetCollision </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a43df22359dfa42883477a4958a809b9b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a43df22359dfa42883477a4958a809b9b">&#9670;&nbsp;</a></span>GetCollisionPosition()</h2>
 
@@ -196,11 +228,19 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_collision_data.h
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">btCollisionObject* const K_Physics::CollisionData::collision</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
