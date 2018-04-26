@@ -126,9 +126,8 @@ namespace K_Physics {
 
 		///@brief 離散的なコリジョンの移動、判定が MoveCharacter よりも大雑把(ただし軽い)
 		///@param[in] obj 移動するコリジョンオブジェクト
-		///@param[in] hMove 横移動ベクトル
-		///@param[in] vMove 縦移動ベクトル
-		void MoveCharacterDiscrete(CollisionData* obj, const K_Math::Vector3& hMove, const K_Math::Vector3& vMove);
+		///@param[in] move 移動ベクトル
+		void MoveCharacterDiscrete(CollisionData* obj, const K_Math::Vector3& move);
 
 		///@brief 現在の物理世界での特定のオブジェクトに対する衝突のチェック
 		///@param[in] 衝突をチェックしたいオブジェクト
@@ -147,7 +146,7 @@ namespace K_Physics {
 		void MoveDiscrete(btCollisionObject* obj, const btVector3& moveVector, bool limitDirection);
 		//指定方向に移動（Sweep使用）
 		btVector3 MoveSmooth(btCollisionObject* obj, const btVector3& moveVector, float limitAngle, bool limitDirection);
-		//移動部分をまとめ
+		//移動部分をまとめ、allowDistanceはめり込み許容値
 		btVector3 MoveBySweep(btCollisionObject* obj, const btVector3& moveVector, bool limitDirection, float allowDistance = 0.2f);
 	private:
 		//衝突結果格納用

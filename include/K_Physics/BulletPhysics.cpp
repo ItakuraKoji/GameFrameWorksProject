@@ -221,7 +221,6 @@ namespace K_Physics {
 		if (!obj->GetCollision()->getCollisionShape()->isConvex()) {
 			return;
 		}
-
 		btVector3 moveVec = btVector3(move.x(), move.y(), move.z());
 		btVector3 vMove;
 		btVector3 hMove;
@@ -258,42 +257,37 @@ namespace K_Physics {
 	}
 
 	//処理が　軽いほう
-	void BulletPhysics::MoveCharacterDiscrete(CollisionData *obj, const K_Math::Vector3& hMove, const K_Math::Vector3& vMove) {
-		int fix = 10;
+	void BulletPhysics::MoveCharacterDiscrete(CollisionData *obj, const K_Math::Vector3& move) {
+		btVector3 moveVec = btVector3(move.x(), move.y(), move.z());
+		btVector3 vMove;
+		btVector3 hMove;
+		btVector3 yAxis = this->toSkyVector;
+		btVector3 xAxis = yAxis.cross(moveVec);
+
+		//縦成分と横成分にベクトルを分解
+		if (xAxis.norm() > 0.001f) {
+			xAxis.normalize();
+			btVector3 zAxis = xAxis.cross(yAxis).normalized();
+			vMove = yAxis * yAxis.dot(moveVec);
+			hMove = moveVec - vMove;
+		}
+		else {
+			vMove = btVector3(moveVec);
+			hMove = btVector3(0.0f, 0.0f, 0.0f);
+		}
 
 		//凹形状とは判定できない
 		if (!obj->GetCollision()->getCollisionShape()->isConvex()) {
 			return;
 		}
-		K_Math::Vector3 horizontal = hMove / (float)fix;
-		if (horizontal.norm() >= 0.001f) {
-			//移動
-			for (int i = 0; i < fix; ++i) {
-				obj->SetCollisionPosition(obj->GetCollisionPosition() + horizontal);
-				//一番深くめり込んだものの法線方向へ押し出し
-				FixContactCallBack contact_cb(obj->GetCollision());
-				do {
-					this->bulletWorld->contactTest(obj->GetCollision(), contact_cb);
-				} while (contact_cb.isLoop);
-				//押し出し
-				MoveCollisionObject(obj->GetCollision(), contact_cb.fixVec * -contact_cb.maxDistance);
-			}
+
+		//横移動
+		if (hMove.norm() >= 0.001f) {
+			MoveDiscrete(obj->GetCollision(), hMove, false);
 		}
-		//移動
-		K_Math::Vector3 vertical = vMove / (float)fix;
-		if (vertical.norm() >= 0.001f) {
-			for (int i = 0; i < fix; ++i) {
-				obj->SetCollisionPosition(obj->GetCollisionPosition() + vertical);
-				//一番深くめり込んだものの法線方向へ押し出し
-				FixContactCallBack contact_cb(obj->GetCollision());
-				do {
-					this->bulletWorld->contactTest(obj->GetCollision(), contact_cb);
-				} while (contact_cb.isLoop);
-				//押し出し
-				//垂直成分はそのベクトルにしか押し出さない（坂を滑るので）
-				//MoveCollisionObject(obj, contact_cb.fixVec * -contact_cb.maxDistance);
-				MoveCollisionObject(obj->GetCollision(), btVector3(vertical.x(), vertical.y(), vertical.z()).normalized() * contact_cb.maxDistance);
-			}
+		//縦移動
+		if (vMove.norm() >= 0.001f) {
+			MoveDiscrete(obj->GetCollision(), vMove, true);
 		}
 	}
 
@@ -320,10 +314,8 @@ namespace K_Physics {
 	}
 
 	void BulletPhysics::MoveCollisionObject(btCollisionObject* obj, const btVector3& moveVector) {
-		btVector3 objPos = obj->getWorldTransform().getOrigin();
-		objPos = objPos + moveVector;
 		btTransform trans = obj->getWorldTransform();
-		trans.setOrigin(objPos);
+		trans.setOrigin(trans.getOrigin() + moveVector);
 		obj->setWorldTransform(trans);
 	}
 
@@ -332,9 +324,7 @@ namespace K_Physics {
 		btVector3 goVec = moveVector / (float)numFix;
 		//移動
 		for (int i = 0; i < numFix; ++i) {
-			btTransform to = obj->getWorldTransform();
-			to.setOrigin(to.getOrigin() + goVec);
-			obj->setWorldTransform(to);
+			MoveCollisionObject(obj, goVec);
 			//一番深くめり込んだものの法線方向へ押し出し
 			FixContactCallBack contact_cb(obj);
 			do {
@@ -345,6 +335,7 @@ namespace K_Physics {
 				continue;
 			}
 
+			//方向制限がかかっている場合は進んだ方向から戻るようにしか押し出せない
 			if (limitDirection) {
 				MoveCollisionObject(obj, moveVector * contact_cb.maxDistance);
 			}
@@ -426,7 +417,8 @@ namespace K_Physics {
 		btVector3 prevPos = obj->getWorldTransform().getOrigin();
 		btVector3 resultPos = prevPos;
 
-		for (int i = 0; i < 15; ++i) {
+		//何回かやって法線を調べる
+		for (int i = 0; i < 10; ++i) {
 			FixContactCallBack contact_cb(obj);
 			do {
 				this->bulletWorld->contactTest(obj, contact_cb);
