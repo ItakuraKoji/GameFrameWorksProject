@@ -122,17 +122,21 @@ namespace K_Physics {
 		///@brief 操作性を意識したコリジョンの移動、壁判定も行う(重いが正確)
 		///@param[in] obj 移動するコリジョンオブジェクト
 		///@param[in] move 移動ベクトル
-		void MoveCharacter(CollisionData* obj, const K_Math::Vector3& move);
+		///@param[in] vLimitAngle 縦方向の壁ずりを起こさない角度(deg)、この角度以上の入射角度に対して壁ずりを行う
+		///@param[in] hLimitAngle 横方向の壁ずりを起こさない角度(deg)、この角度以上の入射角度に対して壁ずりを行う
+		void MoveCharacter(CollisionData* obj, const K_Math::Vector3& move, float vLimitAngle = 40.0f, float hLimitAngle = 0.0f);
 
 		///@brief 離散的なコリジョンの移動、判定が MoveCharacter よりも大雑把(ただし軽い)
 		///@param[in] obj 移動するコリジョンオブジェクト
 		///@param[in] move 移動ベクトル
-		void MoveCharacterDiscrete(CollisionData* obj, const K_Math::Vector3& move);
+		///@param[in] vLimitDirection 縦方向の押し返しを、moveの直線上に限定するかのフラグ
+		///@param[in] hLimitDirection 横方向の押し返しを、moveの直線上に限定するかのフラグ
+		void MoveCharacterDiscrete(CollisionData* obj, const K_Math::Vector3& move, bool vLimitDirection = true, bool hLimitDirection = false);
 
 		///@brief 現在の物理世界での特定のオブジェクトに対する衝突のチェック
 		///@param[in] 衝突をチェックしたいオブジェクト
 		///@return 衝突が起こったオブジェクトのタグ情報
-		std::vector<CollisionTag>& FindConfrictionObjects(CollisionData* myself);
+		std::vector<CollisionTag*>& FindConfrictionObjects(CollisionData* myself);
 
 		///@brief 重力とは反対方向を指す単位ベクトルを設定、キャラクターの移動に利用する
 		///@param[in] vector 重力と反対方向の単位ベクトル
@@ -144,13 +148,13 @@ namespace K_Physics {
 		void MoveCollisionObject(btCollisionObject* obj, const btVector3& moveVector);
 		//指定方向に移動（離散判定）
 		void MoveDiscrete(btCollisionObject* obj, const btVector3& moveVector, bool limitDirection);
-		//指定方向に移動（Sweep使用）
-		btVector3 MoveSmooth(btCollisionObject* obj, const btVector3& moveVector, float limitAngle, bool limitDirection);
-		//移動部分をまとめ、allowDistanceはめり込み許容値
+		//指定方向に移動
+		void MoveSmooth(btCollisionObject* obj, const btVector3& moveVector, float limitAngle, bool limitDirection);
+		//移動部分をまとめ、allowDistanceはめり込み許容値、isCalcurateがtrueの時は法線を返す
 		btVector3 MoveBySweep(btCollisionObject* obj, const btVector3& moveVector, bool limitDirection, float allowDistance = 0.2f);
 	private:
 		//衝突結果格納用
-		std::vector<CollisionTag> confrictResult;
+		std::vector<CollisionTag*> confrictResult;
 		//空への単位ベクトル、あたり判定で使用
 		btVector3 toSkyVector;
 
@@ -200,11 +204,11 @@ namespace K_Physics {
 	//すべての衝突を記録する
 	struct CollectCollisionCallBack : public btCollisionWorld::ContactResultCallback {
 	public:
-		CollectCollisionCallBack(std::vector<CollisionTag>& tagList);
+		CollectCollisionCallBack(std::vector<CollisionTag*>& tagList);
 		virtual btScalar addSingleResult(btManifoldPoint& cp, const btCollisionObjectWrapper* colObj0Wrap, int partId0, int index0, const btCollisionObjectWrapper* colObj1Wrap, int partId1, int index1);
 
 	public:
-		std::vector<CollisionTag>& result;
+		std::vector<CollisionTag*>& result;
 		bool isHit;
 	};
 

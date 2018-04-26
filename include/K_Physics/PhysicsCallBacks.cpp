@@ -81,7 +81,7 @@ namespace K_Physics {
 		return btScalar(0.0f);
 	}
 
-	CollectCollisionCallBack::CollectCollisionCallBack(std::vector<CollisionTag>& tagList) : result(tagList), isHit(false) {
+	CollectCollisionCallBack::CollectCollisionCallBack(std::vector<CollisionTag*>& tagList) : result(tagList), isHit(false) {
 		tagList.clear();
 	}
 	btScalar CollectCollisionCallBack::addSingleResult(btManifoldPoint& cp, const btCollisionObjectWrapper* colObj0Wrap, int partId0, int index0, const btCollisionObjectWrapper* colObj1Wrap, int partId1, int index1) {
@@ -93,7 +93,7 @@ namespace K_Physics {
 			return btScalar(0.0f);
 		}
 		if (data2) {
-			this->result.push_back(data2->tag);
+			this->result.push_back(&data2->tag);
 			this->isHit = true;
 		}
 		return btScalar(0.0f);

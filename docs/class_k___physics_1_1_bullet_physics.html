@@ -151,15 +151,15 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_bullet_physics.h
 <tr class="memitem:ab2aec9e34e8c937a6b6a222cd4a04a81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_bullet_physics.html#ab2aec9e34e8c937a6b6a222cd4a04a81">RemoveCollisionShape</a> (<a class="el" href="namespace_k___physics.html#aa0de61c2beb0d423efad313964d20f31">CollisionShape</a> **shape)</td></tr>
 <tr class="memdesc:ab2aec9e34e8c937a6b6a222cd4a04a81"><td class="mdescLeft">&#160;</td><td class="mdescRight">明示的にリストに存在する形状情報をリストから外してdeleteする この関数を呼ばなくても、このクラスのデストラクタで全て開放している この関数の後は、形状へのポインタは使えないので注意  <a href="#ab2aec9e34e8c937a6b6a222cd4a04a81">[詳解]</a><br /></td></tr>
 <tr class="separator:ab2aec9e34e8c937a6b6a222cd4a04a81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40038ddf13122bf9f6dd646e727d3efa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_bullet_physics.html#a40038ddf13122bf9f6dd646e727d3efa">MoveCharacter</a> (<a class="el" href="class_k___physics_1_1_collision_data.html">CollisionData</a> *obj, const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;move)</td></tr>
-<tr class="memdesc:a40038ddf13122bf9f6dd646e727d3efa"><td class="mdescLeft">&#160;</td><td class="mdescRight">操作性を意識したコリジョンの移動、壁判定も行う(重いが正確)  <a href="#a40038ddf13122bf9f6dd646e727d3efa">[詳解]</a><br /></td></tr>
-<tr class="separator:a40038ddf13122bf9f6dd646e727d3efa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf101ff6157e11197a7cf2ec906c4e26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_bullet_physics.html#aaf101ff6157e11197a7cf2ec906c4e26">MoveCharacterDiscrete</a> (<a class="el" href="class_k___physics_1_1_collision_data.html">CollisionData</a> *obj, const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;move)</td></tr>
-<tr class="memdesc:aaf101ff6157e11197a7cf2ec906c4e26"><td class="mdescLeft">&#160;</td><td class="mdescRight">離散的なコリジョンの移動、判定が MoveCharacter よりも大雑把(ただし軽い)  <a href="#aaf101ff6157e11197a7cf2ec906c4e26">[詳解]</a><br /></td></tr>
-<tr class="separator:aaf101ff6157e11197a7cf2ec906c4e26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b63b5066fc6a44d171da04cd90a2cfe"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="struct_k___physics_1_1_collision_tag.html">CollisionTag</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_bullet_physics.html#a1b63b5066fc6a44d171da04cd90a2cfe">FindConfrictionObjects</a> (<a class="el" href="class_k___physics_1_1_collision_data.html">CollisionData</a> *myself)</td></tr>
-<tr class="memdesc:a1b63b5066fc6a44d171da04cd90a2cfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">現在の物理世界での特定のオブジェクトに対する衝突のチェック  <a href="#a1b63b5066fc6a44d171da04cd90a2cfe">[詳解]</a><br /></td></tr>
-<tr class="separator:a1b63b5066fc6a44d171da04cd90a2cfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a386d5ba9c55af79204681da52ced1c9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_bullet_physics.html#a386d5ba9c55af79204681da52ced1c9c">MoveCharacter</a> (<a class="el" href="class_k___physics_1_1_collision_data.html">CollisionData</a> *obj, const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;move, float vLimitAngle=40.0f, float hLimitAngle=0.0f)</td></tr>
+<tr class="memdesc:a386d5ba9c55af79204681da52ced1c9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">操作性を意識したコリジョンの移動、壁判定も行う(重いが正確)  <a href="#a386d5ba9c55af79204681da52ced1c9c">[詳解]</a><br /></td></tr>
+<tr class="separator:a386d5ba9c55af79204681da52ced1c9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b3f568b9865bbabbbb2824f06e94966"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_bullet_physics.html#a5b3f568b9865bbabbbb2824f06e94966">MoveCharacterDiscrete</a> (<a class="el" href="class_k___physics_1_1_collision_data.html">CollisionData</a> *obj, const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;move, bool vLimitDirection=true, bool hLimitDirection=false)</td></tr>
+<tr class="memdesc:a5b3f568b9865bbabbbb2824f06e94966"><td class="mdescLeft">&#160;</td><td class="mdescRight">離散的なコリジョンの移動、判定が MoveCharacter よりも大雑把(ただし軽い)  <a href="#a5b3f568b9865bbabbbb2824f06e94966">[詳解]</a><br /></td></tr>
+<tr class="separator:a5b3f568b9865bbabbbb2824f06e94966"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2af24c6afd9660fa035dd2185fe16d5"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="struct_k___physics_1_1_collision_tag.html">CollisionTag</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_bullet_physics.html#aa2af24c6afd9660fa035dd2185fe16d5">FindConfrictionObjects</a> (<a class="el" href="class_k___physics_1_1_collision_data.html">CollisionData</a> *myself)</td></tr>
+<tr class="memdesc:aa2af24c6afd9660fa035dd2185fe16d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">現在の物理世界での特定のオブジェクトに対する衝突のチェック  <a href="#aa2af24c6afd9660fa035dd2185fe16d5">[詳解]</a><br /></td></tr>
+<tr class="separator:aa2af24c6afd9660fa035dd2185fe16d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25e2b469949af5cd99067faccfdcd4b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_bullet_physics.html#a25e2b469949af5cd99067faccfdcd4b0">SetSkyVector</a> (const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;vector)</td></tr>
 <tr class="memdesc:a25e2b469949af5cd99067faccfdcd4b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">重力とは反対方向を指す単位ベクトルを設定、キャラクターの移動に利用する  <a href="#a25e2b469949af5cd99067faccfdcd4b0">[詳解]</a><br /></td></tr>
 <tr class="separator:a25e2b469949af5cd99067faccfdcd4b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -607,14 +607,14 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_bullet_physics.h
 
 </div>
 </div>
-<a id="a1b63b5066fc6a44d171da04cd90a2cfe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b63b5066fc6a44d171da04cd90a2cfe">&#9670;&nbsp;</a></span>FindConfrictionObjects()</h2>
+<a id="aa2af24c6afd9660fa035dd2185fe16d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2af24c6afd9660fa035dd2185fe16d5">&#9670;&nbsp;</a></span>FindConfrictionObjects()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="struct_k___physics_1_1_collision_tag.html">CollisionTag</a> &gt; &amp; K_Physics::BulletPhysics::FindConfrictionObjects </td>
+          <td class="memname">std::vector&lt; <a class="el" href="struct_k___physics_1_1_collision_tag.html">CollisionTag</a> * &gt; &amp; K_Physics::BulletPhysics::FindConfrictionObjects </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_k___physics_1_1_collision_data.html">CollisionData</a> *&#160;</td>
           <td class="paramname"><em>myself</em></td><td>)</td>
@@ -653,8 +653,8 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_bullet_physics.h
 
 </div>
 </div>
-<a id="a40038ddf13122bf9f6dd646e727d3efa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40038ddf13122bf9f6dd646e727d3efa">&#9670;&nbsp;</a></span>MoveCharacter()</h2>
+<a id="a386d5ba9c55af79204681da52ced1c9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a386d5ba9c55af79204681da52ced1c9c">&#9670;&nbsp;</a></span>MoveCharacter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -669,7 +669,19 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_bullet_physics.h
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;&#160;</td>
-          <td class="paramname"><em>move</em>&#160;</td>
+          <td class="paramname"><em>move</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>vLimitAngle</em> = <code>40.0f</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>hLimitAngle</em> = <code>0.0f</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -684,14 +696,16 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_bullet_physics.h
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">obj</td><td>移動するコリジョンオブジェクト </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">move</td><td>移動ベクトル </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vLimitAngle</td><td>縦方向の壁ずりを起こさない角度(deg)、この角度以上の入射角度に対して壁ずりを行う </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">hLimitAngle</td><td>横方向の壁ずりを起こさない角度(deg)、この角度以上の入射角度に対して壁ずりを行う </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="aaf101ff6157e11197a7cf2ec906c4e26"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf101ff6157e11197a7cf2ec906c4e26">&#9670;&nbsp;</a></span>MoveCharacterDiscrete()</h2>
+<a id="a5b3f568b9865bbabbbb2824f06e94966"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b3f568b9865bbabbbb2824f06e94966">&#9670;&nbsp;</a></span>MoveCharacterDiscrete()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -706,7 +720,19 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_bullet_physics.h
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;&#160;</td>
-          <td class="paramname"><em>move</em>&#160;</td>
+          <td class="paramname"><em>move</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>vLimitDirection</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>hLimitDirection</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -721,6 +747,8 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_bullet_physics.h
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">obj</td><td>移動するコリジョンオブジェクト </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">move</td><td>移動ベクトル </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vLimitDirection</td><td>縦方向の押し返しを、moveの直線上に限定するかのフラグ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">hLimitDirection</td><td>横方向の押し返しを、moveの直線上に限定するかのフラグ </td></tr>
   </table>
   </dd>
 </dl>
