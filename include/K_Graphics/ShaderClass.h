@@ -73,6 +73,37 @@ namespace K_Graphics {
 		///@param[in] value 渡す値
 		void SetValue(const std::string& uniformName, const K_Math::Vector2& value);
 
+		///@brief 汎用的なuniform変数への配列の受け渡し
+		///@param[in] uniformName GLSLのテクスチャを指すUniform変数の名前
+		///@param[in] value 渡す配列
+		///@param[in] numArray 配列の要素数
+		void SetValue(const std::string& uniformName, int* value, int numArray);
+		///@brief 汎用的なuniform変数への配列の受け渡し
+		///@param[in] uniformName GLSLのテクスチャを指すUniform変数の名前
+		///@param[in] value 渡す配列
+		///@param[in] numArray 配列の要素数
+		void SetValue(const std::string& uniformName, float* value, int numArray);
+		///@brief 汎用的なuniform変数への配列の受け渡し
+		///@param[in] uniformName GLSLのテクスチャを指すUniform変数の名前
+		///@param[in] value 渡す配列
+		///@param[in] numArray 配列の要素数
+		void SetValue(const std::string& uniformName, K_Math::Matrix4x4* value, int numArray);
+		///@brief 汎用的なuniform変数への配列の受け渡し
+		///@param[in] uniformName GLSLのテクスチャを指すUniform変数の名前
+		///@param[in] value 渡す配列
+		///@param[in] numArray 配列の要素数
+		void SetValue(const std::string& uniformName, K_Math::Vector4* value, int numArray);
+		///@brief 汎用的なuniform変数への配列の受け渡し
+		///@param[in] uniformName GLSLのテクスチャを指すUniform変数の名前
+		///@param[in] value 渡す配列
+		///@param[in] numArray 配列の要素数
+		void SetValue(const std::string& uniformName, K_Math::Vector3* value, int numArray);
+		///@brief 汎用的なuniform変数への配列の受け渡し
+		///@param[in] uniformName GLSLのテクスチャを指すUniform変数の名前
+		///@param[in] value 渡す配列
+		///@param[in] numArray 配列の要素数
+		void SetValue(const std::string& uniformName, K_Math::Vector2* value, int numArray);
+
 		///@brief subroutineの設定(vertex shader)、指定した名前の関数が選択される
 		///@param subroutineFunctionName 使用するサブルーチン関数の名前
 		void SetVertexShaderSubroutine(const std::string& subroutineFunctionName);

@@ -125,6 +125,54 @@ namespace K_Graphics {
 		}
 	}
 
+	//汎用配列受け渡し
+	void ShaderClass::SetValue(const std::string& uniformName, int* value, int numArray) {
+		GLuint location;
+		location = glGetUniformLocation(this->shaderProgram, uniformName.data());
+		if (location != -1) {
+			glUniform1iv(location, numArray, value);
+		}
+	}
+	void ShaderClass::SetValue(const std::string& uniformName, float* value, int numArray) {
+		GLuint location;
+		location = glGetUniformLocation(this->shaderProgram, uniformName.data());
+		if (location != -1) {
+			glUniform1fv(location, numArray, value);
+		}
+	}
+	void ShaderClass::SetValue(const std::string& uniformName, K_Math::Matrix4x4* value, int numArray) {
+		GLuint location;
+		location = glGetUniformLocation(this->shaderProgram, uniformName.data());
+		if (location != -1) {
+			//Eigenのベクトル型は配列みたいに要素がちゃんと順番に並んでる
+			glUniformMatrix4fv(location, numArray, GL_FALSE, (*value).data());
+		}
+	}
+	void ShaderClass::SetValue(const std::string& uniformName, K_Math::Vector4* value, int numArray) {
+		GLuint location;
+		location = glGetUniformLocation(this->shaderProgram, uniformName.data());
+		if (location != -1) {
+			//Eigenのベクトル型は配列みたいに要素がちゃんと順番に並んでる
+			glUniform4fv(location, numArray, (*value).data());
+		}
+	}
+	void ShaderClass::SetValue(const std::string& uniformName, K_Math::Vector3* value, int numArray) {
+		GLuint location;
+		location = glGetUniformLocation(this->shaderProgram, uniformName.data());
+		if (location != -1) {
+			//Eigenのベクトル型は配列みたいに要素がちゃんと順番に並んでる
+			glUniform3fv(location, numArray, (*value).data());
+		}
+	}
+	void ShaderClass::SetValue(const std::string& uniformName, K_Math::Vector2* value, int numArray) {
+		GLuint location;
+		location = glGetUniformLocation(this->shaderProgram, uniformName.data());
+		if (location != -1) {
+			//Eigenのベクトル型は配列みたいに要素がちゃんと順番に並んでる
+			glUniform2fv(location, numArray, (*value).data());
+		}
+	}
+
 	//動的シェーダー設定
 	void ShaderClass::SetVertexShaderSubroutine(const std::string& subroutineFunctionName) {
 		GLuint index = glGetSubroutineIndex(this->shaderProgram, GL_VERTEX_SHADER, subroutineFunctionName.data());

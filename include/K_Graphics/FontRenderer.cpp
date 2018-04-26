@@ -56,7 +56,7 @@ namespace K_Graphics {
 		return true;
 	}
 
-	void FontRenderer::Draw(CameraClass* camera, ShaderClass* shader) {
+	void FontRenderer::Draw2D(CameraClass* camera, ShaderClass* shader) {
 		if (this->cullentFont == nullptr) {
 			for (int i = 0; i < this->drawData2D.size(); ++i) {
 				delete this->drawData2D[i].buffer;
@@ -85,6 +85,16 @@ namespace K_Graphics {
 			delete[] this->drawData2D[i].buffer;
 		}
 		this->drawData2D.clear();
+	}
+
+	void FontRenderer::Draw3D(CameraClass* camera, ShaderClass* shader) {
+		if (this->cullentFont == nullptr) {
+			for (int i = 0; i < this->drawData2D.size(); ++i) {
+				delete this->drawData2D[i].buffer;
+			}
+			this->drawData2D.clear();
+			return;
+		}
 
 		//3D
 		//カメラから遠い順にソート
@@ -98,6 +108,8 @@ namespace K_Graphics {
 		//ソートした順番で描画
 		for (auto i : ordered) {
 			DrawBuffers3D(i.second, camera, shader);
+			//使い終わったら消去
+			delete[] i.second.buffer;
 		}
 		this->drawData3D.clear();
 	}
@@ -212,8 +224,6 @@ namespace K_Graphics {
 			this->sprite->Draw3D(camera, shader, data.locationUV, pos3D, K_Math::Vector3(0.0f, 0.0f, 0.0f), K_Math::Vector3(size, size, size));
 			position += advanceDir * data.advance * size;
 		}
-		//使い終わったら消去
-		delete[] drawData.buffer;
 	}
 }
 

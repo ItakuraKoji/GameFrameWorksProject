@@ -107,9 +107,12 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_font_renderer.h
 <tr class="memitem:a0b3a9b0d7fa0e07342be6469e668b7cd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_font_renderer.html#a0b3a9b0d7fa0e07342be6469e668b7cd">~FontRenderer</a> ()</td></tr>
 <tr class="memdesc:a0b3a9b0d7fa0e07342be6469e668b7cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">スプライトのポインタを開放  <a href="#a0b3a9b0d7fa0e07342be6469e668b7cd">[詳解]</a><br /></td></tr>
 <tr class="separator:a0b3a9b0d7fa0e07342be6469e668b7cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90ee7dabacdc9c324b6e422cd7402b89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_font_renderer.html#a90ee7dabacdc9c324b6e422cd7402b89">Draw</a> (<a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *camera, <a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *shader)</td></tr>
-<tr class="memdesc:a90ee7dabacdc9c324b6e422cd7402b89"><td class="mdescLeft">&#160;</td><td class="mdescRight">事前に呼ばれた描画命令をここで行う  <a href="#a90ee7dabacdc9c324b6e422cd7402b89">[詳解]</a><br /></td></tr>
-<tr class="separator:a90ee7dabacdc9c324b6e422cd7402b89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2caab3789e489d639832940d88012c65"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_font_renderer.html#a2caab3789e489d639832940d88012c65">Draw2D</a> (<a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *camera, <a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *shader)</td></tr>
+<tr class="memdesc:a2caab3789e489d639832940d88012c65"><td class="mdescLeft">&#160;</td><td class="mdescRight">事前に呼ばれた2D描画命令をここで行う  <a href="#a2caab3789e489d639832940d88012c65">[詳解]</a><br /></td></tr>
+<tr class="separator:a2caab3789e489d639832940d88012c65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae213a62be727f02c17a03b28e9fbcd9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_font_renderer.html#ae213a62be727f02c17a03b28e9fbcd9c">Draw3D</a> (<a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *camera, <a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *shader)</td></tr>
+<tr class="memdesc:ae213a62be727f02c17a03b28e9fbcd9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">事前に呼ばれた3D描画命令をここで行う  <a href="#ae213a62be727f02c17a03b28e9fbcd9c">[詳解]</a><br /></td></tr>
+<tr class="separator:ae213a62be727f02c17a03b28e9fbcd9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9fffd9b8ec36986810cfbaad1d58ab70"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_font_renderer.html#a9fffd9b8ec36986810cfbaad1d58ab70">LoadFont</a> (const char *fontName, const char *filePass)</td></tr>
 <tr class="memdesc:a9fffd9b8ec36986810cfbaad1d58ab70"><td class="mdescLeft">&#160;</td><td class="mdescRight">フォントを読み込む  <a href="#a9fffd9b8ec36986810cfbaad1d58ab70">[詳解]</a><br /></td></tr>
 <tr class="separator:a9fffd9b8ec36986810cfbaad1d58ab70"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -216,14 +219,14 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_font_renderer.h
 
 </div>
 </div>
-<a id="a90ee7dabacdc9c324b6e422cd7402b89"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90ee7dabacdc9c324b6e422cd7402b89">&#9670;&nbsp;</a></span>Draw()</h2>
+<a id="a2caab3789e489d639832940d88012c65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2caab3789e489d639832940d88012c65">&#9670;&nbsp;</a></span>Draw2D()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void K_Graphics::FontRenderer::Draw </td>
+          <td class="memname">void K_Graphics::FontRenderer::Draw2D </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *&#160;</td>
           <td class="paramname"><em>camera</em>, </td>
@@ -242,11 +245,48 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_font_renderer.h
       </table>
 </div><div class="memdoc">
 
-<p>事前に呼ばれた描画命令をここで行う </p>
+<p>事前に呼ばれた2D描画命令をここで行う </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">camera</td><td>使用するカメラ </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">shader</td><td>使用するシェーダー（スプライトが描画できるもの） </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae213a62be727f02c17a03b28e9fbcd9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae213a62be727f02c17a03b28e9fbcd9c">&#9670;&nbsp;</a></span>Draw3D()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Graphics::FontRenderer::Draw3D </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *&#160;</td>
+          <td class="paramname"><em>camera</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *&#160;</td>
+          <td class="paramname"><em>shader</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>事前に呼ばれた3D描画命令をここで行う </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">camera</td><td>使用するカメラ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">shader</td><td>使用するシェーダー </td></tr>
   </table>
   </dd>
 </dl>

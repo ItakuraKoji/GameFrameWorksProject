@@ -30,4 +30,9 @@ namespace K_Physics {
 		rigid->activate(true);
 		rigid->applyForce(btVector3(vector.x(), vector.y(), vector.z()), this->collision->getWorldTransform().getOrigin());
 	}
+
+	void RigidBodyData::Activate(bool frag) {
+		btRigidBody* rigid = btRigidBody::upcast(this->collision);
+		rigid->activate(frag);
+	}
 }

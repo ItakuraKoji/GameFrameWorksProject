@@ -1,6 +1,7 @@
 var searchData=
 [
   ['a',['A',['../namespace_k___input.html#af62d80c77b12db01035e4b9aa27a09d6a7fc56270e7a70fa81a5935b72eacbe29',1,'K_Input::A()'],['../namespace_k___input.html#ab1b3c957b1b7070e86ccd1a908f3a101a7fc56270e7a70fa81a5935b72eacbe29',1,'K_Input::A()']]],
+  ['activate',['Activate',['../class_k___physics_1_1_rigid_body_data.html#ab74aa70dceb9e41531ddb809b05a91d9',1,'K_Physics::RigidBodyData']]],
   ['add',['Add',['../class_k___graphics_1_1_material_data.html#a79f87cea104917e512d4efeb85a69933',1,'K_Graphics::MaterialData::Add()'],['../class_k___graphics_1_1_vertex_data.html#a035bc83ff770da79ce486c9bed22a8fb',1,'K_Graphics::VertexData::Add()'],['../class_k___graphics_1_1_animation_data.html#a8ad4f43ef2a7b3ff262b8dbf17ed5bbb',1,'K_Graphics::AnimationData::Add()'],['../class_k___graphics_1_1_bone_data.html#a5fe073eb7d0d22c43070db7eec940bd0',1,'K_Graphics::BoneData::Add()'],['../class_k___graphics_1_1_fbx_data.html#a7dd8e6081a69857bb6b2d40473bb8713',1,'K_Graphics::FbxData::Add()']]],
   ['addambient',['AddAmbient',['../class_k___graphics_1_1_light_list.html#a940f2dc8a56fb93f5020804a3c3cc53f',1,'K_Graphics::LightList']]],
   ['adddirectional',['AddDirectional',['../class_k___graphics_1_1_light_list.html#a6374cf237f3d50a0ef1a36d32a439da3',1,'K_Graphics::LightList']]],

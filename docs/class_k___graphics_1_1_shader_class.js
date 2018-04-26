@@ -15,6 +15,12 @@ var class_k___graphics_1_1_shader_class =
     [ "SetValue", "class_k___graphics_1_1_shader_class.html#a90c6b0fa2ffc9016b442833b138b8a5a", null ],
     [ "SetValue", "class_k___graphics_1_1_shader_class.html#a0f81ce90173b0afe7dd98ea3c18f4913", null ],
     [ "SetValue", "class_k___graphics_1_1_shader_class.html#a37f4da2763c441b21cf9171268375d05", null ],
+    [ "SetValue", "class_k___graphics_1_1_shader_class.html#ace0562c8261906e8c9bdd7b1baf3fdb4", null ],
+    [ "SetValue", "class_k___graphics_1_1_shader_class.html#a674a895ae9306f7facd7c9b56b2c1030", null ],
+    [ "SetValue", "class_k___graphics_1_1_shader_class.html#a93368ff231c09403f4de345787026673", null ],
+    [ "SetValue", "class_k___graphics_1_1_shader_class.html#a90186abf56164289818a0098b98fb6d4", null ],
+    [ "SetValue", "class_k___graphics_1_1_shader_class.html#a3aa5e158924ab13909bb7f4a76fefd4e", null ],
+    [ "SetValue", "class_k___graphics_1_1_shader_class.html#ae37a3bcd2d86aa57dd6739e01e6bbe36", null ],
     [ "SetVertexShaderSubroutine", "class_k___graphics_1_1_shader_class.html#a48edec1492bfa0fe8d8cab265c24bbbd", null ],
     [ "SetWorldMatrix", "class_k___graphics_1_1_shader_class.html#ac697b99c625ac51a2dfeb01b85858506", null ],
     [ "UseShader", "class_k___graphics_1_1_shader_class.html#a53590f2a34bbf3f1dc91398068f43754", null ]

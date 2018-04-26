@@ -43,7 +43,7 @@ namespace K_Physics {
 	public:
 		RigidBodyData(btRigidBody* obj, int mask, CollisionTag tag);
 		void AddForce(const K_Math::Vector3& vector);
-		
+		void Activate(bool frag = true);
 	};
 
 

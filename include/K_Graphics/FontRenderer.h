@@ -24,10 +24,14 @@ namespace K_Graphics {
 		///@brief スプライトのポインタを開放
 		~FontRenderer();
 
-		///@brief 事前に呼ばれた描画命令をここで行う
+		///@brief 事前に呼ばれた2D描画命令をここで行う
 		///@param[in] camera 使用するカメラ
 		///@param[in] shader 使用するシェーダー（スプライトが描画できるもの）
-		void Draw(CameraClass* camera, ShaderClass* shader);
+		void Draw2D(CameraClass* camera, ShaderClass* shader);
+		///@brief 事前に呼ばれた3D描画命令をここで行う
+		///@param[in] camera 使用するカメラ
+		///@param[in] shader 使用するシェーダー
+		void Draw3D(CameraClass* camera, ShaderClass* shader);
 
 		///@brief フォントを読み込む
 		///@param[in] fontName フォントのユーザー定義名
