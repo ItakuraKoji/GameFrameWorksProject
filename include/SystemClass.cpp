@@ -101,7 +101,7 @@ namespace K_System {
 	float SystemClass::GetFPS() {
 		return this->fps;
 	}
-	K_Input::InputGLFW* SystemClass::GetInput() {
+	K_Input::InputClass* SystemClass::GetInput() {
 		return this->input;
 	}
 
@@ -134,6 +134,7 @@ namespace K_System {
 			return false;
 		}
 		glfwGetFramebufferSize(this->windowHandle, &this->windowWidth, &this->windowHeight);
+		glfwSetInputMode(this->windowHandle, GLFW_STICKY_MOUSE_BUTTONS, 1);
 		glfwSetInputMode(this->windowHandle, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 		glfwSetKeyCallback(this->windowHandle, GLFWKeyEvent);
 
@@ -164,7 +165,7 @@ namespace K_System {
 
 		//ゲームのためのシステムを初期化
 		try {
-			this->input = new K_Input::InputGLFW(0, this->windowHandle);
+			this->input = new K_Input::InputClass(this->windowHandle);
 		}
 		catch (...) {
 			return false;

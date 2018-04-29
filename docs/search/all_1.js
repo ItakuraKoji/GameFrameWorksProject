@@ -13,7 +13,7 @@ var searchData=
   ['buffer',['buffer',['../struct_k___graphics_1_1_font_generator_1_1_font_atlas.html#af111ad1cbd008ffda2493d2dbbf19313',1,'K_Graphics::FontGenerator::FontAtlas']]],
   ['bulletdebugdraw',['bulletDebugDraw',['../class_k___physics_1_1bullet_debug_draw.html',1,'K_Physics::bulletDebugDraw'],['../class_k___physics_1_1bullet_debug_draw.html#ac969f58383a6b62a778bb16eb4026ad6',1,'K_Physics::bulletDebugDraw::bulletDebugDraw()']]],
   ['bulletphysics',['BulletPhysics',['../class_k___physics_1_1_bullet_physics.html',1,'K_Physics::BulletPhysics'],['../class_k___physics_1_1_bullet_physics.html#a8c8e7b9c5c8c53861e409aa7a6a644f4',1,'K_Physics::BulletPhysics::BulletPhysics()']]],
-  ['button',['button',['../struct_k___input_1_1_button_state.html#a7f22bf8e7e2078e45af31f7a1f3a7d2d',1,'K_Input::ButtonState']]],
+  ['button',['button',['../struct_k___input_1_1_mouse_state.html#a594366391322694326124f4e09c6f427',1,'K_Input::MouseState::button()'],['../struct_k___input_1_1_button_state.html#a7f22bf8e7e2078e45af31f7a1f3a7d2d',1,'K_Input::ButtonState::button()']]],
   ['button0',['Button0',['../namespace_k___input.html#a0fad93a64181d6776849d43118c26902adf18fdbdb36feb48df7a2b683a732543',1,'K_Input']]],
   ['button1',['Button1',['../namespace_k___input.html#a0fad93a64181d6776849d43118c26902a6475a3746209a62a6ce6289a3741d07e',1,'K_Input']]],
   ['button10',['Button10',['../namespace_k___input.html#a0fad93a64181d6776849d43118c26902a3d3ef49f12a784286c545ad83aacf8ce',1,'K_Input']]],

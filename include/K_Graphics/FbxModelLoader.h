@@ -28,11 +28,21 @@ namespace K_Loader {
 
 		//頂点からポリゴンを逆引きするテーブル
 		struct PolygonTable {
+			//ポリゴン番号
 			int polygonIndex[255] = {};
+			//ポリゴン内インデックス
 			int polygon123[255] = {};
 			int numPolygon = 0;
 		};
 
+		struct NewVertexData {
+			//UV情報
+			FbxArray<FbxVector2> uv;
+			FbxArray<int> index;
+		};
+
+		//頂点がもつUV配列と新たな頂点座標に対応するインデックスをもつテーブル
+		typedef FbxMap<int, NewVertexData> VertexUVs;
 
 	public:
 		FbxModelLoader();
@@ -52,8 +62,11 @@ namespace K_Loader {
 		bool          RecursiveNode(FbxNode* node);
 		bool          LoadFbxMesh(FbxMesh* mesh);
 		void          LoadVertex(FbxMesh* mesh, Vertex* vertex);
-		void          LoadMaterial(FbxMesh* mesh, std::vector<K_Graphics::Material>& material, std::vector<GLuint>& IBOs);
+		void          LoadMaterial(FbxMesh* mesh, VertexUVs& vertexData, std::vector<K_Graphics::Material>& material, std::vector<GLuint>& IBOs);
 		bool          LoadBones(FbxMesh* mesh, Vertex* vertex, PolygonTable *table);
+
+		PolygonTable* CreatePolygonTable(FbxMesh *mesh, int numVertex, int numFace);
+		int CreateUVBaseVertex(FbxMesh* mesh, VertexUVs& uvMap);
 
 	private:
 		bool loaded;
@@ -69,6 +82,8 @@ namespace K_Loader {
 
 		//FBXファイルの場所をルートにする
 		char fileRoot[100];
+		Vertex* vertexData;
+		unsigned int* indexData;
 		int numVertex;
 		int numUV;
 		int numFace;

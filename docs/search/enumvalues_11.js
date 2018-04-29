@@ -8,5 +8,5 @@ var searchData=
   ['rgb',['RGB',['../namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a3f86f41090b77da22356d9010d1c0f66',1,'K_Graphics']]],
   ['rgba',['RGBA',['../namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a535fd8e72dc86d416c6a3f32923645d2',1,'K_Graphics']]],
   ['rgba32f',['RGBA32F',['../namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a9e29ef1d15d53abfdf21fd7cc6730d25',1,'K_Graphics']]],
-  ['right',['Right',['../namespace_k___input.html#ab1b3c957b1b7070e86ccd1a908f3a101a92b09c7c48c520c3c55e497875da437c',1,'K_Input']]]
+  ['right',['Right',['../namespace_k___input.html#aa1d03d7fe9817bf6872e182086576dcca92b09c7c48c520c3c55e497875da437c',1,'K_Input::Right()'],['../namespace_k___input.html#ad326329152ad9c49fc1c7a970a5b377ca92b09c7c48c520c3c55e497875da437c',1,'K_Input::Right()'],['../namespace_k___input.html#ab1b3c957b1b7070e86ccd1a908f3a101a92b09c7c48c520c3c55e497875da437c',1,'K_Input::Right()']]]
 ];

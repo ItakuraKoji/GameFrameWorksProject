@@ -30,6 +30,9 @@ namespace K_Loader {
 		if (!InitializeFBX(fileName)) {
 			return false;
 		}
+
+		//ConvertMeshUV(this->fbxData->GetScene());
+
 		for (int i = 0; i < fileName.size() - 1; ++i) {
 			this->fileRoot[i] = fileName.data()[i];
 			if (fileName.data()[i] == '\\' || fileName.data()[i] == '/') {
@@ -106,13 +109,18 @@ namespace K_Loader {
 		PolygonTable* table = nullptr;
 		try {
 			//ポリゴン分だけ頂点を増やす
-			mesh->SplitPoints();
+			//mesh->SplitPoints();
 
 			this->numVertex = mesh->GetControlPointsCount();
 			this->numFace = mesh->GetPolygonCount();
 			this->numUV = mesh->GetTextureUVCount();
-			vertex = new Vertex[this->numVertex];
 
+			if (this->numUV > this->numVertex) {
+				vertex = new Vertex[this->numUV];
+			}
+			else {
+				vertex = new Vertex[this->numVertex];
+			}
 
 			//頂点
 			LoadVertex(mesh, vertex);
@@ -120,23 +128,40 @@ namespace K_Loader {
 			glGenVertexArrays(1, &VAO);
 			glBindVertexArray(VAO);
 
-			//マテリアル
+			//ボーン
+			if (this->numUV > this->numVertex) {
+				PolygonTable *table = CreatePolygonTable(mesh, numVertex, numFace);
+			}
+			this->LoadBones(mesh, vertex, table);
+
+			//UVベースで頂点を作り直す
+			VertexUVs uvMap;
+			int newNumVertex = CreateUVBaseVertex(mesh, uvMap);
+			this->vertexData = new Vertex[newNumVertex];
+			int count = 0;
+			for (int i = 0; i < uvMap.GetSize(); ++i) {
+				for (int j = 0; j < uvMap[i].uv.GetCount(); ++j) {
+					this->vertexData[count] = vertex[i];
+					this->vertexData[count].texcoord.x() = (float)uvMap[i].uv[j][0];
+					this->vertexData[count].texcoord.y() = (float)uvMap[i].uv[j][1];
+					++count;
+				}
+			}
+
+			//マテリアルとその頂点インデックス
 			FbxNode* node = mesh->GetNode();
 			int numMaterial = node->GetMaterialCount();
 			std::vector<K_Graphics::Material> material;
 			std::vector<GLuint> IBOs;
-			LoadMaterial(mesh, material, IBOs);
+			LoadMaterial(mesh, uvMap, material, IBOs);
 
-			//ボーン
-			this->LoadBones(mesh, vertex, table);
-
-			if (numUV > this->numVertex) {
+			if (this->numUV > this->numVertex) {
 				this->numVertex = numUV;
 			}
 			GLuint VBO;
 			glGenBuffers(1, &VBO);
 			glBindBuffer(GL_ARRAY_BUFFER, VBO);
-			glBufferData(GL_ARRAY_BUFFER, this->numVertex * sizeof(Vertex), vertex, GL_STATIC_DRAW);
+			glBufferData(GL_ARRAY_BUFFER, newNumVertex * sizeof(Vertex), this->vertexData, GL_STATIC_DRAW);
 
 			glEnableVertexAttribArray(0);
 			glEnableVertexAttribArray(1);
@@ -172,6 +197,7 @@ namespace K_Loader {
 			this->bufferData->Add(buffer);
 
 			delete[] vertex;
+			delete[] this->vertexData;
 		}
 		catch (std::string& eText) {
 			if (vertex) {
@@ -209,6 +235,7 @@ namespace K_Loader {
 		}
 	}
 
+
 	//面ベースでメッシュ読み込み
 	void FbxModelLoader::LoadVertex(FbxMesh* mesh, Vertex* vertex) {
 		printf("vertex:%d face:%d uv:%d\n", this->numVertex, this->numFace, this->numUV);
@@ -218,9 +245,14 @@ namespace K_Loader {
 			for (int p = 0; p < 3; ++p) {
 				int vertexIndex;
 				//頂点インデックスを面から得る
-				int polygonCount = mesh->GetPolygonVertexIndex(i);
-				int *polygonVertex = mesh->GetPolygonVertices();
-				vertexIndex = polygonVertex[polygonCount + p];
+				if (numUV > numVertex) {
+					vertexIndex = mesh->GetTextureUVIndex(i, p, FbxLayerElement::eTextureDiffuse);
+				}
+				else {
+					int polygonCount = mesh->GetPolygonVertexIndex(i);
+					int *polygonVertex = mesh->GetPolygonVertices();
+					vertexIndex = polygonVertex[polygonCount + p];
+				}
 
 				//頂点
 				FbxVector4 *pCoord = mesh->GetControlPoints();
@@ -238,7 +270,7 @@ namespace K_Loader {
 				vertex[vertexIndex].normal.normalize();
 
 				//UV
-				if (!this->numUV) {
+				if (!numUV) {
 					continue;
 				}
 				FbxLayerElementUV *pUV;
@@ -248,20 +280,19 @@ namespace K_Loader {
 					FbxVector2 v2 = pUV->GetDirectArray().GetAt(uvIndex);
 					vertex[vertexIndex].texcoord.x() = (float)v2[0];
 					vertex[vertexIndex].texcoord.y() = (float)v2[1];
-
 				}
 			}
 		}
 
-		//UVタイプがeByControlPointの時
 
-		if (this->numUV) {
-			FbxVector2 v2;
-			FbxLayerElementUV *pUV;
-			pUV = mesh->GetLayer(0)->GetUVs();
+		//UVタイプがeByControlPointの時
+		FbxVector2 v2;
+		FbxLayerElementUV *pUV;
+		pUV = mesh->GetLayer(0)->GetUVs();
+		if (numUV) {
 			if (pUV->GetMappingMode() == FbxLayerElement::eByControlPoint) {
 				pUV = mesh->GetLayer(0)->GetUVs();
-				for (int k = 0; k < this->numUV; ++k) {
+				for (int k = 0; k < numUV; ++k) {
 					v2 = pUV->GetDirectArray().GetAt(k);
 					vertex[k].texcoord.x() = (float)v2[0];
 					vertex[k].texcoord.y() = (float)v2[1];
@@ -269,9 +300,9 @@ namespace K_Loader {
 			}
 		}
 	}
-
+	
 	//マテリアル読み込み
-	void FbxModelLoader::LoadMaterial(FbxMesh* mesh, std::vector<K_Graphics::Material>& material, std::vector<GLuint>& IBOs) {
+	void FbxModelLoader::LoadMaterial(FbxMesh* mesh, VertexUVs& vertexData, std::vector<K_Graphics::Material>& material, std::vector<GLuint>& IBOs) {
 		FbxNode* node = mesh->GetNode();
 		int numMaterial = node->GetMaterialCount();
 
@@ -281,7 +312,7 @@ namespace K_Loader {
 		for (int i = 0; i < numMaterial; ++i) {
 			FbxSurfaceMaterial *pMaterial = node->GetMaterial(i);
 			FbxClassId materialType = pMaterial->GetClassId();
-
+			
 			if (materialType.Is(FbxSurfacePhong::ClassId)) {
 				FbxSurfacePhong *pPhong = (FbxSurfacePhong*)pMaterial;
 
@@ -364,17 +395,38 @@ namespace K_Loader {
 					printf("Texture : %s\n", fileName);
 				}
 			}
+
 			//インデックスバッファ
 			int indexCount = 0;
-			int *pIndex = new int[this->numFace * 3];
-			for (int k = 0; k < this->numFace; ++k) {
+			int *pIndex = new int[numFace * 3];
+			for (int k = 0; k < numFace; ++k) {
 				FbxLayerElementMaterial *material = mesh->GetLayer(0)->GetMaterials();
 
 				int matId = material->GetIndexArray().GetAt(k);
 				if (matId == i) {
-					pIndex[indexCount] = mesh->GetPolygonVertex(k, 0);
-					pIndex[indexCount + 1] = mesh->GetPolygonVertex(k, 1);
-					pIndex[indexCount + 2] = mesh->GetPolygonVertex(k, 2);
+					for (int p = 0; p < 3; ++p) {
+						int index;
+						if (numUV > numVertex) {
+							index = mesh->GetTextureUVIndex(k, p, FbxLayerElement::eTextureDiffuse);
+						}
+						else {
+							index = mesh->GetPolygonVertex(k, p);
+						}
+						//判別用にUVを取得
+						FbxLayerElementUV* uv = mesh->GetLayer(0)->GetUVs();
+						int uvIndex = mesh->GetTextureUVIndex(k, p, FbxLayerElement::eTextureDiffuse);
+						FbxVector2 v2 = uv->GetDirectArray().GetAt(uvIndex);
+						int arrPos = vertexData[index].uv.Find(v2);
+						if (arrPos == -1) {
+							//普通は通りえない
+							pIndex[indexCount + p] = index;
+						}
+						else {
+							//UVによってサブメッシュ化後の頂点インデックスを特定
+							pIndex[indexCount + p] = vertexData[index].index[arrPos];
+						}
+					}
+
 					indexCount += 3;
 				}
 			}
@@ -388,6 +440,75 @@ namespace K_Loader {
 		this->materialData->Add(material);
 	}
 
+	//頂点のUV座標を全て格納し、その総計を頂点数として返す
+	int FbxModelLoader::CreateUVBaseVertex(FbxMesh* mesh, VertexUVs& uvMap) {
+		if (!this->numUV) {
+			return 0;
+		}
+		FbxLayerElementUV *pUV = mesh->GetLayer(0)->GetUVs();
+		if (pUV->GetMappingMode() == FbxLayerElementUV::eByPolygonVertex) {
+			for (int i = 0; i < this->numFace; ++i) {
+				for (int j = 0; j < 3; ++j) {
+					int vertexIndex;
+					//頂点インデックスを面から得る
+					if (numUV > numVertex) {
+						vertexIndex = mesh->GetTextureUVIndex(i, j, FbxLayerElement::eTextureDiffuse);
+					}
+					else {
+						int polygonCount = mesh->GetPolygonVertexIndex(i);
+						int *polygonVertex = mesh->GetPolygonVertices();
+						vertexIndex = polygonVertex[polygonCount + j];
+					}
+
+					//UVを調べる
+					int uvIndex = mesh->GetTextureUVIndex(i, j, FbxLayerElement::eTextureDiffuse);
+					FbxVector2 v2 = pUV->GetDirectArray().GetAt(uvIndex);
+					if (uvMap[vertexIndex].uv.Find(v2) == -1) {
+						uvMap[vertexIndex].uv.Add(v2);
+					}
+				}
+			}
+		}
+		else if (pUV->GetMappingMode() == FbxLayerElementUV::eByControlPoint) {
+			for (int k = 0; k < numUV; ++k) {
+				FbxVector2 v2 = pUV->GetDirectArray().GetAt(k);
+				uvMap[k].uv.Add(v2);
+			}
+		}
+
+		//総数を調べる
+		int numVertexInUV = 0;
+		for (int i = 0; i < uvMap.GetSize(); ++i) {
+			for (int j = 0; j < uvMap[i].uv.GetCount(); ++j) {
+				//新たな頂点インデックスを記録
+				uvMap[i].index.Add(numVertexInUV);
+				++numVertexInUV;
+			}
+		}
+		return numVertexInUV;
+	}
+
+
+	//頂点がどのポリゴンに属するかを記録
+	FbxModelLoader::PolygonTable* FbxModelLoader::CreatePolygonTable(FbxMesh *mesh, int numVertex, int numFace) {
+		PolygonTable *pt = new PolygonTable[numVertex];
+		for (int vertex = 0; vertex < numVertex; ++vertex) {
+			for (int face = 0; face < numFace; ++face) {
+				for (int polygon123 = 0; polygon123 < 3; ++polygon123) {
+
+					if (mesh->GetPolygonVertex(face, polygon123) != vertex) {
+						continue;
+					}
+					pt[vertex].polygonIndex[pt[vertex].numPolygon] = face;
+					pt[vertex].polygon123[pt[vertex].numPolygon] = polygon123;
+					++pt[vertex].numPolygon;
+
+				}
+			}
+		}
+		return pt;
+	}
+
 	bool FbxModelLoader::LoadBones(FbxMesh* mesh, Vertex* vertex, PolygonTable *table) {
 		FbxDeformer *deformer = mesh->GetDeformer(0);
 		if (!deformer) {
@@ -398,7 +519,7 @@ namespace K_Loader {
 			this->boneData = 0;
 			return false;
 		}
-		FbxSkin *skin = static_cast<FbxSkin*>(deformer);
+		FbxSkin* skin = (FbxSkin*)deformer;
 
 		int numBone = skin->GetClusterCount();
 		std::vector<FbxCluster*> cluster;
@@ -407,20 +528,52 @@ namespace K_Loader {
 			cluster[i] = skin->GetCluster(i);
 		}
 
-		//頂点ベースのモデルの場合
-		for (int i = 0; i < numBone; ++i) {
-			int *index = cluster[i]->GetControlPointIndices();
-			double *weight = cluster[i]->GetControlPointWeights();
-			int vertexCount = cluster[i]->GetControlPointIndicesCount();
+		if (this->numUV > this->numVertex) {
+			//UVベース
+			for (int i = 0; i < numBone; ++i) {
+				int *indices = cluster[i]->GetControlPointIndices();
+				int numIndices = cluster[i]->GetControlPointIndicesCount();
+				double *weight = cluster[i]->GetControlPointWeights();
 
-			for (int k = 0; k < vertexCount; ++k) {
-				for (int m = 0; m < 4; ++m) {
-					if (vertex[index[k]].boneWeight[m] != 0.0f) {
-						continue;
+				for (int k = 0; k < numIndices; ++k) {
+					for (int p = 0; p < table[indices[k]].numPolygon; ++p) {
+						if (!weight[k]) {
+							continue;
+						}
+						int polygonIndex = table[indices[k]].polygonIndex[p];
+						int polygon123 = table[indices[k]].polygon123[p];
+						int uvIndex = mesh->GetTextureUVIndex(polygonIndex, polygon123, FbxLayerElement::eTextureDiffuse);
+						for (int m = 0; m < 4; ++m) {
+							if (vertex[uvIndex].boneWeight[m] != 0.0f) {
+								if (vertex[uvIndex].boneIndex.data[m] == i) {
+									break;
+								}
+								continue;
+							}
+							vertex[uvIndex].boneIndex.data[m] = i;
+							vertex[uvIndex].boneWeight[m] = (float)weight[k];
+							break;
+						}
 					}
-					vertex[index[k]].boneIndex.data[m] = i;
-					vertex[index[k]].boneWeight[m] = (float)weight[k];
-					break;
+				}
+			}
+		}
+		else {
+			//頂点ベースのモデルの場合
+			for (int i = 0; i < numBone; ++i) {
+				int *index = cluster[i]->GetControlPointIndices();
+				double *weight = cluster[i]->GetControlPointWeights();
+				int vertexCount = cluster[i]->GetControlPointIndicesCount();
+
+				for (int k = 0; k < vertexCount; ++k) {
+					for (int m = 0; m < 4; ++m) {
+						if (vertex[index[k]].boneWeight[m] != 0.0f) {
+							continue;
+						}
+						vertex[index[k]].boneIndex.data[m] = i;
+						vertex[index[k]].boneWeight[m] = (float)weight[k];
+						break;
+					}
 				}
 			}
 		}
@@ -497,5 +650,4 @@ namespace K_Loader {
 
 		return true;
 	}
-
 }

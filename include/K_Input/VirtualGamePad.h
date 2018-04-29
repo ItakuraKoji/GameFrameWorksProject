@@ -4,32 +4,33 @@
 namespace K_Input {
 
 	///@brief GLFWを利用したキー入力とジョイパッドの入力を扱うクラス
-	class InputGLFW {
+	class VirtualGamePad {
 	public:
-		///@brief Initialize()を呼ぶ
-		InputGLFW(unsigned int joyID, GLFWwindow* handle);
-		///@brief Finalize()を呼ぶ
-		~InputGLFW();
 		///@brief 入力設定を初期化
-		///@param[in] joyID ジョイパッドの番号（0,1,2...とコントローラーの数に応じて一つずつ設定する）
+		///@param[in] joyID ジョイパッドの番号
 		///@param[in] handle SystemClassの持つウィンドウのハンドル
-		///@return 成功するとtrue
-		bool Initialize(unsigned int joyID, GLFWwindow* handle);
+		VirtualGamePad(VpadIndex padID, GLFWwindow* handle);
+		///@brief 終了処理
+		~VirtualGamePad();
+
 		///@brief 入力情報を更新
 		void Run();
 
+		///@return 接続されたゲームパッドの名前
+		const char* GetJoyPadName();
+
 		///@param[in] buttonID 調べる仮想キーの値
 		///@return そのボタンが押された瞬間true
-		bool isPressButton(VpadButton buttonID);
+		bool IsPressButton(VpadButton buttonID);
 		///@param[in] buttonID 調べる仮想キーの値
 		///@return そのボタンを押している間true
-		bool isStayButton(VpadButton buttonID);
+		bool IsStayButton(VpadButton buttonID);
 		///@param[in] buttonID 調べる仮想キーの値
 		///@return そのボタンが離された瞬間true
-		bool isReaveButton(VpadButton buttonID);
+		bool IsReaveButton(VpadButton buttonID);
 
-		///@return スティック１つの軸の位置
-		float GetStickState(VpadStick axisID);
+		///@return ゲームパッド軸の位置
+		float GetAxisPosition(VpadAxis axisID);
 		///@return ２軸スティックの角度を取得（X軸方向から始まるラジアン角度）
 		float GetStickRotation(VpadStick stickID);
 		///@return ２軸スティックの傾きを取得
@@ -47,17 +48,17 @@ namespace K_Input {
 		void GetAxisState();
 
 	private:
-		GLFWwindow * window;
+		GLFWwindow* window;
 		//コントローラーIDとJOYINFOEX構造体
-		unsigned int joyID;
+		VpadIndex vpadID;
 
 		//仮想コントローラーのボタン対応と入力情報の配列
-		ButtonState vpadButton[static_cast<int>(VpadButton::EnumSize)] = {};
+		ButtonState vpadButton[VButtonCount] = {};
 
 		//スティックの状態
-		StickState vpadStick[static_cast<int>(VpadStick::EnumSize)] = {};
-		AxisState vpadAxis[static_cast<int>(VpadAxis::EnumSize)] = {};	//0 ～ 1 の間に値が収まっている
-		float stickState[static_cast<int>(VpadAxis::EnumSize)] = {};		//値が０から１に収まっていない
+		StickState  vpadStick[VStickCount] = {};
+		AxisState   vpadAxis[VAxisCount] = {};	//0 ～ 1 の間に値が収まっている
+		float       stickState[VAxisCount] = {};		//値が０から１に収まっていない
 	};
 
 }

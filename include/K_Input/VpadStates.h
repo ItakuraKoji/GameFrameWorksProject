@@ -9,6 +9,22 @@ namespace K_Input {
 	///@brief スティック初期位置の遊び定数
 #define BUTTON_EPSILON 0.2f
 
+	enum class VpadIndex {
+		Pad0 = GLFW_JOYSTICK_1,
+		Pad1 = GLFW_JOYSTICK_2,
+		Pad2 = GLFW_JOYSTICK_3,
+		Pad3 = GLFW_JOYSTICK_4,
+		Pad4 = GLFW_JOYSTICK_5,
+		Pad5 = GLFW_JOYSTICK_6,
+		Pad6 = GLFW_JOYSTICK_7,
+	};
+
+	enum class MouseButton {
+		Left = GLFW_MOUSE_BUTTON_LEFT,
+		Right = GLFW_MOUSE_BUTTON_RIGHT,
+		Middle = GLFW_MOUSE_BUTTON_MIDDLE,
+	};
+
 ///@brief 接続したゲームパッドのボタンと軸
 	enum class JoyButton {
 		Empty = 0,
@@ -78,12 +94,22 @@ namespace K_Input {
 		ControlLeft = GLFW_KEY_LEFT_CONTROL,
 	};
 
+	///@brief 仮想マウスの配列用定数
+	///左クリックと右クリックと中央クリックの３つ
+	enum class VMouse {
+		Right = 0,
+		Left,
+		Middle,
+	};
+	//項目数定数は、列挙の一番下を指定（連番であることが前提）
+	const int VMouseCount = (int)VMouse::Middle + 1;
+
 	///@brief 仮想ゲームパッドが持つボタンの配列用定数
 	///ABXYとLR3つずつ
 	///十字キー
 	///start と select
 	enum class VpadButton {
-		A,
+		A = 0,
 		B,
 		X,
 		Y,
@@ -99,28 +125,36 @@ namespace K_Input {
 		Down,
 		Start,
 		Select,
-		//こいつだけは一番下にする
-		EnumSize,
 	};
+	//項目数定数は、列挙の一番下を指定（連番であることが前提）
+	const int VButtonCount = (int)VpadButton::Select + 1;
 
 	///@brief 仮想ゲームパッドが持つ６軸の配列用定数
 	enum class VpadAxis {
-		Axis0,
+		Axis0 = 0,
 		Axis1,
 		Axis2,
 		Axis3,
 		Axis4,
 		Axis5,
-		//こいつだけは一番下にする
-		EnumSize,
 	};
+	//項目数定数は、列挙の一番下を指定（連番であることが前提）
+	const int VAxisCount = (int)VpadAxis::Axis5 + 1;
+
 
 	///@brief 仮想ゲームパッドが持つ６軸のうちの２軸を組み合わせた「スティック」の配列用定数
 	enum class VpadStick {
-		L,
+		L = 0,
 		R,
-		//こいつだけは一番下にする
-		EnumSize,
+	};
+	//項目数定数は、列挙の一番下を指定（連番であることが前提）
+	const int VStickCount = (int)VpadStick::R + 1;
+
+	///@brief マウスの状態
+	struct MouseState {
+		MouseButton button;	//仮想パッドのこのボタンに対応するゲームパッドのボタンのビット
+		int press;			//今、このボタンが押されているか
+		int prevPress;		//前フレーム、このボタンが押されていたか
 	};
 
 	///@brief ジョイパッドの状態

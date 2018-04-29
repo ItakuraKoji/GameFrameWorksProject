@@ -42,6 +42,7 @@ var hierarchy =
     [ "K_Graphics::Framebuffer", "class_k___graphics_1_1_framebuffer.html", null ],
     [ "K_Graphics::FrameBufferList", "class_k___graphics_1_1_frame_buffer_list.html", null ],
     [ "K_Loader::ImageLoader", "class_k___loader_1_1_image_loader.html", null ],
+    [ "K_Input::InputClass", "class_k___input_1_1_input_class.html", null ],
     [ "K_Input::InputGLFW", "class_k___input_1_1_input_g_l_f_w.html", null ],
     [ "K_Graphics::LightList", "class_k___graphics_1_1_light_list.html", null ],
     [ "K_Physics::MapPolygon", "class_k___physics_1_1_map_polygon.html", null ],
@@ -51,6 +52,7 @@ var hierarchy =
     [ "K_Graphics::MeshObject", "class_k___graphics_1_1_mesh_object.html", null ],
     [ "K_Graphics::ModelDataFactory", "class_k___graphics_1_1_model_data_factory.html", null ],
     [ "K_Graphics::ModelDatas", "struct_k___graphics_1_1_model_datas.html", null ],
+    [ "K_Input::MouseState", "struct_k___input_1_1_mouse_state.html", null ],
     [ "K_Physics::MapPolygon::PolygonData", "struct_k___physics_1_1_map_polygon_1_1_polygon_data.html", null ],
     [ "K_Physics::MapPolygon::PolygonType", "struct_k___physics_1_1_map_polygon_1_1_polygon_type.html", null ],
     [ "K_Graphics::ShaderClass", "class_k___graphics_1_1_shader_class.html", null ],
@@ -63,5 +65,6 @@ var hierarchy =
     [ "K_Graphics::Texture", "class_k___graphics_1_1_texture.html", null ],
     [ "K_Graphics::TextureList", "class_k___graphics_1_1_texture_list.html", null ],
     [ "K_Graphics::VertexBuffer", "struct_k___graphics_1_1_vertex_buffer.html", null ],
-    [ "K_Graphics::VertexData", "class_k___graphics_1_1_vertex_data.html", null ]
+    [ "K_Graphics::VertexData", "class_k___graphics_1_1_vertex_data.html", null ],
+    [ "K_Input::VirtualGamePad", "class_k___input_1_1_virtual_game_pad.html", null ]
 ];

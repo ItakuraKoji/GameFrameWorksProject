@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MyFrameWorks: C:/Users/こうちゃ/Documents/Visual Studio 2017/Projects/MyFrameWorks/include/K_Input/VirtualGamePad.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">MyFrameWorks
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('_virtual_game_pad_8h_source.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">VirtualGamePad.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include&quot;VpadStates.h&quot;</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_k___input.html">K_Input</a> {</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_k___input_1_1_virtual_game_pad.html">    7</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_k___input_1_1_virtual_game_pad.html">VirtualGamePad</a> {</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <a class="code" href="class_k___input_1_1_virtual_game_pad.html#a9b2fa6654516ce9a6430a2ac9e3aef5c">VirtualGamePad</a>(<a class="code" href="namespace_k___input.html#aaf86d96c08149abbc600c7bf2d87e6cb">VpadIndex</a> padID, GLFWwindow* handle);</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <a class="code" href="class_k___input_1_1_virtual_game_pad.html#a6f12b99db32d68336e8fd5a187775a1e">~VirtualGamePad</a>();</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_k___input_1_1_virtual_game_pad.html#aca97b4eac94ff0167dab64d95a8afcc1">Run</a>();</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="class_k___input_1_1_virtual_game_pad.html#a67c1d534efd77cdab618c5c3e553e28d">GetJoyPadName</a>();</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_k___input_1_1_virtual_game_pad.html#a709e96be1f4c8ef855412e1f156fecd5">IsPressButton</a>(<a class="code" href="namespace_k___input.html#ab1b3c957b1b7070e86ccd1a908f3a101">VpadButton</a> buttonID);</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_k___input_1_1_virtual_game_pad.html#a2dd08af4672e5dafd02fe83346841b18">IsStayButton</a>(<a class="code" href="namespace_k___input.html#ab1b3c957b1b7070e86ccd1a908f3a101">VpadButton</a> buttonID);</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_k___input_1_1_virtual_game_pad.html#a173d0ca9eff02659a7f3a8cf89c3ac7a">IsReaveButton</a>(<a class="code" href="namespace_k___input.html#ab1b3c957b1b7070e86ccd1a908f3a101">VpadButton</a> buttonID);</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">float</span> <a class="code" href="class_k___input_1_1_virtual_game_pad.html#a9ee783ff7f2be1549c1e5c2718ce0d27">GetAxisPosition</a>(<a class="code" href="namespace_k___input.html#ae7980bb169b8a865a5e67d6fe06fb729">VpadAxis</a> axisID);</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordtype">float</span> <a class="code" href="class_k___input_1_1_virtual_game_pad.html#a1ea8b989cd14af70d9ca770893feea9b">GetStickRotation</a>(<a class="code" href="namespace_k___input.html#a18bb7eb174cac2fd54b7a5b0d02a0116">VpadStick</a> stickID);</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordtype">float</span> <a class="code" href="class_k___input_1_1_virtual_game_pad.html#afdac5731f2c92f496eae13038a8d7174">GetStickPower</a>(<a class="code" href="namespace_k___input.html#a18bb7eb174cac2fd54b7a5b0d02a0116">VpadStick</a> stickID);</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_k___input_1_1_virtual_game_pad.html#aeba31e2d25637ece04f6411cf77c7362">SetButtonConfig</a>(<a class="code" href="namespace_k___input.html#ab1b3c957b1b7070e86ccd1a908f3a101">VpadButton</a> vpadButton, <a class="code" href="namespace_k___input.html#a0fad93a64181d6776849d43118c26902">JoyButton</a> joypadButton, <a class="code" href="namespace_k___input.html#af62d80c77b12db01035e4b9aa27a09d6">Key</a> board);</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_k___input_1_1_virtual_game_pad.html#a6bcd1da894f3fca7a68c9f2f43cc8ba7">SetAxisConfig</a>(<a class="code" href="namespace_k___input.html#ae7980bb169b8a865a5e67d6fe06fb729">VpadAxis</a> vpadAxis, <a class="code" href="namespace_k___input.html#a82230ae06723a21cc710ae3d66fd078f">JoyAxis</a> joypadAxis, <a class="code" href="namespace_k___input.html#af62d80c77b12db01035e4b9aa27a09d6">Key</a> axisPlus, <a class="code" href="namespace_k___input.html#af62d80c77b12db01035e4b9aa27a09d6">Key</a> axisMinus);</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_k___input_1_1_virtual_game_pad.html#a1c94333b176b5946ac5500c5b2a0ca27">SetStickConfig</a>(<a class="code" href="namespace_k___input.html#a18bb7eb174cac2fd54b7a5b0d02a0116">VpadStick</a> vpadStick, <a class="code" href="namespace_k___input.html#ae7980bb169b8a865a5e67d6fe06fb729">VpadAxis</a> xAxis, <a class="code" href="namespace_k___input.html#ae7980bb169b8a865a5e67d6fe06fb729">VpadAxis</a> yAxis);</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">private</span>:</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordtype">void</span> GetButtonState();</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordtype">void</span> GetAxisState();</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">private</span>:</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        GLFWwindow* window;</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="comment">//コントローラーIDとJOYINFOEX構造体</span></div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="namespace_k___input.html#aaf86d96c08149abbc600c7bf2d87e6cb">VpadIndex</a> vpadID;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="comment">//仮想コントローラーのボタン対応と入力情報の配列</span></div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <a class="code" href="struct_k___input_1_1_button_state.html">ButtonState</a> vpadButton[<a class="code" href="namespace_k___input.html#a0106369f1cf18a44237f5a8cc77073db">VButtonCount</a>] = {};</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="comment">//スティックの状態</span></div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <a class="code" href="struct_k___input_1_1_stick_state.html">StickState</a>  vpadStick[<a class="code" href="namespace_k___input.html#abea043344f994fa62e7e3212b9615640">VStickCount</a>] = {};</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <a class="code" href="struct_k___input_1_1_axis_state.html">AxisState</a>   vpadAxis[<a class="code" href="namespace_k___input.html#a8b952780413e9b25a78d95c954bbcdaf">VAxisCount</a>] = {};  <span class="comment">//0 〜 1 の間に値が収まっている</span></div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordtype">float</span>       stickState[<a class="code" href="namespace_k___input.html#a8b952780413e9b25a78d95c954bbcdaf">VAxisCount</a>] = {};        <span class="comment">//値が０から１に収まっていない</span></div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    };</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div><div class="ttc" id="class_k___input_1_1_virtual_game_pad_html_aca97b4eac94ff0167dab64d95a8afcc1"><div class="ttname"><a href="class_k___input_1_1_virtual_game_pad.html#aca97b4eac94ff0167dab64d95a8afcc1">K_Input::VirtualGamePad::Run</a></div><div class="ttdeci">void Run()</div><div class="ttdoc">入力情報を更新 </div><div class="ttdef"><b>Definition:</b> VirtualGamePad.cpp:48</div></div>
+<div class="ttc" id="struct_k___input_1_1_axis_state_html"><div class="ttname"><a href="struct_k___input_1_1_axis_state.html">K_Input::AxisState</a></div><div class="ttdoc">アナログスティックの軸 </div><div class="ttdef"><b>Definition:</b> VpadStates.h:169</div></div>
+<div class="ttc" id="class_k___input_1_1_virtual_game_pad_html_a2dd08af4672e5dafd02fe83346841b18"><div class="ttname"><a href="class_k___input_1_1_virtual_game_pad.html#a2dd08af4672e5dafd02fe83346841b18">K_Input::VirtualGamePad::IsStayButton</a></div><div class="ttdeci">bool IsStayButton(VpadButton buttonID)</div><div class="ttdef"><b>Definition:</b> VirtualGamePad.cpp:64</div></div>
+<div class="ttc" id="namespace_k___input_html_a0106369f1cf18a44237f5a8cc77073db"><div class="ttname"><a href="namespace_k___input.html#a0106369f1cf18a44237f5a8cc77073db">K_Input::VButtonCount</a></div><div class="ttdeci">const int VButtonCount</div><div class="ttdef"><b>Definition:</b> VpadStates.h:130</div></div>
+<div class="ttc" id="namespace_k___input_html_aaf86d96c08149abbc600c7bf2d87e6cb"><div class="ttname"><a href="namespace_k___input.html#aaf86d96c08149abbc600c7bf2d87e6cb">K_Input::VpadIndex</a></div><div class="ttdeci">VpadIndex</div><div class="ttdef"><b>Definition:</b> VpadStates.h:12</div></div>
+<div class="ttc" id="class_k___input_1_1_virtual_game_pad_html_aeba31e2d25637ece04f6411cf77c7362"><div class="ttname"><a href="class_k___input_1_1_virtual_game_pad.html#aeba31e2d25637ece04f6411cf77c7362">K_Input::VirtualGamePad::SetButtonConfig</a></div><div class="ttdeci">void SetButtonConfig(VpadButton vpadButton, JoyButton joypadButton, Key board)</div><div class="ttdoc">指定の仮想パッドボタン定数と物理入力との対応を設定 </div><div class="ttdef"><b>Definition:</b> VirtualGamePad.cpp:89</div></div>
+<div class="ttc" id="namespace_k___input_html_af62d80c77b12db01035e4b9aa27a09d6"><div class="ttname"><a href="namespace_k___input.html#af62d80c77b12db01035e4b9aa27a09d6">K_Input::Key</a></div><div class="ttdeci">Key</div><div class="ttdoc">仮想ゲームパッドに割り当てるキーボードの定数 </div><div class="ttdef"><b>Definition:</b> VpadStates.h:57</div></div>
+<div class="ttc" id="class_k___input_1_1_virtual_game_pad_html_a1ea8b989cd14af70d9ca770893feea9b"><div class="ttname"><a href="class_k___input_1_1_virtual_game_pad.html#a1ea8b989cd14af70d9ca770893feea9b">K_Input::VirtualGamePad::GetStickRotation</a></div><div class="ttdeci">float GetStickRotation(VpadStick stickID)</div><div class="ttdef"><b>Definition:</b> VirtualGamePad.cpp:78</div></div>
+<div class="ttc" id="class_k___input_1_1_virtual_game_pad_html_a9b2fa6654516ce9a6430a2ac9e3aef5c"><div class="ttname"><a href="class_k___input_1_1_virtual_game_pad.html#a9b2fa6654516ce9a6430a2ac9e3aef5c">K_Input::VirtualGamePad::VirtualGamePad</a></div><div class="ttdeci">VirtualGamePad(VpadIndex padID, GLFWwindow *handle)</div><div class="ttdoc">入力設定を初期化 </div><div class="ttdef"><b>Definition:</b> VirtualGamePad.cpp:8</div></div>
+<div class="ttc" id="namespace_k___input_html_a8b952780413e9b25a78d95c954bbcdaf"><div class="ttname"><a href="namespace_k___input.html#a8b952780413e9b25a78d95c954bbcdaf">K_Input::VAxisCount</a></div><div class="ttdeci">const int VAxisCount</div><div class="ttdef"><b>Definition:</b> VpadStates.h:142</div></div>
+<div class="ttc" id="namespace_k___input_html"><div class="ttname"><a href="namespace_k___input.html">K_Input</a></div><div class="ttdoc">入力関連の名前空間 </div><div class="ttdef"><b>Definition:</b> InputClass.cpp:3</div></div>
+<div class="ttc" id="struct_k___input_1_1_button_state_html"><div class="ttname"><a href="struct_k___input_1_1_button_state.html">K_Input::ButtonState</a></div><div class="ttdoc">ジョイパッドの状態 </div><div class="ttdef"><b>Definition:</b> VpadStates.h:161</div></div>
+<div class="ttc" id="class_k___input_1_1_virtual_game_pad_html"><div class="ttname"><a href="class_k___input_1_1_virtual_game_pad.html">K_Input::VirtualGamePad</a></div><div class="ttdoc">GLFWを利用したキー入力とジョイパッドの入力を扱うクラス </div><div class="ttdef"><b>Definition:</b> VirtualGamePad.h:7</div></div>
+<div class="ttc" id="class_k___input_1_1_virtual_game_pad_html_a1c94333b176b5946ac5500c5b2a0ca27"><div class="ttname"><a href="class_k___input_1_1_virtual_game_pad.html#a1c94333b176b5946ac5500c5b2a0ca27">K_Input::VirtualGamePad::SetStickConfig</a></div><div class="ttdeci">void SetStickConfig(VpadStick vpadStick, VpadAxis xAxis, VpadAxis yAxis)</div><div class="ttdoc">指定の仮想パッドスティック定数と物理入力との対応を設定 </div><div class="ttdef"><b>Definition:</b> VirtualGamePad.cpp:103</div></div>
+<div class="ttc" id="namespace_k___input_html_a82230ae06723a21cc710ae3d66fd078f"><div class="ttname"><a href="namespace_k___input.html#a82230ae06723a21cc710ae3d66fd078f">K_Input::JoyAxis</a></div><div class="ttdeci">JoyAxis</div><div class="ttdef"><b>Definition:</b> VpadStates.h:46</div></div>
+<div class="ttc" id="namespace_k___input_html_a0fad93a64181d6776849d43118c26902"><div class="ttname"><a href="namespace_k___input.html#a0fad93a64181d6776849d43118c26902">K_Input::JoyButton</a></div><div class="ttdeci">JoyButton</div><div class="ttdoc">接続したゲームパッドのボタンと軸 </div><div class="ttdef"><b>Definition:</b> VpadStates.h:29</div></div>
+<div class="ttc" id="class_k___input_1_1_virtual_game_pad_html_a173d0ca9eff02659a7f3a8cf89c3ac7a"><div class="ttname"><a href="class_k___input_1_1_virtual_game_pad.html#a173d0ca9eff02659a7f3a8cf89c3ac7a">K_Input::VirtualGamePad::IsReaveButton</a></div><div class="ttdeci">bool IsReaveButton(VpadButton buttonID)</div><div class="ttdef"><b>Definition:</b> VirtualGamePad.cpp:68</div></div>
+<div class="ttc" id="namespace_k___input_html_abea043344f994fa62e7e3212b9615640"><div class="ttname"><a href="namespace_k___input.html#abea043344f994fa62e7e3212b9615640">K_Input::VStickCount</a></div><div class="ttdeci">const int VStickCount</div><div class="ttdef"><b>Definition:</b> VpadStates.h:151</div></div>
+<div class="ttc" id="class_k___input_1_1_virtual_game_pad_html_a709e96be1f4c8ef855412e1f156fecd5"><div class="ttname"><a href="class_k___input_1_1_virtual_game_pad.html#a709e96be1f4c8ef855412e1f156fecd5">K_Input::VirtualGamePad::IsPressButton</a></div><div class="ttdeci">bool IsPressButton(VpadButton buttonID)</div><div class="ttdef"><b>Definition:</b> VirtualGamePad.cpp:60</div></div>
+<div class="ttc" id="class_k___input_1_1_virtual_game_pad_html_afdac5731f2c92f496eae13038a8d7174"><div class="ttname"><a href="class_k___input_1_1_virtual_game_pad.html#afdac5731f2c92f496eae13038a8d7174">K_Input::VirtualGamePad::GetStickPower</a></div><div class="ttdeci">float GetStickPower(VpadStick stickID)</div><div class="ttdef"><b>Definition:</b> VirtualGamePad.cpp:81</div></div>
+<div class="ttc" id="namespace_k___input_html_ab1b3c957b1b7070e86ccd1a908f3a101"><div class="ttname"><a href="namespace_k___input.html#ab1b3c957b1b7070e86ccd1a908f3a101">K_Input::VpadButton</a></div><div class="ttdeci">VpadButton</div><div class="ttdoc">仮想ゲームパッドが持つボタンの配列用定数 ABXYとLR3つずつ 十字キー start と select ...</div><div class="ttdef"><b>Definition:</b> VpadStates.h:111</div></div>
+<div class="ttc" id="class_k___input_1_1_virtual_game_pad_html_a67c1d534efd77cdab618c5c3e553e28d"><div class="ttname"><a href="class_k___input_1_1_virtual_game_pad.html#a67c1d534efd77cdab618c5c3e553e28d">K_Input::VirtualGamePad::GetJoyPadName</a></div><div class="ttdeci">const char * GetJoyPadName()</div><div class="ttdef"><b>Definition:</b> VirtualGamePad.cpp:54</div></div>
+<div class="ttc" id="class_k___input_1_1_virtual_game_pad_html_a6f12b99db32d68336e8fd5a187775a1e"><div class="ttname"><a href="class_k___input_1_1_virtual_game_pad.html#a6f12b99db32d68336e8fd5a187775a1e">K_Input::VirtualGamePad::~VirtualGamePad</a></div><div class="ttdeci">~VirtualGamePad()</div><div class="ttdoc">終了処理 </div><div class="ttdef"><b>Definition:</b> VirtualGamePad.cpp:43</div></div>
+<div class="ttc" id="class_k___input_1_1_virtual_game_pad_html_a6bcd1da894f3fca7a68c9f2f43cc8ba7"><div class="ttname"><a href="class_k___input_1_1_virtual_game_pad.html#a6bcd1da894f3fca7a68c9f2f43cc8ba7">K_Input::VirtualGamePad::SetAxisConfig</a></div><div class="ttdeci">void SetAxisConfig(VpadAxis vpadAxis, JoyAxis joypadAxis, Key axisPlus, Key axisMinus)</div><div class="ttdoc">指定の仮想パッド軸定数と物理入力との対応を設定 </div><div class="ttdef"><b>Definition:</b> VirtualGamePad.cpp:96</div></div>
+<div class="ttc" id="class_k___input_1_1_virtual_game_pad_html_a9ee783ff7f2be1549c1e5c2718ce0d27"><div class="ttname"><a href="class_k___input_1_1_virtual_game_pad.html#a9ee783ff7f2be1549c1e5c2718ce0d27">K_Input::VirtualGamePad::GetAxisPosition</a></div><div class="ttdeci">float GetAxisPosition(VpadAxis axisID)</div><div class="ttdef"><b>Definition:</b> VirtualGamePad.cpp:74</div></div>
+<div class="ttc" id="namespace_k___input_html_a18bb7eb174cac2fd54b7a5b0d02a0116"><div class="ttname"><a href="namespace_k___input.html#a18bb7eb174cac2fd54b7a5b0d02a0116">K_Input::VpadStick</a></div><div class="ttdeci">VpadStick</div><div class="ttdoc">仮想ゲームパッドが持つ６軸のうちの２軸を組み合わせた「スティック」の配列用定数 </div><div class="ttdef"><b>Definition:</b> VpadStates.h:146</div></div>
+<div class="ttc" id="namespace_k___input_html_ae7980bb169b8a865a5e67d6fe06fb729"><div class="ttname"><a href="namespace_k___input.html#ae7980bb169b8a865a5e67d6fe06fb729">K_Input::VpadAxis</a></div><div class="ttdeci">VpadAxis</div><div class="ttdoc">仮想ゲームパッドが持つ６軸の配列用定数 </div><div class="ttdef"><b>Definition:</b> VpadStates.h:133</div></div>
+<div class="ttc" id="struct_k___input_1_1_stick_state_html"><div class="ttname"><a href="struct_k___input_1_1_stick_state.html">K_Input::StickState</a></div><div class="ttdoc">横と縦の二軸を持つスティック </div><div class="ttdef"><b>Definition:</b> VpadStates.h:177</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_29df04192b0b3b449f1ca78eb83d5c6b.html">K_Input</a></li><li class="navelem"><b>VirtualGamePad.h</b></li>
+    <li class="footer">構築:
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
+</body>
+</html>

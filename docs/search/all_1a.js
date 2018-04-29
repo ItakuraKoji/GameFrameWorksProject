@@ -15,6 +15,7 @@ var searchData=
   ['_7efontrenderer',['~FontRenderer',['../class_k___graphics_1_1_font_renderer.html#a0b3a9b0d7fa0e07342be6469e668b7cd',1,'K_Graphics::FontRenderer']]],
   ['_7eframebuffer',['~Framebuffer',['../class_k___graphics_1_1_framebuffer.html#ad3a492836b1ced0414f6b3aa4718097f',1,'K_Graphics::Framebuffer']]],
   ['_7eframebufferlist',['~FrameBufferList',['../class_k___graphics_1_1_frame_buffer_list.html#a0e7f1925dd1ae7b506cab0d023438552',1,'K_Graphics::FrameBufferList']]],
+  ['_7einputclass',['~InputClass',['../class_k___input_1_1_input_class.html#acf9e81aea0c011250af3d74cbb67098a',1,'K_Input::InputClass']]],
   ['_7einputglfw',['~InputGLFW',['../class_k___input_1_1_input_g_l_f_w.html#a5125b026d330c14dccdb0399e7b6d38d',1,'K_Input::InputGLFW']]],
   ['_7elightlist',['~LightList',['../class_k___graphics_1_1_light_list.html#af8d54a762741383c985ca62175b11b55',1,'K_Graphics::LightList']]],
   ['_7emappolygon',['~MapPolygon',['../class_k___physics_1_1_map_polygon.html#a6d567c81fe82421013c75f23e11449ef',1,'K_Physics::MapPolygon']]],
@@ -32,5 +33,6 @@ var searchData=
   ['_7etexture',['~Texture',['../class_k___graphics_1_1_texture.html#aacbb913221bc16ca6b1b2d8f8a62fc60',1,'K_Graphics::Texture']]],
   ['_7etexturelist',['~TextureList',['../class_k___graphics_1_1_texture_list.html#ad96337c9c60f13d1f6f9e088cab90ffc',1,'K_Graphics::TextureList']]],
   ['_7evertexdata',['~VertexData',['../class_k___graphics_1_1_vertex_data.html#ae879791e7e458a0ac7de00b6fa75aba1',1,'K_Graphics::VertexData']]],
+  ['_7evirtualgamepad',['~VirtualGamePad',['../class_k___input_1_1_virtual_game_pad.html#a6f12b99db32d68336e8fd5a187775a1e',1,'K_Input::VirtualGamePad']]],
   ['_7ewavdata',['~WavData',['../class_k___audio_1_1_wav_data.html#ad05439665a69a1cc318c79d869fa97e9',1,'K_Audio::WavData']]]
 ];

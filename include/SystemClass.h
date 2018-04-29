@@ -7,7 +7,7 @@
 #include<GLFW/glfw3.h>
 
 #include"K_Math\MyMathFanctions.h"
-#include"K_Input\InputGLFW.h"
+#include"K_Input\InputClass.h"
 
 //リファレンス用
 ///@brief グラフィック関連の名前空間\n
@@ -80,7 +80,7 @@ namespace K_System {
 
 		///@brief アクセサー
 		///@return 入力クラスへのポインタ
-		K_Input::InputGLFW* GetInput();
+		K_Input::InputClass* GetInput();
 
 	private:
 		bool CreateAppricationWindow(const char* windowName, int width, int height, bool fullScreen);
@@ -92,7 +92,7 @@ namespace K_System {
 		bool isFocus;
 		bool windowClosed;
 		GLFWwindow* windowHandle;
-		K_Input::InputGLFW* input;
+		K_Input::InputClass* input;
 
 		//FPS計測
 		float fps;

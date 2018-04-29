@@ -44,6 +44,7 @@ var menudata={children:[
 {text:"u",url:"namespacemembers.html#index_u"},
 {text:"v",url:"namespacemembers.html#index_v"}]},
 {text:"関数",url:"namespacemembers_func.html"},
+{text:"変数",url:"namespacemembers_vars.html"},
 {text:"型定義",url:"namespacemembers_type.html"},
 {text:"列挙型",url:"namespacemembers_enum.html"},
 {text:"列挙値",url:"namespacemembers_eval.html"}]}]},
