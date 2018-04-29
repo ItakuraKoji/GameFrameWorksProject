@@ -144,3 +144,62 @@ void Sample3() {
 
 	delete physics;
 }
+
+
+//サンプルコード４：入力関連
+void Sample4() {
+	//まずはSystemClassを作る
+	int windowWidth = 1280;
+	int windowHeight = 720;
+	bool isFullScreen = false;
+	K_System::SystemClass* system = new K_System::SystemClass(windowWidth, windowHeight, isFullScreen);
+
+	//システムから入力クラスを受け取る
+	K_Input::InputClass* input = system->GetInput();
+
+	//コントローラーを作る（複数可）
+	input->AddGamePad(K_Input::VpadIndex::Pad0);
+
+	//キーコンフィグをすることで入力を受けることができるようになる
+	//Pad0 の Aボタン に 
+	//・ジョイスティックのボタン0番目 
+	//・キーボード割り当てなし 
+	//を設定
+	input->GetPad(K_Input::VpadIndex::Pad0)->SetButtonConfig(K_Input::VpadButton::A, K_Input::JoyButton::Button0, K_Input::Key::Empty);
+
+	//Pad0 の ０番目のアナログ軸 に 
+	//・ジョイスティックの0番目のアナログ軸 
+	//・正の方向にキーボードのA 
+	//・負の方向にキーボードのD 
+	//を設定
+	input->GetPad(K_Input::VpadIndex::Pad1)->SetAxisConfig(K_Input::VpadAxis::Axis0, K_Input::JoyAxis::Axis0, K_Input::Key::A, K_Input::Key::D);
+
+	//仮想ゲームパッドの軸二つを割り当ててスティックを作る。GetStickPower()やGetStickRotation()を受け取るのに必要
+	//初期設定では
+	//SetStickConfig(VpadStick::L, VpadAxis::Axis0, VpadAxis::Axis1);
+	//SetStickConfig(VpadStick::R, VpadAxis::Axis2, VpadAxis::Axis3);
+	//ここでは Pad0 の 左スティック に
+	//・x軸 として 仮想ゲームパッドの２番目の軸
+	//・y軸 として 仮想ゲームパッドの３番目の軸
+	//を設定
+	input->GetPad(K_Input::VpadIndex::Pad0)->SetStickConfig(K_Input::VpadStick::L, K_Input::VpadAxis::Axis2, K_Input::VpadAxis::Axis3);
+
+	//上から、Aボタンが「押された瞬間」「押している間」「離された瞬間」という意味。ちなみにbool型
+	input->GetPad(K_Input::VpadIndex::Pad0)->IsPressButton(K_Input::VpadButton::A);
+	input->GetPad(K_Input::VpadIndex::Pad0)->IsStayButton(K_Input::VpadButton::A);
+	input->GetPad(K_Input::VpadIndex::Pad0)->IsReaveButton(K_Input::VpadButton::A);
+
+	//上から、左スティックの「倒されている深さ」「右方向を０度とした回転度」を取得できる
+	input->GetPad(K_Input::VpadIndex::Pad0)->GetStickPower(K_Input::VpadStick::L);
+	input->GetPad(K_Input::VpadIndex::Pad0)->GetStickRotation(K_Input::VpadStick::L);
+
+	//個別の軸についてはこれ(-1.0f - 1.0f の範囲)
+	input->GetPad(K_Input::VpadIndex::Pad0)->GetAxisPosition(K_Input::VpadAxis::Axis0);
+
+	//マウスに関しては複数作れないのでGetPad()は必要ない
+	input->GetMousePosition();
+	//使い方は大体ボタンと同じ
+	input->IsPressMouse(K_Input::VMouse::Left);
+	input->IsStayMouse(K_Input::VMouse::Left);
+	input->IsReaveMouse(K_Input::VMouse::Left);
+}
