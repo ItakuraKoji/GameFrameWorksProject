@@ -6,7 +6,7 @@
 
 namespace K_Graphics {
 
-	///@brief フォントを生成し、描画するクラス(ワイド文字列)
+	//!@brief フォントを生成し、描画するクラス(ワイド文字列)
 	class FontRenderer {
 	private:
 		struct FontDrawData {
@@ -19,47 +19,47 @@ namespace K_Graphics {
 
 	public:
 
-		///@brief 描画に使用するスプライトを初期化
+		//!@brief 描画に使用するスプライトを初期化
 		FontRenderer();
-		///@brief スプライトのポインタを開放
+		//!@brief スプライトのポインタを開放
 		~FontRenderer();
 
-		///@brief 事前に呼ばれた2D描画命令をここで行う
-		///@param[in] camera 使用するカメラ
-		///@param[in] shader 使用するシェーダー（スプライトが描画できるもの）
+		//!@brief 事前に呼ばれた2D描画命令をここで行う
+		//!@param[in] camera 使用するカメラ
+		//!@param[in] shader 使用するシェーダー（スプライトが描画できるもの）
 		void Draw2D(CameraClass* camera, ShaderClass* shader);
-		///@brief 事前に呼ばれた3D描画命令をここで行う
-		///@param[in] camera 使用するカメラ
-		///@param[in] shader 使用するシェーダー
+		//!@brief 事前に呼ばれた3D描画命令をここで行う
+		//!@param[in] camera 使用するカメラ
+		//!@param[in] shader 使用するシェーダー
 		void Draw3D(CameraClass* camera, ShaderClass* shader);
 
-		///@brief フォントを読み込む
-		///@param[in] fontName フォントのユーザー定義名
-		///@param[in] filePass フォントのファイルパス
+		//!@brief フォントを読み込む
+		//!@param[in] fontName フォントのユーザー定義名
+		//!@param[in] filePass フォントのファイルパス
 		bool LoadFont(const char* fontName, const char* filePass);
-		///@brief 使用するフォントを設定、失敗するとfalseを返し、セットされない
-		///@param[in] fontName フォント名
-		///@return 成功するとtrue
+		//!@brief 使用するフォントを設定、失敗するとfalseを返し、セットされない
+		//!@param[in] fontName フォント名
+		//!@return 成功するとtrue
 		bool SetCullentFont(const char* fontName);
 
-		///@brief 指定座標からテキストの描画予約（位置はスクリーンの座標）
-		///@param[in] text 描画するテキスト
-		///@param[in] fontSize フォントのサイズ
-		///@param[in] posX 描画座標
-		///@param[in] posY 描画座標
+		//!@brief 指定座標からテキストの描画予約（位置はスクリーンの座標）
+		//!@param[in] text 描画するテキスト
+		//!@param[in] fontSize フォントのサイズ
+		//!@param[in] posX 描画座標
+		//!@param[in] posY 描画座標
 		void DrawString2D(const std::string& text, int fontSize, int posX, int posY);
-		///@brief 指定座標からテキストの描画予約（位置は3D空間の座標）
-		///@param[in] text 描画するテキスト
-		///@param[in] fontSize フォントのサイズ
-		///@param[in] posX 描画座標
-		///@param[in] posY 描画座標
-		///@param[in] posZ 描画座標
+		//!@brief 指定座標からテキストの描画予約（位置は3D空間の座標）
+		//!@param[in] text 描画するテキスト
+		//!@param[in] fontSize フォントのサイズ
+		//!@param[in] posX 描画座標
+		//!@param[in] posY 描画座標
+		//!@param[in] posZ 描画座標
 		void DrawString3D(const std::string& text, int fontSize, float posX, float posY, float posZ);
 
-		///@brief フォント描画に利用しているテクスチャを削除する
-		///@param[in] size 削除するフォントのサイズ
+		//!@brief フォント描画に利用しているテクスチャを削除する
+		//!@param[in] size 削除するフォントのサイズ
 		void ClearFontTexture(int size);
-		///@brief フォント描画に利用しているテクスチャをすべて削除する
+		//!@brief フォント描画に利用しているテクスチャをすべて削除する
 		void ClearAllFontTexture();
 
 	private:

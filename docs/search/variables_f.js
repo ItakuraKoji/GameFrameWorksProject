@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['samplingrate',['samplingRate',['../class_k___audio_1_1_audio_data.html#a6730a05b5833bbbeb5512d28a09df9ff',1,'K_Audio::AudioData']]],
-  ['specular',['specular',['../struct_k___graphics_1_1_material.html#acacefc1e75642a1b8113c91616f470bf',1,'K_Graphics::Material']]],
-  ['specurarpower',['specurarPower',['../struct_k___graphics_1_1_material.html#a698ec57fe94a94db44737151d0796d4a',1,'K_Graphics::Material']]],
-  ['specurarshininess',['specurarShininess',['../struct_k___graphics_1_1_material.html#aee06e988523f24582663002aa1f7ab67',1,'K_Graphics::Material']]],
-  ['starttime',['startTime',['../struct_k___graphics_1_1_anim_type.html#ae4b54d9628ffca188aafcfb3c150f667',1,'K_Graphics::AnimType']]]
+  ['red',['red',['../structpng__color__struct.html#ad39dc2d7cb82e3670a3ad397bb4083cb',1,'png_color_struct::red()'],['../structpng__color__16__struct.html#a069bad345aefbe4eab29fcc1d8af91e6',1,'png_color_16_struct::red()'],['../structpng__color__8__struct.html#a5cd91bb4b3429256b84e6f28c72778b8',1,'png_color_8_struct::red()'],['../structpng__s_p_l_t__entry__struct.html#a05ba3cef8aa2c43d1f52c0300c525fd9',1,'png_sPLT_entry_struct::red()']]],
+  ['reserved',['reserved',['../structz__stream__s.html#add73791dd19b49c9c68f3f3d328c37db',1,'z_stream_s']]],
+  ['result',['result',['../struct_k___physics_1_1_collect_collision_call_back.html#a0affa3d133053d1b1f2707450cc5c708',1,'K_Physics::CollectCollisionCallBack']]],
+  ['rowbytes',['rowbytes',['../structpng__row__info__struct.html#a924a208653f2577c05db5e1cf3aa5817',1,'png_row_info_struct']]]
 ];

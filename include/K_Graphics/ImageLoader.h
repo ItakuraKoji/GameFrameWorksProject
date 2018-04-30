@@ -1,4 +1,5 @@
 #pragma once
+#include<png.h>
 #include<GLEW\glew.h>
 #include<fstream>
 #include<string>
@@ -19,6 +20,7 @@ namespace K_Loader {
 		};
 	public:
 		bool LoadTGAImage(const std::string& fileName, GLuint TextureID, unsigned int &returnWidth, unsigned int &returnHeight);
+		bool LoadPNGImage(const std::string& fileName, GLuint TextureID, unsigned int &returnWidth, unsigned int &returnHeight);
 
 	private:
 		void SetTgaData(char* data, char* src, int width, int height, int pixelDepth, bool xReverse, bool yReverse);

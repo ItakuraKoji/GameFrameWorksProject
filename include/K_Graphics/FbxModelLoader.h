@@ -83,7 +83,6 @@ namespace K_Loader {
 		//FBXファイルの場所をルートにする
 		char fileRoot[100];
 		Vertex* vertexData;
-		unsigned int* indexData;
 		int numVertex;
 		int numUV;
 		int numFace;

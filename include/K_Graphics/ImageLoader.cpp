@@ -94,15 +94,94 @@ namespace K_Loader {
 
 		delete[] tgaPreImage;
 		delete[] tgaImage;
-		tgaImage = 0;
 
 		return true;
 	}
+
+
+	bool ImageLoader::LoadPNGImage(const std::string& fileName, GLuint TextureID, unsigned int &returnWidth, unsigned int &returnHeight) {
+		// png画像ファイルのロード
+		FILE* fp;
+		fopen_s(&fp, fileName.data(), "rb");
+		if (!fp) {
+			return false;
+		}
+
+		png_structp sp = png_create_read_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL);
+		png_infop   ip = png_create_info_struct(sp);
+
+		png_init_io(sp, fp);
+		png_read_info(sp, ip);
+
+		unsigned int width, height;
+		int depth, colortype, interlacetype, numColor;
+		png_get_IHDR(sp, ip, (png_uint_32*)&width, (png_uint_32*)&height, &depth, &colortype, &interlacetype, NULL, NULL);
+
+		//画像フォーマットが対応してなかったら帰る
+		if (colortype == PNG_COLOR_TYPE_RGBA) {
+			numColor = 4;
+		}
+		else if (colortype == PNG_COLOR_TYPE_RGB) {
+			numColor = 3;
+		}
+		else {
+			png_destroy_read_struct(&sp, &ip, NULL);
+			fclose(fp);
+			return false;
+		}
+
+
+		// メモリ領域確保
+		int rb = png_get_rowbytes(sp, ip);
+		//配列サイズと配列のデータを設定
+		png_bytep pngImage = new png_byte[height * rb];
+		png_bytep pngPreImage = new png_byte[height * rb];
+		png_bytepp recv = new png_bytep[height];
+
+		for (int i = 0; i < height; i++) {
+			//一列ずつアドレスを入れて、のちにpng_readimage()にて読み込んでもらう
+			recv[i] = &pngPreImage[i * rb];
+		}
+		png_read_image(sp, recv);
+		png_read_end(sp, ip);
+
+		//OpenGLだと画像の向きが違うので組み換え
+		SetTgaData((char*)pngImage, (char*)pngPreImage, width, height, numColor, true, true);
+
+		png_destroy_read_struct(&sp, &ip, NULL);
+		fclose(fp);
+
+		// テクスチャへの登録
+		glBindTexture(GL_TEXTURE_2D, TextureID);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pngImage);
+		//範囲外の表示
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+		//拡大縮小時の補完
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+
+		//ミップマップを作成
+		glGenerateMipmap(GL_TEXTURE_2D);
+		
+		delete[] recv;
+		delete[] pngImage;
+		delete[] pngPreImage;
+
+		returnWidth = width;
+		returnHeight = height;
+		return true;
+	}
+
+
 
 	////////
 	//private
 	////
 
+
+	//TGA関連
 	void ImageLoader::SetTgaData(char* data, char* src, int width, int height, int numColor, bool xReverse, bool yReverse) {
 		int count = 0;
 		//X:右から左　Y:下から上　を正の方向とする
@@ -189,8 +268,10 @@ namespace K_Loader {
 				}
 			}
 		}
-
-
 		delete[] colorData;
 	}
+	//TGA関連/
+
+
+	//PNG関連
 }

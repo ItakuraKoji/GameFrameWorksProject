@@ -58,5 +58,9 @@ var searchData=
   ['getviewmatrix',['GetViewMatrix',['../class_k___graphics_1_1_camera_class.html#a25c8ec2869536e3ba080d5c34749defc',1,'K_Graphics::CameraClass']]],
   ['getwidth',['GetWidth',['../class_k___graphics_1_1_framebuffer.html#a14bef34a3d986bca79cb0af59415bb3c',1,'K_Graphics::Framebuffer::GetWidth()'],['../class_k___graphics_1_1_texture.html#ad5085a98a35f04eaf532e2a2acdf672d',1,'K_Graphics::Texture::GetWidth()']]],
   ['getwindowheight',['GetWindowHeight',['../class_k___system_1_1_system_class.html#a77b2bd403ce58a63f48151054ee2402e',1,'K_System::SystemClass']]],
-  ['getwindowwidth',['GetWindowWidth',['../class_k___system_1_1_system_class.html#a8b1226fbf696428544adfa890430cac1',1,'K_System::SystemClass']]]
+  ['getwindowwidth',['GetWindowWidth',['../class_k___system_1_1_system_class.html#a8b1226fbf696428544adfa890430cac1',1,'K_System::SystemClass']]],
+  ['gray',['gray',['../structpng__color__16__struct.html#a660a572a0a2f4094408f2fecb61571ac',1,'png_color_16_struct::gray()'],['../structpng__color__8__struct.html#a574edc173d956cca144927262e88653e',1,'png_color_8_struct::gray()']]],
+  ['green',['green',['../structpng__color__struct.html#ada9b5a911b185eaf7c6b87934e9f11ce',1,'png_color_struct::green()'],['../structpng__color__16__struct.html#af01259ffd46c78eff9b1ad584a295126',1,'png_color_16_struct::green()'],['../structpng__color__8__struct.html#a40d053224177df35c037525b39563b05',1,'png_color_8_struct::green()'],['../structpng__s_p_l_t__entry__struct.html#a3b4269fb63b4087bd618a6741b805554',1,'png_sPLT_entry_struct::green()']]],
+  ['gz_5fheader_5fs',['gz_header_s',['../structgz__header__s.html',1,'']]],
+  ['gzfile_5fs',['gzFile_s',['../structgz_file__s.html',1,'']]]
 ];

@@ -27,10 +27,24 @@ namespace K_Graphics {
 
 	bool Texture::LoadImage(const std::string& fileName) {
 		K_Loader::ImageLoader loader;
-		if (!loader.LoadTGAImage(fileName, this->textureID, this->width, this->height)) {
+		int pos = (int)fileName.rfind(".");
+		if (pos == (int)fileName.npos) {
 			return false;
 		}
-		return true;
+
+		//拡張子から読み込みを判断
+		std::string ext = fileName.substr(pos + 1, 3);
+		bool result;
+		if (ext == "png" || ext == "PNG") {
+			result = loader.LoadPNGImage(fileName, this->textureID, this->width, this->height);
+		}
+		else if (ext == "tga" || ext == "TGA") {
+			result = loader.LoadTGAImage(fileName, this->textureID, this->width, this->height);
+		}
+		else {
+			result = false;
+		}
+		return result;
 	}
 
 	//画像データを渡す（空データも可能）

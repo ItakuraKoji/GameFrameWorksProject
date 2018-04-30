@@ -10,6 +10,7 @@ namespace K_Loader {
 		this->materialData = nullptr;
 		this->animationData = nullptr;
 		this->boneData = nullptr;
+		this->vertexData = nullptr;
 
 		this->loaded = false;
 	}
@@ -108,9 +109,6 @@ namespace K_Loader {
 		Vertex* vertex = nullptr;
 		PolygonTable* table = nullptr;
 		try {
-			//ポリゴン分だけ頂点を増やす
-			//mesh->SplitPoints();
-
 			this->numVertex = mesh->GetControlPointsCount();
 			this->numFace = mesh->GetPolygonCount();
 			this->numUV = mesh->GetTextureUVCount();
@@ -130,7 +128,7 @@ namespace K_Loader {
 
 			//ボーン
 			if (this->numUV > this->numVertex) {
-				PolygonTable *table = CreatePolygonTable(mesh, numVertex, numFace);
+				table = CreatePolygonTable(mesh, numVertex, numFace);
 			}
 			this->LoadBones(mesh, vertex, table);
 
@@ -196,8 +194,10 @@ namespace K_Loader {
 			buffer.numFace = numFace;
 			this->bufferData->Add(buffer);
 
+			delete[] table;
 			delete[] vertex;
 			delete[] this->vertexData;
+			this->vertexData = nullptr;
 		}
 		catch (std::string& eText) {
 			if (vertex) {
@@ -232,6 +232,10 @@ namespace K_Loader {
 		if (this->boneData != nullptr) {
 			delete this->boneData;
 			this->boneData = nullptr;
+		}
+		if (this->vertexData != nullptr) {
+			delete this->vertexData;
+			this->vertexData = nullptr;
 		}
 	}
 

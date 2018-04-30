@@ -41,6 +41,8 @@ var hierarchy =
     [ "K_Graphics::FontRenderer", "class_k___graphics_1_1_font_renderer.html", null ],
     [ "K_Graphics::Framebuffer", "class_k___graphics_1_1_framebuffer.html", null ],
     [ "K_Graphics::FrameBufferList", "class_k___graphics_1_1_frame_buffer_list.html", null ],
+    [ "gz_header_s", "structgz__header__s.html", null ],
+    [ "gzFile_s", "structgz_file__s.html", null ],
     [ "K_Loader::ImageLoader", "class_k___loader_1_1_image_loader.html", null ],
     [ "K_Input::InputClass", "class_k___input_1_1_input_class.html", null ],
     [ "K_Graphics::LightList", "class_k___graphics_1_1_light_list.html", null ],
@@ -52,6 +54,16 @@ var hierarchy =
     [ "K_Graphics::ModelDataFactory", "class_k___graphics_1_1_model_data_factory.html", null ],
     [ "K_Graphics::ModelDatas", "struct_k___graphics_1_1_model_datas.html", null ],
     [ "K_Input::MouseState", "struct_k___input_1_1_mouse_state.html", null ],
+    [ "png_color_16_struct", "structpng__color__16__struct.html", null ],
+    [ "png_color_8_struct", "structpng__color__8__struct.html", null ],
+    [ "png_color_struct", "structpng__color__struct.html", null ],
+    [ "png_image", "structpng__image.html", null ],
+    [ "png_row_info_struct", "structpng__row__info__struct.html", null ],
+    [ "png_sPLT_entry_struct", "structpng__s_p_l_t__entry__struct.html", null ],
+    [ "png_sPLT_struct", "structpng__s_p_l_t__struct.html", null ],
+    [ "png_text_struct", "structpng__text__struct.html", null ],
+    [ "png_time_struct", "structpng__time__struct.html", null ],
+    [ "png_unknown_chunk_t", "structpng__unknown__chunk__t.html", null ],
     [ "K_Physics::MapPolygon::PolygonData", "struct_k___physics_1_1_map_polygon_1_1_polygon_data.html", null ],
     [ "K_Physics::MapPolygon::PolygonType", "struct_k___physics_1_1_map_polygon_1_1_polygon_type.html", null ],
     [ "K_Graphics::ShaderClass", "class_k___graphics_1_1_shader_class.html", null ],
@@ -65,5 +77,6 @@ var hierarchy =
     [ "K_Graphics::TextureList", "class_k___graphics_1_1_texture_list.html", null ],
     [ "K_Graphics::VertexBuffer", "struct_k___graphics_1_1_vertex_buffer.html", null ],
     [ "K_Graphics::VertexData", "class_k___graphics_1_1_vertex_data.html", null ],
-    [ "K_Input::VirtualGamePad", "class_k___input_1_1_virtual_game_pad.html", null ]
+    [ "K_Input::VirtualGamePad", "class_k___input_1_1_virtual_game_pad.html", null ],
+    [ "z_stream_s", "structz__stream__s.html", null ]
 ];

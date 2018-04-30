@@ -9,7 +9,7 @@
 
 namespace K_Physics {
 
-	///@brief 判定用モデルのポリゴン情報を持つクラス、描画は一切できない。行列による回転にも対応していない
+	//!@brief 判定用モデルのポリゴン情報を持つクラス、描画は一切できない。行列による回転にも対応していない
 	class MapPolygon {
 	public:
 		//struct PolygonType{
@@ -35,14 +35,14 @@ namespace K_Physics {
 		~MapPolygon();
 		bool Initialize();
 		void Finalize();
-		///@brief FBX読み込み
-		///@param[in] filename ファイルのパス
-		///@return 成功するとtrue
+		//!@brief FBX読み込み
+		//!@param[in] filename ファイルのパス
+		//!@return 成功するとtrue
 		bool LoadModel(const char *filename);
-		///@brief 読み込んだデータをもとに地形コリジョンを作成
-		///@param[in] physics コリジョンを管理する物理クラスへのポインタ
+		//!@brief 読み込んだデータをもとに地形コリジョンを作成
+		//!@param[in] physics コリジョンを管理する物理クラスへのポインタ
 		void setCollisionWorld(BulletPhysics *physics, int mask);
-		///@return 読み込んだモデルのポリゴン数
+		//!@return 読み込んだモデルのポリゴン数
 		int GetNumFace();
 
 	private:

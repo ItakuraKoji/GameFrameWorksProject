@@ -31,6 +31,7 @@ namespace K_Input {
 		}
 		VirtualGamePad* pad = new VirtualGamePad(padID, this->windowHandle);
 		this->gamePad[padID] = pad;
+		return true;
 	}
 
 	VirtualGamePad* InputClass::GetPad(VpadIndex padID) {
