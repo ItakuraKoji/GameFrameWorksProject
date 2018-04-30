@@ -43,7 +43,6 @@ var hierarchy =
     [ "K_Graphics::FrameBufferList", "class_k___graphics_1_1_frame_buffer_list.html", null ],
     [ "K_Loader::ImageLoader", "class_k___loader_1_1_image_loader.html", null ],
     [ "K_Input::InputClass", "class_k___input_1_1_input_class.html", null ],
-    [ "K_Input::InputGLFW", "class_k___input_1_1_input_g_l_f_w.html", null ],
     [ "K_Graphics::LightList", "class_k___graphics_1_1_light_list.html", null ],
     [ "K_Physics::MapPolygon", "class_k___physics_1_1_map_polygon.html", null ],
     [ "K_Graphics::Material", "struct_k___graphics_1_1_material.html", null ],
