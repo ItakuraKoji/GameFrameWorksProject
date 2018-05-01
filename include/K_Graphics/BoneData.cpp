@@ -25,7 +25,7 @@ namespace K_Graphics {
 		}
 
 		int numBone = (int)this->boneData[arrayIndex].size();
-		float mat[16 * 120] = {};
+		K_Math::Matrix4x4 mat[120];
 
 		for (int i = 0; i < numBone; ++i) {
 			int matIndex = i * 16;
@@ -33,15 +33,11 @@ namespace K_Graphics {
 			if (this->interporationMaxCount) {
 				BoneInterporation(arrayIndex, i, this->interporationCount / this->interporationMaxCount);
 			}
-
-			K_Math::Matrix4x4 boneMat = CalculateBoneMatrix(arrayIndex, i);
-			for (int k = 0; k < 16; ++k) {
-				mat[matIndex + k] = boneMat(k);
-			}
+			CalculateBoneMatrix(mat[i], arrayIndex, i);
 		}
 
 		GLuint tex = texture->GetTextureID();
-		texture->SetImageData(mat, numBone * 4, 1, TextureType::Float, TextureColorType::RGBA32F, TextureColorType::RGBA);
+		texture->SetImageData(mat->data(), numBone * 4, 1, TextureType::Float, TextureColorType::RGBA32F, TextureColorType::RGBA);
 	}
 
 	void BoneData::SetClurrentBoneData(int arrayIndex, int time) {
@@ -52,15 +48,12 @@ namespace K_Graphics {
 
 		int numBone = (int)this->boneData[arrayIndex].size();
 		for (int k = 0; k < numBone; ++k) {
-			FbxAMatrix mat;
-			K_Math::Matrix4x4 currentBone;
-			mat = this->boneData[arrayIndex][k].cluster->GetLink()->EvaluateGlobalTransform(fbxTime);
+			FbxAMatrix& mat = this->boneData[arrayIndex][k].cluster->GetLink()->EvaluateGlobalTransform(fbxTime);
 			for (int x = 0; x < 4; ++x) {
 				for (int y = 0; y < 4; ++y) {
-					currentBone(x, y) = (float)mat.Get(y, x);
+					this->boneData[arrayIndex][k].currentMat(x, y) = (float)mat.Get(y, x);
 				}
 			}
-			this->boneData[arrayIndex][k].currentMat = currentBone;
 		}
 	}
 
@@ -132,7 +125,7 @@ namespace K_Graphics {
 		this->boneData[arrayIndex][boneIndex].currentMat = resultMat;
 	}
 
-	K_Math::Matrix4x4 BoneData::CalculateBoneMatrix(int arrayIndex, int boneIndex) {
+	void BoneData::CalculateBoneMatrix(K_Math::Matrix4x4& resultMat, int arrayIndex, int boneIndex) {
 		K_Math::Matrix4x4 bind = this->boneData[arrayIndex][boneIndex].bindMat.inverse();
 		K_Math::Matrix4x4 current = this->boneData[arrayIndex][boneIndex].currentMat;
 		//blenderの出力ではボーンは軸情報に従わないので補正(180度Y軸回転　→　90度X軸回転)
@@ -140,7 +133,7 @@ namespace K_Graphics {
 		K_Math::Matrix4x4 mat = K_Math::Matrix4x4::Identity();
 		mat.block(0, 0, 3, 3) = rot;
 
-		return current * bind * mat;
+		resultMat = current * bind * mat;
 	}
 
 }

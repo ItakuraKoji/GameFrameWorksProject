@@ -8,13 +8,12 @@ namespace K_Physics {
 	CollisionData::CollisionData(btCollisionObject* obj, int mask, CollisionTag tag) : collision(obj), mask(mask), tag(tag) {
 	}
 	void CollisionData::SetCollisionPosition(const K_Math::Vector3& position) {
-		btTransform trans = this->collision->getWorldTransform();
+		btTransform& trans = this->collision->getWorldTransform();
 		trans.setOrigin(btVector3(position.x(), position.y(), position.z()));
-		this->collision->setWorldTransform(trans);
 	}
 
 	K_Math::Vector3 CollisionData::GetCollisionPosition(){
-		btVector3 pos = this->collision->getWorldTransform().getOrigin();
+		btVector3& pos = this->collision->getWorldTransform().getOrigin();
 		return K_Math::Vector3(pos.x(), pos.y(), pos.z());
 	}
 

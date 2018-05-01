@@ -116,7 +116,7 @@ namespace K_Graphics {
 		int GetNumBone(int hierarchyIndex);
 
 	private:
-		K_Math::Matrix4x4 CalculateBoneMatrix(int hierarchyIndex, int boneIndex);
+		void CalculateBoneMatrix(K_Math::Matrix4x4& resultMat, int hierarchyIndex, int boneIndex);
 		void BoneInterporation(int hierarchyIndex, int boneIndex, float ratio);
 
 	private:

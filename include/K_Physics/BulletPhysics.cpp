@@ -315,9 +315,8 @@ namespace K_Physics {
 	}
 
 	void BulletPhysics::MoveCollisionObject(btCollisionObject* obj, const btVector3& moveVector) {
-		btTransform trans = obj->getWorldTransform();
+		btTransform& trans = obj->getWorldTransform();
 		trans.setOrigin(trans.getOrigin() + moveVector);
-		obj->setWorldTransform(trans);
 	}
 
 	void BulletPhysics::MoveDiscrete(btCollisionObject* obj, const btVector3& moveVector, bool limitDirection) {
@@ -353,7 +352,7 @@ namespace K_Physics {
 		}
 
 		//移動一回目
-		btVector3 prevPos = obj->getWorldTransform().getOrigin();
+		btVector3& prevPos = obj->getWorldTransform().getOrigin();
 		btVector3 normal = MoveBySweep(obj, moveVector, limitDirection);
 
 		//壁ずりを作る角度かを確認
@@ -384,7 +383,7 @@ namespace K_Physics {
 		btConvexShape* shape = (btConvexShape*)obj->getCollisionShape();
 
 
-		btTransform from = obj->getWorldTransform();
+		btTransform& from = obj->getWorldTransform();
 		btTransform to = from;
 		to.setOrigin(to.getOrigin() + moveVector);
 
@@ -396,7 +395,6 @@ namespace K_Physics {
 		if (convex_cb.hasHit()) {
 			btVector3 objPos;
 			objPos.setZero();
-			obj->setWorldTransform(to);
 			objPos.setInterpolate3(from.getOrigin(), to.getOrigin(), convex_cb.m_closestHitFraction);
 			objPos -= moveVector.normalized() * allowDistance;
 			to.setOrigin(objPos);
@@ -404,7 +402,7 @@ namespace K_Physics {
 		obj->setWorldTransform(to);
 
 		//一番深くめり込んだものの法線方向へ押し出し
-		btVector3 prevPos = obj->getWorldTransform().getOrigin();
+		btVector3& prevPos = obj->getWorldTransform().getOrigin();
 		btVector3 resultPos = prevPos;
 
 		//指定回数押し出す(今は8回)
