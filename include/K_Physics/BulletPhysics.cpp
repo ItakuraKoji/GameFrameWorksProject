@@ -142,7 +142,7 @@ namespace K_Physics {
 	}
 
 	//„‘Ìì¬
-	RigidBodyData* BulletPhysics::CreateRigidBody(btCollisionShape* shape, btScalar mass, bool ghost, int mask, const K_Math::Vector3& pos, const K_Math::Vector3& rot) {
+	RigidBodyData* BulletPhysics::CreateRigidBody(btCollisionShape* shape, btScalar mass, bool ghost, int myselfMask, int giveMask, const K_Math::Vector3& pos, const K_Math::Vector3& rot) {
 		btTransform trans;
 		trans.setIdentity();
 		trans.setOrigin(btVector3(pos.x(), pos.y(), pos.z()));
@@ -163,15 +163,15 @@ namespace K_Physics {
 			rigid->setCollisionFlags(rigid->getCollisionFlags() & !btCollisionObject::CF_NO_CONTACT_RESPONSE);
 		}
 
-		this->bulletWorld->addRigidBody(rigid, 1, mask);
+		this->bulletWorld->addRigidBody(rigid, 1, giveMask);
 		CollisionTag tag = { "default", 0, nullptr };
-		RigidBodyData* colData = new RigidBodyData(rigid, mask, tag);
+		RigidBodyData* colData = new RigidBodyData(rigid, myselfMask, giveMask, tag);
 		rigid->setUserPointer(colData);
 		return colData;
 	}
 
 	//ƒRƒŠƒWƒ‡ƒ“ì¬
-	CollisionData* BulletPhysics::CreateCollisionObject(btCollisionShape* shape, bool ghost, int mask, const K_Math::Vector3& pos, const K_Math::Vector3& rot) {
+	CollisionData* BulletPhysics::CreateCollisionObject(btCollisionShape* shape, bool ghost, int myselfMask, int giveMask, const K_Math::Vector3& pos, const K_Math::Vector3& rot) {
 		btTransform trans;
 		trans.setIdentity();
 		trans.setOrigin(btVector3(pos.x(), pos.y(), pos.z()));
@@ -187,10 +187,10 @@ namespace K_Physics {
 			collision->setCollisionFlags(collision->getCollisionFlags() & !btCollisionObject::CF_NO_CONTACT_RESPONSE);
 		}
 		collision->setWorldTransform(trans);
-		this->bulletWorld->addCollisionObject(collision, 1, mask);
+		this->bulletWorld->addCollisionObject(collision, 1, giveMask);
 
 		CollisionTag tag = { "default", 0, nullptr };
-		CollisionData* colData = new CollisionData(collision, mask, tag);
+		CollisionData* colData = new CollisionData(collision, myselfMask, giveMask, tag);
 		collision->setUserPointer(colData);
 		return colData;
 	}

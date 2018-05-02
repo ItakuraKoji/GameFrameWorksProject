@@ -113,8 +113,19 @@ void Sample3() {
 	//幅4.0f 高さ4.0f 奥行4.0f の直方体コリジョンの「形」を生成
 	btCollisionShape* shape = physics->CreateBoxShape(2.0f, 2.0f, 2.0f);
 	//生成した「形」でコリジョンや剛体をつくる(剛体には質量の情報が必要)
-	K_Physics::RigidBodyData* rigid     = physics->CreateRigidBody(shape, 1.0f, false, 1);
-	K_Physics::CollisionData* collision = physics->CreateCollisionObject(shape, false, 1);
+	//引数の後ろの方にある二つの数字は「ビットマスク」という衝突する対象をビット演算でフィルタリングするもの
+	//
+	//例：
+	//Collision(A)「myselfMask:(0010) giveMask:(1100)」
+	//Collision(B)「myselfMask:(0100) giveMask:(0000)」
+	//
+	//(A)と(B)の衝突は
+	//
+	//(A)は(B)に衝突しているか　→　「(A)myselfMask(0010) & (B)giveMask(0000) = (0000)」　なので「衝突していない」
+	//(B)は(A)に衝突しているか　→　「(B)myselfMask(0100) & (A)giveMask(1100) = (0100)」　なので「衝突している」
+
+	K_Physics::RigidBodyData* rigid = physics->CreateRigidBody(shape, 1.0f, false, 1, 1);
+	K_Physics::CollisionData* collision = physics->CreateCollisionObject(shape, false, 1, 1);
 
 	//コリジョンには情報を持たせることができる
 	K_Math::Vector3 data = K_Math::Vector3(1.0f, 0.0f, 1.0f);
@@ -139,8 +150,14 @@ void Sample3() {
 	(K_Math::Vector3*)tags[0]->userData;//K_Maeh::Vector3 data のアドレス値
 
 
-	//Run()によって物理シミュレーションを進める（物理によって剛体が動く）
+										//Run()によって物理シミュレーションを進める（物理によって剛体が動く）
 	physics->Run();
+
+	//デストラクタですべて解放されるが、このように明示的にコリジョンを消すこともできる
+	//当然ながら消した後は使わないこと
+	physics->RemoveCollision(&collision);
+	//形状情報も同様
+	physics->RemoveCollisionShape(&shape);
 
 	delete physics;
 }

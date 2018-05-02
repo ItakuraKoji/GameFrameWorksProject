@@ -1,5 +1,10 @@
 var NAVTREEINDEX2 =
 {
+"struct_k___graphics_1_1_font_generator_1_1_font_data.html#a95a1bfc9d1f370cd3f639355c73c86a0":[1,0,1,10,2,0],
+"struct_k___graphics_1_1_material.html":[1,0,1,15],
+"struct_k___graphics_1_1_material.html#a02507fae0e9ef3adb4006315e45f6a92":[1,0,1,15,1],
+"struct_k___graphics_1_1_material.html#a46639dd9cd5e4d0bc1f2c8937b9eb8a6":[1,0,1,15,3],
+"struct_k___graphics_1_1_material.html#a698ec57fe94a94db44737151d0796d4a":[1,0,1,15,6],
 "struct_k___graphics_1_1_material.html#a7dda4b3d5e5b22bafc4c51b8a898f85f":[1,0,1,15,8],
 "struct_k___graphics_1_1_material.html#a90c85b825fe0712b7a45574620de5b47":[1,0,1,15,0],
 "struct_k___graphics_1_1_material.html#aab8d503269eda94bf6e106ed1bdb8682":[1,0,1,15,4],

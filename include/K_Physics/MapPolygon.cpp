@@ -54,7 +54,7 @@ namespace K_Physics {
 	}
 
 	//bulletに地形の三角メッシュを剛体として追加
-	void MapPolygon::setCollisionWorld(BulletPhysics *physics, int mask) {
+	void MapPolygon::setCollisionWorld(BulletPhysics *physics, int myselfMask, int giveMask) {
 		std::vector<K_Math::Vector3> vectices;
 		for (int i = 0; i < this->m_numFace; ++i) {
 			for (int k = 0; k < 3; ++k) {
@@ -64,7 +64,7 @@ namespace K_Physics {
 
 		this->collisionMesh = physics->CreateTriangleMesh(vectices.data(), this->m_numFace);
 		btCollisionShape* collision = physics->CreateTriangleMeshShape(this->collisionMesh);
-		physics->CreateRigidBody(collision, 0.0f, false, mask, K_Math::Vector3(0.0f, 0.0f, 0.0f));
+		physics->CreateRigidBody(collision, 0.0f, false, myselfMask, giveMask, K_Math::Vector3(0.0f, 0.0f, 0.0f));
 		//physics->CreateCollisionObject(collision, false, mask, btVector3(0.0f, 0.0f, 0.0f));
 	}
 

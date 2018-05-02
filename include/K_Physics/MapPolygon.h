@@ -41,7 +41,7 @@ namespace K_Physics {
 		bool LoadModel(const char *filename);
 		//!@brief 読み込んだデータをもとに地形コリジョンを作成
 		//!@param[in] physics コリジョンを管理する物理クラスへのポインタ
-		void setCollisionWorld(BulletPhysics *physics, int mask);
+		void setCollisionWorld(BulletPhysics *physics, int myselfMask, int giveMask);
 		//!@return 読み込んだモデルのポリゴン数
 		int GetNumFace();
 

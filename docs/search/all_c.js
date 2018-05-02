@@ -2,7 +2,6 @@ var searchData=
 [
   ['m',['M',['../namespace_k___input.html#af62d80c77b12db01035e4b9aa27a09d6a69691c7bdcc3ce6d5d8a1361f22d04ac',1,'K_Input']]],
   ['mappolygon',['MapPolygon',['../class_k___physics_1_1_map_polygon.html',1,'K_Physics::MapPolygon'],['../class_k___physics_1_1_map_polygon.html#af64be549128b41d162dbddac6d7114ae',1,'K_Physics::MapPolygon::MapPolygon()']]],
-  ['mask',['mask',['../class_k___physics_1_1_collision_data.html#aa2ee40b89ec58f96dad15b78bf23af6f',1,'K_Physics::CollisionData']]],
   ['material',['Material',['../struct_k___graphics_1_1_material.html',1,'K_Graphics::Material'],['../struct_k___graphics_1_1_model_datas.html#a7534ee37fab0a8398884dd398dcd0532',1,'K_Graphics::ModelDatas::material()']]],
   ['materialdata',['MaterialData',['../class_k___graphics_1_1_material_data.html',1,'K_Graphics::MaterialData'],['../class_k___graphics_1_1_material_data.html#a2b33d7d9cd004446593d6f761348e030',1,'K_Graphics::MaterialData::MaterialData()']]],
   ['materialname',['materialName',['../struct_k___graphics_1_1_material.html#a46639dd9cd5e4d0bc1f2c8937b9eb8a6',1,'K_Graphics::Material']]],
@@ -30,5 +29,6 @@ var searchData=
   ['movecharacter',['MoveCharacter',['../class_k___physics_1_1_bullet_physics.html#a386d5ba9c55af79204681da52ced1c9c',1,'K_Physics::BulletPhysics']]],
   ['movecharacterdiscrete',['MoveCharacterDiscrete',['../class_k___physics_1_1_bullet_physics.html#a5b3f568b9865bbabbbb2824f06e94966',1,'K_Physics::BulletPhysics']]],
   ['msg',['msg',['../structz__stream__s.html#af116e1f45cb4399c0568b23b3e8b8c16',1,'z_stream_s']]],
-  ['myself',['myself',['../struct_k___physics_1_1_sweep_test_call_back.html#a54d36f38158c77a8aeca7aa015d255b5',1,'K_Physics::SweepTestCallBack']]]
+  ['myself',['myself',['../struct_k___physics_1_1_sweep_test_call_back.html#a54d36f38158c77a8aeca7aa015d255b5',1,'K_Physics::SweepTestCallBack']]],
+  ['myselfmask',['myselfMask',['../class_k___physics_1_1_collision_data.html#ad810afe2d3a74c322f4acc334a23b572',1,'K_Physics::CollisionData']]]
 ];

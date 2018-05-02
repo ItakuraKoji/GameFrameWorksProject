@@ -26,22 +26,32 @@ namespace K_Physics {
 	//!@brief コリジョンの移動機能を持つ、要はbulletのコリジョン情報を扱いやすくしたクラス
 	class CollisionData {
 	public:
-		CollisionData(btCollisionObject* obj, int mask, CollisionTag tag);
+		CollisionData(btCollisionObject* obj, int myselfMask, int giveMask, CollisionTag tag);
 		void SetCollisionPosition(const K_Math::Vector3& position);
 		K_Math::Vector3 GetCollisionPosition();
 		btCollisionObject* GetCollision();
 
+		void SetMyselfMask(int mask);
+		void SetGiveMask(int mask);
+
+		int GetMyselfMask();
+		int GetGiveMask();
+
 	public:
 		CollisionTag tag;
-		const int mask;
+		
 	protected:
 		btCollisionObject* const collision;
+		//!@brief 衝突判定時に「自分が」使うビットマスク
+		int myselfMask;
+		//!@brief 衝突判定時に「相手が」使うビットマスク
+		int giveMask;
 	};
 
 	//!@brief CollisionDataに加えて、物理系に必要な関数を追加した派生クラス
 	class RigidBodyData : public CollisionData {
 	public:
-		RigidBodyData(btRigidBody* obj, int mask, CollisionTag tag);
+		RigidBodyData(btRigidBody* obj, int myselfMask, int giveMask, CollisionTag tag);
 		void AddForce(const K_Math::Vector3& vector);
 		void Activate(bool frag = true);
 	};
@@ -102,14 +112,14 @@ namespace K_Physics {
 		//!@param[in] mask 衝突フィルタに使うビットマスク
 		//!@param[in] pos 剛体の初期位置（省略時はすべて０）
 		//!@param[in] rot 剛体の回転（省略時はすべて０）
-		RigidBodyData* CreateRigidBody(btCollisionShape* shape, btScalar mass, bool ghost, int mask, const K_Math::Vector3& pos = K_Math::Vector3(0, 0, 0), const K_Math::Vector3& rot = K_Math::Vector3(0, 0, 0));
+		RigidBodyData* CreateRigidBody(btCollisionShape* shape, btScalar mass, bool ghost, int myselfMask, int giveMask, const K_Math::Vector3& pos = K_Math::Vector3(0, 0, 0), const K_Math::Vector3& rot = K_Math::Vector3(0, 0, 0));
 		//!@brief コリジョンオブジェクトを作成し、ポインタを返す
 		//!@param[in] shape コリジョンの形状へのポインタ
 		//!@param[in] ghost コリジョンが剛体と衝突するかのフラグ（trueで剛体とは衝突しない）
 		//!@param[in] mask 衝突フィルタに使うビットマスク
 		//!@param[in] pos コリジョンの初期位置（省略時はすべて０）
 		//!@param[in] rot コリジョンの回転（省略時はすべて０）
-		CollisionData* CreateCollisionObject(btCollisionShape* shape, bool ghost, int mask, const K_Math::Vector3& pos = K_Math::Vector3(0, 0, 0), const K_Math::Vector3& rot = K_Math::Vector3(0, 0, 0));
+		CollisionData* CreateCollisionObject(btCollisionShape* shape, bool ghost, int myselfMask, int giveMask, const K_Math::Vector3& pos = K_Math::Vector3(0, 0, 0), const K_Math::Vector3& rot = K_Math::Vector3(0, 0, 0));
 
 		//!@brief 明示的に世界に登録している剛体を世界から外してからポインタをdeleteする\nこのクラスのデストラクタにてこの関数によって全て開放している
 		void RemoveCollision(CollisionData** rigidbody);

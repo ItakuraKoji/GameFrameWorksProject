@@ -22,7 +22,7 @@ namespace K_Physics {
 		//相手とマスクが合わない場合
 		CollisionData* data1 = (CollisionData*)this->myself->getUserPointer();
 		CollisionData* data2 = (CollisionData*)convexResult.m_hitCollisionObject->getUserPointer();
-		if (!(data1->mask & data2->mask)) {
+		if (!(data1->GetMyselfMask() & data2->GetGiveMask())) {
 			return btScalar(0.0f);
 		}
 		//衝突相手が自分自身の場合
@@ -55,7 +55,7 @@ namespace K_Physics {
 		//相手とマスクが合わない場合
 		CollisionData* data1 = (CollisionData*)this->obj->getUserPointer();
 		CollisionData* data2 = (CollisionData*)colObj1Wrap->getCollisionObject()->getUserPointer();
-		if (!(data1->mask & data2->mask)) {
+		if (!(data1->GetMyselfMask() & data2->GetGiveMask())) {
 			return btScalar(0.0f);
 		}
 		//衝突相手が自分自身の場合
@@ -89,7 +89,7 @@ namespace K_Physics {
 		CollisionData* data1 = (CollisionData*)colObj0Wrap->m_collisionObject->getUserPointer();
 		CollisionData* data2 = (CollisionData*)colObj1Wrap->m_collisionObject->getUserPointer();
 		//相手とマスクが合わない場合
-		if (!(data1->mask & data2->mask)) {
+		if (!(data1->GetMyselfMask() & data2->GetGiveMask())) {
 			return btScalar(0.0f);
 		}
 		if (data2) {
