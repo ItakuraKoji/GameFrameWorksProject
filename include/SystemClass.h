@@ -47,15 +47,16 @@ namespace K_System {
 	class SystemClass {
 	public:
 		//!Initialize()を呼ぶ
-		SystemClass(int windowWidth, int windowHeight, bool isFullScreen);
+		SystemClass(const std::string& windowName, int windowWidth, int windowHeight, bool isFullScreen);
 		//!Finalize()を呼ぶ
 		~SystemClass();
 		//!@brief 描画周りの初期化
+		//!@param[in] windowWidth 作成するウィンドウの名前
 		//!@param[in] windowWidth 作成するウィンドウの幅
 		//!@param[in] windowHeight 作成するウィンドウの高さ
 		//!@param[in] isFullScreen フルスクリーンにするか（ウィンドウのサイズが解像度になります）
 		//!@return 初期化に成功するとtrue
-		bool Initialize(int windowWidth, int windowHeight, bool isFullScreen);
+		bool Initialize(const std::string& windowName, int windowWidth, int windowHeight, bool isFullScreen);
 		//!@brief 終了処理、Initialize()の初めにも呼ばれている
 		void Finalize();
 		//!@brief ウィンドウイベントと入力の更新処理を行う

@@ -15,7 +15,7 @@ void Sample1() {
 	int windowWidth = 1280;
 	int windowHeight = 720;
 	bool isFullScreen = false;
-	K_System::SystemClass* system = new K_System::SystemClass(windowWidth, windowHeight, isFullScreen);
+	K_System::SystemClass* system = new K_System::SystemClass("WindowName", windowWidth, windowHeight, isFullScreen);
 
 	//メインループ
 	while (!system->IsSystemEnd()) {
@@ -30,7 +30,7 @@ void Sample1() {
 }
 
 
-//サンプルコード２：描画
+//サンプルコード２：描画(SystemClassのループ内に書く)
 void Sample2() {
 	//必要なのは「フレームバッファ」「シェーダー」「カメラ」「テクスチャ」「描画するモデルオブジェクト」
 
@@ -169,7 +169,7 @@ void Sample4() {
 	int windowWidth = 1280;
 	int windowHeight = 720;
 	bool isFullScreen = false;
-	K_System::SystemClass* system = new K_System::SystemClass(windowWidth, windowHeight, isFullScreen);
+	K_System::SystemClass* system = new K_System::SystemClass("WindowName", windowWidth, windowHeight, isFullScreen);
 
 	//システムから入力クラスを受け取る
 	K_Input::InputClass* input = system->GetInput();

@@ -11,11 +11,11 @@ namespace K_System {
 	////////
 	//public
 	////
-	SystemClass::SystemClass(int windowWidth, int windowHeight, bool isFullScreen) {
+	SystemClass::SystemClass(const std::string& windowName, int windowWidth, int windowHeight, bool isFullScreen) {
 		this->windowHandle = nullptr;
 		this->input = nullptr;
 
-		if (!Initialize(windowWidth, windowHeight, isFullScreen)) {
+		if (!Initialize(windowName, windowWidth, windowHeight, isFullScreen)) {
 			Finalize();
 			throw("system Initialize Failed");
 		}
@@ -24,7 +24,7 @@ namespace K_System {
 		Finalize();
 	}
 
-	bool SystemClass::Initialize(int windowWidth, int windowHeight, bool isFullScreen) {
+	bool SystemClass::Initialize(const std::string& windowName, int windowWidth, int windowHeight, bool isFullScreen) {
 		Finalize();
 
 		this->windowWidth = windowWidth;
@@ -33,7 +33,7 @@ namespace K_System {
 		this->windowClosed = false;
 		this->fps = 0.0f;
 
-		if (!this->CreateAppricationWindow("OpenGL", this->windowWidth, this->windowHeight, this->isFullScreen)) {
+		if (!this->CreateAppricationWindow(windowName.data(), this->windowWidth, this->windowHeight, this->isFullScreen)) {
 			return false;
 		}
 		if (!this->InitializeOpenGL()) {
