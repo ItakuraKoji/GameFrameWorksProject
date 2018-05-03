@@ -52,8 +52,8 @@ namespace K_Loader {
 			char descriptor;//画像デスクリプタ
 		};
 	public:
-		bool LoadTGAImage(const std::string& fileName, ImageData* result);
-		bool LoadPNGImage(const std::string& fileName, ImageData* result);
+		bool LoadTGAImage(const std::string& fileName, ImageData* result, bool xReverse = false, bool yReverse = false);
+		bool LoadPNGImage(const std::string& fileName, ImageData* result, bool xReverse = false, bool yReverse = false);
 
 	private:
 		void SetTgaData(unsigned char* data, unsigned char* src, int width, int height, int pixelDepth, bool xReverse, bool yReverse);

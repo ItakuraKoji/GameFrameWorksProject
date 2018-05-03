@@ -2,6 +2,8 @@ var searchData=
 [
   ['i',['I',['../namespace_k___input.html#af62d80c77b12db01035e4b9aa27a09d6add7536794b63bf90eccfd37f9b147d7f',1,'K_Input']]],
   ['ibos',['IBOs',['../struct_k___graphics_1_1_vertex_buffer.html#a3045b55024ba41ed3ae79986ba536b7c',1,'K_Graphics::VertexBuffer']]],
+  ['iconimage',['IconImage',['../struct_k___system_1_1_icon_image.html',1,'K_System']]],
+  ['image',['image',['../struct_k___system_1_1_icon_image.html#abf9e861ce495181f5e9bd2dd3d33b90b',1,'K_System::IconImage']]],
   ['imagedata',['ImageData',['../class_k___loader_1_1_image_data.html',1,'K_Loader::ImageData'],['../class_k___loader_1_1_image_data.html#add4238163bfc420c42992658173dd838',1,'K_Loader::ImageData::ImageData()']]],
   ['imageloader',['ImageLoader',['../class_k___loader_1_1_image_loader.html',1,'K_Loader']]],
   ['imagetype',['ImageType',['../class_k___loader_1_1_image_data.html#a5c2019813469dc565af4a484a826f568',1,'K_Loader::ImageData']]],

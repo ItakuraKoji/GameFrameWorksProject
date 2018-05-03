@@ -105,6 +105,25 @@ namespace K_System {
 		return this->input;
 	}
 
+	void SystemClass::HideWindow(bool flag) {
+		if (flag) {
+			glfwHideWindow(this->windowHandle);
+		}
+		else {
+			glfwShowWindow(this->windowHandle);
+		}
+	}
+	void SystemClass::SetIcon(IconImage *imageArray, int count) {
+		GLFWimage* image = new GLFWimage[count];
+		for (int i = 0; i < count; ++i) {
+			image[i].pixels = imageArray[i].image;
+			image[i].width = imageArray[i].width;
+			image[i].height = imageArray[i].height;
+		}
+		glfwSetWindowIcon(this->windowHandle, count, image);
+		delete[] image;
+	}
+
 	////////
 	//private
 	////

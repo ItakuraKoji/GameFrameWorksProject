@@ -39,6 +39,12 @@ namespace K_Math {}
 
 //!@brief 主にSystemClassを使い、アプリケーションの初期化を行う
 namespace K_System {
+	struct IconImage{
+		unsigned char* image;
+		int width;
+		int height;
+	};
+
 
 	//!
 	//!アプリケーションの動作を管理
@@ -69,15 +75,20 @@ namespace K_System {
 		//!@brief アプリの終了通知
 		//!@return ウィンドウが閉じられたり、Escキーが押下されたときにtrue
 		bool IsSystemEnd();
-		//!@brief アクセサー
 		//!@return ウィンドウの幅
 		int GetWindowWidth();
-		//!@brief アクセサー
 		//!@return ウィンドウの高さ
 		int GetWindowHeight();
-		//!@brief アクセサー
 		//!@return FramePerSecondの値
 		float GetFPS();
+
+		//!@brief ウィンドウを隠す
+		//!@param[in] flag trueで隠し、falseで出す
+		void HideWindow(bool flag);
+		//!@brief ウィンドウのアイコンを変える
+		//!@param[in] imageArray イメージ配列
+		//!@param[in] count 配列数
+		void SetIcon(IconImage *imageArray, int count);
 
 		//!@brief アクセサー
 		//!@return 入力クラスへのポインタ

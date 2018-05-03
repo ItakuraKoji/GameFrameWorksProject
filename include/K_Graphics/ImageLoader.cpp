@@ -6,7 +6,7 @@ namespace K_Loader {
 	//public
 	////
 	//TGAファイルを読み込み
-	bool ImageLoader::LoadTGAImage(const std::string& fileName, ImageData* result) {
+	bool ImageLoader::LoadTGAImage(const std::string& fileName, ImageData* result, bool xReverse, bool yReverse) {
 		std::ifstream file;
 
 		TGAHeader header;
@@ -65,7 +65,7 @@ namespace K_Loader {
 			delete[] temp;
 		}
 
-		SetTgaData(tgaImage, tgaPreImage, width, height, numColor, descriptor & 0x10, descriptor & 0x20);
+		SetTgaData(tgaImage, tgaPreImage, width, height, numColor, (descriptor & 0x10) != xReverse, (descriptor & 0x20) != yReverse);
 		file.close();
 
 		result->SetData(tgaImage, width, height, tgaColorFormat, numColor);
@@ -74,7 +74,7 @@ namespace K_Loader {
 	}
 
 
-	bool ImageLoader::LoadPNGImage(const std::string& fileName, ImageData* result) {
+	bool ImageLoader::LoadPNGImage(const std::string& fileName, ImageData* result, bool xReverse, bool yReverse) {
 		// png画像ファイルのロード
 		FILE* fp;
 		fopen_s(&fp, fileName.data(), "rb");
@@ -124,7 +124,7 @@ namespace K_Loader {
 		png_read_end(sp, ip);
 
 		//OpenGLだと画像の向きが違うので組み換え
-		SetTgaData((unsigned char*)pngImage, (unsigned char*)pngPreImage, width, height, numColor, true, true);
+		SetTgaData((unsigned char*)pngImage, (unsigned char*)pngPreImage, width, height, numColor, !xReverse, !yReverse);
 
 		png_destroy_read_struct(&sp, &ip, NULL);
 		fclose(fp);

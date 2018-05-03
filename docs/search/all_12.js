@@ -26,6 +26,7 @@ var searchData=
   ['setfont',['SetFont',['../class_k___graphics_1_1_font_generator.html#a012e42323f6a295173f63e9acfc82dfc',1,'K_Graphics::FontGenerator']]],
   ['setfragmentshadersubroutine',['SetFragmentShaderSubroutine',['../class_k___graphics_1_1_shader_class.html#a8c25bbb391c95061db4d593679c96933',1,'K_Graphics::ShaderClass']]],
   ['setgivemask',['SetGiveMask',['../class_k___physics_1_1_collision_data.html#a42359240db612fd61d22fd3fcbf1086e',1,'K_Physics::CollisionData']]],
+  ['seticon',['SetIcon',['../class_k___system_1_1_system_class.html#a5b2a2241bd0aa6f467b0f531f044125e',1,'K_System::SystemClass']]],
   ['setimagedata',['SetImageData',['../class_k___graphics_1_1_texture.html#a07e94ca2f5d93698ad168ac15e3cc2dd',1,'K_Graphics::Texture']]],
   ['setlight',['SetLight',['../class_k___graphics_1_1_ambient_light.html#af990cb426bd0af248fe2584b46cc6781',1,'K_Graphics::AmbientLight::SetLight()'],['../class_k___graphics_1_1_directional_light.html#a402ab2c96733b3213ee79ee43b8b421b',1,'K_Graphics::DirectionalLight::SetLight()']]],
   ['setmatrix',['SetMatrix',['../class_k___graphics_1_1_effect_class.html#ac23549936fee9b53059d94dfd0679413',1,'K_Graphics::EffectClass::SetMatrix()'],['../class_k___graphics_1_1_mesh_object.html#a29b665637b075b4839af390356c5bf3c',1,'K_Graphics::MeshObject::SetMatrix()'],['../class_k___graphics_1_1_sprite_object.html#a4c731f8c8e7b35f4f2661a3d9d203f69',1,'K_Graphics::SpriteObject::SetMatrix()'],['../class_k___graphics_1_1_shader_class.html#a8aa0f7eb6c2443df15d483653f9401e3',1,'K_Graphics::ShaderClass::SetMatrix()']]],
