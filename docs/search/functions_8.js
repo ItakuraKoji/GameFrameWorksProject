@@ -8,8 +8,8 @@ var searchData=
   ['loadfragmentshader',['LoadFragmentShader',['../class_k___graphics_1_1_shader_list.html#a5daf641dfbc9472b9fb37126cfad27c7',1,'K_Graphics::ShaderList']]],
   ['loadimage',['LoadImage',['../class_k___graphics_1_1_texture.html#a3f4839ab22e8a2e9aeb58ae49509f73d',1,'K_Graphics::Texture']]],
   ['loadmodel',['LoadModel',['../class_k___physics_1_1_map_polygon.html#a2d2b5c00e23782bf9b205b74b7458e1d',1,'K_Physics::MapPolygon']]],
-  ['loadpngimage',['LoadPNGImage',['../class_k___loader_1_1_image_loader.html#a78108a18430c2c624100c3a4c8f9f82f',1,'K_Loader::ImageLoader']]],
+  ['loadpngimage',['LoadPNGImage',['../class_k___loader_1_1_image_loader.html#ac3946a50b01202a079004975d14e4130',1,'K_Loader::ImageLoader']]],
   ['loadtexture',['LoadTexture',['../class_k___graphics_1_1_texture_list.html#ab743facbd1bda2b2bc665171bdb34b48',1,'K_Graphics::TextureList']]],
-  ['loadtgaimage',['LoadTGAImage',['../class_k___loader_1_1_image_loader.html#abb787c887f0beceafa2d7f77a7fbb39f',1,'K_Loader::ImageLoader']]],
+  ['loadtgaimage',['LoadTGAImage',['../class_k___loader_1_1_image_loader.html#a5f5167c90aa2ee2054363263fcd05234',1,'K_Loader::ImageLoader']]],
   ['loadvertexshader',['LoadVertexShader',['../class_k___graphics_1_1_shader_list.html#a5caa3b1fa44d6f4459e0471ead6c87e0',1,'K_Graphics::ShaderList']]]
 ];

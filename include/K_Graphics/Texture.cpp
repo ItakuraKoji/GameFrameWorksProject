@@ -32,18 +32,33 @@ namespace K_Graphics {
 			return false;
 		}
 
+		K_Loader::ImageData image;
 		//Šg’£q‚©‚ç“Ç‚İ‚İ‚ğ”»’f
 		std::string ext = fileName.substr(pos + 1, 3);
 		bool result;
 		if (ext == "png" || ext == "PNG") {
-			result = loader.LoadPNGImage(fileName, this->textureID, this->width, this->height);
+			result = loader.LoadPNGImage(fileName, &image);
 		}
 		else if (ext == "tga" || ext == "TGA") {
-			result = loader.LoadTGAImage(fileName, this->textureID, this->width, this->height);
+			result = loader.LoadTGAImage(fileName, &image);
 		}
 		else {
 			result = false;
 		}
+
+		glBindTexture(GL_TEXTURE_2D, this->textureID);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image.GetWidth(), image.GetHeight(), 0, image.GetType(), GL_UNSIGNED_BYTE, image.GetData());
+		//Šg‘åk¬‚Ì•âŠ®
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+		//‰æ‘œ‚ÌŠO‘¤‚Ì•`‰æ‚É‚Â‚¢‚Äİ’è
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+		//ƒ~ƒbƒvƒ}ƒbƒv‚ğì¬
+		glGenerateMipmap(GL_TEXTURE_2D);
+
+		this->width = image.GetWidth();
+		this->height = image.GetHeight();
 		return result;
 	}
 

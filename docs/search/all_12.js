@@ -17,6 +17,7 @@ var searchData=
   ['setcollisionworld',['setCollisionWorld',['../class_k___physics_1_1_map_polygon.html#a5dab854d80826e2150063a23914d984a',1,'K_Physics::MapPolygon']]],
   ['setcolor',['SetColor',['../class_k___graphics_1_1_ambient_light.html#a9843ba2af23cf26e2a924bb858452b0f',1,'K_Graphics::AmbientLight::SetColor()'],['../class_k___graphics_1_1_directional_light.html#a4fde47662dc631b7ae403272df4b8b41',1,'K_Graphics::DirectionalLight::SetColor()']]],
   ['setcullentfont',['SetCullentFont',['../class_k___graphics_1_1_font_renderer.html#afde212f8e56262e86ef01d12b2704dbd',1,'K_Graphics::FontRenderer']]],
+  ['setdata',['SetData',['../class_k___loader_1_1_image_data.html#ae78c8d1dc8b8c279b18e670896138d38',1,'K_Loader::ImageData']]],
   ['setdebugmode',['setDebugMode',['../class_k___physics_1_1bullet_debug_draw.html#a1502ab78aca04f7cae91532fb24a4875',1,'K_Physics::bulletDebugDraw']]],
   ['setdirection',['SetDirection',['../class_k___graphics_1_1_directional_light.html#a6efbacdc754be4209e5ddeb50fd7c3be',1,'K_Graphics::DirectionalLight']]],
   ['setdirectional',['SetDirectional',['../class_k___graphics_1_1_light_list.html#ab4aee7280e8658fefd8fca3fef66e4c0',1,'K_Graphics::LightList']]],

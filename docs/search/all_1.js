@@ -2,8 +2,8 @@ var searchData=
 [
   ['b',['B',['../namespace_k___input.html#af62d80c77b12db01035e4b9aa27a09d6a9d5ed678fe57bcca610140957afab571',1,'K_Input::B()'],['../namespace_k___input.html#ab1b3c957b1b7070e86ccd1a908f3a101a9d5ed678fe57bcca610140957afab571',1,'K_Input::B()']]],
   ['begindraw',['BeginDraw',['../class_k___graphics_1_1_frame_buffer_list.html#a2f45d6dd0bc044ebcbd2e2cd58b6786f',1,'K_Graphics::FrameBufferList::BeginDraw(const std::string &amp;name, float r, float g, float b, bool notDeleteDepthStencil=false)'],['../class_k___graphics_1_1_frame_buffer_list.html#aa850bab5299917ccd10a4f90439c733d',1,'K_Graphics::FrameBufferList::BeginDraw(int viewPortWidth, int viewPortHeight, float r, float g, float b, bool notDeleteDepthStencil=false)']]],
-  ['bgr',['BGR',['../namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a5982abbb33a2de38202a6a14430bfbd7',1,'K_Graphics']]],
-  ['bgra',['BGRA',['../namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955ad1ca23636fb9354fdba2dac99e77f1f9',1,'K_Graphics']]],
+  ['bgr',['BGR',['../class_k___loader_1_1_image_data.html#a5c2019813469dc565af4a484a826f568a2afd812693d0b87da581c7c3ca64b9d9',1,'K_Loader::ImageData::BGR()'],['../namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a5982abbb33a2de38202a6a14430bfbd7',1,'K_Graphics::BGR()']]],
+  ['bgra',['BGRA',['../class_k___loader_1_1_image_data.html#a5c2019813469dc565af4a484a826f568af90b79f7715fccd83c0e34509bcb2dd5',1,'K_Loader::ImageData::BGRA()'],['../namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955ad1ca23636fb9354fdba2dac99e77f1f9',1,'K_Graphics::BGRA()']]],
   ['bind',['Bind',['../class_k___graphics_1_1_framebuffer.html#afdbf1b4cf70c68149cd6c146d6a32687',1,'K_Graphics::Framebuffer']]],
   ['bindmat',['bindMat',['../struct_k___graphics_1_1_bone.html#a97cb7b7d9513a7fbc059fa57c7963383',1,'K_Graphics::Bone']]],
   ['bit_5fdepth',['bit_depth',['../structpng__row__info__struct.html#a6b14d5d0cc32f151c28c568cf1c1f82d',1,'png_row_info_struct']]],

@@ -5,14 +5,13 @@ namespace K_Loader {
 	////////
 	//public
 	////
-
 	//TGAファイルを読み込み
-	bool ImageLoader::LoadTGAImage(const std::string& fileName, GLuint TextureID, unsigned int &returnWidth, unsigned int &returnHeight) {
+	bool ImageLoader::LoadTGAImage(const std::string& fileName, ImageData* result) {
 		std::ifstream file;
 
 		TGAHeader header;
 		unsigned int numColor;
-		GLenum glColorFormat, tgaColorFormat;
+		ImageData::ImageType tgaColorFormat;
 
 
 		file.open(fileName, std::ios::binary | std::ios::in);
@@ -38,13 +37,11 @@ namespace K_Loader {
 		//深度情報から色のフォーマットを決定
 		if (bpp == 32) {
 			numColor = 4;
-			glColorFormat = GL_RGBA;
-			tgaColorFormat = GL_BGRA;
+			tgaColorFormat = ImageData::ImageType::BGRA;
 		}
 		else if (bpp == 24) {
 			numColor = 3;
-			glColorFormat = GL_RGBA;
-			tgaColorFormat = GL_BGR;
+			tgaColorFormat = ImageData::ImageType::BGR;
 		}
 		else {
 			file.close();
@@ -53,53 +50,31 @@ namespace K_Loader {
 
 		//配列サイズと配列のデータを設定
 		int imagesize = width * height * numColor;
-		char* tgaPreImage = new char[imagesize];
-		char* tgaImage = new char[imagesize];
+		unsigned char* tgaPreImage = new unsigned char[imagesize];
+		unsigned char* tgaImage = new unsigned char[imagesize];
 
 		file.seekg(idSize, std::ios::cur);
-		file.read(tgaPreImage, imagesize);
+		file.read((char*)tgaPreImage, imagesize);
 
 		//RLE圧縮RGBデータ
 		if (type == 10) {
 			//読み込んだデータをもとにデコードのデータでtgaPreImageのバッファを置き換える（元のデータはdelete）
-			char* temp = tgaPreImage;
-			tgaPreImage = new char[imagesize];
+			unsigned char* temp = tgaPreImage;
+			tgaPreImage = new unsigned char[imagesize];
 			DecodeRLEImage(tgaPreImage, temp, width, height, numColor);
 			delete[] temp;
 		}
 
 		SetTgaData(tgaImage, tgaPreImage, width, height, numColor, descriptor & 0x10, descriptor & 0x20);
-
 		file.close();
 
-		returnWidth = width;
-		returnHeight = height;
-
-		glBindTexture(GL_TEXTURE_2D, TextureID);
-		glTexImage2D(GL_TEXTURE_2D, 0, glColorFormat, width, height, 0, tgaColorFormat, GL_UNSIGNED_BYTE, tgaImage);
-
-		//範囲外の表示
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-
-		//拡大縮小時の補完
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-
-		//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-		//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-
-		//ミップマップを作成
-		glGenerateMipmap(GL_TEXTURE_2D);
-
+		result->SetData(tgaImage, width, height, tgaColorFormat, numColor);
 		delete[] tgaPreImage;
-		delete[] tgaImage;
-
 		return true;
 	}
 
 
-	bool ImageLoader::LoadPNGImage(const std::string& fileName, GLuint TextureID, unsigned int &returnWidth, unsigned int &returnHeight) {
+	bool ImageLoader::LoadPNGImage(const std::string& fileName, ImageData* result) {
 		// png画像ファイルのロード
 		FILE* fp;
 		fopen_s(&fp, fileName.data(), "rb");
@@ -118,10 +93,13 @@ namespace K_Loader {
 		png_get_IHDR(sp, ip, (png_uint_32*)&width, (png_uint_32*)&height, &depth, &colortype, &interlacetype, NULL, NULL);
 
 		//画像フォーマットが対応してなかったら帰る
+		ImageData::ImageType colorFormat;
 		if (colortype == PNG_COLOR_TYPE_RGBA) {
+			colorFormat = ImageData::ImageType::RGBA;
 			numColor = 4;
 		}
 		else if (colortype == PNG_COLOR_TYPE_RGB) {
+			colorFormat = ImageData::ImageType::RGB;
 			numColor = 3;
 		}
 		else {
@@ -146,31 +124,15 @@ namespace K_Loader {
 		png_read_end(sp, ip);
 
 		//OpenGLだと画像の向きが違うので組み換え
-		SetTgaData((char*)pngImage, (char*)pngPreImage, width, height, numColor, true, true);
+		SetTgaData((unsigned char*)pngImage, (unsigned char*)pngPreImage, width, height, numColor, true, true);
 
 		png_destroy_read_struct(&sp, &ip, NULL);
 		fclose(fp);
 
-		// テクスチャへの登録
-		glBindTexture(GL_TEXTURE_2D, TextureID);
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pngImage);
-		//範囲外の表示
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+		result->SetData(pngImage, width, height, colorFormat, numColor);
 
-		//拡大縮小時の補完
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-
-		//ミップマップを作成
-		glGenerateMipmap(GL_TEXTURE_2D);
-		
 		delete[] recv;
-		delete[] pngImage;
 		delete[] pngPreImage;
-
-		returnWidth = width;
-		returnHeight = height;
 		return true;
 	}
 
@@ -182,7 +144,7 @@ namespace K_Loader {
 
 
 	//TGA関連
-	void ImageLoader::SetTgaData(char* data, char* src, int width, int height, int numColor, bool xReverse, bool yReverse) {
+	void ImageLoader::SetTgaData(unsigned char* data, unsigned char* src, int width, int height, int numColor, bool xReverse, bool yReverse) {
 		int count = 0;
 		//X:右から左　Y:下から上　を正の方向とする
 		//XYに反転なし
@@ -232,7 +194,7 @@ namespace K_Loader {
 	}
 
 	//RLE圧縮を解凍する
-	void ImageLoader::DecodeRLEImage(char* data, char* src, int width, int height, int numColor) {
+	void ImageLoader::DecodeRLEImage(unsigned char* data, unsigned char* src, int width, int height, int numColor) {
 		int imageSize = width * height * numColor;
 		char* colorData = new char[numColor];
 		int count = 0;

@@ -15,6 +15,7 @@ var searchData=
   ['_7efontrenderer',['~FontRenderer',['../class_k___graphics_1_1_font_renderer.html#a0b3a9b0d7fa0e07342be6469e668b7cd',1,'K_Graphics::FontRenderer']]],
   ['_7eframebuffer',['~Framebuffer',['../class_k___graphics_1_1_framebuffer.html#ad3a492836b1ced0414f6b3aa4718097f',1,'K_Graphics::Framebuffer']]],
   ['_7eframebufferlist',['~FrameBufferList',['../class_k___graphics_1_1_frame_buffer_list.html#a0e7f1925dd1ae7b506cab0d023438552',1,'K_Graphics::FrameBufferList']]],
+  ['_7eimagedata',['~ImageData',['../class_k___loader_1_1_image_data.html#ae3e545d6fb80598f2c36f9f6215a7ad3',1,'K_Loader::ImageData']]],
   ['_7einputclass',['~InputClass',['../class_k___input_1_1_input_class.html#acf9e81aea0c011250af3d74cbb67098a',1,'K_Input::InputClass']]],
   ['_7elightlist',['~LightList',['../class_k___graphics_1_1_light_list.html#af8d54a762741383c985ca62175b11b55',1,'K_Graphics::LightList']]],
   ['_7emappolygon',['~MapPolygon',['../class_k___physics_1_1_map_polygon.html#a6d567c81fe82421013c75f23e11449ef',1,'K_Physics::MapPolygon']]],

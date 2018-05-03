@@ -1,8 +1,8 @@
 var searchData=
 [
   ['b',['B',['../namespace_k___input.html#af62d80c77b12db01035e4b9aa27a09d6a9d5ed678fe57bcca610140957afab571',1,'K_Input::B()'],['../namespace_k___input.html#ab1b3c957b1b7070e86ccd1a908f3a101a9d5ed678fe57bcca610140957afab571',1,'K_Input::B()']]],
-  ['bgr',['BGR',['../namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a5982abbb33a2de38202a6a14430bfbd7',1,'K_Graphics']]],
-  ['bgra',['BGRA',['../namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955ad1ca23636fb9354fdba2dac99e77f1f9',1,'K_Graphics']]],
+  ['bgr',['BGR',['../class_k___loader_1_1_image_data.html#a5c2019813469dc565af4a484a826f568a2afd812693d0b87da581c7c3ca64b9d9',1,'K_Loader::ImageData::BGR()'],['../namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a5982abbb33a2de38202a6a14430bfbd7',1,'K_Graphics::BGR()']]],
+  ['bgra',['BGRA',['../class_k___loader_1_1_image_data.html#a5c2019813469dc565af4a484a826f568af90b79f7715fccd83c0e34509bcb2dd5',1,'K_Loader::ImageData::BGRA()'],['../namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955ad1ca23636fb9354fdba2dac99e77f1f9',1,'K_Graphics::BGRA()']]],
   ['button0',['Button0',['../namespace_k___input.html#a0fad93a64181d6776849d43118c26902adf18fdbdb36feb48df7a2b683a732543',1,'K_Input']]],
   ['button1',['Button1',['../namespace_k___input.html#a0fad93a64181d6776849d43118c26902a6475a3746209a62a6ce6289a3741d07e',1,'K_Input']]],
   ['button10',['Button10',['../namespace_k___input.html#a0fad93a64181d6776849d43118c26902a3d3ef49f12a784286c545ad83aacf8ce',1,'K_Input']]],

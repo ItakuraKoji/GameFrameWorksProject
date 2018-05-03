@@ -6,7 +6,7 @@
 #include"K_Graphics\LightList.h"
 #include"K_Graphics\FrameBufferList.h"
 
-//2018/4/26 現在のサンプルコード
+//2018/5/3 現在のサンプルコード
 
 
 //サンプルコード１：初期化
@@ -15,7 +15,7 @@ void Sample1() {
 	int windowWidth = 1280;
 	int windowHeight = 720;
 	bool isFullScreen = false;
-	K_System::SystemClass* system = new K_System::SystemClass("WindowName", windowWidth, windowHeight, isFullScreen);
+	K_System::SystemClass* system = new K_System::SystemClass("hogehogeWindowName", windowWidth, windowHeight, isFullScreen);
 
 	//メインループ
 	while (!system->IsSystemEnd()) {
@@ -30,7 +30,7 @@ void Sample1() {
 }
 
 
-//サンプルコード２：描画(SystemClassのループ内に書く)
+//サンプルコード２：描画
 void Sample2() {
 	//必要なのは「フレームバッファ」「シェーダー」「カメラ」「テクスチャ」「描画するモデルオブジェクト」
 
@@ -162,14 +162,13 @@ void Sample3() {
 	delete physics;
 }
 
-
 //サンプルコード４：入力関連
 void Sample4() {
 	//まずはSystemClassを作る
 	int windowWidth = 1280;
 	int windowHeight = 720;
 	bool isFullScreen = false;
-	K_System::SystemClass* system = new K_System::SystemClass("WindowName", windowWidth, windowHeight, isFullScreen);
+	K_System::SystemClass* system = new K_System::SystemClass("hogehogeWindowName", windowWidth, windowHeight, isFullScreen);
 
 	//システムから入力クラスを受け取る
 	K_Input::InputClass* input = system->GetInput();
