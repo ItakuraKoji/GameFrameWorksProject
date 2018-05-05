@@ -65,7 +65,7 @@ namespace K_Loader {
 			delete[] temp;
 		}
 
-		SetTgaData(tgaImage, tgaPreImage, width, height, numColor, (descriptor & 0x10) != xReverse, (descriptor & 0x20) != yReverse);
+		SetTgaData(tgaImage, tgaPreImage, width, height, numColor, ((descriptor & 0x10) != 0) != xReverse, ((descriptor & 0x20) != 0) != yReverse);
 		file.close();
 
 		result->SetData(tgaImage, width, height, tgaColorFormat, numColor);
@@ -110,13 +110,13 @@ namespace K_Loader {
 
 
 		// メモリ領域確保
-		int rb = png_get_rowbytes(sp, ip);
+		int rb = (int)png_get_rowbytes(sp, ip);
 		//配列サイズと配列のデータを設定
 		png_bytep pngImage = new png_byte[height * rb];
 		png_bytep pngPreImage = new png_byte[height * rb];
 		png_bytepp recv = new png_bytep[height];
 
-		for (int i = 0; i < height; i++) {
+		for (unsigned int i = 0; i < height; i++) {
 			//一列ずつアドレスを入れて、のちにpng_readimage()にて読み込んでもらう
 			recv[i] = &pngPreImage[i * rb];
 		}

@@ -32,14 +32,23 @@ namespace K_Loader {
 			return false;
 		}
 
-		//ConvertMeshUV(this->fbxData->GetScene());
-
-		for (int i = 0; i < fileName.size() - 1; ++i) {
-			this->fileRoot[i] = fileName.data()[i];
-			if (fileName.data()[i] == '\\' || fileName.data()[i] == '/') {
-				this->fileRoot[i + 1] = '\0';
-				break;
+		//ファイルパスを記録して相対パスを作り出す("../は使えない")
+		{
+			int position = 0;
+			int loopMax = (int)fileName.size();
+			int i;
+			//後ろから数えて、パスを取得
+			for (i = loopMax - 1; i >= 0; --i) {
+				if (fileName.data()[i] == '\\' || fileName.data()[i] == '/') {
+					position = i + 1;
+					break;
+				}
 			}
+			//取得したパスまでの位置を実際に文字取得
+			for (i = 0; i < position; ++i) {
+				this->fileRoot[i] = fileName.data()[i];
+			}
+			this->fileRoot[i] = '\0';
 		}
 
 		FbxNode *rootNode = this->fbxData->GetScene()->GetRootNode();
