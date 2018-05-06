@@ -143,15 +143,26 @@ namespace K_Loader {
 
 			//UVベースで頂点を作り直す
 			VertexUVs uvMap;
-			int newNumVertex = CreateUVBaseVertex(mesh, uvMap);
-			this->vertexData = new Vertex[newNumVertex];
-			int count = 0;
-			for (int i = 0; i < uvMap.GetSize(); ++i) {
-				for (int j = 0; j < uvMap[i].uv.GetCount(); ++j) {
-					this->vertexData[count] = vertex[i];
-					this->vertexData[count].texcoord.x() = (float)uvMap[i].uv[j][0];
-					this->vertexData[count].texcoord.y() = (float)uvMap[i].uv[j][1];
-					++count;
+			int newNumVertex;
+
+			if (this->numUV) {
+				newNumVertex = CreateUVBaseVertex(mesh, uvMap);
+				this->vertexData = new Vertex[newNumVertex];
+				int count = 0;
+				for (int i = 0; i < uvMap.GetSize(); ++i) {
+					for (int j = 0; j < uvMap[i].uv.GetCount(); ++j) {
+						this->vertexData[count] = vertex[i];
+						this->vertexData[count].texcoord.x() = (float)uvMap[i].uv[j][0];
+						this->vertexData[count].texcoord.y() = (float)uvMap[i].uv[j][1];
+						++count;
+					}
+				}
+			}
+			else {
+				newNumVertex = this->numVertex;
+				this->vertexData = new Vertex[newNumVertex];
+				for (int i = 0; i < this->numVertex; ++i) {
+					this->vertexData[i] = vertex[i];
 				}
 			}
 
@@ -162,9 +173,6 @@ namespace K_Loader {
 			std::vector<GLuint> IBOs;
 			LoadMaterial(mesh, uvMap, material, IBOs);
 
-			if (this->numUV > this->numVertex) {
-				this->numVertex = numUV;
-			}
 			GLuint VBO;
 			glGenBuffers(1, &VBO);
 			glBindBuffer(GL_ARRAY_BUFFER, VBO);
@@ -203,7 +211,9 @@ namespace K_Loader {
 			buffer.numFace = numFace;
 			this->bufferData->Add(buffer);
 
-			delete[] table;
+			if (table) {
+				delete[] table;
+			}
 			delete[] vertex;
 			delete[] this->vertexData;
 			this->vertexData = nullptr;
@@ -277,10 +287,12 @@ namespace K_Loader {
 				//法線
 				FbxVector4 normal;
 				mesh->GetPolygonVertexNormal(i, p, normal);
-				vertex[vertexIndex].normal.x() = (float)normal[0];
-				vertex[vertexIndex].normal.y() = (float)normal[1];
-				vertex[vertexIndex].normal.z() = (float)normal[2];
-				vertex[vertexIndex].normal.normalize();
+				if (vertex[vertexIndex].normal.norm() == 0.0f) {
+					vertex[vertexIndex].normal.x() = (float)normal[0];
+					vertex[vertexIndex].normal.y() = (float)normal[1];
+					vertex[vertexIndex].normal.z() = (float)normal[2];
+					vertex[vertexIndex].normal.normalize();
+				}
 
 				//UV
 				if (!numUV) {
@@ -427,11 +439,14 @@ namespace K_Loader {
 						}
 						//判別用にUVを取得
 						FbxLayerElementUV* uv = mesh->GetLayer(0)->GetUVs();
-						int uvIndex = mesh->GetTextureUVIndex(k, p, FbxLayerElement::eTextureDiffuse);
-						FbxVector2 v2 = uv->GetDirectArray().GetAt(uvIndex);
-						int arrPos = vertexData[index].uv.Find(v2);
+						int arrPos = -1;
+						if (uv) {
+							int uvIndex = mesh->GetTextureUVIndex(k, p, FbxLayerElement::eTextureDiffuse);
+							FbxVector2 v2 = uv->GetDirectArray().GetAt(uvIndex);
+							arrPos = vertexData[index].uv.Find(v2);
+						}
 						if (arrPos == -1) {
-							//普通は通りえない
+							//UVを持たない場合はここを通る
 							pIndex[indexCount + p] = index;
 						}
 						else {
@@ -652,7 +667,15 @@ namespace K_Loader {
 			K_Graphics::AnimType anim;
 			auto start = take->mLocalTimeSpan.GetStart();
 			auto end = take->mLocalTimeSpan.GetStop();
-			anim.animName = take->mName.Buffer();
+			//なんかバイナリ形式だと「"bone|Action"」みたいになるので"bone|"の部分を取り除く
+			int position = 0;
+			for (int k = (int)take->mName.GetLen() - 1; k >= 0; --k) {
+				char c = take->mName.Buffer()[k];
+				if (take->mName.Buffer()[k] == '|') {
+					position = k + 1;
+				}
+			}
+			anim.animName = take->mName.Mid(position);
 			anim.animID = i;
 			anim.startTime = (int)(start.Get() / FbxTime::GetOneFrameValue(FbxTime::eFrames120));
 			anim.endTime = (int)(end.Get() / FbxTime::GetOneFrameValue(FbxTime::eFrames120));

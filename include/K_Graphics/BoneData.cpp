@@ -48,6 +48,7 @@ namespace K_Graphics {
 
 		int numBone = (int)this->boneData[arrayIndex].size();
 		for (int k = 0; k < numBone; ++k) {
+			this->boneData[arrayIndex][k].cluster;
 			FbxAMatrix& mat = this->boneData[arrayIndex][k].cluster->GetLink()->EvaluateGlobalTransform(fbxTime);
 			for (int x = 0; x < 4; ++x) {
 				for (int y = 0; y < 4; ++y) {
@@ -128,12 +129,7 @@ namespace K_Graphics {
 	void BoneData::CalculateBoneMatrix(K_Math::Matrix4x4& resultMat, int arrayIndex, int boneIndex) {
 		K_Math::Matrix4x4 bind = this->boneData[arrayIndex][boneIndex].bindMat.inverse();
 		K_Math::Matrix4x4 current = this->boneData[arrayIndex][boneIndex].currentMat;
-		//blenderの出力ではボーンは軸情報に従わないので補正(180度Y軸回転　→　90度X軸回転)
-		K_Math::Matrix3x3 rot = (K_Math::AngleAxis(K_Math::DegToRad(90), K_Math::Vector3(1.0f, 0.0f, 0.0f)) * K_Math::AngleAxis(K_Math::DegToRad(180), K_Math::Vector3(0.0f, 1.0f, 0.0f))).matrix();
-		K_Math::Matrix4x4 mat = K_Math::Matrix4x4::Identity();
-		mat.block(0, 0, 3, 3) = rot;
-
-		resultMat = current * bind * mat;
+		resultMat = current * bind;
 	}
 
 }

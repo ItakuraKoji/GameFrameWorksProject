@@ -27,6 +27,7 @@ namespace K_Graphics {
 	}
 
 	void AnimationData::Add(AnimType &animData) {
+
 		this->animList[animData.animName] = animData;
 	}
 
