@@ -63,11 +63,14 @@ namespace K_Physics {
 		}
 
 		this->collisionMesh = physics->CreateTriangleMesh(vectices.data(), this->m_numFace);
-		btCollisionShape* collision = physics->CreateTriangleMeshShape(this->collisionMesh);
-		physics->CreateRigidBody(collision, 0.0f, false, myselfMask, giveMask, K_Math::Vector3(0.0f, 0.0f, 0.0f));
-		//physics->CreateCollisionObject(collision, false, mask, btVector3(0.0f, 0.0f, 0.0f));
+		btCollisionShape* shape = physics->CreateTriangleMeshShape(this->collisionMesh);
+		this->rigid = physics->CreateRigidBody(shape, 0.0f, false, myselfMask, giveMask, K_Math::Vector3(0.0f, 0.0f, 0.0f));
+		this->rigid->SetCollisionRotation(K_Math::Vector3(K_Math::DegToRad(-90.0), 0.0f, 0.0f));
 	}
 
+	K_Physics::RigidBodyData* MapPolygon::GetRigidBody() {
+		return this->rigid;
+	}
 
 
 	////////

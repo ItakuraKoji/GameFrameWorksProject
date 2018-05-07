@@ -1,5 +1,8 @@
 var NAVTREEINDEX2 =
 {
+"struct_k___graphics_1_1_anim_type.html#a91f2b93fc91fe796af8f21b23f86f71a":[1,0,1,2,2],
+"struct_k___graphics_1_1_anim_type.html#a9237cfdcfb0a4c88b12fcda8c564e357":[1,0,1,2,1],
+"struct_k___graphics_1_1_anim_type.html#ae4b54d9628ffca188aafcfb3c150f667":[1,0,1,2,3],
 "struct_k___graphics_1_1_bone.html":[1,0,1,3],
 "struct_k___graphics_1_1_bone.html#a600aba5c378824041b5cd7a3ea218544":[1,0,1,3,1],
 "struct_k___graphics_1_1_bone.html#a817786fd242058e38092a5631470a962":[1,0,1,3,3],

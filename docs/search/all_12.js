@@ -14,6 +14,7 @@ var searchData=
   ['setbuttonconfig',['SetButtonConfig',['../class_k___input_1_1_virtual_game_pad.html#aeba31e2d25637ece04f6411cf77c7362',1,'K_Input::VirtualGamePad']]],
   ['setclurrentbonedata',['SetClurrentBoneData',['../class_k___graphics_1_1_bone_data.html#a17458060e674d60b32ad4a0a2789327f',1,'K_Graphics::BoneData']]],
   ['setcollisionposition',['SetCollisionPosition',['../class_k___physics_1_1_collision_data.html#affb7f66b30c1fed8314e02e96c821aa7',1,'K_Physics::CollisionData']]],
+  ['setcollisionrotation',['SetCollisionRotation',['../class_k___physics_1_1_collision_data.html#af389fc600fbd9b2d29337357a03ef3f0',1,'K_Physics::CollisionData']]],
   ['setcollisionworld',['setCollisionWorld',['../class_k___physics_1_1_map_polygon.html#a5dab854d80826e2150063a23914d984a',1,'K_Physics::MapPolygon']]],
   ['setcolor',['SetColor',['../class_k___graphics_1_1_ambient_light.html#a9843ba2af23cf26e2a924bb858452b0f',1,'K_Graphics::AmbientLight::SetColor()'],['../class_k___graphics_1_1_directional_light.html#a4fde47662dc631b7ae403272df4b8b41',1,'K_Graphics::DirectionalLight::SetColor()']]],
   ['setcullentfont',['SetCullentFont',['../class_k___graphics_1_1_font_renderer.html#afde212f8e56262e86ef01d12b2704dbd',1,'K_Graphics::FontRenderer']]],

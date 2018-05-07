@@ -44,6 +44,8 @@ namespace K_Physics {
 		void setCollisionWorld(BulletPhysics *physics, int myselfMask, int giveMask);
 		//!@return 読み込んだモデルのポリゴン数
 		int GetNumFace();
+		//!@return 剛体オブジェクトを取得
+		K_Physics::RigidBodyData* GetRigidBody();
 
 	private:
 		bool InitializeFBX(const char* filename);
@@ -59,5 +61,6 @@ namespace K_Physics {
 		FbxScene *mfbx_scene;
 
 		btTriangleMesh* collisionMesh;
+		K_Physics::RigidBodyData* rigid;
 	};
 }

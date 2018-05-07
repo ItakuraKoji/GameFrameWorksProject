@@ -28,7 +28,9 @@ namespace K_Physics {
 	public:
 		CollisionData(btCollisionObject* obj, int myselfMask, int giveMask, CollisionTag tag);
 		void SetCollisionPosition(const K_Math::Vector3& position);
+		void SetCollisionRotation(const K_Math::Vector3& rotation);
 		K_Math::Vector3 GetCollisionPosition();
+		K_Math::Vector3 GetCollisionRotation();
 		btCollisionObject* GetCollision();
 
 		void SetMyselfMask(int mask);

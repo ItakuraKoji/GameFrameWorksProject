@@ -34,6 +34,7 @@ namespace K_Loader {
 
 		//ファイルパスを記録して相対パスを作り出す("../は使えない")
 		{
+
 			int position = 0;
 			int loopMax = (int)fileName.size();
 			int i;

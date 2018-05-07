@@ -13,10 +13,24 @@ namespace K_Physics {
 		trans.setOrigin(btVector3(position.x(), position.y(), position.z()));
 	}
 
+	void CollisionData::SetCollisionRotation(const K_Math::Vector3& rotation) {
+		btTransform& trans = this->collision->getWorldTransform();
+		trans.setRotation(btQuaternion(rotation.y(), rotation.x(), rotation.z()));
+	}
+
+
 	K_Math::Vector3 CollisionData::GetCollisionPosition(){
 		btVector3& pos = this->collision->getWorldTransform().getOrigin();
 		return K_Math::Vector3(pos.x(), pos.y(), pos.z());
 	}
+
+	K_Math::Vector3 CollisionData::GetCollisionRotation() {
+		btQuaternion rot = this->collision->getWorldTransform().getRotation();
+		btScalar x, y, z;
+		rot.getEulerZYX(y, x, z);
+		return K_Math::Vector3(x, y, z);
+	}
+
 
 	btCollisionObject* CollisionData::GetCollision() {
 		return this->collision;
