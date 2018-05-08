@@ -56,7 +56,7 @@ namespace K_Loader {
 		bool LoadPNGImage(const std::string& fileName, ImageData* result, bool xReverse = false, bool yReverse = false);
 
 	private:
-		void SetTgaData(unsigned char* data, unsigned char* src, int width, int height, int pixelDepth, bool xReverse, bool yReverse);
+		void CreateReverseImage(unsigned char* data, unsigned char* src, int width, int height, int pixelDepth, bool xReverse, bool yReverse);
 		void DecodeRLEImage(unsigned char* data, unsigned char* src, int width, int height, int pixelDepth);
 	};
 }

@@ -65,7 +65,7 @@ namespace K_Loader {
 			delete[] temp;
 		}
 
-		SetTgaData(tgaImage, tgaPreImage, width, height, numColor, ((descriptor & 0x10) != 0) != xReverse, ((descriptor & 0x20) != 0) != yReverse);
+		CreateReverseImage(tgaImage, tgaPreImage, width, height, numColor, ((descriptor & 0x10) != 0) != xReverse, ((descriptor & 0x20) != 0) != yReverse);
 		file.close();
 
 		result->SetData(tgaImage, width, height, tgaColorFormat, numColor);
@@ -124,7 +124,7 @@ namespace K_Loader {
 		png_read_end(sp, ip);
 
 		//OpenGLだと画像の向きが違うので組み換え
-		SetTgaData((unsigned char*)pngImage, (unsigned char*)pngPreImage, width, height, numColor, !xReverse, !yReverse);
+		CreateReverseImage((unsigned char*)pngImage, (unsigned char*)pngPreImage, width, height, numColor, xReverse, !yReverse);
 
 		png_destroy_read_struct(&sp, &ip, NULL);
 		fclose(fp);
@@ -144,7 +144,7 @@ namespace K_Loader {
 
 
 	//TGA関連
-	void ImageLoader::SetTgaData(unsigned char* data, unsigned char* src, int width, int height, int numColor, bool xReverse, bool yReverse) {
+	void ImageLoader::CreateReverseImage(unsigned char* data, unsigned char* src, int width, int height, int numColor, bool xReverse, bool yReverse) {
 		int count = 0;
 		//X:右から左　Y:下から上　を正の方向とする
 		//XYに反転なし
@@ -200,7 +200,7 @@ namespace K_Loader {
 		int count = 0;
 		int srcOffset = 0;
 
-		while (count < imageSize) {
+		while (count < imageSize & srcOffset < imageSize) {
 			//生データかRLE圧縮データかを判別
 			int packet = src[srcOffset];
 			++srcOffset;
