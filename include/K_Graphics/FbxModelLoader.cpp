@@ -412,14 +412,12 @@ namespace K_Loader {
 				strcat_s(fileName, name);
 				strcat_s(fileName, ext);
 
-				if (strcmp(ext, ".tga") == 0) {
 
-					if (!this->textureList->LoadTexture(fileName, fileName)) {
-						throw("Texture Load Failed : " + std::string(fileName));
-					}
-					material[i].texture = this->textureList->GetTexture(fileName);
-					printf("Texture : %s\n", fileName);
+				if (!this->textureList->LoadTexture(fileName, fileName)) {
+					throw("Texture Load Failed : " + std::string(fileName));
 				}
+				material[i].texture = this->textureList->GetTexture(fileName);
+				printf("Texture : %s\n", fileName);
 			}
 
 			//インデックスバッファ

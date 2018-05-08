@@ -19,11 +19,6 @@ namespace K_Graphics {
 	}
 
 	void BoneData::SetMatrixTextureData(int arrayIndex, Texture *texture) {
-		++this->interporationCount;
-		if (this->interporationCount >= this->interporationMaxCount) {
-			this->interporationMaxCount = 0.0f;
-		}
-
 		int numBone = (int)this->boneData[arrayIndex].size();
 		K_Math::Matrix4x4 mat[120];
 
@@ -36,13 +31,12 @@ namespace K_Graphics {
 			CalculateBoneMatrix(mat[i], arrayIndex, i);
 		}
 
-		GLuint tex = texture->GetTextureID();
 		texture->SetImageData(mat->data(), numBone * 4, 1, TextureType::Float, TextureColorType::RGBA32F, TextureColorType::RGBA);
 	}
 
 	void BoneData::SetClurrentBoneData(int arrayIndex, int time) {
+		//60フレームのアニメーションを120として半分の速度での再生を可能にする
 		FbxTime fbxTime;
-		//60フレームのアニメーションを120として半分の速度での再生を可能にした
 		fbxTime.SetTime(0, 0, 0, time, 0, FbxTime::eFrames120);
 
 
@@ -68,6 +62,13 @@ namespace K_Graphics {
 		this->interporationMaxCount = (float)frameCount;
 	}
 
+	void BoneData::UpdateInterporation() {
+		++this->interporationCount;
+		if (this->interporationCount >= this->interporationMaxCount) {
+			this->interporationMaxCount = 0.0f;
+		}
+	}
+
 	int BoneData::GetNumBone(int arrayIndex) {
 		return (int)this->boneData[arrayIndex].size();
 	}
@@ -79,8 +80,8 @@ namespace K_Graphics {
 	////
 	void BoneData::BoneInterporation(int arrayIndex, int boneIndex, float ratio) {
 		//平行移動取り出し
-		K_Math::Vector3 translationA = this->boneData[arrayIndex][boneIndex].interPolationMat.block(0, 3, 3, 1);
-		K_Math::Vector3 translationB = this->boneData[arrayIndex][boneIndex].currentMat.block(0, 3, 3, 1);
+		const K_Math::Vector3& translationA = this->boneData[arrayIndex][boneIndex].interPolationMat.block(0, 3, 3, 1);
+		const K_Math::Vector3& translationB = this->boneData[arrayIndex][boneIndex].currentMat.block(0, 3, 3, 1);
 
 		//回転行列＆拡縮行列
 		K_Math::Matrix3x3 rotScaleA = this->boneData[arrayIndex][boneIndex].interPolationMat.block(0, 0, 3, 3);
@@ -108,9 +109,9 @@ namespace K_Graphics {
 		K_Math::Quaternion rotationA(rotScaleA);
 		K_Math::Quaternion rotationB(rotScaleB);
 
-		K_Math::Vector3 resultTrans = translationA * (1.0f - ratio) + translationB * ratio;
-		K_Math::Vector3 resultScale = scaleA * (1.0f - ratio) + scaleB * ratio;
-		K_Math::Quaternion resultRot = rotationA.slerp(ratio, rotationB);
+		const K_Math::Vector3& resultTrans = translationA * (1.0f - ratio) + translationB * ratio;
+		const K_Math::Vector3& resultScale = scaleA * (1.0f - ratio) + scaleB * ratio;
+		const K_Math::Quaternion& resultRot = rotationA.slerp(ratio, rotationB);
 
 		//SRT行列作成
 		K_Math::Matrix4x4 resultMat = K_Math::Matrix4x4::Identity();
@@ -119,6 +120,7 @@ namespace K_Graphics {
 		resultMat(2, 2) = resultScale.z();
 		K_Math::Matrix4x4 rotMat = K_Math::Matrix4x4::Identity();
 		rotMat.block(0, 0, 3, 3) = resultRot.matrix();
+
 		resultMat = resultMat * rotMat;
 		resultMat.block(0, 3, 3, 1) = resultTrans;
 
@@ -127,8 +129,8 @@ namespace K_Graphics {
 	}
 
 	void BoneData::CalculateBoneMatrix(K_Math::Matrix4x4& resultMat, int arrayIndex, int boneIndex) {
-		K_Math::Matrix4x4 bind = this->boneData[arrayIndex][boneIndex].bindMat.inverse();
-		K_Math::Matrix4x4 current = this->boneData[arrayIndex][boneIndex].currentMat;
+		const K_Math::Matrix4x4& bind = this->boneData[arrayIndex][boneIndex].bindMat.inverse();
+		const K_Math::Matrix4x4& current = this->boneData[arrayIndex][boneIndex].currentMat;
 		resultMat = current * bind;
 	}
 

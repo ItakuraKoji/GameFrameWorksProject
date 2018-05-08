@@ -83,6 +83,11 @@ namespace K_Graphics {
 			shader->SetVertexShaderSubroutine("CalcBoneMat");
 		}
 
+		//アニメーション補間をしているときは補間の時間を進める
+		if (this->data->bone != nullptr && !this->isBoneProcessed) {
+			this->data->bone->UpdateInterporation();
+		}
+
 		int numArray = this->data->vertexBuffer->GetNumBuffer();
 		for (int i = 0; i < numArray; ++i) {
 			if (this->data->bone != nullptr) {

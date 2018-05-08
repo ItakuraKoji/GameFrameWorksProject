@@ -113,6 +113,7 @@ namespace K_Graphics {
 		void SetClurrentBoneData(int hierarchyIndex, int time);
 		void SetMatrixTextureData(int hierarchyIndex, Texture* texture);
 		void StartInterporation(int frameCount);
+		void UpdateInterporation();
 		int GetNumBone(int hierarchyIndex);
 
 	private:

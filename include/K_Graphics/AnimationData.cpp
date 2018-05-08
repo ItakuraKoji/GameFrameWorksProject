@@ -55,6 +55,7 @@ namespace K_Graphics {
 
 		this->isLoop = loop;
 		this->isInterpolation = isInterpolation;
+
 	}
 
 	float AnimationData::GetCurrentAnimTime() {
