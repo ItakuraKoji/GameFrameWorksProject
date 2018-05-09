@@ -200,7 +200,7 @@ namespace K_Loader {
 		int count = 0;
 		int srcOffset = 0;
 
-		while (count < imageSize & srcOffset < imageSize) {
+		while (count < imageSize && srcOffset < imageSize) {
 			//生データかRLE圧縮データかを判別
 			int packet = src[srcOffset];
 			++srcOffset;

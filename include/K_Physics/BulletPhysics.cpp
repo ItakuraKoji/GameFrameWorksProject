@@ -163,7 +163,7 @@ namespace K_Physics {
 			rigid->setCollisionFlags(rigid->getCollisionFlags() & !btCollisionObject::CF_NO_CONTACT_RESPONSE);
 		}
 
-		this->bulletWorld->addRigidBody(rigid, 1, giveMask);
+		this->bulletWorld->addRigidBody(rigid, 1, myselfMask | giveMask);
 		CollisionTag tag = { "default", 0, nullptr };
 		RigidBodyData* colData = new RigidBodyData(rigid, myselfMask, giveMask, tag);
 		rigid->setUserPointer(colData);
@@ -187,7 +187,7 @@ namespace K_Physics {
 			collision->setCollisionFlags(collision->getCollisionFlags() & !btCollisionObject::CF_NO_CONTACT_RESPONSE);
 		}
 		collision->setWorldTransform(trans);
-		this->bulletWorld->addCollisionObject(collision, 1, giveMask);
+		this->bulletWorld->addCollisionObject(collision, 1, myselfMask | giveMask);
 
 		CollisionTag tag = { "default", 0, nullptr };
 		CollisionData* colData = new CollisionData(collision, myselfMask, giveMask, tag);

@@ -54,7 +54,7 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "class_k___graphics_1_1_shader_class.html#ad007e6356bf230f441fd39a5127b76d7",
-"struct_k___graphics_1_1_anim_type.html#a866adf75cd1f6cccc09424878a4f73df"
+"struct_k___graphics_1_1_anim_type.html"
 ];
 
 var SYNCONMSG = 'クリックで同期表示が無効になります';

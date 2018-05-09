@@ -6,8 +6,6 @@ namespace K_Physics {
 	//public
 	////
 	MapPolygon::MapPolygon() {
-		this->mfbx_manager = nullptr;
-		this->mfbx_scene = nullptr;
 		Initialize();
 	}
 	MapPolygon::~MapPolygon() {
@@ -16,20 +14,16 @@ namespace K_Physics {
 
 	//配列のゼロクリア
 	bool MapPolygon::Initialize() {
-		this->m_polygonStack.clear();
-		this->m_polygonStack.shrink_to_fit();
+		this->polygonStack.clear();
+		this->polygonStack.shrink_to_fit();
 		return true;
 	}
 	//解放
 	void MapPolygon::Finalize() {
-		for (auto it = this->m_polygonStack.begin(); it < this->m_polygonStack.end(); ++it) {
+		for (auto it = this->polygonStack.begin(); it < this->polygonStack.end(); ++it) {
 			delete[](*it).polygon;
 		}
-
-		if (this->mfbx_manager != nullptr) {
-			this->mfbx_manager->Destroy();
-			this->mfbx_manager = nullptr;
-		}
+		//こいつだけは自分で開放しないといけない
 		if (this->collisionMesh != nullptr) {
 			delete collisionMesh;
 			this->collisionMesh = nullptr;
@@ -37,33 +31,39 @@ namespace K_Physics {
 	}
 
 	bool MapPolygon::LoadModel(const char *filename) {
-		if (!InitializeFBX(filename)) {
+		FbxManager* manager = nullptr;
+		FbxScene* scene = nullptr;
+		if (!InitializeFBX(&manager, &scene, filename)) {
+			FinalizeFBX(&manager);
 			return false;
 		}
 
-		if (!LoadFBXNodeRecursive(this->mfbx_scene->GetRootNode())) {
+		if (!LoadFBXNodeRecursive(scene->GetRootNode())) {
+			FinalizeFBX(&manager);
 			return false;
 		}
+
+		FinalizeFBX(&manager);
 		return true;
 	}
 
 
 	//ポリゴン数を獲得
 	int MapPolygon::GetNumFace() {
-		return m_numFace;
+		return numFace;
 	}
 
 	//bulletに地形の三角メッシュを剛体として追加
-	void MapPolygon::setCollisionWorld(BulletPhysics *physics, int myselfMask, int giveMask) {
+	void MapPolygon::SetCollisionWorld(BulletPhysics *physics, int myselfMask, int giveMask) {
 		std::vector<K_Math::Vector3> vectices;
-		for (int i = 0; i < this->m_numFace; ++i) {
+		for (int i = 0; i < this->numFace; ++i) {
 			for (int k = 0; k < 3; ++k) {
-				vectices.push_back(m_polygonStack[0].polygon[i].point[k]);
+				vectices.push_back(polygonStack[0].polygon[i].point[k]);
 			}
 		}
 
-		this->collisionMesh = physics->CreateTriangleMesh(vectices.data(), this->m_numFace);
-		btCollisionShape* shape = physics->CreateTriangleMeshShape(this->collisionMesh);
+		this->collisionMesh = physics->CreateTriangleMesh(vectices.data(), this->numFace);
+		this->shape = physics->CreateTriangleMeshShape(this->collisionMesh);
 		this->rigid = physics->CreateRigidBody(shape, 0.0f, false, myselfMask, giveMask, K_Math::Vector3(0.0f, 0.0f, 0.0f));
 		this->rigid->SetCollisionRotation(K_Math::Vector3(K_Math::DegToRad(-90.0), 0.0f, 0.0f));
 	}
@@ -72,38 +72,50 @@ namespace K_Physics {
 		return this->rigid;
 	}
 
+	void MapPolygon::SetScaling(const K_Math::Vector3& scale) {
+		this->shape->setLocalScaling(btVector3(scale.x(), scale.y(), scale.z()));
+	}
+
 
 	////////
 	//private
 	////
-	bool MapPolygon::InitializeFBX(const char* filename) {
+	bool MapPolygon::InitializeFBX(FbxManager** manager, FbxScene** scene, const char* filename) {
 		FbxImporter *importer;
-		mfbx_manager = FbxManager::Create();
-		if (mfbx_manager == nullptr) {
+		(*manager) = FbxManager::Create();
+		if ((*manager) == nullptr) {
 			return false;
 		}
-		importer = FbxImporter::Create(mfbx_manager, "");
+		importer = FbxImporter::Create((*manager), "");
 		if (importer == nullptr) {
 			return false;
 		}
-		mfbx_scene = FbxScene::Create(mfbx_manager, "");
-		if (mfbx_scene == nullptr) {
+		(*scene) = FbxScene::Create((*manager), "");
+		if (scene == nullptr) {
 			return false;
 		}
 		if (!importer->Initialize(filename)) {
 			return false;
 		}
-		if (!importer->Import(mfbx_scene)) {
+		if (!importer->Import((*scene))) {
 			return false;
 		}
 		//面を三角化、余計な面も取り除く
-		FbxGeometryConverter converter(mfbx_manager);
-		converter.Triangulate(mfbx_scene, true);
-		converter.RemoveBadPolygonsFromMeshes(mfbx_scene);
+		FbxGeometryConverter converter((*manager));
+		converter.Triangulate((*scene), true);
+		converter.RemoveBadPolygonsFromMeshes((*scene));
 		//インポーターはもういらない
 		importer->Destroy();
 		return true;
 	}
+
+	void MapPolygon::FinalizeFBX(FbxManager** manager) {
+		if ((*manager) != nullptr) {
+			(*manager)->Destroy();
+			(*manager) = nullptr;
+		}
+	}
+
 
 	bool MapPolygon::LoadFBXNodeRecursive(FbxNode *node) {
 		FbxNodeAttribute* attr;
@@ -159,8 +171,8 @@ namespace K_Physics {
 				data.polygon[i].point[k][2] = (float)pCoord[index][2];
 			}
 		}
-		m_polygonStack.push_back(data);
-		m_numFace = numFace;
+		polygonStack.push_back(data);
+		this->numFace = numFace;
 		return true;
 	}
 

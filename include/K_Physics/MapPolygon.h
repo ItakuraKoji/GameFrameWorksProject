@@ -41,26 +41,30 @@ namespace K_Physics {
 		bool LoadModel(const char *filename);
 		//!@brief 読み込んだデータをもとに地形コリジョンを作成
 		//!@param[in] physics コリジョンを管理する物理クラスへのポインタ
-		void setCollisionWorld(BulletPhysics *physics, int myselfMask, int giveMask);
+		void SetCollisionWorld(BulletPhysics *physics, int myselfMask, int giveMask);
+		//!@brief コリジョンを拡大
+		//!@param[in] scale 拡縮の倍率
+		void SetScaling(const K_Math::Vector3& scale);
 		//!@return 読み込んだモデルのポリゴン数
 		int GetNumFace();
 		//!@return 剛体オブジェクトを取得
 		K_Physics::RigidBodyData* GetRigidBody();
 
 	private:
-		bool InitializeFBX(const char* filename);
+		bool InitializeFBX(FbxManager** manager, FbxScene** scene, const char* filename);
+		void FinalizeFBX(FbxManager** manager);
 		bool LoadFBXNodeRecursive(FbxNode *node);
 		bool LoadFBX(FbxMesh *mesh);
 
+
 	private:
 		//判定用の頂点配列
-		std::vector<PolygonData> m_polygonStack;
+		std::vector<PolygonData> polygonStack;
 
-		int m_numFace;
-		FbxManager *mfbx_manager;
-		FbxScene *mfbx_scene;
+		int numFace;
 
 		btTriangleMesh* collisionMesh;
 		K_Physics::RigidBodyData* rigid;
+		K_Physics::CollisionShape* shape;
 	};
 }
