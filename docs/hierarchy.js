@@ -2,6 +2,7 @@ var hierarchy =
 [
     [ "K_Graphics::AmbientLight", "class_k___graphics_1_1_ambient_light.html", null ],
     [ "K_Graphics::AnimationData", "class_k___graphics_1_1_animation_data.html", null ],
+    [ "K_Graphics::AnimMatrix", "struct_k___graphics_1_1_anim_matrix.html", null ],
     [ "K_Graphics::AnimType", "struct_k___graphics_1_1_anim_type.html", null ],
     [ "K_Audio::AudioData", "class_k___audio_1_1_audio_data.html", [
       [ "K_Audio::OggData", "class_k___audio_1_1_ogg_data.html", null ],

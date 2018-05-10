@@ -18,7 +18,7 @@ namespace K_Graphics {
 
 	void AnimationData::UpdateAnimation() {
 		this->currentAnimTime += this->speed * 2.0f;
-		if (this->currentAnimTime > this->maxAnimTime) {
+		if (this->currentAnimTime >= this->maxAnimTime) {
 			if (this->isLoop) {
 				this->currentAnimTime = 0.0f;
 			}
@@ -36,7 +36,7 @@ namespace K_Graphics {
 	}
 
 	//アニメーションをセット
-	void AnimationData::SetAnimation(const std::string& animName, FbxScene *fbxScene, bool playOnce, bool isInterpolation, bool loop) {
+	void AnimationData::SetAnimation(const std::string& animName, bool playOnce, bool isInterpolation, bool loop) {
 		//キーが存在しないなら帰る
 		if (this->animList.find(animName) == this->animList.end()) {
 			return;
@@ -50,8 +50,6 @@ namespace K_Graphics {
 		this->currentAnimTime = 0;
 		this->currentAnimID = anim.animID;
 		this->maxAnimTime = anim.endTime - anim.startTime;
-		FbxAnimStack *pStack = fbxScene->GetSrcObject<FbxAnimStack>(this->currentAnimID);
-		fbxScene->SetCurrentAnimationStack(pStack);
 
 		this->isLoop = loop;
 		this->isInterpolation = isInterpolation;
@@ -60,6 +58,10 @@ namespace K_Graphics {
 
 	float AnimationData::GetCurrentAnimTime() {
 		return this->currentAnimTime;
+	}
+
+	int AnimationData::GetAnimationID() {
+		return this->currentAnimID;
 	}
 
 	bool AnimationData::IsStartInterpolation() {

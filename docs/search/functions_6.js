@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['getanimationid',['GetAnimationID',['../class_k___graphics_1_1_animation_data.html#aba37b5eb3d3ee3417c99604d58d1bf15',1,'K_Graphics::AnimationData']]],
   ['getaxisposition',['GetAxisPosition',['../class_k___input_1_1_virtual_game_pad.html#a9ee783ff7f2be1549c1e5c2718ce0d27',1,'K_Input::VirtualGamePad']]],
   ['getaxisx',['GetAxisX',['../class_k___graphics_1_1_camera_class.html#a7ed2ff417ce65d309fb37fdce4805ed1',1,'K_Graphics::CameraClass']]],
   ['getaxisy',['GetAxisY',['../class_k___graphics_1_1_camera_class.html#ad66d73d5ab556f074f5d8d082b040f49',1,'K_Graphics::CameraClass']]],
@@ -26,6 +27,7 @@ var searchData=
   ['getgivemask',['GetGiveMask',['../class_k___physics_1_1_collision_data.html#a249de393c2fdcc93d58b235da85f36df',1,'K_Physics::CollisionData']]],
   ['getheight',['GetHeight',['../class_k___graphics_1_1_framebuffer.html#aade734f04f110482729a7031f8b6301b',1,'K_Graphics::Framebuffer::GetHeight()'],['../class_k___loader_1_1_image_data.html#a85b21b49c7c49fa798e0d01b26583fea',1,'K_Loader::ImageData::GetHeight()'],['../class_k___graphics_1_1_texture.html#a6e7ba63d4782a62b055474945578fae9',1,'K_Graphics::Texture::GetHeight()']]],
   ['getibo',['GetIBO',['../class_k___graphics_1_1_vertex_data.html#a10180dd9a7b063a15a21eb3255aa5f4d',1,'K_Graphics::VertexData']]],
+  ['getinporter',['GetInporter',['../class_k___graphics_1_1_fbx_data.html#ab6fb145b2cadefe416cf8e9c241ea0eb',1,'K_Graphics::FbxData']]],
   ['getinput',['GetInput',['../class_k___system_1_1_system_class.html#ac0a92ee3670899123d05ed65a272cbb2',1,'K_System::SystemClass']]],
   ['getjoypadname',['GetJoyPadName',['../class_k___input_1_1_virtual_game_pad.html#a67c1d534efd77cdab618c5c3e553e28d',1,'K_Input::VirtualGamePad']]],
   ['getlooplength',['GetLoopLength',['../class_k___audio_1_1_audio_data.html#a6a713f8899e38fe53687466509e6bdd8',1,'K_Audio::AudioData']]],

@@ -2,6 +2,7 @@ var namespace_k___graphics =
 [
     [ "AmbientLight", "class_k___graphics_1_1_ambient_light.html", "class_k___graphics_1_1_ambient_light" ],
     [ "AnimationData", "class_k___graphics_1_1_animation_data.html", "class_k___graphics_1_1_animation_data" ],
+    [ "AnimMatrix", "struct_k___graphics_1_1_anim_matrix.html", "struct_k___graphics_1_1_anim_matrix" ],
     [ "AnimType", "struct_k___graphics_1_1_anim_type.html", "struct_k___graphics_1_1_anim_type" ],
     [ "Bone", "struct_k___graphics_1_1_bone.html", "struct_k___graphics_1_1_bone" ],
     [ "BoneData", "class_k___graphics_1_1_bone_data.html", "class_k___graphics_1_1_bone_data" ],

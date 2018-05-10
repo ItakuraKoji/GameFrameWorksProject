@@ -25,5 +25,8 @@ namespace K_Graphics {
 	FbxScene* FbxData::GetScene() {
 		return this->scene;
 	}
+	FbxImporter* FbxData::GetInporter() {
+		return this->importer;
+	}
 
 }

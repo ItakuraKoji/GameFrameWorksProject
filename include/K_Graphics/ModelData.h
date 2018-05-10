@@ -29,13 +29,23 @@ namespace K_Graphics {
 		int numMaterial;
 		int numFace;
 	};
+
+	struct AnimMatrix {
+		//フレーム数だけ配列を持っている
+		std::vector<std::vector<K_Math::Matrix4x4>> animMatrix;
+	};
 	struct Bone {
+		//アニメ数とフレーム数だけ配列を持っている
+		std::vector<std::vector<K_Math::Matrix4x4>> mat;
 		FbxCluster* cluster;
 		K_Math::Matrix4x4 bindMat;
 		K_Math::Matrix4x4 currentMat;
 		K_Math::Matrix4x4 interPolationMat;
 		EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 	};
+
+
+
 	struct AnimType {
 		std::string animName;
 		int animID;
@@ -88,8 +98,9 @@ namespace K_Graphics {
 		void UpdateAnimation();
 		void SetSpeed(float speed);
 		void Add(AnimType& animData);
-		void SetAnimation(const std::string& animName, FbxScene* fbxScene, bool playOnce, bool isInterpolation, bool loop);
+		void SetAnimation(const std::string& animName, bool playOnce, bool isInterpolation, bool loop);
 		float GetCurrentAnimTime();
+		int GetAnimationID();
 
 		//BoneDataにStartInterPolation()を通知する用
 		bool IsStartInterpolation();
@@ -110,7 +121,7 @@ namespace K_Graphics {
 		BoneData();
 		~BoneData();
 		void Add(std::vector<Bone>& boneData);
-		void SetClurrentBoneData(int hierarchyIndex, int time);
+		void SetClurrentBoneData(int hierarchyIndex, int animID, int time);
 		void SetMatrixTextureData(int hierarchyIndex, Texture* texture);
 		void StartInterporation(int frameCount);
 		void UpdateInterporation();
@@ -134,6 +145,7 @@ namespace K_Graphics {
 		~FbxData();
 		void Add(FbxManager* manager, FbxImporter* importer, FbxScene* scene);
 		FbxScene* GetScene();
+		FbxImporter* GetInporter();
 
 	private:
 		FbxManager * manager;
@@ -148,7 +160,7 @@ namespace K_Graphics {
 		~ModelDatas();
 
 	public:
-		FbxData*       fbxData;
+		//FbxData*       fbxData;
 		VertexData*    vertexBuffer;
 		MaterialData*  material;
 		BoneData*      bone;

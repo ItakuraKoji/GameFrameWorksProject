@@ -24,6 +24,7 @@ var searchData=
   ['animation',['animation',['../struct_k___graphics_1_1_model_datas.html#a2998f1b8e3bb0573ba89a91c73f5eb4e',1,'K_Graphics::ModelDatas']]],
   ['animationdata',['AnimationData',['../class_k___graphics_1_1_animation_data.html',1,'K_Graphics::AnimationData'],['../class_k___graphics_1_1_animation_data.html#a71e4f6d6b43f4d263d8f9c2ba0ac4b14',1,'K_Graphics::AnimationData::AnimationData()']]],
   ['animid',['animID',['../struct_k___graphics_1_1_anim_type.html#a866adf75cd1f6cccc09424878a4f73df',1,'K_Graphics::AnimType']]],
+  ['animmatrix',['AnimMatrix',['../struct_k___graphics_1_1_anim_matrix.html',1,'K_Graphics::AnimMatrix'],['../struct_k___graphics_1_1_anim_matrix.html#a9860dc54d7014c19cb9388c776f8c6c1',1,'K_Graphics::AnimMatrix::animMatrix()']]],
   ['animname',['animName',['../struct_k___graphics_1_1_anim_type.html#a9237cfdcfb0a4c88b12fcda8c564e357',1,'K_Graphics::AnimType']]],
   ['animtype',['AnimType',['../struct_k___graphics_1_1_anim_type.html',1,'K_Graphics']]],
   ['arrowdown',['ArrowDown',['../namespace_k___input.html#af62d80c77b12db01035e4b9aa27a09d6a49c46f6d84c8d55a8ab230f676c2454c',1,'K_Input']]],

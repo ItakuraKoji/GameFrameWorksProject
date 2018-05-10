@@ -56,6 +56,35 @@ namespace K_Loader {
 		if (!RecursiveNode(rootNode)) {
 			return false;
 		}
+
+
+
+		//アニメーション情報を取得、名前をキーにして保持
+		FbxImporter* importer = this->fbxData->GetInporter();
+		int numAnim = importer->GetAnimStackCount();
+		for (int i = 0; i < numAnim; ++i) {
+			//取得
+			FbxTakeInfo *take = importer->GetTakeInfo(i);
+			K_Graphics::AnimType anim;
+			auto start = take->mLocalTimeSpan.GetStart();
+			auto end = take->mLocalTimeSpan.GetStop();
+			//なんかバイナリ形式だと「"bone|Action"」みたいになるので"bone|"の部分を取り除く
+			int position = 0;
+			for (int k = (int)take->mName.GetLen() - 1; k >= 0; --k) {
+				char c = take->mName.Buffer()[k];
+				if (take->mName.Buffer()[k] == '|') {
+					position = k + 1;
+				}
+			}
+			anim.animName = take->mName.Mid(position);
+			anim.animID = i;
+			anim.startTime = (int)(start.Get() / FbxTime::GetOneFrameValue(FbxTime::eFrames120));
+			anim.endTime = (int)(end.Get() / FbxTime::GetOneFrameValue(FbxTime::eFrames120));
+
+			//追加
+			this->animationData->Add(anim);
+		}
+
 		this->loaded = true;
 		return true;
 	}
@@ -618,6 +647,9 @@ namespace K_Loader {
 				}
 			}
 		}
+		CalcCurrentBoneMatrix(bone);
+		//GetCurrentBoneMatrix(animMatrix, bone);
+
 		this->boneData->Add(bone);
 
 		return true;
@@ -658,31 +690,50 @@ namespace K_Loader {
 		converter.Triangulate(scene, true);
 		converter.RemoveBadPolygonsFromMeshes(scene);
 
-		//アニメーション情報を取得、名前をキーにして保持
-		int numAnim = importer->GetAnimStackCount();
-		for (int i = 0; i < numAnim; ++i) {
-			//取得
-			FbxTakeInfo *take = importer->GetTakeInfo(i);
-			K_Graphics::AnimType anim;
-			auto start = take->mLocalTimeSpan.GetStart();
-			auto end = take->mLocalTimeSpan.GetStop();
-			//なんかバイナリ形式だと「"bone|Action"」みたいになるので"bone|"の部分を取り除く
-			int position = 0;
-			for (int k = (int)take->mName.GetLen() - 1; k >= 0; --k) {
-				char c = take->mName.Buffer()[k];
-				if (take->mName.Buffer()[k] == '|') {
-					position = k + 1;
-				}
-			}
-			anim.animName = take->mName.Mid(position);
-			anim.animID = i;
-			anim.startTime = (int)(start.Get() / FbxTime::GetOneFrameValue(FbxTime::eFrames120));
-			anim.endTime = (int)(end.Get() / FbxTime::GetOneFrameValue(FbxTime::eFrames120));
-
-			//追加
-			this->animationData->Add(anim);
-		}
-
 		return true;
 	}
+
+	void FbxModelLoader::CalcCurrentBoneMatrix(std::vector<K_Graphics::Bone>& bone) {
+		//アニメーションごとにボーン行列を保存
+		FbxImporter* importer = this->fbxData->GetInporter();
+		int numAnim = importer->GetAnimStackCount();
+
+		for (int animID = 0; animID < numAnim; ++animID) {
+			//取得
+			FbxTakeInfo *take = importer->GetTakeInfo(animID);
+			auto start = take->mLocalTimeSpan.GetStart();
+			auto end = take->mLocalTimeSpan.GetStop();
+
+			int startTime = (int)(start.Get() / FbxTime::GetOneFrameValue(FbxTime::eFrames120));
+			int endTime = (int)(end.Get() / FbxTime::GetOneFrameValue(FbxTime::eFrames120));
+
+
+
+			//まず現在のアニメーションをセット
+			FbxAnimStack *pStack = this->fbxData->GetScene()->GetSrcObject<FbxAnimStack>(animID);
+			this->fbxData->GetScene()->SetCurrentAnimationStack(pStack);
+
+			//行列を1フレーム(60fps)ずつ取得
+			for (int time = startTime; time < endTime; ++time) {
+				FbxTime fbxTime;
+				fbxTime.SetTime(0, 0, 0, time, 0, FbxTime::eFrames120);
+
+				int numBone = (int)bone.size();
+				for (int k = 0; k < numBone; ++k) {
+					bone[k].mat.resize(numAnim);
+					bone[k].mat[animID].resize(endTime + startTime);
+					//行列取得
+					FbxAMatrix& mat = bone[k].cluster->GetLink()->EvaluateGlobalTransform(fbxTime);
+					//代入
+					for (int x = 0; x < 4; ++x) {
+						for (int y = 0; y < 4; ++y) {
+							bone[k].mat[animID][time](x, y) = (float)mat.Get(y, x);
+						}
+					}
+				}
+			}
+
+		}
+	}
+
 }

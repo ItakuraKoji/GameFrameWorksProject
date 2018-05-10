@@ -7,6 +7,7 @@ var searchData=
   ['ambientpower',['ambientPower',['../struct_k___graphics_1_1_material.html#a02507fae0e9ef3adb4006315e45f6a92',1,'K_Graphics::Material']]],
   ['animation',['animation',['../struct_k___graphics_1_1_model_datas.html#a2998f1b8e3bb0573ba89a91c73f5eb4e',1,'K_Graphics::ModelDatas']]],
   ['animid',['animID',['../struct_k___graphics_1_1_anim_type.html#a866adf75cd1f6cccc09424878a4f73df',1,'K_Graphics::AnimType']]],
+  ['animmatrix',['animMatrix',['../struct_k___graphics_1_1_anim_matrix.html#a9860dc54d7014c19cb9388c776f8c6c1',1,'K_Graphics::AnimMatrix']]],
   ['animname',['animName',['../struct_k___graphics_1_1_anim_type.html#a9237cfdcfb0a4c88b12fcda8c564e357',1,'K_Graphics::AnimType']]],
   ['avail_5fin',['avail_in',['../structz__stream__s.html#a0cf177f50dbb49692f27480cbcfde794',1,'z_stream_s']]],
   ['avail_5fout',['avail_out',['../structz__stream__s.html#a45ad2364307af9d944fd39d4eca3ca3c',1,'z_stream_s']]],

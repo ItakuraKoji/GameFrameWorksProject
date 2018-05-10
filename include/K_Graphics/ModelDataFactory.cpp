@@ -13,7 +13,7 @@ namespace K_Graphics {
 		ModelDatas* data = new ModelDatas;
 
 		//アニメーション情報は存在しない場合がある（NULL）
-		data->fbxData = loader.PassFbxData();
+		//data->fbxData = loader.PassFbxData();
 		data->vertexBuffer = loader.PassVertexBuffer();
 		data->material = loader.PassMaterialData();
 		data->bone = loader.PassBoneData();

@@ -6,16 +6,12 @@ namespace K_Graphics {
 	////
 
 	ModelDatas::ModelDatas() {
-		this->fbxData = nullptr;
 		this->vertexBuffer = nullptr;
 		this->material = nullptr;
 		this->bone = nullptr;
 		this->animation = nullptr;
 	}
 	ModelDatas::~ModelDatas() {
-		if (this->fbxData != nullptr) {
-			delete this->fbxData;
-		}
 		if (this->vertexBuffer != nullptr) {
 			delete this->vertexBuffer;
 		}

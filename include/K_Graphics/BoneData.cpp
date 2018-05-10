@@ -15,7 +15,7 @@ namespace K_Graphics {
 
 	void BoneData::Add(std::vector<Bone> &boneData) {
 		this->boneData.push_back(boneData);
-		SetClurrentBoneData((int)this->boneData.size() - 1, 0);
+		//SetClurrentBoneData((int)this->boneData.size() - 1, 0);
 	}
 
 	void BoneData::SetMatrixTextureData(int arrayIndex, Texture *texture) {
@@ -34,21 +34,15 @@ namespace K_Graphics {
 		texture->SetImageData(mat->data(), numBone * 4, 1, TextureType::Float, TextureColorType::RGBA32F, TextureColorType::RGBA);
 	}
 
-	void BoneData::SetClurrentBoneData(int arrayIndex, int time) {
+	void BoneData::SetClurrentBoneData(int arrayIndex, int animID, int time) {
 		//60フレームのアニメーションを120として半分の速度での再生を可能にする
 		FbxTime fbxTime;
 		fbxTime.SetTime(0, 0, 0, time, 0, FbxTime::eFrames120);
 
-
 		int numBone = (int)this->boneData[arrayIndex].size();
 		for (int k = 0; k < numBone; ++k) {
-			this->boneData[arrayIndex][k].cluster;
-			FbxAMatrix& mat = this->boneData[arrayIndex][k].cluster->GetLink()->EvaluateGlobalTransform(fbxTime);
-			for (int x = 0; x < 4; ++x) {
-				for (int y = 0; y < 4; ++y) {
-					this->boneData[arrayIndex][k].currentMat(x, y) = (float)mat.Get(y, x);
-				}
-			}
+			this->boneData[arrayIndex][k].currentMat = this->boneData[arrayIndex][k].mat[animID][time];
+
 		}
 	}
 

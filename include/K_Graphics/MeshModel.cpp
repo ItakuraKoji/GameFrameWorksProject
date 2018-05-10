@@ -48,7 +48,7 @@ namespace K_Graphics {
 		if (this->data->bone == nullptr) {
 			return;
 		}
-		this->data->animation->SetAnimation(animationName, this->data->fbxData->GetScene(), playOnce, (bool)interpolationFrames, isLoop);
+		this->data->animation->SetAnimation(animationName, playOnce, (bool)interpolationFrames, isLoop);
 		if (this->data->animation->IsStartInterpolation()) {
 			this->data->bone->StartInterporation(interpolationFrames);
 		}
@@ -122,7 +122,7 @@ namespace K_Graphics {
 		//ƒ{[ƒ“‚ÌÄŒvŽZ‚Í1‰ñ‚¾‚¯
 		if (!this->isBoneProcessed) {
 			int time = (int)this->data->animation->GetCurrentAnimTime();
-			this->data->bone->SetClurrentBoneData(arrayIndex, time);
+			this->data->bone->SetClurrentBoneData(arrayIndex, this->data->animation->GetAnimationID(), time);
 			this->data->bone->SetMatrixTextureData(arrayIndex, this->boneTexture);
 		}
 		shader->SetTexture("boneTex", 1, this->boneTexture->GetTextureID());

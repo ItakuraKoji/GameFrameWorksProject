@@ -147,7 +147,6 @@ namespace K_System {
 		glfwWindowHint(GLFW_DEPTH_BITS, 24);
 		glfwWindowHint(GLFW_STENCIL_BITS, 8);
 
-
 		this->windowHandle = glfwCreateWindow(width, height, windowName, monitor, nullptr);
 		if (this->windowHandle == nullptr) {
 			return false;

@@ -64,6 +64,7 @@ namespace K_Loader {
 		void          LoadVertex(FbxMesh* mesh, Vertex* vertex);
 		void          LoadMaterial(FbxMesh* mesh, VertexUVs& vertexData, std::vector<K_Graphics::Material>& material, std::vector<GLuint>& IBOs);
 		bool          LoadBones(FbxMesh* mesh, Vertex* vertex, PolygonTable *table);
+		void          CalcCurrentBoneMatrix(std::vector<K_Graphics::Bone>& bone);
 
 		PolygonTable* CreatePolygonTable(FbxMesh *mesh, int numVertex, int numFace);
 		int CreateUVBaseVertex(FbxMesh* mesh, VertexUVs& uvMap);
