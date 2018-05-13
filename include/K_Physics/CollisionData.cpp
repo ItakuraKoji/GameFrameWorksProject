@@ -18,7 +18,6 @@ namespace K_Physics {
 		trans.setRotation(btQuaternion(rotation.y(), rotation.x(), rotation.z()));
 	}
 
-
 	K_Math::Vector3 CollisionData::GetCollisionPosition(){
 		btVector3& pos = this->collision->getWorldTransform().getOrigin();
 		return K_Math::Vector3(pos.x(), pos.y(), pos.z());

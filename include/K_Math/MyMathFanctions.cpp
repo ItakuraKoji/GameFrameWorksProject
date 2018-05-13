@@ -105,3 +105,19 @@ K_Math::Box2D::Box2D(int x, int y, int w, int h) : x(x), y(y), w(w), h(h) {
 K_Math::Box2D& K_Math::Box2D::operator =(Box2D& box) {
 	this->x = box.x; this->y = box.y; this->w = box.w; this->h = box.h; return *this;
 }
+
+//!@brief 回転成分からクォータニオンを作成する(Y軸→X軸→Z軸)
+K_Math::Quaternion K_Math::RotationToQuaternion(const K_Math::Vector3& rotation) {
+	//回転順はYXZ
+	K_Math::Quaternion rot;
+	rot = K_Math::AngleAxis(0, K_Math::Vector3::Zero());
+	rot = rot * K_Math::AngleAxis(rotation.y(), K_Math::Vector3::UnitY());
+	rot = rot * K_Math::AngleAxis(rotation.x(), K_Math::Vector3::UnitX());
+	rot = rot * K_Math::AngleAxis(rotation.z(), K_Math::Vector3::UnitZ());
+	return rot;
+}
+//!@brief クォータニオンから回転成分を作成する(Y軸→X軸→Z軸)
+K_Math::Vector3 K_Math::QuaternionToRotation(const K_Math::Quaternion& quaternion) {
+	K_Math::Vector3 rot = quaternion.toRotationMatrix().eulerAngles(1, 0, 2);
+	return K_Math::Vector3(rot.y(), rot.z(), rot.x());
+}

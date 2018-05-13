@@ -18,9 +18,12 @@ namespace K_Graphics {
 
 	void AnimationData::UpdateAnimation() {
 		this->currentAnimTime += this->speed * 2.0f;
-		if (this->currentAnimTime >= this->maxAnimTime) {
+		if (this->currentAnimTime > this->maxAnimTime - 1) {
 			if (this->isLoop) {
 				this->currentAnimTime = 0.0f;
+			}
+			else {
+				this->currentAnimTime = (float)this->maxAnimTime - 1.0f;
 			}
 		}
 		this->isInterpolation = false;

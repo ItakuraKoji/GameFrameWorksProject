@@ -145,23 +145,29 @@ $(document).ready(function(){initNavTree('namespace_k___math.html','');});
 <tr class="memitem:a4ab382b67d996b4862e30be45875740d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_k___math.html#a4ab382b67d996b4862e30be45875740d">RadToDeg</a> (float rad)</td></tr>
 <tr class="memdesc:a4ab382b67d996b4862e30be45875740d"><td class="mdescLeft">&#160;</td><td class="mdescRight">「ラジアン　→　度数法」の変換  <a href="#a4ab382b67d996b4862e30be45875740d">[詳解]</a><br /></td></tr>
 <tr class="separator:a4ab382b67d996b4862e30be45875740d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1c2ee328b8f85662df5bd54dfd6c376"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_k___math.html#ab1c2ee328b8f85662df5bd54dfd6c376">MatrixPerspectiveLH</a> (<a class="el" href="namespace_k___math.html#a345271af9d32dff2c964bc679b13b45c">K_Math::Matrix4x4</a> &amp;result, float screenWidth, float screenHeight, float screenNear, float screenFar, float fieldOfView)</td></tr>
-<tr class="memdesc:ab1c2ee328b8f85662df5bd54dfd6c376"><td class="mdescLeft">&#160;</td><td class="mdescRight">左手座標系の射影変換行列を作る  <a href="#ab1c2ee328b8f85662df5bd54dfd6c376">[詳解]</a><br /></td></tr>
-<tr class="separator:ab1c2ee328b8f85662df5bd54dfd6c376"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf1260b151f1893d96d46b75030a231c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_k___math.html#acf1260b151f1893d96d46b75030a231c">MatrixPerspectiveRH</a> (<a class="el" href="namespace_k___math.html#a345271af9d32dff2c964bc679b13b45c">K_Math::Matrix4x4</a> &amp;result, float screenWidth, float screenHeight, float screenNear, float screenFar, float fieldOfView)</td></tr>
-<tr class="memdesc:acf1260b151f1893d96d46b75030a231c"><td class="mdescLeft">&#160;</td><td class="mdescRight">右手座標系の射影変換行列を作る<br />
-詳細はMatrixPerspectiveLH()を参照のこと  <a href="#acf1260b151f1893d96d46b75030a231c">[詳解]</a><br /></td></tr>
-<tr class="separator:acf1260b151f1893d96d46b75030a231c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9109e2b71d7577a4628c69213f717438"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_k___math.html#a9109e2b71d7577a4628c69213f717438">MatrixOrthoLH</a> (<a class="el" href="namespace_k___math.html#a345271af9d32dff2c964bc679b13b45c">K_Math::Matrix4x4</a> &amp;result, float screenWidth, float screenHeight, float screenNear, float screenFar)</td></tr>
-<tr class="memdesc:a9109e2b71d7577a4628c69213f717438"><td class="mdescLeft">&#160;</td><td class="mdescRight">左手座標系の平行投影行列を作る  <a href="#a9109e2b71d7577a4628c69213f717438">[詳解]</a><br /></td></tr>
-<tr class="separator:a9109e2b71d7577a4628c69213f717438"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a817a68791367b9e515f7e096361ae1aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_k___math.html#a817a68791367b9e515f7e096361ae1aa">MatrixOrthoRH</a> (<a class="el" href="namespace_k___math.html#a345271af9d32dff2c964bc679b13b45c">K_Math::Matrix4x4</a> &amp;result, float screenWidth, float screenHeight, float screenNear, float screenFar)</td></tr>
-<tr class="memdesc:a817a68791367b9e515f7e096361ae1aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">右手座標系の平行投影行列を作る<br />
-詳細はMatrixOrthoLH()を参照のこと  <a href="#a817a68791367b9e515f7e096361ae1aa">[詳解]</a><br /></td></tr>
-<tr class="separator:a817a68791367b9e515f7e096361ae1aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b4f61bdcace7fe46cac98caa4db8931"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_k___math.html#a6b4f61bdcace7fe46cac98caa4db8931">MatrixLookAt</a> (<a class="el" href="namespace_k___math.html#a345271af9d32dff2c964bc679b13b45c">K_Math::Matrix4x4</a> &amp;result, <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;position, <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;lookAt, <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;up)</td></tr>
-<tr class="memdesc:a6b4f61bdcace7fe46cac98caa4db8931"><td class="mdescLeft">&#160;</td><td class="mdescRight">ビュー行列を作る  <a href="#a6b4f61bdcace7fe46cac98caa4db8931">[詳解]</a><br /></td></tr>
-<tr class="separator:a6b4f61bdcace7fe46cac98caa4db8931"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c278fa98d1a7927789c8b6afa8428e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_k___math.html#a5c278fa98d1a7927789c8b6afa8428e5">MatrixPerspectiveLH</a> (<a class="el" href="namespace_k___math.html#a345271af9d32dff2c964bc679b13b45c">Matrix4x4</a> &amp;result, float screenWidth, float screenHeight, float screenNear, float screenFar, float fieldOfView)</td></tr>
+<tr class="memdesc:a5c278fa98d1a7927789c8b6afa8428e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">左手座標系の射影変換行列を作る  <a href="#a5c278fa98d1a7927789c8b6afa8428e5">[詳解]</a><br /></td></tr>
+<tr class="separator:a5c278fa98d1a7927789c8b6afa8428e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ba86c611aacafb7408af24c8f6ab874"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_k___math.html#a3ba86c611aacafb7408af24c8f6ab874">MatrixPerspectiveRH</a> (<a class="el" href="namespace_k___math.html#a345271af9d32dff2c964bc679b13b45c">Matrix4x4</a> &amp;result, float screenWidth, float screenHeight, float screenNear, float screenFar, float fieldOfView)</td></tr>
+<tr class="memdesc:a3ba86c611aacafb7408af24c8f6ab874"><td class="mdescLeft">&#160;</td><td class="mdescRight">右手座標系の射影変換行列を作る<br />
+詳細はMatrixPerspectiveLH()を参照のこと  <a href="#a3ba86c611aacafb7408af24c8f6ab874">[詳解]</a><br /></td></tr>
+<tr class="separator:a3ba86c611aacafb7408af24c8f6ab874"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1a172fb94c67e1bd9f68e931e490462"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_k___math.html#ac1a172fb94c67e1bd9f68e931e490462">MatrixOrthoLH</a> (<a class="el" href="namespace_k___math.html#a345271af9d32dff2c964bc679b13b45c">Matrix4x4</a> &amp;result, float screenWidth, float screenHeight, float screenNear, float screenFar)</td></tr>
+<tr class="memdesc:ac1a172fb94c67e1bd9f68e931e490462"><td class="mdescLeft">&#160;</td><td class="mdescRight">左手座標系の平行投影行列を作る  <a href="#ac1a172fb94c67e1bd9f68e931e490462">[詳解]</a><br /></td></tr>
+<tr class="separator:ac1a172fb94c67e1bd9f68e931e490462"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2dd745e8de20a48977adb2471a49bef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_k___math.html#aa2dd745e8de20a48977adb2471a49bef">MatrixOrthoRH</a> (<a class="el" href="namespace_k___math.html#a345271af9d32dff2c964bc679b13b45c">Matrix4x4</a> &amp;result, float screenWidth, float screenHeight, float screenNear, float screenFar)</td></tr>
+<tr class="memdesc:aa2dd745e8de20a48977adb2471a49bef"><td class="mdescLeft">&#160;</td><td class="mdescRight">右手座標系の平行投影行列を作る<br />
+詳細はMatrixOrthoLH()を参照のこと  <a href="#aa2dd745e8de20a48977adb2471a49bef">[詳解]</a><br /></td></tr>
+<tr class="separator:aa2dd745e8de20a48977adb2471a49bef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65f20d43623dd0e208cca742ae5bfe68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_k___math.html#a65f20d43623dd0e208cca742ae5bfe68">MatrixLookAt</a> (<a class="el" href="namespace_k___math.html#a345271af9d32dff2c964bc679b13b45c">Matrix4x4</a> &amp;result, <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">Vector3</a> &amp;position, <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">Vector3</a> &amp;lookAt, <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">Vector3</a> &amp;up)</td></tr>
+<tr class="memdesc:a65f20d43623dd0e208cca742ae5bfe68"><td class="mdescLeft">&#160;</td><td class="mdescRight">ビュー行列を作る  <a href="#a65f20d43623dd0e208cca742ae5bfe68">[詳解]</a><br /></td></tr>
+<tr class="separator:a65f20d43623dd0e208cca742ae5bfe68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1336e0189e4d652f96fbb67452497a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_k___math.html#a9bc4dcabcbd509e9dc53ae0ecb07a17c">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_k___math.html#ac1336e0189e4d652f96fbb67452497a1">RotationToQuaternion</a> (const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">Vector3</a> &amp;rotation)</td></tr>
+<tr class="memdesc:ac1336e0189e4d652f96fbb67452497a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">回転成分からクォータニオンを作成する(Y軸→X軸→Z軸)  <a href="#ac1336e0189e4d652f96fbb67452497a1">[詳解]</a><br /></td></tr>
+<tr class="separator:ac1336e0189e4d652f96fbb67452497a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a931334074dfcb27fe8a0d8b0074ccd45"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_k___math.html#a931334074dfcb27fe8a0d8b0074ccd45">QuaternionToRotation</a> (const <a class="el" href="namespace_k___math.html#a9bc4dcabcbd509e9dc53ae0ecb07a17c">Quaternion</a> &amp;quaternion)</td></tr>
+<tr class="memdesc:a931334074dfcb27fe8a0d8b0074ccd45"><td class="mdescLeft">&#160;</td><td class="mdescRight">クォータニオンから回転成分を作成する(Y軸→X軸→Z軸)  <a href="#a931334074dfcb27fe8a0d8b0074ccd45">[詳解]</a><br /></td></tr>
+<tr class="separator:a931334074dfcb27fe8a0d8b0074ccd45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>行列系の関数とベクトルや行列型を提供する </p>
@@ -351,8 +357,8 @@ $(document).ready(function(){initNavTree('namespace_k___math.html','');});
 
 </div>
 </div>
-<a id="a6b4f61bdcace7fe46cac98caa4db8931"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b4f61bdcace7fe46cac98caa4db8931">&#9670;&nbsp;</a></span>MatrixLookAt()</h2>
+<a id="a65f20d43623dd0e208cca742ae5bfe68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65f20d43623dd0e208cca742ae5bfe68">&#9670;&nbsp;</a></span>MatrixLookAt()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -402,8 +408,8 @@ $(document).ready(function(){initNavTree('namespace_k___math.html','');});
 
 </div>
 </div>
-<a id="a9109e2b71d7577a4628c69213f717438"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9109e2b71d7577a4628c69213f717438">&#9670;&nbsp;</a></span>MatrixOrthoLH()</h2>
+<a id="ac1a172fb94c67e1bd9f68e931e490462"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1a172fb94c67e1bd9f68e931e490462">&#9670;&nbsp;</a></span>MatrixOrthoLH()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -462,8 +468,8 @@ $(document).ready(function(){initNavTree('namespace_k___math.html','');});
 
 </div>
 </div>
-<a id="a817a68791367b9e515f7e096361ae1aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a817a68791367b9e515f7e096361ae1aa">&#9670;&nbsp;</a></span>MatrixOrthoRH()</h2>
+<a id="aa2dd745e8de20a48977adb2471a49bef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2dd745e8de20a48977adb2471a49bef">&#9670;&nbsp;</a></span>MatrixOrthoRH()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -511,8 +517,8 @@ $(document).ready(function(){initNavTree('namespace_k___math.html','');});
 
 </div>
 </div>
-<a id="ab1c2ee328b8f85662df5bd54dfd6c376"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1c2ee328b8f85662df5bd54dfd6c376">&#9670;&nbsp;</a></span>MatrixPerspectiveLH()</h2>
+<a id="a5c278fa98d1a7927789c8b6afa8428e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c278fa98d1a7927789c8b6afa8428e5">&#9670;&nbsp;</a></span>MatrixPerspectiveLH()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -578,8 +584,8 @@ $(document).ready(function(){initNavTree('namespace_k___math.html','');});
 
 </div>
 </div>
-<a id="acf1260b151f1893d96d46b75030a231c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf1260b151f1893d96d46b75030a231c">&#9670;&nbsp;</a></span>MatrixPerspectiveRH()</h2>
+<a id="a3ba86c611aacafb7408af24c8f6ab874"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ba86c611aacafb7408af24c8f6ab874">&#9670;&nbsp;</a></span>MatrixPerspectiveRH()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -633,6 +639,26 @@ $(document).ready(function(){initNavTree('namespace_k___math.html','');});
 
 </div>
 </div>
+<a id="a931334074dfcb27fe8a0d8b0074ccd45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a931334074dfcb27fe8a0d8b0074ccd45">&#9670;&nbsp;</a></span>QuaternionToRotation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> K_Math::QuaternionToRotation </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a9bc4dcabcbd509e9dc53ae0ecb07a17c">Quaternion</a> &amp;&#160;</td>
+          <td class="paramname"><em>quaternion</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>クォータニオンから回転成分を作成する(Y軸→X軸→Z軸) </p>
+
+</div>
+</div>
 <a id="a4ab382b67d996b4862e30be45875740d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4ab382b67d996b4862e30be45875740d">&#9670;&nbsp;</a></span>RadToDeg()</h2>
 
@@ -657,6 +683,26 @@ $(document).ready(function(){initNavTree('namespace_k___math.html','');});
   </dd>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>度数法での角度 </dd></dl>
+
+</div>
+</div>
+<a id="ac1336e0189e4d652f96fbb67452497a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1336e0189e4d652f96fbb67452497a1">&#9670;&nbsp;</a></span>RotationToQuaternion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_k___math.html#a9bc4dcabcbd509e9dc53ae0ecb07a17c">K_Math::Quaternion</a> K_Math::RotationToQuaternion </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>rotation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>回転成分からクォータニオンを作成する(Y軸→X軸→Z軸) </p>
 
 </div>
 </div>

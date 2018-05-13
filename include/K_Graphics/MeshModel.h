@@ -87,7 +87,7 @@ namespace K_Graphics {
 		//!@param[in] camera 使用するカメラクラスへのポインタ
 		//!@param[in] shader 使用するシェーダーへのポインタ
 		//!@param[in] position 3D空間上の位置座標
-		//!@param[in] rotation XYZそれぞれの軸に関する回転角度（度数法でY→X→Zの順で回転する）
+		//!@param[in] rotation XYZそれぞれの軸に関する回転角度（Y→X→Zの順で回転する）
 		//!@param[in] scale スケーリング
 		void Draw(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scale);
 		//!@brief インスタンス描画は未実装
@@ -133,7 +133,7 @@ namespace K_Graphics {
 		//!@param[in] shader 使用するシェーダーへのポインタ
 		//!@param[in] src テクスチャの切り取り情報\n「テクスチャのピクセル座標XY」「矩形の幅と高さ」をそれぞれ"x""y""w""h"に設定する
 		//!@param[in] position 3D空間上の位置座標
-		//!@param[in] rotation XYZそれぞれの軸に関する回転角度（度数法でY→X→Zの順で回転する）
+		//!@param[in] rotation XYZそれぞれの軸に関する回転角度（Y→X→Zの順で回転する）
 		//!@param[in] scale スケーリング
 		void Draw3D(CameraClass* camera, ShaderClass* shader, const K_Math::Box2D& src, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scale);
 

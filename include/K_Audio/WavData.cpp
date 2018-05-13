@@ -101,7 +101,11 @@ namespace K_Audio {
 			this->waveFile.read((char*)&chunk, sizeof(WaveChunk));
 			if (strncmp(chunk.id, "fmt ", 4) == 0) {
 				//fmtチャンク
-				this->waveFile.read((char*)&fmtChunk, chunk.size);
+				this->waveFile.read((char*)&fmtChunk, 16);
+				//拡張fmtチャンクは読まない
+				if (chunk.size > 16) {
+					this->waveFile.seekg(chunk.size - 16, std::ios_base::cur);
+				}
 				if (fmtChunk.formatId != 1) {
 					return false;
 				}

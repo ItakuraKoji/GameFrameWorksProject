@@ -163,7 +163,7 @@ namespace K_Physics {
 		//指定方向に移動
 		void MoveSmooth(btCollisionObject* obj, const btVector3& moveVector, float limitAngle, bool limitDirection);
 		//移動部分をまとめ、allowDistanceはめり込み許容値、isCalcurateがtrueの時は法線を返す
-		btVector3 MoveBySweep(btCollisionObject* obj, const btVector3& moveVector, bool limitDirection, float allowDistance = 0.2f);
+		btVector3 MoveBySweep(btCollisionObject* obj, const btVector3& moveVector, bool limitDirection, float allowDistance = 0.3f);
 	private:
 		//衝突結果格納用
 		std::vector<CollisionTag*> confrictResult;

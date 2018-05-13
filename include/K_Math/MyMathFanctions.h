@@ -20,7 +20,7 @@ namespace K_Math {
 	//!float型のクォータニオン\n内部では回転行列はクォータニオンを利用している
 	typedef Eigen::Quaternion<float, Eigen::DontAlign> Quaternion;
 
-	//アフィン変換用、基本的には内部で使っているだけでユーザーが扱うことはほぼない
+	//アフィン変換用
 	typedef Eigen::Transform<float, 3, 2, Eigen::DontAlign> Affine3;
 	typedef Eigen::AngleAxis<float> AngleAxis;
 	typedef Eigen::Translation<float, 3> Translation;
@@ -51,22 +51,28 @@ namespace K_Math {
 	//!@param[in] screenNear 近いほうの、錐視台のクリッピング領域
 	//!@param[in] screenFar 遠いほうの、錐視台のクリッピング領域
 	//!@param[in] fieldOfView 画面の縦に対する視野角
-	void  MatrixPerspectiveLH(K_Math::Matrix4x4& result, float screenWidth, float screenHeight, float screenNear, float screenFar, float fieldOfView);
+	void  MatrixPerspectiveLH(Matrix4x4& result, float screenWidth, float screenHeight, float screenNear, float screenFar, float fieldOfView);
 	//!@brief 右手座標系の射影変換行列を作る\n詳細はMatrixPerspectiveLH()を参照のこと
-	void  MatrixPerspectiveRH(K_Math::Matrix4x4& result, float screenWidth, float screenHeight, float screenNear, float screenFar, float fieldOfView);
+	void  MatrixPerspectiveRH(Matrix4x4& result, float screenWidth, float screenHeight, float screenNear, float screenFar, float fieldOfView);
 	//!@brief 左手座標系の平行投影行列を作る
 	//!@param[out] result 結果の4x4行列を格納する変数
 	//!@param[in] screenWidth 描画スクリーンの幅\nウィンドウではなく、ビューポートの幅を入れる
 	//!@param[in] screenWidth 描画スクリーンの高さ\nウィンドウではなく、ビューポートの高さを入れる
 	//!@param[in] screenNear 近いほうの、錐視台のクリッピング領域
 	//!@param[in] screenFar 遠いほうの、錐視台のクリッピング領域
-	void  MatrixOrthoLH(K_Math::Matrix4x4& result, float screenWidth, float screenHeight, float screenNear, float screenFar);
+	void  MatrixOrthoLH(Matrix4x4& result, float screenWidth, float screenHeight, float screenNear, float screenFar);
 	//!@brief 右手座標系の平行投影行列を作る\n詳細はMatrixOrthoLH()を参照のこと
-	void  MatrixOrthoRH(K_Math::Matrix4x4& result, float screenWidth, float screenHeight, float screenNear, float screenFar);
+	void  MatrixOrthoRH(Matrix4x4& result, float screenWidth, float screenHeight, float screenNear, float screenFar);
 	//!@brief ビュー行列を作る
 	//!@param[out] result 結果の4x4行列を格納する変数
 	//!@param[in] position カメラの座標
 	//!@param[in] lookAt 注視点の座標
 	//!@param[in] up カメラの上を指す単位ベクトル
-	void  MatrixLookAt(K_Math::Matrix4x4& result, K_Math::Vector3& position, K_Math::Vector3& lookAt, K_Math::Vector3& up);
+	void  MatrixLookAt(Matrix4x4& result, Vector3& position, Vector3& lookAt, Vector3& up);
+
+	//!@brief 回転成分からクォータニオンを作成する(Y軸→X軸→Z軸)
+	Quaternion RotationToQuaternion(const Vector3& rotation);
+	//!@brief クォータニオンから回転成分を作成する(Y軸→X軸→Z軸)
+	Vector3 QuaternionToRotation(const Quaternion& quaternion);
+
 }

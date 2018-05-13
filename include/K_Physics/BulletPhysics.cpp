@@ -239,21 +239,20 @@ namespace K_Physics {
 			hMove = btVector3(0.0f, 0.0f, 0.0f);
 		}
 
-
 		//縦に移動
 		btVector3 virtical = vMove;
 		MoveSmooth(obj->GetCollision(), virtical, vLimitAngle, true);
 
 		//横
 		//空方向へ雑に移動
-		MoveDiscrete(obj->GetCollision(), this->toSkyVector * 0.15f, true);
+		MoveDiscrete(obj->GetCollision(), this->toSkyVector * 0.2f, true);
 		
 		//横に移動
 		btVector3 horizontal = hMove;
-		MoveSmooth(obj->GetCollision(), hMove, hLimitAngle, false);
+		MoveSmooth(obj->GetCollision(), hMove, hLimitAngle, true);
 
 		//そして重力方向へ雑に戻す
-		MoveDiscrete(obj->GetCollision(), -this->toSkyVector * 0.15f, true);
+		MoveDiscrete(obj->GetCollision(), -this->toSkyVector * 0.2f, true);
 	}
 
 	//処理が　軽いほう
@@ -293,7 +292,7 @@ namespace K_Physics {
 	}
 
 	void BulletPhysics::SetSkyVector(const K_Math::Vector3& vector) {
-		this->toSkyVector = btVector3(vector.x(), vector.y(), vector.z());
+		this->toSkyVector = btVector3(vector.x(), vector.y(), vector.z()).normalized();
 	}
 
 
@@ -353,7 +352,7 @@ namespace K_Physics {
 
 		//移動一回目
 		btVector3& prevPos = obj->getWorldTransform().getOrigin();
-		btVector3 normal = MoveBySweep(obj, moveVector, limitDirection);
+		btVector3 normal = MoveBySweep(obj, moveVector, limitDirection, 0.1f);
 
 		//壁ずりを作る角度かを確認
 		float angle_cos = (float)-normal.dot(moveVector.normalized());
@@ -362,10 +361,12 @@ namespace K_Physics {
 			angle_cos = limit_cos;
 		}
 		//壁ずりを作らない場合は帰る
-		if (angle_cos > limit_cos || normal.norm() < 0.001f) {
+		if (angle_cos > limit_cos) {
 			return;
 		}
-
+		if (normal.norm() < 0.001f) {
+			return;
+		}
 		//壁ずりを作る
 		float hitFraction = (obj->getWorldTransform().getOrigin() - prevPos).norm() / moveVector.norm();
 		btVector3 goVec = moveVector * (1.0f - hitFraction);
@@ -374,9 +375,23 @@ namespace K_Physics {
 		if (goVec.norm() < 0.001f) {
 			return;
 		}
+		//壁ずりの向きを進行方向からずれないように補正する
+		//まずは進行方向をZ軸とした三軸を定義
+		btVector3 yAxis = this->toSkyVector;
+		btVector3 xAxis = yAxis.cross(moveVector);
+		btVector3 zAxis;
+		if (xAxis.norm() > 0.001f) {
+			//縦成分と横成分にベクトルを分解
+			xAxis.normalize();
+			zAxis = xAxis.cross(yAxis).normalized();
+		}
+		//X軸成分を省くようにするとずれない
+		btVector3 goVecZ = zAxis * zAxis.dot(goVec);
+		btVector3 goVecY = yAxis * yAxis.dot(goVec);
 
+		goVec = goVecZ + goVecY;
 		//移動二回目
-		MoveBySweep(obj, goVec, limitDirection);
+		MoveBySweep(obj, goVec, limitDirection, 0.5f);
 	}
 
 	btVector3 BulletPhysics::MoveBySweep(btCollisionObject *obj, const btVector3 &moveVector, bool limitDirection, float allowDistance) {
@@ -402,11 +417,9 @@ namespace K_Physics {
 		obj->setWorldTransform(to);
 
 		//一番深くめり込んだものの法線方向へ押し出し
-		btVector3& prevPos = obj->getWorldTransform().getOrigin();
-		btVector3 resultPos = prevPos;
 
-		//指定回数押し出す(今は8回)
-		for (int i = 0; i < 8; ++i) {
+		//指定回数押し出す(今は10回)
+		for (int i = 0; i < 50; ++i) {
 			FixContactCallBack contact_cb(obj);
 			do {
 				this->bulletWorld->contactTest(obj, contact_cb);
@@ -417,27 +430,20 @@ namespace K_Physics {
 				continue;
 			}
 			if (limitDirection) {
-				MoveCollisionObject(obj, moveVector * contact_cb.maxDistance);
+				MoveCollisionObject(obj, moveVector * contact_cb.maxDistance * 0.3f);
 			}
 			else {
-				MoveCollisionObject(obj, contact_cb.fixVec * -contact_cb.maxDistance);
+				MoveCollisionObject(obj, contact_cb.fixVec * -contact_cb.maxDistance * 0.3f);
 			}
-			resultPos += contact_cb.fixVec * -contact_cb.maxDistance;
 		}
 
-		//小数点第四位以下を切り捨て
-		btVector3 normal = resultPos - prevPos;
-		normal.setX((int)(normal.x() * 1000.0f) / 1000.0f);
-		normal.setY((int)(normal.y() * 1000.0f) / 1000.0f);
-		normal.setZ((int)(normal.z() * 1000.0f) / 1000.0f);
-
-		if (normal.norm() < 0.001f) {
+		btVector3 normal = convex_cb.m_hitNormalWorld;
+		if (normal.norm() < 0.001f || !convex_cb.hasHit()) {
 			normal = btVector3(0, 0, 0);
 		}
 		else {
 			normal.normalize();
 		}
-
 		//押し出した方向を法線とする
 		return normal;
 	}
