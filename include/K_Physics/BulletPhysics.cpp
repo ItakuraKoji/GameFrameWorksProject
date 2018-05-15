@@ -163,7 +163,8 @@ namespace K_Physics {
 			rigid->setCollisionFlags(rigid->getCollisionFlags() & !btCollisionObject::CF_NO_CONTACT_RESPONSE);
 		}
 
-		this->bulletWorld->addRigidBody(rigid, 1, myselfMask | giveMask);
+		int mask = myselfMask | giveMask;
+		this->bulletWorld->addRigidBody(rigid, mask, mask);
 		CollisionTag tag = { "default", 0, nullptr };
 		RigidBodyData* colData = new RigidBodyData(rigid, myselfMask, giveMask, tag);
 		rigid->setUserPointer(colData);
@@ -187,7 +188,8 @@ namespace K_Physics {
 			collision->setCollisionFlags(collision->getCollisionFlags() & !btCollisionObject::CF_NO_CONTACT_RESPONSE);
 		}
 		collision->setWorldTransform(trans);
-		this->bulletWorld->addCollisionObject(collision, 1, myselfMask | giveMask);
+		int mask = myselfMask | giveMask;
+		this->bulletWorld->addCollisionObject(collision, mask, mask);
 
 		CollisionTag tag = { "default", 0, nullptr };
 		CollisionData* colData = new CollisionData(collision, myselfMask, giveMask, tag);
@@ -210,7 +212,7 @@ namespace K_Physics {
 
 	//衝突を検出し、結果をポインタで返す
 	std::vector<CollisionTag*>& BulletPhysics::FindConfrictionObjects(CollisionData* myself) {
-		CollectCollisionCallBack callback(this->confrictResult);
+		CollectCollisionCallBack callback(myself->GetCollision(), this->confrictResult);
 		this->bulletWorld->contactTest(myself->GetCollision(), callback);
 		return this->confrictResult;
 	}
@@ -391,7 +393,7 @@ namespace K_Physics {
 
 		goVec = goVecZ + goVecY;
 		//移動二回目
-		MoveBySweep(obj, goVec, limitDirection, 0.5f);
+		MoveBySweep(obj, goVec, limitDirection, 0.2f);
 	}
 
 	btVector3 BulletPhysics::MoveBySweep(btCollisionObject *obj, const btVector3 &moveVector, bool limitDirection, float allowDistance) {

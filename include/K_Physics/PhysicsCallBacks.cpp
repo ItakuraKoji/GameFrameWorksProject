@@ -7,7 +7,11 @@ namespace K_Physics {
 	////
 
 	SweepTestCallBack::SweepTestCallBack(btCollisionObject *myself) : myself(myself), ClosestConvexResultCallback(btVector3(0, 0, 0), btVector3(0, 0, 0)) {
+		CollisionData* data = (CollisionData*)this->myself->getUserPointer();
+		this->m_collisionFilterGroup = data->GetMyselfMask() | data->GetGiveMask();
+		this->m_collisionFilterMask = data->GetMyselfMask() | data->GetGiveMask();
 	}
+
 
 	//自身と衝突しないsweepTestのコールバック
 	btScalar SweepTestCallBack::addSingleResult(btCollisionWorld::LocalConvexResult& convexResult, bool normalInWorldSpace) {
@@ -38,6 +42,10 @@ namespace K_Physics {
 		this->maxDistance = 0.0f;
 		this->fixVec = btVector3(0.0f, 0.0f, 0.0f);
 		this->obj = obj;
+
+		CollisionData* data = (CollisionData*)this->obj->getUserPointer();
+		this->m_collisionFilterGroup = data->GetMyselfMask() | data->GetGiveMask();
+		this->m_collisionFilterMask = data->GetMyselfMask() | data->GetGiveMask();
 	}
 
 	//めり込み最大の法線ベクトルを見つけるコールバック
@@ -81,9 +89,13 @@ namespace K_Physics {
 		return btScalar(0.0f);
 	}
 
-	CollectCollisionCallBack::CollectCollisionCallBack(std::vector<CollisionTag*>& tagList) : result(tagList), isHit(false) {
+	CollectCollisionCallBack::CollectCollisionCallBack(btCollisionObject* obj, std::vector<CollisionTag*>& tagList) : result(tagList), isHit(false) {
+		CollisionData* data = (CollisionData*)obj->getUserPointer();
+		this->m_collisionFilterGroup = data->GetMyselfMask() | data->GetGiveMask();
+		this->m_collisionFilterMask = data->GetMyselfMask() | data->GetGiveMask();
 		tagList.clear();
 	}
+
 	btScalar CollectCollisionCallBack::addSingleResult(btManifoldPoint& cp, const btCollisionObjectWrapper* colObj0Wrap, int partId0, int index0, const btCollisionObjectWrapper* colObj1Wrap, int partId1, int index1) {
 		//衝突した相手を記録
 		CollisionData* data1 = (CollisionData*)colObj0Wrap->m_collisionObject->getUserPointer();
@@ -96,6 +108,7 @@ namespace K_Physics {
 			this->result.push_back(&data2->tag);
 			this->isHit = true;
 		}
+
 		return btScalar(0.0f);
 	}
 }

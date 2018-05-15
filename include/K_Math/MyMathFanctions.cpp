@@ -118,6 +118,6 @@ K_Math::Quaternion K_Math::RotationToQuaternion(const K_Math::Vector3& rotation)
 }
 //!@brief クォータニオンから回転成分を作成する(Y軸→X軸→Z軸)
 K_Math::Vector3 K_Math::QuaternionToRotation(const K_Math::Quaternion& quaternion) {
-	K_Math::Vector3 rot = quaternion.toRotationMatrix().eulerAngles(1, 0, 2);
-	return K_Math::Vector3(rot.y(), rot.z(), rot.x());
+	K_Math::Vector3 rot = quaternion.toRotationMatrix().eulerAngles(0, 1, 2);
+	return K_Math::Vector3(rot.x(), rot.y(), rot.z());
 }

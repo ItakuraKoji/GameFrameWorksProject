@@ -163,7 +163,7 @@ namespace K_Physics {
 		//指定方向に移動
 		void MoveSmooth(btCollisionObject* obj, const btVector3& moveVector, float limitAngle, bool limitDirection);
 		//移動部分をまとめ、allowDistanceはめり込み許容値、isCalcurateがtrueの時は法線を返す
-		btVector3 MoveBySweep(btCollisionObject* obj, const btVector3& moveVector, bool limitDirection, float allowDistance = 0.3f);
+		btVector3 MoveBySweep(btCollisionObject* obj, const btVector3& moveVector, bool limitDirection, float allowDistance);
 	private:
 		//衝突結果格納用
 		std::vector<CollisionTag*> confrictResult;
@@ -178,7 +178,6 @@ namespace K_Physics {
 		bulletDebugDraw                         debugDrawer;
 		btAlignedObjectArray<CollisionShape*>   shapeArray;
 	};
-
 
 	////自身と衝突しないsweepTestのコールバック
 	struct SweepTestCallBack : public btCollisionWorld::ClosestConvexResultCallback {
@@ -201,7 +200,6 @@ namespace K_Physics {
 		//戻り値に意味はないみたい
 		//こっちは自分自身（contactTestで渡したオブジェクト）とは衝突しないようです
 		virtual	btScalar addSingleResult(btManifoldPoint& cp, const btCollisionObjectWrapper* colObj0Wrap, int partId0, int index0, const btCollisionObjectWrapper* colObj1Wrap, int partId1, int index1);
-
 	public:
 		//押し出すオブジェクト
 		btCollisionObject * obj;
@@ -216,9 +214,8 @@ namespace K_Physics {
 	//すべての衝突を記録する
 	struct CollectCollisionCallBack : public btCollisionWorld::ContactResultCallback {
 	public:
-		CollectCollisionCallBack(std::vector<CollisionTag*>& tagList);
+		CollectCollisionCallBack(btCollisionObject* obj, std::vector<CollisionTag*>& tagList);
 		virtual btScalar addSingleResult(btManifoldPoint& cp, const btCollisionObjectWrapper* colObj0Wrap, int partId0, int index0, const btCollisionObjectWrapper* colObj1Wrap, int partId1, int index1);
-
 	public:
 		std::vector<CollisionTag*>& result;
 		bool isHit;
