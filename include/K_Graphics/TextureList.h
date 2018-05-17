@@ -20,9 +20,9 @@ namespace K_Graphics {
 		Texture* GetTexture(const std::string& textureName);
 		//!@brief テクスチャ読み込み
 		//!@param[in] textureName 作成するテクスチャのユーザー定義名
-		//!@param[in] filePass 画像のファイルパス
+		//!@param[in] filePath 画像のファイルパス
 		//!@return 成功するとtrue
-		bool LoadTexture(const std::string& textureName, const std::string& filePass);
+		bool LoadTexture(const std::string& textureName, const std::string& filePath);
 		//!@brief 空のテクスチャを作成
 		//!@param[in] textureName 作成するテクスチャのユーザー定義名
 		//!@param[in] textureWidth テクスチャの画像幅

@@ -31,17 +31,16 @@ namespace K_Physics {
 
 
 	public:
-		MapPolygon();
-		~MapPolygon();
-		bool Initialize();
-		void Finalize();
-		//!@brief FBX読み込み
+		//!@brief FBXを読み込みデータをもとに地形コリジョンを作成
 		//!@param[in] filename ファイルのパス
-		//!@return 成功するとtrue
-		bool LoadModel(const char *filename);
-		//!@brief 読み込んだデータをもとに地形コリジョンを作成
 		//!@param[in] physics コリジョンを管理する物理クラスへのポインタ
-		void SetCollisionWorld(BulletPhysics *physics, int myselfMask, int giveMask);
+		//!@param[in] myselfMask 自分が使う衝突マスク、詳しくはサンプルコード３参照
+		//!@param[in] giveMask 相手に使わせる衝突マスク、詳しくはサンプルコード３参照
+		MapPolygon(const char* fbxFilePath, BulletPhysics *physics, int myselfMask, int giveMask);
+		~MapPolygon();
+		bool Initialize(const char* fbxFilePath, BulletPhysics *physics, int myselfMask, int giveMask);
+		void Finalize();
+
 		//!@brief コリジョンを拡大
 		//!@param[in] scale 拡縮の倍率
 		void SetScaling(const K_Math::Vector3& scale);
@@ -51,10 +50,19 @@ namespace K_Physics {
 		K_Physics::RigidBodyData* GetRigidBody();
 
 	private:
+		//!@brief FBX読み込み
+		//!@param[in] filename ファイルのパス
+		//!@return 成功するとtrue
+		bool LoadModel(const char *filename);
+
+		bool LoadFBX(FbxMesh *mesh);
 		bool InitializeFBX(FbxManager** manager, FbxScene** scene, const char* filename);
 		void FinalizeFBX(FbxManager** manager);
 		bool LoadFBXNodeRecursive(FbxNode *node);
-		bool LoadFBX(FbxMesh *mesh);
+
+		//!@brief 読み込んだデータをもとに地形コリジョンを作成
+		//!@param[in] physics コリジョンを管理する物理クラスへのポインタ
+		void SetCollisionWorld(BulletPhysics *physics, int myselfMask, int giveMask);
 
 
 	private:

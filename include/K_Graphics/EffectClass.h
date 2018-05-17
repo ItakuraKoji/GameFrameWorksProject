@@ -33,8 +33,8 @@ namespace K_Graphics {
 
 		//!@brief エフェクトの読み込み
 		//!@param[in] effectName エフェクトのユーザー定義名（同じ名前は登録できない）
-		//!@param[in] filePass Effekseerで製作したエフェクトへのファイルパス
-		bool AddEffectSource(const std::string& effectName, const char* filePass);
+		//!@param[in] filePath Effekseerで製作したエフェクトへのファイルパス
+		bool AddEffectSource(const std::string& effectName, const char* filePath);
 		//!@brief エフェクトの消去
 		//!@param[in] effectName エフェクト名
 		void DeleteEffectSource(const std::string& effectName);

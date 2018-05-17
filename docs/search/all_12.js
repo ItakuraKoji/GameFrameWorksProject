@@ -15,7 +15,6 @@ var searchData=
   ['setclurrentbonedata',['SetClurrentBoneData',['../class_k___graphics_1_1_bone_data.html#ac2ecc8d157915a682d9140cf752dcc83',1,'K_Graphics::BoneData']]],
   ['setcollisionposition',['SetCollisionPosition',['../class_k___physics_1_1_collision_data.html#affb7f66b30c1fed8314e02e96c821aa7',1,'K_Physics::CollisionData']]],
   ['setcollisionrotation',['SetCollisionRotation',['../class_k___physics_1_1_collision_data.html#af389fc600fbd9b2d29337357a03ef3f0',1,'K_Physics::CollisionData']]],
-  ['setcollisionworld',['SetCollisionWorld',['../class_k___physics_1_1_map_polygon.html#a5e5ee02f8dd4952df091c39b8f60adfe',1,'K_Physics::MapPolygon']]],
   ['setcolor',['SetColor',['../class_k___graphics_1_1_ambient_light.html#a9843ba2af23cf26e2a924bb858452b0f',1,'K_Graphics::AmbientLight::SetColor()'],['../class_k___graphics_1_1_directional_light.html#a4fde47662dc631b7ae403272df4b8b41',1,'K_Graphics::DirectionalLight::SetColor()']]],
   ['setcullentfont',['SetCullentFont',['../class_k___graphics_1_1_font_renderer.html#afde212f8e56262e86ef01d12b2704dbd',1,'K_Graphics::FontRenderer']]],
   ['setdata',['SetData',['../class_k___loader_1_1_image_data.html#ae78c8d1dc8b8c279b18e670896138d38',1,'K_Loader::ImageData']]],

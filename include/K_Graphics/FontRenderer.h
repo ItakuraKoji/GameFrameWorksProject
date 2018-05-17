@@ -35,8 +35,8 @@ namespace K_Graphics {
 
 		//!@brief フォントを読み込む
 		//!@param[in] fontName フォントのユーザー定義名
-		//!@param[in] filePass フォントのファイルパス
-		bool LoadFont(const char* fontName, const char* filePass);
+		//!@param[in] filePath フォントのファイルパス
+		bool LoadFont(const char* fontName, const char* filePath);
 		//!@brief 使用するフォントを設定、失敗するとfalseを返し、セットされない
 		//!@param[in] fontName フォント名
 		//!@return 成功するとtrue

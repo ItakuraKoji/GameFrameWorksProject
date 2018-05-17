@@ -219,3 +219,81 @@ void Sample4() {
 	input->IsStayMouse(K_Input::VMouse::Left);
 	input->IsReaveMouse(K_Input::VMouse::Left);
 }
+
+//サンプルコード５：描画メッシュモデル作成（FBX読み込み）(サンプルコード１でもFBXは読み込んでいる)
+void Sample5() {
+	//メッシュモデルクラスの初期化にはtextureListクラスが必要
+	K_Graphics::TextureList* textureList = new TextureList;
+	
+	
+	//手順一つ目、モデルのメッシュやマテリアルの情報を指すModelDataクラスの作成
+	K_Graphics::ModelDatas* modelData;
+	//ファクトリに作ってもらう
+	K_Graphics::ModelDataFactory factory;
+	modelData = factory.LoadFBXModel("filePath", textureList);
+	
+	//手順二つ目、データをもとにモデルクラスを初期化
+	K_Graphics::MeshModel* model = new K_Graphics::MeshModel(modelData);
+	
+	//手順三つ目、MeshModelをより扱いやすくするMeshObjectクラスを初期化
+	K_Graphics::MeshObject* object = new K_Graphics::MeshObject(model);
+	
+	
+	//ちなみに描画はこんな感じ（疑似コード）
+	//object->Draw(camera, shader, position, rotation, scale);
+	
+	
+	
+	//解放はobjectのみでいい
+	delete object;
+	delete textureList;
+	
+	
+	////////
+	//おまけ
+	////
+	
+	//こうも書ける、面倒なら関数化するのも手
+	K_Graphics::ModelDataFactory factory;
+	K_Graphics::MeshObject* obj = new K_Graphics::MeshObject(new K_Graphics::MeshModel(factory.LoadFBXModel("filePath", texture)));
+	delete obj;
+	
+	//実を言わなくても描画だけならMeshModelクラスのみで可能、ただし行列とシェーダーを扱う必要あり
+	model = new K_Graphics::MeshModel(factory.LoadFBXModel("filePath", texture));
+	
+	//こんな風にシェーダークラスから行列を渡す（疑似コード）
+	//shader->SetMatrix(matrixViewProjectionWorld);
+	//shader->SetWorldMatrix(matrixWorld);
+	
+	model->Draw();
+	
+	//MeshObjectを扱わない場合はMeshModelの解放が必要（ModelDatasクラスの解放は必要ない）
+	delete model;
+}
+
+//サンプルコード６：FBXから物理衝突用のコリジョンを作成する
+void Sample6(){
+	////////
+	//初期化は省略
+	////
+	K_Physics::BulletPhysics* physics = new K_Physics::BulletPhysics;
+	
+	
+	//メッシュの作成にはMapPolygonクラスを使用する
+	K_Physics::MapPolygon* collision;
+	
+	//コンストラクタで作成、ここで作られるのはコリジョンではなく剛体（特に気にする必要はない）
+	collision = new K_Physics::MapPolygon("filePath", physics, myselfMask, giveMask);
+	
+	//作成した剛体はGetRigidBody()でアクセスできる、扱いはほかのコリジョンと同じ
+	collision->GetRigidBody();
+	
+	//FBXは軸の向きが自由なので見た目に合わないことがある
+	//そんな時は回転するといい
+	collision->GetRigidBody()->SetCollisionRotation(K_Math::Vector3(K_Math::DegToRad(-90.0f), 0.0f, 0.0f));
+	//MapPolygonクラスに限り拡縮も可能
+	collision->SetScaling(scale);
+	
+	//ほかのコリジョンと違ってこのクラスには解放処理が必要であることに注意
+	delete collision;
+}

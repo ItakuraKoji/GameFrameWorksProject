@@ -67,19 +67,19 @@ namespace K_Graphics {
 		this->renderer->EndRendering();
 	}
 
-	bool EffectClass::AddEffectSource(const std::string& effectName, const char* filePass) {
+	bool EffectClass::AddEffectSource(const std::string& effectName, const char* filePath) {
 		//重複は許さない
 		if (this->effect.find(effectName) != this->effect.end()) {
-			printf("EffectName has existed：%s\n", filePass);
+			printf("EffectName has existed：%s\n", filePath);
 			return false;
 		}
 
-		EFK_CHAR pass[64];
-		Effekseer::ConvertUtf8ToUtf16((int16_t*)pass, 64, (const int8_t*)filePass);
-		Effekseer::Effect* efk = Effekseer::Effect::Create(this->manager, pass);
+		EFK_CHAR path[64];
+		Effekseer::ConvertUtf8ToUtf16((int16_t*)path, 64, (const int8_t*)filePath);
+		Effekseer::Effect* efk = Effekseer::Effect::Create(this->manager, path);
 		//失敗も許さない
 		if (efk == nullptr) {
-			printf("Effect Load Failed：%s\n", filePass);
+			printf("Effect Load Failed：%s\n", filePath);
 			return false;
 		}
 		//許されたものはリストへ登録

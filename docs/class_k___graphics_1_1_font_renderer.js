@@ -8,6 +8,6 @@ var class_k___graphics_1_1_font_renderer =
     [ "Draw3D", "class_k___graphics_1_1_font_renderer.html#ae213a62be727f02c17a03b28e9fbcd9c", null ],
     [ "DrawString2D", "class_k___graphics_1_1_font_renderer.html#a8d3687d4a4dad3682ab2bfa29e9cc15b", null ],
     [ "DrawString3D", "class_k___graphics_1_1_font_renderer.html#adfb9bb5d77fdcb2a52c5ce5b7f011a67", null ],
-    [ "LoadFont", "class_k___graphics_1_1_font_renderer.html#a9fffd9b8ec36986810cfbaad1d58ab70", null ],
+    [ "LoadFont", "class_k___graphics_1_1_font_renderer.html#ac1bece2663e3edc6c000324d4058be16", null ],
     [ "SetCullentFont", "class_k___graphics_1_1_font_renderer.html#afde212f8e56262e86ef01d12b2704dbd", null ]
 ];

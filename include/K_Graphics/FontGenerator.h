@@ -41,7 +41,7 @@ namespace K_Graphics {
 		};
 
 	public:
-		FontGenerator(const char* fontFilePass);
+		FontGenerator(const char* fontFilePath);
 		~FontGenerator();
 
 		//‚·‚Å‚É•¶š‚ª‘¶İ‚µ‚Ä‚¢‚é‚©‚ğ’²‚×‚ÄAV‚µ‚¢•¶š‚È‚ç’Ç‰Á

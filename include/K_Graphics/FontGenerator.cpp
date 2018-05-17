@@ -6,14 +6,14 @@ namespace K_Graphics {
 	//public
 	////
 
-	FontGenerator::FontGenerator(const char* fontFilePass) {
+	FontGenerator::FontGenerator(const char* fontFilePath) {
 		FT_Init_FreeType(&this->ftLib);
 		if (this->ftLib == nullptr) {
 			throw("FreeType Initialize is Failed");
 		}
-		FT_New_Face(this->ftLib, fontFilePass, 0, &this->ftFace);
+		FT_New_Face(this->ftLib, fontFilePath, 0, &this->ftFace);
 		if (this->ftFace == nullptr) {
-			throw("FontFile Load is Failed : " + std::string(fontFilePass));
+			throw("FontFile Load is Failed : " + std::string(fontFilePath));
 		}
 	}
 	FontGenerator::~FontGenerator() {

@@ -5,17 +5,25 @@ namespace K_Physics {
 	////////
 	//public
 	////
-	MapPolygon::MapPolygon() {
-		Initialize();
+	MapPolygon::MapPolygon(const char* fbxFilePath, BulletPhysics *physics, int myselfMask, int giveMask) {
+		if (!Initialize(fbxFilePath, physics, myselfMask, giveMask)) {
+			throw("meshData Load Failed" + std::string(fbxFilePath));
+		}
 	}
 	MapPolygon::~MapPolygon() {
 		Finalize();
 	}
 
 	//配列のゼロクリア
-	bool MapPolygon::Initialize() {
+	bool MapPolygon::Initialize(const char* fbxFilePath, BulletPhysics *physics, int myselfMask, int giveMask) {
+		Finalize();
 		this->polygonStack.clear();
 		this->polygonStack.shrink_to_fit();
+
+		if (!LoadModel(fbxFilePath)) {
+			return false;
+		}
+		SetCollisionWorld(physics, myselfMask, giveMask);
 		return true;
 	}
 	//解放
@@ -29,6 +37,27 @@ namespace K_Physics {
 			this->collisionMesh = nullptr;
 		}
 	}
+
+
+
+	//ポリゴン数を獲得
+	int MapPolygon::GetNumFace() {
+		return numFace;
+	}
+
+
+	K_Physics::RigidBodyData* MapPolygon::GetRigidBody() {
+		return this->rigid;
+	}
+
+	void MapPolygon::SetScaling(const K_Math::Vector3& scale) {
+		this->shape->setLocalScaling(btVector3(scale.x(), scale.y(), scale.z()));
+	}
+
+
+	////////
+	//private
+	////
 
 	bool MapPolygon::LoadModel(const char *filename) {
 		FbxManager* manager = nullptr;
@@ -47,39 +76,6 @@ namespace K_Physics {
 		return true;
 	}
 
-
-	//ポリゴン数を獲得
-	int MapPolygon::GetNumFace() {
-		return numFace;
-	}
-
-	//bulletに地形の三角メッシュを剛体として追加
-	void MapPolygon::SetCollisionWorld(BulletPhysics *physics, int myselfMask, int giveMask) {
-		std::vector<K_Math::Vector3> vectices;
-		for (int i = 0; i < this->numFace; ++i) {
-			for (int k = 0; k < 3; ++k) {
-				vectices.push_back(polygonStack[0].polygon[i].point[k]);
-			}
-		}
-
-		this->collisionMesh = physics->CreateTriangleMesh(vectices.data(), this->numFace);
-		this->shape = physics->CreateTriangleMeshShape(this->collisionMesh);
-		this->rigid = physics->CreateRigidBody(shape, 0.0f, false, myselfMask, giveMask, K_Math::Vector3(0.0f, 0.0f, 0.0f));
-		this->rigid->SetCollisionRotation(K_Math::Vector3(K_Math::DegToRad(-90.0), 0.0f, 0.0f));
-	}
-
-	K_Physics::RigidBodyData* MapPolygon::GetRigidBody() {
-		return this->rigid;
-	}
-
-	void MapPolygon::SetScaling(const K_Math::Vector3& scale) {
-		this->shape->setLocalScaling(btVector3(scale.x(), scale.y(), scale.z()));
-	}
-
-
-	////////
-	//private
-	////
 	bool MapPolygon::InitializeFBX(FbxManager** manager, FbxScene** scene, const char* filename) {
 		FbxImporter *importer;
 		(*manager) = FbxManager::Create();
@@ -174,6 +170,22 @@ namespace K_Physics {
 		polygonStack.push_back(data);
 		this->numFace = numFace;
 		return true;
+	}
+
+
+	//bulletに地形の三角メッシュを剛体として追加
+	void MapPolygon::SetCollisionWorld(BulletPhysics *physics, int myselfMask, int giveMask) {
+		std::vector<K_Math::Vector3> vectices;
+		for (int i = 0; i < this->numFace; ++i) {
+			for (int k = 0; k < 3; ++k) {
+				vectices.push_back(polygonStack[0].polygon[i].point[k]);
+			}
+		}
+
+		this->collisionMesh = physics->CreateTriangleMesh(vectices.data(), this->numFace);
+		this->shape = physics->CreateTriangleMeshShape(this->collisionMesh);
+		this->rigid = physics->CreateRigidBody(shape, 0.0f, false, myselfMask, giveMask, K_Math::Vector3(0.0f, 0.0f, 0.0f));
+		this->rigid->SetCollisionRotation(K_Math::Vector3(K_Math::DegToRad(-90.0), 0.0f, 0.0f));
 	}
 
 }

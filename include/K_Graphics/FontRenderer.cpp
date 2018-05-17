@@ -31,14 +31,14 @@ namespace K_Graphics {
 		}
 	}
 
-	bool FontRenderer::LoadFont(const char* fontName, const char* filePass) {
+	bool FontRenderer::LoadFont(const char* fontName, const char* filePath) {
 		//Šù‚É‚ ‚é–¼‘O‚Å‚Í“o˜^‚Å‚«‚È‚¢
 		if (this->generators.find(fontName) != this->generators.end()) {
 			return false;
 		}
 		//“Ç‚Ýž‚Ý‚ÉŽ¸”s‚µ‚Ä‚à‚±‚ÌŠÖ”‚Å‚Í—áŠO‚ð“Š‚°‚È‚¢
 		try {
-			FontGenerator* font = new FontGenerator(filePass);
+			FontGenerator* font = new FontGenerator(filePath);
 			this->generators[fontName] = font;
 		}
 		catch (std::string& errorText) {

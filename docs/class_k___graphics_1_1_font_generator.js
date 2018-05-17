@@ -3,7 +3,7 @@ var class_k___graphics_1_1_font_generator =
     [ "CharData", "struct_k___graphics_1_1_font_generator_1_1_char_data.html", "struct_k___graphics_1_1_font_generator_1_1_char_data" ],
     [ "FontAtlas", "struct_k___graphics_1_1_font_generator_1_1_font_atlas.html", "struct_k___graphics_1_1_font_generator_1_1_font_atlas" ],
     [ "FontData", "struct_k___graphics_1_1_font_generator_1_1_font_data.html", "struct_k___graphics_1_1_font_generator_1_1_font_data" ],
-    [ "FontGenerator", "class_k___graphics_1_1_font_generator.html#a832617f2e9d50a7c6c613fa701665901", null ],
+    [ "FontGenerator", "class_k___graphics_1_1_font_generator.html#a47b1f0ca68617c6509a42f8fb230fc88", null ],
     [ "~FontGenerator", "class_k___graphics_1_1_font_generator.html#ab79beb1d0cf1780577d5ea16c8d89d67", null ],
     [ "ClearAllFontAtlas", "class_k___graphics_1_1_font_generator.html#a2e90321835a229436d378647aaddcab5", null ],
     [ "ClearFontAtlas", "class_k___graphics_1_1_font_generator.html#ae84e22ce5a6e38d03f77f8a3b9393012", null ],

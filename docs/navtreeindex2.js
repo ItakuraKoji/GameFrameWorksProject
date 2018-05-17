@@ -1,7 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"namespaces.html":[0,0],
-"pages.html":[],
 "struct_k___graphics_1_1_anim_matrix.html":[1,0,1,2],
 "struct_k___graphics_1_1_anim_matrix.html#a9860dc54d7014c19cb9388c776f8c6c1":[1,0,1,2,0],
 "struct_k___graphics_1_1_anim_type.html":[1,0,1,3],
