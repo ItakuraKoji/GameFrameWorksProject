@@ -34,7 +34,6 @@ namespace K_Loader {
 
 		//ファイルパスを記録して相対パスを作り出す("../は使えない")
 		{
-
 			int position = 0;
 			int loopMax = (int)fileName.size();
 			int i;
@@ -45,6 +44,7 @@ namespace K_Loader {
 					break;
 				}
 			}
+			this->fileRoot = new char[position + 1];
 			//取得したパスまでの位置を実際に文字取得
 			for (i = 0; i < position; ++i) {
 				this->fileRoot[i] = fileName.data()[i];
@@ -54,6 +54,7 @@ namespace K_Loader {
 
 		FbxNode *rootNode = this->fbxData->GetScene()->GetRootNode();
 		if (!RecursiveNode(rootNode)) {
+			delete[] this->fileRoot;
 			return false;
 		}
 
@@ -62,6 +63,10 @@ namespace K_Loader {
 		//アニメーション情報を取得、名前をキーにして保持
 		FbxImporter* importer = this->fbxData->GetInporter();
 		int numAnim = importer->GetAnimStackCount();
+		if (this->animationData == nullptr) {
+			numAnim = 0;
+		}
+
 		for (int i = 0; i < numAnim; ++i) {
 			//取得
 			FbxTakeInfo *take = importer->GetTakeInfo(i);
@@ -86,6 +91,7 @@ namespace K_Loader {
 		}
 
 		this->loaded = true;
+		delete[] this->fileRoot;
 		return true;
 	}
 
@@ -425,8 +431,8 @@ namespace K_Loader {
 			}
 			else {
 				const char *fullName = pTexture->GetRelativeFileName();
-				//最終的に使用するファイル名
-				char fileName[120] = "";
+
+
 				//Blenderから読み取った相対パスのディレクトリ
 				char directory[100] = "";
 				//Blenderから読み取った名前
@@ -436,17 +442,25 @@ namespace K_Loader {
 				//ファイル名を取得(ファイル名と拡張子のみ)
 				_splitpath_s(fullName, 0, 0, directory, 100, name, 100, ext, 10);
 
-				strcat_s(fileName, this->fileRoot);
-				strcat_s(fileName, directory);
-				strcat_s(fileName, name);
-				strcat_s(fileName, ext);
+				int pathSize = strlen(this->fileRoot) + strlen(directory) + strlen(name) + strlen(ext) + 10;
 
+				//最終的に使用するファイル名
+				char* fileName = new char[pathSize];
+				fileName[0] = '\0';
+
+				strcat_s(fileName, pathSize, this->fileRoot);
+				strcat_s(fileName, pathSize, directory);
+				strcat_s(fileName, pathSize, name);
+				strcat_s(fileName, pathSize, ext);
 
 				if (!this->textureList->LoadTexture(fileName, fileName)) {
-					throw("Texture Load Failed : " + std::string(fileName));
+					std::string path = std::string(fileName);
+					delete[] fileName;
+					throw("Texture Load Failed : " + path);
 				}
 				material[i].texture = this->textureList->GetTexture(fileName);
 				printf("Texture : %s\n", fileName);
+				delete[] fileName;
 			}
 
 			//インデックスバッファ
@@ -571,8 +585,8 @@ namespace K_Loader {
 			//ボーンが存在しなかったらアニメーション関連のデータに別れを告げる
 			delete this->animationData;
 			delete this->boneData;
-			this->animationData = 0;
-			this->boneData = 0;
+			this->animationData = nullptr;
+			this->boneData = nullptr;
 			return false;
 		}
 		FbxSkin* skin = (FbxSkin*)deformer;
@@ -678,6 +692,7 @@ namespace K_Loader {
 		}
 
 		//初期化とインポート
+		printf("%s\n", fileName.data());
 		if (!importer->Initialize(fileName.data())) {
 			return false;
 		}

@@ -82,7 +82,7 @@ namespace K_Loader {
 		K_Graphics::TextureList *textureList;
 
 		//FBXファイルの場所をルートにする
-		char fileRoot[100];
+		char* fileRoot;
 		Vertex* vertexData;
 		int numVertex;
 		int numUV;

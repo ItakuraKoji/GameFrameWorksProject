@@ -81,12 +81,7 @@ namespace K_Graphics {
 		glEnable(GL_CULL_FACE);
 	}
 
-
-	////////
-	//protected
-	////
-
-	void SpriteObject::SetMatrix(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scaling, bool billBoard) {
+	K_Math::Matrix4x4 SpriteObject::CreateWorldMatrix(CameraClass* camera, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scaling, bool billBoard) {
 		//ˆÚ“®
 		K_Math::Translation trans = K_Math::Translation(position.x() + this->controlPoint.x(), position.y() - this->controlPoint.y(), position.z());
 		K_Math::Translation controlTrans = K_Math::Translation(-this->controlPoint.x(), this->controlPoint.y(), 0.0f);
@@ -106,13 +101,22 @@ namespace K_Graphics {
 		else {
 			cameraMat = K_Math::Matrix3x3::Identity();
 		}
-
 		K_Math::Affine3 world = trans * cameraMat * rot * controlTrans * scale;
+		return world.matrix();
+	}
+
+	////////
+	//protected
+	////
+
+	void SpriteObject::SetMatrix(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scaling, bool billBoard) {
+
+		K_Math::Matrix4x4& world = CreateWorldMatrix(camera, position, rotation, scaling, billBoard);
 
 		K_Math::Matrix4x4 view = camera->GetViewMatrix();
 		K_Math::Matrix4x4 projection = camera->GetProjectionMatrix();
 
-		shader->SetMatrix(projection * view * world.matrix());
+		shader->SetMatrix(projection * view * world);
 	}
 
 }

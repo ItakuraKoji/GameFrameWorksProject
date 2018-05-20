@@ -52,11 +52,7 @@ namespace K_Graphics {
 		this->drawModel->InstanceDraw(numDraw, shader);
 	}
 
-	////////
-	//protected
-	////
-
-	void MeshObject::SetMatrix(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scaling) {
+	K_Math::Matrix4x4 MeshObject::CreateWorldMatrix(const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scaling) {
 		//ˆÚ“®
 		K_Math::Translation trans = K_Math::Translation(position);
 		//‰ñ“]‡‚ÍYXZ
@@ -68,12 +64,22 @@ namespace K_Graphics {
 		//ƒXƒP[ƒ‹
 		K_Math::DiagonalMatrix scale = K_Math::DiagonalMatrix(K_Math::Vector3(-scaling.x(), scaling.y(), scaling.z()));
 
-
 		K_Math::Affine3 world = trans * rot * scale;
+		return world.matrix();
+	}
+
+
+	////////
+	//protected
+	////
+
+	void MeshObject::SetMatrix(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scaling) {
+
 		K_Math::Matrix4x4 view = camera->GetViewMatrix();
 		K_Math::Matrix4x4 projection = camera->GetProjectionMatrix();
 
-		shader->SetMatrix(projection * view * world.matrix());
+		K_Math::Matrix4x4& world = CreateWorldMatrix(position, rotation, scaling);
+		shader->SetMatrix(projection * view * world);
 		shader->SetWorldMatrix(world.matrix());
 	}
 
