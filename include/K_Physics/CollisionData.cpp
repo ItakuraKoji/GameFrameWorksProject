@@ -10,12 +10,12 @@ namespace K_Physics {
 
 	void CollisionData::SetCollisionPosition(const K_Math::Vector3& position) {
 		btTransform& trans = this->collision->getWorldTransform();
-		trans.setOrigin(btVector3(position.x(), position.y(), position.z()));
+		trans.setOrigin(btVector3(position.x, position.y, position.z));
 	}
 
 	void CollisionData::SetCollisionRotation(const K_Math::Vector3& rotation) {
 		btTransform& trans = this->collision->getWorldTransform();
-		trans.setRotation(btQuaternion(rotation.y(), rotation.x(), rotation.z()));
+		trans.setRotation(btQuaternion(rotation.y, rotation.x, rotation.z));
 	}
 
 	K_Math::Vector3 CollisionData::GetCollisionPosition(){
@@ -55,7 +55,7 @@ namespace K_Physics {
 	void RigidBodyData::AddForce(const K_Math::Vector3& vector) {
 		btRigidBody* rigid = btRigidBody::upcast(this->collision);
 		rigid->activate(true);
-		rigid->applyForce(btVector3(vector.x(), vector.y(), vector.z()), this->collision->getWorldTransform().getOrigin());
+		rigid->applyForce(btVector3(vector.x, vector.y, vector.z), this->collision->getWorldTransform().getOrigin());
 	}
 
 	void RigidBodyData::Activate(bool frag) {

@@ -2,6 +2,7 @@ var class_k___graphics_1_1_mesh_object =
 [
     [ "MeshObject", "class_k___graphics_1_1_mesh_object.html#af59273310f07f67f766f9e90323ce641", null ],
     [ "~MeshObject", "class_k___graphics_1_1_mesh_object.html#ae8c3f648521b8c14da19fa53fe1656f3", null ],
+    [ "CreateWorldMatrix", "class_k___graphics_1_1_mesh_object.html#a248b0d20160c8ad487b1c84f8e9e0d15", null ],
     [ "Draw", "class_k___graphics_1_1_mesh_object.html#a86437d928a10a4ceaa0ccdb1ed174028", null ],
     [ "Finalize", "class_k___graphics_1_1_mesh_object.html#a2d7f1695e98aeba276e2f61b0bca00ab", null ],
     [ "Initialize", "class_k___graphics_1_1_mesh_object.html#a248233630419973244851f5d2070b5aa", null ],

@@ -1,6 +1,5 @@
 #pragma once
 
-#include<Eigen\Core>
 #include"ShaderClass.h"
 #include"K_Math\MyMathFanctions.h"
 

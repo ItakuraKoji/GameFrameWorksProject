@@ -31,7 +31,7 @@ namespace K_Graphics {
 			CalculateBoneMatrix(mat[i], arrayIndex, i);
 		}
 
-		texture->SetImageData(mat->data(), numBone * 4, 1, TextureType::Float, TextureColorType::RGBA32F, TextureColorType::RGBA);
+		texture->SetImageData(&mat[0][0], numBone * 4, 1, TextureType::Float, TextureColorType::RGBA32F, TextureColorType::RGBA);
 	}
 
 	void BoneData::SetClurrentBoneData(int arrayIndex, int animID, int time) {
@@ -74,30 +74,36 @@ namespace K_Graphics {
 	////
 	void BoneData::BoneInterporation(int arrayIndex, int boneIndex, float ratio) {
 		//平行移動取り出し
-		const K_Math::Vector3& translationA = this->boneData[arrayIndex][boneIndex].interPolationMat.block(0, 3, 3, 1);
-		const K_Math::Vector3& translationB = this->boneData[arrayIndex][boneIndex].currentMat.block(0, 3, 3, 1);
+		const K_Math::Vector3& translationA = this->boneData[arrayIndex][boneIndex].interPolationMat[3];
+		const K_Math::Vector3& translationB = this->boneData[arrayIndex][boneIndex].currentMat[3];
 
 		//回転行列＆拡縮行列
-		K_Math::Matrix3x3 rotScaleA = this->boneData[arrayIndex][boneIndex].interPolationMat.block(0, 0, 3, 3);
-		K_Math::Matrix3x3 rotScaleB = this->boneData[arrayIndex][boneIndex].currentMat.block(0, 0, 3, 3);
+		K_Math::Matrix3x3 rotScaleA;
+		rotScaleA[0] = (K_Math::Vector3)this->boneData[arrayIndex][boneIndex].interPolationMat[0];
+		rotScaleA[1] = (K_Math::Vector3)this->boneData[arrayIndex][boneIndex].interPolationMat[1];
+		rotScaleA[2] = (K_Math::Vector3)this->boneData[arrayIndex][boneIndex].interPolationMat[2];
+		K_Math::Matrix3x3 rotScaleB;
+		rotScaleB[0] = (K_Math::Vector3)this->boneData[arrayIndex][boneIndex].currentMat[0];
+		rotScaleB[1] = (K_Math::Vector3)this->boneData[arrayIndex][boneIndex].currentMat[1];
+		rotScaleB[2] = (K_Math::Vector3)this->boneData[arrayIndex][boneIndex].currentMat[2];
 
 		//拡縮はベクトルの長さで表される
 		K_Math::Vector3 scaleA;
-		scaleA.x() = rotScaleA.block(0, 0, 1, 3).norm();
-		scaleA.y() = rotScaleA.block(1, 0, 1, 3).norm();
-		scaleA.z() = rotScaleA.block(2, 0, 1, 3).norm();
+		scaleA.x = glm::length(rotScaleA[0]);
+		scaleA.y = glm::length(rotScaleA[1]);
+		scaleA.z = glm::length(rotScaleA[2]);
 		K_Math::Vector3 scaleB;
-		scaleB.x() = rotScaleB.block(0, 0, 1, 3).norm();
-		scaleB.y() = rotScaleB.block(1, 0, 1, 3).norm();
-		scaleB.z() = rotScaleB.block(2, 0, 1, 3).norm();
+		scaleB.x = glm::length(rotScaleB[0]);
+		scaleB.y = glm::length(rotScaleB[1]);
+		scaleB.z = glm::length(rotScaleB[2]);
 
 		//スケールで回転行列を割ると回転行列のみになる
-		rotScaleA.block(0, 0, 1, 3) = rotScaleA.block(0, 0, 1, 3) / scaleA.x();
-		rotScaleA.block(1, 0, 1, 3) = rotScaleA.block(1, 0, 1, 3) / scaleA.y();
-		rotScaleA.block(2, 0, 1, 3) = rotScaleA.block(2, 0, 1, 3) / scaleA.z();
-		rotScaleB.block(0, 0, 1, 3) = rotScaleB.block(0, 0, 1, 3) / scaleB.x();
-		rotScaleB.block(1, 0, 1, 3) = rotScaleB.block(1, 0, 1, 3) / scaleB.y();
-		rotScaleB.block(2, 0, 1, 3) = rotScaleB.block(2, 0, 1, 3) / scaleB.z();
+		rotScaleA[0] = rotScaleA[0] / scaleA.x;
+		rotScaleA[1] = rotScaleA[1] / scaleA.y;
+		rotScaleA[2] = rotScaleA[2] / scaleA.z;
+		rotScaleB[0] = rotScaleB[0] / scaleB.x;
+		rotScaleB[1] = rotScaleB[1] / scaleB.y;
+		rotScaleB[2] = rotScaleB[2] / scaleB.z;
 
 		//それをクォータニオンへ変換
 		K_Math::Quaternion rotationA(rotScaleA);
@@ -105,25 +111,25 @@ namespace K_Graphics {
 
 		const K_Math::Vector3& resultTrans = translationA * (1.0f - ratio) + translationB * ratio;
 		const K_Math::Vector3& resultScale = scaleA * (1.0f - ratio) + scaleB * ratio;
-		const K_Math::Quaternion& resultRot = rotationA.slerp(ratio, rotationB);
+		const K_Math::Quaternion& resultRot = glm::slerp(rotationA, rotationB, ratio);
 
 		//SRT行列作成
-		K_Math::Matrix4x4 resultMat = K_Math::Matrix4x4::Identity();
-		resultMat(0, 0) = resultScale.x();
-		resultMat(1, 1) = resultScale.y();
-		resultMat(2, 2) = resultScale.z();
-		K_Math::Matrix4x4 rotMat = K_Math::Matrix4x4::Identity();
-		rotMat.block(0, 0, 3, 3) = resultRot.matrix();
+		K_Math::Matrix4x4 resultMat;
+		resultMat[0][0] = resultScale.x;
+		resultMat[1][1] = resultScale.y;
+		resultMat[2][2] = resultScale.z;
+		K_Math::Matrix4x4 rotMat;
+		rotMat = glm::toMat4(resultRot);
 
 		resultMat = resultMat * rotMat;
-		resultMat.block(0, 3, 3, 1) = resultTrans;
+		resultMat[3] = K_Math::Vector4(resultTrans, 1.0f);
 
 		//格納
 		this->boneData[arrayIndex][boneIndex].currentMat = resultMat;
 	}
 
 	void BoneData::CalculateBoneMatrix(K_Math::Matrix4x4& resultMat, int arrayIndex, int boneIndex) {
-		const K_Math::Matrix4x4& bind = this->boneData[arrayIndex][boneIndex].bindMat.inverse();
+		const K_Math::Matrix4x4& bind = glm::inverse(this->boneData[arrayIndex][boneIndex].bindMat);
 		const K_Math::Matrix4x4& current = this->boneData[arrayIndex][boneIndex].currentMat;
 		resultMat = current * bind;
 	}

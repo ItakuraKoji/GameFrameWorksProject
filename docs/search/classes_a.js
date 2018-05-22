@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['oggdata',['OggData',['../class_k___audio_1_1_ogg_data.html',1,'K_Audio']]]
+  ['polygondata',['PolygonData',['../struct_k___physics_1_1_map_polygon_1_1_polygon_data.html',1,'K_Physics::MapPolygon']]],
+  ['polygontype',['PolygonType',['../struct_k___physics_1_1_map_polygon_1_1_polygon_type.html',1,'K_Physics::MapPolygon']]]
 ];

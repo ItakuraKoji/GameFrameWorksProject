@@ -122,19 +122,22 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_sprite_object.h
 <tr class="memitem:a1d9eb5352fd073b17ea42b53786fa29a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_sprite_object.html#a1d9eb5352fd073b17ea42b53786fa29a">Draw2D</a> (<a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *camera, <a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *shader, const <a class="el" href="struct_k___math_1_1_box2_d.html">K_Math::Box2D</a> &amp;src, const <a class="el" href="struct_k___math_1_1_box2_d.html">K_Math::Box2D</a> &amp;draw, float rotation)</td></tr>
 <tr class="memdesc:a1d9eb5352fd073b17ea42b53786fa29a"><td class="mdescLeft">&#160;</td><td class="mdescRight">2D描画を行う 「スクリーンのサイズをカメラに設定している」「平行投影のカメラである」「Z軸方向を向きとZ軸と平行」 という３つの条件を満たしたカメラを設定するとスクリーン座標での描画ができる  <a href="#a1d9eb5352fd073b17ea42b53786fa29a">[詳解]</a><br /></td></tr>
 <tr class="separator:a1d9eb5352fd073b17ea42b53786fa29a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af288c290560faa26460fbff16a677439"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_sprite_object.html#af288c290560faa26460fbff16a677439">Draw3D</a> (<a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *camera, <a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *shader, const <a class="el" href="struct_k___math_1_1_box2_d.html">K_Math::Box2D</a> &amp;src, const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;position, const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;rotation, const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;scale)</td></tr>
+<tr class="memitem:af288c290560faa26460fbff16a677439"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_sprite_object.html#af288c290560faa26460fbff16a677439">Draw3D</a> (<a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *camera, <a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *shader, const <a class="el" href="struct_k___math_1_1_box2_d.html">K_Math::Box2D</a> &amp;src, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;position, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;rotation, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;scale)</td></tr>
 <tr class="memdesc:af288c290560faa26460fbff16a677439"><td class="mdescLeft">&#160;</td><td class="mdescRight">3D空間上に描画する、ただし必ずカメラの方を向くビルボードになる  <a href="#af288c290560faa26460fbff16a677439">[詳解]</a><br /></td></tr>
 <tr class="separator:af288c290560faa26460fbff16a677439"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a569d2a769c04b108fd86b9cf8fac752e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_k___math.html#a457ce1b65536e8dcb2d6215eb12dc26a">K_Math::Matrix4x4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_sprite_object.html#a569d2a769c04b108fd86b9cf8fac752e">CreateWorldMatrix</a> (<a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *camera, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;position, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;rotation, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;scale, bool billBoard)</td></tr>
+<tr class="memdesc:a569d2a769c04b108fd86b9cf8fac752e"><td class="mdescLeft">&#160;</td><td class="mdescRight">SRT姿勢からワールド変換行列を作成する  <a href="#a569d2a769c04b108fd86b9cf8fac752e">[詳解]</a><br /></td></tr>
+<tr class="separator:a569d2a769c04b108fd86b9cf8fac752e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 公開変数類</h2></td></tr>
-<tr class="memitem:ad5d76b9b0a30102d01abbb20bab285f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_k___math.html#a41eb0c2c69c938cd59989eb3241cefb2">K_Math::Vector2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_sprite_object.html#ad5d76b9b0a30102d01abbb20bab285f8">controlPoint</a></td></tr>
+<tr class="memitem:ad5d76b9b0a30102d01abbb20bab285f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_k___math.html#aba76719561472e3400b1a81758f2bc81">K_Math::Vector2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_sprite_object.html#ad5d76b9b0a30102d01abbb20bab285f8">controlPoint</a></td></tr>
 <tr class="memdesc:ad5d76b9b0a30102d01abbb20bab285f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">コントロールポイントの座標  <a href="#ad5d76b9b0a30102d01abbb20bab285f8">[詳解]</a><br /></td></tr>
 <tr class="separator:ad5d76b9b0a30102d01abbb20bab285f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 限定公開メンバ関数</h2></td></tr>
-<tr class="memitem:a4c731f8c8e7b35f4f2661a3d9d203f69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_sprite_object.html#a4c731f8c8e7b35f4f2661a3d9d203f69">SetMatrix</a> (<a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *camera, <a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *shader, const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;position, const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;rotation, const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;scale, bool billBoard)</td></tr>
+<tr class="memitem:a4c731f8c8e7b35f4f2661a3d9d203f69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_sprite_object.html#a4c731f8c8e7b35f4f2661a3d9d203f69">SetMatrix</a> (<a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *camera, <a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *shader, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;position, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;rotation, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;scale, bool billBoard)</td></tr>
 <tr class="separator:a4c731f8c8e7b35f4f2661a3d9d203f69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
@@ -204,6 +207,65 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_sprite_object.h
 </div>
 </div>
 <h2 class="groupheader">関数詳解</h2>
+<a id="a569d2a769c04b108fd86b9cf8fac752e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a569d2a769c04b108fd86b9cf8fac752e">&#9670;&nbsp;</a></span>CreateWorldMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_k___math.html#a457ce1b65536e8dcb2d6215eb12dc26a">K_Math::Matrix4x4</a> K_Graphics::SpriteObject::CreateWorldMatrix </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *&#160;</td>
+          <td class="paramname"><em>camera</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>rotation</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>scale</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>billBoard</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>SRT姿勢からワールド変換行列を作成する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">camera</td><td>使用するカメラクラスへのポインタ、ビルボード回転に必要 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">position</td><td>3D空間上の位置座標 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rotation</td><td>XYZそれぞれの軸に関する回転角度（Y→X→Zの順で回転する） </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">scale</td><td>スケーリング </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">billBoard</td><td>ビルボードとしてスプライトを扱うかのフラグ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>ワールド変換行列 </dd></dl>
+
+</div>
+</div>
 <a id="a1d9eb5352fd073b17ea42b53786fa29a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1d9eb5352fd073b17ea42b53786fa29a">&#9670;&nbsp;</a></span>Draw2D()</h2>
 
@@ -291,19 +353,19 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_sprite_object.h
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;&#160;</td>
           <td class="paramname"><em>position</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;&#160;</td>
           <td class="paramname"><em>rotation</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;&#160;</td>
           <td class="paramname"><em>scale</em>&#160;</td>
         </tr>
         <tr>
@@ -419,19 +481,19 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_sprite_object.h
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;&#160;</td>
           <td class="paramname"><em>position</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;&#160;</td>
           <td class="paramname"><em>rotation</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a66884d78082c39ada4091c211f3570f8">K_Math::Vector3</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;&#160;</td>
           <td class="paramname"><em>scale</em>, </td>
         </tr>
         <tr>
@@ -489,7 +551,7 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_sprite_object.h
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespace_k___math.html#a41eb0c2c69c938cd59989eb3241cefb2">K_Math::Vector2</a> K_Graphics::SpriteObject::controlPoint</td>
+          <td class="memname"><a class="el" href="namespace_k___math.html#aba76719561472e3400b1a81758f2bc81">K_Math::Vector2</a> K_Graphics::SpriteObject::controlPoint</td>
         </tr>
       </table>
 </div><div class="memdoc">

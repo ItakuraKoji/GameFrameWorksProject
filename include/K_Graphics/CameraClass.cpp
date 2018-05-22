@@ -37,23 +37,27 @@ namespace K_Graphics {
 	}
 
 	void CameraClass::SetPosition(float x, float y, float z) {
-		this->position << x, y, z;
+		this->position.x = x;
+		this->position.y = y;
+		this->position.z = z;
 	}
 
 	void CameraClass::SetPosition(float distance, const K_Math::Vector3& vector) {
-		if (vector == K_Math::Vector3::Zero()) {
+		if (vector == K_Math::Vector3(0.0f, 0.0f, 0.0f)) {
 			//normalizeできないゼロベクトルの場合は位置をターゲットと同じに
 			this->position = this->target;
 			return;
 		}
 
 		//中心からvectorの方向にdistance分放す
-		this->position = this->target + vector.normalized() * distance;
+		this->position = this->target + glm::normalize(vector) * distance;
 	}
 
 
 	void CameraClass::SetTarget(float x, float y, float z) {
-		this->target << x, y, z;
+		this->target.x = x;
+		this->target.y = y;
+		this->target.z = z;
 	}
 
 	const K_Math::Vector3& CameraClass::GetAxisX() {
@@ -92,20 +96,23 @@ namespace K_Graphics {
 	void CameraClass::Draw() {
 		K_Math::Vector3 up;
 		//カメラの上方向を定義
-		up.x() = 0.0f;
-		up.y() = 1.0f;
-		up.z() = 0.0f;
+		up.x = 0.0f;
+		up.y = 1.0f;
+		up.z = 0.0f;
 		K_Math::MatrixLookAt(this->viewMatrix, this->position, this->target, up);
 
 		//逆行列（カメラ行列）も保持
-		this->cameraMatrix = this->viewMatrix;
-		this->cameraMatrix.block(0, 0, 3, 3) = this->viewMatrix.block(0, 0, 3, 3).transpose();
-		this->cameraMatrix.block(3, 0, 1, 3) = -this->viewMatrix.block(3, 0, 1, 3);
+		this->cameraMatrix = glm::inverse(this->viewMatrix);
+		//this->cameraMatrix.block(0, 0, 3, 3) = this->viewMatrix.block(0, 0, 3, 3).transpose();
+		//this->cameraMatrix.block(3, 0, 1, 3) = -this->viewMatrix.block(3, 0, 1, 3);
 
 		//カメラ軸
-		this->xAxis = this->viewMatrix.block(0, 0, 1, 3).transpose();
-		this->yAxis = this->viewMatrix.block(1, 0, 1, 3).transpose();
-		this->zAxis = this->viewMatrix.block(2, 0, 1, 3).transpose();
+		//this->xAxis = this->viewMatrix.block(0, 0, 1, 3).transpose();
+		//this->yAxis = this->viewMatrix.block(1, 0, 1, 3).transpose();
+		//this->zAxis = this->viewMatrix.block(2, 0, 1, 3).transpose();
+		this->xAxis = (K_Math::Vector3)this->viewMatrix[0];
+		this->yAxis = (K_Math::Vector3)this->viewMatrix[1];
+		this->zAxis = (K_Math::Vector3)this->viewMatrix[2];
 
 		//プロジェクション行列を作成
 		if (this->projectionType == CameraType::Perspective) {

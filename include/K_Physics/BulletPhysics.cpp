@@ -101,9 +101,9 @@ namespace K_Physics {
 		btTriangleMesh *mesh = new btTriangleMesh;
 
 		for (int i = 0; i < numFace; ++i) {
-			mesh->addTriangle(btVector3(vectice[i * 3].x(), vectice[i * 3].y(), vectice[i * 3].z()),
-				btVector3(vectice[i * 3 + 1].x(), vectice[i * 3 + 1].y(), vectice[i * 3 + 1].z()),
-				btVector3(vectice[i * 3 + 2].x(), vectice[i * 3 + 2].y(), vectice[i * 3 + 2].z()), false);
+			mesh->addTriangle(btVector3(vectice[i * 3].x, vectice[i * 3].y, vectice[i * 3].z),
+				btVector3(vectice[i * 3 + 1].x, vectice[i * 3 + 1].y, vectice[i * 3 + 1].z),
+				btVector3(vectice[i * 3 + 2].x, vectice[i * 3 + 2].y, vectice[i * 3 + 2].z), false);
 		}
 		return mesh;
 	}
@@ -115,9 +115,9 @@ namespace K_Physics {
 	}
 	//ŽOŠpŒ`
 	CollisionShape* BulletPhysics::CreateTriangleHullShape(const K_Math::Vector3& point1, const K_Math::Vector3& point2, const K_Math::Vector3& point3) {
-		btScalar points[9] = { point1.x(),point1.y(),point1.z(),
-							   point2.x(),point2.y(),point2.z(),
-							   point3.x(),point3.y(),point3.z() };
+		btScalar points[9] = { point1.x,point1.y,point1.z,
+							   point2.x,point2.y,point2.z,
+							   point3.x,point3.y,point3.z };
 		btCollisionShape* shape = new btConvexHullShape(points, 3, 3 * sizeof(btScalar));
 		this->shapeArray.push_back(shape);
 		return shape;
@@ -145,8 +145,8 @@ namespace K_Physics {
 	RigidBodyData* BulletPhysics::CreateRigidBody(btCollisionShape* shape, btScalar mass, bool ghost, int myselfMask, int giveMask, const K_Math::Vector3& pos, const K_Math::Vector3& rot) {
 		btTransform trans;
 		trans.setIdentity();
-		trans.setOrigin(btVector3(pos.x(), pos.y(), pos.z()));
-		btQuaternion q = btQuaternion(btVector3(0, 0, 1), rot.z()) * btQuaternion(btVector3(1, 0, 0), rot.x()) * btQuaternion(btVector3(0, 1, 0), rot.y());
+		trans.setOrigin(btVector3(pos.x, pos.y, pos.z));
+		btQuaternion q = btQuaternion(btVector3(0, 0, 1), rot.z) * btQuaternion(btVector3(1, 0, 0), rot.x) * btQuaternion(btVector3(0, 1, 0), rot.y);
 		trans.setRotation(q);
 
 		btVector3 inertia(0.0f, 0.0f, 0.0f);
@@ -175,8 +175,8 @@ namespace K_Physics {
 	CollisionData* BulletPhysics::CreateCollisionObject(btCollisionShape* shape, bool ghost, int myselfMask, int giveMask, const K_Math::Vector3& pos, const K_Math::Vector3& rot) {
 		btTransform trans;
 		trans.setIdentity();
-		trans.setOrigin(btVector3(pos.x(), pos.y(), pos.z()));
-		btQuaternion q = btQuaternion(btVector3(0, 0, 1), rot.z()) * btQuaternion(btVector3(1, 0, 0), rot.x()) * btQuaternion(btVector3(0, 1, 0), rot.y());
+		trans.setOrigin(btVector3(pos.x, pos.y, pos.z));
+		btQuaternion q = btQuaternion(btVector3(0, 0, 1), rot.z) * btQuaternion(btVector3(1, 0, 0), rot.x) * btQuaternion(btVector3(0, 1, 0), rot.y);
 		trans.setRotation(q);
 
 		btCollisionObject *collision = new btCollisionObject;
@@ -223,7 +223,7 @@ namespace K_Physics {
 		if (!obj->GetCollision()->getCollisionShape()->isConvex()) {
 			return;
 		}
-		btVector3 moveVec = btVector3(move.x(), move.y(), move.z());
+		btVector3 moveVec = btVector3(move.x, move.y, move.z);
 		btVector3 vMove;
 		btVector3 hMove;
 		btVector3 yAxis = this->toSkyVector;
@@ -259,7 +259,7 @@ namespace K_Physics {
 
 	//ˆ—‚ª@Œy‚¢‚Ù‚¤
 	void BulletPhysics::MoveCharacterDiscrete(CollisionData *obj, const K_Math::Vector3& move, bool vLimitDirection, bool hLimitDirection) {
-		btVector3 moveVec = btVector3(move.x(), move.y(), move.z());
+		btVector3 moveVec = btVector3(move.x, move.y, move.z);
 		btVector3 vMove;
 		btVector3 hMove;
 		btVector3 yAxis = this->toSkyVector;
@@ -294,7 +294,7 @@ namespace K_Physics {
 	}
 
 	void BulletPhysics::SetSkyVector(const K_Math::Vector3& vector) {
-		this->toSkyVector = btVector3(vector.x(), vector.y(), vector.z()).normalized();
+		this->toSkyVector = btVector3(vector.x, vector.y, vector.z).normalized();
 	}
 
 

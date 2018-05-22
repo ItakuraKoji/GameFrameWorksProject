@@ -26,8 +26,8 @@ namespace K_Graphics {
 		}
 
 		CameraClass* camera = new CameraClass(CameraType::Perspective, width, height, neer, far, fieldOfView);
-		camera->SetPosition(position.x(), position.y(), position.z());
-		camera->SetTarget(target.x(), target.y(), target.z());
+		camera->SetPosition(position.x, position.y, position.z);
+		camera->SetTarget(target.x, target.y, target.z);
 		camera->Draw();
 		this->cameraList[name] = camera;
 	}
@@ -40,8 +40,8 @@ namespace K_Graphics {
 		}
 
 		CameraClass* camera = new CameraClass(CameraType::Ortho, width, height, neer, far, 0.0f);
-		camera->SetPosition(position.x(), position.y(), position.z());
-		camera->SetTarget(target.x(), target.y(), target.z());
+		camera->SetPosition(position.x, position.y, position.z);
+		camera->SetTarget(target.x, target.y, target.z);
 		camera->Draw();
 		this->cameraList[name] = camera;
 	}

@@ -20,5 +20,6 @@ var searchData=
   ['createsquaremodel',['CreateSquareModel',['../class_k___graphics_1_1_model_data_factory.html#a01cb97a34c9f12ba7ae9270dc86b2644',1,'K_Graphics::ModelDataFactory']]],
   ['createtrianglehullshape',['CreateTriangleHullShape',['../class_k___physics_1_1_bullet_physics.html#a62e03332f0f6c69f91a29f70b68bdc96',1,'K_Physics::BulletPhysics']]],
   ['createtrianglemesh',['CreateTriangleMesh',['../class_k___physics_1_1_bullet_physics.html#af05fb78c5fbc9ad62eee828f681c2f38',1,'K_Physics::BulletPhysics']]],
-  ['createtrianglemeshshape',['CreateTriangleMeshShape',['../class_k___physics_1_1_bullet_physics.html#ae4d693a1b660eaba187622e2f4adcb19',1,'K_Physics::BulletPhysics']]]
+  ['createtrianglemeshshape',['CreateTriangleMeshShape',['../class_k___physics_1_1_bullet_physics.html#ae4d693a1b660eaba187622e2f4adcb19',1,'K_Physics::BulletPhysics']]],
+  ['createworldmatrix',['CreateWorldMatrix',['../class_k___graphics_1_1_mesh_object.html#a248b0d20160c8ad487b1c84f8e9e0d15',1,'K_Graphics::MeshObject::CreateWorldMatrix()'],['../class_k___graphics_1_1_sprite_object.html#a569d2a769c04b108fd86b9cf8fac752e',1,'K_Graphics::SpriteObject::CreateWorldMatrix()']]]
 ];

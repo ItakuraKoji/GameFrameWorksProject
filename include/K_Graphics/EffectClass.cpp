@@ -58,8 +58,8 @@ namespace K_Graphics {
 
 		for (int y = 0; y < 4; ++y) {
 			for (int x = 0; x < 4; ++x) {
-				view.Values[y][x] = this->viewCamera->GetViewMatrix()(x, y);
-				projection.Values[y][x] = this->viewCamera->GetProjectionMatrix()(x, y);
+				view.Values[y][x] = this->viewCamera->GetViewMatrix()[y][x];
+				projection.Values[y][x] = this->viewCamera->GetProjectionMatrix()[y][x];
 			}
 		}
 		this->renderer->SetCameraMatrix(view);
@@ -106,7 +106,7 @@ namespace K_Graphics {
 			return -1;
 		}
 
-		return this->manager->Play(this->effect[name], position.x(), position.y(), position.z());
+		return this->manager->Play(this->effect[name], position.x, position.y, position.z);
 	}
 
 	void EffectClass::Stop(EffectHandle handle) {
@@ -118,12 +118,12 @@ namespace K_Graphics {
 	}
 
 	void EffectClass::SetPosition(EffectHandle handle, const K_Math::Vector3& position) {
-		this->manager->SetLocation(handle, position.x(), position.y(), position.z());
+		this->manager->SetLocation(handle, position.x, position.y, position.z);
 	}
 	void EffectClass::SetRotation(EffectHandle handle, float rotation, const K_Math::Vector3& axis) {
-		this->manager->SetRotation(handle, Effekseer::Vector3D(axis.x(), axis.y(), axis.z()), rotation);
+		this->manager->SetRotation(handle, Effekseer::Vector3D(axis.x, axis.y, axis.z), rotation);
 	}
 	void EffectClass::SetScale(EffectHandle handle, const K_Math::Vector3& scale) {
-		this->manager->SetScale(handle, scale.x(), scale.y(), scale.z());
+		this->manager->SetScale(handle, scale.x, scale.y, scale.z);
 	}
 }

@@ -188,8 +188,8 @@ namespace K_Loader {
 				for (int i = 0; i < uvMap.GetSize(); ++i) {
 					for (int j = 0; j < uvMap[i].uv.GetCount(); ++j) {
 						this->vertexData[count] = vertex[i];
-						this->vertexData[count].texcoord.x() = (float)uvMap[i].uv[j][0];
-						this->vertexData[count].texcoord.y() = (float)uvMap[i].uv[j][1];
+						this->vertexData[count].texcoord.x = (float)uvMap[i].uv[j][0];
+						this->vertexData[count].texcoord.y = (float)uvMap[i].uv[j][1];
 						++count;
 					}
 				}
@@ -316,18 +316,18 @@ namespace K_Loader {
 				//頂点
 				FbxVector4 *pCoord = mesh->GetControlPoints();
 				int index = mesh->GetPolygonVertex(i, p);
-				vertex[vertexIndex].position.x() = (float)pCoord[index][0];
-				vertex[vertexIndex].position.y() = (float)pCoord[index][1];
-				vertex[vertexIndex].position.z() = (float)pCoord[index][2];
+				vertex[vertexIndex].position.x = (float)pCoord[index][0];
+				vertex[vertexIndex].position.y = (float)pCoord[index][1];
+				vertex[vertexIndex].position.z = (float)pCoord[index][2];
 
 				//法線
 				FbxVector4 normal;
 				mesh->GetPolygonVertexNormal(i, p, normal);
-				if (vertex[vertexIndex].normal.norm() == 0.0f) {
-					vertex[vertexIndex].normal.x() = (float)normal[0];
-					vertex[vertexIndex].normal.y() = (float)normal[1];
-					vertex[vertexIndex].normal.z() = (float)normal[2];
-					vertex[vertexIndex].normal.normalize();
+				if (glm::length(vertex[vertexIndex].normal) == 0.0f) {
+					vertex[vertexIndex].normal.x = (float)normal[0];
+					vertex[vertexIndex].normal.y = (float)normal[1];
+					vertex[vertexIndex].normal.z = (float)normal[2];
+					vertex[vertexIndex].normal = glm::normalize(vertex[vertexIndex].normal);
 				}
 
 				//UV
@@ -339,8 +339,8 @@ namespace K_Loader {
 				if (pUV->GetMappingMode() == FbxLayerElementUV::eByPolygonVertex) {
 					int uvIndex = mesh->GetTextureUVIndex(i, p, FbxLayerElement::eTextureDiffuse);
 					FbxVector2 v2 = pUV->GetDirectArray().GetAt(uvIndex);
-					vertex[vertexIndex].texcoord.x() = (float)v2[0];
-					vertex[vertexIndex].texcoord.y() = (float)v2[1];
+					vertex[vertexIndex].texcoord.x = (float)v2[0];
+					vertex[vertexIndex].texcoord.y = (float)v2[1];
 				}
 			}
 		}
@@ -355,8 +355,8 @@ namespace K_Loader {
 				pUV = mesh->GetLayer(0)->GetUVs();
 				for (int k = 0; k < numUV; ++k) {
 					v2 = pUV->GetDirectArray().GetAt(k);
-					vertex[k].texcoord.x() = (float)v2[0];
-					vertex[k].texcoord.y() = (float)v2[1];
+					vertex[k].texcoord.x = (float)v2[0];
+					vertex[k].texcoord.y = (float)v2[1];
 				}
 			}
 		}
@@ -377,22 +377,22 @@ namespace K_Loader {
 			if (materialType.Is(FbxSurfacePhong::ClassId)) {
 				FbxSurfacePhong *pPhong = (FbxSurfacePhong*)pMaterial;
 
-				material[i].ambient(0) = (float)(pPhong->Ambient.Get()[0]);
-				material[i].ambient(1) = (float)(pPhong->Ambient.Get()[1]);
-				material[i].ambient(2) = (float)(pPhong->Ambient.Get()[2]);
-				material[i].ambient(3) = 1.0f;
+				material[i].ambient[0] = (float)(pPhong->Ambient.Get()[0]);
+				material[i].ambient[1] = (float)(pPhong->Ambient.Get()[1]);
+				material[i].ambient[2] = (float)(pPhong->Ambient.Get()[2]);
+				material[i].ambient[3] = 1.0f;
 				//環境光強度
 				material[i].ambientPower = (float)(pPhong->AmbientFactor.Get());
 
-				material[i].diffuse(0) = (float)(pPhong->Diffuse.Get()[0]);
-				material[i].diffuse(1) = (float)(pPhong->Diffuse.Get()[1]);
-				material[i].diffuse(2) = (float)(pPhong->Diffuse.Get()[2]);
-				material[i].diffuse(3) = 1.0f;
+				material[i].diffuse[0] = (float)(pPhong->Diffuse.Get()[0]);
+				material[i].diffuse[1] = (float)(pPhong->Diffuse.Get()[1]);
+				material[i].diffuse[2] = (float)(pPhong->Diffuse.Get()[2]);
+				material[i].diffuse[3] = 1.0f;
 
-				material[i].specular(0) = (float)(pPhong->Specular.Get()[0]);
-				material[i].specular(1) = (float)(pPhong->Specular.Get()[1]);
-				material[i].specular(2) = (float)(pPhong->Specular.Get()[2]);
-				material[i].specular(3) = 1.0f;
+				material[i].specular[0] = (float)(pPhong->Specular.Get()[0]);
+				material[i].specular[1] = (float)(pPhong->Specular.Get()[1]);
+				material[i].specular[2] = (float)(pPhong->Specular.Get()[2]);
+				material[i].specular[3] = 1.0f;
 
 				//鏡面反射強度
 				material[i].specurarShininess = (float)(pPhong->Shininess.Get());
@@ -401,22 +401,22 @@ namespace K_Loader {
 			else if (materialType.Is(FbxSurfaceLambert::ClassId)) {
 				FbxSurfaceLambert *pLambert = (FbxSurfaceLambert*)pMaterial;
 
-				material[i].ambient(0) = (float)(pLambert->Ambient.Get()[0]);
-				material[i].ambient(1) = (float)(pLambert->Ambient.Get()[1]);
-				material[i].ambient(2) = (float)(pLambert->Ambient.Get()[2]);
-				material[i].ambient(3) = 1.0f;
+				material[i].ambient[0] = (float)(pLambert->Ambient.Get()[0]);
+				material[i].ambient[1] = (float)(pLambert->Ambient.Get()[1]);
+				material[i].ambient[2] = (float)(pLambert->Ambient.Get()[2]);
+				material[i].ambient[3] = 1.0f;
 				//環境光強度
 				material[i].ambientPower = (float)(pLambert->AmbientFactor.Get());
 
-				material[i].diffuse(0) = (float)(pLambert->Diffuse.Get()[0]);
-				material[i].diffuse(1) = (float)(pLambert->Diffuse.Get()[1]);
-				material[i].diffuse(2) = (float)(pLambert->Diffuse.Get()[2]);
-				material[i].diffuse(3) = 1.0f;
+				material[i].diffuse[0] = (float)(pLambert->Diffuse.Get()[0]);
+				material[i].diffuse[1] = (float)(pLambert->Diffuse.Get()[1]);
+				material[i].diffuse[2] = (float)(pLambert->Diffuse.Get()[2]);
+				material[i].diffuse[3] = 1.0f;
 
-				material[i].specular(0) = 0.0f;
-				material[i].specular(1) = 0.0f;
-				material[i].specular(2) = 0.0f;
-				material[i].specular(3) = 1.0f;
+				material[i].specular[0] = 0.0f;
+				material[i].specular[1] = 0.0f;
+				material[i].specular[2] = 0.0f;
+				material[i].specular[3] = 1.0f;
 
 				//鏡面反射強度
 				material[i].specurarShininess = 1.0f;
@@ -656,7 +656,7 @@ namespace K_Loader {
 			cluster[i]->GetTransformLinkMatrix(mat);
 			for (int x = 0; x < 4; ++x) {
 				for (int y = 0; y < 4; ++y) {
-					bone[i].bindMat(x + y * 4) = (float)mat.Get(y, x);
+					bone[i].bindMat[y][x] = (float)mat.Get(y, x);
 					bone[i].cluster = cluster[i];
 				}
 			}
@@ -742,7 +742,7 @@ namespace K_Loader {
 					//代入
 					for (int x = 0; x < 4; ++x) {
 						for (int y = 0; y < 4; ++y) {
-							bone[k].mat[animID][time](x, y) = (float)mat.Get(y, x);
+							bone[k].mat[animID][time][y][x] = (float)mat.Get(y, x);
 						}
 					}
 				}

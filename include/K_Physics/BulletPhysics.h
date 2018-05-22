@@ -79,7 +79,7 @@ namespace K_Physics {
 		//!@param[in] shader 使用するシェーダー
 		//!@param[in] camera 使用するカメラ
 		//!@param[in] trans 変形行列（省略時単位行列）
-		void DebugDraw(K_Graphics::ShaderClass* shader, K_Graphics::CameraClass* camera, const K_Math::Matrix4x4& trans = K_Math::Matrix4x4::Identity());
+		void DebugDraw(K_Graphics::ShaderClass* shader, K_Graphics::CameraClass* camera, const K_Math::Matrix4x4& trans = K_Math::Matrix4x4());
 
 		//!@brief 三角形の形状を作成
 		//!@param[in] point1 角の座標

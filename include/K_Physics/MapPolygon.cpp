@@ -51,7 +51,7 @@ namespace K_Physics {
 	}
 
 	void MapPolygon::SetScaling(const K_Math::Vector3& scale) {
-		this->shape->setLocalScaling(btVector3(scale.x(), scale.y(), scale.z()));
+		this->shape->setLocalScaling(btVector3(scale.x, scale.y, scale.z));
 	}
 
 
