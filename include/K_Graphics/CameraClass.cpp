@@ -102,14 +102,14 @@ namespace K_Graphics {
 		K_Math::MatrixLookAt(this->viewMatrix, this->position, this->target, up);
 
 		//逆行列（カメラ行列）も保持
-		this->cameraMatrix = glm::inverse(this->viewMatrix);
-		//this->cameraMatrix.block(0, 0, 3, 3) = this->viewMatrix.block(0, 0, 3, 3).transpose();
-		//this->cameraMatrix.block(3, 0, 1, 3) = -this->viewMatrix.block(3, 0, 1, 3);
+		for (int r = 0; r < 3; ++r) {
+			for (int l = 0; l < 3; ++l) {
+				this->cameraMatrix[r][l] = this->viewMatrix[l][r];
+			}
+		}
+		(K_Math::Vector3)this->cameraMatrix[3] = -this->viewMatrix[3];
 
 		//カメラ軸
-		//this->xAxis = this->viewMatrix.block(0, 0, 1, 3).transpose();
-		//this->yAxis = this->viewMatrix.block(1, 0, 1, 3).transpose();
-		//this->zAxis = this->viewMatrix.block(2, 0, 1, 3).transpose();
 		this->xAxis = (K_Math::Vector3)this->viewMatrix[0];
 		this->yAxis = (K_Math::Vector3)this->viewMatrix[1];
 		this->zAxis = (K_Math::Vector3)this->viewMatrix[2];
