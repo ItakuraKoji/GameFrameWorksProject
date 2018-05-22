@@ -1,10 +1,10 @@
 #pragma once
 
+#include"K_Math\MyMathFanctions.h"
 #include<fbxsdk\fbxsdk.h>
 
 #include<vector>
 
-#include"K_Math\MyMathFanctions.h"
 #include"BulletPhysics.h"
 
 namespace K_Physics {

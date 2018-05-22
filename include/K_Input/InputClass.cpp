@@ -77,7 +77,7 @@ namespace K_Input {
 		//ˆÊ’u
 		double x, y;
 		glfwGetCursorPos(this->windowHandle, &x, &y);
-		this->mousePosition.x() = (float)x;
-		this->mousePosition.y() = (float)y;
+		this->mousePosition.x = (float)x;
+		this->mousePosition.y = (float)y;
 	}
 }

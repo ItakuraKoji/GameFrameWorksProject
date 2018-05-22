@@ -20,7 +20,6 @@ namespace K_Graphics {
 		K_Math::Vector4 specular;
 		float           specurarShininess;
 		float           specurarPower;
-		EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 	};
 	struct VertexBuffer {
 		GLuint VAO;
@@ -41,7 +40,6 @@ namespace K_Graphics {
 		K_Math::Matrix4x4 bindMat;
 		K_Math::Matrix4x4 currentMat;
 		K_Math::Matrix4x4 interPolationMat;
-		EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 	};
 
 

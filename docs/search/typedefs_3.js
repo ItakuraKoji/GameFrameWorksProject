@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['effecthandle',['EffectHandle',['../namespace_k___graphics.html#afb3a0fd0adc77eb95104e697c9b6b7a9',1,'K_Graphics']]]
+  ['quaternion',['Quaternion',['../namespace_k___math.html#a034e586a2748ce9790ca7cb30efcd78f',1,'K_Math']]]
 ];

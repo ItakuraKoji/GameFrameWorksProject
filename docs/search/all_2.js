@@ -4,7 +4,6 @@ var searchData=
   ['cameraclass',['CameraClass',['../class_k___graphics_1_1_camera_class.html',1,'K_Graphics::CameraClass'],['../class_k___graphics_1_1_camera_class.html#a2b371f16a80374ab07522af4bfe8f97c',1,'K_Graphics::CameraClass::CameraClass()']]],
   ['cameralist',['CameraList',['../class_k___graphics_1_1_camera_list.html',1,'K_Graphics::CameraList'],['../class_k___graphics_1_1_camera_list.html#a83eea14d2963da7f46309fc06675da86',1,'K_Graphics::CameraList::CameraList()']]],
   ['cameratype',['CameraType',['../namespace_k___graphics.html#a46f486e742ad696f88bfbeb22f8af10f',1,'K_Graphics']]],
-  ['channels',['channels',['../structpng__row__info__struct.html#a7cefee70361a3789a862001aefcd872f',1,'png_row_info_struct']]],
   ['chardata',['CharData',['../struct_k___graphics_1_1_font_generator_1_1_char_data.html',1,'K_Graphics::FontGenerator']]],
   ['clearallfontatlas',['ClearAllFontAtlas',['../class_k___graphics_1_1_font_generator.html#a2e90321835a229436d378647aaddcab5',1,'K_Graphics::FontGenerator']]],
   ['clearallfonttexture',['ClearAllFontTexture',['../class_k___graphics_1_1_font_renderer.html#a7e75db1a4ddf8bb6c888ece135783673',1,'K_Graphics::FontRenderer']]],
@@ -17,11 +16,6 @@ var searchData=
   ['collisionshape',['CollisionShape',['../namespace_k___physics.html#aa0de61c2beb0d423efad313964d20f31',1,'K_Physics']]],
   ['collisiontag',['CollisionTag',['../struct_k___physics_1_1_collision_tag.html',1,'K_Physics']]],
   ['color',['color',['../class_k___graphics_1_1_ambient_light.html#ab1122a784c5ec44b828ace7013d1d7c8',1,'K_Graphics::AmbientLight::color()'],['../class_k___graphics_1_1_directional_light.html#a136a2152a4f66c7c8f9676abc2c7211c',1,'K_Graphics::DirectionalLight::color()']]],
-  ['color_5ftype',['color_type',['../structpng__row__info__struct.html#a646244422549c66e6661cfcdb67c8e28',1,'png_row_info_struct']]],
-  ['colormap_5fentries',['colormap_entries',['../structpng__image.html#a48bf1c6518f03da900f41cd9aa5ae5b7',1,'png_image']]],
-  ['comm_5fmax',['comm_max',['../structgz__header__s.html#aa0529f45e5c08b3009cfc2a61a86aea0',1,'gz_header_s']]],
-  ['comment',['comment',['../structgz__header__s.html#a1d4fd0807e838ce4bfde54aa021e18e9',1,'gz_header_s']]],
-  ['compression',['compression',['../structpng__text__struct.html#ad09c73bc91f014ad352abfbb3b61b8d1',1,'png_text_struct']]],
   ['controlleft',['ControlLeft',['../namespace_k___input.html#af62d80c77b12db01035e4b9aa27a09d6af37bbf0b270fca4b52a03cec0bf900f6',1,'K_Input']]],
   ['controlpoint',['controlPoint',['../class_k___graphics_1_1_sprite_object.html#ad5d76b9b0a30102d01abbb20bab285f8',1,'K_Graphics::SpriteObject']]],
   ['controlright',['ControlRight',['../namespace_k___input.html#af62d80c77b12db01035e4b9aa27a09d6a6ff11445c5c9c2ed1c422621ebf2a03a',1,'K_Input']]],
@@ -39,6 +33,7 @@ var searchData=
   ['createtrianglehullshape',['CreateTriangleHullShape',['../class_k___physics_1_1_bullet_physics.html#a62e03332f0f6c69f91a29f70b68bdc96',1,'K_Physics::BulletPhysics']]],
   ['createtrianglemesh',['CreateTriangleMesh',['../class_k___physics_1_1_bullet_physics.html#af05fb78c5fbc9ad62eee828f681c2f38',1,'K_Physics::BulletPhysics']]],
   ['createtrianglemeshshape',['CreateTriangleMeshShape',['../class_k___physics_1_1_bullet_physics.html#ae4d693a1b660eaba187622e2f4adcb19',1,'K_Physics::BulletPhysics']]],
+  ['createworldmatrix',['CreateWorldMatrix',['../class_k___graphics_1_1_mesh_object.html#a248b0d20160c8ad487b1c84f8e9e0d15',1,'K_Graphics::MeshObject::CreateWorldMatrix()'],['../class_k___graphics_1_1_sprite_object.html#a569d2a769c04b108fd86b9cf8fac752e',1,'K_Graphics::SpriteObject::CreateWorldMatrix()']]],
   ['cullenttexture',['cullentTexture',['../class_k___graphics_1_1_sprite_object.html#a7cf528d065c242528bf0bd407a139f09',1,'K_Graphics::SpriteObject']]],
   ['currentmat',['currentMat',['../struct_k___graphics_1_1_bone.html#a82de526d464ccddea11100c9f8705f61',1,'K_Graphics::Bone']]]
 ];

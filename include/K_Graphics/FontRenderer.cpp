@@ -101,7 +101,7 @@ namespace K_Graphics {
 		std::multimap<float, FontDrawData> ordered;
 		for (int i = 0; i < this->drawData3D.size(); ++i) {
 			//カメラ座標系のZ座標にマイナスをつける
-			float distance = -camera->GetAxisZ().dot(K_Math::Vector3(this->drawData3D[i].posX, this->drawData3D[i].posY, this->drawData3D[i].posZ));
+			float distance = -glm::dot(camera->GetAxisZ(), K_Math::Vector3(this->drawData3D[i].posX, this->drawData3D[i].posY, this->drawData3D[i].posZ));
 			//同じ数字の場合は、後に呼んだ描画が優先
 			ordered.insert(std::make_pair(distance, this->drawData3D[i]));
 		}
@@ -215,14 +215,15 @@ namespace K_Graphics {
 			FontGenerator::FontData data;
 			this->cullentFont->GetFontData(data, drawData.buffer[j], drawData.fontSize);
 			K_Math::Vector3 pos3D;
-			pos3D.x() = drawData.posX;
-			pos3D.y() = drawData.posY - data.fixPositionY * size;
-			pos3D.z() = drawData.posZ;
+			pos3D.x = drawData.posX;
+			pos3D.y = drawData.posY - data.fixPositionY * size;
+			pos3D.z = drawData.posZ;
 			//文字全体の半分だけ後ろにずらして描画することで、コントロールポイントを中心に
-			pos3D += position - (advanceDir * stringSize / 2.0f * size);
+			pos3D += position - (advanceDir * (float)stringSize / 2.0f * size);
 
 			this->sprite->Draw3D(camera, shader, data.locationUV, pos3D, K_Math::Vector3(0.0f, 0.0f, 0.0f), K_Math::Vector3(size, size, size));
-			position += advanceDir * data.advance * size;
+			
+			position += advanceDir * (float)data.advance * size;
 		}
 	}
 }

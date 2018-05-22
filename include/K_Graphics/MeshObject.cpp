@@ -52,29 +52,39 @@ namespace K_Graphics {
 		this->drawModel->InstanceDraw(numDraw, shader);
 	}
 
+	K_Math::Matrix4x4 MeshObject::CreateWorldMatrix(const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scaling) {
+		K_Math::Matrix4x4 world;
+		//移動
+		K_Math::Matrix4x4 transMat = glm::translate(world, position);
+		//回転順はYXZ
+		K_Math::Quaternion rot;
+		rot = glm::angleAxis(0.0f, K_Math::Vector3(0.0f, 0.0f, 0.0f));
+		rot = rot * glm::angleAxis(rotation.y, K_Math::Vector3(0.0f, 1.0f, 0.0f));
+		rot = rot * glm::angleAxis(rotation.x, K_Math::Vector3(1.0f, 0.0f, 0.0f));
+		rot = rot * glm::angleAxis(rotation.z, K_Math::Vector3(0.0f, 0.0f, 1.0f));
+		K_Math::Matrix4x4 rotMat = glm::toMat4(rot);
+
+		//スケール
+		K_Math::Matrix4x4 scaleMat = glm::scale(world, K_Math::Vector3(-scaling.x, scaling.y, scaling.z));
+
+		world = transMat * rotMat * scaleMat;
+		return world;
+	}
+
+
 	////////
 	//protected
 	////
 
 	void MeshObject::SetMatrix(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scaling) {
-		//移動
-		K_Math::Translation trans = K_Math::Translation(position);
-		//回転順はYXZ
-		K_Math::Quaternion rot;
-		rot = K_Math::AngleAxis(0, K_Math::Vector3::Zero());
-		rot = rot * K_Math::AngleAxis(rotation.y(), K_Math::Vector3::UnitY());
-		rot = rot * K_Math::AngleAxis(rotation.x(), K_Math::Vector3::UnitX());
-		rot = rot * K_Math::AngleAxis(rotation.z(), K_Math::Vector3::UnitZ());
-		//スケール
-		K_Math::DiagonalMatrix scale = K_Math::DiagonalMatrix(K_Math::Vector3(-scaling.x(), scaling.y(), scaling.z()));
 
-
-		K_Math::Affine3 world = trans * rot * scale;
 		K_Math::Matrix4x4 view = camera->GetViewMatrix();
 		K_Math::Matrix4x4 projection = camera->GetProjectionMatrix();
 
-		shader->SetMatrix(projection * view * world.matrix());
-		shader->SetWorldMatrix(world.matrix());
+		K_Math::Matrix4x4& world = CreateWorldMatrix(position, rotation, scaling);
+		K_Math::Matrix4x4 a = projection * view * world;
+		shader->SetMatrix(projection * view * world);
+		shader->SetWorldMatrix(world);
 	}
 
 }

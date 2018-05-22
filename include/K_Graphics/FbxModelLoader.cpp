@@ -34,7 +34,6 @@ namespace K_Loader {
 
 		//ファイルパスを記録して相対パスを作り出す("../は使えない")
 		{
-
 			int position = 0;
 			int loopMax = (int)fileName.size();
 			int i;
@@ -45,6 +44,7 @@ namespace K_Loader {
 					break;
 				}
 			}
+			this->fileRoot = new char[position + 1];
 			//取得したパスまでの位置を実際に文字取得
 			for (i = 0; i < position; ++i) {
 				this->fileRoot[i] = fileName.data()[i];
@@ -54,6 +54,7 @@ namespace K_Loader {
 
 		FbxNode *rootNode = this->fbxData->GetScene()->GetRootNode();
 		if (!RecursiveNode(rootNode)) {
+			delete[] this->fileRoot;
 			return false;
 		}
 
@@ -62,6 +63,10 @@ namespace K_Loader {
 		//アニメーション情報を取得、名前をキーにして保持
 		FbxImporter* importer = this->fbxData->GetInporter();
 		int numAnim = importer->GetAnimStackCount();
+		if (this->animationData == nullptr) {
+			numAnim = 0;
+		}
+
 		for (int i = 0; i < numAnim; ++i) {
 			//取得
 			FbxTakeInfo *take = importer->GetTakeInfo(i);
@@ -86,6 +91,7 @@ namespace K_Loader {
 		}
 
 		this->loaded = true;
+		delete[] this->fileRoot;
 		return true;
 	}
 
@@ -182,8 +188,8 @@ namespace K_Loader {
 				for (int i = 0; i < uvMap.GetSize(); ++i) {
 					for (int j = 0; j < uvMap[i].uv.GetCount(); ++j) {
 						this->vertexData[count] = vertex[i];
-						this->vertexData[count].texcoord.x() = (float)uvMap[i].uv[j][0];
-						this->vertexData[count].texcoord.y() = (float)uvMap[i].uv[j][1];
+						this->vertexData[count].texcoord.x = (float)uvMap[i].uv[j][0];
+						this->vertexData[count].texcoord.y = (float)uvMap[i].uv[j][1];
 						++count;
 					}
 				}
@@ -310,18 +316,18 @@ namespace K_Loader {
 				//頂点
 				FbxVector4 *pCoord = mesh->GetControlPoints();
 				int index = mesh->GetPolygonVertex(i, p);
-				vertex[vertexIndex].position.x() = (float)pCoord[index][0];
-				vertex[vertexIndex].position.y() = (float)pCoord[index][1];
-				vertex[vertexIndex].position.z() = (float)pCoord[index][2];
+				vertex[vertexIndex].position.x = (float)pCoord[index][0];
+				vertex[vertexIndex].position.y = (float)pCoord[index][1];
+				vertex[vertexIndex].position.z = (float)pCoord[index][2];
 
 				//法線
 				FbxVector4 normal;
 				mesh->GetPolygonVertexNormal(i, p, normal);
-				if (vertex[vertexIndex].normal.norm() == 0.0f) {
-					vertex[vertexIndex].normal.x() = (float)normal[0];
-					vertex[vertexIndex].normal.y() = (float)normal[1];
-					vertex[vertexIndex].normal.z() = (float)normal[2];
-					vertex[vertexIndex].normal.normalize();
+				if (glm::length(vertex[vertexIndex].normal) == 0.0f) {
+					vertex[vertexIndex].normal.x = (float)normal[0];
+					vertex[vertexIndex].normal.y = (float)normal[1];
+					vertex[vertexIndex].normal.z = (float)normal[2];
+					vertex[vertexIndex].normal = glm::normalize(vertex[vertexIndex].normal);
 				}
 
 				//UV
@@ -333,8 +339,8 @@ namespace K_Loader {
 				if (pUV->GetMappingMode() == FbxLayerElementUV::eByPolygonVertex) {
 					int uvIndex = mesh->GetTextureUVIndex(i, p, FbxLayerElement::eTextureDiffuse);
 					FbxVector2 v2 = pUV->GetDirectArray().GetAt(uvIndex);
-					vertex[vertexIndex].texcoord.x() = (float)v2[0];
-					vertex[vertexIndex].texcoord.y() = (float)v2[1];
+					vertex[vertexIndex].texcoord.x = (float)v2[0];
+					vertex[vertexIndex].texcoord.y = (float)v2[1];
 				}
 			}
 		}
@@ -349,8 +355,8 @@ namespace K_Loader {
 				pUV = mesh->GetLayer(0)->GetUVs();
 				for (int k = 0; k < numUV; ++k) {
 					v2 = pUV->GetDirectArray().GetAt(k);
-					vertex[k].texcoord.x() = (float)v2[0];
-					vertex[k].texcoord.y() = (float)v2[1];
+					vertex[k].texcoord.x = (float)v2[0];
+					vertex[k].texcoord.y = (float)v2[1];
 				}
 			}
 		}
@@ -371,22 +377,22 @@ namespace K_Loader {
 			if (materialType.Is(FbxSurfacePhong::ClassId)) {
 				FbxSurfacePhong *pPhong = (FbxSurfacePhong*)pMaterial;
 
-				material[i].ambient(0) = (float)(pPhong->Ambient.Get()[0]);
-				material[i].ambient(1) = (float)(pPhong->Ambient.Get()[1]);
-				material[i].ambient(2) = (float)(pPhong->Ambient.Get()[2]);
-				material[i].ambient(3) = 1.0f;
+				material[i].ambient[0] = (float)(pPhong->Ambient.Get()[0]);
+				material[i].ambient[1] = (float)(pPhong->Ambient.Get()[1]);
+				material[i].ambient[2] = (float)(pPhong->Ambient.Get()[2]);
+				material[i].ambient[3] = 1.0f;
 				//環境光強度
 				material[i].ambientPower = (float)(pPhong->AmbientFactor.Get());
 
-				material[i].diffuse(0) = (float)(pPhong->Diffuse.Get()[0]);
-				material[i].diffuse(1) = (float)(pPhong->Diffuse.Get()[1]);
-				material[i].diffuse(2) = (float)(pPhong->Diffuse.Get()[2]);
-				material[i].diffuse(3) = 1.0f;
+				material[i].diffuse[0] = (float)(pPhong->Diffuse.Get()[0]);
+				material[i].diffuse[1] = (float)(pPhong->Diffuse.Get()[1]);
+				material[i].diffuse[2] = (float)(pPhong->Diffuse.Get()[2]);
+				material[i].diffuse[3] = 1.0f;
 
-				material[i].specular(0) = (float)(pPhong->Specular.Get()[0]);
-				material[i].specular(1) = (float)(pPhong->Specular.Get()[1]);
-				material[i].specular(2) = (float)(pPhong->Specular.Get()[2]);
-				material[i].specular(3) = 1.0f;
+				material[i].specular[0] = (float)(pPhong->Specular.Get()[0]);
+				material[i].specular[1] = (float)(pPhong->Specular.Get()[1]);
+				material[i].specular[2] = (float)(pPhong->Specular.Get()[2]);
+				material[i].specular[3] = 1.0f;
 
 				//鏡面反射強度
 				material[i].specurarShininess = (float)(pPhong->Shininess.Get());
@@ -395,22 +401,22 @@ namespace K_Loader {
 			else if (materialType.Is(FbxSurfaceLambert::ClassId)) {
 				FbxSurfaceLambert *pLambert = (FbxSurfaceLambert*)pMaterial;
 
-				material[i].ambient(0) = (float)(pLambert->Ambient.Get()[0]);
-				material[i].ambient(1) = (float)(pLambert->Ambient.Get()[1]);
-				material[i].ambient(2) = (float)(pLambert->Ambient.Get()[2]);
-				material[i].ambient(3) = 1.0f;
+				material[i].ambient[0] = (float)(pLambert->Ambient.Get()[0]);
+				material[i].ambient[1] = (float)(pLambert->Ambient.Get()[1]);
+				material[i].ambient[2] = (float)(pLambert->Ambient.Get()[2]);
+				material[i].ambient[3] = 1.0f;
 				//環境光強度
 				material[i].ambientPower = (float)(pLambert->AmbientFactor.Get());
 
-				material[i].diffuse(0) = (float)(pLambert->Diffuse.Get()[0]);
-				material[i].diffuse(1) = (float)(pLambert->Diffuse.Get()[1]);
-				material[i].diffuse(2) = (float)(pLambert->Diffuse.Get()[2]);
-				material[i].diffuse(3) = 1.0f;
+				material[i].diffuse[0] = (float)(pLambert->Diffuse.Get()[0]);
+				material[i].diffuse[1] = (float)(pLambert->Diffuse.Get()[1]);
+				material[i].diffuse[2] = (float)(pLambert->Diffuse.Get()[2]);
+				material[i].diffuse[3] = 1.0f;
 
-				material[i].specular(0) = 0.0f;
-				material[i].specular(1) = 0.0f;
-				material[i].specular(2) = 0.0f;
-				material[i].specular(3) = 1.0f;
+				material[i].specular[0] = 0.0f;
+				material[i].specular[1] = 0.0f;
+				material[i].specular[2] = 0.0f;
+				material[i].specular[3] = 1.0f;
 
 				//鏡面反射強度
 				material[i].specurarShininess = 1.0f;
@@ -425,8 +431,8 @@ namespace K_Loader {
 			}
 			else {
 				const char *fullName = pTexture->GetRelativeFileName();
-				//最終的に使用するファイル名
-				char fileName[120] = "";
+
+
 				//Blenderから読み取った相対パスのディレクトリ
 				char directory[100] = "";
 				//Blenderから読み取った名前
@@ -436,17 +442,25 @@ namespace K_Loader {
 				//ファイル名を取得(ファイル名と拡張子のみ)
 				_splitpath_s(fullName, 0, 0, directory, 100, name, 100, ext, 10);
 
-				strcat_s(fileName, this->fileRoot);
-				strcat_s(fileName, directory);
-				strcat_s(fileName, name);
-				strcat_s(fileName, ext);
+				int pathSize = strlen(this->fileRoot) + strlen(directory) + strlen(name) + strlen(ext) + 10;
 
+				//最終的に使用するファイル名
+				char* fileName = new char[pathSize];
+				fileName[0] = '\0';
+
+				strcat_s(fileName, pathSize, this->fileRoot);
+				strcat_s(fileName, pathSize, directory);
+				strcat_s(fileName, pathSize, name);
+				strcat_s(fileName, pathSize, ext);
 
 				if (!this->textureList->LoadTexture(fileName, fileName)) {
-					throw("Texture Load Failed : " + std::string(fileName));
+					std::string path = std::string(fileName);
+					delete[] fileName;
+					throw("Texture Load Failed : " + path);
 				}
 				material[i].texture = this->textureList->GetTexture(fileName);
 				printf("Texture : %s\n", fileName);
+				delete[] fileName;
 			}
 
 			//インデックスバッファ
@@ -571,8 +585,8 @@ namespace K_Loader {
 			//ボーンが存在しなかったらアニメーション関連のデータに別れを告げる
 			delete this->animationData;
 			delete this->boneData;
-			this->animationData = 0;
-			this->boneData = 0;
+			this->animationData = nullptr;
+			this->boneData = nullptr;
 			return false;
 		}
 		FbxSkin* skin = (FbxSkin*)deformer;
@@ -642,7 +656,7 @@ namespace K_Loader {
 			cluster[i]->GetTransformLinkMatrix(mat);
 			for (int x = 0; x < 4; ++x) {
 				for (int y = 0; y < 4; ++y) {
-					bone[i].bindMat(x + y * 4) = (float)mat.Get(y, x);
+					bone[i].bindMat[y][x] = (float)mat.Get(y, x);
 					bone[i].cluster = cluster[i];
 				}
 			}
@@ -678,6 +692,7 @@ namespace K_Loader {
 		}
 
 		//初期化とインポート
+		printf("%s\n", fileName.data());
 		if (!importer->Initialize(fileName.data())) {
 			return false;
 		}
@@ -727,7 +742,7 @@ namespace K_Loader {
 					//代入
 					for (int x = 0; x < 4; ++x) {
 						for (int y = 0; y < 4; ++y) {
-							bone[k].mat[animID][time](x, y) = (float)mat.Get(y, x);
+							bone[k].mat[animID][time][y][x] = (float)mat.Get(y, x);
 						}
 					}
 				}

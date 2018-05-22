@@ -62,7 +62,6 @@ namespace K_Graphics {
 	}
 
 	void MeshModel::SetTexture(Texture* texture, int arrayIndex, int materialIndex) {
-		//this->data->material->SetTextureName(textureName, arrayIndex, materialIndex);
 		this->data->material->SetTexture(texture, arrayIndex, materialIndex);
 	}
 

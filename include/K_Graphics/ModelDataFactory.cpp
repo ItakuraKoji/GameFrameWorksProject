@@ -38,22 +38,22 @@ namespace K_Graphics {
 			float left = -width * 0.5f;
 			float up = height * 0.5f;
 			float down = -height * 0.5f;
-			vertex[0].pos << left, down, 0.0f;
-			vertex[1].pos << right, down, 0.0f;
-			vertex[2].pos << right, up, 0.0f;
-			vertex[3].pos << left, up, 0.0f;
+			vertex[0].pos = K_Math::Vector3(left, down, 0.0f);
+			vertex[1].pos = K_Math::Vector3(right, down, 0.0f);
+			vertex[2].pos = K_Math::Vector3(right, up, 0.0f);
+			vertex[3].pos = K_Math::Vector3(left, up, 0.0f);
 		}
 		else {
-			vertex[0].pos << 0.0f, -height, 0.0f;
-			vertex[1].pos << width, -height, 0.0f;
-			vertex[2].pos << width, 0.0f, 0.0f;
-			vertex[3].pos << 0.0f, 0.0f, 0.0f;
+			vertex[0].pos = K_Math::Vector3(0.0f, -height, 0.0f);
+			vertex[1].pos = K_Math::Vector3(width, -height, 0.0f);
+			vertex[2].pos = K_Math::Vector3(width, 0.0f, 0.0f);
+			vertex[3].pos = K_Math::Vector3(0.0f, 0.0f, 0.0f);
 		}
 
-		vertex[0].uv << 0.0f, 0.0f;
-		vertex[1].uv << 1.0f, 0.0f;
-		vertex[2].uv << 1.0f, 1.0f;
-		vertex[3].uv << 0.0f, 1.0f;
+		vertex[0].uv = K_Math::Vector2(0.0f, 0.0f);
+		vertex[1].uv = K_Math::Vector2(1.0f, 0.0f);
+		vertex[2].uv = K_Math::Vector2(1.0f, 1.0f);
+		vertex[3].uv = K_Math::Vector2(0.0f, 1.0f);
 
 		unsigned int index[6];
 		index[0] = 0;
@@ -102,10 +102,10 @@ namespace K_Graphics {
 		std::vector<Material> material;
 		material.resize(1);
 
-		material[0].ambient << 0.0f, 0.0f, 0.0f, 0.0f;
+		material[0].ambient = K_Math::Vector4(0.0f, 0.0f, 0.0f, 0.0f);
 		material[0].ambientPower = 0.0f;
-		material[0].diffuse << 1.0f, 1.0f, 1.0f, 1.0f;
-		material[0].specular << 0.0f, 0.0f, 0.0f, 0.0f;
+		material[0].diffuse = K_Math::Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+		material[0].specular = K_Math::Vector4(0.0f, 0.0f, 0.0f, 0.0f);
 		material[0].specurarShininess = 0.0f;
 		material[0].specurarPower = 0.0f;
 		material[0].numFace = 6;

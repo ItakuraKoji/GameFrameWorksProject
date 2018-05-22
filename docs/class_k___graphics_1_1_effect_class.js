@@ -5,9 +5,12 @@ var class_k___graphics_1_1_effect_class =
     [ "AddEffectSource", "class_k___graphics_1_1_effect_class.html#af7c120e2d75a861cf258ad6d8e74c076", null ],
     [ "DeleteEffectSource", "class_k___graphics_1_1_effect_class.html#abe5a20c2680329b045d3a60dddb886ed", null ],
     [ "Draw", "class_k___graphics_1_1_effect_class.html#aee527e320342f218b88293f41beec6e7", null ],
-    [ "Play", "class_k___graphics_1_1_effect_class.html#ab9559608debb6f33a0c92b5886eecada", null ],
+    [ "Play", "class_k___graphics_1_1_effect_class.html#a80b89cefff999b4cd793631396585b31", null ],
     [ "Run", "class_k___graphics_1_1_effect_class.html#a60605a1855dbfc6ce6a97b7014a148c0", null ],
     [ "SetMatrix", "class_k___graphics_1_1_effect_class.html#ac23549936fee9b53059d94dfd0679413", null ],
+    [ "SetPosition", "class_k___graphics_1_1_effect_class.html#a588d03c012eb5fd77df8a1789c28b6ad", null ],
+    [ "SetRotation", "class_k___graphics_1_1_effect_class.html#aa2461599ec6c7f5faf8b8b1d834f7b23", null ],
+    [ "SetScale", "class_k___graphics_1_1_effect_class.html#ab4680dc81aab2cfcdbeb4119a274d202", null ],
     [ "Stop", "class_k___graphics_1_1_effect_class.html#aeeb968f668c73b1ffff7679c99328b45", null ],
     [ "StopRoot", "class_k___graphics_1_1_effect_class.html#a16c4d3b8ab2775a782748ea409d2de2d", null ]
 ];

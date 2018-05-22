@@ -24,6 +24,7 @@ namespace K_Audio {
 			alcCloseDevice(this->device);
 			throw("OpenAL Initialize Failed : alcMakeContextCullent() Failed");
 		}
+		SetListnerPosition(0.0f, 0.0f, 0.0f);
 	}
 	SoundClass::~SoundClass() {
 		for (auto i : this->source) {
@@ -66,6 +67,14 @@ namespace K_Audio {
 			return nullptr;
 		}
 		return this->source[sourceName];
+	}
+
+	//ƒŠƒXƒi[‚ÌˆÚ“®
+	void SoundClass::SetListnerPosition(float x, float y, float z) {
+		alListener3f(AL_POSITION, x, y, z);
+	}
+	void SoundClass::SetListnerVelocity(float x, float y, float z) {
+		alListener3f(AL_VELOCITY, x, y, z);
 	}
 
 }

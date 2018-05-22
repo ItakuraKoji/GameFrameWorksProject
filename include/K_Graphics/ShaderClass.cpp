@@ -100,28 +100,28 @@ namespace K_Graphics {
 		GLuint location;
 		location = glGetUniformLocation(this->shaderProgram, uniformName.data());
 		if (location != -1) {
-			glUniformMatrix4fv(location, 1, GL_FALSE, value.data());
+			glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(value));
 		}
 	}
 	void ShaderClass::SetValue(const std::string& uniformName, const K_Math::Vector4& value) {
 		GLuint location;
 		location = glGetUniformLocation(this->shaderProgram, uniformName.data());
 		if (location != -1) {
-			glUniform4fv(location, 1, value.data());
+			glUniform4fv(location, 1, glm::value_ptr(value));
 		}
 	}
 	void ShaderClass::SetValue(const std::string& uniformName, const K_Math::Vector3& value) {
 		GLuint location;
 		location = glGetUniformLocation(this->shaderProgram, uniformName.data());
 		if (location != -1) {
-			glUniform3fv(location, 1, value.data());
+			glUniform3fv(location, 1, glm::value_ptr(value));
 		}
 	}
 	void ShaderClass::SetValue(const std::string& uniformName, const K_Math::Vector2& value) {
 		GLuint location;
 		location = glGetUniformLocation(this->shaderProgram, uniformName.data());
 		if (location != -1) {
-			glUniform2fv(location, 1, value.data());
+			glUniform2fv(location, 1, glm::value_ptr(value));
 		}
 	}
 
@@ -145,7 +145,7 @@ namespace K_Graphics {
 		location = glGetUniformLocation(this->shaderProgram, uniformName.data());
 		if (location != -1) {
 			//Eigenのベクトル型は配列みたいに要素がちゃんと順番に並んでる
-			glUniformMatrix4fv(location, numArray, GL_FALSE, (*value).data());
+			glUniformMatrix4fv(location, numArray, GL_FALSE, glm::value_ptr(value[0]));
 		}
 	}
 	void ShaderClass::SetValue(const std::string& uniformName, K_Math::Vector4* value, int numArray) {
@@ -153,7 +153,7 @@ namespace K_Graphics {
 		location = glGetUniformLocation(this->shaderProgram, uniformName.data());
 		if (location != -1) {
 			//Eigenのベクトル型は配列みたいに要素がちゃんと順番に並んでる
-			glUniform4fv(location, numArray, (*value).data());
+			glUniform4fv(location, numArray, glm::value_ptr(value[0]));
 		}
 	}
 	void ShaderClass::SetValue(const std::string& uniformName, K_Math::Vector3* value, int numArray) {
@@ -161,7 +161,7 @@ namespace K_Graphics {
 		location = glGetUniformLocation(this->shaderProgram, uniformName.data());
 		if (location != -1) {
 			//Eigenのベクトル型は配列みたいに要素がちゃんと順番に並んでる
-			glUniform3fv(location, numArray, (*value).data());
+			glUniform3fv(location, numArray, glm::value_ptr(value[0]));
 		}
 	}
 	void ShaderClass::SetValue(const std::string& uniformName, K_Math::Vector2* value, int numArray) {
@@ -169,7 +169,7 @@ namespace K_Graphics {
 		location = glGetUniformLocation(this->shaderProgram, uniformName.data());
 		if (location != -1) {
 			//Eigenのベクトル型は配列みたいに要素がちゃんと順番に並んでる
-			glUniform2fv(location, numArray, (*value).data());
+			glUniform2fv(location, numArray, glm::value_ptr(value[0]));
 		}
 	}
 

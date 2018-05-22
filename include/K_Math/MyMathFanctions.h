@@ -1,30 +1,35 @@
 #pragma once
+
+#include<glm/glm.hpp>
+#include<glm/gtc/quaternion.hpp>
+#include<glm/gtx/quaternion.hpp>
+#include<glm/gtc/matrix_transform.hpp>
+#include<glm/gtc/type_ptr.hpp>
+
 #define _USE_MATH_DEFINES
-#include<Eigen\Core>
-#include<Eigen\Geometry>
 #include<math.h>
 
 //Eigenはずいぶん複雑なヘッダのようで、こいつは最初のほうにインクルードするほうがいいっぽい
 
 namespace K_Math {
-	//!float型２要素ベクトル\n要素のアクセスに "vector.x()" と関数の形をとるのに注意
-	typedef Eigen::Matrix<float, 2, 1, Eigen::DontAlign> Vector2;
-	//!float型３要素ベクトル\n要素のアクセスに "vector.x()" と関数の形をとるのに注意
-	typedef Eigen::Matrix<float, 3, 1, Eigen::DontAlign> Vector3;
-	//!float型４要素ベクトル\n要素のアクセスに "vector.x()" と関数の形をとるのに注意
-	typedef Eigen::Matrix<float, 4, 1, Eigen::DontAlign> Vector4;
+	//!float型２要素ベクトル\n要素のアクセスに "vector.x" と関数の形をとるのに注意
+	typedef glm::vec2 Vector2;
+	//!float型３要素ベクトル\n要素のアクセスに "vector.x" と関数の形をとるのに注意
+	typedef glm::vec3 Vector3;
+	//!float型４要素ベクトル\n要素のアクセスに "vector.x" と関数の形をとるのに注意
+	typedef glm::vec4 Vector4;
 	//!float型３行３列行列
-	typedef Eigen::Matrix<float, 3, 3, Eigen::DontAlign> Matrix3x3;
+	typedef glm::mat3x3 Matrix3x3;
 	//!float型４行４列行列
-	typedef Eigen::Matrix<float, 4, 4, Eigen::DontAlign> Matrix4x4;
+	typedef glm::mat4x4 Matrix4x4;
 	//!float型のクォータニオン\n内部では回転行列はクォータニオンを利用している
-	typedef Eigen::Quaternion<float, Eigen::DontAlign> Quaternion;
+	typedef glm::quat Quaternion;
 
 	//アフィン変換用
-	typedef Eigen::Transform<float, 3, 2, Eigen::DontAlign> Affine3;
-	typedef Eigen::AngleAxis<float> AngleAxis;
-	typedef Eigen::Translation<float, 3> Translation;
-	typedef Eigen::DiagonalMatrix<float, 3> DiagonalMatrix;
+	//typedef Eigen::Transform<float, 3, 2, Eigen::DontAlign> Affine3;
+	//typedef Eigen::AngleAxis<float> AngleAxis;
+	//typedef Eigen::Translation<float, 3> Translation;
+	//typedef Eigen::DiagonalMatrix<float, 3> DiagonalMatrix;
 
 	//!@brief 座標の"x""y"、幅高さの"w""h"を持つ\n全てint型で、2D描画用
 	struct Box2D {

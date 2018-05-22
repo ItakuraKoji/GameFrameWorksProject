@@ -31,14 +31,14 @@ namespace K_Graphics {
 	void LightList::AddAmbient(const std::string& lightName, float power, const K_Math::Vector4& color) {
 		AmbientLight addLight;
 		addLight.SetPower(power);
-		addLight.SetColor(color.x(), color.y(), color.z(), color.w());
+		addLight.SetColor(color.x, color.y, color.z, color.w);
 		this->ambient[lightName] = addLight;
 	}
 	void LightList::AddDirectional(const std::string& lightName, float power, const K_Math::Vector4& color, const K_Math::Vector3& direction) {
 		DirectionalLight addLight;
 		addLight.SetPower(power);
-		addLight.SetColor(color.x(), color.y(), color.z(), color.w());
-		addLight.SetDirection(direction.x(), direction.y(), direction.z());
+		addLight.SetColor(color.x, color.y, color.z, color.w);
+		addLight.SetDirection(direction.x, direction.y, direction.z);
 		this->directional[lightName] = addLight;
 	}
 }

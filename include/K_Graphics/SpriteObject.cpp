@@ -30,6 +30,7 @@ namespace K_Graphics {
 			this->drawModel = model;
 		}
 		this->controlPoint = K_Math::Vector2(controlPointX, controlPointY);
+
 		SetTexture(texture);
 		return true;
 	}
@@ -71,7 +72,7 @@ namespace K_Graphics {
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		
-		SetMatrix(camera, shader, position, rotation, K_Math::Vector3(scale.x() * (float)src.w, scale.y() * (float)src.h, scale.z()), true);
+		SetMatrix(camera, shader, position, rotation, K_Math::Vector3(scale.x * (float)src.w, scale.y * (float)src.h, scale.z), true);
 		if (this->cullentTexture != nullptr) {
 			shader->SetValue("textureSize", K_Math::Vector2(this->cullentTexture->GetWidth(), this->cullentTexture->GetHeight()));
 		}
@@ -81,38 +82,65 @@ namespace K_Graphics {
 		glEnable(GL_CULL_FACE);
 	}
 
+	K_Math::Matrix4x4 SpriteObject::CreateWorldMatrix(CameraClass* camera, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scaling, bool billBoard) {
+		////移動
+		//K_Math::Translation trans = K_Math::Translation(position.x, position.y, position.z);
+		//K_Math::Translation controlTrans = K_Math::Translation(-this->controlPoint.x, this->controlPoint.y, 0.0f);
+		////回転順はYXZ
+		//K_Math::Quaternion rot;
+		//rot = K_Math::AngleAxis(0, K_Math::Vector3(0.0f, 0.0f, 0.0f));
+		//rot = rot * K_Math::AngleAxis(rotation.y, K_Math::Vector3(0.0f, 1.0f, 0.0f));
+		//rot = rot * K_Math::AngleAxis(rotation.x, K_Math::Vector3(1.0f, 0.0f, 0.0f));
+		//rot = rot * K_Math::AngleAxis(rotation.z, K_Math::Vector3(0.0f, 0.0f, 1.0f));
+		////スケール
+		//K_Math::DiagonalMatrix scale = K_Math::DiagonalMatrix(K_Math::Vector3(scaling.x, scaling.y, scaling.z));
+
+		//K_Math::Matrix3x3 cameraMat;
+		//if (billBoard) {
+		//	cameraMat = camera->GetCameraMatrix().block(0, 0, 3, 3);
+		//}
+		//else {
+		//	cameraMat = K_Math::Matrix3x3(0.0f, 0.0f, 0.0f);
+		//}
+		//K_Math::Affine3 world = trans * cameraMat * rot * controlTrans * scale;
+
+
+		K_Math::Matrix4x4 world;
+		//移動
+		K_Math::Matrix4x4 transMat = glm::translate(world, position);
+		K_Math::Matrix4x4 controlTrans = glm::translate(world, K_Math::Vector3(-this->controlPoint.x, this->controlPoint.y, 0.0f));
+		//回転順はYXZ
+		K_Math::Quaternion rot;
+		rot = glm::angleAxis(0.0f, K_Math::Vector3(0.0f, 0.0f, 0.0f));
+		rot = rot * glm::angleAxis(rotation.y, K_Math::Vector3(0.0f, 1.0f, 0.0f));
+		rot = rot * glm::angleAxis(rotation.x, K_Math::Vector3(1.0f, 0.0f, 0.0f));
+		rot = rot * glm::angleAxis(rotation.z, K_Math::Vector3(0.0f, 0.0f, 1.0f));
+		K_Math::Matrix4x4 rotMat = glm::toMat4(rot);
+
+		//スケール
+		K_Math::Matrix4x4 scaleMat = glm::scale(world, scaling);
+
+		K_Math::Matrix4x4 cameraMat;
+		if (billBoard) {
+			cameraMat = camera->GetCameraMatrix();
+		}
+
+		world = transMat * cameraMat * rotMat * cameraMat * scaleMat;
+		return world;
+	}
 
 	////////
 	//protected
 	////
 
 	void SpriteObject::SetMatrix(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scaling, bool billBoard) {
-		//移動
-		K_Math::Translation trans = K_Math::Translation(position.x() + this->controlPoint.x(), position.y() - this->controlPoint.y(), position.z());
-		K_Math::Translation controlTrans = K_Math::Translation(-this->controlPoint.x(), this->controlPoint.y(), 0.0f);
-		//回転順はYXZ
-		K_Math::Quaternion rot;
-		rot = K_Math::AngleAxis(0, K_Math::Vector3::Zero());
-		rot = rot * K_Math::AngleAxis(rotation.y(), K_Math::Vector3::UnitY());
-		rot = rot * K_Math::AngleAxis(rotation.x(), K_Math::Vector3::UnitX());
-		rot = rot * K_Math::AngleAxis(rotation.z(), K_Math::Vector3::UnitZ());
-		//スケール
-		K_Math::DiagonalMatrix scale = K_Math::DiagonalMatrix(K_Math::Vector3(scaling.x(), scaling.y(), scaling.z()));
 
-		K_Math::Matrix3x3 cameraMat;
-		if (billBoard) {
-			cameraMat = camera->GetCameraMatrix().block(0, 0, 3, 3);
-		}
-		else {
-			cameraMat = K_Math::Matrix3x3::Identity();
-		}
-
-		K_Math::Affine3 world = trans * cameraMat * rot * controlTrans * scale;
+		const K_Math::Matrix4x4& world = CreateWorldMatrix(camera, position, rotation, scaling, billBoard);
 
 		K_Math::Matrix4x4 view = camera->GetViewMatrix();
 		K_Math::Matrix4x4 projection = camera->GetProjectionMatrix();
 
-		shader->SetMatrix(projection * view * world.matrix());
+		shader->SetMatrix(projection * view * world);
 	}
 
 }

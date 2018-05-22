@@ -1,9 +1,9 @@
 #pragma once
+#include"K_Math\MyMathFanctions.h"
 #include<fbxsdk\fbxsdk.h>
 #include<vector>
 #include<unordered_map>
 #include<string>
-#include"K_Math\MyMathFanctions.h"
 #include"ModelData.h"
 
 namespace K_Loader {
@@ -19,10 +19,10 @@ namespace K_Loader {
 			int data[4];
 		};
 		struct Vertex {
-			K_Math::Vector3 position = K_Math::Vector3::Zero();
-			K_Math::Vector2 texcoord = K_Math::Vector2::Zero();
-			K_Math::Vector3 normal = K_Math::Vector3::Zero();
-			K_Math::Vector4 boneWeight = K_Math::Vector4::Zero();
+			K_Math::Vector3 position;
+			K_Math::Vector2 texcoord;
+			K_Math::Vector3 normal;
+			K_Math::Vector4 boneWeight;
 			Vector4i boneIndex;
 		};
 
@@ -82,7 +82,7 @@ namespace K_Loader {
 		K_Graphics::TextureList *textureList;
 
 		//FBXファイルの場所をルートにする
-		char fileRoot[100];
+		char* fileRoot;
 		Vertex* vertexData;
 		int numVertex;
 		int numUV;

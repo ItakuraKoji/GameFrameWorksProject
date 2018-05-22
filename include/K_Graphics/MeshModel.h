@@ -93,6 +93,13 @@ namespace K_Graphics {
 		//!@brief インスタンス描画は未実装
 		void InstanceDraw(CameraClass* camera, ShaderClass* shader, int numDraw, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scale);
 
+		//!@brief SRT姿勢からワールド変換行列を作成する
+		//!@param[in] position 3D空間上の位置座標
+		//!@param[in] rotation XYZそれぞれの軸に関する回転角度（Y→X→Zの順で回転する）
+		//!@param[in] scale スケーリング
+		//!@return ワールド変換行列
+		K_Math::Matrix4x4 CreateWorldMatrix(const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scale);
+
 	protected:
 		void SetMatrix(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scale);
 		MeshModel* drawModel;
@@ -136,6 +143,15 @@ namespace K_Graphics {
 		//!@param[in] rotation XYZそれぞれの軸に関する回転角度（Y→X→Zの順で回転する）
 		//!@param[in] scale スケーリング
 		void Draw3D(CameraClass* camera, ShaderClass* shader, const K_Math::Box2D& src, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scale);
+
+		//!@brief SRT姿勢からワールド変換行列を作成する
+		//!@param[in] camera 使用するカメラクラスへのポインタ、ビルボード回転に必要
+		//!@param[in] position 3D空間上の位置座標
+		//!@param[in] rotation XYZそれぞれの軸に関する回転角度（Y→X→Zの順で回転する）
+		//!@param[in] scale スケーリング
+		//!@param[in] billBoard ビルボードとしてスプライトを扱うかのフラグ
+		//!@return ワールド変換行列
+		K_Math::Matrix4x4 CreateWorldMatrix(CameraClass* camera, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scale, bool billBoard);
 
 	public:
 		//!@brief コントロールポイントの座標

@@ -16,6 +16,8 @@ namespace K_Audio {
 
 		bool CreateSource(const char* sourceName, const char* filePass, SoundSource::LoadMode mode);
 		void DeleteSource(const char* sourceName);
+		void SetListnerPosition(float x, float y, float z);
+		void SetListnerVelocity(float x, float y, float z);
 
 		SoundSource* GetSource(const char* sourceName);
 

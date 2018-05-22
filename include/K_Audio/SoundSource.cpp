@@ -100,6 +100,7 @@ namespace K_Audio {
 			alSourcei(source, AL_BUFFER, this->bufferIDs[0]);
 			this->copySources.push_back(source);
 		}
+		alSourcef(source, AL_MAX_GAIN, this->volume);
 		alSourcePlay(source);
 	}
 
