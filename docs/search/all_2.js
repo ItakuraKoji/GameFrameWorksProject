@@ -34,6 +34,7 @@ var searchData=
   ['createtrianglemesh',['CreateTriangleMesh',['../class_k___physics_1_1_bullet_physics.html#af05fb78c5fbc9ad62eee828f681c2f38',1,'K_Physics::BulletPhysics']]],
   ['createtrianglemeshshape',['CreateTriangleMeshShape',['../class_k___physics_1_1_bullet_physics.html#ae4d693a1b660eaba187622e2f4adcb19',1,'K_Physics::BulletPhysics']]],
   ['createworldmatrix',['CreateWorldMatrix',['../class_k___graphics_1_1_mesh_object.html#a248b0d20160c8ad487b1c84f8e9e0d15',1,'K_Graphics::MeshObject::CreateWorldMatrix()'],['../class_k___graphics_1_1_sprite_object.html#a569d2a769c04b108fd86b9cf8fac752e',1,'K_Graphics::SpriteObject::CreateWorldMatrix()']]],
+  ['cross',['Cross',['../namespace_k___math.html#a77f2463fb22c9202ad66a7eaa8d6e6b6',1,'K_Math::Cross(const Vector2 &amp;vector1, const Vector2 &amp;vector2)'],['../namespace_k___math.html#a2cef5481bdc9d9a2e6c2723d811fa238',1,'K_Math::Cross(const Vector3 &amp;vector1, const Vector3 &amp;vector2)']]],
   ['cullenttexture',['cullentTexture',['../class_k___graphics_1_1_sprite_object.html#a7cf528d065c242528bf0bd407a139f09',1,'K_Graphics::SpriteObject']]],
   ['currentmat',['currentMat',['../struct_k___graphics_1_1_bone.html#a82de526d464ccddea11100c9f8705f61',1,'K_Graphics::Bone']]]
 ];

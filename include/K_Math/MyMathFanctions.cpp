@@ -137,4 +137,27 @@ K_Math::Vector3 K_Math::QuaternionToRotation(const K_Math::Quaternion& quaternio
 	return glm::eulerAngles(quaternion);
 }
 
+float K_Math::Norm(const K_Math::Vector2& vector) {
+	return glm::length(vector);
+}
+float K_Math::Norm(const K_Math::Vector3& vector) {
+	return glm::length(vector);
+}
+float K_Math::Norm(const K_Math::Vector4& vector) {
+	return glm::length(vector);
+}
+
+float K_Math::Cross(const K_Math::Vector2& vector1, const K_Math::Vector2& vector2) {
+	return (vector1.x * vector2.y - vector1.y * vector2.x);
+}
+K_Math::Vector3 K_Math::Cross(const K_Math::Vector3& vector1, const K_Math::Vector3& vector2) {
+	return glm::cross(vector1, vector2);
+}
+
+float K_Math::Dot(const K_Math::Vector2& vector1, const K_Math::Vector2& vector2) {
+	return glm::dot(vector1, vector2);
+}
+float K_Math::Dot(const K_Math::Vector3& vector1, const K_Math::Vector3& vector2) {
+	return glm::dot(vector1, vector2);
+}
 

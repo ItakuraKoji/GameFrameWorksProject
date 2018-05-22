@@ -80,4 +80,16 @@ namespace K_Math {
 	//!@brief クォータニオンから回転成分を作成する(Y軸→X軸→Z軸)
 	Vector3 QuaternionToRotation(const Quaternion& quaternion);
 
+	//!@brief
+	float Norm(const Vector2& vector);
+	float Norm(const Vector3& vector);
+	float Norm(const Vector4& vector);
+
+	//!@brief
+	float Cross(const Vector2& vector1, const Vector2& vector2);
+	Vector3 Cross(const Vector3& vector1, const Vector3& vector2);
+
+	//!@brief
+	float Dot(const Vector2& vector1, const Vector2& vector2);
+	float Dot(const Vector3& vector1, const Vector3& vector2);
 }
