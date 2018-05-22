@@ -83,28 +83,6 @@ namespace K_Graphics {
 	}
 
 	K_Math::Matrix4x4 SpriteObject::CreateWorldMatrix(CameraClass* camera, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scaling, bool billBoard) {
-		////ˆÚ“®
-		//K_Math::Translation trans = K_Math::Translation(position.x, position.y, position.z);
-		//K_Math::Translation controlTrans = K_Math::Translation(-this->controlPoint.x, this->controlPoint.y, 0.0f);
-		////‰ñ“]‡‚ÍYXZ
-		//K_Math::Quaternion rot;
-		//rot = K_Math::AngleAxis(0, K_Math::Vector3(0.0f, 0.0f, 0.0f));
-		//rot = rot * K_Math::AngleAxis(rotation.y, K_Math::Vector3(0.0f, 1.0f, 0.0f));
-		//rot = rot * K_Math::AngleAxis(rotation.x, K_Math::Vector3(1.0f, 0.0f, 0.0f));
-		//rot = rot * K_Math::AngleAxis(rotation.z, K_Math::Vector3(0.0f, 0.0f, 1.0f));
-		////ƒXƒP[ƒ‹
-		//K_Math::DiagonalMatrix scale = K_Math::DiagonalMatrix(K_Math::Vector3(scaling.x, scaling.y, scaling.z));
-
-		//K_Math::Matrix3x3 cameraMat;
-		//if (billBoard) {
-		//	cameraMat = camera->GetCameraMatrix().block(0, 0, 3, 3);
-		//}
-		//else {
-		//	cameraMat = K_Math::Matrix3x3(0.0f, 0.0f, 0.0f);
-		//}
-		//K_Math::Affine3 world = trans * cameraMat * rot * controlTrans * scale;
-
-
 		K_Math::Matrix4x4 world;
 		//ˆÚ“®
 		K_Math::Matrix4x4 transMat = glm::translate(world, position);
@@ -125,7 +103,7 @@ namespace K_Graphics {
 			cameraMat = camera->GetCameraMatrix();
 		}
 
-		world = transMat * cameraMat * rotMat * cameraMat * scaleMat;
+		world = transMat * cameraMat * rotMat * controlTrans * scaleMat;
 		return world;
 	}
 
