@@ -44,6 +44,9 @@ namespace K_Graphics {
 		//!@param[in] y y座標
 		//!@param[in] z z座標
 		void SetPosition(float x, float y, float z);
+		//!@brief カメラの座標を指定
+		//!@param[in] position 三次元座標
+		void SetPosition(const K_Math::Vector3& position);
 		//!@brief ターゲットからの方向と距離を指定してカメラ位置を設定
 		//!@param[in] distance ターゲットからの距離
 		//!@param[in] vector ターゲットから離れる向き
@@ -53,6 +56,9 @@ namespace K_Graphics {
 		//!@param[in] y y座標
 		//!@param[in] z z座標
 		void SetTarget(float x, float y, float z);
+		//!@brief ターゲット（注視点）を指定
+		//!@param[in] position 三次元座標
+		void SetTarget(const K_Math::Vector3& target);
 
 		//!@return カメラ空間X軸の単位ベクトル
 		const K_Math::Vector3& GetAxisX();
