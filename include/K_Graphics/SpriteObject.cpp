@@ -86,7 +86,8 @@ namespace K_Graphics {
 		K_Math::Matrix4x4 world;
 		//移動
 		K_Math::Matrix4x4 transMat = glm::translate(world, position);
-		K_Math::Matrix4x4 controlTrans = glm::translate(world, K_Math::Vector3(-this->controlPoint.x, this->controlPoint.y, 0.0f));
+		//原点をコントロールポイントに移動させる（ピクセル単位なので 0.0f ~ 1.0f 範囲に補正）
+		K_Math::Matrix4x4 controlTrans = glm::translate(world, K_Math::Vector3(-this->controlPoint.x / fabsf(scaling.x), this->controlPoint.y / fabsf(scaling.y), 0.0f));
 		//回転順はYXZ
 		K_Math::Quaternion rot;
 		rot = glm::angleAxis(0.0f, K_Math::Vector3(0.0f, 0.0f, 0.0f));
@@ -103,7 +104,7 @@ namespace K_Graphics {
 			cameraMat = camera->GetCameraMatrix();
 		}
 
-		world = transMat * cameraMat * rotMat * controlTrans * scaleMat;
+		world = transMat * cameraMat * rotMat * scaleMat * controlTrans;
 		return world;
 	}
 

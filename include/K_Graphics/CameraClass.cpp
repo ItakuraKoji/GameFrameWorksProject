@@ -41,6 +41,9 @@ namespace K_Graphics {
 		this->position.y = y;
 		this->position.z = z;
 	}
+	void CameraClass::SetPosition(const K_Math::Vector3& position) {
+		this->position = position;
+	}
 
 	void CameraClass::SetPosition(float distance, const K_Math::Vector3& vector) {
 		if (vector == K_Math::Vector3(0.0f, 0.0f, 0.0f)) {
@@ -59,6 +62,10 @@ namespace K_Graphics {
 		this->target.y = y;
 		this->target.z = z;
 	}
+	void CameraClass::SetTarget(const K_Math::Vector3& target) {
+		this->target = target;
+	}
+
 
 	const K_Math::Vector3& CameraClass::GetAxisX() {
 		return this->xAxis;
