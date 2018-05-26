@@ -158,12 +158,7 @@ namespace K_Loader {
 			this->numFace = mesh->GetPolygonCount();
 			this->numUV = mesh->GetTextureUVCount();
 
-			if (this->numUV > this->numVertex) {
-				vertex = new Vertex[this->numUV];
-			}
-			else {
-				vertex = new Vertex[this->numVertex];
-			}
+			vertex = new Vertex[this->numVertex];
 
 			//頂点
 			LoadVertex(mesh, vertex);
@@ -172,15 +167,11 @@ namespace K_Loader {
 			glBindVertexArray(VAO);
 
 			//ボーン
-			if (this->numUV > this->numVertex) {
-				table = CreatePolygonTable(mesh, numVertex, numFace);
-			}
 			this->LoadBones(mesh, vertex, table);
 
 			//UVベースで頂点を作り直す
 			VertexUVs uvMap;
 			int newNumVertex;
-
 			if (this->numUV) {
 				newNumVertex = CreateUVBaseVertex(mesh, uvMap);
 				this->vertexData = new Vertex[newNumVertex];
@@ -196,7 +187,6 @@ namespace K_Loader {
 			}
 			else {
 				newNumVertex = this->numVertex;
-				this->vertexData = new Vertex[newNumVertex];
 				for (int i = 0; i < this->numVertex; ++i) {
 					this->vertexData[i] = vertex[i];
 				}
@@ -302,16 +292,10 @@ namespace K_Loader {
 		for (int i = 0; i < this->numFace; ++i) {
 			//三角ポリゴンの一頂点ずつ格納
 			for (int p = 0; p < 3; ++p) {
-				int vertexIndex;
 				//頂点インデックスを面から得る
-				if (numUV > numVertex) {
-					vertexIndex = mesh->GetTextureUVIndex(i, p, FbxLayerElement::eTextureDiffuse);
-				}
-				else {
-					int polygonCount = mesh->GetPolygonVertexIndex(i);
-					int *polygonVertex = mesh->GetPolygonVertices();
-					vertexIndex = polygonVertex[polygonCount + p];
-				}
+				int polygonCount = mesh->GetPolygonVertexIndex(i);
+				int *polygonVertex = mesh->GetPolygonVertices();
+				int vertexIndex = polygonVertex[polygonCount + p];
 
 				//頂点
 				FbxVector4 *pCoord = mesh->GetControlPoints();
@@ -376,22 +360,24 @@ namespace K_Loader {
 			
 			if (materialType.Is(FbxSurfacePhong::ClassId)) {
 				FbxSurfacePhong *pPhong = (FbxSurfacePhong*)pMaterial;
-
-				material[i].ambient[0] = (float)(pPhong->Ambient.Get()[0]);
-				material[i].ambient[1] = (float)(pPhong->Ambient.Get()[1]);
-				material[i].ambient[2] = (float)(pPhong->Ambient.Get()[2]);
+				//環境光
+				for (int j = 0; j < 3; ++j) {
+					material[i].ambient[j] = (float)(pPhong->Ambient.Get()[j]);
+				}
 				material[i].ambient[3] = 1.0f;
 				//環境光強度
 				material[i].ambientPower = (float)(pPhong->AmbientFactor.Get());
 
-				material[i].diffuse[0] = (float)(pPhong->Diffuse.Get()[0]);
-				material[i].diffuse[1] = (float)(pPhong->Diffuse.Get()[1]);
-				material[i].diffuse[2] = (float)(pPhong->Diffuse.Get()[2]);
+				//拡散光
+				for (int j = 0; j < 3; ++j) {
+					material[i].diffuse[j] = (float)(pPhong->Diffuse.Get()[j]);
+				}
 				material[i].diffuse[3] = 1.0f;
 
-				material[i].specular[0] = (float)(pPhong->Specular.Get()[0]);
-				material[i].specular[1] = (float)(pPhong->Specular.Get()[1]);
-				material[i].specular[2] = (float)(pPhong->Specular.Get()[2]);
+				//鏡面反射
+				for (int j = 0; j < 3; ++j) {
+					material[i].specular[j] = (float)(pPhong->Specular.Get()[j]);
+				}
 				material[i].specular[3] = 1.0f;
 
 				//鏡面反射強度
@@ -401,21 +387,24 @@ namespace K_Loader {
 			else if (materialType.Is(FbxSurfaceLambert::ClassId)) {
 				FbxSurfaceLambert *pLambert = (FbxSurfaceLambert*)pMaterial;
 
-				material[i].ambient[0] = (float)(pLambert->Ambient.Get()[0]);
-				material[i].ambient[1] = (float)(pLambert->Ambient.Get()[1]);
-				material[i].ambient[2] = (float)(pLambert->Ambient.Get()[2]);
+				//環境光
+				for (int j = 0; j < 3; ++j) {
+					material[i].ambient[j] = (float)(pLambert->Ambient.Get()[j]);
+				}
 				material[i].ambient[3] = 1.0f;
 				//環境光強度
 				material[i].ambientPower = (float)(pLambert->AmbientFactor.Get());
 
-				material[i].diffuse[0] = (float)(pLambert->Diffuse.Get()[0]);
-				material[i].diffuse[1] = (float)(pLambert->Diffuse.Get()[1]);
-				material[i].diffuse[2] = (float)(pLambert->Diffuse.Get()[2]);
+				//拡散光
+				for (int j = 0; j < 3; ++j) {
+					material[i].diffuse[j] = (float)(pLambert->Diffuse.Get()[j]);
+				}
 				material[i].diffuse[3] = 1.0f;
 
-				material[i].specular[0] = 0.0f;
-				material[i].specular[1] = 0.0f;
-				material[i].specular[2] = 0.0f;
+				//鏡面反射
+				for (int j = 0; j < 3; ++j) {
+					material[i].specular[j] = 0.0f;
+				}
 				material[i].specular[3] = 1.0f;
 
 				//鏡面反射強度
@@ -472,13 +461,8 @@ namespace K_Loader {
 				int matId = material->GetIndexArray().GetAt(k);
 				if (matId == i) {
 					for (int p = 0; p < 3; ++p) {
-						int index;
-						if (numUV > numVertex) {
-							index = mesh->GetTextureUVIndex(k, p, FbxLayerElement::eTextureDiffuse);
-						}
-						else {
-							index = mesh->GetPolygonVertex(k, p);
-						}
+						int index = mesh->GetPolygonVertex(k, p);
+
 						//判別用にUVを取得
 						FbxLayerElementUV* uv = mesh->GetLayer(0)->GetUVs();
 						int arrPos = -1;
@@ -496,7 +480,6 @@ namespace K_Loader {
 							pIndex[indexCount + p] = vertexData[index].index[arrPos];
 						}
 					}
-
 					indexCount += 3;
 				}
 			}
@@ -519,16 +502,10 @@ namespace K_Loader {
 		if (pUV->GetMappingMode() == FbxLayerElementUV::eByPolygonVertex) {
 			for (int i = 0; i < this->numFace; ++i) {
 				for (int j = 0; j < 3; ++j) {
-					int vertexIndex;
 					//頂点インデックスを面から得る
-					if (numUV > numVertex) {
-						vertexIndex = mesh->GetTextureUVIndex(i, j, FbxLayerElement::eTextureDiffuse);
-					}
-					else {
-						int polygonCount = mesh->GetPolygonVertexIndex(i);
-						int *polygonVertex = mesh->GetPolygonVertices();
-						vertexIndex = polygonVertex[polygonCount + j];
-					}
+					int polygonCount = mesh->GetPolygonVertexIndex(i);
+					int *polygonVertex = mesh->GetPolygonVertices();
+					int vertexIndex = polygonVertex[polygonCount + j];
 
 					//UVを調べる
 					int uvIndex = mesh->GetTextureUVIndex(i, j, FbxLayerElement::eTextureDiffuse);
@@ -598,52 +575,20 @@ namespace K_Loader {
 			cluster[i] = skin->GetCluster(i);
 		}
 
-		if (this->numUV > this->numVertex) {
-			//UVベース
-			for (int i = 0; i < numBone; ++i) {
-				int *indices = cluster[i]->GetControlPointIndices();
-				int numIndices = cluster[i]->GetControlPointIndicesCount();
-				double *weight = cluster[i]->GetControlPointWeights();
+		//頂点ベースのモデルの場合
+		for (int i = 0; i < numBone; ++i) {
+			int *index = cluster[i]->GetControlPointIndices();
+			double *weight = cluster[i]->GetControlPointWeights();
+			int vertexCount = cluster[i]->GetControlPointIndicesCount();
 
-				for (int k = 0; k < numIndices; ++k) {
-					for (int p = 0; p < table[indices[k]].numPolygon; ++p) {
-						if (!weight[k]) {
-							continue;
-						}
-						int polygonIndex = table[indices[k]].polygonIndex[p];
-						int polygon123 = table[indices[k]].polygon123[p];
-						int uvIndex = mesh->GetTextureUVIndex(polygonIndex, polygon123, FbxLayerElement::eTextureDiffuse);
-						for (int m = 0; m < 4; ++m) {
-							if (vertex[uvIndex].boneWeight[m] != 0.0f) {
-								if (vertex[uvIndex].boneIndex.data[m] == i) {
-									break;
-								}
-								continue;
-							}
-							vertex[uvIndex].boneIndex.data[m] = i;
-							vertex[uvIndex].boneWeight[m] = (float)weight[k];
-							break;
-						}
+			for (int k = 0; k < vertexCount; ++k) {
+				for (int m = 0; m < 4; ++m) {
+					if (vertex[index[k]].boneWeight[m] != 0.0f) {
+						continue;
 					}
-				}
-			}
-		}
-		else {
-			//頂点ベースのモデルの場合
-			for (int i = 0; i < numBone; ++i) {
-				int *index = cluster[i]->GetControlPointIndices();
-				double *weight = cluster[i]->GetControlPointWeights();
-				int vertexCount = cluster[i]->GetControlPointIndicesCount();
-
-				for (int k = 0; k < vertexCount; ++k) {
-					for (int m = 0; m < 4; ++m) {
-						if (vertex[index[k]].boneWeight[m] != 0.0f) {
-							continue;
-						}
-						vertex[index[k]].boneIndex.data[m] = i;
-						vertex[index[k]].boneWeight[m] = (float)weight[k];
-						break;
-					}
+					vertex[index[k]].boneIndex.data[m] = i;
+					vertex[index[k]].boneWeight[m] = (float)weight[k];
+					break;
 				}
 			}
 		}
@@ -662,7 +607,6 @@ namespace K_Loader {
 			}
 		}
 		CalcCurrentBoneMatrix(bone);
-		//GetCurrentBoneMatrix(animMatrix, bone);
 
 		this->boneData->Add(bone);
 
