@@ -162,9 +162,9 @@ namespace K_Physics {
 			for (int k = 0; k < 3; ++k) {
 				//ブレンダーのモデルはなぜか９０度傾くので座標軸をうまく設定してやってる、困ったやつめ
 				int index = mesh->GetPolygonVertex(i, k);
-				data.polygon[i].point[k][0] = (float)-pCoord[index][0];
-				data.polygon[i].point[k][1] = (float)pCoord[index][1];
-				data.polygon[i].point[k][2] = (float)pCoord[index][2];
+				data.polygon[i].point[k][0] = (float)pCoord[index][0];
+				data.polygon[i].point[k][1] = (float)pCoord[index][2];
+				data.polygon[i].point[k][2] = (float)pCoord[index][1];
 			}
 		}
 		polygonStack.push_back(data);
@@ -185,7 +185,6 @@ namespace K_Physics {
 		this->collisionMesh = physics->CreateTriangleMesh(vectices.data(), this->numFace);
 		this->shape = physics->CreateTriangleMeshShape(this->collisionMesh);
 		this->rigid = physics->CreateRigidBody(shape, 0.0f, false, myselfMask, giveMask, K_Math::Vector3(0.0f, 0.0f, 0.0f));
-		this->rigid->SetCollisionRotation(K_Math::Vector3(K_Math::DegToRad(-90.0), 0.0f, 0.0f));
 	}
 
 }

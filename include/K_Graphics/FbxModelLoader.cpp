@@ -187,6 +187,7 @@ namespace K_Loader {
 			}
 			else {
 				newNumVertex = this->numVertex;
+				this->vertexData = new Vertex[newNumVertex];
 				for (int i = 0; i < this->numVertex; ++i) {
 					this->vertexData[i] = vertex[i];
 				}
@@ -301,16 +302,16 @@ namespace K_Loader {
 				FbxVector4 *pCoord = mesh->GetControlPoints();
 				int index = mesh->GetPolygonVertex(i, p);
 				vertex[vertexIndex].position.x = (float)pCoord[index][0];
-				vertex[vertexIndex].position.y = (float)pCoord[index][1];
-				vertex[vertexIndex].position.z = (float)pCoord[index][2];
+				vertex[vertexIndex].position.y = (float)pCoord[index][2];
+				vertex[vertexIndex].position.z = (float)pCoord[index][1];
 
 				//–@ü
 				FbxVector4 normal;
 				mesh->GetPolygonVertexNormal(i, p, normal);
 				if (glm::length(vertex[vertexIndex].normal) == 0.0f) {
 					vertex[vertexIndex].normal.x = (float)normal[0];
-					vertex[vertexIndex].normal.y = (float)normal[1];
-					vertex[vertexIndex].normal.z = (float)normal[2];
+					vertex[vertexIndex].normal.y = (float)normal[2];
+					vertex[vertexIndex].normal.z = (float)normal[1];
 					vertex[vertexIndex].normal = glm::normalize(vertex[vertexIndex].normal);
 				}
 
@@ -605,8 +606,20 @@ namespace K_Loader {
 					bone[i].cluster = cluster[i];
 				}
 			}
+			bone[i].bindMat = glm::inverse(bone[i].bindMat);
+
+			glm::quat rot = glm::angleAxis(K_Math::DegToRad(90.0f), K_Math::Vector3(1.0f, 0.0f, 0.0f));
+			K_Math::Matrix4x4 scale = glm::scale(K_Math::Matrix4x4(), K_Math::Vector3(1.0f, -1.0f, 1.0f));
+			bone[i].bindMat = bone[i].bindMat * scale * glm::toMat4(rot);
 		}
 		CalcCurrentBoneMatrix(bone);
+
+		//glm::quat rot = glm::angleAxis(K_Math::DegToRad(90.0f), K_Math::Vector3(1.0f, 0.0f, 0.0f));
+		//glm::quat rot2 = glm::angleAxis(K_Math::DegToRad(-90.0f), K_Math::Vector3(1.0f, 0.0f, 0.0f));
+		//glm::quat rot3 = glm::angleAxis(K_Math::DegToRad(180.0f), K_Math::Vector3(0.0f, 1.0f, 0.0f));
+		//K_Math::Matrix4x4 scale = glm::scale(K_Math::Matrix4x4(), K_Math::Vector3(1.0f, -1.0f, 1.0f));
+		//K_Math::Matrix4x4 scale2 = glm::scale(K_Math::Matrix4x4(), K_Math::Vector3(-1.0f, 1.0f, 1.0f));
+		//resultMat = glm::toMat4(rot3) * scale2 * glm::toMat4(rot2) * current * bind * scale * glm::toMat4(rot);
 
 		this->boneData->Add(bone);
 

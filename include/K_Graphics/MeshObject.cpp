@@ -65,7 +65,7 @@ namespace K_Graphics {
 		K_Math::Matrix4x4 rotMat = glm::toMat4(rot);
 
 		//ƒXƒP[ƒ‹
-		K_Math::Matrix4x4 scaleMat = glm::scale(world, K_Math::Vector3(-scaling.x, scaling.y, scaling.z));
+		K_Math::Matrix4x4 scaleMat = glm::scale(world, K_Math::Vector3(scaling.x, scaling.y, scaling.z));
 
 		world = transMat * rotMat * scaleMat;
 		return world;
@@ -82,7 +82,6 @@ namespace K_Graphics {
 		K_Math::Matrix4x4 projection = camera->GetProjectionMatrix();
 
 		K_Math::Matrix4x4& world = CreateWorldMatrix(position, rotation, scaling);
-		K_Math::Matrix4x4 a = projection * view * world;
 		shader->SetMatrix(projection * view * world);
 		shader->SetWorldMatrix(world);
 	}

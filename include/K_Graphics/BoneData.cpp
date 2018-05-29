@@ -129,9 +129,15 @@ namespace K_Graphics {
 	}
 
 	void BoneData::CalculateBoneMatrix(K_Math::Matrix4x4& resultMat, int arrayIndex, int boneIndex) {
-		const K_Math::Matrix4x4& bind = glm::inverse(this->boneData[arrayIndex][boneIndex].bindMat);
+		const K_Math::Matrix4x4& bind = this->boneData[arrayIndex][boneIndex].bindMat;
 		const K_Math::Matrix4x4& current = this->boneData[arrayIndex][boneIndex].currentMat;
-		resultMat = current * bind;
+
+		glm::quat rot;
+		rot = rot * glm::angleAxis(K_Math::DegToRad(180.0f), K_Math::Vector3(0.0f, 1.0f, 0.0f));
+		rot = rot * glm::angleAxis(K_Math::DegToRad(-90.0f), K_Math::Vector3(1.0f, 0.0f, 0.0f));
+		K_Math::Matrix4x4 scale = glm::scale(K_Math::Matrix4x4(), K_Math::Vector3(-1.0f, 1.0f, 1.0f));
+
+		resultMat = scale * glm::toMat4(rot) * current * bind;
 	}
 
 }
