@@ -18,6 +18,8 @@ var class_k___graphics_1_1_camera_class =
     [ "GetViewMatrix", "class_k___graphics_1_1_camera_class.html#a25c8ec2869536e3ba080d5c34749defc", null ],
     [ "Initialize", "class_k___graphics_1_1_camera_class.html#af9efd95b7a5b0285c5bda70ca01a002a", null ],
     [ "SetPosition", "class_k___graphics_1_1_camera_class.html#af8264e04ed973e00f3c331d6988f15c1", null ],
+    [ "SetPosition", "class_k___graphics_1_1_camera_class.html#a419aadab94bb6069a8652dba45bccb9a", null ],
     [ "SetPosition", "class_k___graphics_1_1_camera_class.html#a06189cd5e4c554e46724204053e69a2d", null ],
-    [ "SetTarget", "class_k___graphics_1_1_camera_class.html#af40a20fb1f670a489544774c30272188", null ]
+    [ "SetTarget", "class_k___graphics_1_1_camera_class.html#af40a20fb1f670a489544774c30272188", null ],
+    [ "SetTarget", "class_k___graphics_1_1_camera_class.html#a46739142f0cce081f7456bbbeeee9201", null ]
 ];
