@@ -326,22 +326,24 @@ namespace K_Physics {
 		//移動
 		for (int i = 0; i < numFix; ++i) {
 			MoveCollisionObject(obj, goVec);
-			//一番深くめり込んだものの法線方向へ押し出し
-			FixContactCallBack contact_cb(obj);
-			do {
-				this->bulletWorld->contactTest(obj, contact_cb);
-			} while (contact_cb.isLoop);
-			//押し出し
-			if (!contact_cb.maxDistance) {
-				continue;
-			}
+			for (int i = 0; i < 15; ++i) {
+				//一番深くめり込んだものの法線方向へ押し出し
+				FixContactCallBack contact_cb(obj);
+				do {
+					this->bulletWorld->contactTest(obj, contact_cb);
+				} while (contact_cb.isLoop);
+				//押し出し
+				if (!contact_cb.maxDistance) {
+					continue;
+				}
 
-			//方向制限がかかっている場合は進んだ方向から戻るようにしか押し出せない
-			if (limitDirection) {
-				MoveCollisionObject(obj, moveVector * contact_cb.maxDistance);
-			}
-			else {
-				MoveCollisionObject(obj, contact_cb.fixVec * -contact_cb.maxDistance);
+				//方向制限がかかっている場合は進んだ方向から戻るようにしか押し出せない
+				if (limitDirection) {
+					MoveCollisionObject(obj, moveVector * contact_cb.maxDistance / 15.0f);
+				}
+				else {
+					MoveCollisionObject(obj, contact_cb.fixVec * -contact_cb.maxDistance);
+				}
 			}
 		}
 
