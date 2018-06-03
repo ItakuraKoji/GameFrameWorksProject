@@ -50,6 +50,7 @@ var searchData=
   ['setworldmatrix',['SetWorldMatrix',['../class_k___graphics_1_1_shader_class.html#ac697b99c625ac51a2dfeb01b85858506',1,'K_Graphics::ShaderClass']]],
   ['shaderclass',['ShaderClass',['../class_k___graphics_1_1_shader_class.html',1,'K_Graphics::ShaderClass'],['../class_k___graphics_1_1_shader_class.html#a3762d1f3d62a5b9fe6b37d36aeb8dd51',1,'K_Graphics::ShaderClass::ShaderClass()']]],
   ['shaderlist',['ShaderList',['../class_k___graphics_1_1_shader_list.html',1,'K_Graphics::ShaderList'],['../class_k___graphics_1_1_shader_list.html#a93645f83598573fa2695489fcac10b6f',1,'K_Graphics::ShaderList::ShaderList()']]],
+  ['shapetype',['ShapeType',['../namespace_k___physics.html#a2b6cb3aa15ca093b21899a4b0318aa91',1,'K_Physics']]],
   ['shiftleft',['ShiftLeft',['../namespace_k___input.html#af62d80c77b12db01035e4b9aa27a09d6ad9382145a142cc7df5f733332c9cb812',1,'K_Input']]],
   ['shiftright',['ShiftRight',['../namespace_k___input.html#af62d80c77b12db01035e4b9aa27a09d6af17de5e0ea7a357b755aa9deeaf38f86',1,'K_Input']]],
   ['soundclass',['SoundClass',['../class_k___audio_1_1_sound_class.html',1,'K_Audio::SoundClass'],['../class_k___audio_1_1_sound_class.html#a9aba0743522979791ed9e6fe0d39c942',1,'K_Audio::SoundClass::SoundClass()']]],
