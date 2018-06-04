@@ -36,7 +36,11 @@ namespace K_Math {
 	public:
 		Box2D();
 		Box2D(int x, int y, int w, int h);
-		Box2D& operator =(Box2D& box);
+		Box2D& operator =(const Box2D& box);
+
+		void SetXY(int x, int y);
+		void SetWH(int w, int h);
+		void Offset(int addX, int addY);
 	public:
 		int x, y, w, h;
 	};
@@ -79,6 +83,14 @@ namespace K_Math {
 	Quaternion RotationToQuaternion(const Vector3& rotation);
 	//!@brief クォータニオンから回転成分を作成する(Y軸→X軸→Z軸)
 	Vector3 QuaternionToRotation(const Quaternion& quaternion);
+
+	//!@brief
+	void Normalize(Vector2& vector);
+	void Normalize(Vector3& vector);
+
+	//!@brief
+	Vector2 Normalized(const Vector2& vector);
+	Vector3 Normalized(const Vector3& vector);
 
 	//!@brief
 	float Norm(const Vector2& vector);

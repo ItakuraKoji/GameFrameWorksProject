@@ -118,8 +118,20 @@ K_Math::Box2D::Box2D() : x(0), y(0), w(0), h(0) {
 }
 K_Math::Box2D::Box2D(int x, int y, int w, int h) : x(x), y(y), w(w), h(h) {
 }
-K_Math::Box2D& K_Math::Box2D::operator =(Box2D& box) {
+K_Math::Box2D& K_Math::Box2D::operator =(const Box2D& box) {
 	this->x = box.x; this->y = box.y; this->w = box.w; this->h = box.h; return *this;
+}
+void K_Math::Box2D::SetXY(int x, int y) {
+	this->x = x;
+	this->y = y;
+}
+void K_Math::Box2D::SetWH(int w, int h) {
+	this->w = w;
+	this->h = h;
+}
+void K_Math::Box2D::Offset(int addX, int addY) {
+	this->x += addX;
+	this->y += addY;
 }
 
 //!@brief 回転成分からクォータニオンを作成する(Y軸→X軸→Z軸)
@@ -135,6 +147,24 @@ K_Math::Quaternion K_Math::RotationToQuaternion(const K_Math::Vector3& rotation)
 //!@brief クォータニオンから回転成分を作成する(Y軸→X軸→Z軸)
 K_Math::Vector3 K_Math::QuaternionToRotation(const K_Math::Quaternion& quaternion) {
 	return glm::eulerAngles(quaternion);
+}
+
+void K_Math::Normalize(Vector2& vector) {
+	glm::normalize(vector);
+}
+void K_Math::Normalize(Vector3& vector) {
+	glm::normalize(vector);
+}
+
+K_Math::Vector2 K_Math::Normalized(const Vector2& vector) {
+	Vector2 normalizedVec = vector;
+	glm::normalize(normalizedVec);
+	return normalizedVec;
+}
+K_Math::Vector3 K_Math::Normalized(const Vector3& vector) {
+	Vector3 normalizedVec = vector;
+	glm::normalize(normalizedVec);
+	return normalizedVec;
 }
 
 float K_Math::Norm(const K_Math::Vector2& vector) {
