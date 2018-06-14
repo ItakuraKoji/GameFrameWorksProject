@@ -118,23 +118,53 @@ K_Math::Box2D::Box2D() : x(0), y(0), w(0), h(0) {
 }
 K_Math::Box2D::Box2D(int x, int y, int w, int h) : x(x), y(y), w(w), h(h) {
 }
-K_Math::Box2D& K_Math::Box2D::operator =(Box2D& box) {
+K_Math::Box2D& K_Math::Box2D::operator =(const Box2D& box) {
 	this->x = box.x; this->y = box.y; this->w = box.w; this->h = box.h; return *this;
+}
+void K_Math::Box2D::SetXY(int x, int y) {
+	this->x = x;
+	this->y = y;
+}
+void K_Math::Box2D::SetWH(int w, int h) {
+	this->w = w;
+	this->h = h;
+}
+void K_Math::Box2D::Offset(int addX, int addY) {
+	this->x += addX;
+	this->y += addY;
 }
 
 //!@brief 回転成分からクォータニオンを作成する(Y軸→X軸→Z軸)
 K_Math::Quaternion K_Math::RotationToQuaternion(const K_Math::Vector3& rotation) {
 	//回転順はYXZ
 	K_Math::Quaternion rot;
-	rot = glm::angleAxis(rotation.y, K_Math::Vector3(0.0f, 0.0f, 0.0f));
 	rot = rot * glm::angleAxis(rotation.y, K_Math::Vector3(0.0f, 1.0f, 0.0f));
-	rot = rot * glm::angleAxis(rotation.y, K_Math::Vector3(1.0f, 0.0f, 0.0f));
-	rot = rot * glm::angleAxis(rotation.y, K_Math::Vector3(0.0f, 0.0f, 1.0f));
+	rot = rot * glm::angleAxis(rotation.x, K_Math::Vector3(1.0f, 0.0f, 0.0f));
+	rot = rot * glm::angleAxis(rotation.z, K_Math::Vector3(0.0f, 0.0f, 1.0f));
 	return rot;
 }
 //!@brief クォータニオンから回転成分を作成する(Y軸→X軸→Z軸)
 K_Math::Vector3 K_Math::QuaternionToRotation(const K_Math::Quaternion& quaternion) {
-	return glm::eulerAngles(quaternion);
+	K_Math::Vector3 rot = glm::eulerAngles(quaternion);
+	return rot;
+}
+
+void K_Math::Normalize(Vector2& vector) {
+	vector = glm::normalize(vector);
+}
+void K_Math::Normalize(Vector3& vector) {
+	vector = glm::normalize(vector);
+}
+
+K_Math::Vector2 K_Math::Normalized(const Vector2& vector) {
+	Vector2 normalizedVec = vector;
+	glm::normalize(normalizedVec);
+	return normalizedVec;
+}
+K_Math::Vector3 K_Math::Normalized(const Vector3& vector) {
+	Vector3 normalizedVec = vector;
+	glm::normalize(normalizedVec);
+	return normalizedVec;
 }
 
 float K_Math::Norm(const K_Math::Vector2& vector) {
@@ -159,5 +189,18 @@ float K_Math::Dot(const K_Math::Vector2& vector1, const K_Math::Vector2& vector2
 }
 float K_Math::Dot(const K_Math::Vector3& vector1, const K_Math::Vector3& vector2) {
 	return glm::dot(vector1, vector2);
+}
+
+K_Math::Quaternion K_Math::AngleAxis(float angle, const Vector3& axis) {
+	return glm::angleAxis(angle, axis);
+}
+K_Math::Quaternion K_Math::LookAt(const Vector3& vec1, const Vector3& vec2) {
+	return glm::rotation(vec1, vec2);
+}
+float K_Math::Angle(const Vector3& vec1, const Vector3& vec2) {
+	return glm::angle(vec1, vec2);
+}
+float K_Math::Angle(const Vector3& vec1, const Vector3& vec2, const Vector3& ref) {
+	return glm::orientedAngle(vec1, vec2, ref);
 }
 

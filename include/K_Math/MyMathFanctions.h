@@ -3,6 +3,7 @@
 #include<glm/glm.hpp>
 #include<glm/gtc/quaternion.hpp>
 #include<glm/gtx/quaternion.hpp>
+#include<glm/gtx/vector_angle.hpp>
 #include<glm/gtc/matrix_transform.hpp>
 #include<glm/gtc/type_ptr.hpp>
 
@@ -12,11 +13,11 @@
 //Eigenはずいぶん複雑なヘッダのようで、こいつは最初のほうにインクルードするほうがいいっぽい
 
 namespace K_Math {
-	//!float型２要素ベクトル\n要素のアクセスに "vector.x" と関数の形をとるのに注意
+	//!float型２要素ベクトル
 	typedef glm::vec2 Vector2;
-	//!float型３要素ベクトル\n要素のアクセスに "vector.x" と関数の形をとるのに注意
+	//!float型３要素ベクトル
 	typedef glm::vec3 Vector3;
-	//!float型４要素ベクトル\n要素のアクセスに "vector.x" と関数の形をとるのに注意
+	//!float型４要素ベクトル
 	typedef glm::vec4 Vector4;
 	//!float型３行３列行列
 	typedef glm::mat3x3 Matrix3x3;
@@ -25,18 +26,16 @@ namespace K_Math {
 	//!float型のクォータニオン\n内部では回転行列はクォータニオンを利用している
 	typedef glm::quat Quaternion;
 
-	//アフィン変換用
-	//typedef Eigen::Transform<float, 3, 2, Eigen::DontAlign> Affine3;
-	//typedef Eigen::AngleAxis<float> AngleAxis;
-	//typedef Eigen::Translation<float, 3> Translation;
-	//typedef Eigen::DiagonalMatrix<float, 3> DiagonalMatrix;
-
 	//!@brief 座標の"x""y"、幅高さの"w""h"を持つ\n全てint型で、2D描画用
 	struct Box2D {
 	public:
 		Box2D();
 		Box2D(int x, int y, int w, int h);
-		Box2D& operator =(Box2D& box);
+		Box2D& operator =(const Box2D& box);
+
+		void SetXY(int x, int y);
+		void SetWH(int w, int h);
+		void Offset(int addX, int addY);
 	public:
 		int x, y, w, h;
 	};
@@ -80,16 +79,34 @@ namespace K_Math {
 	//!@brief クォータニオンから回転成分を作成する(Y軸→X軸→Z軸)
 	Vector3 QuaternionToRotation(const Quaternion& quaternion);
 
-	//!@brief
+	//!@brief 正規化。戻り値はない
+	void Normalize(Vector2& vector);
+	void Normalize(Vector3& vector);
+
+	//!@brief 正規化。戻り値がある
+	Vector2 Normalized(const Vector2& vector);
+	Vector3 Normalized(const Vector3& vector);
+
+	//!@brief 長さを取得
 	float Norm(const Vector2& vector);
 	float Norm(const Vector3& vector);
 	float Norm(const Vector4& vector);
 
-	//!@brief
+	//!@brief 外積を行う
 	float Cross(const Vector2& vector1, const Vector2& vector2);
 	Vector3 Cross(const Vector3& vector1, const Vector3& vector2);
 
-	//!@brief
+	//!@brief 内積を行う
 	float Dot(const Vector2& vector1, const Vector2& vector2);
 	float Dot(const Vector3& vector1, const Vector3& vector2);
+
+	//!@brief 任意軸回転のクォータニオンを得る
+	Quaternion AngleAxis(float angle, const Vector3& axis);
+	//!@brief vec1からvec2へ向かう回転のクォータニオンを得る
+	Quaternion LookAt(const Vector3& vec1, const Vector3& vec2);
+
+	//!@brief 二つのベクトルのなす角を得る
+	float Angle(const Vector3& vec1, const Vector3& vec2);
+	//!@brief 二つのベクトルの任意軸における回転角度を得る
+	float Angle(const Vector3& vec1, const Vector3& vec2, const Vector3& ref);
 }

@@ -9,18 +9,18 @@ namespace K_Graphics {
 	FontGenerator::FontGenerator(const char* fontFilePath) {
 		FT_Init_FreeType(&this->ftLib);
 		if (this->ftLib == nullptr) {
-			throw("FreeType Initialize is Failed");
+			throw std::runtime_error("FreeType Initialize is Failed");
 		}
 		FT_Error error = FT_New_Face(this->ftLib, fontFilePath, 0, &this->ftFace);
 		if (error == FT_Err_Unknown_File_Format) {
-			throw("FontFile is NonSupport : " + std::string(fontFilePath));
+			throw std::runtime_error("FontFile is NonSupport : " + std::string(fontFilePath));
 		}
 		if (error == FT_Err_Cannot_Open_Resource) {
-			throw("FontFile Cannot_Open_Resource : " + std::string(fontFilePath));
+			throw std::runtime_error("FontFile Cannot_Open_Resource : " + std::string(fontFilePath));
 		}
 
 		if (this->ftFace == nullptr) {
-			throw(std::to_string(error) + " FontFile Load is Failed : " + std::string(fontFilePath));
+			throw std::runtime_error(std::to_string(error) + " FontFile Load is Failed : " + std::string(fontFilePath));
 		}
 	}
 	FontGenerator::~FontGenerator() {

@@ -33,16 +33,35 @@ namespace K_Graphics {
 	}
 
 	GLuint VertexData::GetVAO(int arrayIndex) {
+		CheckHierarchyRange(arrayIndex);
 		return this->bufferArray[arrayIndex].VAO;
 	}
 	GLuint VertexData::GetVBO(int arrayIndex) {
+		CheckHierarchyRange(arrayIndex);
 		return this->bufferArray[arrayIndex].VBO;
 	}
 	GLuint VertexData::GetIBO(int arrayIndex, int materialIndex) {
+		CheckHierarchyRange(arrayIndex);
+		CheckMaterialArrayRange(materialIndex, materialIndex);
 		return this->bufferArray[arrayIndex].IBOs[materialIndex];
 	}
 	int VertexData::GetNumFace(int arrayIndex) {
+		CheckHierarchyRange(arrayIndex);
 		return this->bufferArray[arrayIndex].numFace;
+	}
+
+	////////
+	//private
+	////
+	void VertexData::CheckHierarchyRange(int index) {
+		if (this->bufferArray.size() <= index) {
+			std::out_of_range("mesh model hirarchy out of range");
+		}
+	}
+	void VertexData::CheckMaterialArrayRange(int arrayIndex, int materialIndex) {
+		if (this->bufferArray[arrayIndex].IBOs.size() <= materialIndex) {
+			std::out_of_range("mesh model material array out of range");
+		}
 	}
 
 }

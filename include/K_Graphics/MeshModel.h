@@ -90,6 +90,7 @@ namespace K_Graphics {
 		//!@param[in] rotation XYZそれぞれの軸に関する回転角度（Y→X→Zの順で回転する）
 		//!@param[in] scale スケーリング
 		void Draw(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scale);
+		void Draw(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Quaternion& rotation, const K_Math::Vector3& scale);
 		//!@brief インスタンス描画は未実装
 		void InstanceDraw(CameraClass* camera, ShaderClass* shader, int numDraw, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scale);
 
@@ -99,9 +100,11 @@ namespace K_Graphics {
 		//!@param[in] scale スケーリング
 		//!@return ワールド変換行列
 		K_Math::Matrix4x4 CreateWorldMatrix(const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scale);
+		K_Math::Matrix4x4 CreateWorldMatrix(const K_Math::Vector3& position, const K_Math::Quaternion& rotation, const K_Math::Vector3& scale);
 
 	protected:
 		void SetMatrix(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scale);
+		void SetMatrix(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Quaternion& rotation, const K_Math::Vector3& scale);
 		MeshModel* drawModel;
 	};
 

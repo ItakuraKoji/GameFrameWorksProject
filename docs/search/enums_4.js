@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['key',['Key',['../namespace_k___input.html#af62d80c77b12db01035e4b9aa27a09d6',1,'K_Input']]]
+  ['imagetype',['ImageType',['../class_k___loader_1_1_image_data.html#a5c2019813469dc565af4a484a826f568',1,'K_Loader::ImageData']]]
 ];

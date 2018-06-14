@@ -123,6 +123,64 @@ namespace K_System {
 		glfwSetWindowIcon(this->windowHandle, count, image);
 		delete[] image;
 	}
+	void SystemClass::SetCulling(bool active, CullingInfo cullingInfo, FrontFaceInfo frontFaceInfo) {
+		if (!active) {
+			glDisable(GL_CULL_FACE);
+			return;
+		}
+
+		glEnable(GL_CULL_FACE);
+
+		//ポリゴンのカリング面を設定
+		switch (cullingInfo){
+		case CullingInfo::FrontFace:
+			glCullFace(GL_FRONT);
+			break;
+		case CullingInfo::BackFace:
+			glCullFace(GL_BACK);
+			break;
+		}
+		//ポリゴンの表を設定
+		switch (frontFaceInfo){
+		case FrontFaceInfo::Counterclockwise:
+			glFrontFace(GL_CCW);
+			break;
+		case FrontFaceInfo::Crockwise:
+			glFrontFace(GL_CW);
+			break;
+		}
+	}
+
+
+	void SystemClass::SetAlphaBlendInfo(bool active, BlendInfo info) {
+		if (!active) {
+			glDisable(GL_BLEND);
+			return;
+		}
+		glEnable(GL_BLEND);
+
+		switch (info){
+		case BlendInfo::Multiply:
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+			break;
+		case BlendInfo::Add:
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+			break;
+		default:
+			break;
+		}
+
+	}
+
+	void SystemClass::SetDepthTest(bool active) {
+		if (active) {
+			glEnable(GL_DEPTH_TEST);
+		}
+		else {
+			glDisable(GL_DEPTH_TEST);
+		}
+	}
+
 
 	////////
 	//private

@@ -117,9 +117,9 @@ namespace K_Graphics {
 		(K_Math::Vector3)this->cameraMatrix[3] = -this->viewMatrix[3];
 
 		//カメラ軸
-		this->xAxis = (K_Math::Vector3)this->viewMatrix[0];
-		this->yAxis = (K_Math::Vector3)this->viewMatrix[1];
-		this->zAxis = (K_Math::Vector3)this->viewMatrix[2];
+		this->xAxis = K_Math::Vector3(this->viewMatrix[0][0], this->viewMatrix[1][0], this->viewMatrix[2][0]);
+		this->yAxis = K_Math::Vector3(this->viewMatrix[0][1], this->viewMatrix[1][1], this->viewMatrix[2][1]);
+		this->zAxis = K_Math::Vector3(this->viewMatrix[0][2], this->viewMatrix[1][2], this->viewMatrix[2][2]);
 
 		//プロジェクション行列を作成
 		if (this->projectionType == CameraType::Perspective) {

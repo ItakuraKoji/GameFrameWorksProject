@@ -80,6 +80,7 @@ namespace K_Physics {
 		//!@param[in] camera 使用するカメラ
 		//!@param[in] trans 変形行列（省略時単位行列）
 		void DebugDraw(K_Graphics::ShaderClass* shader, K_Graphics::CameraClass* camera, const K_Math::Matrix4x4& trans = K_Math::Matrix4x4());
+		void DebugDraw(K_Graphics::ShaderClass* shader, K_Graphics::CameraClass* camera, float nearClip, float farClip, const K_Math::Matrix4x4& trans = K_Math::Matrix4x4());
 
 		//!@brief 三角形の形状を作成
 		//!@param[in] point1 角の座標
@@ -145,6 +146,12 @@ namespace K_Physics {
 		//!@param[in] hLimitDirection 横方向の押し返しを、moveの直線上に限定するかのフラグ
 		void MoveCharacterDiscrete(CollisionData* obj, const K_Math::Vector3& move, bool vLimitDirection = true, bool hLimitDirection = false);
 
+		//!@brief fromの位置からtoの位置へレイを飛ばして、その衝突位置を返す
+		//!@param[in] from レイの発生源位置
+		//!@param[in] to レイの終点
+		//!@return ワールド上でのレイの衝突位置を表す比
+		float Raycast(const K_Math::Vector3& from, const K_Math::Vector3& to, int myselfMask);
+
 		//!@brief 現在の物理世界での特定のオブジェクトに対する衝突のチェック
 		//!@param[in] 衝突をチェックしたいオブジェクト
 		//!@return 衝突が起こったオブジェクトのタグ情報
@@ -159,11 +166,11 @@ namespace K_Physics {
 		//コリジョンを移動
 		void MoveCollisionObject(btCollisionObject* obj, const btVector3& moveVector);
 		//指定方向に移動（離散判定）
-		void MoveDiscrete(btCollisionObject* obj, const btVector3& moveVector, bool limitDirection);
+		void MoveDiscrete(btCollisionObject* obj, const btVector3& moveVector, const btVector3& limitDirection);
 		//指定方向に移動
-		void MoveSmooth(btCollisionObject* obj, const btVector3& moveVector, float limitAngle, bool limitDirection);
+		void MoveSmooth(btCollisionObject* obj, const btVector3& moveVector, float limitAngle, const btVector3& limitDirection);
 		//移動部分をまとめ、allowDistanceはめり込み許容値、isCalcurateがtrueの時は法線を返す
-		btVector3 MoveBySweep(btCollisionObject* obj, const btVector3& moveVector, bool limitDirection, float allowDistance);
+		btVector3 MoveBySweep(btCollisionObject* obj, const btVector3& moveVector, const btVector3& limitDirection, float limitAngle, float allowDistance);
 	private:
 		//衝突結果格納用
 		std::vector<CollisionTag*> confrictResult;
@@ -179,6 +186,8 @@ namespace K_Physics {
 		btAlignedObjectArray<CollisionShape*>   shapeArray;
 	};
 
+
+
 	////自身と衝突しないsweepTestのコールバック
 	struct SweepTestCallBack : public btCollisionWorld::ClosestConvexResultCallback {
 	public:
@@ -186,39 +195,63 @@ namespace K_Physics {
 
 		//自分自身にヒットしないようにオーバーライド
 		//戻り値に意味はないみたい
-		virtual btScalar addSingleResult(btCollisionWorld::LocalConvexResult& convexResult, bool normalInWorldSpace);
+		virtual btScalar addSingleResult(btCollisionWorld::LocalConvexResult& convexResult, bool normalInWorldSpace)override;
 	public:
 		btCollisionObject * myself;
 
 	};
 
 	//めり込み最大の法線ベクトルを見つけるコールバック
-	struct FixContactCallBack : public btCollisionWorld::ContactResultCallback {
+	struct DetectMaxDistance : public btCollisionWorld::ContactResultCallback {
 	public:
-		FixContactCallBack(btCollisionObject* obj);
+		DetectMaxDistance(btCollisionObject* obj);
 		//当たったオブジェクトを記録
 		//戻り値に意味はないみたい
 		//こっちは自分自身（contactTestで渡したオブジェクト）とは衝突しないようです
-		virtual	btScalar addSingleResult(btManifoldPoint& cp, const btCollisionObjectWrapper* colObj0Wrap, int partId0, int index0, const btCollisionObjectWrapper* colObj1Wrap, int partId1, int index1);
+		virtual	btScalar addSingleResult(btManifoldPoint& cp, const btCollisionObjectWrapper* colObj0Wrap, int partId0, int index0, const btCollisionObjectWrapper* colObj1Wrap, int partId1, int index1)override;
 	public:
 		//押し出すオブジェクト
 		btCollisionObject * obj;
-		//距離の最大値とその方向
+		//距離の最大値とその方向とそのオブジェクト
 		float maxDistance;
 		btVector3 fixVec;
+		btCollisionObject* maxObject;
 
 		int count;
 		bool isLoop;
+	};
+
+	//普通に押し出すコールバック
+	struct FixContactCallBack : public btCollisionWorld::ContactResultCallback {
+	public:
+		FixContactCallBack(btCollisionObject* obj, const btVector3& limitDirection);
+		//当たったオブジェクトを記録
+		//戻り値に意味はないみたい
+		//こっちは自分自身（contactTestで渡したオブジェクト）とは衝突しないようです
+		virtual	btScalar addSingleResult(btManifoldPoint& cp, const btCollisionObjectWrapper* colObj0Wrap, int partId0, int index0, const btCollisionObjectWrapper* colObj1Wrap, int partId1, int index1)override;
+	public:
+		//押し出すオブジェクト
+		btCollisionObject * obj;
+		//押し出し方向
+		btVector3 limitDirection;
+		bool isHit;
 	};
 
 	//すべての衝突を記録する
 	struct CollectCollisionCallBack : public btCollisionWorld::ContactResultCallback {
 	public:
 		CollectCollisionCallBack(btCollisionObject* obj, std::vector<CollisionTag*>& tagList);
-		virtual btScalar addSingleResult(btManifoldPoint& cp, const btCollisionObjectWrapper* colObj0Wrap, int partId0, int index0, const btCollisionObjectWrapper* colObj1Wrap, int partId1, int index1);
+		virtual btScalar addSingleResult(btManifoldPoint& cp, const btCollisionObjectWrapper* colObj0Wrap, int partId0, int index0, const btCollisionObjectWrapper* colObj1Wrap, int partId1, int index1)override;
 	public:
 		std::vector<CollisionTag*>& result;
 		bool isHit;
+	};
+
+	//レイキャスト用のコールバック
+	struct MyRaycastCallBack : public btCollisionWorld::ClosestRayResultCallback {
+	public:
+		MyRaycastCallBack(const btVector3& from, const btVector3& to, int myselfMask);
+		virtual btScalar addSingleResult(btCollisionWorld::LocalRayResult &rayResult, bool normalInWorldSpace)override;
 	};
 
 }

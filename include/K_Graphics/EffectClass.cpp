@@ -74,8 +74,7 @@ namespace K_Graphics {
 	bool EffectClass::AddEffectSource(const std::string& effectName, const char* filePath) {
 		//重複は許さない
 		if (this->effect.find(effectName) != this->effect.end()) {
-			printf("EffectName has existed：%s\n", filePath);
-			return false;
+			throw std::runtime_error("EffectName has already existed ： " + effectName);
 		}
 
 		EFK_CHAR path[64];
@@ -83,8 +82,7 @@ namespace K_Graphics {
 		Effekseer::Effect* efk = Effekseer::Effect::Create(this->manager, path);
 		//失敗も許さない
 		if (efk == nullptr) {
-			printf("Effect Load Failed：%s\n", filePath);
-			return false;
+			throw std::runtime_error("Effect Load Failed ： " + std::string(filePath));
 		}
 		//許されたものはリストへ登録
 		this->effect[effectName] = efk;
@@ -94,7 +92,7 @@ namespace K_Graphics {
 	void EffectClass::DeleteEffectSource(const std::string& effectName) {
 		//リストにその名前があってインスタンスもあるものが対象
 		if (this->effect.find(effectName) == this->effect.end() || !this->effect[effectName]) {
-			return;
+			throw std::runtime_error("EffectName is not exists ： " + effectName);
 		}
 		this->effect[effectName]->Release();
 		this->effect.erase(effectName);
@@ -102,10 +100,9 @@ namespace K_Graphics {
 
 	EffectHandle EffectClass::Play(const std::string& name, const K_Math::Vector3& position) {
 		//リストにその名前があってインスタンスもあるものが対象
-		if (this->effect.find(name) == this->effect.end() || !this->effect[name]) {
-			return -1;
+		if (this->effect.find(name) == this->effect.end()) {
+			throw std::runtime_error("EffectName is not exists ： " + name);
 		}
-
 		return this->manager->Play(this->effect[name], position.x, position.y, position.z);
 	}
 

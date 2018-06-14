@@ -10,8 +10,8 @@ namespace K_Input {
 		this->vpadID = padID;
 
 		//ゲームパッドボタン設定
-		SetButtonConfig(VpadButton::A, JoyButton::Empty, Key::Space);
-		SetButtonConfig(VpadButton::B, JoyButton::Empty, Key::Z);
+		SetButtonConfig(VpadButton::A, JoyButton::Empty, Key::Empty);
+		SetButtonConfig(VpadButton::B, JoyButton::Empty, Key::Empty);
 		SetButtonConfig(VpadButton::X, JoyButton::Empty, Key::Empty);
 		SetButtonConfig(VpadButton::Y, JoyButton::Empty, Key::Empty);
 		SetButtonConfig(VpadButton::L1, JoyButton::Empty, Key::Empty);

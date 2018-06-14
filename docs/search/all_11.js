@@ -5,6 +5,7 @@ var searchData=
   ['r2',['R2',['../namespace_k___input.html#ab1b3c957b1b7070e86ccd1a908f3a101a8c6d22ff6f63fc6711cfa315cb80b314',1,'K_Input']]],
   ['r3',['R3',['../namespace_k___input.html#ab1b3c957b1b7070e86ccd1a908f3a101a5c108ce0fe89d0632cfce75f650b36c2',1,'K_Input']]],
   ['radtodeg',['RadToDeg',['../namespace_k___math.html#a4ab382b67d996b4862e30be45875740d',1,'K_Math']]],
+  ['raycast',['Raycast',['../class_k___physics_1_1_bullet_physics.html#a51dfdc8e5e578900a3851b21ba800e51',1,'K_Physics::BulletPhysics']]],
   ['read',['Read',['../class_k___audio_1_1_audio_data.html#af42b123ad2ce45867401d697fd572392',1,'K_Audio::AudioData::Read()'],['../class_k___audio_1_1_ogg_data.html#ac4c50916e0f2eaa384539b2dbedc1d6e',1,'K_Audio::OggData::Read()'],['../class_k___audio_1_1_wav_data.html#a9b64967d83ac218c71949335d0583e69',1,'K_Audio::WavData::Read()']]],
   ['red',['RED',['../namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a73b900220ca74e26dbc87b5baea6dd9c',1,'K_Graphics']]],
   ['removecollision',['RemoveCollision',['../class_k___physics_1_1_bullet_physics.html#add323e4324f89b08a4891369515ddd8b',1,'K_Physics::BulletPhysics']]],

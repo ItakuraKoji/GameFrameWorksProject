@@ -10,7 +10,7 @@ namespace K_Graphics {
 		this->drawModel = nullptr;
 
 		if (!Initialize(model)) {
-			throw("modelData is nullptr");
+			throw std::runtime_error("modelData is nullptr");
 		}
 	}
 	MeshObject::~MeshObject() {
@@ -47,6 +47,10 @@ namespace K_Graphics {
 		SetMatrix(camera, shader, position, rotation, scale);
 		this->drawModel->Draw(shader);
 	}
+	void MeshObject::Draw(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Quaternion& rotation, const K_Math::Vector3& scale) {
+		SetMatrix(camera, shader, position, rotation, scale);
+		this->drawModel->Draw(shader);
+	}
 	void MeshObject::InstanceDraw(CameraClass* camera, ShaderClass* shader, int numDraw, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scale) {
 		SetMatrix(camera, shader, position, rotation, scale);
 		this->drawModel->InstanceDraw(numDraw, shader);
@@ -70,6 +74,17 @@ namespace K_Graphics {
 		world = transMat * rotMat * scaleMat;
 		return world;
 	}
+	K_Math::Matrix4x4 MeshObject::CreateWorldMatrix(const K_Math::Vector3& position, const K_Math::Quaternion& rotation, const K_Math::Vector3& scaling) {
+		K_Math::Matrix4x4 world;
+		////移動
+		//K_Math::Matrix4x4 transMat = glm::translate(world, position);
+		////クォータニオンによる回転
+		//K_Math::Matrix4x4 rotMat = glm::toMat4(rotation);
+		////スケール
+		//K_Math::Matrix4x4 scaleMat = glm::scale(world, K_Math::Vector3(scaling.x, scaling.y, scaling.z));
+		world = glm::translate(world, position) * glm::toMat4(rotation) *  glm::scale(world, K_Math::Vector3(scaling.x, scaling.y, scaling.z));
+		return world;
+	}
 
 
 	////////
@@ -77,6 +92,15 @@ namespace K_Graphics {
 	////
 
 	void MeshObject::SetMatrix(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scaling) {
+
+		K_Math::Matrix4x4 view = camera->GetViewMatrix();
+		K_Math::Matrix4x4 projection = camera->GetProjectionMatrix();
+
+		K_Math::Matrix4x4& world = CreateWorldMatrix(position, rotation, scaling);
+		shader->SetMatrix(projection * view * world);
+		shader->SetWorldMatrix(world);
+	}
+	void MeshObject::SetMatrix(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Quaternion& rotation, const K_Math::Vector3& scaling) {
 
 		K_Math::Matrix4x4 view = camera->GetViewMatrix();
 		K_Math::Matrix4x4 projection = camera->GetProjectionMatrix();

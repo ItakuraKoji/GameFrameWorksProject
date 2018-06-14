@@ -11,7 +11,6 @@ namespace K_Loader {
 		this->animationData = nullptr;
 		this->boneData = nullptr;
 		this->vertexData = nullptr;
-
 		this->loaded = false;
 	}
 	FbxModelLoader::~FbxModelLoader() {
@@ -19,79 +18,81 @@ namespace K_Loader {
 	}
 
 	bool FbxModelLoader::LoadFBX(const std::string& fileName, K_Graphics::TextureList* list) {
-		this->fbxData = new K_Graphics::FbxData;
-		this->bufferData = new K_Graphics::VertexData;
-		this->materialData = new K_Graphics::MaterialData;
-		this->animationData = new K_Graphics::AnimationData;
-		this->boneData = new K_Graphics::BoneData;
+		try {
 
-		this->textureList = list;
+			this->fbxData = new K_Graphics::FbxData;
+			this->bufferData = new K_Graphics::VertexData;
+			this->materialData = new K_Graphics::MaterialData;
+			this->animationData = new K_Graphics::AnimationData;
+			this->boneData = new K_Graphics::BoneData;
 
-		printf("LoadModel... : %s\n", fileName.data());
-		if (!InitializeFBX(fileName)) {
-			return false;
-		}
+			this->textureList = list;
 
-		//ファイルパスを記録して相対パスを作り出す("../は使えない")
-		{
-			int position = 0;
-			int loopMax = (int)fileName.size();
-			int i;
-			//後ろから数えて、パスを取得
-			for (i = loopMax - 1; i >= 0; --i) {
-				if (fileName.data()[i] == '\\' || fileName.data()[i] == '/') {
-					position = i + 1;
-					break;
+			printf("LoadModel... : %s\n", fileName.data());
+			InitializeFBX(fileName);
+
+			//ファイルパスを記録して相対パスを作り出す("../は使えない")
+			{
+				int position = 0;
+				int loopMax = (int)fileName.size();
+				int i;
+				//後ろから数えて、パスを取得
+				for (i = loopMax - 1; i >= 0; --i) {
+					if (fileName.data()[i] == '\\' || fileName.data()[i] == '/') {
+						position = i + 1;
+						break;
+					}
 				}
+				this->fileRoot = new char[position + 1];
+				//取得したパスまでの位置を実際に文字取得
+				for (i = 0; i < position; ++i) {
+					this->fileRoot[i] = fileName.data()[i];
+				}
+				this->fileRoot[i] = '\0';
 			}
-			this->fileRoot = new char[position + 1];
-			//取得したパスまでの位置を実際に文字取得
-			for (i = 0; i < position; ++i) {
-				this->fileRoot[i] = fileName.data()[i];
-			}
-			this->fileRoot[i] = '\0';
-		}
 
-		FbxNode *rootNode = this->fbxData->GetScene()->GetRootNode();
-		if (!RecursiveNode(rootNode)) {
+			FbxNode *rootNode = this->fbxData->GetScene()->GetRootNode();
+			RecursiveNode(rootNode);
+
+
+
+			//アニメーション情報を取得、名前をキーにして保持
+			FbxImporter* importer = this->fbxData->GetInporter();
+			int numAnim = importer->GetAnimStackCount();
+			if (this->animationData == nullptr) {
+				numAnim = 0;
+			}
+
+			for (int i = 0; i < numAnim; ++i) {
+				//取得
+				FbxTakeInfo *take = importer->GetTakeInfo(i);
+				K_Graphics::AnimType anim;
+				auto start = take->mLocalTimeSpan.GetStart();
+				auto end = take->mLocalTimeSpan.GetStop();
+				//なんかバイナリ形式だと「"bone|Action"」みたいになるので"bone|"の部分を取り除く
+				int position = 0;
+				for (int k = (int)take->mName.GetLen() - 1; k >= 0; --k) {
+					char c = take->mName.Buffer()[k];
+					if (take->mName.Buffer()[k] == '|') {
+						position = k + 1;
+					}
+				}
+				anim.animName = take->mName.Mid(position);
+				anim.animID = i;
+				anim.startTime = (int)(start.Get() / FbxTime::GetOneFrameValue(FbxTime::eFrames120));
+				anim.endTime = (int)(end.Get() / FbxTime::GetOneFrameValue(FbxTime::eFrames120));
+
+				//追加
+				this->animationData->Add(anim);
+			}
+			this->loaded = true;
+			delete[] this->fileRoot;
+		}
+		catch (std::exception& e) {
+			this->loaded = false;
 			delete[] this->fileRoot;
 			return false;
 		}
-
-
-
-		//アニメーション情報を取得、名前をキーにして保持
-		FbxImporter* importer = this->fbxData->GetInporter();
-		int numAnim = importer->GetAnimStackCount();
-		if (this->animationData == nullptr) {
-			numAnim = 0;
-		}
-
-		for (int i = 0; i < numAnim; ++i) {
-			//取得
-			FbxTakeInfo *take = importer->GetTakeInfo(i);
-			K_Graphics::AnimType anim;
-			auto start = take->mLocalTimeSpan.GetStart();
-			auto end = take->mLocalTimeSpan.GetStop();
-			//なんかバイナリ形式だと「"bone|Action"」みたいになるので"bone|"の部分を取り除く
-			int position = 0;
-			for (int k = (int)take->mName.GetLen() - 1; k >= 0; --k) {
-				char c = take->mName.Buffer()[k];
-				if (take->mName.Buffer()[k] == '|') {
-					position = k + 1;
-				}
-			}
-			anim.animName = take->mName.Mid(position);
-			anim.animID = i;
-			anim.startTime = (int)(start.Get() / FbxTime::GetOneFrameValue(FbxTime::eFrames120));
-			anim.endTime = (int)(end.Get() / FbxTime::GetOneFrameValue(FbxTime::eFrames120));
-
-			//追加
-			this->animationData->Add(anim);
-		}
-
-		this->loaded = true;
-		delete[] this->fileRoot;
 		return true;
 	}
 
@@ -129,28 +130,23 @@ namespace K_Loader {
 	////////
 	//private
 	////
-	bool FbxModelLoader::RecursiveNode(FbxNode* node) {
+	void FbxModelLoader::RecursiveNode(FbxNode* node) {
 		FbxNodeAttribute* attr;
 		attr = node->GetNodeAttribute();
 
 		if (attr != NULL) {
 			if (attr->GetAttributeType() == FbxNodeAttribute::eMesh) {
-				if (!LoadFbxMesh(node->GetMesh())) {
-					return false;
-				}
+				LoadFbxMesh(node->GetMesh());
 			}
 		}
 		//再起
 		int numChild = node->GetChildCount();
 		for (int i = 0; i < numChild; ++i) {
-			if (!RecursiveNode(node->GetChild(i))) {
-				return false;
-			}
+			RecursiveNode(node->GetChild(i));
 		}
-		return true;
 	}
 
-	bool FbxModelLoader::LoadFbxMesh(FbxMesh* mesh) {
+	void FbxModelLoader::LoadFbxMesh(FbxMesh* mesh) {
 		Vertex* vertex = nullptr;
 		PolygonTable* table = nullptr;
 		try {
@@ -245,7 +241,7 @@ namespace K_Loader {
 			delete[] this->vertexData;
 			this->vertexData = nullptr;
 		}
-		catch (std::string& eText) {
+		catch (std::exception& e) {
 			if (vertex) {
 				delete[] vertex;
 			}
@@ -253,9 +249,9 @@ namespace K_Loader {
 				delete[] table;
 			}
 			Finalize();
-			throw(eText);
+			//例外処理は上に任せる
+			throw e;
 		}
-		return true;
 	}
 
 	void FbxModelLoader::Finalize() {
@@ -443,10 +439,15 @@ namespace K_Loader {
 				strcat_s(fileName, pathSize, name);
 				strcat_s(fileName, pathSize, ext);
 
-				if (!this->textureList->LoadTexture(fileName, fileName)) {
+
+				try {
+					this->textureList->LoadTexture(fileName, fileName);
+
+				}
+				catch (std::exception& e) {
 					std::string path = std::string(fileName);
 					delete[] fileName;
-					throw("Texture Load Failed : " + path);
+					throw e;
 				}
 				material[i].texture = this->textureList->GetTexture(fileName);
 				printf("Texture : %s\n", fileName);
@@ -557,7 +558,7 @@ namespace K_Loader {
 		return pt;
 	}
 
-	bool FbxModelLoader::LoadBones(FbxMesh* mesh, Vertex* vertex, PolygonTable *table) {
+	void FbxModelLoader::LoadBones(FbxMesh* mesh, Vertex* vertex, PolygonTable *table) {
 		FbxDeformer *deformer = mesh->GetDeformer(0);
 		if (!deformer) {
 			//ボーンが存在しなかったらアニメーション関連のデータに別れを告げる
@@ -565,7 +566,7 @@ namespace K_Loader {
 			delete this->boneData;
 			this->animationData = nullptr;
 			this->boneData = nullptr;
-			return false;
+			return;
 		}
 		FbxSkin* skin = (FbxSkin*)deformer;
 
@@ -622,13 +623,11 @@ namespace K_Loader {
 		//resultMat = glm::toMat4(rot3) * scale2 * glm::toMat4(rot2) * current * bind * scale * glm::toMat4(rot);
 
 		this->boneData->Add(bone);
-
-		return true;
 	}
 
 
 
-	bool FbxModelLoader::InitializeFBX(const std::string& fileName) {
+	void FbxModelLoader::InitializeFBX(const std::string& fileName) {
 
 		//マネージャーを生成しモデルデータをインポート
 		FbxManager  *manager;
@@ -636,7 +635,7 @@ namespace K_Loader {
 		FbxScene    *scene;
 		manager = FbxManager::Create();
 		if (!manager) {
-			return false;
+			throw std::runtime_error("FBXSDK initialize failed" + fileName);
 		}
 
 		importer = FbxImporter::Create(manager, "");
@@ -645,24 +644,22 @@ namespace K_Loader {
 		this->fbxData->Add(manager, importer, scene);
 
 		if (!importer || !scene) {
-			return false;
+			throw std::runtime_error("FBXSDK initialize failed" + fileName);
 		}
 
 		//初期化とインポート
 		printf("%s\n", fileName.data());
 		if (!importer->Initialize(fileName.data())) {
-			return false;
+			throw std::runtime_error("FBXSDK file load failed" + fileName);
 		}
 		if (!importer->Import(scene)) {
-			return false;
+			throw std::runtime_error("FBXSDK import failed" + fileName);
 		}
 
 		//面を三角化、余計な面も取り除く
 		FbxGeometryConverter converter(manager);
 		converter.Triangulate(scene, true);
 		converter.RemoveBadPolygonsFromMeshes(scene);
-
-		return true;
 	}
 
 	void FbxModelLoader::CalcCurrentBoneMatrix(std::vector<K_Graphics::Bone>& bone) {

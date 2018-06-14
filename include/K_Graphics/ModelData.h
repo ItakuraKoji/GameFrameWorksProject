@@ -66,6 +66,10 @@ namespace K_Graphics {
 		int GetNumFace(int hierarchyIndex, int materialIndex);
 
 	private:
+		void CheckHierarchyRange(int index);
+		void CheckMaterialArrayRange(int arrayIndex, int materialIndex);
+
+	private:
 		std::vector<std::vector<Material>> materialArray;
 	};
 
@@ -83,6 +87,10 @@ namespace K_Graphics {
 		GLuint GetVBO(int hierarchyIndex);
 		GLuint GetIBO(int hierarchyIndex, int materialIndex);
 		int GetNumFace(int hierarchyIndex);
+
+	private:
+		void CheckHierarchyRange(int index);
+		void CheckMaterialArrayRange(int arrayIndex, int materialIndex);
 
 	private:
 		std::vector<VertexBuffer> bufferArray;

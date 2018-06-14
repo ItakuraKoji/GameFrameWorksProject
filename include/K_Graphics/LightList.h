@@ -27,6 +27,9 @@ namespace K_Graphics {
 		//!@param[in] shader 情報を渡すシェーダーへのポインタ
 		void SetDirectional(const std::string& lightName, ShaderClass* shader);
 
+		AmbientLight& GetAmbient(const std::string& lightName);
+		DirectionalLight& GetDirectional(const std::string& lightName);
+
 		//!@brief 新しいアンビエントライトを追加
 		//!@param[in] lightName アンビエントライトのユーザー定義名
 		//!@param[in] power 光の強さ

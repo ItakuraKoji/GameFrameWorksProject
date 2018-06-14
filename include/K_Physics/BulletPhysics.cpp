@@ -13,7 +13,7 @@ namespace K_Physics {
 		this->config = nullptr;
 
 		if (!Initialize()) {
-			throw("Physics Initialize Failed");
+			throw std::runtime_error("Physics Initialize Failed");
 		}
 	}
 	BulletPhysics::~BulletPhysics() {
@@ -38,6 +38,7 @@ namespace K_Physics {
 			this->toSkyVector = btVector3(0.0f, 1.0f, 0.0f);
 		}
 		catch (...) {
+			Finalize();
 			return false;
 		}
 		return true;
@@ -81,6 +82,11 @@ namespace K_Physics {
 	}
 	//デバッグ描画
 	void BulletPhysics::DebugDraw(K_Graphics::ShaderClass* shader, K_Graphics::CameraClass* camera, const K_Math::Matrix4x4& trans) {
+		DebugDraw(shader, camera, 0.1f, 200.0f, trans);
+	}
+
+	//デバッグ描画
+	void BulletPhysics::DebugDraw(K_Graphics::ShaderClass* shader, K_Graphics::CameraClass* camera, float nearClip, float farClip, const K_Math::Matrix4x4& trans) {
 		glDisable(GL_DEPTH_TEST);
 
 		shader->UseShader();
@@ -88,13 +94,14 @@ namespace K_Physics {
 		shader->SetFragmentShaderSubroutine("None");
 
 		K_Math::Matrix4x4 projection;
-		K_Math::MatrixPerspectiveLH(projection, (float)camera->GetScreenWidth(), (float)camera->GetScreenHeight(), 0.1f, 200.0f, camera->GetFieldOfView());
+		K_Math::MatrixPerspectiveLH(projection, (float)camera->GetScreenWidth(), (float)camera->GetScreenHeight(), nearClip, farClip, camera->GetFieldOfView());
 
 		K_Math::Matrix4x4 mat = projection * camera->GetViewMatrix() * trans;
 		shader->SetMatrix(mat);
 		this->bulletWorld->debugDrawWorld();
 		glEnable(GL_DEPTH_TEST);
 	}
+
 
 	//オブジェクト生成
 	btTriangleMesh* BulletPhysics::CreateTriangleMesh(K_Math::Vector3* vectice, int numFace) {
@@ -173,28 +180,34 @@ namespace K_Physics {
 
 	//コリジョン作成
 	CollisionData* BulletPhysics::CreateCollisionObject(btCollisionShape* shape, bool ghost, int myselfMask, int giveMask, const K_Math::Vector3& pos, const K_Math::Vector3& rot) {
-		btTransform trans;
-		trans.setIdentity();
-		trans.setOrigin(btVector3(pos.x, pos.y, pos.z));
-		btQuaternion q = btQuaternion(btVector3(0, 0, 1), rot.z) * btQuaternion(btVector3(1, 0, 0), rot.x) * btQuaternion(btVector3(0, 1, 0), rot.y);
-		trans.setRotation(q);
+		try {
+			btTransform trans;
+			trans.setIdentity();
+			trans.setOrigin(btVector3(pos.x, pos.y, pos.z));
+			btQuaternion q = btQuaternion(btVector3(0, 0, 1), rot.z) * btQuaternion(btVector3(1, 0, 0), rot.x) * btQuaternion(btVector3(0, 1, 0), rot.y);
+			trans.setRotation(q);
 
-		btCollisionObject *collision = new btCollisionObject;
-		collision->setCollisionShape(shape);
-		if (ghost) {
-			collision->setCollisionFlags(collision->getCollisionFlags() | btCollisionObject::CF_NO_CONTACT_RESPONSE);
-		}
-		else {
-			collision->setCollisionFlags(collision->getCollisionFlags() & !btCollisionObject::CF_NO_CONTACT_RESPONSE);
-		}
-		collision->setWorldTransform(trans);
-		int mask = myselfMask | giveMask;
-		this->bulletWorld->addCollisionObject(collision, mask, mask);
+			btCollisionObject *collision = new btCollisionObject;
 
-		CollisionTag tag = { "default", 0, nullptr };
-		CollisionData* colData = new CollisionData(collision, myselfMask, giveMask, tag);
-		collision->setUserPointer(colData);
-		return colData;
+			collision->setCollisionShape(shape);
+			if (ghost) {
+				collision->setCollisionFlags(collision->getCollisionFlags() | btCollisionObject::CF_NO_CONTACT_RESPONSE);
+			}
+			else {
+				collision->setCollisionFlags(collision->getCollisionFlags() & !btCollisionObject::CF_NO_CONTACT_RESPONSE);
+			}
+			collision->setWorldTransform(trans);
+			int mask = myselfMask | giveMask;
+			this->bulletWorld->addCollisionObject(collision, mask, mask);
+
+			CollisionTag tag = { "", 0, nullptr };
+			CollisionData* colData = new CollisionData(collision, myselfMask, giveMask, tag);
+			collision->setUserPointer(colData);
+			return colData;
+		}
+		catch (std::exception& e) {
+			throw e;
+		}
 	}
 
 	//開放
@@ -212,18 +225,22 @@ namespace K_Physics {
 
 	//衝突を検出し、結果をポインタで返す
 	std::vector<CollisionTag*>& BulletPhysics::FindConfrictionObjects(CollisionData* myself) {
+		if (myself == nullptr) {
+			this->confrictResult.clear();
+			return this->confrictResult;
+		}
 		CollectCollisionCallBack callback(myself->GetCollision(), this->confrictResult);
 		this->bulletWorld->contactTest(myself->GetCollision(), callback);
 		return this->confrictResult;
 	}
 
 	//新型衝突シミュレーション
-	void BulletPhysics::MoveCharacter(CollisionData *obj, const K_Math::Vector3& move, float vLimitAngle, float hLimitAngle) {
+	void BulletPhysics::MoveCharacter(CollisionData* obj, const K_Math::Vector3& move, float vLimitAngle, float hLimitAngle) {
 		//凹形状とは判定できない
 		if (!obj->GetCollision()->getCollisionShape()->isConvex()) {
 			return;
 		}
-		btVector3 moveVec = btVector3(move.x, move.y, move.z);
+		const btVector3& moveVec = btVector3(move.x, move.y, move.z);
 		btVector3 vMove;
 		btVector3 hMove;
 		btVector3 yAxis = this->toSkyVector;
@@ -241,25 +258,17 @@ namespace K_Physics {
 			hMove = btVector3(0.0f, 0.0f, 0.0f);
 		}
 
-		//縦に移動
-		btVector3 virtical = vMove;
-		MoveSmooth(obj->GetCollision(), virtical, vLimitAngle, true);
 
-		//横
-		//空方向へ雑に移動
-		MoveDiscrete(obj->GetCollision(), this->toSkyVector * 0.2f, true);
-		
 		//横に移動
-		btVector3 horizontal = hMove;
-		MoveSmooth(obj->GetCollision(), hMove, hLimitAngle, true);
+		MoveSmooth(obj->GetCollision(), hMove, hLimitAngle, this->toSkyVector);
 
-		//そして重力方向へ雑に戻す
-		MoveDiscrete(obj->GetCollision(), -this->toSkyVector * 0.2f, true);
+		//縦に移動
+		MoveSmooth(obj->GetCollision(), vMove, vLimitAngle, -vMove);
 	}
 
 	//処理が　軽いほう
-	void BulletPhysics::MoveCharacterDiscrete(CollisionData *obj, const K_Math::Vector3& move, bool vLimitDirection, bool hLimitDirection) {
-		btVector3 moveVec = btVector3(move.x, move.y, move.z);
+	void BulletPhysics::MoveCharacterDiscrete(CollisionData* obj, const K_Math::Vector3& move, bool vLimitDirection, bool hLimitDirection) {
+		const btVector3& moveVec = btVector3(move.x, move.y, move.z);
 		btVector3 vMove;
 		btVector3 hMove;
 		btVector3 yAxis = this->toSkyVector;
@@ -283,14 +292,36 @@ namespace K_Physics {
 			return;
 		}
 
+
 		//横移動
 		if (hMove.norm() >= 0.001f) {
-			MoveDiscrete(obj->GetCollision(), hMove, hLimitDirection);
+			//空方向へ雑に移動
+			MoveCollisionObject(obj->GetCollision(), this->toSkyVector * 0.2f);
+			btVector3 fixVector(0.0f, 0.0f, 0.0f);
+			if (hLimitDirection) {
+				fixVector = -hMove;
+			}
+			MoveDiscrete(obj->GetCollision(), hMove, fixVector);
+			//そして重力方向へ雑に戻す
+			MoveDiscrete(obj->GetCollision(), -this->toSkyVector * 0.2f, this->toSkyVector);
 		}
+
 		//縦移動
 		if (vMove.norm() >= 0.001f) {
-			MoveDiscrete(obj->GetCollision(), vMove, vLimitDirection);
+			btVector3 fixVector(0.0f, 0.0f, 0.0f);
+			if (vLimitDirection) {
+				fixVector = -vMove;
+			}
+			MoveDiscrete(obj->GetCollision(), vMove, fixVector);
 		}
+	}
+
+	float BulletPhysics::Raycast(const K_Math::Vector3& from, const K_Math::Vector3& to, int myselfMask) {
+		const btVector3& fromPos = btVector3(from.x, from.y, from.z);
+		const btVector3& toPos = btVector3(to.x, to.y, to.z);
+		MyRaycastCallBack ray_cb(fromPos, toPos, myselfMask);
+		this->bulletWorld->rayTest(fromPos, toPos, ray_cb);
+		return ray_cb.m_closestHitFraction;
 	}
 
 	void BulletPhysics::SetSkyVector(const K_Math::Vector3& vector) {
@@ -302,6 +333,9 @@ namespace K_Physics {
 	//private
 	////
 	void BulletPhysics::RemoveCollisionObject(btCollisionObject* obj) {
+		if (obj == nullptr) {
+			return;
+		}
 		btRigidBody* rigid = btRigidBody::upcast(obj);
 		if (rigid != nullptr) {
 			if (rigid->getMotionState()) {
@@ -320,65 +354,57 @@ namespace K_Physics {
 		trans.setOrigin(trans.getOrigin() + moveVector);
 	}
 
-	void BulletPhysics::MoveDiscrete(btCollisionObject* obj, const btVector3& moveVector, bool limitDirection) {
-		int numFix = 10;
-		btVector3 goVec = moveVector / (float)numFix;
-		//移動
-		for (int i = 0; i < numFix; ++i) {
-			MoveCollisionObject(obj, goVec);
-			//一番深くめり込んだものの法線方向へ押し出し
-			FixContactCallBack contact_cb(obj);
-			do {
-				this->bulletWorld->contactTest(obj, contact_cb);
-			} while (contact_cb.isLoop);
-			//押し出し
-			if (!contact_cb.maxDistance) {
-				continue;
-			}
+	void BulletPhysics::MoveDiscrete(btCollisionObject* obj, const btVector3& moveVector, const btVector3& limitDirection) {
+		int numMove = 1 + moveVector.norm() * 2.0f;
+		int numFix = 1 + moveVector.norm() * 0.6f;
 
-			//方向制限がかかっている場合は進んだ方向から戻るようにしか押し出せない
-			if (limitDirection) {
-				MoveCollisionObject(obj, moveVector * contact_cb.maxDistance);
+		const btVector3& goVec = moveVector / (float)numMove;
+		//移動
+		DetectMaxDistance contact_cb(obj);
+		for (int i = 0; i < numMove; ++i) {
+			MoveCollisionObject(obj, goVec);
+			//FixContactCallBack contact_cb(obj, limitDirection);
+			//this->bulletWorld->contactTest(obj, contact_cb);
+			//if (contact_cb.isHit) {
+			//	break;
+			//}
+			bool isHit = false;
+			for (int i = 0; i < numFix; ++i) {
+				//一番深くめり込んだものの法線方向へ押し出し
+				do {
+					this->bulletWorld->contactTest(obj, contact_cb);
+				} while (contact_cb.isLoop);
+				//押し出し
+				if (!contact_cb.maxDistance) {
+					break;
+				}
+				//方向制限がかかっている場合は進んだ方向から戻るようにしか押し出せない
+				if (limitDirection.norm() > 0.0f) {
+					MoveCollisionObject(obj, -goVec);
+					isHit = true;
+					break;
+				}
+				else {
+					MoveCollisionObject(obj, contact_cb.fixVec * -contact_cb.maxDistance);
+				}
 			}
-			else {
-				MoveCollisionObject(obj, contact_cb.fixVec * -contact_cb.maxDistance);
+			if (isHit) {
+				break;
 			}
 		}
 
 	}
 
-	void BulletPhysics::MoveSmooth(btCollisionObject *obj, const btVector3 &moveVector, float limitAngle, bool limitDirection) {
+	void BulletPhysics::MoveSmooth(btCollisionObject *obj, const btVector3 &moveVector, float limitAngle, const btVector3& limitDirection) {
 		if (moveVector.norm() < 0.001f) {
 			return;
 		}
 
 		//移動一回目
-		btVector3& prevPos = obj->getWorldTransform().getOrigin();
-		btVector3 normal = MoveBySweep(obj, moveVector, limitDirection, 0.1f);
+		btVector3 prevPos = obj->getWorldTransform().getOrigin();
+		btVector3 normal = MoveBySweep(obj, moveVector, limitDirection, limitAngle, 0.01f);
 
-		//壁ずりを作る角度かを確認
-		float angle_cos = (float)-normal.dot(moveVector.normalized());
-		float limit_cos = (float)btCos(btRadians(limitAngle));
-		if (abs(angle_cos - limit_cos) < 0.0001f) {
-			angle_cos = limit_cos;
-		}
-		//壁ずりを作らない場合は帰る
-		if (angle_cos > limit_cos) {
-			return;
-		}
-		if (normal.norm() < 0.001f) {
-			return;
-		}
-		//壁ずりを作る
-		float hitFraction = (obj->getWorldTransform().getOrigin() - prevPos).norm() / moveVector.norm();
-		btVector3 goVec = moveVector * (1.0f - hitFraction);
-		goVec += normal * (-goVec.dot(normal));
-
-		if (goVec.norm() < 0.001f) {
-			return;
-		}
-		//壁ずりの向きを進行方向からずれないように補正する
-		//まずは進行方向をZ軸とした三軸を定義
+		//進行方向をZ軸とした三軸を定義
 		btVector3 yAxis = this->toSkyVector;
 		btVector3 xAxis = yAxis.cross(moveVector);
 		btVector3 zAxis;
@@ -387,22 +413,80 @@ namespace K_Physics {
 			xAxis.normalize();
 			zAxis = xAxis.cross(yAxis).normalized();
 		}
-		//X軸成分を省くようにするとずれない
-		btVector3 goVecZ = zAxis * zAxis.dot(goVec);
-		btVector3 goVecY = yAxis * yAxis.dot(goVec);
+		else {
+			zAxis = moveVector.normalized();
+		}
 
-		goVec = goVecZ + goVecY;
+		//坂を登れる角度かを確認
+		float angle_cos = (float)normal.dot(this->toSkyVector);
+		float limit_cos = (float)btCos(btRadians(limitAngle));
+		if (abs(angle_cos - limit_cos) < 0.0001f) {
+			angle_cos = limit_cos;
+		}
+
+		if (normal.norm() < 0.001f) {
+			return;
+		}
+
+		//坂を登れない場合は壁扱いとして横方向の壁ずりベクトルを作成
+		if (angle_cos < limit_cos) {
+			const btVector3& goVecZ = zAxis * zAxis.dot(normal);
+			const btVector3& goVecX = xAxis * xAxis.dot(normal);
+			normal = (goVecX + goVecZ).normalized();
+		}
+		else {
+			//坂として扱う場合は、進行方向と空ベクトルの作る平面上に法線がくるようにする
+			const btVector3& goVecZ = zAxis * zAxis.dot(normal);
+			const btVector3& goVecY = yAxis * yAxis.dot(normal);
+			normal = (goVecY + goVecZ).normalized();
+		}
+
+		//壁ずりを作る
+		float hitFraction = (obj->getWorldTransform().getOrigin() - prevPos).norm() / moveVector.norm();
+		btVector3 goVec = moveVector * (1.0f - hitFraction);
+		goVec += normal * (-goVec.dot(normal));
+
+		if (goVec.norm() < 0.001f) {
+			return;
+		}
+
 		//移動二回目
-		MoveBySweep(obj, goVec, limitDirection, 0.2f);
+		MoveDiscrete(obj, goVec, btVector3(0.0f, 0.0f, 0.0f));
 	}
 
-	btVector3 BulletPhysics::MoveBySweep(btCollisionObject *obj, const btVector3 &moveVector, bool limitDirection, float allowDistance) {
+	btVector3 BulletPhysics::MoveBySweep(btCollisionObject *obj, const btVector3 &moveVector, const btVector3& limitDirection, float limitAngle, float allowDistance) {
 		btConvexShape* shape = (btConvexShape*)obj->getCollisionShape();
 
-
-		btTransform& from = obj->getWorldTransform();
+		btTransform from = obj->getWorldTransform();
 		btTransform to = from;
 		to.setOrigin(to.getOrigin() + moveVector);
+
+		btVector3 normal;
+		btVector3 fixVector = limitDirection;
+		{
+			//法線取得
+			SweepTestCallBack convex_cb(obj);
+			this->bulletWorld->convexSweepTest(shape, from, to, convex_cb, 0.0f);
+
+			normal = convex_cb.m_hitNormalWorld;
+			if (normal.norm() < 0.001f || !convex_cb.hasHit()) {
+				normal = btVector3(0, 0, 0);
+			}
+			else {
+				normal.normalize();
+			}
+
+			//壁ずりを作る角度かを確認
+			float angle_cos = (float)-normal.dot(moveVector.normalized());
+			float limit_cos = (float)btCos(btRadians(limitAngle));
+			if (abs(angle_cos - limit_cos) < 0.0001f) {
+				angle_cos = limit_cos;
+			}
+			//壁ずりを作らない場合は、押し出し方向を進行方向の直線上に限定
+			if (angle_cos > limit_cos) {
+				fixVector = -moveVector.normalized();
+			}
+		}
 
 		//sweepTest
 		SweepTestCallBack convex_cb(obj);
@@ -418,35 +502,11 @@ namespace K_Physics {
 		}
 		obj->setWorldTransform(to);
 
-		//一番深くめり込んだものの法線方向へ押し出し
+		//わずかなめり込みを押し出す
+		FixContactCallBack contact_cb(obj, fixVector);
+		this->bulletWorld->contactTest(obj, contact_cb);
 
-		//指定回数押し出す(今は10回)
-		for (int i = 0; i < 50; ++i) {
-			FixContactCallBack contact_cb(obj);
-			do {
-				this->bulletWorld->contactTest(obj, contact_cb);
-			} while (contact_cb.isLoop);
 
-			//押し出し
-			if (!contact_cb.maxDistance) {
-				continue;
-			}
-			if (limitDirection) {
-				MoveCollisionObject(obj, moveVector * contact_cb.maxDistance * 0.3f);
-			}
-			else {
-				MoveCollisionObject(obj, contact_cb.fixVec * -contact_cb.maxDistance * 0.3f);
-			}
-		}
-
-		btVector3 normal = convex_cb.m_hitNormalWorld;
-		if (normal.norm() < 0.001f || !convex_cb.hasHit()) {
-			normal = btVector3(0, 0, 0);
-		}
-		else {
-			normal.normalize();
-		}
-		//押し出した方向を法線とする
 		return normal;
 	}
 

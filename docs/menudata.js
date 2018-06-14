@@ -27,6 +27,7 @@ var menudata={children:[
 {text:"名前空間一覧",url:"namespaces.html"},
 {text:"名前空間メンバ",url:"namespacemembers.html",children:[
 {text:"全て",url:"namespacemembers.html",children:[
+{text:"a",url:"namespacemembers.html#index_a"},
 {text:"b",url:"namespacemembers.html#index_b"},
 {text:"c",url:"namespacemembers.html#index_c"},
 {text:"d",url:"namespacemembers.html#index_d"},
@@ -34,6 +35,7 @@ var menudata={children:[
 {text:"f",url:"namespacemembers.html#index_f"},
 {text:"j",url:"namespacemembers.html#index_j"},
 {text:"k",url:"namespacemembers.html#index_k"},
+{text:"l",url:"namespacemembers.html#index_l"},
 {text:"m",url:"namespacemembers.html#index_m"},
 {text:"n",url:"namespacemembers.html#index_n"},
 {text:"o",url:"namespacemembers.html#index_o"},

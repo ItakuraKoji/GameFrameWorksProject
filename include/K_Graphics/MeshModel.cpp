@@ -10,7 +10,7 @@ namespace K_Graphics {
 
 		if (!Initialize(data)) {
 			Finalize();
-			throw "モデルデータが不十分です、読み込みができているか確認してください";
+			throw std::runtime_error("モデルデータが不十分です、読み込みができているか確認してください");
 		}
 		this->isBoneProcessed = false;
 	}

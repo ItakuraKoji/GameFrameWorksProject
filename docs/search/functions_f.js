@@ -1,6 +1,7 @@
 var searchData=
 [
   ['radtodeg',['RadToDeg',['../namespace_k___math.html#a4ab382b67d996b4862e30be45875740d',1,'K_Math']]],
+  ['raycast',['Raycast',['../class_k___physics_1_1_bullet_physics.html#a51dfdc8e5e578900a3851b21ba800e51',1,'K_Physics::BulletPhysics']]],
   ['read',['Read',['../class_k___audio_1_1_audio_data.html#af42b123ad2ce45867401d697fd572392',1,'K_Audio::AudioData::Read()'],['../class_k___audio_1_1_ogg_data.html#ac4c50916e0f2eaa384539b2dbedc1d6e',1,'K_Audio::OggData::Read()'],['../class_k___audio_1_1_wav_data.html#a9b64967d83ac218c71949335d0583e69',1,'K_Audio::WavData::Read()']]],
   ['removecollision',['RemoveCollision',['../class_k___physics_1_1_bullet_physics.html#add323e4324f89b08a4891369515ddd8b',1,'K_Physics::BulletPhysics']]],
   ['removecollisionshape',['RemoveCollisionShape',['../class_k___physics_1_1_bullet_physics.html#ab2aec9e34e8c937a6b6a222cd4a04a81',1,'K_Physics::BulletPhysics']]],

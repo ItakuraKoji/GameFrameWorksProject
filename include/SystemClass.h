@@ -45,6 +45,20 @@ namespace K_System {
 		int height;
 	};
 
+	enum class CullingInfo {
+		BackFace,
+		FrontFace
+	};
+	enum class FrontFaceInfo
+	{
+		Crockwise,
+		Counterclockwise
+	};
+	enum class BlendInfo {
+		Multiply,
+		Add
+	};
+
 
 	//!
 	//!アプリケーションの動作を管理
@@ -88,11 +102,24 @@ namespace K_System {
 		//!@brief ウィンドウのアイコンを変える
 		//!@param[in] imageArray イメージ配列
 		//!@param[in] count 配列数
-		void SetIcon(IconImage *imageArray, int count);
+		void SetIcon(IconImage* imageArray, int count);
 
 		//!@brief アクセサー
 		//!@return 入力クラスへのポインタ
 		K_Input::InputClass* GetInput();
+
+		//!@brief 描画のカリング設定
+		//!@param[in] active trueでカリングを有効にする
+		//!@param[in] cullingInfo カリングするのは表か裏かを設定する
+		//!@param[in] frontFace ポリゴンの表面が反時計回りか時計回りかを設定する
+		static void SetCulling(bool active, CullingInfo cullingInfo = CullingInfo::BackFace, FrontFaceInfo frontFaceInfo = FrontFaceInfo::Counterclockwise);
+		//!@brief アルファブレンドの計算方法を設定
+		//!@param[in] info 計算式を表す定数
+		static void SetAlphaBlendInfo(bool active, BlendInfo info = BlendInfo::Multiply);
+		//!@brief 深度テストを 有効 / 無効 にする
+		//!@param[in] active trueで有効に、falseで無効にする
+		static void SetDepthTest(bool active);
+
 
 	private:
 		bool CreateAppricationWindow(const char* windowName, int width, int height, bool fullScreen);

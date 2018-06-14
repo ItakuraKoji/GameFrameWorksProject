@@ -232,8 +232,5 @@ namespace K_Loader {
 		}
 		delete[] colorData;
 	}
-	//TGAŠÖ˜A/
 
-
-	//PNGŠÖ˜A
 }
