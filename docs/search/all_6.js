@@ -1,6 +1,7 @@
 var searchData=
 [
   ['g',['G',['../namespace_k___input.html#af62d80c77b12db01035e4b9aa27a09d6adfcf28d0734569a6a693bc8194de62bf',1,'K_Input']]],
+  ['getambient',['GetAmbient',['../class_k___graphics_1_1_light_list.html#a0232d24310eb38f3d1fe7179d95efe25',1,'K_Graphics::LightList']]],
   ['getanimationid',['GetAnimationID',['../class_k___graphics_1_1_animation_data.html#aba37b5eb3d3ee3417c99604d58d1bf15',1,'K_Graphics::AnimationData']]],
   ['getaxisposition',['GetAxisPosition',['../class_k___input_1_1_virtual_game_pad.html#a9ee783ff7f2be1549c1e5c2718ce0d27',1,'K_Input::VirtualGamePad']]],
   ['getaxisx',['GetAxisX',['../class_k___graphics_1_1_camera_class.html#a7ed2ff417ce65d309fb37fdce4805ed1',1,'K_Graphics::CameraClass']]],
@@ -19,6 +20,7 @@ var searchData=
   ['getdepth',['GetDepth',['../class_k___loader_1_1_image_data.html#a66aba00a0eba7052dcb16e1bc9f717e5',1,'K_Loader::ImageData']]],
   ['getdepthbufferhandle',['GetDepthBufferHandle',['../class_k___graphics_1_1_framebuffer.html#aac0fa7173df91438b489cab5870e07eb',1,'K_Graphics::Framebuffer']]],
   ['getdirection',['GetDirection',['../class_k___graphics_1_1_directional_light.html#a6f421195d534f3f5e6c62eb64bf5605f',1,'K_Graphics::DirectionalLight']]],
+  ['getdirectional',['GetDirectional',['../class_k___graphics_1_1_light_list.html#a0b586a0b6ab7523515905e4249ea5e6b',1,'K_Graphics::LightList']]],
   ['getfieldofview',['GetFieldOfView',['../class_k___graphics_1_1_camera_class.html#ae9b70a2f55f2784e14630ae221bcc386',1,'K_Graphics::CameraClass']]],
   ['getfontatlas',['GetFontAtlas',['../class_k___graphics_1_1_font_generator.html#a2b5d1ab68fcf0ffe83c65f4c694628bc',1,'K_Graphics::FontGenerator']]],
   ['getfontdata',['GetFontData',['../class_k___graphics_1_1_font_generator.html#ae6260c5ee857b4b95dc341d2160b1d6d',1,'K_Graphics::FontGenerator']]],

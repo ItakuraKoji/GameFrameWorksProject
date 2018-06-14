@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['cameratype',['CameraType',['../namespace_k___graphics.html#a46f486e742ad696f88bfbeb22f8af10f',1,'K_Graphics']]]
+  ['blendinfo',['BlendInfo',['../namespace_k___system.html#aef5e8afe50dd85fd6ea6708fbf22fb2a',1,'K_System']]]
 ];

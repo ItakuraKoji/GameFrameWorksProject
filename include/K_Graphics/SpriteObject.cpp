@@ -10,7 +10,7 @@ namespace K_Graphics {
 		this->drawModel = nullptr;
 
 		if (!Initialize(texture, controlPointX, controlPointY)) {
-			throw("SpriteObjectError ModelData Initialize Failed");
+			throw std::runtime_error("SpriteObjectError ModelData Initialize Failed");
 		}
 	}
 	SpriteObject::~SpriteObject() {

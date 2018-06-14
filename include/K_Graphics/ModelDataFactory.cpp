@@ -7,7 +7,7 @@ namespace K_Graphics {
 	ModelDatas* ModelDataFactory::LoadFBXModel(const std::string& fileName, TextureList* textureList) {
 		K_Loader::FbxModelLoader loader;
 		if (!loader.LoadFBX(fileName, textureList)) {
-			throw("FBX Load Failed : " + fileName);
+			throw std::runtime_error("FBX Load Failed : " + fileName);
 		}
 
 		ModelDatas* data = new ModelDatas;

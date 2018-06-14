@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['imagetype',['ImageType',['../class_k___loader_1_1_image_data.html#a5c2019813469dc565af4a484a826f568',1,'K_Loader::ImageData']]]
+  ['cameratype',['CameraType',['../namespace_k___graphics.html#a46f486e742ad696f88bfbeb22f8af10f',1,'K_Graphics']]],
+  ['cullinginfo',['CullingInfo',['../namespace_k___system.html#a35ae77324ccefd27137767e8abe7afa7',1,'K_System']]]
 ];

@@ -58,12 +58,12 @@ namespace K_Loader {
 
 	private:
 		void          Finalize();
-		bool          InitializeFBX(const std::string& fileName);
-		bool          RecursiveNode(FbxNode* node);
-		bool          LoadFbxMesh(FbxMesh* mesh);
+		void          InitializeFBX(const std::string& fileName);
+		void          RecursiveNode(FbxNode* node);
+		void          LoadFbxMesh(FbxMesh* mesh);
 		void          LoadVertex(FbxMesh* mesh, Vertex* vertex);
 		void          LoadMaterial(FbxMesh* mesh, VertexUVs& vertexData, std::vector<K_Graphics::Material>& material, std::vector<GLuint>& IBOs);
-		bool          LoadBones(FbxMesh* mesh, Vertex* vertex, PolygonTable *table);
+		void          LoadBones(FbxMesh* mesh, Vertex* vertex, PolygonTable *table);
 		void          CalcCurrentBoneMatrix(std::vector<K_Graphics::Bone>& bone);
 
 		PolygonTable* CreatePolygonTable(FbxMesh *mesh, int numVertex, int numFace);

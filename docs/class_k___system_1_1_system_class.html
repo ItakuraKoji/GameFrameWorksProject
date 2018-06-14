@@ -87,6 +87,7 @@ $(document).ready(function(){initNavTree('class_k___system_1_1_system_class.html
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
 <a href="class_k___system_1_1_system_class-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle">
 <div class="title">K_System::SystemClass クラス</div>  </div>
@@ -140,6 +141,18 @@ $(document).ready(function(){initNavTree('class_k___system_1_1_system_class.html
 <tr class="memitem:ac0a92ee3670899123d05ed65a272cbb2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_k___input_1_1_input_class.html">K_Input::InputClass</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___system_1_1_system_class.html#ac0a92ee3670899123d05ed65a272cbb2">GetInput</a> ()</td></tr>
 <tr class="memdesc:ac0a92ee3670899123d05ed65a272cbb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">アクセサー  <a href="#ac0a92ee3670899123d05ed65a272cbb2">[詳解]</a><br /></td></tr>
 <tr class="separator:ac0a92ee3670899123d05ed65a272cbb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+静的公開メンバ関数</h2></td></tr>
+<tr class="memitem:a378f082baaadc148a8e3416ed818236a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___system_1_1_system_class.html#a378f082baaadc148a8e3416ed818236a">SetCulling</a> (bool active, <a class="el" href="namespace_k___system.html#a35ae77324ccefd27137767e8abe7afa7">CullingInfo</a> cullingInfo=<a class="el" href="namespace_k___system.html#a35ae77324ccefd27137767e8abe7afa7a5851930bc5a93ec305f3455f335aeecb">CullingInfo::BackFace</a>, <a class="el" href="namespace_k___system.html#a4d2859e8a07e3c9bca713a91f9869588">FrontFaceInfo</a> frontFaceInfo=<a class="el" href="namespace_k___system.html#a4d2859e8a07e3c9bca713a91f9869588a2ce0103fdd01ba7831c54103c8a3bb3f">FrontFaceInfo::Counterclockwise</a>)</td></tr>
+<tr class="memdesc:a378f082baaadc148a8e3416ed818236a"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画のカリング設定  <a href="#a378f082baaadc148a8e3416ed818236a">[詳解]</a><br /></td></tr>
+<tr class="separator:a378f082baaadc148a8e3416ed818236a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86546e2396110b99cfe59d9960bde93b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___system_1_1_system_class.html#a86546e2396110b99cfe59d9960bde93b">SetAlphaBlendInfo</a> (bool active, <a class="el" href="namespace_k___system.html#aef5e8afe50dd85fd6ea6708fbf22fb2a">BlendInfo</a> info=<a class="el" href="namespace_k___system.html#aef5e8afe50dd85fd6ea6708fbf22fb2aae257376d913f3b53cbb4a9b19d770648">BlendInfo::Multiply</a>)</td></tr>
+<tr class="memdesc:a86546e2396110b99cfe59d9960bde93b"><td class="mdescLeft">&#160;</td><td class="mdescRight">アルファブレンドの計算方法を設定  <a href="#a86546e2396110b99cfe59d9960bde93b">[詳解]</a><br /></td></tr>
+<tr class="separator:a86546e2396110b99cfe59d9960bde93b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3e3af271951c256d0b228d0a2c93868"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___system_1_1_system_class.html#ab3e3af271951c256d0b228d0a2c93868">SetDepthTest</a> (bool active)</td></tr>
+<tr class="memdesc:ab3e3af271951c256d0b228d0a2c93868"><td class="mdescLeft">&#160;</td><td class="mdescRight">深度テストを 有効 / 無効 にする  <a href="#ab3e3af271951c256d0b228d0a2c93868">[詳解]</a><br /></td></tr>
+<tr class="separator:ab3e3af271951c256d0b228d0a2c93868"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>一番初めに初期化し、IsSystemEnd()がtrueになるまでの間アプリケーションを動かす<br />
@@ -415,6 +428,136 @@ $(document).ready(function(){initNavTree('class_k___system_1_1_system_class.html
 </div><div class="memdoc">
 
 <p>ウィンドウイベントと入力の更新処理を行う </p>
+
+</div>
+</div>
+<a id="a86546e2396110b99cfe59d9960bde93b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86546e2396110b99cfe59d9960bde93b">&#9670;&nbsp;</a></span>SetAlphaBlendInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_System::SystemClass::SetAlphaBlendInfo </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>active</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_k___system.html#aef5e8afe50dd85fd6ea6708fbf22fb2a">BlendInfo</a>&#160;</td>
+          <td class="paramname"><em>info</em> = <code><a class="el" href="namespace_k___system.html#aef5e8afe50dd85fd6ea6708fbf22fb2aae257376d913f3b53cbb4a9b19d770648">BlendInfo::Multiply</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>アルファブレンドの計算方法を設定 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">info</td><td>計算式を表す定数 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a378f082baaadc148a8e3416ed818236a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a378f082baaadc148a8e3416ed818236a">&#9670;&nbsp;</a></span>SetCulling()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_System::SystemClass::SetCulling </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>active</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_k___system.html#a35ae77324ccefd27137767e8abe7afa7">CullingInfo</a>&#160;</td>
+          <td class="paramname"><em>cullingInfo</em> = <code><a class="el" href="namespace_k___system.html#a35ae77324ccefd27137767e8abe7afa7a5851930bc5a93ec305f3455f335aeecb">CullingInfo::BackFace</a></code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_k___system.html#a4d2859e8a07e3c9bca713a91f9869588">FrontFaceInfo</a>&#160;</td>
+          <td class="paramname"><em>frontFaceInfo</em> = <code><a class="el" href="namespace_k___system.html#a4d2859e8a07e3c9bca713a91f9869588a2ce0103fdd01ba7831c54103c8a3bb3f">FrontFaceInfo::Counterclockwise</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>描画のカリング設定 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">active</td><td>trueでカリングを有効にする </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cullingInfo</td><td>カリングするのは表か裏かを設定する </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">frontFace</td><td>ポリゴンの表面が反時計回りか時計回りかを設定する </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab3e3af271951c256d0b228d0a2c93868"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3e3af271951c256d0b228d0a2c93868">&#9670;&nbsp;</a></span>SetDepthTest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_System::SystemClass::SetDepthTest </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>active</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>深度テストを 有効 / 無効 にする </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">active</td><td>trueで有効に、falseで無効にする </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

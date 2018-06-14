@@ -120,6 +120,8 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_bullet_physics.h
 <tr class="memitem:a98bab2e09a117e87d5b1e11048366118"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_bullet_physics.html#a98bab2e09a117e87d5b1e11048366118">DebugDraw</a> (<a class="el" href="class_k___graphics_1_1_shader_class.html">K_Graphics::ShaderClass</a> *shader, <a class="el" href="class_k___graphics_1_1_camera_class.html">K_Graphics::CameraClass</a> *camera, const <a class="el" href="namespace_k___math.html#a457ce1b65536e8dcb2d6215eb12dc26a">K_Math::Matrix4x4</a> &amp;trans=<a class="el" href="namespace_k___math.html#a457ce1b65536e8dcb2d6215eb12dc26a">K_Math::Matrix4x4</a>())</td></tr>
 <tr class="memdesc:a98bab2e09a117e87d5b1e11048366118"><td class="mdescLeft">&#160;</td><td class="mdescRight">bulletのコリジョンを可視化する  <a href="#a98bab2e09a117e87d5b1e11048366118">[詳解]</a><br /></td></tr>
 <tr class="separator:a98bab2e09a117e87d5b1e11048366118"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6de61bcd3ed7dc096b97d134f96bf09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_bullet_physics.html#ad6de61bcd3ed7dc096b97d134f96bf09">DebugDraw</a> (<a class="el" href="class_k___graphics_1_1_shader_class.html">K_Graphics::ShaderClass</a> *shader, <a class="el" href="class_k___graphics_1_1_camera_class.html">K_Graphics::CameraClass</a> *camera, float nearClip, float farClip, const <a class="el" href="namespace_k___math.html#a457ce1b65536e8dcb2d6215eb12dc26a">K_Math::Matrix4x4</a> &amp;trans=<a class="el" href="namespace_k___math.html#a457ce1b65536e8dcb2d6215eb12dc26a">K_Math::Matrix4x4</a>())</td></tr>
+<tr class="separator:ad6de61bcd3ed7dc096b97d134f96bf09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62e03332f0f6c69f91a29f70b68bdc96"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_k___physics.html#aa0de61c2beb0d423efad313964d20f31">CollisionShape</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_bullet_physics.html#a62e03332f0f6c69f91a29f70b68bdc96">CreateTriangleHullShape</a> (const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;point1, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;point2, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;point3)</td></tr>
 <tr class="memdesc:a62e03332f0f6c69f91a29f70b68bdc96"><td class="mdescLeft">&#160;</td><td class="mdescRight">三角形の形状を作成  <a href="#a62e03332f0f6c69f91a29f70b68bdc96">[詳解]</a><br /></td></tr>
 <tr class="separator:a62e03332f0f6c69f91a29f70b68bdc96"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -157,6 +159,9 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_bullet_physics.h
 <tr class="memitem:a5b3f568b9865bbabbbb2824f06e94966"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_bullet_physics.html#a5b3f568b9865bbabbbb2824f06e94966">MoveCharacterDiscrete</a> (<a class="el" href="class_k___physics_1_1_collision_data.html">CollisionData</a> *obj, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;move, bool vLimitDirection=true, bool hLimitDirection=false)</td></tr>
 <tr class="memdesc:a5b3f568b9865bbabbbb2824f06e94966"><td class="mdescLeft">&#160;</td><td class="mdescRight">離散的なコリジョンの移動、判定が MoveCharacter よりも大雑把(ただし軽い)  <a href="#a5b3f568b9865bbabbbb2824f06e94966">[詳解]</a><br /></td></tr>
 <tr class="separator:a5b3f568b9865bbabbbb2824f06e94966"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51dfdc8e5e578900a3851b21ba800e51"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_bullet_physics.html#a51dfdc8e5e578900a3851b21ba800e51">Raycast</a> (const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;from, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;to, int myselfMask)</td></tr>
+<tr class="memdesc:a51dfdc8e5e578900a3851b21ba800e51"><td class="mdescLeft">&#160;</td><td class="mdescRight">fromの位置からtoの位置へレイを飛ばして、その衝突位置を返す  <a href="#a51dfdc8e5e578900a3851b21ba800e51">[詳解]</a><br /></td></tr>
+<tr class="separator:a51dfdc8e5e578900a3851b21ba800e51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2af24c6afd9660fa035dd2185fe16d5"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="struct_k___physics_1_1_collision_tag.html">CollisionTag</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_bullet_physics.html#aa2af24c6afd9660fa035dd2185fe16d5">FindConfrictionObjects</a> (<a class="el" href="class_k___physics_1_1_collision_data.html">CollisionData</a> *myself)</td></tr>
 <tr class="memdesc:aa2af24c6afd9660fa035dd2185fe16d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">現在の物理世界での特定のオブジェクトに対する衝突のチェック  <a href="#aa2af24c6afd9660fa035dd2185fe16d5">[詳解]</a><br /></td></tr>
 <tr class="separator:aa2af24c6afd9660fa035dd2185fe16d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -557,7 +562,7 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_bullet_physics.h
 </div>
 </div>
 <a id="a98bab2e09a117e87d5b1e11048366118"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98bab2e09a117e87d5b1e11048366118">&#9670;&nbsp;</a></span>DebugDraw()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a98bab2e09a117e87d5b1e11048366118">&#9670;&nbsp;</a></span>DebugDraw() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -597,6 +602,52 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_bullet_physics.h
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ad6de61bcd3ed7dc096b97d134f96bf09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6de61bcd3ed7dc096b97d134f96bf09">&#9670;&nbsp;</a></span>DebugDraw() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Physics::BulletPhysics::DebugDraw </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_shader_class.html">K_Graphics::ShaderClass</a> *&#160;</td>
+          <td class="paramname"><em>shader</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_camera_class.html">K_Graphics::CameraClass</a> *&#160;</td>
+          <td class="paramname"><em>camera</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>nearClip</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>farClip</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a457ce1b65536e8dcb2d6215eb12dc26a">K_Math::Matrix4x4</a> &amp;&#160;</td>
+          <td class="paramname"><em>trans</em> = <code><a class="el" href="namespace_k___math.html#a457ce1b65536e8dcb2d6215eb12dc26a">K_Math::Matrix4x4</a>()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -764,6 +815,50 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_bullet_physics.h
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a51dfdc8e5e578900a3851b21ba800e51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51dfdc8e5e578900a3851b21ba800e51">&#9670;&nbsp;</a></span>Raycast()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float K_Physics::BulletPhysics::Raycast </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>to</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>myselfMask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>fromの位置からtoの位置へレイを飛ばして、その衝突位置を返す </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">from</td><td>レイの発生源位置 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">to</td><td>レイの終点 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>ワールド上でのレイの衝突位置を表す比 </dd></dl>
 
 </div>
 </div>

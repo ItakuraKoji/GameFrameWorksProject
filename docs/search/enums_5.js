@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['loadmode',['LoadMode',['../class_k___audio_1_1_sound_source.html#ad0e58f4cea821bc4087ed13830b06f69',1,'K_Audio::SoundSource']]]
+  ['joyaxis',['JoyAxis',['../namespace_k___input.html#a82230ae06723a21cc710ae3d66fd078f',1,'K_Input']]],
+  ['joybutton',['JoyButton',['../namespace_k___input.html#a0fad93a64181d6776849d43118c26902',1,'K_Input']]]
 ];

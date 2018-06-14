@@ -19,7 +19,8 @@ var searchData=
   ['controlleft',['ControlLeft',['../namespace_k___input.html#af62d80c77b12db01035e4b9aa27a09d6af37bbf0b270fca4b52a03cec0bf900f6',1,'K_Input']]],
   ['controlpoint',['controlPoint',['../class_k___graphics_1_1_sprite_object.html#ad5d76b9b0a30102d01abbb20bab285f8',1,'K_Graphics::SpriteObject']]],
   ['controlright',['ControlRight',['../namespace_k___input.html#af62d80c77b12db01035e4b9aa27a09d6a6ff11445c5c9c2ed1c422621ebf2a03a',1,'K_Input']]],
-  ['count',['count',['../struct_k___physics_1_1_fix_contact_call_back.html#a38ab6408dd65772d2db8ac20435cd4ec',1,'K_Physics::FixContactCallBack']]],
+  ['count',['count',['../struct_k___physics_1_1_detect_max_distance.html#a991338b44c0bd272ccd6c16811e961a2',1,'K_Physics::DetectMaxDistance']]],
+  ['counterclockwise',['Counterclockwise',['../namespace_k___system.html#a4d2859e8a07e3c9bca713a91f9869588a2ce0103fdd01ba7831c54103c8a3bb3f',1,'K_System']]],
   ['create',['Create',['../class_k___audio_1_1_audio_data_factory.html#a6e3d1d2c660102733912fe4401963d92',1,'K_Audio::AudioDataFactory']]],
   ['createboxshape',['CreateBoxShape',['../class_k___physics_1_1_bullet_physics.html#af2b1c49a5b1fd5bf534951a54cf6786d',1,'K_Physics::BulletPhysics']]],
   ['createcapsuleshape',['CreateCapsuleShape',['../class_k___physics_1_1_bullet_physics.html#a103325d150362efb1d0387a632b7037b',1,'K_Physics::BulletPhysics']]],
@@ -33,8 +34,10 @@ var searchData=
   ['createtrianglehullshape',['CreateTriangleHullShape',['../class_k___physics_1_1_bullet_physics.html#a62e03332f0f6c69f91a29f70b68bdc96',1,'K_Physics::BulletPhysics']]],
   ['createtrianglemesh',['CreateTriangleMesh',['../class_k___physics_1_1_bullet_physics.html#af05fb78c5fbc9ad62eee828f681c2f38',1,'K_Physics::BulletPhysics']]],
   ['createtrianglemeshshape',['CreateTriangleMeshShape',['../class_k___physics_1_1_bullet_physics.html#ae4d693a1b660eaba187622e2f4adcb19',1,'K_Physics::BulletPhysics']]],
-  ['createworldmatrix',['CreateWorldMatrix',['../class_k___graphics_1_1_mesh_object.html#a248b0d20160c8ad487b1c84f8e9e0d15',1,'K_Graphics::MeshObject::CreateWorldMatrix()'],['../class_k___graphics_1_1_sprite_object.html#a569d2a769c04b108fd86b9cf8fac752e',1,'K_Graphics::SpriteObject::CreateWorldMatrix()']]],
+  ['createworldmatrix',['CreateWorldMatrix',['../class_k___graphics_1_1_mesh_object.html#a248b0d20160c8ad487b1c84f8e9e0d15',1,'K_Graphics::MeshObject::CreateWorldMatrix(const K_Math::Vector3 &amp;position, const K_Math::Vector3 &amp;rotation, const K_Math::Vector3 &amp;scale)'],['../class_k___graphics_1_1_mesh_object.html#a94d8c5db70f49cb3d46a118068ec7de3',1,'K_Graphics::MeshObject::CreateWorldMatrix(const K_Math::Vector3 &amp;position, const K_Math::Quaternion &amp;rotation, const K_Math::Vector3 &amp;scale)'],['../class_k___graphics_1_1_sprite_object.html#a569d2a769c04b108fd86b9cf8fac752e',1,'K_Graphics::SpriteObject::CreateWorldMatrix()']]],
+  ['crockwise',['Crockwise',['../namespace_k___system.html#a4d2859e8a07e3c9bca713a91f9869588aafc07d730e910d62c03e1e80022006a3',1,'K_System']]],
   ['cross',['Cross',['../namespace_k___math.html#a77f2463fb22c9202ad66a7eaa8d6e6b6',1,'K_Math::Cross(const Vector2 &amp;vector1, const Vector2 &amp;vector2)'],['../namespace_k___math.html#a2cef5481bdc9d9a2e6c2723d811fa238',1,'K_Math::Cross(const Vector3 &amp;vector1, const Vector3 &amp;vector2)']]],
   ['cullenttexture',['cullentTexture',['../class_k___graphics_1_1_sprite_object.html#a7cf528d065c242528bf0bd407a139f09',1,'K_Graphics::SpriteObject']]],
+  ['cullinginfo',['CullingInfo',['../namespace_k___system.html#a35ae77324ccefd27137767e8abe7afa7',1,'K_System']]],
   ['currentmat',['currentMat',['../struct_k___graphics_1_1_bone.html#a82de526d464ccddea11100c9f8705f61',1,'K_Graphics::Bone']]]
 ];

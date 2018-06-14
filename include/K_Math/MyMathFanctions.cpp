@@ -138,22 +138,22 @@ void K_Math::Box2D::Offset(int addX, int addY) {
 K_Math::Quaternion K_Math::RotationToQuaternion(const K_Math::Vector3& rotation) {
 	//回転順はYXZ
 	K_Math::Quaternion rot;
-	rot = glm::angleAxis(rotation.y, K_Math::Vector3(0.0f, 0.0f, 0.0f));
 	rot = rot * glm::angleAxis(rotation.y, K_Math::Vector3(0.0f, 1.0f, 0.0f));
-	rot = rot * glm::angleAxis(rotation.y, K_Math::Vector3(1.0f, 0.0f, 0.0f));
-	rot = rot * glm::angleAxis(rotation.y, K_Math::Vector3(0.0f, 0.0f, 1.0f));
+	rot = rot * glm::angleAxis(rotation.x, K_Math::Vector3(1.0f, 0.0f, 0.0f));
+	rot = rot * glm::angleAxis(rotation.z, K_Math::Vector3(0.0f, 0.0f, 1.0f));
 	return rot;
 }
 //!@brief クォータニオンから回転成分を作成する(Y軸→X軸→Z軸)
 K_Math::Vector3 K_Math::QuaternionToRotation(const K_Math::Quaternion& quaternion) {
-	return glm::eulerAngles(quaternion);
+	K_Math::Vector3 rot = glm::eulerAngles(quaternion);
+	return rot;
 }
 
 void K_Math::Normalize(Vector2& vector) {
-	glm::normalize(vector);
+	vector = glm::normalize(vector);
 }
 void K_Math::Normalize(Vector3& vector) {
-	glm::normalize(vector);
+	vector = glm::normalize(vector);
 }
 
 K_Math::Vector2 K_Math::Normalized(const Vector2& vector) {
@@ -189,5 +189,18 @@ float K_Math::Dot(const K_Math::Vector2& vector1, const K_Math::Vector2& vector2
 }
 float K_Math::Dot(const K_Math::Vector3& vector1, const K_Math::Vector3& vector2) {
 	return glm::dot(vector1, vector2);
+}
+
+K_Math::Quaternion K_Math::AngleAxis(float angle, const Vector3& axis) {
+	return glm::angleAxis(angle, axis);
+}
+K_Math::Quaternion K_Math::LookAt(const Vector3& vec1, const Vector3& vec2) {
+	return glm::rotation(vec1, vec2);
+}
+float K_Math::Angle(const Vector3& vec1, const Vector3& vec2) {
+	return glm::angle(vec1, vec2);
+}
+float K_Math::Angle(const Vector3& vec1, const Vector3& vec2, const Vector3& ref) {
+	return glm::orientedAngle(vec1, vec2, ref);
 }
 

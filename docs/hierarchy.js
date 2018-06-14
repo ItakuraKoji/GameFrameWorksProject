@@ -24,12 +24,16 @@ var hierarchy =
     [ "ClosestConvexResultCallback", null, [
       [ "K_Physics::SweepTestCallBack", "struct_k___physics_1_1_sweep_test_call_back.html", null ]
     ] ],
+    [ "ClosestRayResultCallback", null, [
+      [ "K_Physics::MyRaycastCallBack", "struct_k___physics_1_1_my_raycast_call_back.html", null ]
+    ] ],
     [ "K_Physics::CollisionData", "class_k___physics_1_1_collision_data.html", [
       [ "K_Physics::RigidBodyData", "class_k___physics_1_1_rigid_body_data.html", null ]
     ] ],
     [ "K_Physics::CollisionTag", "struct_k___physics_1_1_collision_tag.html", null ],
     [ "ContactResultCallback", null, [
       [ "K_Physics::CollectCollisionCallBack", "struct_k___physics_1_1_collect_collision_call_back.html", null ],
+      [ "K_Physics::DetectMaxDistance", "struct_k___physics_1_1_detect_max_distance.html", null ],
       [ "K_Physics::FixContactCallBack", "struct_k___physics_1_1_fix_contact_call_back.html", null ]
     ] ],
     [ "K_Graphics::DirectionalLight", "class_k___graphics_1_1_directional_light.html", null ],

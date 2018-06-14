@@ -27,7 +27,7 @@ namespace K_Input {
 
 	bool InputClass::AddGamePad(VpadIndex padID) {
 		if (this->gamePad.find(padID) != this->gamePad.end()) {
-			return false;
+			throw("InputClassError gamepad has already existed : " + std::to_string((int)padID));
 		}
 		VirtualGamePad* pad = new VirtualGamePad(padID, this->windowHandle);
 		this->gamePad[padID] = pad;
@@ -36,7 +36,7 @@ namespace K_Input {
 
 	VirtualGamePad* InputClass::GetPad(VpadIndex padID) {
 		if (this->gamePad.find(padID) == this->gamePad.end()) {
-			return nullptr;
+			throw("InputClassError gamepad is not exists");
 		}
 		return this->gamePad[padID];
 	}

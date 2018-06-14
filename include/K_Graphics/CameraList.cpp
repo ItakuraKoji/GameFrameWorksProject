@@ -22,7 +22,7 @@ namespace K_Graphics {
 	void CameraList::AddPerspectiveCamera(const std::string& name, const K_Math::Vector3& position, const K_Math::Vector3& target, int width, int height, float neer, float far, float fieldOfView) {
 		//–¼‘O”í‚è
 		if (this->cameraList.find(name) != this->cameraList.end()) {
-			return;
+			throw std::runtime_error("CameraListError PerspectiveCamera name has already existed : " + name);
 		}
 
 		CameraClass* camera = new CameraClass(CameraType::Perspective, width, height, neer, far, fieldOfView);
@@ -36,7 +36,7 @@ namespace K_Graphics {
 	void CameraList::AddOrthoCamera(const std::string& name, const K_Math::Vector3& position, const K_Math::Vector3& target, int width, int height, float neer, float far) {
 		//–¼‘O”í‚è
 		if (this->cameraList.find(name) != this->cameraList.end()) {
-			return;
+			throw std::runtime_error("CameraListError OrthoCamera name has already existed : " + name);
 		}
 
 		CameraClass* camera = new CameraClass(CameraType::Ortho, width, height, neer, far, 0.0f);
@@ -48,7 +48,7 @@ namespace K_Graphics {
 
 	CameraClass* CameraList::GetCamera(const std::string& name) {
 		if (this->cameraList.find(name) == this->cameraList.end()) {
-			return nullptr;
+			throw std::runtime_error("CameraListError Camera name is not exists : " + name);
 		}
 		return this->cameraList[name];
 	}

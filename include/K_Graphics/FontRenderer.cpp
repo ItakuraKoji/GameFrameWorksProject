@@ -13,8 +13,8 @@ namespace K_Graphics {
 			this->sprite = new K_Graphics::SpriteObject(nullptr);
 			this->cullentFont = nullptr;
 		}
-		catch (std::string& errorText) {
-			throw(errorText);
+		catch (std::exception& e) {
+			throw e;
 		}
 	}
 	FontRenderer::~FontRenderer() {
@@ -34,23 +34,17 @@ namespace K_Graphics {
 	bool FontRenderer::LoadFont(const char* fontName, const char* filePath) {
 		//Šù‚É‚ ‚é–¼‘O‚Å‚Í“o˜^‚Å‚«‚È‚¢
 		if (this->generators.find(fontName) != this->generators.end()) {
-			return false;
+			throw("FontError name has already existed");
 		}
-		//“Ç‚İ‚İ‚É¸”s‚µ‚Ä‚à‚±‚ÌŠÖ”‚Å‚Í—áŠO‚ğ“Š‚°‚È‚¢
-		try {
-			FontGenerator* font = new FontGenerator(filePath);
-			this->generators[fontName] = font;
-		}
-		catch (std::string& errorText) {
-			printf("%s\n", errorText.data());
-			return false;
-		}
+		FontGenerator* font = new FontGenerator(filePath);
+		this->generators[fontName] = font;
+
 		SetCullentFont(fontName);
 		return true;
 	}
 	bool FontRenderer::SetCullentFont(const char* fontName) {
 		if (this->generators.find(fontName) == this->generators.end()) {
-			return false;
+			throw("FontError name is not exists");
 		}
 		this->cullentFont = this->generators[fontName];
 		return true;
