@@ -16,7 +16,6 @@ namespace K_Audio {
 		AudioData();
 		virtual ~AudioData();
 
-		virtual bool LoadFile(const char* filePass) = 0;
 		virtual int Read(char* buffer, int maxSize) = 0;
 		virtual void Seek(int pcmOffset) = 0;
 

@@ -2,6 +2,7 @@ var struct_k___physics_1_1_detect_max_distance =
 [
     [ "DetectMaxDistance", "struct_k___physics_1_1_detect_max_distance.html#ad37b98dd5cff687f2437a642c59f8026", null ],
     [ "addSingleResult", "struct_k___physics_1_1_detect_max_distance.html#a0d5ffaae4ffe51900818b23f19bced97", null ],
+    [ "needsCollision", "struct_k___physics_1_1_detect_max_distance.html#af7524342b883518b0444bdcc9e37a547", null ],
     [ "count", "struct_k___physics_1_1_detect_max_distance.html#a991338b44c0bd272ccd6c16811e961a2", null ],
     [ "fixVec", "struct_k___physics_1_1_detect_max_distance.html#a34cb309a3d09bcc5bbc5e24aef9f985c", null ],
     [ "isLoop", "struct_k___physics_1_1_detect_max_distance.html#ab7fdba872bda16cc581620212cd76885", null ],

@@ -3,7 +3,6 @@ var searchData=
   ['lightlist',['LightList',['../class_k___graphics_1_1_light_list.html#a9a93f06156dd12df543b69b5bf0e37b5',1,'K_Graphics::LightList']]],
   ['loadfbx',['LoadFBX',['../class_k___loader_1_1_fbx_model_loader.html#a3b0ef1c5d8eab4ca054cd6c02573af88',1,'K_Loader::FbxModelLoader']]],
   ['loadfbxmodel',['LoadFBXModel',['../class_k___graphics_1_1_model_data_factory.html#a09661487ad0f3a9c563db193d6e12e08',1,'K_Graphics::ModelDataFactory']]],
-  ['loadfile',['LoadFile',['../class_k___audio_1_1_audio_data.html#a97453a72c7161214868303f6fdca9494',1,'K_Audio::AudioData']]],
   ['loadfont',['LoadFont',['../class_k___graphics_1_1_font_renderer.html#ac1bece2663e3edc6c000324d4058be16',1,'K_Graphics::FontRenderer']]],
   ['loadfragmentshader',['LoadFragmentShader',['../class_k___graphics_1_1_shader_list.html#a5daf641dfbc9472b9fb37126cfad27c7',1,'K_Graphics::ShaderList']]],
   ['loadimage',['LoadImage',['../class_k___graphics_1_1_texture.html#a3f4839ab22e8a2e9aeb58ae49509f73d',1,'K_Graphics::Texture']]],

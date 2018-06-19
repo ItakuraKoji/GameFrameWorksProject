@@ -40,9 +40,9 @@ namespace K_Graphics {
 
 	//アニメーションをセット
 	void AnimationData::SetAnimation(const std::string& animName, bool playOnce, bool isInterpolation, bool loop) {
-		//キーが存在しないなら帰る
+		//キーが存在しないなら例外
 		if (this->animList.find(animName) == this->animList.end()) {
-			return;
+			throw std::runtime_error("not found animation name : " + animName);
 		}
 
 		AnimType anim = this->animList[animName];

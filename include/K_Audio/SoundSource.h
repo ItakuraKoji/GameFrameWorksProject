@@ -38,6 +38,7 @@ namespace K_Audio {
 		bool IsPlay();
 
 	private:
+		void Finalize();
 		void StreamingThread();
 		void AllReadThread();
 		void EndThread();

@@ -6,8 +6,14 @@ namespace K_Audio {
 	////
 
 	WavData::WavData(const char* filePass) {
-		if (!LoadFile(filePass)) {
-			throw("wavData Initialize Failed : " + std::string(filePass));
+		try {
+			LoadFile(filePass);
+		}
+		catch (std::exception& e) {
+			if (this->waveFile.is_open()) {
+				this->waveFile.close();
+			}
+			throw e;
 		}
 	}
 
@@ -57,7 +63,7 @@ namespace K_Audio {
 	////
 
 	//読み込み
-	bool WavData::LoadFile(const char* filePass) {
+	void WavData::LoadFile(const char* filePass) {
 		//各チャンクの先頭にこの情報が必ずある
 		struct WaveChunk {
 			char id[4];
@@ -76,7 +82,7 @@ namespace K_Audio {
 
 		this->waveFile.open(filePass, std::ifstream::binary);
 		if (!this->waveFile) {
-			return false;
+			throw std::runtime_error("fileOpen failed : " + std::string(filePass));
 		}
 		//RIFFチャンクの先頭12バイト
 		//id = 4bite : size = 4bite;
@@ -89,7 +95,7 @@ namespace K_Audio {
 
 		//WAVEフォーマット以外は失敗
 		if (strncmp(chunk.id, "RIFF", 4) != 0 || strncmp(format, "WAVE", 4)) {
-			return false;
+			throw std::runtime_error("illegal waveFormat (this is not WAVE format) : " + std::string(filePass));
 		}
 
 		//各チャンクを読む
@@ -107,7 +113,7 @@ namespace K_Audio {
 					this->waveFile.seekg(chunk.size - 16, std::ios_base::cur);
 				}
 				if (fmtChunk.formatId != 1) {
-					return false;
+					throw std::runtime_error("this waveFormat not support : " + std::string(filePass));
 				}
 				byteOffset += chunk.size + sizeof(WaveChunk);
 				++count;
@@ -130,7 +136,7 @@ namespace K_Audio {
 
 		//fmt,dataのチャンク合わせて２つでない時は失敗
 		if (count != 2) {
-			return false;
+			throw std::runtime_error("illegal waveFormat (chunk has not found) : " + std::string(filePass));
 		}
 
 		this->samplingRate = fmtChunk.samplingRate;
@@ -138,19 +144,29 @@ namespace K_Audio {
 			//モノラル
 			if (fmtChunk.bitsPerSample == 8) {
 				this->format = SoundFormat::Mono8;
-			};
-			if (fmtChunk.bitsPerSample == 16) {
+			}
+			else if (fmtChunk.bitsPerSample == 16) {
 				this->format = SoundFormat::Mono16;
-			};
+			}
+			else {
+				throw std::runtime_error("illegal waveFormat (not suppot sound channel) : " + std::string(filePass));
+			}
 		}
-		else {
+		else if(fmtChunk.numChannel == 2){
 			//ステレオ
 			if (fmtChunk.bitsPerSample == 8) {
 				this->format = SoundFormat::Stereo8;
-			};
-			if (fmtChunk.bitsPerSample == 16) {
+			}
+			else if (fmtChunk.bitsPerSample == 16) {
 				this->format = SoundFormat::Stereo16;
-			};
+			}
+			else {
+				throw std::runtime_error("illegal waveFormat (not suppot sound channel) : " + std::string(filePass));
+			}
+		}
+		else {
+			throw std::runtime_error("illegal waveFormat (not suppot sound channel) : " + std::string(filePass));
+
 		}
 
 		this->blockSize = fmtChunk.blockSize;
@@ -160,7 +176,6 @@ namespace K_Audio {
 		this->loopLength = this->loopStart + dataSize / this->blockSize;
 
 		Seek(0);
-		return true;
 	}
 
 	//WaveファイルのPCMデータのシーク

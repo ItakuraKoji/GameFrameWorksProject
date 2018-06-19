@@ -43,12 +43,12 @@ namespace K_Graphics {
 	////
 	void MaterialData::CheckHierarchyRange(int index) {
 		if (this->materialArray.size() <= index) {
-			std::out_of_range("mesh model hirarchy out of range");
+			throw std::out_of_range("mesh model hirarchy out of range");
 		}
 	}
 	void MaterialData::CheckMaterialArrayRange(int arrayIndex, int materialIndex) {
 		if (this->materialArray[arrayIndex].size() <= materialIndex) {
-			std::out_of_range("mesh model material array out of range");
+			throw std::out_of_range("mesh model material array out of range");
 		}
 	}
 

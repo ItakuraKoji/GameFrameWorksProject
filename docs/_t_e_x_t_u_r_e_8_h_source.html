@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MyFrameWorks: C:/Users/kotea/Documents/Visual Studio 2017/Projects/MyFrameWorks/include/K_Graphics/TEXTURE.H ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">MyFrameWorks
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('_t_e_x_t_u_r_e_8_h_source.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">TEXTURE.H</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include&lt;GLEW\glew.h&gt;</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include&lt;string&gt;</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include&quot;ImageLoader.h&quot;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_k___graphics.html">K_Graphics</a> {</div><div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="namespace_k___graphics.html#a218722f1def83362c6b74680b8c1c529">    8</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="namespace_k___graphics.html#a218722f1def83362c6b74680b8c1c529">TextureType</a> {</div><div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="namespace_k___graphics.html#a218722f1def83362c6b74680b8c1c529ab0721b13f0b6d56efb5b01ac5c7eb718">    9</a></span>&#160;        <a class="code" href="namespace_k___graphics.html#a218722f1def83362c6b74680b8c1c529ab0721b13f0b6d56efb5b01ac5c7eb718">Unsigned_Byte</a> = GL_UNSIGNED_BYTE,</div><div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="namespace_k___graphics.html#a218722f1def83362c6b74680b8c1c529ad9523c239c3ce59f58cc0fc4a6e8986c">   10</a></span>&#160;        <a class="code" href="namespace_k___graphics.html#a218722f1def83362c6b74680b8c1c529ad9523c239c3ce59f58cc0fc4a6e8986c">Float</a> = GL_FLOAT,</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    };</div><div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955">   13</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955">TextureColorType</a> {</div><div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a3f86f41090b77da22356d9010d1c0f66">   14</a></span>&#160;        <a class="code" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a3f86f41090b77da22356d9010d1c0f66">RGB</a> = GL_RGB,</div><div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a5982abbb33a2de38202a6a14430bfbd7">   15</a></span>&#160;        <a class="code" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a5982abbb33a2de38202a6a14430bfbd7">BGR</a> = GL_BGR,</div><div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a9e29ef1d15d53abfdf21fd7cc6730d25">   16</a></span>&#160;        <a class="code" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a9e29ef1d15d53abfdf21fd7cc6730d25">RGBA32F</a> = GL_RGBA32F,</div><div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a535fd8e72dc86d416c6a3f32923645d2">   17</a></span>&#160;        <a class="code" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a535fd8e72dc86d416c6a3f32923645d2">RGBA</a> = GL_RGBA,</div><div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955ad1ca23636fb9354fdba2dac99e77f1f9">   18</a></span>&#160;        <a class="code" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955ad1ca23636fb9354fdba2dac99e77f1f9">BGRA</a> = GL_BGRA,</div><div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a73b900220ca74e26dbc87b5baea6dd9c">   19</a></span>&#160;        <a class="code" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a73b900220ca74e26dbc87b5baea6dd9c">RED</a> = GL_RED,</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    };</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_k___graphics_1_1_texture.html">   23</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_k___graphics_1_1_texture.html">Texture</a> {</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <a class="code" href="class_k___graphics_1_1_texture.html#a3d4fc11068626d4d981b37d1d5aead47">Texture</a>();</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <a class="code" href="class_k___graphics_1_1_texture.html#aacbb913221bc16ca6b1b2d8f8a62fc60">~Texture</a>();</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_k___graphics_1_1_texture.html#a569217a622e060f157842e5d492b8b34">Initialize</a>();</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_k___graphics_1_1_texture.html#a3f4839ab22e8a2e9aeb58ae49509f73d">LoadImage</a>(<span class="keyword">const</span> std::string&amp; fileName);</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_k___graphics_1_1_texture.html#a07e94ca2f5d93698ad168ac15e3cc2dd">SetImageData</a>(<span class="keywordtype">void</span> *data, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <a class="code" href="namespace_k___graphics.html#a218722f1def83362c6b74680b8c1c529">TextureType</a> bType, <a class="code" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955">TextureColorType</a> textureColor, <a class="code" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955">TextureColorType</a> dataColor);</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_k___graphics_1_1_texture.html#ada11b0ac5f51e73ca07dc2a69fb32e3c">SetFilter</a>(<span class="keywordtype">bool</span> isFiltering);</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        GLuint <a class="code" href="class_k___graphics_1_1_texture.html#ab37df6d52bfb67f14065f1d8f26c3472">GetTextureID</a>();</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_k___graphics_1_1_texture.html#ad5085a98a35f04eaf532e2a2acdf672d">GetWidth</a>();</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_k___graphics_1_1_texture.html#a6e7ba63d4782a62b055474945578fae9">GetHeight</a>();</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">private</span>:</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        GLuint textureID;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> width;</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> height;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    };</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div><div class="ttc" id="namespace_k___graphics_html_a9654dafb2cd6eaed24a292a6f8373955"><div class="ttname"><a href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955">K_Graphics::TextureColorType</a></div><div class="ttdeci">TextureColorType</div><div class="ttdoc">テクスチャに渡される情報の解釈 </div><div class="ttdef"><b>Definition:</b> TEXTURE.H:13</div></div>
+<div class="ttc" id="class_k___graphics_1_1_texture_html"><div class="ttname"><a href="class_k___graphics_1_1_texture.html">K_Graphics::Texture</a></div><div class="ttdoc">外部から読み込まれた、あるいは作られたテクスチャを保持する このクラスは、保持しているテクスチャの解放...</div><div class="ttdef"><b>Definition:</b> TEXTURE.H:23</div></div>
+<div class="ttc" id="namespace_k___graphics_html"><div class="ttname"><a href="namespace_k___graphics.html">K_Graphics</a></div><div class="ttdoc">グラフィック関連の名前空間 </div><div class="ttdef"><b>Definition:</b> AmbientLight.cpp:3</div></div>
+<div class="ttc" id="class_k___graphics_1_1_texture_html_ab37df6d52bfb67f14065f1d8f26c3472"><div class="ttname"><a href="class_k___graphics_1_1_texture.html#ab37df6d52bfb67f14065f1d8f26c3472">K_Graphics::Texture::GetTextureID</a></div><div class="ttdeci">GLuint GetTextureID()</div><div class="ttdef"><b>Definition:</b> TEXTURE.CPP:98</div></div>
+<div class="ttc" id="namespace_k___graphics_html_a218722f1def83362c6b74680b8c1c529ad9523c239c3ce59f58cc0fc4a6e8986c"><div class="ttname"><a href="namespace_k___graphics.html#a218722f1def83362c6b74680b8c1c529ad9523c239c3ce59f58cc0fc4a6e8986c">K_Graphics::Float</a></div><div class="ttdef"><b>Definition:</b> TEXTURE.H:10</div></div>
+<div class="ttc" id="namespace_k___graphics_html_a9654dafb2cd6eaed24a292a6f8373955a73b900220ca74e26dbc87b5baea6dd9c"><div class="ttname"><a href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a73b900220ca74e26dbc87b5baea6dd9c">K_Graphics::RED</a></div><div class="ttdef"><b>Definition:</b> TEXTURE.H:19</div></div>
+<div class="ttc" id="class_k___graphics_1_1_texture_html_a3d4fc11068626d4d981b37d1d5aead47"><div class="ttname"><a href="class_k___graphics_1_1_texture.html#a3d4fc11068626d4d981b37d1d5aead47">K_Graphics::Texture::Texture</a></div><div class="ttdeci">Texture()</div><div class="ttdoc">Initialize()を呼ぶ </div><div class="ttdef"><b>Definition:</b> TEXTURE.CPP:7</div></div>
+<div class="ttc" id="class_k___graphics_1_1_texture_html_a3f4839ab22e8a2e9aeb58ae49509f73d"><div class="ttname"><a href="class_k___graphics_1_1_texture.html#a3f4839ab22e8a2e9aeb58ae49509f73d">K_Graphics::Texture::LoadImage</a></div><div class="ttdeci">bool LoadImage(const std::string &amp;fileName)</div><div class="ttdoc">画像を読み込んでテクスチャに渡す </div><div class="ttdef"><b>Definition:</b> TEXTURE.CPP:28</div></div>
+<div class="ttc" id="namespace_k___graphics_html_a9654dafb2cd6eaed24a292a6f8373955ad1ca23636fb9354fdba2dac99e77f1f9"><div class="ttname"><a href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955ad1ca23636fb9354fdba2dac99e77f1f9">K_Graphics::BGRA</a></div><div class="ttdef"><b>Definition:</b> TEXTURE.H:18</div></div>
+<div class="ttc" id="namespace_k___graphics_html_a218722f1def83362c6b74680b8c1c529ab0721b13f0b6d56efb5b01ac5c7eb718"><div class="ttname"><a href="namespace_k___graphics.html#a218722f1def83362c6b74680b8c1c529ab0721b13f0b6d56efb5b01ac5c7eb718">K_Graphics::Unsigned_Byte</a></div><div class="ttdef"><b>Definition:</b> TEXTURE.H:9</div></div>
+<div class="ttc" id="class_k___graphics_1_1_texture_html_a6e7ba63d4782a62b055474945578fae9"><div class="ttname"><a href="class_k___graphics_1_1_texture.html#a6e7ba63d4782a62b055474945578fae9">K_Graphics::Texture::GetHeight</a></div><div class="ttdeci">unsigned int GetHeight()</div><div class="ttdef"><b>Definition:</b> TEXTURE.CPP:104</div></div>
+<div class="ttc" id="namespace_k___graphics_html_a218722f1def83362c6b74680b8c1c529"><div class="ttname"><a href="namespace_k___graphics.html#a218722f1def83362c6b74680b8c1c529">K_Graphics::TextureType</a></div><div class="ttdeci">TextureType</div><div class="ttdoc">テクスチャが扱う値の型 </div><div class="ttdef"><b>Definition:</b> TEXTURE.H:8</div></div>
+<div class="ttc" id="class_k___graphics_1_1_texture_html_ad5085a98a35f04eaf532e2a2acdf672d"><div class="ttname"><a href="class_k___graphics_1_1_texture.html#ad5085a98a35f04eaf532e2a2acdf672d">K_Graphics::Texture::GetWidth</a></div><div class="ttdeci">unsigned int GetWidth()</div><div class="ttdef"><b>Definition:</b> TEXTURE.CPP:101</div></div>
+<div class="ttc" id="class_k___graphics_1_1_texture_html_a569217a622e060f157842e5d492b8b34"><div class="ttname"><a href="class_k___graphics_1_1_texture.html#a569217a622e060f157842e5d492b8b34">K_Graphics::Texture::Initialize</a></div><div class="ttdeci">bool Initialize()</div><div class="ttdoc">空のデータでテクスチャを初期化 </div><div class="ttdef"><b>Definition:</b> TEXTURE.CPP:14</div></div>
+<div class="ttc" id="namespace_k___graphics_html_a9654dafb2cd6eaed24a292a6f8373955a5982abbb33a2de38202a6a14430bfbd7"><div class="ttname"><a href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a5982abbb33a2de38202a6a14430bfbd7">K_Graphics::BGR</a></div><div class="ttdef"><b>Definition:</b> TEXTURE.H:15</div></div>
+<div class="ttc" id="class_k___graphics_1_1_texture_html_aacbb913221bc16ca6b1b2d8f8a62fc60"><div class="ttname"><a href="class_k___graphics_1_1_texture.html#aacbb913221bc16ca6b1b2d8f8a62fc60">K_Graphics::Texture::~Texture</a></div><div class="ttdeci">~Texture()</div><div class="ttdoc">テクスチャを開放する </div><div class="ttdef"><b>Definition:</b> TEXTURE.CPP:10</div></div>
+<div class="ttc" id="namespace_k___graphics_html_a9654dafb2cd6eaed24a292a6f8373955a3f86f41090b77da22356d9010d1c0f66"><div class="ttname"><a href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a3f86f41090b77da22356d9010d1c0f66">K_Graphics::RGB</a></div><div class="ttdef"><b>Definition:</b> TEXTURE.H:14</div></div>
+<div class="ttc" id="namespace_k___graphics_html_a9654dafb2cd6eaed24a292a6f8373955a535fd8e72dc86d416c6a3f32923645d2"><div class="ttname"><a href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a535fd8e72dc86d416c6a3f32923645d2">K_Graphics::RGBA</a></div><div class="ttdef"><b>Definition:</b> TEXTURE.H:17</div></div>
+<div class="ttc" id="namespace_k___graphics_html_a9654dafb2cd6eaed24a292a6f8373955a9e29ef1d15d53abfdf21fd7cc6730d25"><div class="ttname"><a href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a9e29ef1d15d53abfdf21fd7cc6730d25">K_Graphics::RGBA32F</a></div><div class="ttdef"><b>Definition:</b> TEXTURE.H:16</div></div>
+<div class="ttc" id="class_k___graphics_1_1_texture_html_a07e94ca2f5d93698ad168ac15e3cc2dd"><div class="ttname"><a href="class_k___graphics_1_1_texture.html#a07e94ca2f5d93698ad168ac15e3cc2dd">K_Graphics::Texture::SetImageData</a></div><div class="ttdeci">void SetImageData(void *data, int width, int height, TextureType bType, TextureColorType textureColor, TextureColorType dataColor)</div><div class="ttdoc">配列データを画像として渡す </div><div class="ttdef"><b>Definition:</b> TEXTURE.CPP:66</div></div>
+<div class="ttc" id="class_k___graphics_1_1_texture_html_ada11b0ac5f51e73ca07dc2a69fb32e3c"><div class="ttname"><a href="class_k___graphics_1_1_texture.html#ada11b0ac5f51e73ca07dc2a69fb32e3c">K_Graphics::Texture::SetFilter</a></div><div class="ttdeci">void SetFilter(bool isFiltering)</div><div class="ttdoc">画像の拡縮時にフィルターをかけるか設定 </div><div class="ttdef"><b>Definition:</b> TEXTURE.CPP:82</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_985859a0b4271b733ea36bfa48e47771.html">K_Graphics</a></li><li class="navelem"><b>TEXTURE.H</b></li>
+    <li class="footer">構築:
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
+</body>
+</html>

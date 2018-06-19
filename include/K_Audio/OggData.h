@@ -17,7 +17,7 @@ namespace K_Audio {
 		int Read(char* buffer, int maxSize);
 
 	private:
-		bool LoadFile(const char* filePass);
+		void LoadFile(const char* filePass);
 		int OggCommentValue(vorbis_comment* comment, const char* key);
 
 	private:

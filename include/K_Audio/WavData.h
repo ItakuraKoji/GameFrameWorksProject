@@ -15,12 +15,12 @@ namespace K_Audio {
 		WavData(const char* filePass);
 		~WavData();
 
-		void Seek(int offset);
-		int Read(char* buffer, int maxSize);
+		void Seek(int offset) override;
+		int Read(char* buffer, int maxSize) override;
 
 
 	private:
-		bool LoadFile(const char* filePass);
+		void LoadFile(const char* filePass);
 		void PcmSeek(int pcmOffset);
 
 	private:

@@ -7,8 +7,12 @@ namespace K_Audio {
 	////
 
 	OggData::OggData(const char* filePass) {
-		if (!LoadFile(filePass)) {
-			throw("Audio Load Error");
+		try{
+			LoadFile(filePass);
+		}
+		catch (std::exception& e) {
+			ov_clear(&this->oggFile);
+			throw e;
 		}
 	}
 
@@ -26,7 +30,7 @@ namespace K_Audio {
 	//private
 	////
 
-	bool OggData::LoadFile(const char* filePass) {
+	void OggData::LoadFile(const char* filePass) {
 		int error = ov_fopen(filePass, &this->oggFile);
 
 
@@ -40,7 +44,7 @@ namespace K_Audio {
 			case OV_EFAULT:      break;
 			default:             break;
 			}
-			return false; // ƒGƒ‰[
+			throw std::runtime_error("fileOpen failed : " + std::string(filePass));
 		}
 
 		vorbis_comment* tag = ov_comment(&this->oggFile, -1);
@@ -65,7 +69,6 @@ namespace K_Audio {
 		}
 		this->samplingRate = info->rate;
 		this->pcmOffset = 0;
-		return true;
 	}
 
 	int OggData::Read(char* buffer, int maxSize) {

@@ -146,10 +146,12 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_bullet_physics.h
 <tr class="memitem:a6647c5111e6041f4ca80d727d34a6c1f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_k___physics_1_1_collision_data.html">CollisionData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_bullet_physics.html#a6647c5111e6041f4ca80d727d34a6c1f">CreateCollisionObject</a> (btCollisionShape *shape, bool ghost, int myselfMask, int giveMask, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;pos=<a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a>(0, 0, 0), const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;rot=<a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a>(0, 0, 0))</td></tr>
 <tr class="memdesc:a6647c5111e6041f4ca80d727d34a6c1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">コリジョンオブジェクトを作成し、ポインタを返す  <a href="#a6647c5111e6041f4ca80d727d34a6c1f">[詳解]</a><br /></td></tr>
 <tr class="separator:a6647c5111e6041f4ca80d727d34a6c1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add323e4324f89b08a4891369515ddd8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_bullet_physics.html#add323e4324f89b08a4891369515ddd8b">RemoveCollision</a> (<a class="el" href="class_k___physics_1_1_collision_data.html">CollisionData</a> **rigidbody)</td></tr>
-<tr class="memdesc:add323e4324f89b08a4891369515ddd8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">明示的に世界に登録している剛体を世界から外してからポインタをdeleteする<br />
-このクラスのデストラクタにてこの関数によって全て開放している  <a href="#add323e4324f89b08a4891369515ddd8b">[詳解]</a><br /></td></tr>
-<tr class="separator:add323e4324f89b08a4891369515ddd8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23985529dcbd80eac6843758b15f8984"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_bullet_physics.html#a23985529dcbd80eac6843758b15f8984">RemoveCollision</a> (<a class="el" href="class_k___physics_1_1_collision_data.html">CollisionData</a> **collision)</td></tr>
+<tr class="memdesc:a23985529dcbd80eac6843758b15f8984"><td class="mdescLeft">&#160;</td><td class="mdescRight">明示的に世界に登録している剛体を世界から外してからポインタをdeleteする<br />
+このクラスのデストラクタにてこの関数によって全て開放している  <a href="#a23985529dcbd80eac6843758b15f8984">[詳解]</a><br /></td></tr>
+<tr class="separator:a23985529dcbd80eac6843758b15f8984"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1d62472aa6bfbe82e628c412744df54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_bullet_physics.html#aa1d62472aa6bfbe82e628c412744df54">RemoveCollision</a> (<a class="el" href="class_k___physics_1_1_rigid_body_data.html">RigidBodyData</a> **rigidbody)</td></tr>
+<tr class="separator:aa1d62472aa6bfbe82e628c412744df54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2aec9e34e8c937a6b6a222cd4a04a81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_bullet_physics.html#ab2aec9e34e8c937a6b6a222cd4a04a81">RemoveCollisionShape</a> (<a class="el" href="namespace_k___physics.html#aa0de61c2beb0d423efad313964d20f31">CollisionShape</a> **shape)</td></tr>
 <tr class="memdesc:ab2aec9e34e8c937a6b6a222cd4a04a81"><td class="mdescLeft">&#160;</td><td class="mdescRight">明示的にリストに存在する形状情報をリストから外してdeleteする この関数を呼ばなくても、このクラスのデストラクタで全て開放している この関数の後は、形状へのポインタは使えないので注意  <a href="#ab2aec9e34e8c937a6b6a222cd4a04a81">[詳解]</a><br /></td></tr>
 <tr class="separator:ab2aec9e34e8c937a6b6a222cd4a04a81"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -862,8 +864,8 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_bullet_physics.h
 
 </div>
 </div>
-<a id="add323e4324f89b08a4891369515ddd8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add323e4324f89b08a4891369515ddd8b">&#9670;&nbsp;</a></span>RemoveCollision()</h2>
+<a id="a23985529dcbd80eac6843758b15f8984"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23985529dcbd80eac6843758b15f8984">&#9670;&nbsp;</a></span>RemoveCollision() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -872,7 +874,7 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_bullet_physics.h
           <td class="memname">void K_Physics::BulletPhysics::RemoveCollision </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_k___physics_1_1_collision_data.html">CollisionData</a> **&#160;</td>
-          <td class="paramname"><em>rigidbody</em></td><td>)</td>
+          <td class="paramname"><em>collision</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -880,6 +882,24 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_bullet_physics.h
 
 <p>明示的に世界に登録している剛体を世界から外してからポインタをdeleteする<br />
 このクラスのデストラクタにてこの関数によって全て開放している </p>
+
+</div>
+</div>
+<a id="aa1d62472aa6bfbe82e628c412744df54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1d62472aa6bfbe82e628c412744df54">&#9670;&nbsp;</a></span>RemoveCollision() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Physics::BulletPhysics::RemoveCollision </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_k___physics_1_1_rigid_body_data.html">RigidBodyData</a> **&#160;</td>
+          <td class="paramname"><em>rigidbody</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

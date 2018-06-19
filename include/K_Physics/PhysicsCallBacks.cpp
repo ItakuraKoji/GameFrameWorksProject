@@ -8,8 +8,8 @@ namespace K_Physics {
 
 	SweepTestCallBack::SweepTestCallBack(btCollisionObject *myself) : myself(myself), ClosestConvexResultCallback(btVector3(0, 0, 0), btVector3(0, 0, 0)) {
 		CollisionData* data = (CollisionData*)this->myself->getUserPointer();
-		this->m_collisionFilterGroup = data->GetMyselfMask() | data->GetGiveMask();
-		this->m_collisionFilterMask = data->GetMyselfMask() | data->GetGiveMask();
+		this->m_collisionFilterGroup = data->GetMyselfMask();
+		this->m_collisionFilterMask = data->GetGiveMask();
 	}
 
 
@@ -37,6 +37,12 @@ namespace K_Physics {
 		return convexResult.m_hitFraction;
 	}
 
+	bool SweepTestCallBack::needsCollision(btBroadphaseProxy* proxy0) const
+	{
+		bool result = this->m_collisionFilterGroup & proxy0->m_collisionFilterMask;
+		return result;
+	}
+
 
 	DetectMaxDistance::DetectMaxDistance(btCollisionObject* obj) : obj(obj), count(0), isLoop(false), ContactResultCallback() {
 		this->maxDistance = 0.0f;
@@ -44,8 +50,8 @@ namespace K_Physics {
 		this->obj = obj;
 
 		CollisionData* data = (CollisionData*)this->obj->getUserPointer();
-		this->m_collisionFilterGroup = data->GetMyselfMask() | data->GetGiveMask();
-		this->m_collisionFilterMask = data->GetMyselfMask() | data->GetGiveMask();
+		this->m_collisionFilterGroup = data->GetMyselfMask();
+		this->m_collisionFilterMask = data->GetGiveMask();
 	}
 
 	//めり込み最大の法線ベクトルを見つけるコールバック
@@ -78,9 +84,10 @@ namespace K_Physics {
 		if (this->count > 5) {
 			return btScalar(0.0f);
 		}
-
+		
 		//最大値更新
 		if (this->maxDistance > cp.getDistance()) {
+			this->maxObject = (btCollisionObject*)colObj1Wrap->getCollisionObject();
 			this->maxDistance = cp.getDistance();
 			this->fixVec = cp.m_normalWorldOnB;
 		}
@@ -89,13 +96,19 @@ namespace K_Physics {
 		return btScalar(0.0f);
 	}
 
+	bool DetectMaxDistance::needsCollision(btBroadphaseProxy* proxy0) const
+	{
+		bool result = this->m_collisionFilterGroup & proxy0->m_collisionFilterMask;
+		return result;
+	}
+
 	FixContactCallBack::FixContactCallBack(btCollisionObject* obj, const btVector3& limitDirection) : ContactResultCallback() {
 		this->obj = obj;
 		this->limitDirection = limitDirection;
 		this->isHit = false;
 		CollisionData* data = (CollisionData*)this->obj->getUserPointer();
-		this->m_collisionFilterGroup = data->GetMyselfMask() | data->GetGiveMask();
-		this->m_collisionFilterMask = data->GetMyselfMask() | data->GetGiveMask();
+		this->m_collisionFilterGroup = data->GetMyselfMask();
+		this->m_collisionFilterMask = data->GetGiveMask();
 	}
 
 	//めり込み最大の法線ベクトルを見つけるコールバック
@@ -120,7 +133,7 @@ namespace K_Physics {
 		}
 
 		//めり込みが小さい場合は衝突してないとする
-		if (cp.getDistance() >= -0.1f) {
+		if (cp.getDistance() >= -0.001f) {
 			return btScalar(0.0f);
 		}
 		this->isHit = true;
@@ -138,10 +151,16 @@ namespace K_Physics {
 		return btScalar(0.0f);
 	}
 
+	bool FixContactCallBack::needsCollision(btBroadphaseProxy* proxy0) const
+	{
+		bool result = this->m_collisionFilterGroup & proxy0->m_collisionFilterMask;
+		return result;
+	}
+
 	CollectCollisionCallBack::CollectCollisionCallBack(btCollisionObject* obj, std::vector<CollisionTag*>& tagList) : result(tagList), isHit(false) {
 		CollisionData* data = (CollisionData*)obj->getUserPointer();
-		this->m_collisionFilterGroup = data->GetMyselfMask() | data->GetGiveMask();
-		this->m_collisionFilterMask = data->GetMyselfMask() | data->GetGiveMask();
+		this->m_collisionFilterGroup = data->GetMyselfMask();
+		this->m_collisionFilterMask = data->GetGiveMask();
 		tagList.clear();
 	}
 
@@ -157,8 +176,14 @@ namespace K_Physics {
 			this->result.push_back(&data2->tag);
 			this->isHit = true;
 		}
-
+		
 		return btScalar(0.0f);
+	}
+
+	bool CollectCollisionCallBack::needsCollision(btBroadphaseProxy* proxy0) const
+	{
+		bool result = this->m_collisionFilterGroup & proxy0->m_collisionFilterMask;
+		return result;
 	}
 
 	MyRaycastCallBack::MyRaycastCallBack(const btVector3& from, const btVector3& to, int myselfMask) :
@@ -173,5 +198,11 @@ namespace K_Physics {
 			this->m_closestHitFraction = rayResult.m_hitFraction;
 		}
 		return rayResult.m_hitFraction;
+	}
+
+	bool MyRaycastCallBack::needsCollision(btBroadphaseProxy* proxy0) const
+	{
+		bool result = this->m_collisionFilterGroup & proxy0->m_collisionFilterMask;
+		return result;
 	}
 }

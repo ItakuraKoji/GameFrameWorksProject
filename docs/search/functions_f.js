@@ -2,8 +2,8 @@ var searchData=
 [
   ['radtodeg',['RadToDeg',['../namespace_k___math.html#a4ab382b67d996b4862e30be45875740d',1,'K_Math']]],
   ['raycast',['Raycast',['../class_k___physics_1_1_bullet_physics.html#a51dfdc8e5e578900a3851b21ba800e51',1,'K_Physics::BulletPhysics']]],
-  ['read',['Read',['../class_k___audio_1_1_audio_data.html#af42b123ad2ce45867401d697fd572392',1,'K_Audio::AudioData::Read()'],['../class_k___audio_1_1_ogg_data.html#ac4c50916e0f2eaa384539b2dbedc1d6e',1,'K_Audio::OggData::Read()'],['../class_k___audio_1_1_wav_data.html#a9b64967d83ac218c71949335d0583e69',1,'K_Audio::WavData::Read()']]],
-  ['removecollision',['RemoveCollision',['../class_k___physics_1_1_bullet_physics.html#add323e4324f89b08a4891369515ddd8b',1,'K_Physics::BulletPhysics']]],
+  ['read',['Read',['../class_k___audio_1_1_audio_data.html#af42b123ad2ce45867401d697fd572392',1,'K_Audio::AudioData::Read()'],['../class_k___audio_1_1_ogg_data.html#ac4c50916e0f2eaa384539b2dbedc1d6e',1,'K_Audio::OggData::Read()'],['../class_k___audio_1_1_wav_data.html#a7581fbf7a1c5b2d46219d396474e1a84',1,'K_Audio::WavData::Read()']]],
+  ['removecollision',['RemoveCollision',['../class_k___physics_1_1_bullet_physics.html#a23985529dcbd80eac6843758b15f8984',1,'K_Physics::BulletPhysics::RemoveCollision(CollisionData **collision)'],['../class_k___physics_1_1_bullet_physics.html#aa1d62472aa6bfbe82e628c412744df54',1,'K_Physics::BulletPhysics::RemoveCollision(RigidBodyData **rigidbody)']]],
   ['removecollisionshape',['RemoveCollisionShape',['../class_k___physics_1_1_bullet_physics.html#ab2aec9e34e8c937a6b6a222cd4a04a81',1,'K_Physics::BulletPhysics']]],
   ['reporterrorwarning',['reportErrorWarning',['../class_k___physics_1_1bullet_debug_draw.html#aa421c8d4afa407e1e8c9784fce42115e',1,'K_Physics::bulletDebugDraw']]],
   ['rigidbodydata',['RigidBodyData',['../class_k___physics_1_1_rigid_body_data.html#a0104663d80240e0c1cad9e828bc29363',1,'K_Physics::RigidBodyData']]],

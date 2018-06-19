@@ -42,7 +42,7 @@ namespace K_Graphics {
 	}
 	GLuint VertexData::GetIBO(int arrayIndex, int materialIndex) {
 		CheckHierarchyRange(arrayIndex);
-		CheckMaterialArrayRange(materialIndex, materialIndex);
+		CheckMaterialArrayRange(arrayIndex, materialIndex);
 		return this->bufferArray[arrayIndex].IBOs[materialIndex];
 	}
 	int VertexData::GetNumFace(int arrayIndex) {
@@ -55,12 +55,12 @@ namespace K_Graphics {
 	////
 	void VertexData::CheckHierarchyRange(int index) {
 		if (this->bufferArray.size() <= index) {
-			std::out_of_range("mesh model hirarchy out of range");
+			throw std::out_of_range("mesh model hirarchy out of range");
 		}
 	}
 	void VertexData::CheckMaterialArrayRange(int arrayIndex, int materialIndex) {
 		if (this->bufferArray[arrayIndex].IBOs.size() <= materialIndex) {
-			std::out_of_range("mesh model material array out of range");
+			throw std::out_of_range("mesh model material array out of range");
 		}
 	}
 
