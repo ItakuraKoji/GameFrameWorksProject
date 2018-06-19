@@ -6,71 +6,68 @@ namespace K_Audio {
 	//public
 	////
 	SoundSource::SoundSource(const char* sourceName, const char* filePass, LoadMode mode, int numBuffer) : name(sourceName) {
-		this->bufferIDs = new ALuint[numBuffer];
-		this->isPlayed = false;
-		this->isLoop = false;
-		this->isEnd = false;
-		this->numBuffer = numBuffer;
-		this->mode = mode;
+		try {
+			this->bufferIDs = nullptr;
+			this->isPlayed = false;
+			this->isLoop = false;
+			this->isEnd = false;
+			this->numBuffer = 0;
+			this->mode = mode;
 
 
-		alGenSources(1, &this->sourceID);
-		alDistanceModel(AL_EXPONENT_DISTANCE);
+			alGenSources(1, &this->sourceID);
+			alDistanceModel(AL_EXPONENT_DISTANCE);
 
-		//読み込み
-		AudioDataFactory factory;
-		this->audio = factory.Create(filePass);
+			//読み込み
+			AudioDataFactory factory;
+			this->audio = factory.Create(filePass);
 
-		if (this->audio->GetFormat() == AudioData::SoundFormat::Stereo16) {
-			this->format = AL_FORMAT_STEREO16;
-		}
-		else {
-			this->format = AL_FORMAT_MONO16;
-		}
-		//バッファ生成＆事前読み込み
-		switch (this->mode) {
-		case LoadMode::Streaming:
-			//ストリーミングモードはバッファを作ってキューする
-			char buffer[4096];
-			for (int i = 0; i < this->numBuffer; ++i) {
-				alGenBuffers(1, &this->bufferIDs[i]);
-				int readSize = ReadBuffer(buffer, 4096);
-				alBufferData(this->bufferIDs[i], this->format, buffer, readSize, this->audio->GetSamplingRate());
-				alSourceQueueBuffers(this->sourceID, 1, &this->bufferIDs[i]);
+			if (this->audio->GetFormat() == AudioData::SoundFormat::Stereo16) {
+				this->format = AL_FORMAT_STEREO16;
 			}
-			//スレッド開始 (スレッドにメンバー関数を指定する際は第二引数にthisポインターを指定する)
-			this->thread = new std::thread(&SoundSource::StreamingThread, this);
-			break;
+			else {
+				this->format = AL_FORMAT_MONO16;
+			}
 
-		case LoadMode::AllRead:
-			//オールリードモードはすべて読んでバッファに突っ込む
-			int size = this->audio->GetLoopLength() * this->audio->GetBlockSize();
-			this->allReadData.resize(size);
-			int readSize = ReadBuffer(this->allReadData.data(), size);
-			alGenBuffers(1, &this->bufferIDs[0]);
-			alBufferData(this->bufferIDs[0], this->format, this->allReadData.data(), readSize, this->audio->GetSamplingRate());
-			alSourcei(this->sourceID, AL_BUFFER, this->bufferIDs[0]);
-			this->numBuffer = 1;
-			this->thread = new std::thread(&SoundSource::AllReadThread, this);
-			break;
+			this->bufferIDs = new ALuint[numBuffer];
+			this->numBuffer = numBuffer;
+
+			//バッファ生成＆事前読み込み
+			switch (this->mode) {
+			case LoadMode::Streaming:
+				//ストリーミングモードはバッファを作ってキューする
+				char buffer[4096];
+				for (int i = 0; i < this->numBuffer; ++i) {
+					alGenBuffers(1, &this->bufferIDs[i]);
+					int readSize = ReadBuffer(buffer, 4096);
+					alBufferData(this->bufferIDs[i], this->format, buffer, readSize, this->audio->GetSamplingRate());
+					alSourceQueueBuffers(this->sourceID, 1, &this->bufferIDs[i]);
+				}
+				//スレッド開始 (スレッドにメンバー関数を指定する際は第二引数にthisポインターを指定する)
+				this->thread = new std::thread(&SoundSource::StreamingThread, this);
+				break;
+
+			case LoadMode::AllRead:
+				//オールリードモードはすべて読んでバッファに突っ込む
+				int size = this->audio->GetLoopLength() * this->audio->GetBlockSize();
+				this->allReadData.resize(size);
+				int readSize = ReadBuffer(this->allReadData.data(), size);
+				alGenBuffers(1, &this->bufferIDs[0]);
+				alBufferData(this->bufferIDs[0], this->format, this->allReadData.data(), readSize, this->audio->GetSamplingRate());
+				alSourcei(this->sourceID, AL_BUFFER, this->bufferIDs[0]);
+				this->numBuffer = 1;
+				this->thread = new std::thread(&SoundSource::AllReadThread, this);
+				break;
+			}
 		}
-
+		catch (std::exception& e) {
+			Finalize();
+			throw e;
+		}
 	}
 
 	SoundSource::~SoundSource() {
-		EndThread();
-
-		if (this->thread != nullptr) {
-			this->thread->join();
-			delete this->thread;
-			this->thread = nullptr;
-		}
-		delete this->audio;
-
-		alDeleteBuffers(this->numBuffer, this->bufferIDs);
-		alDeleteSources(1, &this->sourceID);
-
-		delete[] this->bufferIDs;
+		Finalize();
 	}
 
 
@@ -170,6 +167,26 @@ namespace K_Audio {
 	////////
 	//private
 	////
+
+	void SoundSource::Finalize() {
+		EndThread();
+
+		if (this->thread != nullptr) {
+			this->thread->join();
+			delete this->thread;
+			this->thread = nullptr;
+		}
+		if (this->audio != nullptr) {
+			delete this->audio;
+		}
+
+		alDeleteBuffers(this->numBuffer, this->bufferIDs);
+		alDeleteSources(1, &this->sourceID);
+
+		if (this->bufferIDs != nullptr) {
+			delete[] this->bufferIDs;
+		}
+	}
 
 	//ストリーミングして再生するスレッド
 	void SoundSource::StreamingThread() {

@@ -108,6 +108,9 @@ namespace K_System {
 		//!@return 入力クラスへのポインタ
 		K_Input::InputClass* GetInput();
 
+		//!@brief ウィンドウを閉じてアプリケーションを終了する
+		void EndSystem();
+
 		//!@brief 描画のカリング設定
 		//!@param[in] active trueでカリングを有効にする
 		//!@param[in] cullingInfo カリングするのは表か裏かを設定する

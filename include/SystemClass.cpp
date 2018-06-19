@@ -123,6 +123,11 @@ namespace K_System {
 		glfwSetWindowIcon(this->windowHandle, count, image);
 		delete[] image;
 	}
+
+	void SystemClass::EndSystem() {
+		glfwSetWindowShouldClose(this->windowHandle, GLFW_TRUE);
+	}
+
 	void SystemClass::SetCulling(bool active, CullingInfo cullingInfo, FrontFaceInfo frontFaceInfo) {
 		if (!active) {
 			glDisable(GL_CULL_FACE);

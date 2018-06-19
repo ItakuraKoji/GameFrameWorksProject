@@ -24,6 +24,7 @@ namespace K_Physics {
 			return false;
 		}
 		SetCollisionWorld(physics, myselfMask, giveMask);
+		this->physics = physics;
 		return true;
 	}
 	//解放
@@ -31,10 +32,11 @@ namespace K_Physics {
 		for (auto it = this->polygonStack.begin(); it < this->polygonStack.end(); ++it) {
 			delete[](*it).polygon;
 		}
-		//こいつだけは自分で開放しないといけない
+		//コリジョンをワールドから取り除く
 		if (this->collisionMesh != nullptr) {
 			delete collisionMesh;
 			this->collisionMesh = nullptr;
+			this->physics->RemoveCollision(&this->rigid);
 		}
 	}
 

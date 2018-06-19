@@ -170,9 +170,8 @@ namespace K_Physics {
 			rigid->setCollisionFlags(rigid->getCollisionFlags() & !btCollisionObject::CF_NO_CONTACT_RESPONSE);
 		}
 
-		int mask = myselfMask | giveMask;
-		this->bulletWorld->addRigidBody(rigid, mask, mask);
-		CollisionTag tag = { "default", 0, nullptr };
+		this->bulletWorld->addRigidBody(rigid, myselfMask, giveMask);
+		CollisionTag tag = { "", 0, nullptr };
 		RigidBodyData* colData = new RigidBodyData(rigid, myselfMask, giveMask, tag);
 		rigid->setUserPointer(colData);
 		return colData;
@@ -197,8 +196,7 @@ namespace K_Physics {
 				collision->setCollisionFlags(collision->getCollisionFlags() & !btCollisionObject::CF_NO_CONTACT_RESPONSE);
 			}
 			collision->setWorldTransform(trans);
-			int mask = myselfMask | giveMask;
-			this->bulletWorld->addCollisionObject(collision, mask, mask);
+			this->bulletWorld->addCollisionObject(collision, myselfMask, giveMask);
 
 			CollisionTag tag = { "", 0, nullptr };
 			CollisionData* colData = new CollisionData(collision, myselfMask, giveMask, tag);
@@ -213,6 +211,10 @@ namespace K_Physics {
 	//開放
 
 	void BulletPhysics::RemoveCollision(CollisionData** collision) {
+		RemoveCollisionObject((*collision)->GetCollision());
+		collision = nullptr;
+	}
+	void BulletPhysics::RemoveCollision(RigidBodyData** collision) {
 		RemoveCollisionObject((*collision)->GetCollision());
 		collision = nullptr;
 	}
@@ -361,32 +363,50 @@ namespace K_Physics {
 		const btVector3& goVec = moveVector / (float)numMove;
 		//移動
 		DetectMaxDistance contact_cb(obj);
+		bool isHit = false;
 		for (int i = 0; i < numMove; ++i) {
 			MoveCollisionObject(obj, goVec);
-			//FixContactCallBack contact_cb(obj, limitDirection);
-			//this->bulletWorld->contactTest(obj, contact_cb);
-			//if (contact_cb.isHit) {
+			//FixContactCallBack cb(obj, limitDirection);
+			//this->bulletWorld->contactTest(obj, cb);
+			//if (cb.isHit) {
 			//	break;
 			//}
-			bool isHit = false;
-			for (int i = 0; i < numFix; ++i) {
-				//一番深くめり込んだものの法線方向へ押し出し
-				do {
-					this->bulletWorld->contactTest(obj, contact_cb);
-				} while (contact_cb.isLoop);
-				//押し出し
-				if (!contact_cb.maxDistance) {
+			//一番深くめり込んだものの法線方向へ押し出し
+			do {
+				this->bulletWorld->contactTest(obj, contact_cb);
+			} while (contact_cb.isLoop);
+			//押し出し
+			if (!contact_cb.maxDistance) {
+				continue;
+			}
+			//方向制限がかかっている場合は進んだ方向から戻るようにしか押し出せない
+			//if (limitDirection.norm() > 0.0f && false) {
+
+			//	std::cout << contact_cb.m_closestDistanceThreshold << std::endl;
+			//	MoveCollisionObject(obj, -goVec * 0.5f);
+			//	isHit = true;
+			//}
+			//else {
+			//	MoveCollisionObject(obj, contact_cb.fixVec * -contact_cb.maxDistance);
+			//	isHit = true;
+			//	break;
+			//}
+			if (limitDirection.norm() <= 0.0f) {
+				MoveCollisionObject(obj, contact_cb.fixVec * -contact_cb.maxDistance);
+				isHit = true;
+				continue;
+			}
+
+			auto contactObj = contact_cb.maxObject;
+			for (int i = 0; i < 50; ++i) {
+				DetectMaxDistance callback(obj);
+				this->bulletWorld->contactPairTest(obj, contactObj, callback);
+				if (!callback.maxDistance) {
 					break;
 				}
 				//方向制限がかかっている場合は進んだ方向から戻るようにしか押し出せない
-				if (limitDirection.norm() > 0.0f) {
-					MoveCollisionObject(obj, -goVec);
-					isHit = true;
-					break;
-				}
-				else {
-					MoveCollisionObject(obj, contact_cb.fixVec * -contact_cb.maxDistance);
-				}
+				MoveCollisionObject(obj, -goVec * 0.1f);
+				isHit = true;
 			}
 			if (isHit) {
 				break;
@@ -503,8 +523,10 @@ namespace K_Physics {
 		obj->setWorldTransform(to);
 
 		//わずかなめり込みを押し出す
-		FixContactCallBack contact_cb(obj, fixVector);
-		this->bulletWorld->contactTest(obj, contact_cb);
+		for (int i = 0; i < 0; ++i) {
+			FixContactCallBack contact_cb(obj, fixVector);
+			this->bulletWorld->contactTest(obj, contact_cb);
+		}
 
 
 		return normal;

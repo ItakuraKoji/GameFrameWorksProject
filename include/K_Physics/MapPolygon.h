@@ -66,6 +66,9 @@ namespace K_Physics {
 
 
 	private:
+		//アクセス用の物理クラス
+		K_Physics::BulletPhysics* physics;
+
 		//判定用の頂点配列
 		std::vector<PolygonData> polygonStack;
 

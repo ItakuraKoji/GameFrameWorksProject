@@ -18,7 +18,8 @@ var class_k___physics_1_1_bullet_physics =
     [ "MoveCharacter", "class_k___physics_1_1_bullet_physics.html#a386d5ba9c55af79204681da52ced1c9c", null ],
     [ "MoveCharacterDiscrete", "class_k___physics_1_1_bullet_physics.html#a5b3f568b9865bbabbbb2824f06e94966", null ],
     [ "Raycast", "class_k___physics_1_1_bullet_physics.html#a51dfdc8e5e578900a3851b21ba800e51", null ],
-    [ "RemoveCollision", "class_k___physics_1_1_bullet_physics.html#add323e4324f89b08a4891369515ddd8b", null ],
+    [ "RemoveCollision", "class_k___physics_1_1_bullet_physics.html#a23985529dcbd80eac6843758b15f8984", null ],
+    [ "RemoveCollision", "class_k___physics_1_1_bullet_physics.html#aa1d62472aa6bfbe82e628c412744df54", null ],
     [ "RemoveCollisionShape", "class_k___physics_1_1_bullet_physics.html#ab2aec9e34e8c937a6b6a222cd4a04a81", null ],
     [ "Run", "class_k___physics_1_1_bullet_physics.html#a251957471a8ab4f8bbace69c995d325f", null ],
     [ "SetSkyVector", "class_k___physics_1_1_bullet_physics.html#a25e2b469949af5cd99067faccfdcd4b0", null ]

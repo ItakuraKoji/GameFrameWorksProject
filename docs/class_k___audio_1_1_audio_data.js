@@ -15,7 +15,6 @@ var class_k___audio_1_1_audio_data =
     [ "GetPcmOffset", "class_k___audio_1_1_audio_data.html#a8e748a69e85a34013fd109ee4a40e475", null ],
     [ "GetPcmSize", "class_k___audio_1_1_audio_data.html#af8cc58d3eb488dc306511d3321bc8ef6", null ],
     [ "GetSamplingRate", "class_k___audio_1_1_audio_data.html#a213c7b7f73905d9e708ba82ec6eacaf5", null ],
-    [ "LoadFile", "class_k___audio_1_1_audio_data.html#a97453a72c7161214868303f6fdca9494", null ],
     [ "Read", "class_k___audio_1_1_audio_data.html#af42b123ad2ce45867401d697fd572392", null ],
     [ "Seek", "class_k___audio_1_1_audio_data.html#a1ba3ab1b4bae0b460d26278cb29ce16e", null ],
     [ "blockSize", "class_k___audio_1_1_audio_data.html#a8e8445d5d8449b7b7bbafeaf893bad74", null ],

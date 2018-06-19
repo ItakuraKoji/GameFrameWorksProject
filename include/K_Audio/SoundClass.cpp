@@ -12,17 +12,17 @@ namespace K_Audio {
 
 		this->device = alcOpenDevice(nullptr);
 		if (this->device == nullptr) {
-			throw("OpenAL Initialize Failed : device");
+			throw std::runtime_error("OpenAL Initialize Failed : device");
 		}
 		this->context = alcCreateContext(this->device, nullptr);
 		if (this->context == nullptr) {
 			alcCloseDevice(this->device);
-			throw("OpenAL Initialize Failed : context");
+			throw std::runtime_error("OpenAL Initialize Failed : context");
 		}
 		if (alcMakeContextCurrent(this->context) == ALC_FALSE) {
 			alcDestroyContext(this->context);
 			alcCloseDevice(this->device);
-			throw("OpenAL Initialize Failed : alcMakeContextCullent() Failed");
+			throw std::runtime_error("OpenAL Initialize Failed : alcMakeContextCullent() Failed");
 		}
 		SetListnerPosition(0.0f, 0.0f, 0.0f);
 	}
@@ -36,35 +36,31 @@ namespace K_Audio {
 	}
 
 
-	bool SoundClass::CreateSource(const char* sourceName, const char* filePass, SoundSource::LoadMode mode) {
+	void SoundClass::CreateSource(const char* sourceName, const char* filePass, SoundSource::LoadMode mode) {
 		//ソース名の重複は許さない
 		if (this->source.find(sourceName) != this->source.end()) {
-			return false;
+			throw std::runtime_error("SoundClass createSource error sourceName has already existed : " + std::string(sourceName));
 		}
 		SoundSource* audioSource = new SoundSource(sourceName, filePass, mode);
-		if (!audioSource) {
-			return false;
-		}
 
 		this->source[sourceName] = audioSource;
-		return true;
 	}
 
 	//ソースの明示的解放(ほっといてもデストラクタですべて解放される)
 	void SoundClass::DeleteSource(const char* sourceName) {
 		//ソース名の存在チェック
 		if (this->source.find(sourceName) == this->source.end()) {
-			return;
+			throw std::runtime_error("SoundClass deleteSource error sourceName is not exist : " + std::string(sourceName));
 		}
 		delete this->source[sourceName];
 		this->source.erase(sourceName);
 	}
 
-	//ソースの獲得。ポインターを返す関数は本当は作りたくないんだがなあ
+	//ソースの獲得。ポインタを返す関数は本当は作りたくないんだがなあ
 	SoundSource* SoundClass::GetSource(const char* sourceName) {
 		//ソース名の存在チェック
 		if (this->source.find(sourceName) == this->source.end()) {
-			return nullptr;
+			throw std::runtime_error("SoundClass deleteSource error sourceName is not exist : " + std::string(sourceName));
 		}
 		return this->source[sourceName];
 	}

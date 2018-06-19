@@ -2,6 +2,7 @@ var class_k___system_1_1_system_class =
 [
     [ "SystemClass", "class_k___system_1_1_system_class.html#a470a491a2c1cc55a951151e8847f5dde", null ],
     [ "~SystemClass", "class_k___system_1_1_system_class.html#a5bdd9b6b328727510a660dc7ab9ea8ac", null ],
+    [ "EndSystem", "class_k___system_1_1_system_class.html#a57b9ab7f9719775bc42a77117aba3053", null ],
     [ "Finalize", "class_k___system_1_1_system_class.html#a93d05d4f421da35f53c4969e53ca7d49", null ],
     [ "GetFPS", "class_k___system_1_1_system_class.html#a3a7f4940ac8f1e1a13d3aaa69617e093", null ],
     [ "GetInput", "class_k___system_1_1_system_class.html#ac0a92ee3670899123d05ed65a272cbb2", null ],

@@ -125,7 +125,8 @@ namespace K_Physics {
 		CollisionData* CreateCollisionObject(btCollisionShape* shape, bool ghost, int myselfMask, int giveMask, const K_Math::Vector3& pos = K_Math::Vector3(0, 0, 0), const K_Math::Vector3& rot = K_Math::Vector3(0, 0, 0));
 
 		//!@brief 明示的に世界に登録している剛体を世界から外してからポインタをdeleteする\nこのクラスのデストラクタにてこの関数によって全て開放している
-		void RemoveCollision(CollisionData** rigidbody);
+		void RemoveCollision(CollisionData** collision);
+		void RemoveCollision(RigidBodyData** rigidbody);
 
 		//!@brief 明示的にリストに存在する形状情報をリストから外してdeleteする
 		//!この関数を呼ばなくても、このクラスのデストラクタで全て開放している
@@ -196,8 +197,12 @@ namespace K_Physics {
 		//自分自身にヒットしないようにオーバーライド
 		//戻り値に意味はないみたい
 		virtual btScalar addSingleResult(btCollisionWorld::LocalConvexResult& convexResult, bool normalInWorldSpace)override;
+
+		//コリジョンマスク判定
+		virtual bool needsCollision(btBroadphaseProxy* proxy0) const override;
+
 	public:
-		btCollisionObject * myself;
+		btCollisionObject* myself;
 
 	};
 
@@ -209,6 +214,9 @@ namespace K_Physics {
 		//戻り値に意味はないみたい
 		//こっちは自分自身（contactTestで渡したオブジェクト）とは衝突しないようです
 		virtual	btScalar addSingleResult(btManifoldPoint& cp, const btCollisionObjectWrapper* colObj0Wrap, int partId0, int index0, const btCollisionObjectWrapper* colObj1Wrap, int partId1, int index1)override;
+
+		//コリジョンマスク判定
+		virtual bool needsCollision(btBroadphaseProxy* proxy0) const override;
 	public:
 		//押し出すオブジェクト
 		btCollisionObject * obj;
@@ -229,6 +237,9 @@ namespace K_Physics {
 		//戻り値に意味はないみたい
 		//こっちは自分自身（contactTestで渡したオブジェクト）とは衝突しないようです
 		virtual	btScalar addSingleResult(btManifoldPoint& cp, const btCollisionObjectWrapper* colObj0Wrap, int partId0, int index0, const btCollisionObjectWrapper* colObj1Wrap, int partId1, int index1)override;
+
+		//コリジョンマスク判定
+		virtual bool needsCollision(btBroadphaseProxy* proxy0) const override;
 	public:
 		//押し出すオブジェクト
 		btCollisionObject * obj;
@@ -242,6 +253,9 @@ namespace K_Physics {
 	public:
 		CollectCollisionCallBack(btCollisionObject* obj, std::vector<CollisionTag*>& tagList);
 		virtual btScalar addSingleResult(btManifoldPoint& cp, const btCollisionObjectWrapper* colObj0Wrap, int partId0, int index0, const btCollisionObjectWrapper* colObj1Wrap, int partId1, int index1)override;
+
+		//コリジョンマスク判定
+		virtual bool needsCollision(btBroadphaseProxy* proxy0) const override;
 	public:
 		std::vector<CollisionTag*>& result;
 		bool isHit;
@@ -252,6 +266,9 @@ namespace K_Physics {
 	public:
 		MyRaycastCallBack(const btVector3& from, const btVector3& to, int myselfMask);
 		virtual btScalar addSingleResult(btCollisionWorld::LocalRayResult &rayResult, bool normalInWorldSpace)override;
+
+		//コリジョンマスク判定
+		virtual bool needsCollision(btBroadphaseProxy* proxy0) const override;
 	};
 
 }
