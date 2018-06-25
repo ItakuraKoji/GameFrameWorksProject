@@ -50,7 +50,7 @@ namespace K_Physics {
 		glBufferData(GL_ARRAY_BUFFER, 2 * (sizeof(btVector3) + sizeof(btVector4)), 0, GL_DYNAMIC_DRAW);
 		glBufferSubData(GL_ARRAY_BUFFER, 0, 2 * sizeof(btVector3), lineVertex);
 		glBufferSubData(GL_ARRAY_BUFFER, 2 * sizeof(btVector3), 2 * sizeof(btVector4), lineColor);
-		glDrawElements(GL_LINES, 6, GL_UNSIGNED_INT, 0);
+		glDrawElements(GL_LINES, 2, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
 	}
 
@@ -64,7 +64,7 @@ namespace K_Physics {
 		glBufferData(GL_ARRAY_BUFFER, 2 * (sizeof(btVector3) + sizeof(btVector4)), 0, GL_DYNAMIC_DRAW);
 		glBufferSubData(GL_ARRAY_BUFFER, 0, 2 * sizeof(btVector3), lineVertex);
 		glBufferSubData(GL_ARRAY_BUFFER, 2 * sizeof(btVector3), 2 * sizeof(btVector4), lineColor);
-		glDrawElements(GL_LINES, 6, GL_UNSIGNED_INT, 0);
+		glDrawElements(GL_LINES, 2, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
 	}
 
@@ -79,7 +79,7 @@ namespace K_Physics {
 		glBufferData(GL_ARRAY_BUFFER, 2 * (sizeof(btVector3) + sizeof(btVector4)), 0, GL_DYNAMIC_DRAW);
 		glBufferSubData(GL_ARRAY_BUFFER, 0, 2 * sizeof(btVector3), lineVertex);
 		glBufferSubData(GL_ARRAY_BUFFER, 2 * sizeof(btVector3), 2 * sizeof(btVector4), lineColor);
-		glDrawElements(GL_LINES, 6, GL_UNSIGNED_INT, 0);
+		glDrawElements(GL_LINES, 2, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
 	}
 
@@ -109,4 +109,25 @@ namespace K_Physics {
 		/* 現在のデバッグモードを返却 */
 		return this->debug_mode;
 	}
+
+
+	void bulletDebugDraw::DrawAllLine() {
+
+		glBindVertexArray(this->VAO);
+		glBindBuffer(GL_ARRAY_BUFFER, this->VBO);
+		glBufferData(GL_ARRAY_BUFFER, this->lineData.size() * (sizeof(DebugLine)), this->lineData.data(), GL_DYNAMIC_DRAW);
+		//pos
+		glEnableVertexAttribArray(0);
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(btVector3), 0);
+		//color
+		glEnableVertexAttribArray(1);
+		glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(btVector4), (unsigned char*)NULL + (2 * sizeof(btVector3)));
+		//IBO
+		glGenBuffers(1, &this->IBO);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this->IBO);
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, 2 * sizeof(unsigned int), this->lineIndex.data(), GL_STATIC_DRAW);
+		glDrawElements(GL_LINES, this->lineIndex.size() * 2, GL_UNSIGNED_INT, 0);
+		glBindVertexArray(0);
+	}
+
 }

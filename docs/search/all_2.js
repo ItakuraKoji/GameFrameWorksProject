@@ -15,7 +15,7 @@ var searchData=
   ['collisiondata',['CollisionData',['../class_k___physics_1_1_collision_data.html',1,'K_Physics::CollisionData'],['../class_k___physics_1_1_collision_data.html#a8e1899c052ce9388bd583dc77c6d9d3d',1,'K_Physics::CollisionData::CollisionData()']]],
   ['collisionshape',['CollisionShape',['../namespace_k___physics.html#aa0de61c2beb0d423efad313964d20f31',1,'K_Physics']]],
   ['collisiontag',['CollisionTag',['../struct_k___physics_1_1_collision_tag.html',1,'K_Physics']]],
-  ['color',['color',['../class_k___graphics_1_1_ambient_light.html#ab1122a784c5ec44b828ace7013d1d7c8',1,'K_Graphics::AmbientLight::color()'],['../class_k___graphics_1_1_directional_light.html#a136a2152a4f66c7c8f9676abc2c7211c',1,'K_Graphics::DirectionalLight::color()']]],
+  ['color',['color',['../class_k___graphics_1_1_ambient_light.html#ab1122a784c5ec44b828ace7013d1d7c8',1,'K_Graphics::AmbientLight::color()'],['../class_k___graphics_1_1_directional_light.html#a136a2152a4f66c7c8f9676abc2c7211c',1,'K_Graphics::DirectionalLight::color()'],['../struct_k___physics_1_1_debug_line.html#a8847d1b503dd9fa08ae7005f68235357',1,'K_Physics::DebugLine::color()']]],
   ['controlleft',['ControlLeft',['../namespace_k___input.html#af62d80c77b12db01035e4b9aa27a09d6af37bbf0b270fca4b52a03cec0bf900f6',1,'K_Input']]],
   ['controlpoint',['controlPoint',['../class_k___graphics_1_1_sprite_object.html#ad5d76b9b0a30102d01abbb20bab285f8',1,'K_Graphics::SpriteObject']]],
   ['controlright',['ControlRight',['../namespace_k___input.html#af62d80c77b12db01035e4b9aa27a09d6a6ff11445c5c9c2ed1c422621ebf2a03a',1,'K_Input']]],

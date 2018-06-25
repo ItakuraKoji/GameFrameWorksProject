@@ -1,9 +1,19 @@
 #pragma once
+#include<vector>
 #include<bullet\btBulletDynamicsCommon.h>
 #include<GLEW\glew.h>
 #include"K_Graphics\ShaderClass.h"
 
 namespace K_Physics {
+	struct DebugLine {
+		btVector3 pos;
+		btVector4 color;
+	};
+	struct DebugLineIndex {
+		unsigned int from;
+		unsigned int to;
+	};
+
 	//bulletデバッグ用描画クラス(OpenGL)
 	//シェーダーや行列などは外から渡す
 	class bulletDebugDraw : public btIDebugDraw {
@@ -20,8 +30,12 @@ namespace K_Physics {
 		void setDebugMode(int debugMode);
 		int getDebugMode() const;
 
+		void DrawAllLine();
+
 	private:
 		int debug_mode;
+		std::vector<DebugLine> lineData;
+		std::vector<DebugLineIndex> lineIndex;
 		GLuint VAO;
 		GLuint VBO;
 		GLuint IBO;

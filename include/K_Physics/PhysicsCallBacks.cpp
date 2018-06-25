@@ -16,11 +16,11 @@ namespace K_Physics {
 	//自身と衝突しないsweepTestのコールバック
 	btScalar SweepTestCallBack::addSingleResult(btCollisionWorld::LocalConvexResult& convexResult, bool normalInWorldSpace) {
 		//自分が衝突しないオブジェクトの場合
-		if (this->myself->getCollisionFlags() && btCollisionObject::CF_NO_CONTACT_RESPONSE) {
+		if (this->myself->getCollisionFlags() & btCollisionObject::CF_NO_CONTACT_RESPONSE) {
 			return btScalar(0.0f);
 		}
 		//相手が衝突しないオブジェクトの場合
-		if (convexResult.m_hitCollisionObject->getCollisionFlags() && btCollisionObject::CF_NO_CONTACT_RESPONSE) {
+		if (convexResult.m_hitCollisionObject->getCollisionFlags() & btCollisionObject::CF_NO_CONTACT_RESPONSE) {
 			return btScalar(0.0f);
 		}
 		//相手とマスクが合わない場合
@@ -59,11 +59,11 @@ namespace K_Physics {
 		//「最近衝突物との距離が０（誤差含む）」「ループが一定回数に達した」ときループを抜ける
 		this->isLoop = false;
 		//自分が衝突しないオブジェクトの場合
-		if (this->obj->getCollisionFlags() && btCollisionObject::CF_NO_CONTACT_RESPONSE) {
+		if (this->obj->getCollisionFlags() & btCollisionObject::CF_NO_CONTACT_RESPONSE) {
 			return btScalar(0.0f);
 		}
 		//相手が衝突しないオブジェクトの場合
-		if (colObj1Wrap->getCollisionObject()->getCollisionFlags() && btCollisionObject::CF_NO_CONTACT_RESPONSE) {
+		if (colObj1Wrap->getCollisionObject()->getCollisionFlags() & btCollisionObject::CF_NO_CONTACT_RESPONSE) {
 			return btScalar(0.0f);
 		}
 		//相手とマスクが合わない場合
@@ -114,11 +114,11 @@ namespace K_Physics {
 	//めり込み最大の法線ベクトルを見つけるコールバック
 	btScalar FixContactCallBack::addSingleResult(btManifoldPoint& cp, const btCollisionObjectWrapper* colObj0Wrap, int partId0, int index0, const btCollisionObjectWrapper* colObj1Wrap, int partId1, int index1) {
 		//自分が衝突しないオブジェクトの場合
-		if (this->obj->getCollisionFlags() && btCollisionObject::CF_NO_CONTACT_RESPONSE) {
+		if (this->obj->getCollisionFlags() & btCollisionObject::CF_NO_CONTACT_RESPONSE) {
 			return btScalar(0.0f);
 		}
 		//相手が衝突しないオブジェクトの場合
-		if (colObj1Wrap->getCollisionObject()->getCollisionFlags() && btCollisionObject::CF_NO_CONTACT_RESPONSE) {
+		if (colObj1Wrap->getCollisionObject()->getCollisionFlags() & btCollisionObject::CF_NO_CONTACT_RESPONSE) {
 			return btScalar(0.0f);
 		}
 		//相手とマスクが合わない場合

@@ -195,6 +195,7 @@ namespace K_Physics {
 			else {
 				collision->setCollisionFlags(collision->getCollisionFlags() & !btCollisionObject::CF_NO_CONTACT_RESPONSE);
 			}
+
 			collision->setWorldTransform(trans);
 			this->bulletWorld->addCollisionObject(collision, myselfMask, giveMask);
 
@@ -266,6 +267,9 @@ namespace K_Physics {
 
 		//縦に移動
 		MoveSmooth(obj->GetCollision(), vMove, vLimitAngle, -vMove);
+
+		printf("\n");
+
 	}
 
 	//処理が　軽いほう
@@ -448,6 +452,8 @@ namespace K_Physics {
 			return;
 		}
 
+		printf("%f ", K_Math::RadToDeg(acosf(angle_cos)));
+
 		//坂を登れない場合は壁扱いとして横方向の壁ずりベクトルを作成
 		if (angle_cos < limit_cos) {
 			const btVector3& goVecZ = zAxis * zAxis.dot(normal);
@@ -521,13 +527,6 @@ namespace K_Physics {
 			to.setOrigin(objPos);
 		}
 		obj->setWorldTransform(to);
-
-		//わずかなめり込みを押し出す
-		for (int i = 0; i < 0; ++i) {
-			FixContactCallBack contact_cb(obj, fixVector);
-			this->bulletWorld->contactTest(obj, contact_cb);
-		}
-
 
 		return normal;
 	}
