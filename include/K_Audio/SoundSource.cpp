@@ -13,7 +13,8 @@ namespace K_Audio {
 			this->isEnd = false;
 			this->numBuffer = 0;
 			this->mode = mode;
-
+			this->volume = 1.0f;
+			this->pitch = 1.0f;
 
 			alGenSources(1, &this->sourceID);
 			alDistanceModel(AL_EXPONENT_DISTANCE);
@@ -22,11 +23,22 @@ namespace K_Audio {
 			AudioDataFactory factory;
 			this->audio = factory.Create(filePass);
 
-			if (this->audio->GetFormat() == AudioData::SoundFormat::Stereo16) {
+			switch (this->audio->GetFormat()) {
+			case AudioData::SoundFormat::Stereo16:
 				this->format = AL_FORMAT_STEREO16;
-			}
-			else {
+				break;
+			case AudioData::SoundFormat::Stereo8:
+				this->format = AL_FORMAT_STEREO8;
+				break;
+			case AudioData::SoundFormat::Mono16:
 				this->format = AL_FORMAT_MONO16;
+				break;
+			case AudioData::SoundFormat::Mono8:
+				this->format = AL_FORMAT_MONO8;
+				break;
+			default:
+				throw std::runtime_error("Unknown Sound Format");
+				break;
 			}
 
 			this->bufferIDs = new ALuint[numBuffer];
@@ -86,7 +98,7 @@ namespace K_Audio {
 	void SoundSource::PlayCopy() {
 		//ストリーミングモードでは利用できない
 		if (this->mode == LoadMode::Streaming) {
-			return;
+			throw std::runtime_error("Streaming Sound Source can't use PlayCopy() :" + this->name);
 		}
 		ALuint source;
 		{
@@ -98,6 +110,7 @@ namespace K_Audio {
 			this->copySources.push_back(source);
 		}
 		alSourcef(source, AL_MAX_GAIN, this->volume);
+		alSourcef(source, AL_PITCH, this->pitch);
 		alSourcePlay(source);
 	}
 
@@ -133,6 +146,7 @@ namespace K_Audio {
 		}
 	}
 
+	//音量変更
 	void SoundSource::SetVolume(float volume) {
 		alSourcef(this->sourceID, AL_MAX_GAIN, volume);
 		{
@@ -140,6 +154,16 @@ namespace K_Audio {
 			this->volume = volume;
 		}
 	}
+	//ピッチ変更、０以下はエラー
+	void SoundSource::SetPitch(float pitch) {
+		alSourcef(this->sourceID, AL_PITCH, pitch);
+		{
+			std::lock_guard<std::recursive_mutex> lock(this->_mutex);
+			this->pitch = pitch;
+		}
+	}
+
+	//位置変更、ステレオ音源には設定できない
 	void SoundSource::SetPosition(float x, float y, float z) {
 		alSource3f(this->sourceID, AL_POSITION, x, y, z);
 		{
@@ -149,6 +173,7 @@ namespace K_Audio {
 			this->posZ = z;
 		}
 	}
+	//速度設定、ドップラー効果を生む
 	void SoundSource::SetVelocity(float x, float y, float z) {
 		alSource3f(this->sourceID, AL_VELOCITY, x, y, z);
 		{
@@ -268,6 +293,7 @@ namespace K_Audio {
 
 	//基本4096バイト、実際にバッファを読む関数
 	void SoundSource::FillBuffer() {
+		//現在の読み込みサイズ
 		int size = 0;
 
 		char buffer[4096];

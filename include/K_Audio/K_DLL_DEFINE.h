@@ -1,6 +1,5 @@
 #pragma once
 
-#define DLL_EXP
 //DLLファイルのインポートエクスポート設定
 #ifdef DLL_EXP
 #define DLL_DECLSPEC __declspec(dllexport)
