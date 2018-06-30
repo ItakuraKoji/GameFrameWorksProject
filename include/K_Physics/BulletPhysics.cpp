@@ -261,15 +261,25 @@ namespace K_Physics {
 			hMove = btVector3(0.0f, 0.0f, 0.0f);
 		}
 
-
-		//横に移動
-		MoveSmooth(obj->GetCollision(), hMove, hLimitAngle, this->toSkyVector);
-
 		//縦に移動
 		MoveSmooth(obj->GetCollision(), vMove, vLimitAngle, -vMove);
 
-		printf("\n");
+		const btVector3& position = obj->GetCollision()->getWorldTransform().getOrigin();
+		int mask = obj->GetMyselfMask();
+		MyRaycastCallBack ray_cb(position, position - this->toSkyVector * 2.0f, mask);
+		this->bulletWorld->rayTest(position, position - this->toSkyVector * 2.0f, ray_cb);
+		btVector3 floorNormal = ray_cb.m_hitNormalWorld;
 
+		//縦移動時に床があった場合は床の法線を使って床に沿って歩くようにする
+		if (floorNormal.norm() > 0.001f) {
+			btVector3 floorXAxis = floorNormal.normalized().cross(hMove);
+			if (floorXAxis.norm() > 0.001f) {
+				hMove = floorXAxis.cross(floorNormal.normalized());
+			}
+		}
+
+		//横に移動
+		MoveSmooth(obj->GetCollision(), hMove, hLimitAngle, this->toSkyVector);
 	}
 
 	//処理が　軽いほう
@@ -419,9 +429,9 @@ namespace K_Physics {
 
 	}
 
-	void BulletPhysics::MoveSmooth(btCollisionObject *obj, const btVector3 &moveVector, float limitAngle, const btVector3& limitDirection) {
+	btVector3 BulletPhysics::MoveSmooth(btCollisionObject *obj, const btVector3 &moveVector, float limitAngle, const btVector3& limitDirection) {
 		if (moveVector.norm() < 0.001f) {
-			return;
+			return btVector3(0.0f, 0.0f, 0.0f);
 		}
 
 		//移動一回目
@@ -433,7 +443,6 @@ namespace K_Physics {
 		btVector3 xAxis = yAxis.cross(moveVector);
 		btVector3 zAxis;
 		if (xAxis.norm() > 0.001f) {
-			//縦成分と横成分にベクトルを分解
 			xAxis.normalize();
 			zAxis = xAxis.cross(yAxis).normalized();
 		}
@@ -449,35 +458,35 @@ namespace K_Physics {
 		}
 
 		if (normal.norm() < 0.001f) {
-			return;
+			return btVector3(0.0f, 0.0f, 0.0f);
 		}
 
-		printf("%f ", K_Math::RadToDeg(acosf(angle_cos)));
-
+		btVector3 fixedNormal;
 		//坂を登れない場合は壁扱いとして横方向の壁ずりベクトルを作成
 		if (angle_cos < limit_cos) {
 			const btVector3& goVecZ = zAxis * zAxis.dot(normal);
 			const btVector3& goVecX = xAxis * xAxis.dot(normal);
-			normal = (goVecX + goVecZ).normalized();
+			fixedNormal = (goVecX + goVecZ).normalized();
 		}
 		else {
 			//坂として扱う場合は、進行方向と空ベクトルの作る平面上に法線がくるようにする
 			const btVector3& goVecZ = zAxis * zAxis.dot(normal);
 			const btVector3& goVecY = yAxis * yAxis.dot(normal);
-			normal = (goVecY + goVecZ).normalized();
+			fixedNormal = (goVecY + goVecZ).normalized();
 		}
 
 		//壁ずりを作る
 		float hitFraction = (obj->getWorldTransform().getOrigin() - prevPos).norm() / moveVector.norm();
 		btVector3 goVec = moveVector * (1.0f - hitFraction);
-		goVec += normal * (-goVec.dot(normal));
+		goVec += fixedNormal * (-goVec.dot(fixedNormal));
 
 		if (goVec.norm() < 0.001f) {
-			return;
+			return normal;
 		}
 
 		//移動二回目
 		MoveDiscrete(obj, goVec, btVector3(0.0f, 0.0f, 0.0f));
+		return normal;
 	}
 
 	btVector3 BulletPhysics::MoveBySweep(btCollisionObject *obj, const btVector3 &moveVector, const btVector3& limitDirection, float limitAngle, float allowDistance) {
@@ -527,6 +536,9 @@ namespace K_Physics {
 			to.setOrigin(objPos);
 		}
 		obj->setWorldTransform(to);
+
+		FixContactCallBack fix_cb(obj, btVector3(0.0f, 1.0f, 0.0f));
+		this->bulletWorld->contactTest(obj, fix_cb);
 
 		return normal;
 	}

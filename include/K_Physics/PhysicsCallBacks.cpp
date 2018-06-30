@@ -192,11 +192,13 @@ namespace K_Physics {
 		this->m_closestHitFraction = 1.0f;
 		this->m_collisionFilterGroup = myselfMask;
 		this->m_collisionFilterMask = myselfMask;
+		this->m_hitNormalWorld = btVector3(0.0f, 0.0f, 0.0f);
 	}
 	btScalar MyRaycastCallBack::addSingleResult(btCollisionWorld::LocalRayResult &rayResult, bool normalInWorldSpace) {
 		if (this->m_closestHitFraction > rayResult.m_hitFraction) {
 			this->m_closestHitFraction = rayResult.m_hitFraction;
 		}
+		this->m_hitNormalWorld = rayResult.m_hitNormalLocal;
 		return rayResult.m_hitFraction;
 	}
 
