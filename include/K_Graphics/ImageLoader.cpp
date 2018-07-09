@@ -107,8 +107,6 @@ namespace K_Loader {
 			fclose(fp);
 			return false;
 		}
-
-
 		// メモリ領域確保
 		int rb = (int)png_get_rowbytes(sp, ip);
 		//配列サイズと配列のデータを設定
@@ -143,7 +141,7 @@ namespace K_Loader {
 	////
 
 
-	//TGA関連
+	//画像データ並べ替え
 	void ImageLoader::CreateReverseImage(unsigned char* data, unsigned char* src, int width, int height, int numColor, bool xReverse, bool yReverse) {
 		int count = 0;
 		//X:右から左　Y:下から上　を正の方向とする

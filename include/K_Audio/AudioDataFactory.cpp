@@ -24,7 +24,7 @@ namespace K_Audio {
 
 		case AudioType::NonSupport:
 		default:
-			data = nullptr;
+			throw;
 		}
 
 		return data;

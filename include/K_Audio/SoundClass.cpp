@@ -36,12 +36,12 @@ namespace K_Audio {
 	}
 
 
-	void SoundClass::CreateSource(const char* sourceName, const char* filePass, SoundSource::LoadMode mode) {
+	void SoundClass::CreateSource(const char* sourceName, const char* filePass, SoundSource::LoadMode mode, int numBuffer) {
 		//ソース名の重複は許さない
 		if (this->source.find(sourceName) != this->source.end()) {
 			throw std::runtime_error("SoundClass createSource error sourceName has already existed : " + std::string(sourceName));
 		}
-		SoundSource* audioSource = new SoundSource(sourceName, filePass, mode);
+		SoundSource* audioSource = new SoundSource(sourceName, filePass, mode, numBuffer);
 
 		this->source[sourceName] = audioSource;
 	}
@@ -56,7 +56,7 @@ namespace K_Audio {
 		this->source.erase(sourceName);
 	}
 
-	//ソースの獲得。ポインタを返す関数は本当は作りたくないんだがなあ
+	//ソースの獲得
 	SoundSource* SoundClass::GetSource(const char* sourceName) {
 		//ソース名の存在チェック
 		if (this->source.find(sourceName) == this->source.end()) {

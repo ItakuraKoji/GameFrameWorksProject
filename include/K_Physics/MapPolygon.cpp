@@ -153,7 +153,7 @@ namespace K_Physics {
 
 		//UVベースの読み込みは想定しない
 		for (int i = 0; i < numFace; ++i) {
-			int  polygonCount = mesh->GetPolygonVertexIndex(i);
+			int polygonCount = mesh->GetPolygonVertexIndex(i);
 			int* vertexIndex = mesh->GetPolygonVertices();
 
 			int polygonIndices[3] = {};

@@ -36,6 +36,8 @@ var hierarchy =
       [ "K_Physics::DetectMaxDistance", "struct_k___physics_1_1_detect_max_distance.html", null ],
       [ "K_Physics::FixContactCallBack", "struct_k___physics_1_1_fix_contact_call_back.html", null ]
     ] ],
+    [ "K_Physics::DebugLine", "struct_k___physics_1_1_debug_line.html", null ],
+    [ "K_Physics::DebugLineIndex", "struct_k___physics_1_1_debug_line_index.html", null ],
     [ "K_Graphics::DirectionalLight", "class_k___graphics_1_1_directional_light.html", null ],
     [ "K_Graphics::EffectClass", "class_k___graphics_1_1_effect_class.html", null ],
     [ "K_Graphics::FbxData", "class_k___graphics_1_1_fbx_data.html", null ],

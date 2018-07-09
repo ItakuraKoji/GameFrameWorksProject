@@ -11,7 +11,6 @@ namespace K_Audio {
 			LoadFile(filePass);
 		}
 		catch (std::exception& e) {
-			ov_clear(&this->oggFile);
 			throw e;
 		}
 	}

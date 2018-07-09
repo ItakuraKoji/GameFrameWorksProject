@@ -101,8 +101,9 @@ $(document).ready(function(){initNavTree('class_k___audio_1_1_sound_class.html',
 <tr class="separator:a9aba0743522979791ed9e6fe0d39c942"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2fe8f23da3db03d0fd664fc9dbb0caa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___audio_1_1_sound_class.html#ae2fe8f23da3db03d0fd664fc9dbb0caa">~SoundClass</a> ()</td></tr>
 <tr class="separator:ae2fe8f23da3db03d0fd664fc9dbb0caa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad83373465118c81d5e02e98855641daa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___audio_1_1_sound_class.html#ad83373465118c81d5e02e98855641daa">CreateSource</a> (const char *sourceName, const char *filePass, <a class="el" href="class_k___audio_1_1_sound_source.html#ad0e58f4cea821bc4087ed13830b06f69">SoundSource::LoadMode</a> mode)</td></tr>
-<tr class="separator:ad83373465118c81d5e02e98855641daa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f93a8101e156fac4bae21449fa83ebb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___audio_1_1_sound_class.html#a3f93a8101e156fac4bae21449fa83ebb">CreateSource</a> (const char *sourceName, const char *filePass, <a class="el" href="class_k___audio_1_1_sound_source.html#ad0e58f4cea821bc4087ed13830b06f69">SoundSource::LoadMode</a> mode, int numBuffer=32)</td></tr>
+<tr class="memdesc:a3f93a8101e156fac4bae21449fa83ebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">ピッチを上げるとストリーミングが追い付かないことがある、そのときはnumBufferの値を大きくするといい  <a href="#a3f93a8101e156fac4bae21449fa83ebb">[詳解]</a><br /></td></tr>
+<tr class="separator:a3f93a8101e156fac4bae21449fa83ebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7f65f8816604bdc37cb6e30671b2494"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___audio_1_1_sound_class.html#ab7f65f8816604bdc37cb6e30671b2494">DeleteSource</a> (const char *sourceName)</td></tr>
 <tr class="separator:ab7f65f8816604bdc37cb6e30671b2494"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9937bc5072d3e80a48730261108b6055"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___audio_1_1_sound_class.html#a9937bc5072d3e80a48730261108b6055">SetListnerPosition</a> (float x, float y, float z)</td></tr>
@@ -148,8 +149,8 @@ $(document).ready(function(){initNavTree('class_k___audio_1_1_sound_class.html',
 </div>
 </div>
 <h2 class="groupheader">関数詳解</h2>
-<a id="ad83373465118c81d5e02e98855641daa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad83373465118c81d5e02e98855641daa">&#9670;&nbsp;</a></span>CreateSource()</h2>
+<a id="a3f93a8101e156fac4bae21449fa83ebb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f93a8101e156fac4bae21449fa83ebb">&#9670;&nbsp;</a></span>CreateSource()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -170,7 +171,13 @@ $(document).ready(function(){initNavTree('class_k___audio_1_1_sound_class.html',
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="class_k___audio_1_1_sound_source.html#ad0e58f4cea821bc4087ed13830b06f69">SoundSource::LoadMode</a>&#160;</td>
-          <td class="paramname"><em>mode</em>&#160;</td>
+          <td class="paramname"><em>mode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numBuffer</em> = <code>32</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -179,6 +186,8 @@ $(document).ready(function(){initNavTree('class_k___audio_1_1_sound_class.html',
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>ピッチを上げるとストリーミングが追い付かないことがある、そのときはnumBufferの値を大きくするといい </p>
 
 </div>
 </div>
