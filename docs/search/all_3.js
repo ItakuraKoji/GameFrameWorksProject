@@ -21,7 +21,6 @@ var searchData=
   ['drawallline',['DrawAllLine',['../class_k___physics_1_1bullet_debug_draw.html#a66c816fc0f76c0244d0743c690273306',1,'K_Physics::bulletDebugDraw']]],
   ['drawcontactpoint',['drawContactPoint',['../class_k___physics_1_1bullet_debug_draw.html#aee36880ac9b46c4379317b8f6d77d312',1,'K_Physics::bulletDebugDraw']]],
   ['drawline',['drawLine',['../class_k___physics_1_1bullet_debug_draw.html#a361177ad23a76003b5e0811e4d3643d5',1,'K_Physics::bulletDebugDraw::drawLine(const btVector3 &amp;from, const btVector3 &amp;to, const btVector3 &amp;color)'],['../class_k___physics_1_1bullet_debug_draw.html#a0842dd424336cc1e332cd2c01f68ac86',1,'K_Physics::bulletDebugDraw::drawLine(const btVector3 &amp;from, const btVector3 &amp;to, const btVector3 &amp;fromColor, const btVector3 &amp;toColor)']]],
-  ['drawmodel',['drawModel',['../class_k___graphics_1_1_mesh_object.html#a3691b447ef31ac253864166711b87ea7',1,'K_Graphics::MeshObject::drawModel()'],['../class_k___graphics_1_1_sprite_object.html#a91966c81a550dd6b04ccc0bd210c289d',1,'K_Graphics::SpriteObject::drawModel()']]],
   ['drawstring2d',['DrawString2D',['../class_k___graphics_1_1_font_renderer.html#a8d3687d4a4dad3682ab2bfa29e9cc15b',1,'K_Graphics::FontRenderer']]],
   ['drawstring3d',['DrawString3D',['../class_k___graphics_1_1_font_renderer.html#adfb9bb5d77fdcb2a52c5ce5b7f011a67',1,'K_Graphics::FontRenderer']]]
 ];

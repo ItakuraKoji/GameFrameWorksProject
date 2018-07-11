@@ -13,6 +13,8 @@ var searchData=
   ['createcapsuleshape',['CreateCapsuleShape',['../class_k___physics_1_1_bullet_physics.html#a103325d150362efb1d0387a632b7037b',1,'K_Physics::BulletPhysics']]],
   ['createcollisionobject',['CreateCollisionObject',['../class_k___physics_1_1_bullet_physics.html#a6647c5111e6041f4ca80d727d34a6c1f',1,'K_Physics::BulletPhysics']]],
   ['createframebuffer',['CreateFrameBuffer',['../class_k___graphics_1_1_frame_buffer_list.html#a21a4bff7e956835548565d9b46c031b5',1,'K_Graphics::FrameBufferList::CreateFrameBuffer(const std::string &amp;name, int width, int height)'],['../class_k___graphics_1_1_frame_buffer_list.html#a0ba074b9922c099102a43e92b6815d4c',1,'K_Graphics::FrameBufferList::CreateFrameBuffer(const std::string &amp;name, const std::string &amp;depthBuffer, int width, int height)']]],
+  ['createmodeldatacopy',['CreateModelDataCopy',['../class_k___graphics_1_1_model_data_factory.html#a4db46e0616d13b4f746a21028f40a119',1,'K_Graphics::ModelDataFactory']]],
+  ['createmodelresourcefromfbx',['CreateModelResourceFromFBX',['../class_k___graphics_1_1_model_data_factory.html#abf8dfa489821c56d744ef148f2947e71',1,'K_Graphics::ModelDataFactory']]],
   ['createrigidbody',['CreateRigidBody',['../class_k___physics_1_1_bullet_physics.html#a8b2828d01975c80c3dc4c33a11e0c251',1,'K_Physics::BulletPhysics']]],
   ['createshaderprogram',['CreateShaderProgram',['../class_k___graphics_1_1_shader_list.html#ad59998f21d1830a48ce6a336813218aa',1,'K_Graphics::ShaderList']]],
   ['createsource',['CreateSource',['../class_k___audio_1_1_sound_class.html#a3f93a8101e156fac4bae21449fa83ebb',1,'K_Audio::SoundClass']]],

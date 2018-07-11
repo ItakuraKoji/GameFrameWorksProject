@@ -8,8 +8,15 @@ namespace K_Physics {
 
 	SweepTestCallBack::SweepTestCallBack(btCollisionObject *myself) : myself(myself), ClosestConvexResultCallback(btVector3(0, 0, 0), btVector3(0, 0, 0)) {
 		CollisionData* data = (CollisionData*)this->myself->getUserPointer();
-		this->m_collisionFilterGroup = data->GetMyselfMask();
-		this->m_collisionFilterMask = data->GetGiveMask();
+		if (data->IsActive()) {
+			this->m_collisionFilterGroup = data->GetMyselfMask();
+			this->m_collisionFilterMask = data->GetGiveMask();
+		}
+		else {
+			//active出ないときは判定しない
+			this->m_collisionFilterGroup = 0;
+			this->m_collisionFilterMask = 0;
+		}
 	}
 
 
@@ -50,8 +57,15 @@ namespace K_Physics {
 		this->obj = obj;
 
 		CollisionData* data = (CollisionData*)this->obj->getUserPointer();
-		this->m_collisionFilterGroup = data->GetMyselfMask();
-		this->m_collisionFilterMask = data->GetGiveMask();
+		if (data->IsActive()) {
+			this->m_collisionFilterGroup = data->GetMyselfMask();
+			this->m_collisionFilterMask = data->GetGiveMask();
+		}
+		else {
+			//active出ないときは判定しない
+			this->m_collisionFilterGroup = 0;
+			this->m_collisionFilterMask = 0;
+		}
 	}
 
 	//めり込み最大の法線ベクトルを見つけるコールバック
@@ -107,8 +121,15 @@ namespace K_Physics {
 		this->limitDirection = limitDirection;
 		this->isHit = false;
 		CollisionData* data = (CollisionData*)this->obj->getUserPointer();
-		this->m_collisionFilterGroup = data->GetMyselfMask();
-		this->m_collisionFilterMask = data->GetGiveMask();
+		if (data->IsActive()) {
+			this->m_collisionFilterGroup = data->GetMyselfMask();
+			this->m_collisionFilterMask = data->GetGiveMask();
+		}
+		else {
+			//active出ないときは判定しない
+			this->m_collisionFilterGroup = 0;
+			this->m_collisionFilterMask = 0;
+		}
 	}
 
 	//めり込み最大の法線ベクトルを見つけるコールバック
@@ -159,8 +180,15 @@ namespace K_Physics {
 
 	CollectCollisionCallBack::CollectCollisionCallBack(btCollisionObject* obj, std::vector<CollisionTag*>& tagList) : result(tagList), isHit(false) {
 		CollisionData* data = (CollisionData*)obj->getUserPointer();
-		this->m_collisionFilterGroup = data->GetMyselfMask();
-		this->m_collisionFilterMask = data->GetGiveMask();
+		if (data->IsActive()) {
+			this->m_collisionFilterGroup = data->GetMyselfMask();
+			this->m_collisionFilterMask = data->GetGiveMask();
+		}
+		else {
+			//active出ないときは判定しない
+			this->m_collisionFilterGroup = 0;
+			this->m_collisionFilterMask = 0;
+		}
 		tagList.clear();
 	}
 
@@ -173,7 +201,7 @@ namespace K_Physics {
 			return btScalar(0.0f);
 		}
 		if (data2) {
-			this->result.push_back(&data2->tag);
+			this->result.push_back(data2->GetCollisionTag());
 			this->isHit = true;
 		}
 		

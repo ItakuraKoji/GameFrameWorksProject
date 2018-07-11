@@ -12,6 +12,7 @@ var class_k___system_1_1_system_class =
     [ "Initialize", "class_k___system_1_1_system_class.html#a6f019ba86d9dbf1b9133198540e9d166", null ],
     [ "IsSystemEnd", "class_k___system_1_1_system_class.html#a5c776515e01bcba724c6fa64db4897c0", null ],
     [ "ProcessSystem", "class_k___system_1_1_system_class.html#a242be8d90313c17762b0013c30cafa47", null ],
+    [ "SetDrawInterval", "class_k___system_1_1_system_class.html#ae4a3c602863141c39581618f8aee4623", null ],
     [ "SetIcon", "class_k___system_1_1_system_class.html#a5b2a2241bd0aa6f467b0f531f044125e", null ],
     [ "SwapBuffer", "class_k___system_1_1_system_class.html#afe66afc17d7cad5199f4e8a1dd62b472", null ],
     [ "WindowForcus", "class_k___system_1_1_system_class.html#ab36bf9672ef9967b829b95da744c5394", null ]

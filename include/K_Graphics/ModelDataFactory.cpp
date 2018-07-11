@@ -22,6 +22,35 @@ namespace K_Graphics {
 		return data;
 	}
 
+	//!モデルデータのリソース作成（返すポインタの開放責任がある）
+	ModelResource* ModelDataFactory::CreateModelResourceFromFBX(const std::string& fileName, TextureList* textureList) {
+		K_Loader::FbxModelLoader loader;
+		if (!loader.LoadFBX(fileName, textureList)) {
+			throw std::runtime_error("FBX Load Failed : " + fileName);
+		}
+
+		ModelResource* data = new ModelResource;
+
+		//アニメーション情報は存在しない場合がある（NULL）
+		data->vertexBuffer = loader.PassVertexBuffer();
+		data->material = loader.PassMaterialData();
+		data->bone = loader.PassBoneData();
+		return data;
+	}
+	//!リソースからデータを借りてモデルを作成（返すポインタの開放責任がある）
+	ModelDatasCopy* ModelDataFactory::CreateModelDataCopy(ModelResource* resource) {
+		ModelDatasCopy* data = new ModelDatasCopy;
+
+		//アニメーション情報は存在しない場合がある（NULL）
+		//data->fbxData = loader.PassFbxData();
+		data->vertexBuffer = resource->vertexBuffer;
+		data->material = resource->material;
+		data->bone = resource->bone;
+		data->animation = new AnimationData(data->bone, data->vertexBuffer->GetNumBuffer());
+
+		return data;
+	}
+
 	ModelDatas* ModelDataFactory::CreateSquareModel(float width, float height, Texture* texture, bool isCenter) {
 		struct Vertex {
 			K_Math::Vector3 pos;

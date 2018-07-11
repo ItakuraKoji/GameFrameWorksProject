@@ -2,7 +2,7 @@ var hierarchy =
 [
     [ "K_Graphics::AmbientLight", "class_k___graphics_1_1_ambient_light.html", null ],
     [ "K_Graphics::AnimationData", "class_k___graphics_1_1_animation_data.html", null ],
-    [ "K_Graphics::AnimMatrix", "struct_k___graphics_1_1_anim_matrix.html", null ],
+    [ "K_Graphics::AnimationStatus", "class_k___graphics_1_1_animation_status.html", null ],
     [ "K_Graphics::AnimType", "struct_k___graphics_1_1_anim_type.html", null ],
     [ "K_Audio::AudioData", "class_k___audio_1_1_audio_data.html", [
       [ "K_Audio::OggData", "class_k___audio_1_1_ogg_data.html", null ],
@@ -11,6 +11,7 @@ var hierarchy =
     [ "K_Audio::AudioDataFactory", "class_k___audio_1_1_audio_data_factory.html", null ],
     [ "K_Input::AxisState", "struct_k___input_1_1_axis_state.html", null ],
     [ "K_Graphics::Bone", "struct_k___graphics_1_1_bone.html", null ],
+    [ "K_Graphics::BoneAnimation", "struct_k___graphics_1_1_bone_animation.html", null ],
     [ "K_Graphics::BoneData", "class_k___graphics_1_1_bone_data.html", null ],
     [ "K_Math::Box2D", "struct_k___math_1_1_box2_d.html", null ],
     [ "btIDebugDraw", null, [
@@ -59,7 +60,11 @@ var hierarchy =
     [ "K_Graphics::MeshModel", "class_k___graphics_1_1_mesh_model.html", null ],
     [ "K_Graphics::MeshObject", "class_k___graphics_1_1_mesh_object.html", null ],
     [ "K_Graphics::ModelDataFactory", "class_k___graphics_1_1_model_data_factory.html", null ],
-    [ "K_Graphics::ModelDatas", "struct_k___graphics_1_1_model_datas.html", null ],
+    [ "K_Graphics::ModelDataSuper", "struct_k___graphics_1_1_model_data_super.html", [
+      [ "K_Graphics::ModelDatas", "struct_k___graphics_1_1_model_datas.html", null ],
+      [ "K_Graphics::ModelDatasCopy", "struct_k___graphics_1_1_model_datas_copy.html", null ]
+    ] ],
+    [ "K_Graphics::ModelResource", "struct_k___graphics_1_1_model_resource.html", null ],
     [ "K_Input::MouseState", "struct_k___input_1_1_mouse_state.html", null ],
     [ "K_Physics::MapPolygon::PolygonData", "struct_k___physics_1_1_map_polygon_1_1_polygon_data.html", null ],
     [ "K_Physics::MapPolygon::PolygonType", "struct_k___physics_1_1_map_polygon_1_1_polygon_type.html", null ],

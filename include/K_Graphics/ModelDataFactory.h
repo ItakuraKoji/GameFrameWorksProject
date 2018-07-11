@@ -14,6 +14,10 @@ namespace K_Graphics {
 		//!@param[in] textureList テクスチャリストへのポインタ（FBXで使われているテクスチャを読み込むのに使う）
 		//!@return モデルのデータクラスへのポインタ
 		ModelDatas* LoadFBXModel(const std::string& fileName, TextureList* textureList);
+		//!モデルデータのリソース作成（返すポインタの開放責任がある）
+		ModelResource* CreateModelResourceFromFBX(const std::string& fileName, TextureList* textureList);
+		//!リソースからデータを借りてモデルを作成（返すポインタの開放責任がある）
+		ModelDatasCopy* CreateModelDataCopy(ModelResource* resource);
 		//!@brief 四角形の板ポリゴンを作成
 		//!@param[in] width 板ポリゴンの幅
 		//!@param[in] height 板ポリゴンの高さ

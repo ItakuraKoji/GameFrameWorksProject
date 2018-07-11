@@ -87,8 +87,6 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_mesh_object.htm
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">公開メンバ関数</a> &#124;
-<a href="#pro-methods">限定公開メンバ関数</a> &#124;
-<a href="#pro-attribs">限定公開変数類</a> &#124;
 <a href="class_k___graphics_1_1_mesh_object-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle">
 <div class="title">K_Graphics::MeshObject クラス</div>  </div>
@@ -121,9 +119,9 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_mesh_object.htm
 <tr class="memitem:ad45fbf9cf32b22335eeb994bfe3e1041"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#ad45fbf9cf32b22335eeb994bfe3e1041">SetSpeed</a> (float speed)</td></tr>
 <tr class="memdesc:ad45fbf9cf32b22335eeb994bfe3e1041"><td class="mdescLeft">&#160;</td><td class="mdescRight">アニメーションスピードを変更する  <a href="#ad45fbf9cf32b22335eeb994bfe3e1041">[詳解]</a><br /></td></tr>
 <tr class="separator:ad45fbf9cf32b22335eeb994bfe3e1041"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e4446fa8a0b979d488210bca87df41a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#a0e4446fa8a0b979d488210bca87df41a">UpdateAnimation</a> ()</td></tr>
-<tr class="memdesc:a0e4446fa8a0b979d488210bca87df41a"><td class="mdescLeft">&#160;</td><td class="mdescRight">アニメーションを更新  <a href="#a0e4446fa8a0b979d488210bca87df41a">[詳解]</a><br /></td></tr>
-<tr class="separator:a0e4446fa8a0b979d488210bca87df41a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd6df7e561a4012380e435a41aeb0994"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#acd6df7e561a4012380e435a41aeb0994">UpdateAnimation</a> (float timeSpeed=1.0f)</td></tr>
+<tr class="memdesc:acd6df7e561a4012380e435a41aeb0994"><td class="mdescLeft">&#160;</td><td class="mdescRight">アニメーションを更新  <a href="#acd6df7e561a4012380e435a41aeb0994">[詳解]</a><br /></td></tr>
+<tr class="separator:acd6df7e561a4012380e435a41aeb0994"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86437d928a10a4ceaa0ccdb1ed174028"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#a86437d928a10a4ceaa0ccdb1ed174028">Draw</a> (<a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *camera, <a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *shader, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;position, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;rotation, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;scale)</td></tr>
 <tr class="memdesc:a86437d928a10a4ceaa0ccdb1ed174028"><td class="mdescLeft">&#160;</td><td class="mdescRight">各種行列を作り、シェーダーに渡して描画を行う  <a href="#a86437d928a10a4ceaa0ccdb1ed174028">[詳解]</a><br /></td></tr>
 <tr class="separator:a86437d928a10a4ceaa0ccdb1ed174028"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,18 +135,6 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_mesh_object.htm
 <tr class="separator:a248b0d20160c8ad487b1c84f8e9e0d15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94d8c5db70f49cb3d46a118068ec7de3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_k___math.html#a457ce1b65536e8dcb2d6215eb12dc26a">K_Math::Matrix4x4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#a94d8c5db70f49cb3d46a118068ec7de3">CreateWorldMatrix</a> (const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;position, const <a class="el" href="namespace_k___math.html#a034e586a2748ce9790ca7cb30efcd78f">K_Math::Quaternion</a> &amp;rotation, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;scale)</td></tr>
 <tr class="separator:a94d8c5db70f49cb3d46a118068ec7de3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-限定公開メンバ関数</h2></td></tr>
-<tr class="memitem:a29b665637b075b4839af390356c5bf3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#a29b665637b075b4839af390356c5bf3c">SetMatrix</a> (<a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *camera, <a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *shader, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;position, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;rotation, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;scale)</td></tr>
-<tr class="separator:a29b665637b075b4839af390356c5bf3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a989f7c6a43debb869cb6ee716db5f529"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#a989f7c6a43debb869cb6ee716db5f529">SetMatrix</a> (<a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *camera, <a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *shader, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;position, const <a class="el" href="namespace_k___math.html#a034e586a2748ce9790ca7cb30efcd78f">K_Math::Quaternion</a> &amp;rotation, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;scale)</td></tr>
-<tr class="separator:a989f7c6a43debb869cb6ee716db5f529"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-限定公開変数類</h2></td></tr>
-<tr class="memitem:a3691b447ef31ac253864166711b87ea7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_k___graphics_1_1_mesh_model.html">MeshModel</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#a3691b447ef31ac253864166711b87ea7">drawModel</a></td></tr>
-<tr class="separator:a3691b447ef31ac253864166711b87ea7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>K_Graphics::MeshModelの描画を"position""rotation""scale"の３つで行えるようにしたもの<br />
@@ -528,114 +514,6 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_mesh_object.htm
 
 </div>
 </div>
-<a id="a29b665637b075b4839af390356c5bf3c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29b665637b075b4839af390356c5bf3c">&#9670;&nbsp;</a></span>SetMatrix() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void K_Graphics::MeshObject::SetMatrix </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *&#160;</td>
-          <td class="paramname"><em>camera</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *&#160;</td>
-          <td class="paramname"><em>shader</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;&#160;</td>
-          <td class="paramname"><em>position</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;&#160;</td>
-          <td class="paramname"><em>rotation</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;&#160;</td>
-          <td class="paramname"><em>scale</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a989f7c6a43debb869cb6ee716db5f529"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a989f7c6a43debb869cb6ee716db5f529">&#9670;&nbsp;</a></span>SetMatrix() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void K_Graphics::MeshObject::SetMatrix </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *&#160;</td>
-          <td class="paramname"><em>camera</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *&#160;</td>
-          <td class="paramname"><em>shader</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;&#160;</td>
-          <td class="paramname"><em>position</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a034e586a2748ce9790ca7cb30efcd78f">K_Math::Quaternion</a> &amp;&#160;</td>
-          <td class="paramname"><em>rotation</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;&#160;</td>
-          <td class="paramname"><em>scale</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="ad45fbf9cf32b22335eeb994bfe3e1041"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad45fbf9cf32b22335eeb994bfe3e1041">&#9670;&nbsp;</a></span>SetSpeed()</h2>
 
@@ -662,8 +540,8 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_mesh_object.htm
 
 </div>
 </div>
-<a id="a0e4446fa8a0b979d488210bca87df41a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e4446fa8a0b979d488210bca87df41a">&#9670;&nbsp;</a></span>UpdateAnimation()</h2>
+<a id="acd6df7e561a4012380e435a41aeb0994"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd6df7e561a4012380e435a41aeb0994">&#9670;&nbsp;</a></span>UpdateAnimation()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -671,36 +549,20 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_mesh_object.htm
         <tr>
           <td class="memname">void K_Graphics::MeshObject::UpdateAnimation </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>timeSpeed</em> = <code>1.0f</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>アニメーションを更新 </p>
-
-</div>
-</div>
-<h2 class="groupheader">メンバ詳解</h2>
-<a id="a3691b447ef31ac253864166711b87ea7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3691b447ef31ac253864166711b87ea7">&#9670;&nbsp;</a></span>drawModel</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_k___graphics_1_1_mesh_model.html">MeshModel</a>* K_Graphics::MeshObject::drawModel</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">時間経過速度（アニメーションそのものの速度とは別の時間経過の速さで、1.0fが等速）</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

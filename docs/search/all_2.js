@@ -11,7 +11,7 @@ var searchData=
   ['clearfonttexture',['ClearFontTexture',['../class_k___graphics_1_1_font_renderer.html#ace5f43f6cbd1a5b18e41350ca2e64dea',1,'K_Graphics::FontRenderer']]],
   ['cluster',['cluster',['../struct_k___graphics_1_1_bone.html#a600aba5c378824041b5cd7a3ea218544',1,'K_Graphics::Bone']]],
   ['collectcollisioncallback',['CollectCollisionCallBack',['../struct_k___physics_1_1_collect_collision_call_back.html',1,'K_Physics::CollectCollisionCallBack'],['../struct_k___physics_1_1_collect_collision_call_back.html#ac70f37b0d9ec5cccdcd2505409b9b8c2',1,'K_Physics::CollectCollisionCallBack::CollectCollisionCallBack()']]],
-  ['collision',['collision',['../class_k___physics_1_1_collision_data.html#a45dc4d1f2a85cef93993b2872c49fc49',1,'K_Physics::CollisionData']]],
+  ['collision',['collision',['../class_k___physics_1_1_collision_data.html#aa8dc81d6c8fd7e308e6d9398fbcd06a3',1,'K_Physics::CollisionData']]],
   ['collisiondata',['CollisionData',['../class_k___physics_1_1_collision_data.html',1,'K_Physics::CollisionData'],['../class_k___physics_1_1_collision_data.html#a8e1899c052ce9388bd583dc77c6d9d3d',1,'K_Physics::CollisionData::CollisionData()']]],
   ['collisionshape',['CollisionShape',['../namespace_k___physics.html#aa0de61c2beb0d423efad313964d20f31',1,'K_Physics']]],
   ['collisiontag',['CollisionTag',['../struct_k___physics_1_1_collision_tag.html',1,'K_Physics']]],
@@ -26,6 +26,8 @@ var searchData=
   ['createcapsuleshape',['CreateCapsuleShape',['../class_k___physics_1_1_bullet_physics.html#a103325d150362efb1d0387a632b7037b',1,'K_Physics::BulletPhysics']]],
   ['createcollisionobject',['CreateCollisionObject',['../class_k___physics_1_1_bullet_physics.html#a6647c5111e6041f4ca80d727d34a6c1f',1,'K_Physics::BulletPhysics']]],
   ['createframebuffer',['CreateFrameBuffer',['../class_k___graphics_1_1_frame_buffer_list.html#a21a4bff7e956835548565d9b46c031b5',1,'K_Graphics::FrameBufferList::CreateFrameBuffer(const std::string &amp;name, int width, int height)'],['../class_k___graphics_1_1_frame_buffer_list.html#a0ba074b9922c099102a43e92b6815d4c',1,'K_Graphics::FrameBufferList::CreateFrameBuffer(const std::string &amp;name, const std::string &amp;depthBuffer, int width, int height)']]],
+  ['createmodeldatacopy',['CreateModelDataCopy',['../class_k___graphics_1_1_model_data_factory.html#a4db46e0616d13b4f746a21028f40a119',1,'K_Graphics::ModelDataFactory']]],
+  ['createmodelresourcefromfbx',['CreateModelResourceFromFBX',['../class_k___graphics_1_1_model_data_factory.html#abf8dfa489821c56d744ef148f2947e71',1,'K_Graphics::ModelDataFactory']]],
   ['createrigidbody',['CreateRigidBody',['../class_k___physics_1_1_bullet_physics.html#a8b2828d01975c80c3dc4c33a11e0c251',1,'K_Physics::BulletPhysics']]],
   ['createshaderprogram',['CreateShaderProgram',['../class_k___graphics_1_1_shader_list.html#ad59998f21d1830a48ce6a336813218aa',1,'K_Graphics::ShaderList']]],
   ['createsource',['CreateSource',['../class_k___audio_1_1_sound_class.html#a3f93a8101e156fac4bae21449fa83ebb',1,'K_Audio::SoundClass']]],
@@ -37,7 +39,6 @@ var searchData=
   ['createworldmatrix',['CreateWorldMatrix',['../class_k___graphics_1_1_mesh_object.html#a248b0d20160c8ad487b1c84f8e9e0d15',1,'K_Graphics::MeshObject::CreateWorldMatrix(const K_Math::Vector3 &amp;position, const K_Math::Vector3 &amp;rotation, const K_Math::Vector3 &amp;scale)'],['../class_k___graphics_1_1_mesh_object.html#a94d8c5db70f49cb3d46a118068ec7de3',1,'K_Graphics::MeshObject::CreateWorldMatrix(const K_Math::Vector3 &amp;position, const K_Math::Quaternion &amp;rotation, const K_Math::Vector3 &amp;scale)'],['../class_k___graphics_1_1_sprite_object.html#a569d2a769c04b108fd86b9cf8fac752e',1,'K_Graphics::SpriteObject::CreateWorldMatrix()']]],
   ['crockwise',['Crockwise',['../namespace_k___system.html#a4d2859e8a07e3c9bca713a91f9869588aafc07d730e910d62c03e1e80022006a3',1,'K_System']]],
   ['cross',['Cross',['../namespace_k___math.html#a77f2463fb22c9202ad66a7eaa8d6e6b6',1,'K_Math::Cross(const Vector2 &amp;vector1, const Vector2 &amp;vector2)'],['../namespace_k___math.html#a2cef5481bdc9d9a2e6c2723d811fa238',1,'K_Math::Cross(const Vector3 &amp;vector1, const Vector3 &amp;vector2)']]],
-  ['cullenttexture',['cullentTexture',['../class_k___graphics_1_1_sprite_object.html#a7cf528d065c242528bf0bd407a139f09',1,'K_Graphics::SpriteObject']]],
   ['cullinginfo',['CullingInfo',['../namespace_k___system.html#a35ae77324ccefd27137767e8abe7afa7',1,'K_System']]],
-  ['currentmat',['currentMat',['../struct_k___graphics_1_1_bone.html#a82de526d464ccddea11100c9f8705f61',1,'K_Graphics::Bone']]]
+  ['currentmat',['currentMat',['../struct_k___graphics_1_1_bone_animation.html#a019b8ea2091543081c14f8f520d7f358',1,'K_Graphics::BoneAnimation']]]
 ];

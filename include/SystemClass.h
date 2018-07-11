@@ -58,7 +58,10 @@ namespace K_System {
 		Multiply,
 		Add
 	};
-
+	enum class IntervalType {
+		FPS60,
+		FPS30,
+	};
 
 	//!
 	//!アプリケーションの動作を管理
@@ -103,6 +106,8 @@ namespace K_System {
 		//!@param[in] imageArray イメージ配列
 		//!@param[in] count 配列数
 		void SetIcon(IconImage* imageArray, int count);
+		//!@brief 描画時の待ち時間を変更
+		void SetDrawInterval(IntervalType type);
 
 		//!@brief アクセサー
 		//!@return 入力クラスへのポインタ

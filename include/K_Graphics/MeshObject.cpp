@@ -39,8 +39,8 @@ namespace K_Graphics {
 		this->drawModel->SetSpeed(speed);
 	}
 
-	void MeshObject::UpdateAnimation() {
-		this->drawModel->UpdateAnimation();
+	void MeshObject::UpdateAnimation(float timeSpeed) {
+		this->drawModel->UpdateAnimation(timeSpeed);
 	}
 
 	void MeshObject::Draw(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scale) {
@@ -88,7 +88,7 @@ namespace K_Graphics {
 
 
 	////////
-	//protected
+	//private
 	////
 
 	void MeshObject::SetMatrix(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scaling) {

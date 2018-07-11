@@ -29,20 +29,19 @@ namespace K_Graphics {
 		int numFace;
 	};
 
-	struct AnimMatrix {
-		//フレーム数だけ配列を持っている
-		std::vector<std::vector<K_Math::Matrix4x4>> animMatrix;
-	};
 	struct Bone {
 		//アニメ数とフレーム数だけ配列を持っている
 		std::vector<std::vector<K_Math::Matrix4x4>> mat;
 		FbxCluster* cluster;
 		K_Math::Matrix4x4 bindMat;
+		//K_Math::Matrix4x4 currentMat;
+		//K_Math::Matrix4x4 interPolationMat;
+	};
+	//アニメーションの現在のボーン情報
+	struct BoneAnimation {
 		K_Math::Matrix4x4 currentMat;
 		K_Math::Matrix4x4 interPolationMat;
 	};
-
-
 
 	struct AnimType {
 		std::string animName;
@@ -96,52 +95,63 @@ namespace K_Graphics {
 		std::vector<VertexBuffer> bufferArray;
 	};
 
+	//ボーン行列情報
+	class BoneData {
+	public:
+		BoneData();
+		~BoneData();
+		void AddBoneData(std::vector<Bone>& boneData);
+		void AddAnimData(AnimType& animData);
+
+		const K_Math::Matrix4x4& GetBindBoneMatrix(int hierarchyIndex, int boneIndex) const;
+		const K_Math::Matrix4x4& GetCurrentBoneMatrix(int hierarchyIndex, int boneIndex, int animID, int time) const;
+		int GetNumBone(int hierarchyIndex) const;
+		const AnimType& GetAnimData(const std::string& animName) const;
+		const AnimType& GetAnimData(int animIndex) const;
+
+	private:
+		//アニメーション情報
+		std::unordered_map<std::string, AnimType> animList;
+		std::vector<std::string> animNameList;
+		//階層とボーン数による配列
+		std::vector<std::vector<Bone>> boneData;
+	};
+
 	//3Dアニメーション情報
 	class AnimationData {
 	public:
-		AnimationData();
+		AnimationData(BoneData* bone, int numHirarchy);
 		~AnimationData();
-		void UpdateAnimation();
+		void UpdateAnimation(float timeSpeed);
 		void SetSpeed(float speed);
-		void Add(AnimType& animData);
-		void SetAnimation(const std::string& animName, bool playOnce, bool isInterpolation, bool loop);
+		void SetAnimation(const std::string& animName, bool playOnce, bool loop, int interpolationCount);
+		void SetAnimation(int animIndex, bool playOnce, bool loop, int interpolationCount);
+		void SetMatrixTextureData(int hierarchyIndex, Texture* texture);
 		float GetCurrentAnimTime();
 		int GetAnimationID();
-
-		//BoneDataにStartInterPolation()を通知する用
-		bool IsStartInterpolation();
+		int GetNumBone(int hierarchyIndex) const;
 
 	private:
-		std::unordered_map<std::string, AnimType> animList;
+		void SetCurrentAnimation(const AnimType& anim, bool playOnce, bool loop, int interpolationCount);
+		void CalculateBoneMatrix(K_Math::Matrix4x4& resultMat, int hierarchyIndex, int boneIndex);
+		void BoneInterporation(int hierarchyIndex, int boneIndex, float ratio);
+
+	private:
 		float speed;
 		int   currentAnimID;
 		float currentAnimTime;
 		int   maxAnimTime;
 		bool  isLoop;
-		bool  isInterpolation;
-	};
-
-	//ボーン情報とFBXCluster
-	class BoneData {
-	public:
-		BoneData();
-		~BoneData();
-		void Add(std::vector<Bone>& boneData);
-		void SetClurrentBoneData(int hierarchyIndex, int animID, int time);
-		void SetMatrixTextureData(int hierarchyIndex, Texture* texture);
-		void StartInterporation(int frameCount);
-		void UpdateInterporation();
-		int GetNumBone(int hierarchyIndex);
-
-	private:
-		void CalculateBoneMatrix(K_Math::Matrix4x4& resultMat, int hierarchyIndex, int boneIndex);
-		void BoneInterporation(int hierarchyIndex, int boneIndex, float ratio);
-
-	private:
-		std::vector<std::vector<Bone>> boneData;
+		//階層とボーン数による現在の行列情報配列
+		std::vector<std::vector<BoneAnimation>> currentBone;
 		float interporationCount;
 		float interporationMaxCount;
+		//借り物のボーンデータ情報
+		BoneData* bone;
 	};
+
+
+
 
 	//本当は分離できたらよかったんだが、FBXの情報量が思ったよりも多いのでFBXManagerたちはそのまま持っておいたほうがいいかもしれない
 	//FBXManagerの解放責任はここにある
@@ -159,17 +169,42 @@ namespace K_Graphics {
 		FbxScene*    scene;
 	};
 
-	//モデルデータをひとまとめにしたもの（メンバにしたポインタは所有権がこの構造体に移譲される）
-	struct ModelDatas {
+	//モデルデータをひとまとめにしたもの（基底クラス）
+	struct ModelDataSuper {
 	public:
-		ModelDatas();
-		~ModelDatas();
+		ModelDataSuper() = default;
+		virtual ~ModelDataSuper() = 0;
 
 	public:
-		//FbxData*       fbxData;
-		VertexData*    vertexBuffer;
+		VertexData * vertexBuffer;
 		MaterialData*  material;
 		BoneData*      bone;
 		AnimationData* animation;
+	};
+
+	//モデルデータをひとまとめにしたもの（メンバにしたポインタは所有権がこの構造体に移譲される）
+	struct ModelDatas : public ModelDataSuper {
+	public:
+		ModelDatas();
+		virtual ~ModelDatas();
+	};
+
+	//モデルデータをひとまとめにしたもの（リソースからのコピーでないAnimationData*以外は開放しない）
+	struct ModelDatasCopy : public ModelDataSuper {
+	public:
+		ModelDatasCopy();
+		virtual ~ModelDatasCopy();
+	};
+
+	//3Dモデルリソース、ここの情報を貸し出して3Dモデルを作成できる
+	struct ModelResource {
+	public:
+		ModelResource();
+		~ModelResource();
+
+	public:
+		VertexData* vertexBuffer;
+		MaterialData* material;
+		BoneData* bone;
 	};
 }

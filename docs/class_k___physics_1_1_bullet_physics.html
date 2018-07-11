@@ -155,9 +155,9 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_bullet_physics.h
 <tr class="memitem:ab2aec9e34e8c937a6b6a222cd4a04a81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_bullet_physics.html#ab2aec9e34e8c937a6b6a222cd4a04a81">RemoveCollisionShape</a> (<a class="el" href="namespace_k___physics.html#aa0de61c2beb0d423efad313964d20f31">CollisionShape</a> **shape)</td></tr>
 <tr class="memdesc:ab2aec9e34e8c937a6b6a222cd4a04a81"><td class="mdescLeft">&#160;</td><td class="mdescRight">明示的にリストに存在する形状情報をリストから外してdeleteする この関数を呼ばなくても、このクラスのデストラクタで全て開放している この関数の後は、形状へのポインタは使えないので注意  <a href="#ab2aec9e34e8c937a6b6a222cd4a04a81">[詳解]</a><br /></td></tr>
 <tr class="separator:ab2aec9e34e8c937a6b6a222cd4a04a81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a386d5ba9c55af79204681da52ced1c9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_bullet_physics.html#a386d5ba9c55af79204681da52ced1c9c">MoveCharacter</a> (<a class="el" href="class_k___physics_1_1_collision_data.html">CollisionData</a> *obj, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;move, float vLimitAngle=40.0f, float hLimitAngle=0.0f)</td></tr>
-<tr class="memdesc:a386d5ba9c55af79204681da52ced1c9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">操作性を意識したコリジョンの移動、壁判定も行う(重いが正確)  <a href="#a386d5ba9c55af79204681da52ced1c9c">[詳解]</a><br /></td></tr>
-<tr class="separator:a386d5ba9c55af79204681da52ced1c9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a842b133201707b76ea72df361d6bbfa3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_bullet_physics.html#a842b133201707b76ea72df361d6bbfa3">MoveCharacter</a> (<a class="el" href="class_k___physics_1_1_collision_data.html">CollisionData</a> *obj, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;move, float vLimitAngle=40.0f, float hLimitAngle=0.0f, float rayLength=0.1f)</td></tr>
+<tr class="memdesc:a842b133201707b76ea72df361d6bbfa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">操作性を意識したコリジョンの移動、壁判定も行う(重いが正確)  <a href="#a842b133201707b76ea72df361d6bbfa3">[詳解]</a><br /></td></tr>
+<tr class="separator:a842b133201707b76ea72df361d6bbfa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b3f568b9865bbabbbb2824f06e94966"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_bullet_physics.html#a5b3f568b9865bbabbbb2824f06e94966">MoveCharacterDiscrete</a> (<a class="el" href="class_k___physics_1_1_collision_data.html">CollisionData</a> *obj, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;move, bool vLimitDirection=true, bool hLimitDirection=false)</td></tr>
 <tr class="memdesc:a5b3f568b9865bbabbbb2824f06e94966"><td class="mdescLeft">&#160;</td><td class="mdescRight">離散的なコリジョンの移動、判定が MoveCharacter よりも大雑把(ただし軽い)  <a href="#a5b3f568b9865bbabbbb2824f06e94966">[詳解]</a><br /></td></tr>
 <tr class="separator:a5b3f568b9865bbabbbb2824f06e94966"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -718,8 +718,8 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_bullet_physics.h
 
 </div>
 </div>
-<a id="a386d5ba9c55af79204681da52ced1c9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a386d5ba9c55af79204681da52ced1c9c">&#9670;&nbsp;</a></span>MoveCharacter()</h2>
+<a id="a842b133201707b76ea72df361d6bbfa3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a842b133201707b76ea72df361d6bbfa3">&#9670;&nbsp;</a></span>MoveCharacter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -746,7 +746,13 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_bullet_physics.h
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>hLimitAngle</em> = <code>0.0f</code>&#160;</td>
+          <td class="paramname"><em>hLimitAngle</em> = <code>0.0f</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>rayLength</em> = <code>0.1f</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
