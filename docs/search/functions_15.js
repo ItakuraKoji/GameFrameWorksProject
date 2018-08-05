@@ -1,6 +1,7 @@
 var searchData=
 [
   ['_7eanimationdata',['~AnimationData',['../class_k___graphics_1_1_animation_data.html#a8e3057f5c2f94c429cf4ced605996e86',1,'K_Graphics::AnimationData']]],
+  ['_7eanimationstatus',['~AnimationStatus',['../class_k___graphics_1_1_animation_status.html#a24d3d44fb28ef874c65d9cb803b4a09e',1,'K_Graphics::AnimationStatus']]],
   ['_7eaudiodata',['~AudioData',['../class_k___audio_1_1_audio_data.html#a35e373f6f6b093183cc88f3c298bfcbe',1,'K_Audio::AudioData']]],
   ['_7eaudiodatafactory',['~AudioDataFactory',['../class_k___audio_1_1_audio_data_factory.html#a922d66a38fbf21340c291283487388da',1,'K_Audio::AudioDataFactory']]],
   ['_7ebonedata',['~BoneData',['../class_k___graphics_1_1_bone_data.html#a98a5d1fcad5065855a955c2b49baea34',1,'K_Graphics::BoneData']]],
@@ -23,6 +24,9 @@ var searchData=
   ['_7emeshmodel',['~MeshModel',['../class_k___graphics_1_1_mesh_model.html#a1cad4b0768077d36ab31fdfdff1e3e61',1,'K_Graphics::MeshModel']]],
   ['_7emeshobject',['~MeshObject',['../class_k___graphics_1_1_mesh_object.html#ae8c3f648521b8c14da19fa53fe1656f3',1,'K_Graphics::MeshObject']]],
   ['_7emodeldatas',['~ModelDatas',['../struct_k___graphics_1_1_model_datas.html#a45bd5bbd979a3bbac5ee319b8bb27a08',1,'K_Graphics::ModelDatas']]],
+  ['_7emodeldatascopy',['~ModelDatasCopy',['../struct_k___graphics_1_1_model_datas_copy.html#a2645c1ee4e98d1ede73f89b3092a91f8',1,'K_Graphics::ModelDatasCopy']]],
+  ['_7emodeldatasuper',['~ModelDataSuper',['../struct_k___graphics_1_1_model_data_super.html#ad04820c475f5e6ddecc3bce5276ea03e',1,'K_Graphics::ModelDataSuper']]],
+  ['_7emodelresource',['~ModelResource',['../struct_k___graphics_1_1_model_resource.html#ae3bb85ef5a401e49580c4069a23b251d',1,'K_Graphics::ModelResource']]],
   ['_7eoggdata',['~OggData',['../class_k___audio_1_1_ogg_data.html#a60aee716522004f16e11203677d3f63b',1,'K_Audio::OggData']]],
   ['_7eshaderclass',['~ShaderClass',['../class_k___graphics_1_1_shader_class.html#ad007e6356bf230f441fd39a5127b76d7',1,'K_Graphics::ShaderClass']]],
   ['_7eshaderlist',['~ShaderList',['../class_k___graphics_1_1_shader_list.html#a77ff9ce6e8e54ca516fd5ac4281688f6',1,'K_Graphics::ShaderList']]],

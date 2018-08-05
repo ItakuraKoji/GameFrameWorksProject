@@ -124,6 +124,17 @@ namespace K_System {
 		delete[] image;
 	}
 
+	void SystemClass::SetDrawInterval(IntervalType type) {
+		switch (type) {
+		case IntervalType::FPS30:
+			glfwSwapInterval(2);
+			break;
+		case IntervalType::FPS60:
+			glfwSwapInterval(1);
+			break;
+		}
+	}
+
 	void SystemClass::EndSystem() {
 		glfwSetWindowShouldClose(this->windowHandle, GLFW_TRUE);
 	}

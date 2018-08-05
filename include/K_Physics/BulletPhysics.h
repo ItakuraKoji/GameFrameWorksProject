@@ -29,21 +29,28 @@ namespace K_Physics {
 		CollisionData(btCollisionObject* obj, int myselfMask, int giveMask, CollisionTag tag);
 		void SetCollisionPosition(const K_Math::Vector3& position);
 		void SetCollisionRotation(const K_Math::Vector3& rotation);
+		void SetActive(bool active);
+		void SetCollisionTag(const CollisionTag& tag);
 		K_Math::Vector3 GetCollisionPosition();
 		K_Math::Vector3 GetCollisionRotation();
+		bool IsActive();
 		btCollisionObject* GetCollision();
 
 		void SetMyselfMask(int mask);
 		void SetGiveMask(int mask);
 
-		int GetMyselfMask();
-		int GetGiveMask();
+		//FindConfrictionObjects()で扱う型の問題でconstも参照も使わずポインタで返している
+		CollisionTag* GetCollisionTag();
+		int GetMyselfMask() const;
+		int GetGiveMask() const;
 
 	public:
+		//TODO:下位互換性のためにpublicにしてる。そのうち非公開にすること
 		CollisionTag tag;
-		
 	protected:
-		btCollisionObject* const collision;
+		bool active;
+
+		btCollisionObject* collision;
 		//!@brief 衝突判定時に「自分が」使うビットマスク
 		int myselfMask;
 		//!@brief 衝突判定時に「相手が」使うビットマスク
@@ -55,7 +62,7 @@ namespace K_Physics {
 	public:
 		RigidBodyData(btRigidBody* obj, int myselfMask, int giveMask, CollisionTag tag);
 		void AddForce(const K_Math::Vector3& vector);
-		void Activate(bool frag = true);
+		void RigidActivate(bool frag = true);
 	};
 
 
@@ -138,7 +145,7 @@ namespace K_Physics {
 		//!@param[in] move 移動ベクトル
 		//!@param[in] vLimitAngle 縦方向の壁ずりを起こさない角度(deg)、この角度以上の入射角度に対して壁ずりを行う
 		//!@param[in] hLimitAngle 横方向の壁ずりを起こさない角度(deg)、この角度以上の入射角度に対して壁ずりを行う
-		void MoveCharacter(CollisionData* obj, const K_Math::Vector3& move, float vLimitAngle = 40.0f, float hLimitAngle = 0.0f);
+		void MoveCharacter(CollisionData* obj, const K_Math::Vector3& move, float vLimitAngle = 40.0f, float hLimitAngle = 0.0f, float rayLength = 0.1f);
 
 		//!@brief 離散的なコリジョンの移動、判定が MoveCharacter よりも大雑把(ただし軽い)
 		//!@param[in] obj 移動するコリジョンオブジェクト

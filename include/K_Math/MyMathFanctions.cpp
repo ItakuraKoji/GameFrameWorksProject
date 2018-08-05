@@ -157,14 +157,10 @@ void K_Math::Normalize(Vector3& vector) {
 }
 
 K_Math::Vector2 K_Math::Normalized(const Vector2& vector) {
-	Vector2 normalizedVec = vector;
-	glm::normalize(normalizedVec);
-	return normalizedVec;
+	return glm::normalize(vector);
 }
 K_Math::Vector3 K_Math::Normalized(const Vector3& vector) {
-	Vector3 normalizedVec = vector;
-	glm::normalize(normalizedVec);
-	return normalizedVec;
+	return glm::normalize(vector);
 }
 
 float K_Math::Norm(const K_Math::Vector2& vector) {
@@ -195,6 +191,8 @@ K_Math::Quaternion K_Math::AngleAxis(float angle, const Vector3& axis) {
 	return glm::angleAxis(angle, axis);
 }
 K_Math::Quaternion K_Math::LookAt(const Vector3& vec1, const Vector3& vec2) {
+	Angle(vec1, vec2);
+
 	return glm::rotation(vec1, vec2);
 }
 float K_Math::Angle(const Vector3& vec1, const Vector3& vec2) {

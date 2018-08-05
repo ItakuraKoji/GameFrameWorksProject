@@ -238,7 +238,7 @@ namespace K_Physics {
 	}
 
 	//新型衝突シミュレーション
-	void BulletPhysics::MoveCharacter(CollisionData* obj, const K_Math::Vector3& move, float vLimitAngle, float hLimitAngle) {
+	void BulletPhysics::MoveCharacter(CollisionData* obj, const K_Math::Vector3& move, float vLimitAngle, float hLimitAngle, float rayLength) {
 		//凹形状とは判定できない
 		if (!obj->GetCollision()->getCollisionShape()->isConvex()) {
 			return;
@@ -261,20 +261,23 @@ namespace K_Physics {
 			hMove = btVector3(0.0f, 0.0f, 0.0f);
 		}
 
-		//縦に移動
-		MoveSmooth(obj->GetCollision(), vMove, vLimitAngle, -vMove);
 
+
+		//下にレイ飛ばして床法線を取得
 		const btVector3& position = obj->GetCollision()->getWorldTransform().getOrigin();
 		int mask = obj->GetMyselfMask();
-		MyRaycastCallBack ray_cb(position, position - this->toSkyVector * 2.0f, mask);
-		this->bulletWorld->rayTest(position, position - this->toSkyVector * 2.0f, ray_cb);
+		MyRaycastCallBack ray_cb(position, position - this->toSkyVector * rayLength, mask);
+		this->bulletWorld->rayTest(position, position - this->toSkyVector * rayLength, ray_cb);
 		btVector3 floorNormal = ray_cb.m_hitNormalWorld;
+
+		//縦に移動
+		floorNormal = MoveSmooth(obj->GetCollision(), vMove, vLimitAngle, -vMove);
 
 		//縦移動時に床があった場合は床の法線を使って床に沿って歩くようにする
 		if (floorNormal.norm() > 0.001f) {
-			btVector3 floorXAxis = floorNormal.normalized().cross(hMove);
+			btVector3 floorXAxis = floorNormal.cross(hMove);
 			if (floorXAxis.norm() > 0.001f) {
-				hMove = floorXAxis.cross(floorNormal.normalized());
+				hMove = floorXAxis.cross(floorNormal);
 			}
 		}
 
@@ -419,7 +422,7 @@ namespace K_Physics {
 					break;
 				}
 				//方向制限がかかっている場合は進んだ方向から戻るようにしか押し出せない
-				MoveCollisionObject(obj, -goVec * 0.1f);
+				MoveCollisionObject(obj, -goVec * 0.05f);
 				isHit = true;
 			}
 			if (isHit) {
@@ -430,6 +433,9 @@ namespace K_Physics {
 	}
 
 	btVector3 BulletPhysics::MoveSmooth(btCollisionObject *obj, const btVector3 &moveVector, float limitAngle, const btVector3& limitDirection) {
+		FixContactCallBack fix_cb(obj, btVector3(0.0f, 0.0f, 0.0f));
+		this->bulletWorld->contactTest(obj, fix_cb);
+
 		if (moveVector.norm() < 0.001f) {
 			return btVector3(0.0f, 0.0f, 0.0f);
 		}

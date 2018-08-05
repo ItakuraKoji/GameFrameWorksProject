@@ -4,7 +4,7 @@ namespace K_Graphics {
 	////////
 	//public
 	////
-	MeshModel::MeshModel(ModelDatas* data) {
+	MeshModel::MeshModel(ModelDataSuper* data) {
 		this->data = nullptr;
 		this->boneTexture = nullptr;
 
@@ -12,14 +12,13 @@ namespace K_Graphics {
 			Finalize();
 			throw std::runtime_error("モデルデータが不十分です、読み込みができているか確認してください");
 		}
-		this->isBoneProcessed = false;
 	}
 	MeshModel::~MeshModel() {
 		Finalize();
 	}
 
 	//初期化
-	bool MeshModel::Initialize(ModelDatas* data) {
+	bool MeshModel::Initialize(ModelDataSuper* data) {
 		Finalize();
 
 		//頂点とマテリアルは必須
@@ -35,6 +34,7 @@ namespace K_Graphics {
 	//開放
 	void MeshModel::Finalize() {
 		if (this->data != nullptr) {
+			//開放方法はデータの種類に依存
 			delete this->data;
 			this->data = nullptr;
 		}
@@ -45,17 +45,13 @@ namespace K_Graphics {
 	}
 
 	void MeshModel::SetAnimation(const std::string& animationName, bool playOnce, bool isLoop, int interpolationFrames) {
-		if (this->data->bone == nullptr) {
+		if (this->data->animation == nullptr) {
 			return;
 		}
-		this->data->animation->SetAnimation(animationName, playOnce, (bool)interpolationFrames, isLoop);
-		if (this->data->animation->IsStartInterpolation()) {
-			this->data->bone->StartInterporation(interpolationFrames);
-		}
-
+		this->data->animation->SetAnimation(animationName, playOnce, isLoop, interpolationFrames);
 	}
 	void MeshModel::SetSpeed(float speed) {
-		if (this->data->bone == nullptr) {
+		if (this->data->animation == nullptr) {
 			return;
 		}
 		this->data->animation->SetSpeed(speed);
@@ -65,36 +61,34 @@ namespace K_Graphics {
 		this->data->material->SetTexture(texture, arrayIndex, materialIndex);
 	}
 
-	void MeshModel::UpdateAnimation() {
-		if (this->data->bone == nullptr) {
+	void MeshModel::UpdateAnimation(float timeSpeed) {
+		if (this->data->animation == nullptr) {
 			return;
 		}
-		this->data->animation->UpdateAnimation();
-		this->isBoneProcessed = false;
+		this->data->animation->UpdateAnimation(timeSpeed);
+
+		int numArray = this->data->vertexBuffer->GetNumBuffer();
+		for (int i = 0; i < numArray; ++i) {
+			UpdateBone(i);
+		}
 	}
 
 	//描画
 	void MeshModel::Draw(ShaderClass* shader) {
-		if (this->data->bone == nullptr) {
+		if (this->data->animation == nullptr) {
 			shader->SetVertexShaderSubroutine("NotSkinning");
 		}
 		else {
 			shader->SetVertexShaderSubroutine("CalcBoneMat");
 		}
 
-		//アニメーション補間をしているときは補間の時間を進める
-		if (this->data->bone != nullptr && !this->isBoneProcessed) {
-			this->data->bone->UpdateInterporation();
-		}
-
 		int numArray = this->data->vertexBuffer->GetNumBuffer();
 		for (int i = 0; i < numArray; ++i) {
-			if (this->data->bone != nullptr) {
+			if (this->data->animation != nullptr) {
 				SetBone(i, shader);
 			}
 			DrawBuffers(i, shader);
 		}
-		this->isBoneProcessed = true;
 	}
 
 	//インスタシング描画(メッシュ階層の一番上の一つ目のマテリアルのみ)
@@ -117,15 +111,17 @@ namespace K_Graphics {
 	//private
 	////
 
-	void MeshModel::SetBone(int arrayIndex, ShaderClass* shader) {
-		//ボーンの再計算は1回だけ
-		if (!this->isBoneProcessed) {
-			int time = (int)this->data->animation->GetCurrentAnimTime();
-			this->data->bone->SetClurrentBoneData(arrayIndex, this->data->animation->GetAnimationID(), time);
-			this->data->bone->SetMatrixTextureData(arrayIndex, this->boneTexture);
+	void MeshModel::UpdateBone(int hierarchyIndex) {
+		if (this->data->animation == nullptr) {
+			return;
 		}
+		//ボーンの再計算は1回だけ
+		this->data->animation->SetMatrixTextureData(hierarchyIndex, this->boneTexture);
+	}
+
+	void MeshModel::SetBone(int hierarchyIndex, ShaderClass* shader) {
 		shader->SetTexture("boneTex", 1, this->boneTexture->GetTextureID());
-		shader->SetValue("numBone", this->data->bone->GetNumBone(arrayIndex));
+		shader->SetValue("numBone", this->data->animation->GetNumBone(hierarchyIndex));
 	}
 
 	//マテリアルごとに描画

@@ -10,15 +10,15 @@ namespace K_Graphics {
 	//!「形状」という扱いで、描画時には「K_Graphics::ShaderClass」のポインタが必須
 	class MeshModel {
 	public:
-		//!@brief Initialize()を呼ぶ
-		MeshModel(ModelDatas* data);
+		//!@brief Initialize(ModelDatas*)を呼ぶ
+		MeshModel(ModelDataSuper* data);
 		//!@brief Finalize()を呼ぶ
 		~MeshModel();
 
 		//!@brief モデルデータによって3Dモデルを初期化
 		//!@param[in] ModelDataFactoryクラスによって生成されたモデルデータへのポインタ
 		//!@return 成功するとtrue
-		bool Initialize(ModelDatas* data);
+		bool Initialize(ModelDataSuper* data);
 		//!@brief 終了処理、モデルデータのポインタをdeleteしている
 		void Finalize();
 		//!@brief スキンメッシュアニメーションを選択、再生する
@@ -37,7 +37,8 @@ namespace K_Graphics {
 		void SetSpeed(float speed);
 
 		//!@brief アニメーションを更新
-		void UpdateAnimation();
+		//!@param[in] 時間経過速度（アニメーションそのものの速度とは別の時間経過の速さで、1.0fが等速）
+		void UpdateAnimation(float timeSpeed = 1.0f);
 		//!@brief 描画を行う\nシェーダーには必要な行列がすでに入っているとする
 		//!@param[in] shader 使用するシェーダー
 		void Draw(ShaderClass* shader);
@@ -45,13 +46,13 @@ namespace K_Graphics {
 		void InstanceDraw(int numInstance, ShaderClass* shader);
 
 	private:
+		void UpdateBone(int hierarchyIndex);
 		void SetBone(int hierarchyIndex, ShaderClass* shader);
 		void DrawBuffers(int hierarchyIndex, ShaderClass* shader);
 
 	private:
-		ModelDatas * data;
+		ModelDataSuper* data;
 		Texture*  boneTexture;
-		bool isBoneProcessed;
 	};
 
 	//!@brief K_Graphics::MeshModelの描画を"position""rotation""scale"の３つで行えるようにしたもの\n
@@ -81,7 +82,8 @@ namespace K_Graphics {
 		void SetSpeed(float speed);
 
 		//!@brief アニメーションを更新
-		void UpdateAnimation();
+		//!@param[in] 時間経過速度（アニメーションそのものの速度とは別の時間経過の速さで、1.0fが等速）
+		void UpdateAnimation(float timeSpeed = 1.0f);
 
 		//!@brief 各種行列を作り、シェーダーに渡して描画を行う
 		//!@param[in] camera 使用するカメラクラスへのポインタ
@@ -102,7 +104,7 @@ namespace K_Graphics {
 		K_Math::Matrix4x4 CreateWorldMatrix(const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scale);
 		K_Math::Matrix4x4 CreateWorldMatrix(const K_Math::Vector3& position, const K_Math::Quaternion& rotation, const K_Math::Vector3& scale);
 
-	protected:
+	private:
 		void SetMatrix(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scale);
 		void SetMatrix(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Quaternion& rotation, const K_Math::Vector3& scale);
 		MeshModel* drawModel;
@@ -159,7 +161,7 @@ namespace K_Graphics {
 	public:
 		//!@brief コントロールポイントの座標
 		K_Math::Vector2 controlPoint;
-	protected:
+	private:
 		MeshModel* drawModel;
 		void SetMatrix(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scale, bool billBoard);
 		Texture* cullentTexture;

@@ -45,8 +45,8 @@ namespace K_Graphics {
 		this->viewCamera = viewCamera;
 	}
 
-	void EffectClass::Run() {
-		this->manager->Update();
+	void EffectClass::Run(float timeSpeed) {
+		this->manager->Update(timeSpeed);
 	}
 	void EffectClass::Draw() {
 		if (this->viewCamera == nullptr) {
@@ -98,12 +98,14 @@ namespace K_Graphics {
 		this->effect.erase(effectName);
 	}
 
-	EffectHandle EffectClass::Play(const std::string& name, const K_Math::Vector3& position) {
+	EffectHandle EffectClass::Play(const std::string& name, const K_Math::Vector3& position, float speed) {
 		//リストにその名前があってインスタンスもあるものが対象
 		if (this->effect.find(name) == this->effect.end()) {
 			throw std::runtime_error("EffectName is not exists ： " + name);
 		}
-		return this->manager->Play(this->effect[name], position.x, position.y, position.z);
+		EffectHandle handle = this->manager->Play(this->effect[name], position.x, position.y, position.z);
+		this->manager->SetSpeed(handle, speed);
+		return handle;
 	}
 
 	void EffectClass::Stop(EffectHandle handle) {
@@ -123,4 +125,8 @@ namespace K_Graphics {
 	void EffectClass::SetScale(EffectHandle handle, const K_Math::Vector3& scale) {
 		this->manager->SetScale(handle, scale.x, scale.y, scale.z);
 	}
+	void EffectClass::SetSpeed(EffectHandle handle, float speed) {
+		this->manager->SetSpeed(handle, speed);
+	}
+
 }

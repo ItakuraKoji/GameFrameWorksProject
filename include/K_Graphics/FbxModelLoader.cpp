@@ -23,8 +23,6 @@ namespace K_Loader {
 			this->fbxData = new K_Graphics::FbxData;
 			this->bufferData = new K_Graphics::VertexData;
 			this->materialData = new K_Graphics::MaterialData;
-			this->animationData = new K_Graphics::AnimationData;
-			this->boneData = new K_Graphics::BoneData;
 
 			this->textureList = list;
 
@@ -55,11 +53,10 @@ namespace K_Loader {
 			RecursiveNode(rootNode);
 
 
-
 			//アニメーション情報を取得、名前をキーにして保持
 			FbxImporter* importer = this->fbxData->GetInporter();
 			int numAnim = importer->GetAnimStackCount();
-			if (this->animationData == nullptr) {
+			if (this->boneData == nullptr) {
 				numAnim = 0;
 			}
 
@@ -83,12 +80,17 @@ namespace K_Loader {
 				anim.endTime = (int)(end.Get() / FbxTime::GetOneFrameValue(FbxTime::eFrames120));
 
 				//追加
-				this->animationData->Add(anim);
+				this->boneData->AddAnimData(anim);
 			}
+			if (this->boneData != nullptr) {
+				this->animationData = new K_Graphics::AnimationData(this->boneData, this->bufferData->GetNumBuffer());
+			}
+
 			this->loaded = true;
 			delete[] this->fileRoot;
 		}
 		catch (std::exception& e) {
+			printf("%s\n", e.what());
 			this->loaded = false;
 			delete[] this->fileRoot;
 			return false;
@@ -428,7 +430,7 @@ namespace K_Loader {
 				//ファイル名を取得(ファイル名と拡張子のみ)
 				_splitpath_s(fullName, 0, 0, directory, 100, name, 100, ext, 10);
 
-				int pathSize = strlen(this->fileRoot) + strlen(directory) + strlen(name) + strlen(ext) + 10;
+				int pathSize = (int)strlen(this->fileRoot) + (int)strlen(directory) + (int)strlen(name) + (int)strlen(ext) + 10;
 
 				//最終的に使用するファイル名
 				char* fileName = new char[pathSize];
@@ -561,13 +563,10 @@ namespace K_Loader {
 	void FbxModelLoader::LoadBones(FbxMesh* mesh, Vertex* vertex, PolygonTable *table) {
 		FbxDeformer *deformer = mesh->GetDeformer(0);
 		if (!deformer) {
-			//ボーンが存在しなかったらアニメーション関連のデータに別れを告げる
-			delete this->animationData;
-			delete this->boneData;
-			this->animationData = nullptr;
-			this->boneData = nullptr;
+			//ボーンが存在しなかったら帰る
 			return;
 		}
+
 		FbxSkin* skin = (FbxSkin*)deformer;
 
 		int numBone = skin->GetClusterCount();
@@ -622,7 +621,8 @@ namespace K_Loader {
 		//K_Math::Matrix4x4 scale2 = glm::scale(K_Math::Matrix4x4(), K_Math::Vector3(-1.0f, 1.0f, 1.0f));
 		//resultMat = glm::toMat4(rot3) * scale2 * glm::toMat4(rot2) * current * bind * scale * glm::toMat4(rot);
 
-		this->boneData->Add(bone);
+		this->boneData = new K_Graphics::BoneData;
+		this->boneData->AddBoneData(bone);
 	}
 
 

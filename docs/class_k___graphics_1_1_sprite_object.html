@@ -88,8 +88,6 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_sprite_object.h
   <div class="summary">
 <a href="#pub-methods">公開メンバ関数</a> &#124;
 <a href="#pub-attribs">公開変数類</a> &#124;
-<a href="#pro-methods">限定公開メンバ関数</a> &#124;
-<a href="#pro-attribs">限定公開変数類</a> &#124;
 <a href="class_k___graphics_1_1_sprite_object-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle">
 <div class="title">K_Graphics::SpriteObject クラス</div>  </div>
@@ -134,18 +132,6 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_sprite_object.h
 <tr class="memitem:ad5d76b9b0a30102d01abbb20bab285f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_k___math.html#aba76719561472e3400b1a81758f2bc81">K_Math::Vector2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_sprite_object.html#ad5d76b9b0a30102d01abbb20bab285f8">controlPoint</a></td></tr>
 <tr class="memdesc:ad5d76b9b0a30102d01abbb20bab285f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">コントロールポイントの座標  <a href="#ad5d76b9b0a30102d01abbb20bab285f8">[詳解]</a><br /></td></tr>
 <tr class="separator:ad5d76b9b0a30102d01abbb20bab285f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-限定公開メンバ関数</h2></td></tr>
-<tr class="memitem:a4c731f8c8e7b35f4f2661a3d9d203f69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_sprite_object.html#a4c731f8c8e7b35f4f2661a3d9d203f69">SetMatrix</a> (<a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *camera, <a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *shader, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;position, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;rotation, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;scale, bool billBoard)</td></tr>
-<tr class="separator:a4c731f8c8e7b35f4f2661a3d9d203f69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-限定公開変数類</h2></td></tr>
-<tr class="memitem:a91966c81a550dd6b04ccc0bd210c289d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_k___graphics_1_1_mesh_model.html">MeshModel</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_sprite_object.html#a91966c81a550dd6b04ccc0bd210c289d">drawModel</a></td></tr>
-<tr class="separator:a91966c81a550dd6b04ccc0bd210c289d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7cf528d065c242528bf0bd407a139f09"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_k___graphics_1_1_texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_sprite_object.html#a7cf528d065c242528bf0bd407a139f09">cullentTexture</a></td></tr>
-<tr class="separator:a7cf528d065c242528bf0bd407a139f09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>長さ1.0fの板ポリゴンのModelClassを内部で生成し、2D画像の描画に利用できる機能を付け加えたクラス<br />
@@ -457,66 +443,6 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_sprite_object.h
 
 </div>
 </div>
-<a id="a4c731f8c8e7b35f4f2661a3d9d203f69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c731f8c8e7b35f4f2661a3d9d203f69">&#9670;&nbsp;</a></span>SetMatrix()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void K_Graphics::SpriteObject::SetMatrix </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *&#160;</td>
-          <td class="paramname"><em>camera</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *&#160;</td>
-          <td class="paramname"><em>shader</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;&#160;</td>
-          <td class="paramname"><em>position</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;&#160;</td>
-          <td class="paramname"><em>rotation</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;&#160;</td>
-          <td class="paramname"><em>scale</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>billBoard</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a0fa1e6994fc741d94c726c85e5f1ec99"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0fa1e6994fc741d94c726c85e5f1ec99">&#9670;&nbsp;</a></span>SetTexture()</h2>
 
@@ -557,50 +483,6 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_sprite_object.h
 </div><div class="memdoc">
 
 <p>コントロールポイントの座標 </p>
-
-</div>
-</div>
-<a id="a7cf528d065c242528bf0bd407a139f09"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7cf528d065c242528bf0bd407a139f09">&#9670;&nbsp;</a></span>cullentTexture</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_k___graphics_1_1_texture.html">Texture</a>* K_Graphics::SpriteObject::cullentTexture</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a91966c81a550dd6b04ccc0bd210c289d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91966c81a550dd6b04ccc0bd210c289d">&#9670;&nbsp;</a></span>drawModel</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_k___graphics_1_1_mesh_model.html">MeshModel</a>* K_Graphics::SpriteObject::drawModel</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
 
 </div>
 </div>

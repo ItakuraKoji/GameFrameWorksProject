@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['activate',['Activate',['../class_k___physics_1_1_rigid_body_data.html#ab74aa70dceb9e41531ddb809b05a91d9',1,'K_Physics::RigidBodyData']]],
-  ['add',['Add',['../class_k___graphics_1_1_material_data.html#a79f87cea104917e512d4efeb85a69933',1,'K_Graphics::MaterialData::Add()'],['../class_k___graphics_1_1_vertex_data.html#a035bc83ff770da79ce486c9bed22a8fb',1,'K_Graphics::VertexData::Add()'],['../class_k___graphics_1_1_animation_data.html#a8ad4f43ef2a7b3ff262b8dbf17ed5bbb',1,'K_Graphics::AnimationData::Add()'],['../class_k___graphics_1_1_bone_data.html#a5fe073eb7d0d22c43070db7eec940bd0',1,'K_Graphics::BoneData::Add()'],['../class_k___graphics_1_1_fbx_data.html#a7dd8e6081a69857bb6b2d40473bb8713',1,'K_Graphics::FbxData::Add()']]],
+  ['add',['Add',['../class_k___graphics_1_1_material_data.html#a79f87cea104917e512d4efeb85a69933',1,'K_Graphics::MaterialData::Add()'],['../class_k___graphics_1_1_vertex_data.html#a035bc83ff770da79ce486c9bed22a8fb',1,'K_Graphics::VertexData::Add()'],['../class_k___graphics_1_1_fbx_data.html#a7dd8e6081a69857bb6b2d40473bb8713',1,'K_Graphics::FbxData::Add()']]],
   ['addambient',['AddAmbient',['../class_k___graphics_1_1_light_list.html#a940f2dc8a56fb93f5020804a3c3cc53f',1,'K_Graphics::LightList']]],
+  ['addanimdata',['AddAnimData',['../class_k___graphics_1_1_bone_data.html#ab9bd951cd81b66f90ff954db1962d4c5',1,'K_Graphics::BoneData']]],
+  ['addbonedata',['AddBoneData',['../class_k___graphics_1_1_bone_data.html#aaa0dc8476caead6ad69c3c233d2517d6',1,'K_Graphics::BoneData']]],
   ['adddirectional',['AddDirectional',['../class_k___graphics_1_1_light_list.html#a6374cf237f3d50a0ef1a36d32a439da3',1,'K_Graphics::LightList']]],
   ['addeffectsource',['AddEffectSource',['../class_k___graphics_1_1_effect_class.html#af7c120e2d75a861cf258ad6d8e74c076',1,'K_Graphics::EffectClass']]],
   ['addemptytexture',['AddEmptyTexture',['../class_k___graphics_1_1_texture_list.html#afab7447d6ed329a257436a20aad2cae3',1,'K_Graphics::TextureList']]],
@@ -14,7 +15,8 @@ var searchData=
   ['ambientlight',['AmbientLight',['../class_k___graphics_1_1_ambient_light.html#aed22ac89d7358c674ef23bdf2ad1e07b',1,'K_Graphics::AmbientLight']]],
   ['angle',['Angle',['../namespace_k___math.html#a651ff183d4269cc592dfc1f7e6a0503c',1,'K_Math::Angle(const Vector3 &amp;vec1, const Vector3 &amp;vec2)'],['../namespace_k___math.html#a728f621da5ee480ba8ca4723dd528caa',1,'K_Math::Angle(const Vector3 &amp;vec1, const Vector3 &amp;vec2, const Vector3 &amp;ref)']]],
   ['angleaxis',['AngleAxis',['../namespace_k___math.html#a18db0daa42ed6700319b8cb58531de58',1,'K_Math']]],
-  ['animationdata',['AnimationData',['../class_k___graphics_1_1_animation_data.html#a71e4f6d6b43f4d263d8f9c2ba0ac4b14',1,'K_Graphics::AnimationData']]],
+  ['animationdata',['AnimationData',['../class_k___graphics_1_1_animation_data.html#a83f07599f4a05b095892a095ef9dac5f',1,'K_Graphics::AnimationData']]],
+  ['animationstatus',['AnimationStatus',['../class_k___graphics_1_1_animation_status.html#a30fd8bfaa2f149ae8e05396bd7152c78',1,'K_Graphics::AnimationStatus']]],
   ['audiodata',['AudioData',['../class_k___audio_1_1_audio_data.html#a78c3668af550d54e5a16e5658afc4ec8',1,'K_Audio::AudioData']]],
   ['audiodatafactory',['AudioDataFactory',['../class_k___audio_1_1_audio_data_factory.html#a13e01c1708127344b0f8b44b27b847e0',1,'K_Audio::AudioDataFactory']]]
 ];

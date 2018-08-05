@@ -27,7 +27,7 @@ namespace K_Graphics {
 		//!@param[in] カメラのポインタ
 		void SetMatrix(CameraClass* viewCamera);
 		//!@brief エフェクト全体の更新
-		void Run();
+		void Run(float timeSpeed = 1.0f);
 		//!@brief エフェクトはこの関数でまとめて描画される
 		void Draw();
 
@@ -43,7 +43,7 @@ namespace K_Graphics {
 		//!@param[in] effectName エフェクト名
 		//!@param[in] position 発生源位置
 		//!@return エフェクトを走査するハンドル番号、移動などの操作をしないなら変数で取っておかなくてもいい
-		EffectHandle Play(const std::string& effectName, const K_Math::Vector3& position);
+		EffectHandle Play(const std::string& effectName, const K_Math::Vector3& position, float speed = 1.0f);
 		//!@brief エフェクトを明示的に停止、こちらは呼んだ瞬間にすぐ消える
 		//!@param[in] handle Play()で帰ってくるエフェクト番号
 		void Stop(EffectHandle handle);
@@ -60,6 +60,9 @@ namespace K_Graphics {
 		//!@brief エフェクトをスケーリング
 		//!@param[in] scale スケール
 		void SetScale(EffectHandle handle, const K_Math::Vector3& scale);
+		//!@brief エフェクトの再生速度
+		//!@param[in] speed 再生速度（1.0fが等速）
+		void SetSpeed(EffectHandle handle, float speed);
 
 	private:
 		Effekseer::Manager* manager = nullptr;

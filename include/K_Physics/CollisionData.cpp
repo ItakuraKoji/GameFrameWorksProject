@@ -5,7 +5,9 @@ namespace K_Physics {
 	//public
 	////
 	//コリジョンを扱いやすくするもの
-	CollisionData::CollisionData(btCollisionObject* obj, int myselfMask, int giveMask, CollisionTag tag) : collision(obj), myselfMask(myselfMask), giveMask(giveMask), tag(tag) {
+	CollisionData::CollisionData(btCollisionObject* obj, int myselfMask, int giveMask, CollisionTag tag) :
+		collision(obj), myselfMask(myselfMask), giveMask(giveMask), tag(tag), active(true)
+	{
 	}
 
 	void CollisionData::SetCollisionPosition(const K_Math::Vector3& position) {
@@ -17,6 +19,25 @@ namespace K_Physics {
 		btTransform& trans = this->collision->getWorldTransform();
 		trans.setRotation(btQuaternion(rotation.y, rotation.x, rotation.z));
 	}
+
+	void CollisionData::SetActive(bool active) {
+		if (active) {
+			//activeフラグが立った時は元に戻す
+			this->collision->getBroadphaseHandle()->m_collisionFilterGroup = this->myselfMask;
+			this->collision->getBroadphaseHandle()->m_collisionFilterMask = this->giveMask;
+		}
+		else {
+			//activeフラグが下りたときはフィルターをいじって衝突を禁止する
+			this->collision->getBroadphaseHandle()->m_collisionFilterGroup = 0;
+			this->collision->getBroadphaseHandle()->m_collisionFilterMask = 0;
+		}
+		this->active = active;
+	}
+
+	void CollisionData::SetCollisionTag(const CollisionTag& tag) {
+		this->tag = tag;
+	}
+
 
 	K_Math::Vector3 CollisionData::GetCollisionPosition(){
 		btVector3& pos = this->collision->getWorldTransform().getOrigin();
@@ -30,6 +51,9 @@ namespace K_Physics {
 		return K_Math::Vector3(x, y, z);
 	}
 
+	bool CollisionData::IsActive() {
+		return this->active;
+	}
 
 	btCollisionObject* CollisionData::GetCollision() {
 		return this->collision;
@@ -37,19 +61,29 @@ namespace K_Physics {
 
 	void CollisionData::SetMyselfMask(int mask) {
 		this->myselfMask = mask;
+		this->collision->getBroadphaseHandle()->m_collisionFilterGroup = this->myselfMask;
 	}
 	void CollisionData::SetGiveMask(int mask) {
 		this->giveMask = mask;
+		this->collision->getBroadphaseHandle()->m_collisionFilterMask = this->giveMask;
 	}
 
-	int CollisionData::GetMyselfMask() {
+	int CollisionData::GetMyselfMask() const {
 		return this->myselfMask;
 	}
-	int CollisionData::GetGiveMask() {
+	int CollisionData::GetGiveMask() const {
 		return this->giveMask;
 	}
+	CollisionTag* CollisionData::GetCollisionTag() {
+		return &this->tag;
+	}
 
-	RigidBodyData::RigidBodyData(btRigidBody* obj, int myselfMask, int giveMask, CollisionTag tag) : CollisionData(obj, myselfMask, giveMask, tag) {
+	////////
+	//public
+	////
+	RigidBodyData::RigidBodyData(btRigidBody* obj, int myselfMask, int giveMask, CollisionTag tag) :
+		CollisionData(obj, myselfMask, giveMask, tag)
+	{
 	}
 
 	void RigidBodyData::AddForce(const K_Math::Vector3& vector) {
@@ -58,7 +92,7 @@ namespace K_Physics {
 		rigid->applyForce(btVector3(vector.x, vector.y, vector.z), this->collision->getWorldTransform().getOrigin());
 	}
 
-	void RigidBodyData::Activate(bool frag) {
+	void RigidBodyData::RigidActivate(bool frag) {
 		btRigidBody* rigid = btRigidBody::upcast(this->collision);
 		rigid->activate(frag);
 	}

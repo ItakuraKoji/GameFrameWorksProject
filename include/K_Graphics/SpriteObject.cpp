@@ -109,7 +109,7 @@ namespace K_Graphics {
 	}
 
 	////////
-	//protected
+	//private
 	////
 
 	void SpriteObject::SetMatrix(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scaling, bool billBoard) {
