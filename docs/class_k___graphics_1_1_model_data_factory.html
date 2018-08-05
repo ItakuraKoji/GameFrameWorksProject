@@ -100,12 +100,18 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_model_data_fact
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
+<tr class="memitem:a52748de7a33370acf98d73186d458259"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_model_data_factory.html#a52748de7a33370acf98d73186d458259">CreateK3MDModelFromFBX</a> (const std::string &amp;fileName, <a class="el" href="class_k___graphics_1_1_texture_list.html">TextureList</a> *textureList)</td></tr>
+<tr class="separator:a52748de7a33370acf98d73186d458259"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09661487ad0f3a9c563db193d6e12e08"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_k___graphics_1_1_model_datas.html">ModelDatas</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_model_data_factory.html#a09661487ad0f3a9c563db193d6e12e08">LoadFBXModel</a> (const std::string &amp;fileName, <a class="el" href="class_k___graphics_1_1_texture_list.html">TextureList</a> *textureList)</td></tr>
 <tr class="memdesc:a09661487ad0f3a9c563db193d6e12e08"><td class="mdescLeft">&#160;</td><td class="mdescRight">FBX形式の3Dモデルを読み込む  <a href="#a09661487ad0f3a9c563db193d6e12e08">[詳解]</a><br /></td></tr>
 <tr class="separator:a09661487ad0f3a9c563db193d6e12e08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4113f1228b6f8a19d50dbf873c58f07"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_k___graphics_1_1_model_datas.html">ModelDatas</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_model_data_factory.html#af4113f1228b6f8a19d50dbf873c58f07">LoadK_3DModel</a> (const std::string &amp;fileName, <a class="el" href="class_k___graphics_1_1_texture_list.html">TextureList</a> *textureList)</td></tr>
+<tr class="separator:af4113f1228b6f8a19d50dbf873c58f07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf8dfa489821c56d744ef148f2947e71"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_k___graphics_1_1_model_resource.html">ModelResource</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_model_data_factory.html#abf8dfa489821c56d744ef148f2947e71">CreateModelResourceFromFBX</a> (const std::string &amp;fileName, <a class="el" href="class_k___graphics_1_1_texture_list.html">TextureList</a> *textureList)</td></tr>
 <tr class="memdesc:abf8dfa489821c56d744ef148f2947e71"><td class="mdescLeft">&#160;</td><td class="mdescRight">モデルデータのリソース作成（返すポインタの開放責任がある）  <a href="#abf8dfa489821c56d744ef148f2947e71">[詳解]</a><br /></td></tr>
 <tr class="separator:abf8dfa489821c56d744ef148f2947e71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bccfb7f41907721c9ab93e1f0f4f174"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_k___graphics_1_1_model_resource.html">ModelResource</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_model_data_factory.html#a3bccfb7f41907721c9ab93e1f0f4f174">CreateModelResourceFromK3MD</a> (const std::string &amp;fileName, <a class="el" href="class_k___graphics_1_1_texture_list.html">TextureList</a> *textureList)</td></tr>
+<tr class="separator:a3bccfb7f41907721c9ab93e1f0f4f174"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4db46e0616d13b4f746a21028f40a119"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_k___graphics_1_1_model_datas_copy.html">ModelDatasCopy</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_model_data_factory.html#a4db46e0616d13b4f746a21028f40a119">CreateModelDataCopy</a> (<a class="el" href="struct_k___graphics_1_1_model_resource.html">ModelResource</a> *resource)</td></tr>
 <tr class="memdesc:a4db46e0616d13b4f746a21028f40a119"><td class="mdescLeft">&#160;</td><td class="mdescRight">リソースからデータを借りてモデルを作成（返すポインタの開放責任がある）  <a href="#a4db46e0616d13b4f746a21028f40a119">[詳解]</a><br /></td></tr>
 <tr class="separator:a4db46e0616d13b4f746a21028f40a119"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -116,6 +122,34 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_model_data_fact
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>モデルクラスの初期化に必要なパラメーターの製作を担当するクラス </p>
 </div><h2 class="groupheader">関数詳解</h2>
+<a id="a52748de7a33370acf98d73186d458259"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52748de7a33370acf98d73186d458259">&#9670;&nbsp;</a></span>CreateK3MDModelFromFBX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Graphics::ModelDataFactory::CreateK3MDModelFromFBX </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>fileName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_texture_list.html">TextureList</a> *&#160;</td>
+          <td class="paramname"><em>textureList</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a4db46e0616d13b4f746a21028f40a119"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4db46e0616d13b4f746a21028f40a119">&#9670;&nbsp;</a></span>CreateModelDataCopy()</h2>
 
@@ -163,6 +197,34 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_model_data_fact
 </div><div class="memdoc">
 
 <p>モデルデータのリソース作成（返すポインタの開放責任がある） </p>
+
+</div>
+</div>
+<a id="a3bccfb7f41907721c9ab93e1f0f4f174"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bccfb7f41907721c9ab93e1f0f4f174">&#9670;&nbsp;</a></span>CreateModelResourceFromK3MD()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_k___graphics_1_1_model_resource.html">ModelResource</a> * K_Graphics::ModelDataFactory::CreateModelResourceFromK3MD </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>fileName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_texture_list.html">TextureList</a> *&#160;</td>
+          <td class="paramname"><em>textureList</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -253,6 +315,34 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_model_data_fact
   </dd>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>モデルのデータクラスへのポインタ </dd></dl>
+
+</div>
+</div>
+<a id="af4113f1228b6f8a19d50dbf873c58f07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4113f1228b6f8a19d50dbf873c58f07">&#9670;&nbsp;</a></span>LoadK_3DModel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_k___graphics_1_1_model_datas.html">ModelDatas</a> * K_Graphics::ModelDataFactory::LoadK_3DModel </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>fileName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_texture_list.html">TextureList</a> *&#160;</td>
+          <td class="paramname"><em>textureList</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

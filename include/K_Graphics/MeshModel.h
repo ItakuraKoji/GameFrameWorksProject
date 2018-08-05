@@ -156,14 +156,16 @@ namespace K_Graphics {
 		//!@param[in] scale スケーリング
 		//!@param[in] billBoard ビルボードとしてスプライトを扱うかのフラグ
 		//!@return ワールド変換行列
-		K_Math::Matrix4x4 CreateWorldMatrix(CameraClass* camera, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scale, bool billBoard);
+		K_Math::Matrix4x4 CreateWorldMatrix(CameraClass* camera, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scale, const K_Math::Vector2& controlPoint, bool billBoard);
+
+	private:
+		void SetMatrix(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scale, const K_Math::Vector2& controlPoint, bool billBoard);
 
 	public:
 		//!@brief コントロールポイントの座標
 		K_Math::Vector2 controlPoint;
 	private:
 		MeshModel* drawModel;
-		void SetMatrix(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scale, bool billBoard);
 		Texture* cullentTexture;
 	};
 

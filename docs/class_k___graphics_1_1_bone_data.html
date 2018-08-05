@@ -101,10 +101,10 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_bone_data.html'
 <tr class="separator:a85dc211fe21cca0a722542a026cb661c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98a5d1fcad5065855a955c2b49baea34"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_bone_data.html#a98a5d1fcad5065855a955c2b49baea34">~BoneData</a> ()</td></tr>
 <tr class="separator:a98a5d1fcad5065855a955c2b49baea34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa0dc8476caead6ad69c3c233d2517d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_bone_data.html#aaa0dc8476caead6ad69c3c233d2517d6">AddBoneData</a> (std::vector&lt; <a class="el" href="struct_k___graphics_1_1_bone.html">Bone</a> &gt; &amp;boneData)</td></tr>
-<tr class="separator:aaa0dc8476caead6ad69c3c233d2517d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9bd951cd81b66f90ff954db1962d4c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_bone_data.html#ab9bd951cd81b66f90ff954db1962d4c5">AddAnimData</a> (<a class="el" href="struct_k___graphics_1_1_anim_type.html">AnimType</a> &amp;animData)</td></tr>
-<tr class="separator:ab9bd951cd81b66f90ff954db1962d4c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2be7451eaeebd92025f2cf8221aaa4b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_bone_data.html#a2be7451eaeebd92025f2cf8221aaa4b6">AddBoneData</a> (const std::vector&lt; <a class="el" href="struct_k___graphics_1_1_bone.html">Bone</a> &gt; &amp;boneData)</td></tr>
+<tr class="separator:a2be7451eaeebd92025f2cf8221aaa4b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07fc9d17f78e73e5e5f8c8cfe4f66d9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_bone_data.html#a07fc9d17f78e73e5e5f8c8cfe4f66d9f">AddAnimData</a> (const <a class="el" href="struct_k___graphics_1_1_anim_type.html">AnimType</a> &amp;animData)</td></tr>
+<tr class="separator:a07fc9d17f78e73e5e5f8c8cfe4f66d9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1873bb8db98045dde16347b573b7dfc9"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespace_k___math.html#a457ce1b65536e8dcb2d6215eb12dc26a">K_Math::Matrix4x4</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_bone_data.html#a1873bb8db98045dde16347b573b7dfc9">GetBindBoneMatrix</a> (int hierarchyIndex, int boneIndex) const</td></tr>
 <tr class="separator:a1873bb8db98045dde16347b573b7dfc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21c0f0612fc9ce8eb6943bc854679380"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespace_k___math.html#a457ce1b65536e8dcb2d6215eb12dc26a">K_Math::Matrix4x4</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_bone_data.html#a21c0f0612fc9ce8eb6943bc854679380">GetCurrentBoneMatrix</a> (int hierarchyIndex, int boneIndex, int animID, int time) const</td></tr>
@@ -152,8 +152,8 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_bone_data.html'
 </div>
 </div>
 <h2 class="groupheader">関数詳解</h2>
-<a id="ab9bd951cd81b66f90ff954db1962d4c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab9bd951cd81b66f90ff954db1962d4c5">&#9670;&nbsp;</a></span>AddAnimData()</h2>
+<a id="a07fc9d17f78e73e5e5f8c8cfe4f66d9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07fc9d17f78e73e5e5f8c8cfe4f66d9f">&#9670;&nbsp;</a></span>AddAnimData()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -161,7 +161,7 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_bone_data.html'
         <tr>
           <td class="memname">void K_Graphics::BoneData::AddAnimData </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_k___graphics_1_1_anim_type.html">AnimType</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="struct_k___graphics_1_1_anim_type.html">AnimType</a> &amp;&#160;</td>
           <td class="paramname"><em>animData</em></td><td>)</td>
           <td></td>
         </tr>
@@ -170,8 +170,8 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_bone_data.html'
 
 </div>
 </div>
-<a id="aaa0dc8476caead6ad69c3c233d2517d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa0dc8476caead6ad69c3c233d2517d6">&#9670;&nbsp;</a></span>AddBoneData()</h2>
+<a id="a2be7451eaeebd92025f2cf8221aaa4b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2be7451eaeebd92025f2cf8221aaa4b6">&#9670;&nbsp;</a></span>AddBoneData()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -179,7 +179,7 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_bone_data.html'
         <tr>
           <td class="memname">void K_Graphics::BoneData::AddBoneData </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="struct_k___graphics_1_1_bone.html">Bone</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="struct_k___graphics_1_1_bone.html">Bone</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>boneData</em></td><td>)</td>
           <td></td>
         </tr>

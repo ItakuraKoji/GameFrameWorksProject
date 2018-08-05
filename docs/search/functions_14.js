@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['wavdata',['WavData',['../class_k___audio_1_1_wav_data.html#aaf0c57f6c02384ceee689de4ef19cd18',1,'K_Audio::WavData']]],
-  ['windowforcus',['WindowForcus',['../class_k___system_1_1_system_class.html#ab36bf9672ef9967b829b95da744c5394',1,'K_System::SystemClass']]]
+  ['vector4i',['Vector4i',['../struct_k___graphics_1_1_vector4i.html#a1cc465e4c653159b049e2599a2f17666',1,'K_Graphics::Vector4i']]],
+  ['vertexdata',['VertexData',['../class_k___graphics_1_1_vertex_data.html#af63d3c3260ab4dc6206b5c92c21cc1de',1,'K_Graphics::VertexData']]],
+  ['virtualgamepad',['VirtualGamePad',['../class_k___input_1_1_virtual_game_pad.html#a9b2fa6654516ce9a6430a2ac9e3aef5c',1,'K_Input::VirtualGamePad']]]
 ];

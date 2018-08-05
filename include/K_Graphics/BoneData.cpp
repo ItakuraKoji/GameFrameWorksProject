@@ -12,10 +12,10 @@ namespace K_Graphics {
 
 	}
 
-	void BoneData::AddBoneData(std::vector<Bone> &boneData) {
+	void BoneData::AddBoneData(const std::vector<Bone> &boneData) {
 		this->boneData.push_back(boneData);
 	}
-	void BoneData::AddAnimData(AnimType &animData) {
+	void BoneData::AddAnimData(const AnimType &animData) {
 		//文字キーとデータが対応、文字キーも配列に記録
 		this->animList[animData.animName] = animData;
 		this->animNameList.push_back(animData.animName);

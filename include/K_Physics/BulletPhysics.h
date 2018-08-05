@@ -29,6 +29,7 @@ namespace K_Physics {
 		CollisionData(btCollisionObject* obj, int myselfMask, int giveMask, CollisionTag tag);
 		void SetCollisionPosition(const K_Math::Vector3& position);
 		void SetCollisionRotation(const K_Math::Vector3& rotation);
+		void SetCollisionRotation(const K_Math::Quaternion& rotation);
 		void SetActive(bool active);
 		void SetCollisionTag(const CollisionTag& tag);
 		K_Math::Vector3 GetCollisionPosition();
@@ -174,11 +175,12 @@ namespace K_Physics {
 		//コリジョンを移動
 		void MoveCollisionObject(btCollisionObject* obj, const btVector3& moveVector);
 		//指定方向に移動（離散判定）
-		void MoveDiscrete(btCollisionObject* obj, const btVector3& moveVector, const btVector3& limitDirection);
+		btVector3 MoveDiscrete(btCollisionObject* obj, const btVector3& moveVector, const btVector3& limitDirection);
 		//指定方向に移動
 		btVector3 MoveSmooth(btCollisionObject* obj, const btVector3& moveVector, float limitAngle, const btVector3& limitDirection);
 		//移動部分をまとめ、allowDistanceはめり込み許容値、isCalcurateがtrueの時は法線を返す
 		btVector3 MoveBySweep(btCollisionObject* obj, const btVector3& moveVector, const btVector3& limitDirection, float limitAngle, float allowDistance);
+
 	private:
 		//衝突結果格納用
 		std::vector<CollisionTag*> confrictResult;

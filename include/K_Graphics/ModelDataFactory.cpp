@@ -4,20 +4,70 @@ namespace K_Graphics {
 	////////
 	//public
 	////
+
+	void ModelDataFactory::CreateK3MDModelFromFBX(const std::string& fileName, TextureList* textureList) {
+		K_Loader::FbxModelLoader loader;
+		if (!loader.LoadFBX(fileName, textureList)) {
+			throw std::runtime_error("FBX Load Failed : " + fileName);
+		}
+		K_Loader::K3MDLoader k3mdLoader;
+		k3mdLoader.CreateBinaryFile(loader.PassModelData(), (fileName + ".k3md").data());
+	}
+
+
 	ModelDatas* ModelDataFactory::LoadFBXModel(const std::string& fileName, TextureList* textureList) {
 		K_Loader::FbxModelLoader loader;
 		if (!loader.LoadFBX(fileName, textureList)) {
 			throw std::runtime_error("FBX Load Failed : " + fileName);
 		}
+		//デコード済みのデータを読み込み
+		K_Loader::K3MDLoader k3mdLoader;
+		ModelResource* resource = k3mdLoader.LoadModel(loader.PassModelData(), textureList);
 
 		ModelDatas* data = new ModelDatas;
 
 		//アニメーション情報は存在しない場合がある（NULL）
-		//data->fbxData = loader.PassFbxData();
-		data->vertexBuffer = loader.PassVertexBuffer();
-		data->material = loader.PassMaterialData();
-		data->bone = loader.PassBoneData();
-		data->animation = loader.PassAnimationData();
+		data->vertexBuffer = resource->vertexBuffer;
+		data->material = resource->material;
+		data->bone = resource->bone;
+		if (data->bone != nullptr) {
+			data->animation = new AnimationData(data->bone, data->vertexBuffer->GetNumBuffer());
+		}
+		else {
+			data->animation = nullptr;
+		}
+
+		//ModelResourceはもう必要ないので、要素をnullにして解放(デストラクタで消されないようにするため)
+		resource->vertexBuffer = nullptr;
+		resource->bone = nullptr;
+		resource->material = nullptr;
+		delete resource;
+
+		return data;
+	}
+
+	ModelDatas* ModelDataFactory::LoadK_3DModel(const std::string& fileName, TextureList* textureList) {
+		//建設中、独自の「.k3md」形式のモデルデータを読み込むもの
+		K_Loader::K3MDLoader loader;
+		ModelResource* resource = loader.LoadModel(fileName.data(), textureList);
+
+		ModelDatas* data = new ModelDatas;
+		//アニメーション情報は存在しない場合がある（NULL）
+		data->vertexBuffer = resource->vertexBuffer;
+		data->material = resource->material;
+		data->bone = resource->bone;
+		if (data->bone != nullptr) {
+			data->animation = new AnimationData(data->bone, data->vertexBuffer->GetNumBuffer());
+		}
+		else {
+			data->animation = nullptr;
+		}
+
+		//ModelResourceはもう必要ないので、要素をnullにして解放(デストラクタで消されないようにするため)
+		resource->vertexBuffer = nullptr;
+		resource->bone = nullptr;
+		resource->material = nullptr;
+		delete resource;
 
 		return data;
 	}
@@ -29,25 +79,31 @@ namespace K_Graphics {
 			throw std::runtime_error("FBX Load Failed : " + fileName);
 		}
 
-		ModelResource* data = new ModelResource;
-
-		//アニメーション情報は存在しない場合がある（NULL）
-		data->vertexBuffer = loader.PassVertexBuffer();
-		data->material = loader.PassMaterialData();
-		data->bone = loader.PassBoneData();
-		return data;
+		K_Loader::K3MDLoader k3mdLoader;
+		ModelResource* resource = k3mdLoader.LoadModel(loader.PassModelData(), textureList);
+		return resource;
 	}
+	ModelResource* ModelDataFactory::CreateModelResourceFromK3MD(const std::string& fileName, TextureList* textureList) {
+		K_Loader::K3MDLoader k3mdLoader;
+		ModelResource* resource = k3mdLoader.LoadModel(fileName.data(), textureList);
+		return resource;
+	}
+
+
 	//!リソースからデータを借りてモデルを作成（返すポインタの開放責任がある）
 	ModelDatasCopy* ModelDataFactory::CreateModelDataCopy(ModelResource* resource) {
 		ModelDatasCopy* data = new ModelDatasCopy;
 
 		//アニメーション情報は存在しない場合がある（NULL）
-		//data->fbxData = loader.PassFbxData();
 		data->vertexBuffer = resource->vertexBuffer;
 		data->material = resource->material;
 		data->bone = resource->bone;
-		data->animation = new AnimationData(data->bone, data->vertexBuffer->GetNumBuffer());
-
+		if (data->bone) {
+			data->animation = new AnimationData(data->bone, data->vertexBuffer->GetNumBuffer());
+		}
+		else {
+			data->animation = nullptr;
+		}
 		return data;
 	}
 

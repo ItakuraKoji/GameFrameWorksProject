@@ -59,6 +59,7 @@ namespace K_System {
 		Add
 	};
 	enum class IntervalType {
+		NO_VSYNC,
 		FPS60,
 		FPS30,
 	};
@@ -143,6 +144,7 @@ namespace K_System {
 
 		//FPSŒv‘ª
 		float fps;
+		float currentFps;
 		std::chrono::system_clock::time_point cullentTime;
 		std::chrono::system_clock::time_point startTime;
 		int framecount;

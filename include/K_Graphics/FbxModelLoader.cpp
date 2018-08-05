@@ -6,10 +6,6 @@ namespace K_Loader {
 	////
 	FbxModelLoader::FbxModelLoader() {
 		this->fbxData = nullptr;
-		this->bufferData = nullptr;
-		this->materialData = nullptr;
-		this->animationData = nullptr;
-		this->boneData = nullptr;
 		this->vertexData = nullptr;
 		this->loaded = false;
 	}
@@ -19,10 +15,10 @@ namespace K_Loader {
 
 	bool FbxModelLoader::LoadFBX(const std::string& fileName, K_Graphics::TextureList* list) {
 		try {
+			this->modelData = new K3MDHierarchy;
+			this->modelData->modelHierarchy.reserve(100);
 
 			this->fbxData = new K_Graphics::FbxData;
-			this->bufferData = new K_Graphics::VertexData;
-			this->materialData = new K_Graphics::MaterialData;
 
 			this->textureList = list;
 
@@ -56,10 +52,8 @@ namespace K_Loader {
 			//アニメーション情報を取得、名前をキーにして保持
 			FbxImporter* importer = this->fbxData->GetInporter();
 			int numAnim = importer->GetAnimStackCount();
-			if (this->boneData == nullptr) {
-				numAnim = 0;
-			}
 
+			this->modelData->animNameList.reserve(numAnim);
 			for (int i = 0; i < numAnim; ++i) {
 				//取得
 				FbxTakeInfo *take = importer->GetTakeInfo(i);
@@ -80,10 +74,8 @@ namespace K_Loader {
 				anim.endTime = (int)(end.Get() / FbxTime::GetOneFrameValue(FbxTime::eFrames120));
 
 				//追加
-				this->boneData->AddAnimData(anim);
-			}
-			if (this->boneData != nullptr) {
-				this->animationData = new K_Graphics::AnimationData(this->boneData, this->bufferData->GetNumBuffer());
+				this->modelData->animNameList.push_back(anim.animName);
+				this->modelData->animList[anim.animName] = anim;
 			}
 
 			this->loaded = true;
@@ -104,30 +96,10 @@ namespace K_Loader {
 		this->fbxData = nullptr;
 		return returnData;
 	}
-	//頂点バッファ情報の譲渡
-	K_Graphics::VertexData* FbxModelLoader::PassVertexBuffer() {
-		K_Graphics::VertexData* returnData = this->bufferData;
-		this->bufferData = nullptr;
-		return returnData;
+	K3MDHierarchy* FbxModelLoader::PassModelData() {
+		return this->modelData;
 	}
-	//マテリアル情報の譲渡
-	K_Graphics::MaterialData* FbxModelLoader::PassMaterialData() {
-		K_Graphics::MaterialData* returnData = this->materialData;
-		this->materialData = nullptr;
-		return returnData;
-	}
-	//アニメーション情報の譲渡
-	K_Graphics::AnimationData* FbxModelLoader::PassAnimationData() {
-		K_Graphics::AnimationData* returnData = this->animationData;
-		this->animationData = nullptr;
-		return returnData;
-	}
-	//ボーン行列情報の譲渡
-	K_Graphics::BoneData* FbxModelLoader::PassBoneData() {
-		K_Graphics::BoneData* returnData = this->boneData;
-		this->boneData = nullptr;
-		return returnData;
-	}
+
 
 	////////
 	//private
@@ -149,92 +121,59 @@ namespace K_Loader {
 	}
 
 	void FbxModelLoader::LoadFbxMesh(FbxMesh* mesh) {
-		Vertex* vertex = nullptr;
+		this->modelData->modelHierarchy.emplace_back();
+		int currentHierarchy = (int)this->modelData->modelHierarchy.size() - 1;
+
+		K_Graphics::Vertex* vertex = nullptr;
 		PolygonTable* table = nullptr;
 		try {
 			this->numVertex = mesh->GetControlPointsCount();
 			this->numFace = mesh->GetPolygonCount();
 			this->numUV = mesh->GetTextureUVCount();
 
-			vertex = new Vertex[this->numVertex];
+			vertex = new K_Graphics::Vertex[this->numVertex];
 
 			//頂点
 			LoadVertex(mesh, vertex);
-			GLuint VAO;
-			glGenVertexArrays(1, &VAO);
-			glBindVertexArray(VAO);
 
 			//ボーン
-			this->LoadBones(mesh, vertex, table);
+			std::vector<K_Graphics::Bone> bone;
+			this->LoadBones(mesh, vertex, this->modelData->modelHierarchy[currentHierarchy].boneData, table);
 
 			//UVベースで頂点を作り直す
 			VertexUVs uvMap;
 			int newNumVertex;
 			if (this->numUV) {
 				newNumVertex = CreateUVBaseVertex(mesh, uvMap);
-				this->vertexData = new Vertex[newNumVertex];
+				this->vertexData = new K_Graphics::Vertex[newNumVertex];
+				this->modelData->modelHierarchy[currentHierarchy].vertexData.reserve(newNumVertex);
 				int count = 0;
 				for (int i = 0; i < uvMap.GetSize(); ++i) {
 					for (int j = 0; j < uvMap[i].uv.GetCount(); ++j) {
 						this->vertexData[count] = vertex[i];
 						this->vertexData[count].texcoord.x = (float)uvMap[i].uv[j][0];
 						this->vertexData[count].texcoord.y = (float)uvMap[i].uv[j][1];
+						//K3MD形式データ
+						this->modelData->modelHierarchy[currentHierarchy].vertexData.push_back(vertex[i]);
+						this->modelData->modelHierarchy[currentHierarchy].vertexData[count].texcoord.x = (float)uvMap[i].uv[j][0];
+						this->modelData->modelHierarchy[currentHierarchy].vertexData[count].texcoord.y = (float)uvMap[i].uv[j][1];
 						++count;
 					}
 				}
 			}
 			else {
 				newNumVertex = this->numVertex;
-				this->vertexData = new Vertex[newNumVertex];
+				this->vertexData = new K_Graphics::Vertex[newNumVertex];
+				this->modelData->modelHierarchy[currentHierarchy].vertexData.reserve(newNumVertex);
 				for (int i = 0; i < this->numVertex; ++i) {
 					this->vertexData[i] = vertex[i];
+					//K3MD形式データ
+					this->modelData->modelHierarchy[currentHierarchy].vertexData.push_back(vertex[i]);
 				}
 			}
 
 			//マテリアルとその頂点インデックス
-			FbxNode* node = mesh->GetNode();
-			int numMaterial = node->GetMaterialCount();
-			std::vector<K_Graphics::Material> material;
-			std::vector<GLuint> IBOs;
-			LoadMaterial(mesh, uvMap, material, IBOs);
-
-			GLuint VBO;
-			glGenBuffers(1, &VBO);
-			glBindBuffer(GL_ARRAY_BUFFER, VBO);
-			glBufferData(GL_ARRAY_BUFFER, newNumVertex * sizeof(Vertex), this->vertexData, GL_STATIC_DRAW);
-
-			glEnableVertexAttribArray(0);
-			glEnableVertexAttribArray(1);
-			glEnableVertexAttribArray(2);
-			glEnableVertexAttribArray(3);
-			glEnableVertexAttribArray(4);
-
-
-			glBindBuffer(GL_ARRAY_BUFFER, VBO);
-
-			//position
-			glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
-			//textureUV
-			glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (unsigned char*)NULL + (3 * sizeof(float)));
-			//normal
-			glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (unsigned char*)NULL + (5 * sizeof(float)));
-			//boneWeight
-			glVertexAttribPointer(3, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (unsigned char*)NULL + (8 * sizeof(float)));
-			//boneIndex
-			glVertexAttribPointer(4, 4, GL_UNSIGNED_INT, GL_FALSE, sizeof(Vertex), (unsigned char*)NULL + (12 * sizeof(float)));
-
-
-			glBindBuffer(GL_ARRAY_BUFFER, 0);
-			glBindVertexArray(0);
-
-
-			K_Graphics::VertexBuffer buffer;
-			buffer.VAO = VAO;
-			buffer.VBO = VBO;
-			buffer.IBOs = IBOs;
-			buffer.numMaterial = numMaterial;
-			buffer.numFace = numFace;
-			this->bufferData->Add(buffer);
+			LoadMaterial(mesh, uvMap, this->modelData->modelHierarchy[currentHierarchy].materialData);
 
 			if (table) {
 				delete[] table;
@@ -261,31 +200,19 @@ namespace K_Loader {
 			delete this->fbxData;
 			this->fbxData = nullptr;
 		}
-		if (this->bufferData != nullptr) {
-			delete this->bufferData;
-			this->bufferData = nullptr;
-		}
-		if (this->materialData != nullptr) {
-			delete this->materialData;
-			this->materialData = nullptr;
-		}
-		if (this->animationData != nullptr) {
-			delete this->animationData;
-			this->animationData = nullptr;
-		}
-		if (this->boneData != nullptr) {
-			delete this->boneData;
-			this->boneData = nullptr;
-		}
 		if (this->vertexData != nullptr) {
 			delete this->vertexData;
 			this->vertexData = nullptr;
+		}
+		if (this->modelData != nullptr) {
+			delete this->modelData;
+			this->modelData = nullptr;
 		}
 	}
 
 
 	//面ベースでメッシュ読み込み
-	void FbxModelLoader::LoadVertex(FbxMesh* mesh, Vertex* vertex) {
+	void FbxModelLoader::LoadVertex(FbxMesh* mesh, K_Graphics::Vertex* vertex) {
 		printf("vertex:%d face:%d uv:%d\n", this->numVertex, this->numFace, this->numUV);
 
 		for (int i = 0; i < this->numFace; ++i) {
@@ -346,12 +273,11 @@ namespace K_Loader {
 	}
 	
 	//マテリアル読み込み
-	void FbxModelLoader::LoadMaterial(FbxMesh* mesh, VertexUVs& vertexData, std::vector<K_Graphics::Material>& material, std::vector<GLuint>& IBOs) {
+	void FbxModelLoader::LoadMaterial(FbxMesh* mesh, VertexUVs& vertexData, std::vector<K3MDMaterial>& material) {
 		FbxNode* node = mesh->GetNode();
 		int numMaterial = node->GetMaterialCount();
 
 		material.resize(numMaterial);
-		IBOs.resize(numMaterial);
 
 		for (int i = 0; i < numMaterial; ++i) {
 			FbxSurfaceMaterial *pMaterial = node->GetMaterial(i);
@@ -414,8 +340,8 @@ namespace K_Loader {
 			//テクスチャ
 			FbxProperty lProperty = pMaterial->FindProperty(FbxSurfaceMaterial::sDiffuse, 0);
 			FbxFileTexture *pTexture = FbxCast<FbxFileTexture>(lProperty.GetSrcObject<FbxFileTexture>(0));
-			material[i].texture = nullptr;
 			if (!pTexture) {
+				material[i].texturePath = "";
 			}
 			else {
 				const char *fullName = pTexture->GetRelativeFileName();
@@ -441,17 +367,8 @@ namespace K_Loader {
 				strcat_s(fileName, pathSize, name);
 				strcat_s(fileName, pathSize, ext);
 
+				material[i].texturePath = fileName;
 
-				try {
-					this->textureList->LoadTexture(fileName, fileName);
-
-				}
-				catch (std::exception& e) {
-					std::string path = std::string(fileName);
-					delete[] fileName;
-					throw e;
-				}
-				material[i].texture = this->textureList->GetTexture(fileName);
 				printf("Texture : %s\n", fileName);
 				delete[] fileName;
 			}
@@ -459,10 +376,11 @@ namespace K_Loader {
 			//インデックスバッファ
 			int indexCount = 0;
 			int *pIndex = new int[numFace * 3];
+			material[i].vertexIndex.reserve(numFace * 3);
 			for (int k = 0; k < numFace; ++k) {
-				FbxLayerElementMaterial *material = mesh->GetLayer(0)->GetMaterials();
+				FbxLayerElementMaterial *fbxmaterial = mesh->GetLayer(0)->GetMaterials();
 
-				int matId = material->GetIndexArray().GetAt(k);
+				int matId = fbxmaterial->GetIndexArray().GetAt(k);
 				if (matId == i) {
 					for (int p = 0; p < 3; ++p) {
 						int index = mesh->GetPolygonVertex(k, p);
@@ -478,23 +396,19 @@ namespace K_Loader {
 						if (arrPos == -1) {
 							//UVを持たない場合はここを通る
 							pIndex[indexCount + p] = index;
+							material[i].vertexIndex.push_back(index);
 						}
 						else {
 							//UVによってサブメッシュ化後の頂点インデックスを特定
 							pIndex[indexCount + p] = vertexData[index].index[arrPos];
+							material[i].vertexIndex.push_back(vertexData[index].index[arrPos]);
 						}
 					}
 					indexCount += 3;
 				}
 			}
-			material[i].numFace = indexCount / 3;
-
-			glGenBuffers(1, &IBOs[i]);
-			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBOs[i]);
-			glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(int) * indexCount, pIndex, GL_STATIC_DRAW);
 			delete[] pIndex;
 		}
-		this->materialData->Add(material);
 	}
 
 	//頂点のUV座標を全て格納し、その総計を頂点数として返す
@@ -560,7 +474,7 @@ namespace K_Loader {
 		return pt;
 	}
 
-	void FbxModelLoader::LoadBones(FbxMesh* mesh, Vertex* vertex, PolygonTable *table) {
+	void FbxModelLoader::LoadBones(FbxMesh* mesh, K_Graphics::Vertex* vertex, std::vector<K3MDBone>& bone, PolygonTable *table) {
 		FbxDeformer *deformer = mesh->GetDeformer(0);
 		if (!deformer) {
 			//ボーンが存在しなかったら帰る
@@ -595,34 +509,34 @@ namespace K_Loader {
 		}
 
 		//バインドポーズを取得
-		std::vector<K_Graphics::Bone> bone;
 		bone.resize(numBone);
 		for (int i = 0; i < numBone; ++i) {
 			FbxAMatrix mat;
+			K_Math::Matrix4x4 mat44;
 			cluster[i]->GetTransformLinkMatrix(mat);
 			for (int x = 0; x < 4; ++x) {
 				for (int y = 0; y < 4; ++y) {
-					bone[i].bindMat[y][x] = (float)mat.Get(y, x);
-					bone[i].cluster = cluster[i];
+					mat44[y][x] = (float)mat.Get(y, x);
 				}
 			}
-			bone[i].bindMat = glm::inverse(bone[i].bindMat);
-
+			mat44 = glm::inverse(mat44);
+	
 			glm::quat rot = glm::angleAxis(K_Math::DegToRad(90.0f), K_Math::Vector3(1.0f, 0.0f, 0.0f));
 			K_Math::Matrix4x4 scale = glm::scale(K_Math::Matrix4x4(), K_Math::Vector3(1.0f, -1.0f, 1.0f));
-			bone[i].bindMat = bone[i].bindMat * scale * glm::toMat4(rot);
-		}
-		CalcCurrentBoneMatrix(bone);
+			mat44 = mat44 * scale * glm::toMat4(rot);
 
+			for (int lineIndex = 0; lineIndex < 4; ++lineIndex) {
+				bone[i].bindMat.line[lineIndex] = mat44[lineIndex];
+			}
+		}
+		CalcCurrentBoneMatrix(bone, cluster);
+		
 		//glm::quat rot = glm::angleAxis(K_Math::DegToRad(90.0f), K_Math::Vector3(1.0f, 0.0f, 0.0f));
 		//glm::quat rot2 = glm::angleAxis(K_Math::DegToRad(-90.0f), K_Math::Vector3(1.0f, 0.0f, 0.0f));
 		//glm::quat rot3 = glm::angleAxis(K_Math::DegToRad(180.0f), K_Math::Vector3(0.0f, 1.0f, 0.0f));
 		//K_Math::Matrix4x4 scale = glm::scale(K_Math::Matrix4x4(), K_Math::Vector3(1.0f, -1.0f, 1.0f));
 		//K_Math::Matrix4x4 scale2 = glm::scale(K_Math::Matrix4x4(), K_Math::Vector3(-1.0f, 1.0f, 1.0f));
 		//resultMat = glm::toMat4(rot3) * scale2 * glm::toMat4(rot2) * current * bind * scale * glm::toMat4(rot);
-
-		this->boneData = new K_Graphics::BoneData;
-		this->boneData->AddBoneData(bone);
 	}
 
 
@@ -635,7 +549,7 @@ namespace K_Loader {
 		FbxScene    *scene;
 		manager = FbxManager::Create();
 		if (!manager) {
-			throw std::runtime_error("FBXSDK initialize failed" + fileName);
+			throw std::runtime_error("FBXSDK initialize failed " + fileName);
 		}
 
 		importer = FbxImporter::Create(manager, "");
@@ -644,16 +558,17 @@ namespace K_Loader {
 		this->fbxData->Add(manager, importer, scene);
 
 		if (!importer || !scene) {
-			throw std::runtime_error("FBXSDK initialize failed" + fileName);
+			throw std::runtime_error("FBXSDK initialize failed " + fileName);
 		}
 
 		//初期化とインポート
 		printf("%s\n", fileName.data());
 		if (!importer->Initialize(fileName.data())) {
-			throw std::runtime_error("FBXSDK file load failed" + fileName);
+			
+			throw std::runtime_error("FBXSDK file load failed " + std::string(importer->GetStatus().GetErrorString()) + " " + fileName);
 		}
 		if (!importer->Import(scene)) {
-			throw std::runtime_error("FBXSDK import failed" + fileName);
+			throw std::runtime_error("FBXSDK import failed " + fileName);
 		}
 
 		//面を三角化、余計な面も取り除く
@@ -662,7 +577,7 @@ namespace K_Loader {
 		converter.RemoveBadPolygonsFromMeshes(scene);
 	}
 
-	void FbxModelLoader::CalcCurrentBoneMatrix(std::vector<K_Graphics::Bone>& bone) {
+	void FbxModelLoader::CalcCurrentBoneMatrix(std::vector<K3MDBone>& bone, std::vector<FbxCluster*>& cluster) {
 		//アニメーションごとにボーン行列を保存
 		FbxImporter* importer = this->fbxData->GetInporter();
 		int numAnim = importer->GetAnimStackCount();
@@ -692,12 +607,16 @@ namespace K_Loader {
 					bone[k].mat.resize(numAnim);
 					bone[k].mat[animID].resize(endTime + startTime);
 					//行列取得
-					FbxAMatrix& mat = bone[k].cluster->GetLink()->EvaluateGlobalTransform(fbxTime);
+					FbxAMatrix& mat = cluster[k]->GetLink()->EvaluateGlobalTransform(fbxTime);
+					K_Math::Matrix4x4 mat44;
 					//代入
 					for (int x = 0; x < 4; ++x) {
 						for (int y = 0; y < 4; ++y) {
-							bone[k].mat[animID][time][y][x] = (float)mat.Get(y, x);
+							mat44[y][x] = (float)mat.Get(y, x);
 						}
+					}
+					for (int lineIndex = 0; lineIndex < 4; ++lineIndex) {
+						bone[k].mat[animID][time].line[lineIndex] = mat44[lineIndex];
 					}
 				}
 			}

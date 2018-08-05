@@ -75,14 +75,11 @@ namespace K_Graphics {
 		return world;
 	}
 	K_Math::Matrix4x4 MeshObject::CreateWorldMatrix(const K_Math::Vector3& position, const K_Math::Quaternion& rotation, const K_Math::Vector3& scaling) {
+		//移動
+		//クォータニオンによる回転
+		//スケール
 		K_Math::Matrix4x4 world;
-		////移動
-		//K_Math::Matrix4x4 transMat = glm::translate(world, position);
-		////クォータニオンによる回転
-		//K_Math::Matrix4x4 rotMat = glm::toMat4(rotation);
-		////スケール
-		//K_Math::Matrix4x4 scaleMat = glm::scale(world, K_Math::Vector3(scaling.x, scaling.y, scaling.z));
-		world = glm::translate(world, position) * glm::toMat4(rotation) *  glm::scale(world, K_Math::Vector3(scaling.x, scaling.y, scaling.z));
+		world = glm::translate(world, position) * glm::toMat4(rotation) *  glm::scale(world, scaling);
 		return world;
 	}
 
@@ -92,7 +89,7 @@ namespace K_Graphics {
 	////
 
 	void MeshObject::SetMatrix(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scaling) {
-
+		//シェーダーにWVP行列とW行列をセット(オイラー回転)
 		K_Math::Matrix4x4 view = camera->GetViewMatrix();
 		K_Math::Matrix4x4 projection = camera->GetProjectionMatrix();
 
@@ -102,6 +99,7 @@ namespace K_Graphics {
 	}
 	void MeshObject::SetMatrix(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Quaternion& rotation, const K_Math::Vector3& scaling) {
 
+		//シェーダーにWVP行列とW行列をセット(クォータニオン回転)
 		K_Math::Matrix4x4 view = camera->GetViewMatrix();
 		K_Math::Matrix4x4 projection = camera->GetProjectionMatrix();
 

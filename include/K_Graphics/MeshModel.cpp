@@ -28,6 +28,12 @@ namespace K_Graphics {
 		this->data = data;
 		this->boneTexture = new Texture;
 		this->boneTexture->Initialize();
+
+		//ボーンテクスチャ初期化
+		int numArray = this->data->vertexBuffer->GetNumBuffer();
+		for (int i = 0; i < numArray; ++i) {
+			UpdateBone(i);
+		}
 		return true;
 	}
 

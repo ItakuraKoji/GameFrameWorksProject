@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['updateanimation',['UpdateAnimation',['../class_k___graphics_1_1_mesh_model.html#aff80e4a746d73f9c077f3773bbb191e3',1,'K_Graphics::MeshModel::UpdateAnimation()'],['../class_k___graphics_1_1_mesh_object.html#acd6df7e561a4012380e435a41aeb0994',1,'K_Graphics::MeshObject::UpdateAnimation()'],['../class_k___graphics_1_1_animation_data.html#a0f6ba4993f33722661d63f811727dc44',1,'K_Graphics::AnimationData::UpdateAnimation()']]],
-  ['useshader',['UseShader',['../class_k___graphics_1_1_shader_class.html#a53590f2a34bbf3f1dc91398068f43754',1,'K_Graphics::ShaderClass::UseShader()'],['../class_k___graphics_1_1_shader_list.html#ad903d8c4daca2f2296434afd5694a4c5',1,'K_Graphics::ShaderList::UseShader()']]]
+  ['texture',['Texture',['../class_k___graphics_1_1_texture.html#a3d4fc11068626d4d981b37d1d5aead47',1,'K_Graphics::Texture']]],
+  ['texturelist',['TextureList',['../class_k___graphics_1_1_texture_list.html#a32733fdf9b63714a2730fccfe6d4d39b',1,'K_Graphics::TextureList']]]
 ];

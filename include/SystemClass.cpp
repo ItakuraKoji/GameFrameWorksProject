@@ -68,12 +68,9 @@ namespace K_System {
 			//FPS計測はフォーカスしているときだけ
 			return;
 		}
-
 		//FPS計測
-		std::chrono::system_clock::time_point a = std::chrono::system_clock::now();
-
 		++this->framecount;
-		if (this->framecount == 60) {
+		if (this->framecount == 30) {
 			cullentTime = std::chrono::system_clock::now();
 			this->fps = (float)framecount / std::chrono::duration_cast<std::chrono::milliseconds>(cullentTime - startTime).count() * 1000;
 			this->startTime = std::chrono::system_clock::now();
@@ -126,6 +123,9 @@ namespace K_System {
 
 	void SystemClass::SetDrawInterval(IntervalType type) {
 		switch (type) {
+		case IntervalType::NO_VSYNC:
+			glfwSwapInterval(0);
+			break;
 		case IntervalType::FPS30:
 			glfwSwapInterval(2);
 			break;

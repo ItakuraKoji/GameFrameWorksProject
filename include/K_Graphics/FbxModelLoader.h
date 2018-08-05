@@ -1,4 +1,5 @@
 #pragma once
+#include"K3MDLoader.h"
 #include"K_Math\MyMathFanctions.h"
 #include<fbxsdk\fbxsdk.h>
 #include<vector>
@@ -8,24 +9,10 @@
 
 namespace K_Loader {
 
-	//FBXファイルから頂点、マテリアル、ボーン情報を読み取って保持し、ほかのクラスに渡す
-	//読み込みができなかったデータはdeleteすることによって、無い物として扱える（NULL）
-	//このクラスでは解放責任を負わない
+	//FBXファイルから頂点、マテリアル、ボーン情報を読み取って、K3MD形式のモデルへとデコードしてモデルデータを作成
 	//ボーンは４つ以下のウェイトで決め打ちとする　(５つ以上では不具合が出る)　のでモデル側で気を付ける
 	class FbxModelLoader {
 	private:
-		struct Vector4i {
-			Vector4i() : data{ 0 } {}
-			int data[4];
-		};
-		struct Vertex {
-			K_Math::Vector3 position;
-			K_Math::Vector2 texcoord;
-			K_Math::Vector3 normal;
-			K_Math::Vector4 boneWeight;
-			Vector4i boneIndex;
-		};
-
 		//頂点からポリゴンを逆引きするテーブル
 		struct PolygonTable {
 			//ポリゴン番号
@@ -50,21 +37,17 @@ namespace K_Loader {
 		bool LoadFBX(const std::string& fileName, K_Graphics::TextureList* list);
 
 		K_Graphics::FbxData*       PassFbxData();
-		K_Graphics::VertexData*    PassVertexBuffer();
-		K_Graphics::MaterialData*  PassMaterialData();
-		K_Graphics::AnimationData* PassAnimationData();
-		K_Graphics::BoneData*      PassBoneData();
-
+		K3MDHierarchy*             PassModelData();
 
 	private:
 		void          Finalize();
 		void          InitializeFBX(const std::string& fileName);
 		void          RecursiveNode(FbxNode* node);
 		void          LoadFbxMesh(FbxMesh* mesh);
-		void          LoadVertex(FbxMesh* mesh, Vertex* vertex);
-		void          LoadMaterial(FbxMesh* mesh, VertexUVs& vertexData, std::vector<K_Graphics::Material>& material, std::vector<GLuint>& IBOs);
-		void          LoadBones(FbxMesh* mesh, Vertex* vertex, PolygonTable *table);
-		void          CalcCurrentBoneMatrix(std::vector<K_Graphics::Bone>& bone);
+		void          LoadVertex(FbxMesh* mesh, K_Graphics::Vertex* vertex);
+		void          LoadMaterial(FbxMesh* mesh, VertexUVs& vertexData, std::vector<K3MDMaterial>& material);
+		void          LoadBones(FbxMesh* mesh, K_Graphics::Vertex* vertex, std::vector<K3MDBone>& bone, PolygonTable *table);
+		void          CalcCurrentBoneMatrix(std::vector<K3MDBone>& bone, std::vector<FbxCluster*>& cluster);
 
 		PolygonTable* CreatePolygonTable(FbxMesh *mesh, int numVertex, int numFace);
 		int CreateUVBaseVertex(FbxMesh* mesh, VertexUVs& uvMap);
@@ -72,18 +55,17 @@ namespace K_Loader {
 	private:
 		bool loaded;
 
+		K3MDHierarchy* modelData;
+
 		K_Graphics::FbxData       *fbxData;
-		K_Graphics::VertexData    *bufferData;
-		K_Graphics::MaterialData  *materialData;
-		K_Graphics::AnimationData *animationData;
-		K_Graphics::BoneData      *boneData;
 
 		//クラス内でアクセスするためのもの。deleteする責任はない
 		K_Graphics::TextureList *textureList;
 
 		//FBXファイルの場所をルートにする
 		char* fileRoot;
-		Vertex* vertexData;
+
+		K_Graphics::Vertex* vertexData;
 		int numVertex;
 		int numUV;
 		int numFace;

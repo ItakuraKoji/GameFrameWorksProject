@@ -19,6 +19,10 @@ namespace K_Physics {
 		btTransform& trans = this->collision->getWorldTransform();
 		trans.setRotation(btQuaternion(rotation.y, rotation.x, rotation.z));
 	}
+	void CollisionData::SetCollisionRotation(const K_Math::Quaternion& rotation) {
+		btTransform& trans = this->collision->getWorldTransform();
+		trans.setRotation(btQuaternion(rotation.x, rotation.y, rotation.z, rotation.w));
+	}
 
 	void CollisionData::SetActive(bool active) {
 		if (active) {

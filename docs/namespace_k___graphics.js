@@ -31,6 +31,8 @@ var namespace_k___graphics =
     [ "SpriteObject", "class_k___graphics_1_1_sprite_object.html", "class_k___graphics_1_1_sprite_object" ],
     [ "Texture", "class_k___graphics_1_1_texture.html", "class_k___graphics_1_1_texture" ],
     [ "TextureList", "class_k___graphics_1_1_texture_list.html", "class_k___graphics_1_1_texture_list" ],
+    [ "Vector4i", "struct_k___graphics_1_1_vector4i.html", "struct_k___graphics_1_1_vector4i" ],
+    [ "Vertex", "struct_k___graphics_1_1_vertex.html", "struct_k___graphics_1_1_vertex" ],
     [ "VertexBuffer", "struct_k___graphics_1_1_vertex_buffer.html", "struct_k___graphics_1_1_vertex_buffer" ],
     [ "VertexData", "class_k___graphics_1_1_vertex_data.html", "class_k___graphics_1_1_vertex_data" ]
 ];

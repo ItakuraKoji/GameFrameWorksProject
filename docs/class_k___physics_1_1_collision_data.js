@@ -11,6 +11,7 @@ var class_k___physics_1_1_collision_data =
     [ "SetActive", "class_k___physics_1_1_collision_data.html#afa7ddf319a8d830d482b36ed0a1f4e30", null ],
     [ "SetCollisionPosition", "class_k___physics_1_1_collision_data.html#affb7f66b30c1fed8314e02e96c821aa7", null ],
     [ "SetCollisionRotation", "class_k___physics_1_1_collision_data.html#af389fc600fbd9b2d29337357a03ef3f0", null ],
+    [ "SetCollisionRotation", "class_k___physics_1_1_collision_data.html#aa3defb8785c790c3476aa82e04fbff13", null ],
     [ "SetCollisionTag", "class_k___physics_1_1_collision_data.html#a5a2540fc7f84e4d8a5192ee49f692e49", null ],
     [ "SetGiveMask", "class_k___physics_1_1_collision_data.html#a42359240db612fd61d22fd3fcbf1086e", null ],
     [ "SetMyselfMask", "class_k___physics_1_1_collision_data.html#ac66a4d51bedc76c96f8e604e1dc42190", null ],

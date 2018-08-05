@@ -9,6 +9,7 @@ namespace K_Graphics {
 		this->speed = 1;
 		this->currentAnimID = 0;
 		this->currentAnimTime = 0.0f;
+		this->interporationCount = 0.0f;
 		this->isLoop = false;
 		this->bone = bone;
 		//îzóÒämï€
@@ -117,6 +118,9 @@ namespace K_Graphics {
 				}
 			}
 		}
+
+		UpdateAnimation(0.0f);
+
 	}
 
 	void AnimationData::BoneInterporation(int arrayIndex, int boneIndex, float ratio) {
@@ -127,14 +131,8 @@ namespace K_Graphics {
 		const K_Math::Vector3& translationB = bone.currentMat[3];
 
 		//âÒì]çsóÒÅïägèkçsóÒ
-		K_Math::Matrix3x3 rotScaleA;
-		rotScaleA[0] = (K_Math::Vector3)bone.interPolationMat[0];
-		rotScaleA[1] = (K_Math::Vector3)bone.interPolationMat[1];
-		rotScaleA[2] = (K_Math::Vector3)bone.interPolationMat[2];
-		K_Math::Matrix3x3 rotScaleB;
-		rotScaleB[0] = (K_Math::Vector3)bone.currentMat[0];
-		rotScaleB[1] = (K_Math::Vector3)bone.currentMat[1];
-		rotScaleB[2] = (K_Math::Vector3)bone.currentMat[2];
+		K_Math::Matrix3x3& rotScaleA = (K_Math::Matrix3x3)bone.interPolationMat;
+		K_Math::Matrix3x3& rotScaleB = (K_Math::Matrix3x3)bone.currentMat;
 
 		//ägèkÇÕÉxÉNÉgÉãÇÃí∑Ç≥Ç≈ï\Ç≥ÇÍÇÈ
 		K_Math::Vector3 scaleA;
@@ -149,8 +147,8 @@ namespace K_Graphics {
 		//ÉXÉPÅ[ÉãÇ≈âÒì]çsóÒÇäÑÇÈÇ∆âÒì]çsóÒÇÃÇ›Ç…Ç»ÇÈ
 		for (int y = 0; y < 3; ++y) {
 			for (int x = 0; x < 3; ++x) {
-				rotScaleA[x][y] = rotScaleA[x][y] / scaleA[y];
-				rotScaleB[x][y] = rotScaleB[x][y] / scaleB[y];
+				rotScaleA[x][y] /= scaleA[y];
+				rotScaleB[x][y] /= scaleB[y];
 			}
 		}
 
@@ -158,6 +156,7 @@ namespace K_Graphics {
 		K_Math::Quaternion rotationA(rotScaleA);
 		K_Math::Quaternion rotationB(rotScaleB);
 
+		//ÇªÇµÇƒï‚ä‘
 		const K_Math::Vector3& resultTrans = translationA * (1.0f - ratio) + translationB * ratio;
 		const K_Math::Vector3& resultScale = scaleA * (1.0f - ratio) + scaleB * ratio;
 		const K_Math::Quaternion& resultRot = glm::slerp(rotationA, rotationB, ratio);
@@ -167,10 +166,8 @@ namespace K_Graphics {
 		resultMat[0][0] = resultScale.x;
 		resultMat[1][1] = resultScale.y;
 		resultMat[2][2] = resultScale.z;
-		K_Math::Matrix4x4 rotMat;
-		rotMat = glm::toMat4(resultRot);
 
-		resultMat = resultMat * rotMat;
+		resultMat *= glm::toMat4(resultRot);
 		resultMat[3] = K_Math::Vector4(resultTrans, 1.0f);
 
 		//äiî[
@@ -183,9 +180,9 @@ namespace K_Graphics {
 		const K_Math::Matrix4x4& current = this->currentBone[arrayIndex][boneIndex].currentMat;
 
 		glm::quat rot;
-		rot = rot * glm::angleAxis(K_Math::DegToRad(180.0f), K_Math::Vector3(0.0f, 1.0f, 0.0f));
-		rot = rot * glm::angleAxis(K_Math::DegToRad(-90.0f), K_Math::Vector3(1.0f, 0.0f, 0.0f));
-		K_Math::Matrix4x4 scale = glm::scale(K_Math::Matrix4x4(), K_Math::Vector3(-1.0f, 1.0f, 1.0f));
+		rot *= glm::angleAxis(K_Math::DegToRad(180.0f), K_Math::Vector3(0.0f, 1.0f, 0.0f));
+		rot *= glm::angleAxis(K_Math::DegToRad(-90.0f), K_Math::Vector3(1.0f, 0.0f, 0.0f));
+		const K_Math::Matrix4x4& scale = glm::scale(K_Math::Matrix4x4(), K_Math::Vector3(-1.0f, 1.0f, 1.0f));
 
 		resultMat = scale * glm::toMat4(rot) * current * bind;
 	}

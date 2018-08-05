@@ -1,6 +1,7 @@
 var searchData=
 [
   ['d',['D',['../namespace_k___input.html#af62d80c77b12db01035e4b9aa27a09d6af623e75af30e62bbd73d6df5b50bb7b5',1,'K_Input']]],
+  ['data',['data',['../struct_k___graphics_1_1_vector4i.html#a0d4ea20e53999bc813f77aabe66d1706',1,'K_Graphics::Vector4i']]],
   ['debugdraw',['DebugDraw',['../class_k___physics_1_1_bullet_physics.html#a98bab2e09a117e87d5b1e11048366118',1,'K_Physics::BulletPhysics::DebugDraw(K_Graphics::ShaderClass *shader, K_Graphics::CameraClass *camera, const K_Math::Matrix4x4 &amp;trans=K_Math::Matrix4x4())'],['../class_k___physics_1_1_bullet_physics.html#ad6de61bcd3ed7dc096b97d134f96bf09',1,'K_Physics::BulletPhysics::DebugDraw(K_Graphics::ShaderClass *shader, K_Graphics::CameraClass *camera, float nearClip, float farClip, const K_Math::Matrix4x4 &amp;trans=K_Math::Matrix4x4())']]],
   ['debugline',['DebugLine',['../struct_k___physics_1_1_debug_line.html',1,'K_Physics']]],
   ['debuglineindex',['DebugLineIndex',['../struct_k___physics_1_1_debug_line_index.html',1,'K_Physics']]],
@@ -9,7 +10,7 @@ var searchData=
   ['deletesource',['DeleteSource',['../class_k___audio_1_1_sound_class.html#ab7f65f8816604bdc37cb6e30671b2494',1,'K_Audio::SoundClass']]],
   ['deletetexture',['DeleteTexture',['../class_k___graphics_1_1_texture_list.html#af5823a146cd8494b261ddcdf0d515859',1,'K_Graphics::TextureList']]],
   ['detectmaxdistance',['DetectMaxDistance',['../struct_k___physics_1_1_detect_max_distance.html',1,'K_Physics::DetectMaxDistance'],['../struct_k___physics_1_1_detect_max_distance.html#ad37b98dd5cff687f2437a642c59f8026',1,'K_Physics::DetectMaxDistance::DetectMaxDistance()']]],
-  ['diffuse',['diffuse',['../struct_k___graphics_1_1_material.html#abb41fcdf2a6addf387a167e65020d927',1,'K_Graphics::Material']]],
+  ['diffuse',['diffuse',['../struct_k___loader_1_1_k3_m_d_material.html#a6dfdfe678f475f4aa4a8d2dde0a7ca57',1,'K_Loader::K3MDMaterial::diffuse()'],['../struct_k___graphics_1_1_material.html#abb41fcdf2a6addf387a167e65020d927',1,'K_Graphics::Material::diffuse()']]],
   ['direction',['direction',['../class_k___graphics_1_1_directional_light.html#aa2fe5f127475e2751039b9636e3e3487',1,'K_Graphics::DirectionalLight']]],
   ['directionallight',['DirectionalLight',['../class_k___graphics_1_1_directional_light.html',1,'K_Graphics::DirectionalLight'],['../class_k___graphics_1_1_directional_light.html#a59cd654e88bff0875908bf87bb5e0f05',1,'K_Graphics::DirectionalLight::DirectionalLight()']]],
   ['dot',['Dot',['../namespace_k___math.html#a59c8809443b45726cabb17bc87919d72',1,'K_Math::Dot(const Vector2 &amp;vector1, const Vector2 &amp;vector2)'],['../namespace_k___math.html#ab3140f4913201e40069d80d516a62239',1,'K_Math::Dot(const Vector3 &amp;vector1, const Vector3 &amp;vector2)']]],

@@ -10,6 +10,20 @@
 
 namespace K_Graphics {
 
+	//ボーンインデックスのための整数４つ配列
+	struct Vector4i {
+		Vector4i() : data{ 0 } {}
+		int data[4];
+	};
+	//頂点情報
+	struct Vertex {
+		K_Math::Vector3 position;
+		K_Math::Vector2 texcoord;
+		K_Math::Vector3 normal;
+		K_Math::Vector4 boneWeight;
+		Vector4i boneIndex;
+	};
+
 	struct Material {
 		std::string materialName;
 		Texture* texture;
@@ -34,8 +48,6 @@ namespace K_Graphics {
 		std::vector<std::vector<K_Math::Matrix4x4>> mat;
 		FbxCluster* cluster;
 		K_Math::Matrix4x4 bindMat;
-		//K_Math::Matrix4x4 currentMat;
-		//K_Math::Matrix4x4 interPolationMat;
 	};
 	//アニメーションの現在のボーン情報
 	struct BoneAnimation {
@@ -69,6 +81,7 @@ namespace K_Graphics {
 		void CheckMaterialArrayRange(int arrayIndex, int materialIndex);
 
 	private:
+		//モデル階層とそのマテリアル数だけ配列を持っている
 		std::vector<std::vector<Material>> materialArray;
 	};
 
@@ -92,6 +105,7 @@ namespace K_Graphics {
 		void CheckMaterialArrayRange(int arrayIndex, int materialIndex);
 
 	private:
+		//モデル階層数だけ配列を持っている
 		std::vector<VertexBuffer> bufferArray;
 	};
 
@@ -100,8 +114,8 @@ namespace K_Graphics {
 	public:
 		BoneData();
 		~BoneData();
-		void AddBoneData(std::vector<Bone>& boneData);
-		void AddAnimData(AnimType& animData);
+		void AddBoneData(const std::vector<Bone>& boneData);
+		void AddAnimData(const AnimType& animData);
 
 		const K_Math::Matrix4x4& GetBindBoneMatrix(int hierarchyIndex, int boneIndex) const;
 		const K_Math::Matrix4x4& GetCurrentBoneMatrix(int hierarchyIndex, int boneIndex, int animID, int time) const;

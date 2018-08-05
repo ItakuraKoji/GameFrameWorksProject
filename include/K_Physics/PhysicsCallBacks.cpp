@@ -95,9 +95,6 @@ namespace K_Physics {
 		if (cp.getDistance() >= -0.001f) {
 			return btScalar(0.0f);
 		}
-		if (this->count > 5) {
-			return btScalar(0.0f);
-		}
 		
 		//Å‘å’lXV
 		if (this->maxDistance > cp.getDistance()) {
@@ -105,7 +102,6 @@ namespace K_Physics {
 			this->maxDistance = cp.getDistance();
 			this->fixVec = cp.m_normalWorldOnB;
 		}
-		++this->count;
 		this->isLoop = true;
 		return btScalar(0.0f);
 	}
@@ -154,7 +150,7 @@ namespace K_Physics {
 		}
 
 		//‚ß‚èž‚Ý‚ª¬‚³‚¢ê‡‚ÍÕ“Ë‚µ‚Ä‚È‚¢‚Æ‚·‚é
-		if (cp.getDistance() >= -0.001f) {
+		if (cp.getDistance() >= -0.0f) {
 			return btScalar(0.0f);
 		}
 		this->isHit = true;
