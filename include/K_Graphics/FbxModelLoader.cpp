@@ -6,45 +6,34 @@ namespace K_Loader {
 	////
 	FbxModelLoader::FbxModelLoader() {
 		this->fbxData = nullptr;
-		this->vertexData = nullptr;
 		this->loaded = false;
 	}
 	FbxModelLoader::~FbxModelLoader() {
 		Finalize();
 	}
 
-	bool FbxModelLoader::LoadFBX(const std::string& fileName, K_Graphics::TextureList* list) {
+	bool FbxModelLoader::LoadFBX(const std::string& fileName) {
 		try {
 			this->modelData = new K3MDHierarchy;
 			this->modelData->modelHierarchy.reserve(100);
 
 			this->fbxData = new K_Graphics::FbxData;
 
-			this->textureList = list;
-
 			printf("LoadModel... : %s\n", fileName.data());
 			InitializeFBX(fileName);
 
-			//ファイルパスを記録して相対パスを作り出す("../は使えない")
-			{
-				int position = 0;
-				int loopMax = (int)fileName.size();
-				int i;
-				//後ろから数えて、パスを取得
-				for (i = loopMax - 1; i >= 0; --i) {
-					if (fileName.data()[i] == '\\' || fileName.data()[i] == '/') {
-						position = i + 1;
-						break;
-					}
-				}
-				this->fileRoot = new char[position + 1];
-				//取得したパスまでの位置を実際に文字取得
-				for (i = 0; i < position; ++i) {
-					this->fileRoot[i] = fileName.data()[i];
-				}
-				this->fileRoot[i] = '\0';
+			//ファイルパスを記録してモデルファイルを起点とした読み込みパスを作り出す
+			int position = fileName.find_last_of("\\/");
+			if (position == std::string::npos) {
+				//見つからなかった場合は起点パスは空白
+				this->fileRoot = "";
+			}
+			else {
+				this->fileRoot = fileName.substr(0, position + 1);
 			}
 
+
+			//ノード取得
 			FbxNode *rootNode = this->fbxData->GetScene()->GetRootNode();
 			RecursiveNode(rootNode);
 
@@ -79,12 +68,10 @@ namespace K_Loader {
 			}
 
 			this->loaded = true;
-			delete[] this->fileRoot;
 		}
 		catch (std::exception& e) {
 			printf("%s\n", e.what());
 			this->loaded = false;
-			delete[] this->fileRoot;
 			return false;
 		}
 		return true;
@@ -96,7 +83,7 @@ namespace K_Loader {
 		this->fbxData = nullptr;
 		return returnData;
 	}
-	K3MDHierarchy* FbxModelLoader::PassModelData() {
+	K3MDHierarchy* FbxModelLoader::GetModelData() {
 		return this->modelData;
 	}
 
@@ -145,14 +132,10 @@ namespace K_Loader {
 			int newNumVertex;
 			if (this->numUV) {
 				newNumVertex = CreateUVBaseVertex(mesh, uvMap);
-				this->vertexData = new K_Graphics::Vertex[newNumVertex];
 				this->modelData->modelHierarchy[currentHierarchy].vertexData.reserve(newNumVertex);
 				int count = 0;
 				for (int i = 0; i < uvMap.GetSize(); ++i) {
 					for (int j = 0; j < uvMap[i].uv.GetCount(); ++j) {
-						this->vertexData[count] = vertex[i];
-						this->vertexData[count].texcoord.x = (float)uvMap[i].uv[j][0];
-						this->vertexData[count].texcoord.y = (float)uvMap[i].uv[j][1];
 						//K3MD形式データ
 						this->modelData->modelHierarchy[currentHierarchy].vertexData.push_back(vertex[i]);
 						this->modelData->modelHierarchy[currentHierarchy].vertexData[count].texcoord.x = (float)uvMap[i].uv[j][0];
@@ -163,10 +146,8 @@ namespace K_Loader {
 			}
 			else {
 				newNumVertex = this->numVertex;
-				this->vertexData = new K_Graphics::Vertex[newNumVertex];
 				this->modelData->modelHierarchy[currentHierarchy].vertexData.reserve(newNumVertex);
 				for (int i = 0; i < this->numVertex; ++i) {
-					this->vertexData[i] = vertex[i];
 					//K3MD形式データ
 					this->modelData->modelHierarchy[currentHierarchy].vertexData.push_back(vertex[i]);
 				}
@@ -179,8 +160,6 @@ namespace K_Loader {
 				delete[] table;
 			}
 			delete[] vertex;
-			delete[] this->vertexData;
-			this->vertexData = nullptr;
 		}
 		catch (std::exception& e) {
 			if (vertex) {
@@ -199,10 +178,6 @@ namespace K_Loader {
 		if (this->fbxData != nullptr) {
 			delete this->fbxData;
 			this->fbxData = nullptr;
-		}
-		if (this->vertexData != nullptr) {
-			delete this->vertexData;
-			this->vertexData = nullptr;
 		}
 		if (this->modelData != nullptr) {
 			delete this->modelData;
@@ -356,13 +331,13 @@ namespace K_Loader {
 				//ファイル名を取得(ファイル名と拡張子のみ)
 				_splitpath_s(fullName, 0, 0, directory, 100, name, 100, ext, 10);
 
-				int pathSize = (int)strlen(this->fileRoot) + (int)strlen(directory) + (int)strlen(name) + (int)strlen(ext) + 10;
+				int pathSize = (int)this->fileRoot.size() + (int)strlen(directory) + (int)strlen(name) + (int)strlen(ext) + 10;
 
 				//最終的に使用するファイル名
 				char* fileName = new char[pathSize];
 				fileName[0] = '\0';
 
-				strcat_s(fileName, pathSize, this->fileRoot);
+				strcat_s(fileName, pathSize, this->fileRoot.data());
 				strcat_s(fileName, pathSize, directory);
 				strcat_s(fileName, pathSize, name);
 				strcat_s(fileName, pathSize, ext);
@@ -530,51 +505,59 @@ namespace K_Loader {
 			}
 		}
 		CalcCurrentBoneMatrix(bone, cluster);
-		
-		//glm::quat rot = glm::angleAxis(K_Math::DegToRad(90.0f), K_Math::Vector3(1.0f, 0.0f, 0.0f));
-		//glm::quat rot2 = glm::angleAxis(K_Math::DegToRad(-90.0f), K_Math::Vector3(1.0f, 0.0f, 0.0f));
-		//glm::quat rot3 = glm::angleAxis(K_Math::DegToRad(180.0f), K_Math::Vector3(0.0f, 1.0f, 0.0f));
-		//K_Math::Matrix4x4 scale = glm::scale(K_Math::Matrix4x4(), K_Math::Vector3(1.0f, -1.0f, 1.0f));
-		//K_Math::Matrix4x4 scale2 = glm::scale(K_Math::Matrix4x4(), K_Math::Vector3(-1.0f, 1.0f, 1.0f));
-		//resultMat = glm::toMat4(rot3) * scale2 * glm::toMat4(rot2) * current * bind * scale * glm::toMat4(rot);
 	}
 
 
 
 	void FbxModelLoader::InitializeFBX(const std::string& fileName) {
+		size_t pathSize = 0;
+		char* path;
+		try {
+			FbxAnsiToUTF8(fileName.data(), path, &pathSize);
 
-		//マネージャーを生成しモデルデータをインポート
-		FbxManager  *manager;
-		FbxImporter *importer;
-		FbxScene    *scene;
-		manager = FbxManager::Create();
-		if (!manager) {
-			throw std::runtime_error("FBXSDK initialize failed " + fileName);
+			//マネージャーを生成しモデルデータをインポート
+			FbxManager  *manager;
+			FbxImporter *importer;
+			FbxScene    *scene;
+			manager = FbxManager::Create();
+			if (!manager) {
+				throw std::runtime_error("FBXSDK initialize failed " + fileName);
+			}
+
+			importer = FbxImporter::Create(manager, "");
+			scene = FbxScene::Create(manager, "");
+
+			this->fbxData->Add(manager, importer, scene);
+
+			if (!importer || !scene) {
+				throw std::runtime_error("FBXSDK initialize failed " + fileName);
+			}
+
+			//初期化とインポート
+			printf("%s\n", fileName.data());
+			if (!importer->Initialize(path)) {
+
+				throw std::runtime_error("FBXSDK file load failed " + std::string(importer->GetStatus().GetErrorString()) + " " + fileName);
+			}
+			if (!importer->Import(scene)) {
+				throw std::runtime_error("FBXSDK import failed " + fileName);
+			}
+
+			//面を三角化、余計な面も取り除く
+			FbxGeometryConverter converter(manager);
+			converter.Triangulate(scene, true);
+			converter.RemoveBadPolygonsFromMeshes(scene);
+			//変換したパスの文字列は解放しなくてはならないので解放
+			FbxFree(path);
 		}
-
-		importer = FbxImporter::Create(manager, "");
-		scene = FbxScene::Create(manager, "");
-
-		this->fbxData->Add(manager, importer, scene);
-
-		if (!importer || !scene) {
-			throw std::runtime_error("FBXSDK initialize failed " + fileName);
+		catch (std::exception& e) {
+			if (pathSize > 0) {
+				//変換したパスの文字列は解放しなくてはならないので解放
+				FbxFree(path);
+			}
+			//後処理を終えたので例外をまた投げる
+			throw e;
 		}
-
-		//初期化とインポート
-		printf("%s\n", fileName.data());
-		if (!importer->Initialize(fileName.data())) {
-			
-			throw std::runtime_error("FBXSDK file load failed " + std::string(importer->GetStatus().GetErrorString()) + " " + fileName);
-		}
-		if (!importer->Import(scene)) {
-			throw std::runtime_error("FBXSDK import failed " + fileName);
-		}
-
-		//面を三角化、余計な面も取り除く
-		FbxGeometryConverter converter(manager);
-		converter.Triangulate(scene, true);
-		converter.RemoveBadPolygonsFromMeshes(scene);
 	}
 
 	void FbxModelLoader::CalcCurrentBoneMatrix(std::vector<K3MDBone>& bone, std::vector<FbxCluster*>& cluster) {

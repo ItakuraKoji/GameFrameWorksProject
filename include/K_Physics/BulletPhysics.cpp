@@ -98,7 +98,10 @@ namespace K_Physics {
 
 		K_Math::Matrix4x4 mat = projection * camera->GetViewMatrix() * trans;
 		shader->SetMatrix(mat);
+
+		this->debugDrawer.StartDraw(camera);
 		this->bulletWorld->debugDrawWorld();
+		this->debugDrawer.DrawAllLine();
 		glEnable(GL_DEPTH_TEST);
 	}
 
@@ -399,7 +402,7 @@ namespace K_Physics {
 	}
 
 	btVector3 BulletPhysics::MoveDiscrete(btCollisionObject* obj, const btVector3& moveVector, const btVector3& limitDirection) {
-		int numMove = 1 + (moveVector.norm()) * 4.0f;
+		int numMove = 1 + (moveVector.norm()) * 100.0f;
 		int numFix = 35;
 
 		const btVector3& goVec = moveVector / (float)numMove;
@@ -553,4 +556,27 @@ namespace K_Physics {
 
 		return normal;
 	}
+
+	void BulletPhysics::MoveRotation(CollisionData* obj, const K_Math::Quaternion& from, const K_Math::Quaternion& to, float speed) {
+		float t = 0.0f;
+		
+		do {
+			//­‚µ‚Ã‚Â‰ñ“]
+			t += speed;
+			if (t > 1.0f) {
+				t = 1.0f;
+			}
+
+			K_Math::Quaternion rotation = K_Math::Slerp(from, to, t);
+
+			//‰ñ“]
+			K_Math::Quaternion prevRot = obj->GetCollisionRotation();
+			obj->SetCollisionRotation(rotation);
+			//”»’è
+			FixContactCallBack callback(obj->GetCollision(), btVector3(0.0f, 0.0f, 0.0f));
+			this->bulletWorld->contactTest(obj->GetCollision(), callback);
+		} while (t < 1.0f);
+
+	}
+
 }

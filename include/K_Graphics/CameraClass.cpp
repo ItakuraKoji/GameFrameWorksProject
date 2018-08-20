@@ -114,7 +114,9 @@ namespace K_Graphics {
 				this->cameraMatrix[r][l] = this->viewMatrix[l][r];
 			}
 		}
-		(K_Math::Vector3)this->cameraMatrix[3] = -this->viewMatrix[3];
+		for (int i = 0; i < 3; ++i) {
+			this->cameraMatrix[3][i] = -this->viewMatrix[3][i];
+		}
 
 		//ƒJƒƒ‰Ž²
 		this->xAxis = K_Math::Vector3(this->viewMatrix[0][0], this->viewMatrix[1][0], this->viewMatrix[2][0]);

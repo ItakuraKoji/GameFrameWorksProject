@@ -30,15 +30,24 @@ namespace K_Graphics {
 		if (this->textureList.find(textureName) != this->textureList.end()) {
 			return true;
 		}
-
 		Texture* texture = new Texture;
-		texture->Initialize();
-		if (!texture->LoadImage(fileName.data())) {
-			delete texture;
-			return false;
-		}
+		try {
+			//テクスチャ読み込み
+			texture->Initialize();
+			if (!texture->LoadImage(fileName.data())) {
+				delete texture;
+				return false;
+			}
 
-		this->textureList[textureName] = texture;
+			this->textureList[textureName] = texture;
+		}
+		catch (std::exception& e) {
+			//例外処理
+			if (texture != nullptr) {
+				delete texture;
+			}
+			throw e;
+		}
 		return true;
 	}
 	bool TextureList::AddEmptyTexture(const std::string& textureName, int textureWidth, int textureHeight) {

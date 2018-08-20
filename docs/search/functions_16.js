@@ -17,6 +17,7 @@ var searchData=
   ['_7eframebuffer',['~Framebuffer',['../class_k___graphics_1_1_framebuffer.html#ad3a492836b1ced0414f6b3aa4718097f',1,'K_Graphics::Framebuffer']]],
   ['_7eframebufferlist',['~FrameBufferList',['../class_k___graphics_1_1_frame_buffer_list.html#a0e7f1925dd1ae7b506cab0d023438552',1,'K_Graphics::FrameBufferList']]],
   ['_7eimagedata',['~ImageData',['../class_k___loader_1_1_image_data.html#ae3e545d6fb80598f2c36f9f6215a7ad3',1,'K_Loader::ImageData']]],
+  ['_7eimagedataloader',['~ImageDataLoader',['../class_k___loader_1_1_image_data_loader.html#a7472925451da62b74c63ccdd15952017',1,'K_Loader::ImageDataLoader']]],
   ['_7einputclass',['~InputClass',['../class_k___input_1_1_input_class.html#acf9e81aea0c011250af3d74cbb67098a',1,'K_Input::InputClass']]],
   ['_7ek3mdloader',['~K3MDLoader',['../class_k___loader_1_1_k3_m_d_loader.html#a9c4c75a08fb71f99bd0a304b931d0ecb',1,'K_Loader::K3MDLoader']]],
   ['_7elightlist',['~LightList',['../class_k___graphics_1_1_light_list.html#af8d54a762741383c985ca62175b11b55',1,'K_Graphics::LightList']]],
@@ -29,6 +30,7 @@ var searchData=
   ['_7emodeldatasuper',['~ModelDataSuper',['../struct_k___graphics_1_1_model_data_super.html#ad04820c475f5e6ddecc3bce5276ea03e',1,'K_Graphics::ModelDataSuper']]],
   ['_7emodelresource',['~ModelResource',['../struct_k___graphics_1_1_model_resource.html#ae3bb85ef5a401e49580c4069a23b251d',1,'K_Graphics::ModelResource']]],
   ['_7eoggdata',['~OggData',['../class_k___audio_1_1_ogg_data.html#a60aee716522004f16e11203677d3f63b',1,'K_Audio::OggData']]],
+  ['_7epngloader',['~PNGLoader',['../class_k___loader_1_1_p_n_g_loader.html#ab9f6a040bf3270e9ab012b6271be21ae',1,'K_Loader::PNGLoader']]],
   ['_7eshaderclass',['~ShaderClass',['../class_k___graphics_1_1_shader_class.html#ad007e6356bf230f441fd39a5127b76d7',1,'K_Graphics::ShaderClass']]],
   ['_7eshaderlist',['~ShaderList',['../class_k___graphics_1_1_shader_list.html#a77ff9ce6e8e54ca516fd5ac4281688f6',1,'K_Graphics::ShaderList']]],
   ['_7esoundclass',['~SoundClass',['../class_k___audio_1_1_sound_class.html#ae2fe8f23da3db03d0fd664fc9dbb0caa',1,'K_Audio::SoundClass']]],
@@ -37,6 +39,7 @@ var searchData=
   ['_7esystemclass',['~SystemClass',['../class_k___system_1_1_system_class.html#a5bdd9b6b328727510a660dc7ab9ea8ac',1,'K_System::SystemClass']]],
   ['_7etexture',['~Texture',['../class_k___graphics_1_1_texture.html#aacbb913221bc16ca6b1b2d8f8a62fc60',1,'K_Graphics::Texture']]],
   ['_7etexturelist',['~TextureList',['../class_k___graphics_1_1_texture_list.html#ad96337c9c60f13d1f6f9e088cab90ffc',1,'K_Graphics::TextureList']]],
+  ['_7etgaloader',['~TGALoader',['../class_k___loader_1_1_t_g_a_loader.html#afeab9ce4d3fcc5095062b9bf1663118d',1,'K_Loader::TGALoader']]],
   ['_7evertexdata',['~VertexData',['../class_k___graphics_1_1_vertex_data.html#ae879791e7e458a0ac7de00b6fa75aba1',1,'K_Graphics::VertexData']]],
   ['_7evirtualgamepad',['~VirtualGamePad',['../class_k___input_1_1_virtual_game_pad.html#a6f12b99db32d68336e8fd5a187775a1e',1,'K_Input::VirtualGamePad']]],
   ['_7ewavdata',['~WavData',['../class_k___audio_1_1_wav_data.html#ad05439665a69a1cc318c79d869fa97e9',1,'K_Audio::WavData']]]

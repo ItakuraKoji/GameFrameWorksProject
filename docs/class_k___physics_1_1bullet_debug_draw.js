@@ -9,5 +9,6 @@ var class_k___physics_1_1bullet_debug_draw =
     [ "drawLine", "class_k___physics_1_1bullet_debug_draw.html#a0842dd424336cc1e332cd2c01f68ac86", null ],
     [ "getDebugMode", "class_k___physics_1_1bullet_debug_draw.html#aafca54d1beeece0bcaaf3da4765e7699", null ],
     [ "reportErrorWarning", "class_k___physics_1_1bullet_debug_draw.html#aa421c8d4afa407e1e8c9784fce42115e", null ],
-    [ "setDebugMode", "class_k___physics_1_1bullet_debug_draw.html#a1502ab78aca04f7cae91532fb24a4875", null ]
+    [ "setDebugMode", "class_k___physics_1_1bullet_debug_draw.html#a1502ab78aca04f7cae91532fb24a4875", null ],
+    [ "StartDraw", "class_k___physics_1_1bullet_debug_draw.html#a6c962fbce566412cfafc4ce980c7a399", null ]
 ];

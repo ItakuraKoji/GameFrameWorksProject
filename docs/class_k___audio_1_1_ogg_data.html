@@ -86,7 +86,9 @@ $(document).ready(function(){initNavTree('class_k___audio_1_1_ogg_data.html','')
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">クラス</a> &#124;
 <a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
 <a href="class_k___audio_1_1_ogg_data-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle">
 <div class="title">K_Audio::OggData クラス</div>  </div>
@@ -104,10 +106,17 @@ K_Audio::OggData の継承関係図</div>
 </map>
  </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+クラス</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_k___audio_1_1_ogg_data_1_1_ogg_binary_data.html">OggBinaryData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
 <tr class="memitem:a846e59bd024858fee33549b66f2697eb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___audio_1_1_ogg_data.html#a846e59bd024858fee33549b66f2697eb">OggData</a> (const char *filePass)</td></tr>
 <tr class="separator:a846e59bd024858fee33549b66f2697eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a769c19d8f77a1ea84f64b8925af57e62"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___audio_1_1_ogg_data.html#a769c19d8f77a1ea84f64b8925af57e62">OggData</a> (char *binaryData, size_t binarySize)</td></tr>
+<tr class="separator:a769c19d8f77a1ea84f64b8925af57e62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60aee716522004f16e11203677d3f63b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___audio_1_1_ogg_data.html#a60aee716522004f16e11203677d3f63b">~OggData</a> ()</td></tr>
 <tr class="separator:a60aee716522004f16e11203677d3f63b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac0e955981398bf31053f27fbe19b2ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___audio_1_1_ogg_data.html#aac0e955981398bf31053f27fbe19b2ba">Seek</a> (int offset)</td></tr>
@@ -133,6 +142,17 @@ K_Audio::OggData の継承関係図</div>
 <tr class="separator:ac7caf391a833756f1b292040ca481d9d inherit pub_methods_class_k___audio_1_1_audio_data"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a213c7b7f73905d9e708ba82ec6eacaf5 inherit pub_methods_class_k___audio_1_1_audio_data"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___audio_1_1_audio_data.html#a213c7b7f73905d9e708ba82ec6eacaf5">GetSamplingRate</a> ()</td></tr>
 <tr class="separator:a213c7b7f73905d9e708ba82ec6eacaf5 inherit pub_methods_class_k___audio_1_1_audio_data"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+静的公開メンバ関数</h2></td></tr>
+<tr class="memitem:a5526849a95d60db602ed6c3287c826da"><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___audio_1_1_ogg_data.html#a5526849a95d60db602ed6c3287c826da">ReadCallBack</a> (void *buffer, size_t size, size_t maxCount, void *stream)</td></tr>
+<tr class="separator:a5526849a95d60db602ed6c3287c826da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab13113534d56434ced5ef167737c1b99"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___audio_1_1_ogg_data.html#ab13113534d56434ced5ef167737c1b99">SeekCallBack</a> (void *buffer, ogg_int64_t offset, int flag)</td></tr>
+<tr class="separator:ab13113534d56434ced5ef167737c1b99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2f095456d97b30b72ad11b6b3c4de92"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___audio_1_1_ogg_data.html#ac2f095456d97b30b72ad11b6b3c4de92">CloseCallBack</a> (void *datasource)</td></tr>
+<tr class="separator:ac2f095456d97b30b72ad11b6b3c4de92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba3cfca1a66a57c9ddca7e90c87b6ddd"><td class="memItemLeft" align="right" valign="top">static long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___audio_1_1_ogg_data.html#aba3cfca1a66a57c9ddca7e90c87b6ddd">TellCallBack</a> (void *datasource)</td></tr>
+<tr class="separator:aba3cfca1a66a57c9ddca7e90c87b6ddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 その他の継承メンバ</h2></td></tr>
@@ -161,7 +181,7 @@ K_Audio::OggData の継承関係図</div>
 </table>
 <h2 class="groupheader">構築子と解体子</h2>
 <a id="a846e59bd024858fee33549b66f2697eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a846e59bd024858fee33549b66f2697eb">&#9670;&nbsp;</a></span>OggData()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a846e59bd024858fee33549b66f2697eb">&#9670;&nbsp;</a></span>OggData() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -172,6 +192,34 @@ K_Audio::OggData の継承関係図</div>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>filePass</em></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a769c19d8f77a1ea84f64b8925af57e62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a769c19d8f77a1ea84f64b8925af57e62">&#9670;&nbsp;</a></span>OggData() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">K_Audio::OggData::OggData </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>binaryData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>binarySize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -196,6 +244,32 @@ K_Audio::OggData の継承関係図</div>
 </div>
 </div>
 <h2 class="groupheader">関数詳解</h2>
+<a id="ac2f095456d97b30b72ad11b6b3c4de92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2f095456d97b30b72ad11b6b3c4de92">&#9670;&nbsp;</a></span>CloseCallBack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int K_Audio::OggData::CloseCallBack </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>datasource</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ac4c50916e0f2eaa384539b2dbedc1d6e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac4c50916e0f2eaa384539b2dbedc1d6e">&#9670;&nbsp;</a></span>Read()</h2>
 
@@ -234,6 +308,54 @@ K_Audio::OggData の継承関係図</div>
 
 </div>
 </div>
+<a id="a5526849a95d60db602ed6c3287c826da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5526849a95d60db602ed6c3287c826da">&#9670;&nbsp;</a></span>ReadCallBack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t K_Audio::OggData::ReadCallBack </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>maxCount</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>stream</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aac0e955981398bf31053f27fbe19b2ba"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aac0e955981398bf31053f27fbe19b2ba">&#9670;&nbsp;</a></span>Seek()</h2>
 
@@ -259,6 +381,74 @@ K_Audio::OggData の継承関係図</div>
 </div><div class="memdoc">
 
 <p><a class="el" href="class_k___audio_1_1_audio_data.html#a1ba3ab1b4bae0b460d26278cb29ce16e">K_Audio::AudioData</a>を実装しています。</p>
+
+</div>
+</div>
+<a id="ab13113534d56434ced5ef167737c1b99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab13113534d56434ced5ef167737c1b99">&#9670;&nbsp;</a></span>SeekCallBack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int K_Audio::OggData::SeekCallBack </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ogg_int64_t&#160;</td>
+          <td class="paramname"><em>offset</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>flag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aba3cfca1a66a57c9ddca7e90c87b6ddd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba3cfca1a66a57c9ddca7e90c87b6ddd">&#9670;&nbsp;</a></span>TellCallBack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">long K_Audio::OggData::TellCallBack </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>datasource</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

@@ -184,6 +184,9 @@ $(document).ready(function(){initNavTree('namespace_k___math.html','');});
 <tr class="separator:a59c8809443b45726cabb17bc87919d72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3140f4913201e40069d80d516a62239"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_k___math.html#ab3140f4913201e40069d80d516a62239">Dot</a> (const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">Vector3</a> &amp;vector1, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">Vector3</a> &amp;vector2)</td></tr>
 <tr class="separator:ab3140f4913201e40069d80d516a62239"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74c4bc925ac65a54d615f4332dc72b83"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_k___math.html#a034e586a2748ce9790ca7cb30efcd78f">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_k___math.html#a74c4bc925ac65a54d615f4332dc72b83">Slerp</a> (const <a class="el" href="namespace_k___math.html#a034e586a2748ce9790ca7cb30efcd78f">Quaternion</a> &amp;from, const <a class="el" href="namespace_k___math.html#a034e586a2748ce9790ca7cb30efcd78f">Quaternion</a> &amp;to, float t)</td></tr>
+<tr class="memdesc:a74c4bc925ac65a54d615f4332dc72b83"><td class="mdescLeft">&#160;</td><td class="mdescRight">球面補間  <a href="#a74c4bc925ac65a54d615f4332dc72b83">[詳解]</a><br /></td></tr>
+<tr class="separator:a74c4bc925ac65a54d615f4332dc72b83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18db0daa42ed6700319b8cb58531de58"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_k___math.html#a034e586a2748ce9790ca7cb30efcd78f">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_k___math.html#a18db0daa42ed6700319b8cb58531de58">AngleAxis</a> (float angle, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">Vector3</a> &amp;axis)</td></tr>
 <tr class="memdesc:a18db0daa42ed6700319b8cb58531de58"><td class="mdescLeft">&#160;</td><td class="mdescRight">任意軸回転のクォータニオンを得る  <a href="#a18db0daa42ed6700319b8cb58531de58">[詳解]</a><br /></td></tr>
 <tr class="separator:a18db0daa42ed6700319b8cb58531de58"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1046,6 +1049,42 @@ $(document).ready(function(){initNavTree('namespace_k___math.html','');});
 </div><div class="memdoc">
 
 <p>回転成分からクォータニオンを作成する(Y軸→X軸→Z軸) </p>
+
+</div>
+</div>
+<a id="a74c4bc925ac65a54d615f4332dc72b83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74c4bc925ac65a54d615f4332dc72b83">&#9670;&nbsp;</a></span>Slerp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_k___math.html#a034e586a2748ce9790ca7cb30efcd78f">K_Math::Quaternion</a> K_Math::Slerp </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a034e586a2748ce9790ca7cb30efcd78f">Quaternion</a> &amp;&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a034e586a2748ce9790ca7cb30efcd78f">Quaternion</a> &amp;&#160;</td>
+          <td class="paramname"><em>to</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>球面補間 </p>
 
 </div>
 </div>

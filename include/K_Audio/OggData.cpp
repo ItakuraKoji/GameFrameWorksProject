@@ -1,23 +1,37 @@
 #include"OggData.h"
+#include<fstream>
 
 namespace K_Audio {
-
 	////////
 	//public
 	////
 
 	OggData::OggData(const char* filePass) {
 		try{
-			LoadFile(filePass);
+			this->binaryData.oggData = nullptr;
+			CreateOggFile(filePass);
+			LoadFile();
 		}
 		catch (std::exception& e) {
-			ov_clear(&this->oggFile);
+			throw e;
+		}
+	}
+	OggData::OggData(char* binaryData, size_t binarySize) {
+		try {
+			this->binaryData.oggData = nullptr;
+			CreateOggFile(binaryData);
+			LoadFile();
+		}
+		catch (std::exception& e) {
 			throw e;
 		}
 	}
 
 	OggData::~OggData() {
 		ov_clear(&this->oggFile);
+		if (this->binaryData.oggData != nullptr) {
+			delete[] this->binaryData.oggData;
+		}
 	}
 
 	void OggData::Seek(int offset) {
@@ -29,10 +43,9 @@ namespace K_Audio {
 	////////
 	//private
 	////
-
-	void OggData::LoadFile(const char* filePass) {
+	void OggData::CreateOggFile(const char* filePass) {
+		//ファイルを読み込んで作成
 		int error = ov_fopen(filePass, &this->oggFile);
-
 
 		if (error != 0) {
 			//エラー詳細は未実装
@@ -46,7 +59,30 @@ namespace K_Audio {
 			}
 			throw std::runtime_error("fileOpen failed : " + std::string(filePass));
 		}
+	}
 
+	void OggData::CreateOggFile(char* binaryData, size_t binarySize) {
+		//生のデータから直接作成
+		this->binaryData.classPtr = this;
+		this->binaryData.oggData = binaryData;
+		this->binaryData.binaryPosition = 0;
+		this->binaryData.dataSize = binarySize;
+
+		// コールバック登録
+		ov_callbacks callbacks = {
+			&ReadCallBack,
+			&SeekCallBack,
+			&CloseCallBack,
+			&TellCallBack,
+		};
+
+		// Oggオープン
+		if (ov_open_callbacks(&this->binaryData, &this->oggFile, 0, 0, callbacks) != 0) {
+			throw std::runtime_error("oggFile create with binary failed");
+		}
+	}
+
+	void OggData::LoadFile() {
 		vorbis_comment* tag = ov_comment(&this->oggFile, -1);
 		this->loopStart = OggCommentValue(tag, "LOOPSTART");
 		this->loopLength = OggCommentValue(tag, "LOOPLENGTH");
@@ -97,5 +133,81 @@ namespace K_Audio {
 		//見つからないときは 0 を返す
 		return 0;
 	}
+
+	//メモリ上のOggを扱うコールバック
+	size_t OggData::ReadCallBack(void* buffer, size_t size, size_t maxCount, void* stream) {
+		if (buffer == 0) {
+			return 0;
+		}
+
+		//ストリームからオブジェクトのポインタを取得
+		OggData::OggBinaryData* p = (OggData::OggBinaryData*)stream;
+
+		// 取得可能カウント数を算出
+		int resSize = p->dataSize - p->binaryPosition;
+		size_t count = resSize / size;
+		if (count > maxCount) {
+			count = maxCount;
+		}
+		//データをコピー
+		memcpy(buffer, p->oggData + p->binaryPosition, size * count);
+
+		// ポインタ位置を移動
+		p->binaryPosition += size * count;
+
+		return count;
+	}
+
+	int OggData::SeekCallBack(void* buffer, ogg_int64_t offset, int flag) {
+		//オブジェクトのポインタを取得
+		OggData::OggBinaryData* p = (OggData::OggBinaryData*)buffer;
+
+		switch (flag) {
+		case SEEK_CUR:
+			p->binaryPosition += offset;
+			break;
+
+		case SEEK_END:
+			p->binaryPosition = p->dataSize + offset;
+			break;
+
+		case SEEK_SET:
+			p->binaryPosition = offset;
+			break;
+
+		default:
+			return -1;
+		}
+
+		if (p->binaryPosition > p->dataSize) {
+			p->binaryPosition = p->dataSize;
+			return -1;
+		}
+		else if (p->binaryPosition < 0) {
+			p->binaryPosition = 0;
+			return -1;
+		}
+
+		return 0;
+	}
+
+	int OggData::CloseCallBack(void *datasource) {
+		return 0;
+	}
+
+	long OggData::TellCallBack(void *datasource) {
+		return ((OggData::OggBinaryData*)datasource)->binaryPosition;
+	}
+
+
+
+
+
+
+
+
+
+
+
 
 }

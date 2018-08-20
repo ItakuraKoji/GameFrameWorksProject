@@ -69,6 +69,7 @@ namespace K_Graphics {
 		glUniform1i(location, textureLayer);
 		glBindTexture(GL_TEXTURE_2D, textureNumber);
 	}
+
 	//ディレクショナルライト
 	void ShaderClass::SetDirectionalLight(float power, const K_Math::Vector4& color, const K_Math::Vector3& direction) {
 		SetValue("directionalPower", power);

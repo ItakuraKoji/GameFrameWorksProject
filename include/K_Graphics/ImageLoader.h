@@ -36,10 +36,16 @@ namespace K_Loader {
 		int pixelDepth;
 	};
 
-	//画像読み込みクラス。3Dモデルデータと異なりデータが少ないのでポインタの譲渡とかはしない
-	class ImageLoader {
+	//各種画像フォーマットを読み込む基底クラス
+	class ImageDataLoader {
+	public:
+		virtual ~ImageDataLoader() = default;
+		virtual void LoadFromFile(const std::string& fileName, ImageData* result, bool xReverse = false, bool yReverse = false) = 0;
+		virtual void LoadFromBinary(char* binaryData, ImageData* result, bool xReverse = false, bool yReverse = false) = 0;
+	};
 
-
+	//TGA
+	class TGALoader : public ImageDataLoader {
 	private:
 		struct TGAHeader {
 			char idSize;//画像サイズ前のIDのサイズ
@@ -52,11 +58,37 @@ namespace K_Loader {
 			char descriptor;//画像デスクリプタ
 		};
 	public:
-		bool LoadTGAImage(const std::string& fileName, ImageData* result, bool xReverse = false, bool yReverse = false);
-		bool LoadPNGImage(const std::string& fileName, ImageData* result, bool xReverse = false, bool yReverse = false);
+		virtual ~TGALoader() = default;
+		virtual void LoadFromFile  (const std::string& fileName, ImageData* result, bool xReverse = false, bool yReverse = false) override;
+		virtual void LoadFromBinary(char* binaryData           , ImageData* result, bool xReverse = false, bool yReverse = false) override;
 
 	private:
-		void CreateReverseImage(unsigned char* data, unsigned char* src, int width, int height, int pixelDepth, bool xReverse, bool yReverse);
-		void DecodeRLEImage(unsigned char* data, unsigned char* src, int width, int height, int pixelDepth);
+		void DecodeRLEImage    (unsigned char* data, unsigned char* src, size_t* binaryPosition, int imageSize, int numColor);
+	};
+
+	//PNG
+	class PNGLoader : public ImageDataLoader {
+	public:
+		struct PNGFileData {
+			char* pngData;//PNGのバイナリデータ
+			size_t dataSize;//全体のデータサイズ
+			size_t binaryPosition;//バイナリをどこまで読んだかというデータ
+		};
+
+	public:
+		virtual ~PNGLoader() = default;
+		virtual void LoadFromFile  (const std::string& fileName, ImageData* result, bool xReverse = false, bool yReverse = false) override;
+		virtual void LoadFromBinary(char* binaryData           , ImageData* result, bool xReverse = false, bool yReverse = false) override;
+
+	private:
+		PNGFileData data;
+	};
+
+
+	//画像読み込みクラス。3Dモデルデータと異なりデータが少ないのでポインタの譲渡とかはしない
+	class ImageLoader {
+	public:
+		bool LoadTGAImage(const std::string& fileName, ImageData* result, bool xReverse = false, bool yReverse = false);
+		bool LoadPNGImage(const std::string& fileName, ImageData* result, bool xReverse = false, bool yReverse = false);
 	};
 }

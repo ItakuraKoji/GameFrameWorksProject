@@ -36,12 +36,12 @@ namespace K_Audio {
 	}
 
 
-	void SoundClass::CreateSource(const char* sourceName, const char* filePass, SoundSource::LoadMode mode, int numBuffer) {
+	void SoundClass::CreateSource(const char* sourceName, const char* filePass, SoundSource::LoadMode mode, float baseVolume, int numBuffer) {
 		//ソース名の重複は許さない
 		if (this->source.find(sourceName) != this->source.end()) {
 			throw std::runtime_error("SoundClass createSource error sourceName has already existed : " + std::string(sourceName));
 		}
-		SoundSource* audioSource = new SoundSource(sourceName, filePass, mode, numBuffer);
+		SoundSource* audioSource = new SoundSource(sourceName, filePass, mode, baseVolume, numBuffer);
 
 		this->source[sourceName] = audioSource;
 	}

@@ -15,7 +15,7 @@ namespace K_Audio {
 		~SoundClass();
 
 		//!ピッチを上げるとストリーミングが追い付かないことがある、そのときはnumBufferの値を大きくするといい
-		void CreateSource(const char* sourceName, const char* filePass, SoundSource::LoadMode mode, int numBuffer = 32);
+		void CreateSource(const char* sourceName, const char* filePass, SoundSource::LoadMode mode, float baseVolume = 1.0f, int numBuffer = 32);
 		void DeleteSource(const char* sourceName);
 		void SetListnerPosition(float x, float y, float z);
 		void SetListnerVelocity(float x, float y, float z);

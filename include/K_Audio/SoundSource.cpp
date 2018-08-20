@@ -5,7 +5,7 @@ namespace K_Audio {
 	////////
 	//public
 	////
-	SoundSource::SoundSource(const char* sourceName, const char* filePass, LoadMode mode, int numBuffer) : name(sourceName) {
+	SoundSource::SoundSource(const char* sourceName, const char* filePass, LoadMode mode, float baseVolume, int numBuffer) : name(sourceName) {
 		try {
 			this->bufferIDs = nullptr;
 			this->isPlayed = false;
@@ -13,6 +13,7 @@ namespace K_Audio {
 			this->isEnd = false;
 			this->numBuffer = 0;
 			this->mode = mode;
+			this->baseVolume = baseVolume;
 			this->volume = 1.0f;
 			this->pitch = 1.0f;
 
@@ -71,6 +72,10 @@ namespace K_Audio {
 				this->thread = new std::thread(&SoundSource::AllReadThread, this);
 				break;
 			}
+
+			//ボリュームとピッチ設定
+			SetVolume(this->volume);
+			SetPitch(this->pitch);
 		}
 		catch (std::exception& e) {
 			Finalize();
@@ -95,7 +100,7 @@ namespace K_Audio {
 		this->isLoop = loop;
 	}
 
-	void SoundSource::PlayCopy() {
+	ALuint SoundSource::PlayCopy() {
 		//ストリーミングモードでは利用できない
 		if (this->mode == LoadMode::Streaming) {
 			throw std::runtime_error("Streaming Sound Source can't use PlayCopy() :" + this->name);
@@ -112,8 +117,20 @@ namespace K_Audio {
 		alSourcef(source, AL_MAX_GAIN, this->volume);
 		alSourcef(source, AL_PITCH, this->pitch);
 		alSourcePlay(source);
+		return source;
 	}
-
+	ALuint SoundSource::PlayCopy(float volume, float pitch) {
+		//ストリーミングモードでは利用できない
+		ALuint source = PlayCopy();
+		alSourcef(source, AL_MAX_GAIN, volume);
+		alSourcef(source, AL_PITCH, pitch);
+		return source;
+	}
+	ALuint SoundSource::PlayCopy(float posX, float posY, float posZ, float volume, float pitch) {
+		ALuint source = PlayCopy(volume, pitch);
+		alSource3f(this->sourceID, AL_POSITION, posX, posY, posZ);
+		return source;
+	}
 
 	void SoundSource::Pause() {
 		alSourceStop(this->sourceID);
@@ -128,30 +145,32 @@ namespace K_Audio {
 			std::lock_guard<std::recursive_mutex> lock(this->_mutex);
 			this->isPlayed = false;
 		}
+		alSourceStop(this->sourceID);
 		//バッファを初期化
 		int num;
 		ALuint soundBuffer;
 		while (alGetSourcei(this->sourceID, AL_BUFFERS_PROCESSED, &num), num > 0) {
 			alSourceUnqueueBuffers(this->sourceID, 1, &soundBuffer);
+			alDeleteBuffers(1, &soundBuffer);
 		}
-
-		alSourceStop(this->sourceID);
 
 		this->audio->Seek(0);
 		char buffer[4096];
 		for (int i = 0; i < this->numBuffer; ++i) {
+			alGenBuffers(1, &this->bufferIDs[i]);
+
 			int readSize = ReadBuffer(buffer, 4096);
 			alBufferData(this->bufferIDs[i], this->format, buffer, readSize, this->audio->GetSamplingRate());
-			alSourceQueueBuffers(this->sourceID, 1, &this->bufferIDs[i]);
 		}
+		alSourceQueueBuffers(this->sourceID, this->numBuffer, this->bufferIDs);
 	}
 
 	//音量変更
 	void SoundSource::SetVolume(float volume) {
-		alSourcef(this->sourceID, AL_MAX_GAIN, volume);
+		alSourcef(this->sourceID, AL_MAX_GAIN, volume * this->baseVolume);
 		{
 			std::lock_guard<std::recursive_mutex> lock(this->_mutex);
-			this->volume = volume;
+			this->volume = volume * this->baseVolume;
 		}
 	}
 	//ピッチ変更、０以下はエラー
@@ -246,7 +265,7 @@ namespace K_Audio {
 			for (auto it = this->copySources.begin(); it != this->copySources.end();) {
 				ALint state;
 				alGetSourcei((*it), AL_SOURCE_STATE, &state);
-
+				//再生終了で削除
 				if (state != AL_PLAYING) {
 					alDeleteSources(1, &(*it));
 					it = this->copySources.erase(it);
@@ -255,7 +274,7 @@ namespace K_Audio {
 				++it;
 			}
 		}
-
+		//スレッド終了前に全部削除
 		for (auto i : this->copySources) {
 			alDeleteSources(1, &i);
 		}

@@ -100,8 +100,8 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_model_data_fact
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a52748de7a33370acf98d73186d458259"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_model_data_factory.html#a52748de7a33370acf98d73186d458259">CreateK3MDModelFromFBX</a> (const std::string &amp;fileName, <a class="el" href="class_k___graphics_1_1_texture_list.html">TextureList</a> *textureList)</td></tr>
-<tr class="separator:a52748de7a33370acf98d73186d458259"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8449aece579a14fa109bc7e1e67eddd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_model_data_factory.html#a8449aece579a14fa109bc7e1e67eddd5">CreateK3MDModelFromFBX</a> (const std::string &amp;fbxFilePath, const std::string &amp;outputPath, const std::string &amp;outputFileName)</td></tr>
+<tr class="separator:a8449aece579a14fa109bc7e1e67eddd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09661487ad0f3a9c563db193d6e12e08"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_k___graphics_1_1_model_datas.html">ModelDatas</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_model_data_factory.html#a09661487ad0f3a9c563db193d6e12e08">LoadFBXModel</a> (const std::string &amp;fileName, <a class="el" href="class_k___graphics_1_1_texture_list.html">TextureList</a> *textureList)</td></tr>
 <tr class="memdesc:a09661487ad0f3a9c563db193d6e12e08"><td class="mdescLeft">&#160;</td><td class="mdescRight">FBX形式の3Dモデルを読み込む  <a href="#a09661487ad0f3a9c563db193d6e12e08">[詳解]</a><br /></td></tr>
 <tr class="separator:a09661487ad0f3a9c563db193d6e12e08"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,8 +122,8 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_model_data_fact
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>モデルクラスの初期化に必要なパラメーターの製作を担当するクラス </p>
 </div><h2 class="groupheader">関数詳解</h2>
-<a id="a52748de7a33370acf98d73186d458259"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52748de7a33370acf98d73186d458259">&#9670;&nbsp;</a></span>CreateK3MDModelFromFBX()</h2>
+<a id="a8449aece579a14fa109bc7e1e67eddd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8449aece579a14fa109bc7e1e67eddd5">&#9670;&nbsp;</a></span>CreateK3MDModelFromFBX()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -132,13 +132,19 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_model_data_fact
           <td class="memname">void K_Graphics::ModelDataFactory::CreateK3MDModelFromFBX </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>fileName</em>, </td>
+          <td class="paramname"><em>fbxFilePath</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_texture_list.html">TextureList</a> *&#160;</td>
-          <td class="paramname"><em>textureList</em>&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>outputPath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>outputFileName</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

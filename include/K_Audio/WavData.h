@@ -9,10 +9,8 @@ namespace K_Audio {
 	//Wave‚Ì“Ç‚İ‚İ‚Æƒf[ƒ^•Û‚ğ’S“–‚·‚é
 	class DLL_DECLSPEC WavData : public AudioData {
 	public:
-
-
-	public:
-		WavData(const char* filePass);
+		WavData(const char* filePath);
+		WavData(char* binaryData, size_t binarySize);
 		~WavData();
 
 		void Seek(int offset) override;
@@ -20,12 +18,18 @@ namespace K_Audio {
 
 
 	private:
-		void LoadFile(const char* filePass);
+		void LoadFile(const char* filePath);
+		void LoadFile(char* binaryData, size_t binarySize);
 		void PcmSeek(int pcmOffset);
+		void ReadBinary(char* dest, char* src, size_t* binaryPosition, size_t readSize);
 
 	private:
-		std::ifstream waveFile;
 		int dataStartOffset;
+
+		char* wavData;
+		size_t binaryPosition;
+		size_t binarySize;
+
 	};
 
 }

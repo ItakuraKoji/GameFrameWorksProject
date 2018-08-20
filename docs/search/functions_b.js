@@ -15,5 +15,6 @@ var searchData=
   ['modelresource',['ModelResource',['../struct_k___graphics_1_1_model_resource.html#ad393f25bf41467fb3f2762e7494d9903',1,'K_Graphics::ModelResource']]],
   ['movecharacter',['MoveCharacter',['../class_k___physics_1_1_bullet_physics.html#a842b133201707b76ea72df361d6bbfa3',1,'K_Physics::BulletPhysics']]],
   ['movecharacterdiscrete',['MoveCharacterDiscrete',['../class_k___physics_1_1_bullet_physics.html#a5b3f568b9865bbabbbb2824f06e94966',1,'K_Physics::BulletPhysics']]],
+  ['moverotation',['MoveRotation',['../class_k___physics_1_1_bullet_physics.html#ab7784b05023475e36216ccf6290ce764',1,'K_Physics::BulletPhysics']]],
   ['myraycastcallback',['MyRaycastCallBack',['../struct_k___physics_1_1_my_raycast_call_back.html#ae25d4877826fee57b192037932bede81',1,'K_Physics::MyRaycastCallBack']]]
 ];

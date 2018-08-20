@@ -155,6 +155,13 @@ namespace K_Physics {
 		//!@param[in] hLimitDirection 横方向の押し返しを、moveの直線上に限定するかのフラグ
 		void MoveCharacterDiscrete(CollisionData* obj, const K_Math::Vector3& move, bool vLimitDirection = true, bool hLimitDirection = false);
 
+		//!@brief 判定しながらの回転
+		//!@param[in] obj 移動するコリジョンオブジェクト
+		//!@param[in] from 回転元
+		//!@param[in] to 回転先
+		//!@param[in] speed 0.0 から 1.0 で回転速度を指定
+		void MoveRotation(CollisionData* obj, const K_Math::Quaternion& from, const K_Math::Quaternion& to, float speed);
+
 		//!@brief fromの位置からtoの位置へレイを飛ばして、その衝突位置を返す
 		//!@param[in] from レイの発生源位置
 		//!@param[in] to レイの終点

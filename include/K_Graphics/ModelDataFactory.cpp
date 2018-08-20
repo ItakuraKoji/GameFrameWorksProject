@@ -5,31 +5,54 @@ namespace K_Graphics {
 	//public
 	////
 
-	void ModelDataFactory::CreateK3MDModelFromFBX(const std::string& fileName, TextureList* textureList) {
+	void ModelDataFactory::CreateK3MDModelFromFBX(const std::string& fbxFilePath, const std::string& outputPath, const std::string& outputFileName) {
+		//FBXからK3MDファイルを作成して保存
 		K_Loader::FbxModelLoader loader;
-		if (!loader.LoadFBX(fileName, textureList)) {
-			throw std::runtime_error("FBX Load Failed : " + fileName);
+		if (!loader.LoadFBX(fbxFilePath)) {
+			throw std::runtime_error("FBX Load Failed : " + fbxFilePath);
 		}
+		K_Loader::K3MDHierarchy* hierarchy = loader.GetModelData();
+
+		//テクスチャの相対パスの基準を「アプリケーションの位置」から「モデルデータの位置」に変換
+		int position = fbxFilePath.find_last_of("\\/");
+		for (auto& modelData : hierarchy->modelHierarchy) {
+			for (auto& material : modelData.materialData) {
+				//全てのテクスチャパスに対して実行
+				material.texturePath = material.texturePath.substr(position + 1);
+			}
+		}
+
 		K_Loader::K3MDLoader k3mdLoader;
-		k3mdLoader.CreateBinaryFile(loader.PassModelData(), (fileName + ".k3md").data());
+		k3mdLoader.CreateBinaryFile(hierarchy, outputFileName, outputPath);
 	}
 
 
 	ModelDatas* ModelDataFactory::LoadFBXModel(const std::string& fileName, TextureList* textureList) {
+		//FBX読み込み
 		K_Loader::FbxModelLoader loader;
-		if (!loader.LoadFBX(fileName, textureList)) {
+		if (!loader.LoadFBX(fileName)) {
 			throw std::runtime_error("FBX Load Failed : " + fileName);
 		}
 		//デコード済みのデータを読み込み
 		K_Loader::K3MDLoader k3mdLoader;
-		ModelResource* resource = k3mdLoader.LoadModel(loader.PassModelData(), textureList);
+		ModelResource* resource = k3mdLoader.LoadModel(loader.GetModelData(), textureList);
 
 		ModelDatas* data = new ModelDatas;
 
 		//アニメーション情報は存在しない場合がある（NULL）
+
+		//各種のポインタの所有権を移動
 		data->vertexBuffer = resource->vertexBuffer;
 		data->material = resource->material;
 		data->bone = resource->bone;
+		//nullにするとデストラクタで開放されなくなる
+		resource->vertexBuffer = nullptr;
+		resource->material = nullptr;
+		resource->bone = nullptr;
+
+		//ModelResourceはもう必要ない
+		delete resource;
+
 		if (data->bone != nullptr) {
 			data->animation = new AnimationData(data->bone, data->vertexBuffer->GetNumBuffer());
 		}
@@ -37,17 +60,12 @@ namespace K_Graphics {
 			data->animation = nullptr;
 		}
 
-		//ModelResourceはもう必要ないので、要素をnullにして解放(デストラクタで消されないようにするため)
-		resource->vertexBuffer = nullptr;
-		resource->bone = nullptr;
-		resource->material = nullptr;
-		delete resource;
 
 		return data;
 	}
 
 	ModelDatas* ModelDataFactory::LoadK_3DModel(const std::string& fileName, TextureList* textureList) {
-		//建設中、独自の「.k3md」形式のモデルデータを読み込むもの
+		//「.k3md」形式のモデルデータを読み込む
 		K_Loader::K3MDLoader loader;
 		ModelResource* resource = loader.LoadModel(fileName.data(), textureList);
 
@@ -56,12 +74,6 @@ namespace K_Graphics {
 		data->vertexBuffer = resource->vertexBuffer;
 		data->material = resource->material;
 		data->bone = resource->bone;
-		if (data->bone != nullptr) {
-			data->animation = new AnimationData(data->bone, data->vertexBuffer->GetNumBuffer());
-		}
-		else {
-			data->animation = nullptr;
-		}
 
 		//ModelResourceはもう必要ないので、要素をnullにして解放(デストラクタで消されないようにするため)
 		resource->vertexBuffer = nullptr;
@@ -69,18 +81,25 @@ namespace K_Graphics {
 		resource->material = nullptr;
 		delete resource;
 
+		if (data->bone != nullptr) {
+			data->animation = new AnimationData(data->bone, data->vertexBuffer->GetNumBuffer());
+		}
+		else {
+			data->animation = nullptr;
+		}
+
 		return data;
 	}
 
 	//!モデルデータのリソース作成（返すポインタの開放責任がある）
 	ModelResource* ModelDataFactory::CreateModelResourceFromFBX(const std::string& fileName, TextureList* textureList) {
 		K_Loader::FbxModelLoader loader;
-		if (!loader.LoadFBX(fileName, textureList)) {
+		if (!loader.LoadFBX(fileName)) {
 			throw std::runtime_error("FBX Load Failed : " + fileName);
 		}
 
 		K_Loader::K3MDLoader k3mdLoader;
-		ModelResource* resource = k3mdLoader.LoadModel(loader.PassModelData(), textureList);
+		ModelResource* resource = k3mdLoader.LoadModel(loader.GetModelData(), textureList);
 		return resource;
 	}
 	ModelResource* ModelDataFactory::CreateModelResourceFromK3MD(const std::string& fileName, TextureList* textureList) {

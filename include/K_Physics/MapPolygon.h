@@ -1,32 +1,21 @@
 #pragma once
 
 #include"K_Math\MyMathFanctions.h"
-#include<fbxsdk\fbxsdk.h>
-
 #include<vector>
-
 #include"BulletPhysics.h"
+#include"K_Graphics/K3MDLoader.h"
 
 namespace K_Physics {
 
 	//!@brief 判定用モデルのポリゴン情報を持つクラス、描画は一切できない。行列による回転にも対応していない
 	class MapPolygon {
 	public:
-		//struct PolygonType{
-		//	Eigen::Vector3f point[3];
-		//};
-		//struct PolygonData {
-		//	int numPolygon;
-		//	PolygonType* polygon;
-		//};
-
 		//bullet用
 		struct PolygonType {
 			K_Math::Vector3 point[3];
 		};
 		struct PolygonData {
-			int numPolygon;
-			PolygonType* polygon;
+			std::vector<PolygonType> polygon;
 		};
 
 
@@ -39,13 +28,12 @@ namespace K_Physics {
 		MapPolygon(const char* fbxFilePath, BulletPhysics *physics, int myselfMask, int giveMask);
 		~MapPolygon();
 		bool Initialize(const char* fbxFilePath, BulletPhysics *physics, int myselfMask, int giveMask);
+		bool Initialize(const K_Loader::K3MDHierarchy* modelData, BulletPhysics *physics, int myselfMask, int giveMask);
 		void Finalize();
 
 		//!@brief コリジョンを拡大
 		//!@param[in] scale 拡縮の倍率
 		void SetScaling(const K_Math::Vector3& scale);
-		//!@return 読み込んだモデルのポリゴン数
-		int GetNumFace();
 		//!@return 剛体オブジェクトを取得
 		K_Physics::RigidBodyData* GetRigidBody();
 
@@ -54,15 +42,11 @@ namespace K_Physics {
 		//!@param[in] filename ファイルのパス
 		//!@return 成功するとtrue
 		bool LoadModel(const char *filename);
-
-		bool LoadFBX(FbxMesh *mesh);
-		bool InitializeFBX(FbxManager** manager, FbxScene** scene, const char* filename);
-		void FinalizeFBX(FbxManager** manager);
-		bool LoadFBXNodeRecursive(FbxNode *node);
+		bool LoadModel(const K_Loader::K3MDHierarchy* modelData);
 
 		//!@brief 読み込んだデータをもとに地形コリジョンを作成
 		//!@param[in] physics コリジョンを管理する物理クラスへのポインタ
-		void SetCollisionWorld(BulletPhysics *physics, int myselfMask, int giveMask);
+		void SetCollisionWorld(BulletPhysics *physics, const PolygonData& polygonData, int myselfMask, int giveMask);
 
 
 	private:
@@ -70,9 +54,7 @@ namespace K_Physics {
 		K_Physics::BulletPhysics* physics;
 
 		//判定用の頂点配列
-		std::vector<PolygonData> polygonStack;
-
-		int numFace;
+		PolygonData polygon;
 
 		btTriangleMesh* collisionMesh;
 		K_Physics::RigidBodyData* rigid;

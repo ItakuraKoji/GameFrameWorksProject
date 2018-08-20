@@ -1,6 +1,12 @@
 #include"bulletDebugDraw.h"
 
 namespace K_Physics {
+	float Distance(const btVector3& l, const K_Math::Vector3& r) {
+		return K_Math::Norm(K_Math::Vector3(l.x() - r.x, l.y() - r.y, l.z() - r.z));
+	}
+
+
+
 
 	////////
 	//public
@@ -41,46 +47,85 @@ namespace K_Physics {
 		glDeleteBuffers(1, &this->IBO);
 	}
 
-	void bulletDebugDraw::drawLine(const btVector3& from, const btVector3& to, const btVector3& color) {
-		btVector3 lineVertex[] = { from, to };
-		btVector4 lineColor[] = { btVector4(color.x(), color.y(), color.z(), 1.0f), btVector4(color.x(), color.y(), color.z(), 1.0f) };
+	void bulletDebugDraw::StartDraw(K_Graphics::CameraClass* camera) {
+		this->camera = camera;
+		this->lineIndex.clear();
+		this->lineData.clear();
+		this->indexCount = 0;
+	}
 
-		glBindVertexArray(this->VAO);
-		glBindBuffer(GL_ARRAY_BUFFER, this->VBO);
-		glBufferData(GL_ARRAY_BUFFER, 2 * (sizeof(btVector3) + sizeof(btVector4)), 0, GL_DYNAMIC_DRAW);
-		glBufferSubData(GL_ARRAY_BUFFER, 0, 2 * sizeof(btVector3), lineVertex);
-		glBufferSubData(GL_ARRAY_BUFFER, 2 * sizeof(btVector3), 2 * sizeof(btVector4), lineColor);
-		glDrawElements(GL_LINES, 2, GL_UNSIGNED_INT, 0);
-		glBindVertexArray(0);
+
+	void bulletDebugDraw::drawLine(const btVector3& from, const btVector3& to, const btVector3& color) {
+		//‰“‚¢“z‚ð“K“–‚É’e‚­
+		if (Distance(from, this->camera->GetPosition()) > this->camera->GetScreenFar()) {
+			if (Distance(to, this->camera->GetPosition()) > this->camera->GetScreenFar()) {
+				return;
+			}
+		}
+
+		DebugLine line;
+		line.pos[0] = from;
+		line.pos[1] = to;
+		line.color[0] = btVector4(color.x(), color.y(), color.z(), 1.0f);
+		line.color[1] = btVector4(color.x(), color.y(), color.z(), 1.0f);
+
+		DebugLineIndex index;
+		index.from = this->indexCount;
+		++this->indexCount;
+		index.to = this->indexCount;
+		++this->indexCount;
+
+		this->lineData.push_back(line);
+		this->lineIndex.push_back(index);
 	}
 
 
 	void bulletDebugDraw::drawLine(const btVector3& from, const btVector3& to, const btVector3& fromColor, const btVector3& toColor) {
-		btVector3 lineVertex[] = { from, to };
-		btVector4 lineColor[] = { btVector4(fromColor.x(), fromColor.y(), fromColor.z(), 1.0f), btVector4(toColor.x(), toColor.y(), toColor.z(), 1.0f) };
+		//‰“‚¢“z‚ð“K“–‚É’e‚­
+		if (Distance(from, this->camera->GetPosition()) > this->camera->GetScreenFar()) {
+			if (Distance(to, this->camera->GetPosition()) > this->camera->GetScreenFar()) {
+				return;
+			}
+		}
 
-		glBindVertexArray(this->VAO);
-		glBindBuffer(GL_ARRAY_BUFFER, this->VBO);
-		glBufferData(GL_ARRAY_BUFFER, 2 * (sizeof(btVector3) + sizeof(btVector4)), 0, GL_DYNAMIC_DRAW);
-		glBufferSubData(GL_ARRAY_BUFFER, 0, 2 * sizeof(btVector3), lineVertex);
-		glBufferSubData(GL_ARRAY_BUFFER, 2 * sizeof(btVector3), 2 * sizeof(btVector4), lineColor);
-		glDrawElements(GL_LINES, 2, GL_UNSIGNED_INT, 0);
-		glBindVertexArray(0);
+		DebugLine line;
+		line.pos[0] = from;
+		line.pos[1] = to;
+		line.color[0] = btVector4(fromColor.x(), fromColor.y(), fromColor.z(), 1.0f);
+		line.color[1] = btVector4(toColor.x(), toColor.y(), toColor.z(), 1.0f);
+
+		DebugLineIndex index;
+		index.from = this->indexCount;
+		++this->indexCount;
+		index.to = this->indexCount;
+		++this->indexCount;
+
+		this->lineData.push_back(line);
+		this->lineIndex.push_back(index);
 	}
 
 	void bulletDebugDraw::drawContactPoint(const btVector3& PointOnB, const btVector3& normalOnB, btScalar distance, int lifeTime, const btVector3& color) {
+		//‰“‚¢“z‚ð“K“–‚É’e‚­
+		if (Distance(PointOnB, this->camera->GetPosition()) > this->camera->GetScreenFar()) {
+			if (Distance(PointOnB + normalOnB, this->camera->GetPosition()) > this->camera->GetScreenFar()) {
+				return;
+			}
+		}
 
-		/* PointOnB‚ÉAÕ“Ë“_‚ð•`‰æ */
-		btVector3 lineVertex[] = { PointOnB, PointOnB + normalOnB };
-		btVector4 lineColor[] = { btVector4(color.x(), color.y(), color.z(), 1.0f), btVector4(color.x(), color.y(), color.z(), 1.0f) };
+		DebugLine line;
+		line.pos[0] = PointOnB;
+		line.pos[1] = PointOnB + normalOnB;
+		line.color[0] = btVector4(color.x(), color.y(), color.z(), 1.0f);
+		line.color[1] = btVector4(color.x(), color.y(), color.z(), 1.0f);
 
-		glBindVertexArray(this->VAO);
-		glBindBuffer(GL_ARRAY_BUFFER, this->VBO);
-		glBufferData(GL_ARRAY_BUFFER, 2 * (sizeof(btVector3) + sizeof(btVector4)), 0, GL_DYNAMIC_DRAW);
-		glBufferSubData(GL_ARRAY_BUFFER, 0, 2 * sizeof(btVector3), lineVertex);
-		glBufferSubData(GL_ARRAY_BUFFER, 2 * sizeof(btVector3), 2 * sizeof(btVector4), lineColor);
-		glDrawElements(GL_LINES, 2, GL_UNSIGNED_INT, 0);
-		glBindVertexArray(0);
+		DebugLineIndex index;
+		index.from = this->indexCount;
+		++this->indexCount;
+		index.to = this->indexCount;
+		++this->indexCount;
+
+		this->lineData.push_back(line);
+		this->lineIndex.push_back(index);
 	}
 
 
@@ -112,6 +157,7 @@ namespace K_Physics {
 
 
 	void bulletDebugDraw::DrawAllLine() {
+		//‘S‚Ä‚Ìü‚ð‚Ü‚Æ‚ß‚Ä•`‰æ
 
 		glBindVertexArray(this->VAO);
 		glBindBuffer(GL_ARRAY_BUFFER, this->VBO);
@@ -125,7 +171,7 @@ namespace K_Physics {
 		//IBO
 		glGenBuffers(1, &this->IBO);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this->IBO);
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, 2 * sizeof(unsigned int), this->lineIndex.data(), GL_STATIC_DRAW);
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(DebugLineIndex) * this->lineIndex.size(), this->lineIndex.data(), GL_STATIC_DRAW);
 		glDrawElements(GL_LINES, this->lineIndex.size() * 2, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
 	}

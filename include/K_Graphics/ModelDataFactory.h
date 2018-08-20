@@ -10,7 +10,8 @@ namespace K_Graphics {
 	//!@brief モデルクラスの初期化に必要なパラメーターの製作を担当するクラス
 	class ModelDataFactory {
 	public:
-		void CreateK3MDModelFromFBX(const std::string& fileName, TextureList* textureList);
+		//K3MDモデルを生成する
+		void CreateK3MDModelFromFBX(const std::string& fbxFilePath, const std::string& outputPath, const std::string& outputFileName);
 
 
 		//!@brief FBX形式の3Dモデルを読み込む

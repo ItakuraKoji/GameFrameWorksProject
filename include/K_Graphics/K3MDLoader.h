@@ -51,16 +51,24 @@ namespace K_Loader {
 		K3MDLoader();
 		~K3MDLoader();
 
-		void CreateBinaryFile(K3MDHierarchy* data, const char* fileName);
+		void CreateBinaryFile(K3MDHierarchy* data, const std::string& fileName, const std::string& outputFilePath);
+		
 		K_Graphics::ModelResource* LoadModel(K3MDHierarchy* data, K_Graphics::TextureList* list);
 		K_Graphics::ModelResource* LoadModel(const char* filepath, K_Graphics::TextureList* list);
+		K3MDHierarchy* LoadK3MDHierarchy(const char* filepath);
+
+		K3MDHierarchy* LoadK3MDHierarchyFromMemory(char* binaryData);
 
 	private:
 		void CreateVertex(K3MDData* modelData, GLuint VAO, const std::vector<GLuint>& IBOs);
 		void CreateMaterial(K3MDData* modelData, std::vector<GLuint>& IBOs);
 		void CreateBone(K3MDHierarchy* data, K3MDData* modelData);
 
+		void ReadBinary(char* dest, char* src, size_t* position, size_t size);
+
 	private:
+		std::string fileRoot;
+
 		K_Graphics::TextureList* textureList;
 		K_Graphics::VertexData* bufferData;
 		K_Graphics::MaterialData* materialData;

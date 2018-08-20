@@ -9,6 +9,5 @@ var searchData=
   ['normalize',['Normalize',['../namespace_k___math.html#a270294951b401d7a0cb5c1b2114f7f7f',1,'K_Math::Normalize(Vector2 &amp;vector)'],['../namespace_k___math.html#acc3e86ed2299ce32ac7e64e6f5a3ed38',1,'K_Math::Normalize(Vector3 &amp;vector)']]],
   ['normalized',['Normalized',['../namespace_k___math.html#a747d172970d29e285f54713d0f334f59',1,'K_Math::Normalized(const Vector2 &amp;vector)'],['../namespace_k___math.html#ab68255722fd4cee710917b456d751e5a',1,'K_Math::Normalized(const Vector3 &amp;vector)']]],
   ['numface',['numFace',['../struct_k___graphics_1_1_material.html#aab8d503269eda94bf6e106ed1bdb8682',1,'K_Graphics::Material::numFace()'],['../struct_k___graphics_1_1_vertex_buffer.html#a9eb5f2ce9a42bc8e223493919e27e26f',1,'K_Graphics::VertexBuffer::numFace()']]],
-  ['nummaterial',['numMaterial',['../struct_k___graphics_1_1_vertex_buffer.html#a5f37667aa860c77b93e40b9502a53235',1,'K_Graphics::VertexBuffer']]],
-  ['numpolygon',['numPolygon',['../struct_k___physics_1_1_map_polygon_1_1_polygon_data.html#a20746ae9989f097ffa21c9a0be396050',1,'K_Physics::MapPolygon::PolygonData']]]
+  ['nummaterial',['numMaterial',['../struct_k___graphics_1_1_vertex_buffer.html#a5f37667aa860c77b93e40b9502a53235',1,'K_Graphics::VertexBuffer']]]
 ];

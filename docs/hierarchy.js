@@ -51,6 +51,10 @@ var hierarchy =
     [ "K_Graphics::FrameBufferList", "class_k___graphics_1_1_frame_buffer_list.html", null ],
     [ "K_System::IconImage", "struct_k___system_1_1_icon_image.html", null ],
     [ "K_Loader::ImageData", "class_k___loader_1_1_image_data.html", null ],
+    [ "K_Loader::ImageDataLoader", "class_k___loader_1_1_image_data_loader.html", [
+      [ "K_Loader::PNGLoader", "class_k___loader_1_1_p_n_g_loader.html", null ],
+      [ "K_Loader::TGALoader", "class_k___loader_1_1_t_g_a_loader.html", null ]
+    ] ],
     [ "K_Loader::ImageLoader", "class_k___loader_1_1_image_loader.html", null ],
     [ "K_Input::InputClass", "class_k___input_1_1_input_class.html", null ],
     [ "K_Loader::K3MDBone", "struct_k___loader_1_1_k3_m_d_bone.html", null ],
@@ -72,6 +76,8 @@ var hierarchy =
     ] ],
     [ "K_Graphics::ModelResource", "struct_k___graphics_1_1_model_resource.html", null ],
     [ "K_Input::MouseState", "struct_k___input_1_1_mouse_state.html", null ],
+    [ "K_Audio::OggData::OggBinaryData", "struct_k___audio_1_1_ogg_data_1_1_ogg_binary_data.html", null ],
+    [ "K_Loader::PNGLoader::PNGFileData", "struct_k___loader_1_1_p_n_g_loader_1_1_p_n_g_file_data.html", null ],
     [ "K_Physics::MapPolygon::PolygonData", "struct_k___physics_1_1_map_polygon_1_1_polygon_data.html", null ],
     [ "K_Physics::MapPolygon::PolygonType", "struct_k___physics_1_1_map_polygon_1_1_polygon_type.html", null ],
     [ "K_Graphics::ShaderClass", "class_k___graphics_1_1_shader_class.html", null ],

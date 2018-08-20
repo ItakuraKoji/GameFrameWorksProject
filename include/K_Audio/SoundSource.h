@@ -25,10 +25,12 @@ namespace K_Audio {
 		};
 
 	public:
-		SoundSource(const char* sourceName, const char* filePass, LoadMode mode, int numBuffer);
+		SoundSource(const char* sourceName, const char* filePass, LoadMode mode, float baseVolume, int numBuffer);
 		~SoundSource();
 		void Play(bool loop);
-		void PlayCopy();
+		ALuint PlayCopy();
+		ALuint PlayCopy(float volume, float pitch);
+		ALuint PlayCopy(float posX, float posY, float posZ, float volume, float pitch);
 		void Pause();
 		void Stop();
 
@@ -63,6 +65,8 @@ namespace K_Audio {
 		int numBuffer;
 
 		ALuint format;
+
+		float baseVolume;
 
 		float volume;
 		float pitch;

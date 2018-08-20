@@ -13,7 +13,7 @@ namespace K_Physics {
 			this->m_collisionFilterMask = data->GetGiveMask();
 		}
 		else {
-			//active出ないときは判定しない
+			//activeでないときは判定しない
 			this->m_collisionFilterGroup = 0;
 			this->m_collisionFilterMask = 0;
 		}
@@ -30,12 +30,7 @@ namespace K_Physics {
 		if (convexResult.m_hitCollisionObject->getCollisionFlags() & btCollisionObject::CF_NO_CONTACT_RESPONSE) {
 			return btScalar(0.0f);
 		}
-		//相手とマスクが合わない場合
-		CollisionData* data1 = (CollisionData*)this->myself->getUserPointer();
-		CollisionData* data2 = (CollisionData*)convexResult.m_hitCollisionObject->getUserPointer();
-		if (!(data1->GetMyselfMask() & data2->GetGiveMask())) {
-			return btScalar(0.0f);
-		}
+
 		//衝突相手が自分自身の場合
 		if (convexResult.m_hitCollisionObject == this->myself) {
 			return btScalar(0.0f);
@@ -62,7 +57,7 @@ namespace K_Physics {
 			this->m_collisionFilterMask = data->GetGiveMask();
 		}
 		else {
-			//active出ないときは判定しない
+			//activeでないときは判定しない
 			this->m_collisionFilterGroup = 0;
 			this->m_collisionFilterMask = 0;
 		}
@@ -80,12 +75,7 @@ namespace K_Physics {
 		if (colObj1Wrap->getCollisionObject()->getCollisionFlags() & btCollisionObject::CF_NO_CONTACT_RESPONSE) {
 			return btScalar(0.0f);
 		}
-		//相手とマスクが合わない場合
-		CollisionData* data1 = (CollisionData*)this->obj->getUserPointer();
-		CollisionData* data2 = (CollisionData*)colObj1Wrap->getCollisionObject()->getUserPointer();
-		if (!(data1->GetMyselfMask() & data2->GetGiveMask())) {
-			return btScalar(0.0f);
-		}
+
 		//衝突相手が自分自身の場合
 		if (this->obj == colObj1Wrap->getCollisionObject()) {
 			return btScalar(0.0f);
@@ -122,7 +112,7 @@ namespace K_Physics {
 			this->m_collisionFilterMask = data->GetGiveMask();
 		}
 		else {
-			//active出ないときは判定しない
+			//activeでないときは判定しない
 			this->m_collisionFilterGroup = 0;
 			this->m_collisionFilterMask = 0;
 		}
@@ -138,12 +128,7 @@ namespace K_Physics {
 		if (colObj1Wrap->getCollisionObject()->getCollisionFlags() & btCollisionObject::CF_NO_CONTACT_RESPONSE) {
 			return btScalar(0.0f);
 		}
-		//相手とマスクが合わない場合
-		CollisionData* data1 = (CollisionData*)this->obj->getUserPointer();
-		CollisionData* data2 = (CollisionData*)colObj1Wrap->getCollisionObject()->getUserPointer();
-		if (!(data1->GetMyselfMask() & data2->GetGiveMask())) {
-			return btScalar(0.0f);
-		}
+
 		//衝突相手が自分自身の場合
 		if (this->obj == colObj1Wrap->getCollisionObject()) {
 			return btScalar(0.0f);
@@ -181,7 +166,7 @@ namespace K_Physics {
 			this->m_collisionFilterMask = data->GetGiveMask();
 		}
 		else {
-			//active出ないときは判定しない
+			//activeでないときは判定しない
 			this->m_collisionFilterGroup = 0;
 			this->m_collisionFilterMask = 0;
 		}
@@ -192,10 +177,7 @@ namespace K_Physics {
 		//衝突した相手を記録
 		CollisionData* data1 = (CollisionData*)colObj0Wrap->m_collisionObject->getUserPointer();
 		CollisionData* data2 = (CollisionData*)colObj1Wrap->m_collisionObject->getUserPointer();
-		//相手とマスクが合わない場合
-		if (!(data1->GetMyselfMask() & data2->GetGiveMask())) {
-			return btScalar(0.0f);
-		}
+
 		if (data2) {
 			this->result.push_back(data2->GetCollisionTag());
 			this->isHit = true;

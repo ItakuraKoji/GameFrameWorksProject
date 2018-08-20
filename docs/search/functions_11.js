@@ -1,6 +1,7 @@
 var searchData=
 [
   ['seek',['Seek',['../class_k___audio_1_1_audio_data.html#a1ba3ab1b4bae0b460d26278cb29ce16e',1,'K_Audio::AudioData::Seek()'],['../class_k___audio_1_1_ogg_data.html#aac0e955981398bf31053f27fbe19b2ba',1,'K_Audio::OggData::Seek()'],['../class_k___audio_1_1_wav_data.html#a776791e634bf9ebe2276894decda9c7a',1,'K_Audio::WavData::Seek()']]],
+  ['seekcallback',['SeekCallBack',['../class_k___audio_1_1_ogg_data.html#ab13113534d56434ced5ef167737c1b99',1,'K_Audio::OggData']]],
   ['setactive',['SetActive',['../class_k___physics_1_1_collision_data.html#afa7ddf319a8d830d482b36ed0a1f4e30',1,'K_Physics::CollisionData']]],
   ['setalphablendinfo',['SetAlphaBlendInfo',['../class_k___system_1_1_system_class.html#a86546e2396110b99cfe59d9960bde93b',1,'K_System::SystemClass']]],
   ['setambient',['SetAmbient',['../class_k___graphics_1_1_light_list.html#a92da95153193c3e43e58c875555288c5',1,'K_Graphics::LightList']]],
@@ -56,9 +57,11 @@ var searchData=
   ['setxy',['SetXY',['../struct_k___math_1_1_box2_d.html#aac62954760d1ef034d03acde165cdf06',1,'K_Math::Box2D']]],
   ['shaderclass',['ShaderClass',['../class_k___graphics_1_1_shader_class.html#a3762d1f3d62a5b9fe6b37d36aeb8dd51',1,'K_Graphics::ShaderClass']]],
   ['shaderlist',['ShaderList',['../class_k___graphics_1_1_shader_list.html#a93645f83598573fa2695489fcac10b6f',1,'K_Graphics::ShaderList']]],
+  ['slerp',['Slerp',['../namespace_k___math.html#a74c4bc925ac65a54d615f4332dc72b83',1,'K_Math']]],
   ['soundclass',['SoundClass',['../class_k___audio_1_1_sound_class.html#a9aba0743522979791ed9e6fe0d39c942',1,'K_Audio::SoundClass']]],
-  ['soundsource',['SoundSource',['../class_k___audio_1_1_sound_source.html#ac3d237a4c3a7ae5858d7a50f2390fbd7',1,'K_Audio::SoundSource']]],
+  ['soundsource',['SoundSource',['../class_k___audio_1_1_sound_source.html#aaab565f9717039fb014e2ab347f5fd0d',1,'K_Audio::SoundSource']]],
   ['spriteobject',['SpriteObject',['../class_k___graphics_1_1_sprite_object.html#a9fe538248d36f9b2c20688f0053af112',1,'K_Graphics::SpriteObject']]],
+  ['startdraw',['StartDraw',['../class_k___physics_1_1bullet_debug_draw.html#a6c962fbce566412cfafc4ce980c7a399',1,'K_Physics::bulletDebugDraw']]],
   ['startinterporation',['StartInterporation',['../class_k___graphics_1_1_animation_status.html#a0e1844745c12978c8a8eeea1175659ed',1,'K_Graphics::AnimationStatus']]],
   ['stickstate',['StickState',['../struct_k___input_1_1_stick_state.html#aac73cf2559099f71649f184c80eaa684',1,'K_Input::StickState']]],
   ['stop',['Stop',['../class_k___audio_1_1_sound_source.html#a0c666b4b7b12c5e4412fb519d3786526',1,'K_Audio::SoundSource::Stop()'],['../class_k___graphics_1_1_effect_class.html#aeeb968f668c73b1ffff7679c99328b45',1,'K_Graphics::EffectClass::Stop()']]],

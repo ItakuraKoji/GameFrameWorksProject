@@ -100,6 +100,9 @@ namespace K_Math {
 	float Dot(const Vector2& vector1, const Vector2& vector2);
 	float Dot(const Vector3& vector1, const Vector3& vector2);
 
+	//!@brief 球面補間
+	Quaternion Slerp(const Quaternion& from, const Quaternion& to, float t);
+
 	//!@brief 任意軸回転のクォータニオンを得る
 	Quaternion AngleAxis(float angle, const Vector3& axis);
 	//!@brief vec1からvec2へ向かう回転のクォータニオンを得る

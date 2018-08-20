@@ -70,12 +70,10 @@ namespace K_System {
 		}
 		//FPSŒv‘ª
 		++this->framecount;
-		if (this->framecount == 30) {
-			cullentTime = std::chrono::system_clock::now();
-			this->fps = (float)framecount / std::chrono::duration_cast<std::chrono::milliseconds>(cullentTime - startTime).count() * 1000;
-			this->startTime = std::chrono::system_clock::now();
-			this->framecount = 0;
-		}
+		cullentTime = std::chrono::system_clock::now();
+		this->fps = (float)framecount / std::chrono::duration_cast<std::chrono::milliseconds>(cullentTime - startTime).count() * 1000;
+		this->startTime = std::chrono::system_clock::now();
+		this->framecount = 0;
 	}
 
 	void SystemClass::SwapBuffer() {

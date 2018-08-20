@@ -161,6 +161,9 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_bullet_physics.h
 <tr class="memitem:a5b3f568b9865bbabbbb2824f06e94966"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_bullet_physics.html#a5b3f568b9865bbabbbb2824f06e94966">MoveCharacterDiscrete</a> (<a class="el" href="class_k___physics_1_1_collision_data.html">CollisionData</a> *obj, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;move, bool vLimitDirection=true, bool hLimitDirection=false)</td></tr>
 <tr class="memdesc:a5b3f568b9865bbabbbb2824f06e94966"><td class="mdescLeft">&#160;</td><td class="mdescRight">離散的なコリジョンの移動、判定が MoveCharacter よりも大雑把(ただし軽い)  <a href="#a5b3f568b9865bbabbbb2824f06e94966">[詳解]</a><br /></td></tr>
 <tr class="separator:a5b3f568b9865bbabbbb2824f06e94966"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7784b05023475e36216ccf6290ce764"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_bullet_physics.html#ab7784b05023475e36216ccf6290ce764">MoveRotation</a> (<a class="el" href="class_k___physics_1_1_collision_data.html">CollisionData</a> *obj, const <a class="el" href="namespace_k___math.html#a034e586a2748ce9790ca7cb30efcd78f">K_Math::Quaternion</a> &amp;from, const <a class="el" href="namespace_k___math.html#a034e586a2748ce9790ca7cb30efcd78f">K_Math::Quaternion</a> &amp;to, float speed)</td></tr>
+<tr class="memdesc:ab7784b05023475e36216ccf6290ce764"><td class="mdescLeft">&#160;</td><td class="mdescRight">判定しながらの回転  <a href="#ab7784b05023475e36216ccf6290ce764">[詳解]</a><br /></td></tr>
+<tr class="separator:ab7784b05023475e36216ccf6290ce764"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51dfdc8e5e578900a3851b21ba800e51"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___physics_1_1_bullet_physics.html#a51dfdc8e5e578900a3851b21ba800e51">Raycast</a> (const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;from, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;to, int myselfMask)</td></tr>
 <tr class="memdesc:a51dfdc8e5e578900a3851b21ba800e51"><td class="mdescLeft">&#160;</td><td class="mdescRight">fromの位置からtoの位置へレイを飛ばして、その衝突位置を返す  <a href="#a51dfdc8e5e578900a3851b21ba800e51">[詳解]</a><br /></td></tr>
 <tr class="separator:a51dfdc8e5e578900a3851b21ba800e51"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -820,6 +823,57 @@ $(document).ready(function(){initNavTree('class_k___physics_1_1_bullet_physics.h
     <tr><td class="paramdir">[in]</td><td class="paramname">move</td><td>移動ベクトル </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">vLimitDirection</td><td>縦方向の押し返しを、moveの直線上に限定するかのフラグ </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">hLimitDirection</td><td>横方向の押し返しを、moveの直線上に限定するかのフラグ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab7784b05023475e36216ccf6290ce764"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7784b05023475e36216ccf6290ce764">&#9670;&nbsp;</a></span>MoveRotation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Physics::BulletPhysics::MoveRotation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_k___physics_1_1_collision_data.html">CollisionData</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a034e586a2748ce9790ca7cb30efcd78f">K_Math::Quaternion</a> &amp;&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a034e586a2748ce9790ca7cb30efcd78f">K_Math::Quaternion</a> &amp;&#160;</td>
+          <td class="paramname"><em>to</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>speed</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>判定しながらの回転 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">obj</td><td>移動するコリジョンオブジェクト </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">from</td><td>回転元 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">to</td><td>回転先 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">speed</td><td>0.0 から 1.0 で回転速度を指定 </td></tr>
   </table>
   </dd>
 </dl>

@@ -10,15 +10,14 @@ namespace K_Audio {
 			LoadFile(filePass);
 		}
 		catch (std::exception& e) {
-			if (this->waveFile.is_open()) {
-				this->waveFile.close();
-			}
 			throw e;
 		}
 	}
 
 	WavData::~WavData() {
-		this->waveFile.close();
+		if (this->wavData != nullptr) {
+			delete[] this->wavData;
+		}
 	}
 
 	void WavData::Seek(int offset) {
@@ -49,8 +48,10 @@ namespace K_Audio {
 			return 0;
 		}
 
+		//読み込み
 		int prevOffset = this->pcmOffset;
-		this->waveFile.read(buffer, readSize);
+		memcpy(buffer, this->wavData + this->binaryPosition, readSize);
+		this->binaryPosition += readSize;
 		this->pcmOffset += readSize / this->blockSize;
 
 		//実際に読み込んだサイズを求めて返す
@@ -79,19 +80,35 @@ namespace K_Audio {
 			unsigned short bitsPerSample;     //１サンプルのビット数 8bit or 16bit
 		};
 
+		//値初期化
+		this->wavData = nullptr;
+		this->binaryPosition = 0;
+		this->binarySize = 0;
 
-		this->waveFile.open(filePass, std::ifstream::binary);
-		if (!this->waveFile) {
+		//ファイル読み込み
+		std::ifstream ifs(filePass, std::ios::binary | std::ios::in);
+		if (!ifs) {
 			throw std::runtime_error("fileOpen failed : " + std::string(filePass));
 		}
+		//ファイルサイズ取得
+		ifs.seekg(0, std::ios::end);
+		this->binarySize = ifs.tellg();
+		ifs.clear();
+		ifs.seekg(0, std::ios::beg);
+
+		//バイナリを全部読みこみ
+		this->wavData = new char[binarySize];
+		ifs.read(this->wavData, binarySize);
+		ifs.close();
+
 		//RIFFチャンクの先頭12バイト
 		//id = 4bite : size = 4bite;
 		WaveChunk chunk;
 		WaveStruct fmtChunk;
 		char format[4];
 
-		this->waveFile.read((char*)&chunk, 8);
-		this->waveFile.read(format, 4);
+		ReadBinary((char*)&chunk, this->wavData, &this->binaryPosition, 8);
+		ReadBinary(format, this->wavData, &this->binaryPosition, 4);
 
 		//WAVEフォーマット以外は失敗
 		if (strncmp(chunk.id, "RIFF", 4) != 0 || strncmp(format, "WAVE", 4)) {
@@ -104,13 +121,14 @@ namespace K_Audio {
 		int dataSize = 0;
 		int fileSize = chunk.size;
 		while (byteOffset < fileSize) {
-			this->waveFile.read((char*)&chunk, sizeof(WaveChunk));
+			ReadBinary((char*)&chunk, this->wavData, &this->binaryPosition, sizeof(WaveChunk));
 			if (strncmp(chunk.id, "fmt ", 4) == 0) {
 				//fmtチャンク
-				this->waveFile.read((char*)&fmtChunk, 16);
+				ReadBinary((char*)&fmtChunk, this->wavData, &this->binaryPosition, 16);
+
 				//拡張fmtチャンクは読まない
 				if (chunk.size > 16) {
-					this->waveFile.seekg(chunk.size - 16, std::ios_base::cur);
+					this->binaryPosition += chunk.size - 16;
 				}
 				if (fmtChunk.formatId != 1) {
 					throw std::runtime_error("this waveFormat not support : " + std::string(filePass));
@@ -122,14 +140,14 @@ namespace K_Audio {
 				//dataチャンク
 				//位置を保存して逐次読み込み用のデータに利用
 				this->dataStartOffset = byteOffset + sizeof(WaveChunk);
-				this->waveFile.seekg(chunk.size, std::ios_base::cur);
+				this->binaryPosition += chunk.size;
 				byteOffset += chunk.size + sizeof(WaveChunk);
 				dataSize = chunk.size;
 				++count;
 			}
 			else {
 				//それ以外のチャンクはスキップ
-				this->waveFile.seekg(chunk.size, std::ios_base::cur);
+				this->binaryPosition += chunk.size;
 				byteOffset += chunk.size + sizeof(WaveChunk);
 			}
 		}
@@ -180,6 +198,14 @@ namespace K_Audio {
 
 	//WaveファイルのPCMデータのシーク
 	void WavData::PcmSeek(int pcmOffset) {
-		this->waveFile.seekg(this->dataStartOffset + pcmOffset * this->blockSize, std::ios_base::beg);
+		//this->waveFile.seekg(this->dataStartOffset + pcmOffset * this->blockSize, std::ios_base::beg);
+		this->binaryPosition = this->dataStartOffset + pcmOffset * this->blockSize;
 	}
+
+	void WavData::ReadBinary(char* dest, char* src, size_t* binaryPosition, size_t readSize) {
+		//バイナリを呼んでバイナリ位置を移動
+		memcpy(dest, src + (*binaryPosition), readSize);
+		(*binaryPosition) += readSize;
+	}
+
 }

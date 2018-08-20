@@ -34,10 +34,10 @@ namespace K_Loader {
 	public:
 		FbxModelLoader();
 		~FbxModelLoader();
-		bool LoadFBX(const std::string& fileName, K_Graphics::TextureList* list);
+		bool LoadFBX(const std::string& fileName);
 
 		K_Graphics::FbxData*       PassFbxData();
-		K3MDHierarchy*             PassModelData();
+		K3MDHierarchy*             GetModelData();
 
 	private:
 		void          Finalize();
@@ -59,13 +59,9 @@ namespace K_Loader {
 
 		K_Graphics::FbxData       *fbxData;
 
-		//クラス内でアクセスするためのもの。deleteする責任はない
-		K_Graphics::TextureList *textureList;
-
 		//FBXファイルの場所をルートにする
-		char* fileRoot;
+		std::string fileRoot;
 
-		K_Graphics::Vertex* vertexData;
 		int numVertex;
 		int numUV;
 		int numFace;

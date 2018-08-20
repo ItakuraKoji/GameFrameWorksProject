@@ -110,6 +110,9 @@ namespace K_Graphics {
 		K_Math::Matrix4x4 cameraMat;
 		if (billBoard) {
 			cameraMat = camera->GetCameraMatrix();
+			cameraMat[3][0] = 0.0f;
+			cameraMat[3][1] = 0.0f;
+			cameraMat[3][2] = 0.0f;
 		}
 
 		world = transMat * cameraMat * rotMat * scaleMat * controlTrans;

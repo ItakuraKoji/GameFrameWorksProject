@@ -1158,7 +1158,7 @@ public:
 		* \return The property value at the specified time. */
 		T EvaluateValue(const FbxTime& pTime=FBXSDK_TIME_INFINITE, bool pForceEval=false)
 		{
-			return GetAnimationEvaluator()->GetPropertyValue<T>(*this, pTime, pForceEval);
+			return GetAnimationEvaluator()-> template GetPropertyValue<T>(*this, pTime, pForceEval);
 		}
 	//@}
 

@@ -25,6 +25,7 @@ namespace K_Graphics {
 	}
 	void DirectionalLight::SetDirection(float x, float y, float z) {
 		this->direction = K_Math::Vector3(x, y, z);
+		K_Math::Normalize(this->direction);
 	}
 
 	float DirectionalLight::GetPower() {

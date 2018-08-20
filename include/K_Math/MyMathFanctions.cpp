@@ -187,6 +187,10 @@ float K_Math::Dot(const K_Math::Vector3& vector1, const K_Math::Vector3& vector2
 	return glm::dot(vector1, vector2);
 }
 
+K_Math::Quaternion K_Math::Slerp(const Quaternion& from, const Quaternion& to, float t) {
+	return glm::slerp(from, to, t);
+}
+
 K_Math::Quaternion K_Math::AngleAxis(float angle, const Vector3& axis) {
 	return glm::angleAxis(angle, axis);
 }
