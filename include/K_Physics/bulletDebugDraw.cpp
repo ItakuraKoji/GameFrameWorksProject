@@ -12,29 +12,6 @@ namespace K_Physics {
 	//public
 	////
 	bulletDebugDraw::bulletDebugDraw() {
-		btVector3 point[] = { btVector3(0.0f, 10.0f, 0.0f), btVector3(0.0f, -10.0f, 0.0f) };
-		unsigned int index[] = { 0, 1 };
-
-		//VAO
-		glGenVertexArrays(1, &this->VAO);
-		glBindVertexArray(this->VAO);
-		//VBO
-		glGenBuffers(1, &this->VBO);
-		glBindBuffer(GL_ARRAY_BUFFER, this->VBO);
-		glBufferData(GL_ARRAY_BUFFER, 2 * (sizeof(btVector3) + sizeof(btVector4)), 0, GL_DYNAMIC_DRAW);
-		//pos
-		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(btVector3), 0);
-		//color
-		glEnableVertexAttribArray(1);
-		glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(btVector4), (unsigned char*)NULL + (2 * sizeof(btVector3)));
-		//IBO
-		glGenBuffers(1, &this->IBO);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this->IBO);
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, 2 * sizeof(unsigned int), index, GL_STATIC_DRAW);
-
-		glBindVertexArray(0);
-
 		glLineWidth(0.5f);
 
 	}
@@ -44,14 +21,11 @@ namespace K_Physics {
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 		glDeleteVertexArrays(1, &this->VAO);
 		glDeleteBuffers(1, &this->VBO);
-		glDeleteBuffers(1, &this->IBO);
 	}
 
 	void bulletDebugDraw::StartDraw(K_Graphics::CameraClass* camera) {
 		this->camera = camera;
-		this->lineIndex.clear();
 		this->lineData.clear();
-		this->indexCount = 0;
 	}
 
 
@@ -64,19 +38,12 @@ namespace K_Physics {
 		}
 
 		DebugLine line;
-		line.pos[0] = from;
-		line.pos[1] = to;
-		line.color[0] = btVector4(color.x(), color.y(), color.z(), 1.0f);
-		line.color[1] = btVector4(color.x(), color.y(), color.z(), 1.0f);
-
-		DebugLineIndex index;
-		index.from = this->indexCount;
-		++this->indexCount;
-		index.to = this->indexCount;
-		++this->indexCount;
+		line.from = from;
+		line.to = to;
+		line.fromColor = btVector4(color.x(), color.y(), color.z(), 1.0f);
+		line.toColor = btVector4(color.x(), color.y(), color.z(), 1.0f);
 
 		this->lineData.push_back(line);
-		this->lineIndex.push_back(index);
 	}
 
 
@@ -89,19 +56,12 @@ namespace K_Physics {
 		}
 
 		DebugLine line;
-		line.pos[0] = from;
-		line.pos[1] = to;
-		line.color[0] = btVector4(fromColor.x(), fromColor.y(), fromColor.z(), 1.0f);
-		line.color[1] = btVector4(toColor.x(), toColor.y(), toColor.z(), 1.0f);
-
-		DebugLineIndex index;
-		index.from = this->indexCount;
-		++this->indexCount;
-		index.to = this->indexCount;
-		++this->indexCount;
+		line.from = from;
+		line.to = to;
+		line.fromColor = btVector4(fromColor.x(), fromColor.y(), fromColor.z(), 1.0f);
+		line.toColor = btVector4(toColor.x(), toColor.y(), toColor.z(), 1.0f);
 
 		this->lineData.push_back(line);
-		this->lineIndex.push_back(index);
 	}
 
 	void bulletDebugDraw::drawContactPoint(const btVector3& PointOnB, const btVector3& normalOnB, btScalar distance, int lifeTime, const btVector3& color) {
@@ -113,19 +73,12 @@ namespace K_Physics {
 		}
 
 		DebugLine line;
-		line.pos[0] = PointOnB;
-		line.pos[1] = PointOnB + normalOnB;
-		line.color[0] = btVector4(color.x(), color.y(), color.z(), 1.0f);
-		line.color[1] = btVector4(color.x(), color.y(), color.z(), 1.0f);
-
-		DebugLineIndex index;
-		index.from = this->indexCount;
-		++this->indexCount;
-		index.to = this->indexCount;
-		++this->indexCount;
+		line.from = PointOnB;
+		line.to = PointOnB + normalOnB;
+		line.fromColor = btVector4(color.x(), color.y(), color.z(), 1.0f);
+		line.toColor = btVector4(color.x(), color.y(), color.z(), 1.0f);
 
 		this->lineData.push_back(line);
-		this->lineIndex.push_back(index);
 	}
 
 
@@ -157,22 +110,26 @@ namespace K_Physics {
 
 
 	void bulletDebugDraw::DrawAllLine() {
-		//‘S‚Ä‚Ìü‚ð‚Ü‚Æ‚ß‚Ä•`‰æ
+		////‘S‚Ä‚Ìü‚ð‚Ü‚Æ‚ß‚Ä•`‰æ
 
+		glDeleteBuffers(1, &this->VBO);
+		glDeleteVertexArrays(1, &this->VAO);
+		glGenBuffers(1, &this->VBO);
+		glGenVertexArrays(1, &this->VAO);
 		glBindVertexArray(this->VAO);
 		glBindBuffer(GL_ARRAY_BUFFER, this->VBO);
 		glBufferData(GL_ARRAY_BUFFER, this->lineData.size() * (sizeof(DebugLine)), this->lineData.data(), GL_DYNAMIC_DRAW);
+
 		//pos
 		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(btVector3), 0);
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(btVector3) + sizeof(btVector4), 0);
 		//color
 		glEnableVertexAttribArray(1);
-		glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(btVector4), (unsigned char*)NULL + (2 * sizeof(btVector3)));
-		//IBO
-		glGenBuffers(1, &this->IBO);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this->IBO);
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(DebugLineIndex) * this->lineIndex.size(), this->lineIndex.data(), GL_STATIC_DRAW);
-		glDrawElements(GL_LINES, this->lineIndex.size() * 2, GL_UNSIGNED_INT, 0);
+		glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(btVector3) + sizeof(btVector4), (unsigned char*)NULL + (sizeof(btVector3)));
+		glBindVertexArray(0);
+
+		glBindVertexArray(this->VAO);
+		glDrawArrays(GL_LINES, 0, this->lineData.size() * 2);
 		glBindVertexArray(0);
 	}
 

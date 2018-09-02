@@ -63,6 +63,19 @@ namespace K_Graphics {
 		this->textureList[textureName] = texture;
 		return true;
 	}
+	bool TextureList::AddEmptyTexture(const std::string& textureName, int textureWidth, int textureHeight, TextureType dataType, TextureColorType color, TextureColorType dataColor) {
+		//同じ名前の再登録は認めない（同じテクスチャは一つにまとまる）
+		if (this->textureList.find(textureName) != this->textureList.end()) {
+			return false;
+		}
+
+		Texture* texture = new Texture;
+		texture->Initialize();
+		texture->SetImageData(NULL, textureWidth, textureHeight, dataType, color, dataColor);
+
+		this->textureList[textureName] = texture;
+		return true;
+	}
 
 	void TextureList::DeleteTexture(const std::string& textureName) {
 		//無い物は削除できない

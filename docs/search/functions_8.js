@@ -7,10 +7,13 @@ var searchData=
   ['isactive',['IsActive',['../class_k___physics_1_1_collision_data.html#a96ee24ac70437f2aab2ffa437c0b285e',1,'K_Physics::CollisionData']]],
   ['isplay',['IsPlay',['../class_k___audio_1_1_sound_source.html#a81fee1252efe87d2003433d30312cb3c',1,'K_Audio::SoundSource']]],
   ['ispressbutton',['IsPressButton',['../class_k___input_1_1_virtual_game_pad.html#a709e96be1f4c8ef855412e1f156fecd5',1,'K_Input::VirtualGamePad']]],
+  ['ispressbuttonany',['IsPressButtonAny',['../class_k___input_1_1_virtual_game_pad.html#a46092677dffe15388c0f67b3f1bb3e2a',1,'K_Input::VirtualGamePad']]],
   ['ispressmouse',['IsPressMouse',['../class_k___input_1_1_input_class.html#a9ae39794363e3ba8e207d61f60197288',1,'K_Input::InputClass']]],
   ['isreavebutton',['IsReaveButton',['../class_k___input_1_1_virtual_game_pad.html#a173d0ca9eff02659a7f3a8cf89c3ac7a',1,'K_Input::VirtualGamePad']]],
+  ['isreavebuttonany',['IsReaveButtonAny',['../class_k___input_1_1_virtual_game_pad.html#a8e5f684df86fd6ae485567c575620287',1,'K_Input::VirtualGamePad']]],
   ['isreavemouse',['IsReaveMouse',['../class_k___input_1_1_input_class.html#a79c23d22654dfc4ef568f64674646012',1,'K_Input::InputClass']]],
   ['isstaybutton',['IsStayButton',['../class_k___input_1_1_virtual_game_pad.html#a2dd08af4672e5dafd02fe83346841b18',1,'K_Input::VirtualGamePad']]],
+  ['isstaybuttonany',['IsStayButtonAny',['../class_k___input_1_1_virtual_game_pad.html#ab9dc10f79b809bd5e95cead4bb0fff22',1,'K_Input::VirtualGamePad']]],
   ['isstaymouse',['IsStayMouse',['../class_k___input_1_1_input_class.html#aa6bc05f41f237068942ad56036c2c216',1,'K_Input::InputClass']]],
   ['issystemend',['IsSystemEnd',['../class_k___system_1_1_system_class.html#a5c776515e01bcba724c6fa64db4897c0',1,'K_System::SystemClass']]]
 ];

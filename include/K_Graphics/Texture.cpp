@@ -80,6 +80,7 @@ namespace K_Graphics {
 	}
 
 	void Texture::SetFilter(bool isFiltering) {
+		glBindTexture(GL_TEXTURE_2D, this->textureID);
 		if (isFiltering) {
 			//Šg‘åk¬‚Ì•âŠ®
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);

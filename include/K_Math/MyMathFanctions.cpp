@@ -149,6 +149,24 @@ K_Math::Vector3 K_Math::QuaternionToRotation(const K_Math::Quaternion& quaternio
 	return rot;
 }
 
+void K_Math::PickUp(const Vector4& vector, Vector4& result, bool xPickUp, bool yPickUp, bool zPickUp, bool wPickUp) {
+	result.x = xPickUp ? vector.x : 0.0f;
+	result.y = yPickUp ? vector.y : 0.0f;
+	result.z = zPickUp ? vector.z : 0.0f;
+	result.w = wPickUp ? vector.w : 0.0f;
+}
+
+void K_Math::PickUp(const Vector3& vector, Vector3& result, bool xPickUp, bool yPickUp, bool zPickUp) {
+	result.x = xPickUp ? vector.x : 0.0f;
+	result.y = yPickUp ? vector.y : 0.0f;
+	result.z = zPickUp ? vector.z : 0.0f;
+}
+
+void K_Math::PickUp(const Vector2& vector, Vector2& result, bool xPickUp, bool yPickUp) {
+	result.x = xPickUp ? vector.x : 0.0f;
+	result.y = yPickUp ? vector.y : 0.0f;
+}
+
 void K_Math::Normalize(Vector2& vector) {
 	vector = glm::normalize(vector);
 }
@@ -157,9 +175,15 @@ void K_Math::Normalize(Vector3& vector) {
 }
 
 K_Math::Vector2 K_Math::Normalized(const Vector2& vector) {
+	if (K_Math::Norm(vector) < 0.001f) {
+		return K_Math::Vector2(0.0f, 0.0f);
+	}
 	return glm::normalize(vector);
 }
 K_Math::Vector3 K_Math::Normalized(const Vector3& vector) {
+	if (K_Math::Norm(vector) < 0.001f) {
+		return K_Math::Vector3(0.0f, 0.0f, 0.0f);
+	}
 	return glm::normalize(vector);
 }
 

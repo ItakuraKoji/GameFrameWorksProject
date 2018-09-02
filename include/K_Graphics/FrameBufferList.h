@@ -22,6 +22,7 @@ namespace K_Graphics {
 		//!@param[in] width 作成するフレームバッファのビューポート幅
 		//!@param[in] height 作成するフレームバッファのビューポート高さ
 		bool CreateFrameBuffer(const std::string& name, int width, int height);
+		bool CreateFrameBuffer(const std::string& name, int width, int height, TextureType dataType, TextureColorType color, TextureColorType dataColor);
 
 		//!@briefテクスチャリストに新規作成を依頼し、フレームバッファ作成＆リスト登録
 		//!深度バッファを使いまわすときはそのフレームバッファの名前を引数に渡す
@@ -30,14 +31,15 @@ namespace K_Graphics {
 		//!@param[in] width 作成するフレームバッファのビューポート幅
 		//!@param[in] height 作成するフレームバッファのビューポート高さ
 		bool CreateFrameBuffer(const std::string& name, const std::string& depthBuffer, int width, int height);
-
+		bool CreateFrameBuffer(const std::string& name, const std::string& depthBuffer, int width, int height, TextureType dataType, TextureColorType color, TextureColorType dataColor);
+		
 		//!@brief 指定色でフレームバッファをクリアする
 		//!@param[in] name クリアするフレームバッファの名前
 		//!@param[in] r クリア色のR成分
 		//!@param[in] g クリア色のG成分
 		//!@param[in] b クリア色のB成分
 		//!@param[in] notDeleteDepthStencil trueにすると深度とステンシルをクリアしない（省略時false）
-		void BeginDraw(const std::string& name, float r, float g, float b, bool notDeleteDepthStencil = false);
+		void BeginDraw(const std::string& name, float r, float g, float b, float a, bool notDeleteDepthStencil = false);
 		
 		//!@brief ビューポートを設定し、指定色でバックバッファをクリアする
 		//!@param[in] viewPortWidth ビューポートの幅
@@ -46,12 +48,12 @@ namespace K_Graphics {
 		//!@param[in] g クリア色のG成分
 		//!@param[in] b クリア色のB成分
 		//!@param[in] notDeleteDepthStencil trueにすると深度とステンシルをクリアしない（省略時false）
-		void BeginDraw(int viewPortWidth, int viewPortHeight, float r, float g, float b, bool notDeleteDepthStencil = false);
+		void BeginDraw(int viewPortWidth, int viewPortHeight, float r, float g, float b, float a, bool notDeleteDepthStencil = false);
 		//!@brief バインドを解いて描画終了
 		void EndDraw();
 
 	private:
-		void ClearBuffer(int viewPortWidth, int viewPortHeight, float r, float g, float b, bool notDeleteDepthStencil);
+		void ClearBuffer(int viewPortWidth, int viewPortHeight, float r, float g, float b, float a, bool notDeleteDepthStencil);
 
 	private:
 		std::unordered_map<std::string, Framebuffer*> frameBuffers;

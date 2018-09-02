@@ -1,6 +1,7 @@
 var searchData=
 [
   ['g',['G',['../namespace_k___input.html#af62d80c77b12db01035e4b9aa27a09d6adfcf28d0734569a6a693bc8194de62bf',1,'K_Input']]],
+  ['getactiverawaxisid',['GetActiveRawAxisID',['../class_k___input_1_1_virtual_game_pad.html#ad34b1a39454be199eaaa4c5fc69c7ea0',1,'K_Input::VirtualGamePad']]],
   ['getambient',['GetAmbient',['../class_k___graphics_1_1_light_list.html#a0232d24310eb38f3d1fe7179d95efe25',1,'K_Graphics::LightList']]],
   ['getanimationid',['GetAnimationID',['../class_k___graphics_1_1_animation_data.html#aba37b5eb3d3ee3417c99604d58d1bf15',1,'K_Graphics::AnimationData']]],
   ['getanimdata',['GetAnimData',['../class_k___graphics_1_1_bone_data.html#ae4aca94e76b3c9cf0991d2e0b1fc17ab',1,'K_Graphics::BoneData::GetAnimData(const std::string &amp;animName) const'],['../class_k___graphics_1_1_bone_data.html#a925f283b6deac1e1deae1e022df8ad07',1,'K_Graphics::BoneData::GetAnimData(int animIndex) const']]],
@@ -54,6 +55,7 @@ var searchData=
   ['getpcmsize',['GetPcmSize',['../class_k___audio_1_1_audio_data.html#af8cc58d3eb488dc306511d3321bc8ef6',1,'K_Audio::AudioData']]],
   ['getposition',['GetPosition',['../class_k___graphics_1_1_camera_class.html#a8ff01ed106d9ee0ac2a6baed8530fa34',1,'K_Graphics::CameraClass::GetPosition()'],['../struct_k___input_1_1_stick_state.html#a05da68756276401e5c044c7bc7731efa',1,'K_Input::StickState::GetPosition()']]],
   ['getpower',['GetPower',['../class_k___graphics_1_1_ambient_light.html#a6a06b70f058983367e1f444ca2d93ef1',1,'K_Graphics::AmbientLight::GetPower()'],['../class_k___graphics_1_1_directional_light.html#a787382b67a5603227533c674b68e2636',1,'K_Graphics::DirectionalLight::GetPower()'],['../struct_k___input_1_1_stick_state.html#a76e98e4459f311a5500f8bfef1c3b5f5',1,'K_Input::StickState::GetPower()']]],
+  ['getpressrawbuttonid',['GetPressRawButtonID',['../class_k___input_1_1_virtual_game_pad.html#ad6e83f650ec1328fd092243ae905aabb',1,'K_Input::VirtualGamePad']]],
   ['getprojectionmatrix',['GetProjectionMatrix',['../class_k___graphics_1_1_camera_class.html#a660c15df166e940e7dac70f2dfed98e1',1,'K_Graphics::CameraClass']]],
   ['getrigidbody',['GetRigidBody',['../class_k___physics_1_1_map_polygon.html#ab1f0383414a86977a55cc56edc38c70e',1,'K_Physics::MapPolygon']]],
   ['getrotation',['GetRotation',['../struct_k___input_1_1_stick_state.html#a151feefe8323c18265ca90a005ba403a',1,'K_Input::StickState']]],

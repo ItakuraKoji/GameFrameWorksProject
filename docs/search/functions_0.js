@@ -6,7 +6,7 @@ var searchData=
   ['addbonedata',['AddBoneData',['../class_k___graphics_1_1_bone_data.html#a2be7451eaeebd92025f2cf8221aaa4b6',1,'K_Graphics::BoneData']]],
   ['adddirectional',['AddDirectional',['../class_k___graphics_1_1_light_list.html#a6374cf237f3d50a0ef1a36d32a439da3',1,'K_Graphics::LightList']]],
   ['addeffectsource',['AddEffectSource',['../class_k___graphics_1_1_effect_class.html#af7c120e2d75a861cf258ad6d8e74c076',1,'K_Graphics::EffectClass']]],
-  ['addemptytexture',['AddEmptyTexture',['../class_k___graphics_1_1_texture_list.html#afab7447d6ed329a257436a20aad2cae3',1,'K_Graphics::TextureList']]],
+  ['addemptytexture',['AddEmptyTexture',['../class_k___graphics_1_1_texture_list.html#afab7447d6ed329a257436a20aad2cae3',1,'K_Graphics::TextureList::AddEmptyTexture(const std::string &amp;textureName, int textureWidth, int textureHeight)'],['../class_k___graphics_1_1_texture_list.html#a4bd52fd133f9d57eea6cc387901990ad',1,'K_Graphics::TextureList::AddEmptyTexture(const std::string &amp;textureName, int textureWidth, int textureHeight, TextureType dataType, TextureColorType color, TextureColorType dataColor)']]],
   ['addforce',['AddForce',['../class_k___physics_1_1_rigid_body_data.html#a5df18824345ddf5d4d04896b4d2593d4',1,'K_Physics::RigidBodyData']]],
   ['addgamepad',['AddGamePad',['../class_k___input_1_1_input_class.html#a1b826e4118503f25903e0e76b7c79866',1,'K_Input::InputClass']]],
   ['addorthocamera',['AddOrthoCamera',['../class_k___graphics_1_1_camera_list.html#ae3e95b8007efa81d1552e05a1b6df63b',1,'K_Graphics::CameraList']]],

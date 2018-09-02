@@ -7,8 +7,10 @@
 
 namespace K_Physics {
 	struct DebugLine {
-		btVector3 pos[2];
-		btVector4 color[2];
+		btVector3 from;
+		btVector4 fromColor;
+		btVector3 to;
+		btVector4 toColor;
 	};
 	struct DebugLineIndex {
 		unsigned int from;

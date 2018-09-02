@@ -29,6 +29,7 @@ namespace K_Graphics {
 		//!@param[in] textureHeight テクスチャの画像高さ
 		//!@return 成功するとtrue
 		bool AddEmptyTexture(const std::string& textureName, int textureWidth, int textureHeight);
+		bool AddEmptyTexture(const std::string& textureName, int textureWidth, int textureHeight, TextureType dataType, TextureColorType color, TextureColorType dataColor);
 		//!@brief テクスチャを削除
 		//!@param[in] textureName 削除するテクスチャの名前
 		void DeleteTexture(const std::string& textureName);

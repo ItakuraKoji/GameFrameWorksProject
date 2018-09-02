@@ -157,6 +157,15 @@ $(document).ready(function(){initNavTree('namespace_k___math.html','');});
 <tr class="memitem:a931334074dfcb27fe8a0d8b0074ccd45"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_k___math.html#a931334074dfcb27fe8a0d8b0074ccd45">QuaternionToRotation</a> (const <a class="el" href="namespace_k___math.html#a034e586a2748ce9790ca7cb30efcd78f">Quaternion</a> &amp;quaternion)</td></tr>
 <tr class="memdesc:a931334074dfcb27fe8a0d8b0074ccd45"><td class="mdescLeft">&#160;</td><td class="mdescRight">クォータニオンから回転成分を作成する(Y軸→X軸→Z軸)  <a href="#a931334074dfcb27fe8a0d8b0074ccd45">[詳解]</a><br /></td></tr>
 <tr class="separator:a931334074dfcb27fe8a0d8b0074ccd45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e1e3fe3d48aebfc01da31db413c9df2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_k___math.html#a0e1e3fe3d48aebfc01da31db413c9df2">PickUp</a> (const <a class="el" href="namespace_k___math.html#a5b07dfe75474080aec02e082039dea3f">Vector4</a> &amp;vector, <a class="el" href="namespace_k___math.html#a5b07dfe75474080aec02e082039dea3f">Vector4</a> &amp;result, bool xPickUp, bool yPickUp, bool zPickUp, bool wPickUp)</td></tr>
+<tr class="memdesc:a0e1e3fe3d48aebfc01da31db413c9df2"><td class="mdescLeft">&#160;</td><td class="mdescRight">ベクトルから各成分を抜き出す、抜き出さない要素は０となる  <a href="#a0e1e3fe3d48aebfc01da31db413c9df2">[詳解]</a><br /></td></tr>
+<tr class="separator:a0e1e3fe3d48aebfc01da31db413c9df2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a017e2af710e6c9c324298d1b6a75cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_k___math.html#a4a017e2af710e6c9c324298d1b6a75cd">PickUp</a> (const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">Vector3</a> &amp;vector, <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">Vector3</a> &amp;result, bool xPickUp, bool yPickUp, bool zPickUp)</td></tr>
+<tr class="memdesc:a4a017e2af710e6c9c324298d1b6a75cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">ベクトルから各成分を抜き出す、抜き出さない要素は０となる  <a href="#a4a017e2af710e6c9c324298d1b6a75cd">[詳解]</a><br /></td></tr>
+<tr class="separator:a4a017e2af710e6c9c324298d1b6a75cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ae2a128d88e1a405ad30fd7f785fa89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_k___math.html#a8ae2a128d88e1a405ad30fd7f785fa89">PickUp</a> (const <a class="el" href="namespace_k___math.html#aba76719561472e3400b1a81758f2bc81">Vector2</a> &amp;vector, <a class="el" href="namespace_k___math.html#aba76719561472e3400b1a81758f2bc81">Vector2</a> &amp;result, bool xPickUp, bool yPickUp)</td></tr>
+<tr class="memdesc:a8ae2a128d88e1a405ad30fd7f785fa89"><td class="mdescLeft">&#160;</td><td class="mdescRight">ベクトルから各成分を抜き出す、抜き出さない要素は０となる  <a href="#a8ae2a128d88e1a405ad30fd7f785fa89">[詳解]</a><br /></td></tr>
+<tr class="separator:a8ae2a128d88e1a405ad30fd7f785fa89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a270294951b401d7a0cb5c1b2114f7f7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_k___math.html#a270294951b401d7a0cb5c1b2114f7f7f">Normalize</a> (<a class="el" href="namespace_k___math.html#aba76719561472e3400b1a81758f2bc81">Vector2</a> &amp;vector)</td></tr>
 <tr class="memdesc:a270294951b401d7a0cb5c1b2114f7f7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">正規化。戻り値はない  <a href="#a270294951b401d7a0cb5c1b2114f7f7f">[詳解]</a><br /></td></tr>
 <tr class="separator:a270294951b401d7a0cb5c1b2114f7f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -982,6 +991,177 @@ $(document).ready(function(){initNavTree('namespace_k___math.html','');});
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0e1e3fe3d48aebfc01da31db413c9df2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e1e3fe3d48aebfc01da31db413c9df2">&#9670;&nbsp;</a></span>PickUp() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Math::PickUp </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a5b07dfe75474080aec02e082039dea3f">Vector4</a> &amp;&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_k___math.html#a5b07dfe75474080aec02e082039dea3f">Vector4</a> &amp;&#160;</td>
+          <td class="paramname"><em>result</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>xPickUp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>yPickUp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>zPickUp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>wPickUp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ベクトルから各成分を抜き出す、抜き出さない要素は０となる </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">vector</td><td>元となるベクトル </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">xPickUp</td><td>Xを抜き出すか </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">yPickUp</td><td>Yを抜き出すか </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">zPickUp</td><td>Zを抜き出すか </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">wPickUp</td><td>Wを抜き出すか </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4a017e2af710e6c9c324298d1b6a75cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a017e2af710e6c9c324298d1b6a75cd">&#9670;&nbsp;</a></span>PickUp() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Math::PickUp </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>result</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>xPickUp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>yPickUp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>zPickUp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ベクトルから各成分を抜き出す、抜き出さない要素は０となる </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">vector</td><td>元となるベクトル </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">xPickUp</td><td>Xを抜き出すか </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">yPickUp</td><td>Yを抜き出すか </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">zPickUp</td><td>Zを抜き出すか </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8ae2a128d88e1a405ad30fd7f785fa89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ae2a128d88e1a405ad30fd7f785fa89">&#9670;&nbsp;</a></span>PickUp() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Math::PickUp </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#aba76719561472e3400b1a81758f2bc81">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_k___math.html#aba76719561472e3400b1a81758f2bc81">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>result</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>xPickUp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>yPickUp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ベクトルから各成分を抜き出す、抜き出さない要素は０となる </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">vector</td><td>元となるベクトル </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">xPickUp</td><td>Xを抜き出すか </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">yPickUp</td><td>Yを抜き出すか </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

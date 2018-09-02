@@ -46,7 +46,7 @@ namespace K_Physics {
 		int GetGiveMask() const;
 
 	public:
-		//TODO:下位互換性のためにpublicにしてる。そのうち非公開にすること
+		//TODO:下位互換性のためにpublicにしてる。そのうち非公開にしたい
 		CollisionTag tag;
 	protected:
 		bool active;
@@ -151,9 +151,10 @@ namespace K_Physics {
 		//!@brief 離散的なコリジョンの移動、判定が MoveCharacter よりも大雑把(ただし軽い)
 		//!@param[in] obj 移動するコリジョンオブジェクト
 		//!@param[in] move 移動ベクトル
+		//!@param[in] moveDitail 判定が発生する距離
 		//!@param[in] vLimitDirection 縦方向の押し返しを、moveの直線上に限定するかのフラグ
 		//!@param[in] hLimitDirection 横方向の押し返しを、moveの直線上に限定するかのフラグ
-		void MoveCharacterDiscrete(CollisionData* obj, const K_Math::Vector3& move, bool vLimitDirection = true, bool hLimitDirection = false);
+		void MoveCharacterDiscrete(CollisionData* obj, const K_Math::Vector3& move, float moveDitail, bool vLimitDirection = true, bool hLimitDirection = false);
 
 		//!@brief 判定しながらの回転
 		//!@param[in] obj 移動するコリジョンオブジェクト
@@ -180,13 +181,13 @@ namespace K_Physics {
 		//コリジョンを削除
 		void RemoveCollisionObject(btCollisionObject* rigidbody);
 		//コリジョンを移動
-		void MoveCollisionObject(btCollisionObject* obj, const btVector3& moveVector);
+		void MoveCollisionObject(CollisionData* obj, const btVector3& moveVector);
 		//指定方向に移動（離散判定）
-		btVector3 MoveDiscrete(btCollisionObject* obj, const btVector3& moveVector, const btVector3& limitDirection);
+		btVector3 MoveDiscrete(CollisionData* obj, const btVector3& moveVector, const btVector3& limitDirection, float moveDitail);
 		//指定方向に移動
-		btVector3 MoveSmooth(btCollisionObject* obj, const btVector3& moveVector, float limitAngle, const btVector3& limitDirection);
+		btVector3 MoveSmooth(CollisionData* obj, const btVector3& moveVector, float limitAngle, const btVector3& limitDirection);
 		//移動部分をまとめ、allowDistanceはめり込み許容値、isCalcurateがtrueの時は法線を返す
-		btVector3 MoveBySweep(btCollisionObject* obj, const btVector3& moveVector, const btVector3& limitDirection, float limitAngle, float allowDistance);
+		btVector3 MoveBySweep(CollisionData* obj, const btVector3& moveVector, const btVector3& limitDirection, float limitAngle, float allowDistance);
 
 	private:
 		//衝突結果格納用

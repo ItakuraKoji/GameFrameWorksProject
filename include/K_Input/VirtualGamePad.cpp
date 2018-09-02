@@ -9,7 +9,7 @@ namespace K_Input {
 		this->window = handle;
 		this->vpadID = padID;
 
-		//ゲームパッドボタン設定
+		//ゲームパッドボタン設定(無を設定)
 		SetButtonConfig(VpadButton::A, JoyButton::Empty, Key::Empty);
 		SetButtonConfig(VpadButton::B, JoyButton::Empty, Key::Empty);
 		SetButtonConfig(VpadButton::X, JoyButton::Empty, Key::Empty);
@@ -27,7 +27,7 @@ namespace K_Input {
 		SetButtonConfig(VpadButton::Start, JoyButton::Empty, Key::Empty);
 		SetButtonConfig(VpadButton::Select, JoyButton::Empty, Key::Empty);
 
-		//ゲームパッド軸設定
+		//ゲームパッド軸設定(無を設定)
 		SetAxisConfig(VpadAxis::Axis0, JoyAxis::Empty, Key::Empty, Key::Empty);
 		SetAxisConfig(VpadAxis::Axis1, JoyAxis::Empty, Key::Empty, Key::Empty);
 		SetAxisConfig(VpadAxis::Axis2, JoyAxis::Empty, Key::Empty, Key::Empty);
@@ -69,6 +69,19 @@ namespace K_Input {
 		return !this->vpadButton[(int)buttonID].press && this->vpadButton[(int)buttonID].prevPress;
 	}
 
+	//!@return そのボタンが押された瞬間true
+	bool VirtualGamePad::IsPressButtonAny() {
+		return this->anyKeyPress && !this->anyKeyPressPrev;
+	}
+	//!@return そのボタンを押している間true
+	bool VirtualGamePad::IsStayButtonAny() {
+		return (this->anyKeyPress && this->anyKeyPressPrev) || IsPressButtonAny();
+	}
+	//!@return そのボタンが離された瞬間true
+	bool VirtualGamePad::IsReaveButtonAny() {
+		return !this->anyKeyPress && !this->anyKeyPressPrev;
+	}
+
 
 	//スティック情報
 	float VirtualGamePad::GetAxisPosition(VpadAxis axisID) {
@@ -87,6 +100,7 @@ namespace K_Input {
 	}
 
 	void VirtualGamePad::SetButtonConfig(VpadButton vpadButton, JoyButton joypadButton, Key keyboard) {
+		//ジョイスティックと仮想パッドのボタンを対応
 		this->vpadButton[(int)vpadButton].button = joypadButton;
 		this->vpadButton[(int)vpadButton].keyboard = keyboard;
 		this->vpadButton[(int)vpadButton].press = 0;
@@ -94,6 +108,7 @@ namespace K_Input {
 	}
 
 	void VirtualGamePad::SetAxisConfig(VpadAxis vpadAxis, JoyAxis joypadAxis, Key axisPlus, Key axisMinus) {
+		//ジョイスティックと仮想パッドの軸を対応
 		this->vpadAxis[(int)vpadAxis].axis = joypadAxis;
 		this->vpadAxis[(int)vpadAxis].plusButton = axisPlus;
 		this->vpadAxis[(int)vpadAxis].minusButton = axisMinus;
@@ -101,7 +116,47 @@ namespace K_Input {
 	}
 
 	void VirtualGamePad::SetStickConfig(VpadStick vpadStick, VpadAxis xAxis, VpadAxis yAxis) {
+		//仮想ゲームパッドの軸２つからスティックを設定
 		this->vpadStick[(int)vpadStick].SetAxis(&this->vpadAxis[(int)xAxis].pos, &this->vpadAxis[(int)yAxis].pos);
+	}
+
+	//!現在押されているゲームパッドのボタン
+	std::vector<JoyButton> VirtualGamePad::GetPressRawButtonID() {
+		//ボタン情報読み込み
+		int count;
+		const unsigned char* buttonState = glfwGetJoystickButtons((int)this->vpadID, &count);
+		
+		std::vector<JoyButton> result;
+		result.reserve(VButtonCount);
+
+		//全て調べる
+		for (int i = 0; i < count; ++i) {
+			//押されているかをチェック
+			if (buttonState[i] == GLFW_PRESS) {
+				result.push_back(static_cast<JoyButton>(1 << i));
+			}
+		}
+		return result;
+	}
+
+	//!現在倒されているゲームパッドの軸
+	//!@param[in] judgePower この値より倒されている軸が返ってくる
+	std::vector<JoyAxis> VirtualGamePad::GetActiveRawAxisID(float judgePower) {
+		//軸情報を順番に読み込み
+		int count;
+		const float* axis = glfwGetJoystickAxes((int)this->vpadID, &count);
+
+		std::vector<JoyAxis> result;
+		result.reserve(VAxisCount);
+
+		//全て調べる
+		for (int i = 0; i < count; ++i) {
+			//一定以上の傾きかをチェック
+			if (axis[i] > judgePower) {
+				result.push_back(static_cast<JoyAxis>(i));
+			}
+		}
+		return result;
 	}
 
 
@@ -113,9 +168,12 @@ namespace K_Input {
 		//軸情報を順番に読み込み
 		int count;
 		const float* axis = glfwGetJoystickAxes((int)this->vpadID, &count);
+
+		//得られた軸の数とゲームパッドの軸の数をそろえる
 		if (count > VAxisCount) {
 			count = VAxisCount;
 		}
+
 		for (int i = 0; i < VAxisCount; ++i) {
 			this->stickState[i] = 0;
 		}
@@ -146,16 +204,18 @@ namespace K_Input {
 		}
 	}
 	void VirtualGamePad::GetButtonState() {
+		//いずれかのボタンを押したかのフラグをリセット
+		this->anyKeyPressPrev = this->anyKeyPress;
+		this->anyKeyPress = false;
 
 		int count;
 		//押されたボタンから順番にビットを立てる
 		const unsigned char* buttonState = glfwGetJoystickButtons((int)this->vpadID, &count);
-		if (count > VButtonCount) {
-			count = VButtonCount;
-		}
+
 		int buttonBit = 0;
 		for (int i = 0; i < count; ++i) {
 			if (buttonState[i] == GLFW_PRESS) {
+				//ビットシフトでビット立て
 				buttonBit += (1 << i);
 			}
 		}
@@ -163,6 +223,11 @@ namespace K_Input {
 		for (int i = 0; i < VButtonCount; ++i) {
 			this->vpadButton[i].prevPress = this->vpadButton[i].press;
 			this->vpadButton[i].press = (glfwGetKey(this->window, (int)this->vpadButton[i].keyboard) == GLFW_PRESS) || ((int)this->vpadButton[i].button & buttonBit);
+
+			//ボタンが押されていた時にフラグ立て
+			if (this->vpadButton[i].press) {
+				this->anyKeyPress = true;
+			}
 		}
 	}
 }

@@ -79,6 +79,25 @@ namespace K_Math {
 	//!@brief クォータニオンから回転成分を作成する(Y軸→X軸→Z軸)
 	Vector3 QuaternionToRotation(const Quaternion& quaternion);
 
+	//!@brief ベクトルから各成分を抜き出す、抜き出さない要素は０となる
+	//!@param[in] vector 元となるベクトル
+	//!@param[in] xPickUp Xを抜き出すか
+	//!@param[in] yPickUp Yを抜き出すか
+	//!@param[in] zPickUp Zを抜き出すか
+	//!@param[in] wPickUp Wを抜き出すか
+	void PickUp(const Vector4& vector, Vector4& result, bool xPickUp, bool yPickUp, bool zPickUp, bool wPickUp);
+	//!@brief ベクトルから各成分を抜き出す、抜き出さない要素は０となる
+	//!@param[in] vector 元となるベクトル
+	//!@param[in] xPickUp Xを抜き出すか
+	//!@param[in] yPickUp Yを抜き出すか
+	//!@param[in] zPickUp Zを抜き出すか
+	void PickUp(const Vector3& vector, Vector3& result, bool xPickUp, bool yPickUp, bool zPickUp);
+	//!@brief ベクトルから各成分を抜き出す、抜き出さない要素は０となる
+	//!@param[in] vector 元となるベクトル
+	//!@param[in] xPickUp Xを抜き出すか
+	//!@param[in] yPickUp Yを抜き出すか
+	void PickUp(const Vector2& vector, Vector2& result, bool xPickUp, bool yPickUp);
+
 	//!@brief 正規化。戻り値はない
 	void Normalize(Vector2& vector);
 	void Normalize(Vector3& vector);

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['begindraw',['BeginDraw',['../class_k___graphics_1_1_frame_buffer_list.html#a2f45d6dd0bc044ebcbd2e2cd58b6786f',1,'K_Graphics::FrameBufferList::BeginDraw(const std::string &amp;name, float r, float g, float b, bool notDeleteDepthStencil=false)'],['../class_k___graphics_1_1_frame_buffer_list.html#aa850bab5299917ccd10a4f90439c733d',1,'K_Graphics::FrameBufferList::BeginDraw(int viewPortWidth, int viewPortHeight, float r, float g, float b, bool notDeleteDepthStencil=false)']]],
+  ['begindraw',['BeginDraw',['../class_k___graphics_1_1_frame_buffer_list.html#a867d020c0cafdb3469493e635b08b5ec',1,'K_Graphics::FrameBufferList::BeginDraw(const std::string &amp;name, float r, float g, float b, float a, bool notDeleteDepthStencil=false)'],['../class_k___graphics_1_1_frame_buffer_list.html#a2d138f0a86765db911fdbb5b57bf5ac4',1,'K_Graphics::FrameBufferList::BeginDraw(int viewPortWidth, int viewPortHeight, float r, float g, float b, float a, bool notDeleteDepthStencil=false)']]],
   ['bind',['Bind',['../class_k___graphics_1_1_framebuffer.html#afdbf1b4cf70c68149cd6c146d6a32687',1,'K_Graphics::Framebuffer']]],
   ['bonedata',['BoneData',['../class_k___graphics_1_1_bone_data.html#a85dc211fe21cca0a722542a026cb661c',1,'K_Graphics::BoneData']]],
   ['box2d',['Box2D',['../struct_k___math_1_1_box2_d.html#a358b6caf8258401115b46e6e6b1352f4',1,'K_Math::Box2D::Box2D()'],['../struct_k___math_1_1_box2_d.html#ad83faeb716bef219c197b8ae6cd8cb57',1,'K_Math::Box2D::Box2D(int x, int y, int w, int h)']]],

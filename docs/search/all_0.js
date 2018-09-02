@@ -8,7 +8,7 @@ var searchData=
   ['addbonedata',['AddBoneData',['../class_k___graphics_1_1_bone_data.html#a2be7451eaeebd92025f2cf8221aaa4b6',1,'K_Graphics::BoneData']]],
   ['adddirectional',['AddDirectional',['../class_k___graphics_1_1_light_list.html#a6374cf237f3d50a0ef1a36d32a439da3',1,'K_Graphics::LightList']]],
   ['addeffectsource',['AddEffectSource',['../class_k___graphics_1_1_effect_class.html#af7c120e2d75a861cf258ad6d8e74c076',1,'K_Graphics::EffectClass']]],
-  ['addemptytexture',['AddEmptyTexture',['../class_k___graphics_1_1_texture_list.html#afab7447d6ed329a257436a20aad2cae3',1,'K_Graphics::TextureList']]],
+  ['addemptytexture',['AddEmptyTexture',['../class_k___graphics_1_1_texture_list.html#afab7447d6ed329a257436a20aad2cae3',1,'K_Graphics::TextureList::AddEmptyTexture(const std::string &amp;textureName, int textureWidth, int textureHeight)'],['../class_k___graphics_1_1_texture_list.html#a4bd52fd133f9d57eea6cc387901990ad',1,'K_Graphics::TextureList::AddEmptyTexture(const std::string &amp;textureName, int textureWidth, int textureHeight, TextureType dataType, TextureColorType color, TextureColorType dataColor)']]],
   ['addforce',['AddForce',['../class_k___physics_1_1_rigid_body_data.html#a5df18824345ddf5d4d04896b4d2593d4',1,'K_Physics::RigidBodyData']]],
   ['addgamepad',['AddGamePad',['../class_k___input_1_1_input_class.html#a1b826e4118503f25903e0e76b7c79866',1,'K_Input::InputClass']]],
   ['addorthocamera',['AddOrthoCamera',['../class_k___graphics_1_1_camera_list.html#ae3e95b8007efa81d1552e05a1b6df63b',1,'K_Graphics::CameraList']]],
@@ -39,9 +39,14 @@ var searchData=
   ['axis',['axis',['../struct_k___input_1_1_axis_state.html#a253890a432ae112fc57d39f7e06c88ad',1,'K_Input::AxisState']]],
   ['axis0',['Axis0',['../namespace_k___input.html#a82230ae06723a21cc710ae3d66fd078fa6c870de5687f4ee17425bfa3c253b259',1,'K_Input::Axis0()'],['../namespace_k___input.html#ae7980bb169b8a865a5e67d6fe06fb729a6c870de5687f4ee17425bfa3c253b259',1,'K_Input::Axis0()']]],
   ['axis1',['Axis1',['../namespace_k___input.html#a82230ae06723a21cc710ae3d66fd078fa5247a5bb0ccea0ec521a5b96ec2282ff',1,'K_Input::Axis1()'],['../namespace_k___input.html#ae7980bb169b8a865a5e67d6fe06fb729a5247a5bb0ccea0ec521a5b96ec2282ff',1,'K_Input::Axis1()']]],
+  ['axis10',['Axis10',['../namespace_k___input.html#a82230ae06723a21cc710ae3d66fd078fa8ee158ba59ff10f03f51c04afe98a152',1,'K_Input']]],
   ['axis2',['Axis2',['../namespace_k___input.html#a82230ae06723a21cc710ae3d66fd078fa297fc5a4ffce7c98e434e4292bcef97e',1,'K_Input::Axis2()'],['../namespace_k___input.html#ae7980bb169b8a865a5e67d6fe06fb729a297fc5a4ffce7c98e434e4292bcef97e',1,'K_Input::Axis2()']]],
   ['axis3',['Axis3',['../namespace_k___input.html#a82230ae06723a21cc710ae3d66fd078fad2294667d8b7761f6f0b5f60ca86768c',1,'K_Input::Axis3()'],['../namespace_k___input.html#ae7980bb169b8a865a5e67d6fe06fb729ad2294667d8b7761f6f0b5f60ca86768c',1,'K_Input::Axis3()']]],
   ['axis4',['Axis4',['../namespace_k___input.html#a82230ae06723a21cc710ae3d66fd078fa3133c9542e780061be2699d3db0eaf4a',1,'K_Input::Axis4()'],['../namespace_k___input.html#ae7980bb169b8a865a5e67d6fe06fb729a3133c9542e780061be2699d3db0eaf4a',1,'K_Input::Axis4()']]],
   ['axis5',['Axis5',['../namespace_k___input.html#a82230ae06723a21cc710ae3d66fd078fa5556e61cbc0ac05dba289b93dfb86bd8',1,'K_Input::Axis5()'],['../namespace_k___input.html#ae7980bb169b8a865a5e67d6fe06fb729a5556e61cbc0ac05dba289b93dfb86bd8',1,'K_Input::Axis5()']]],
+  ['axis6',['Axis6',['../namespace_k___input.html#a82230ae06723a21cc710ae3d66fd078fa2a5d33bf6914f3fd2c093c5695fe2715',1,'K_Input']]],
+  ['axis7',['Axis7',['../namespace_k___input.html#a82230ae06723a21cc710ae3d66fd078facb9381a70bca8f61949cbecf16ba9eae',1,'K_Input']]],
+  ['axis8',['Axis8',['../namespace_k___input.html#a82230ae06723a21cc710ae3d66fd078fa091584b3c166db7c8a520abfcd25ccfb',1,'K_Input']]],
+  ['axis9',['Axis9',['../namespace_k___input.html#a82230ae06723a21cc710ae3d66fd078fa6d1cdd88cf64a9930c31ea0285316168',1,'K_Input']]],
   ['axisstate',['AxisState',['../struct_k___input_1_1_axis_state.html',1,'K_Input']]]
 ];
