@@ -1,33 +1,40 @@
 #pragma once
 
 #include<GLEW\glew.h>
-#include"Texture.h"
-
+#include"TextureList.h"
 
 namespace K_Graphics {
 
 	//オフスクリーンレンダリングのためのフレームバッファクラス(テクスチャ)
 	class Framebuffer {
 	public:
-		Framebuffer(Texture* texture, const std::string& name);
-		Framebuffer(Texture* texture, const std::string& name, GLuint depthBuffer);
+		Framebuffer(TextureList* textureList, Texture* texture, const std::string& name);
+		Framebuffer(TextureList* textureList, Texture* texture, Texture* depthTexture, const std::string& name);
 		~Framebuffer();
 		bool Initialize(Texture* texture, const std::string& name, GLuint depthBuffer);
+		bool Initialize(Texture* texture, Texture* depthTexture, const std::string& name);
 		void Finalize();
 		void Bind();
 		int GetWidth();
 		int GetHeight();
 		int GetFrameBufferHandle();
-		int GetDepthBufferHandle();
 
 	private:
+		void CreateDepthRenderBuffer(unsigned int width, unsigned int height);
+		void CreateDepthTextureBuffer(Texture* texture);
+
+
+		void CreateColorTextureBuffer(Texture* texture);
+
 
 	private:
-		std::string TextureName;
+		TextureList* textureList;
+
+		std::string colorTexture;
+		std::string depthTexture;
 		int textureWidth;
 		int textureHeight;
 		GLuint frameBuffer;
 		GLuint depthBuffer;
-		bool reUseDepth;
 	};
 }

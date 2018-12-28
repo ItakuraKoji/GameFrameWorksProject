@@ -5,25 +5,25 @@ namespace K_Graphics {
 	////////
 	//public
 	////
-	EffectClass::EffectClass() {
+	EffectClass::EffectClass(int numMaxEffect, int numMaxRender) {
 		//‚Æ‚è‚ ‚¦‚¸ŠÂ‹«‚ÍOpenGLŒÅ’è‚Ål‚¦‚é
-		this->manager = Effekseer::Manager::Create(2000);
-		this->renderer = EffekseerRendererGL::Renderer::Create(2000, EffekseerRendererGL::OpenGLDeviceType::OpenGL3);
-		this->sound = EffekseerSound::Sound::Create(32);
+		this->manager = Effekseer::Manager::Create(numMaxEffect);
+		this->renderer = EffekseerRendererGL::Renderer::Create(numMaxRender, EffekseerRendererGL::OpenGLDeviceType::OpenGL3);
+		//this->sound = EffekseerSound::Sound::Create(32);
 
 		this->manager->SetModelRenderer(this->renderer->CreateModelRenderer());
 		this->manager->SetRingRenderer(this->renderer->CreateRingRenderer());
 		this->manager->SetSpriteRenderer(this->renderer->CreateSpriteRenderer());
 		this->manager->SetRibbonRenderer(this->renderer->CreateRibbonRenderer());
+		this->manager->SetTrackRenderer(this->renderer->CreateTrackRenderer());
 
 		this->manager->SetModelLoader(this->renderer->CreateModelLoader());
 		this->manager->SetTextureLoader(this->renderer->CreateTextureLoader());
 
-		this->manager->SetSoundPlayer(this->sound->CreateSoundPlayer());
-		this->manager->SetSoundLoader(this->sound->CreateSoundLoader());
+		//this->manager->SetSoundPlayer(this->sound->CreateSoundPlayer());
+		//this->manager->SetSoundLoader(this->sound->CreateSoundLoader());
 
 		this->manager->SetCoordinateSystem(Effekseer::CoordinateSystem::LH);
-
 	}
 	EffectClass::~EffectClass() {
 		this->manager->StopAllEffects();
@@ -37,7 +37,7 @@ namespace K_Graphics {
 		this->effect.clear();
 
 		this->manager->Destroy();
-		this->sound->Destroy();
+		//this->sound->Destroy();
 		this->renderer->Destroy();
 	}
 
@@ -127,6 +127,10 @@ namespace K_Graphics {
 	}
 	void EffectClass::SetSpeed(EffectHandle handle, float speed) {
 		this->manager->SetSpeed(handle, speed);
+	}
+
+	int EffectClass::GetNumEffectinstance() {
+		return this->manager->GetRestInstancesCount();
 	}
 
 }

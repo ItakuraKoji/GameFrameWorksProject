@@ -50,6 +50,7 @@ namespace K_Physics {
 		this->maxDistance = 0.0f;
 		this->fixVec = btVector3(0.0f, 0.0f, 0.0f);
 		this->obj = obj;
+		this->allowDistance = 0.001f;
 
 		CollisionData* data = (CollisionData*)this->obj->getUserPointer();
 		if (data->IsActive()) {
@@ -82,7 +83,7 @@ namespace K_Physics {
 		}
 
 		//‹ß‚·‚¬‚éÕ“Ë‚ÍÕ“Ë‚µ‚Ä‚È‚¢‚Á‚Ä‚±‚Æ‚É‚·‚é
-		if (cp.getDistance() >= -0.001f) {
+		if (cp.getDistance() + this->allowDistance >= 0) {
 			return btScalar(0.0f);
 		}
 		

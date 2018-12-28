@@ -39,6 +39,11 @@ namespace K_Graphics {
 		this->drawModel->SetSpeed(speed);
 	}
 
+	void MeshObject::SetTexture(Texture* texture, int hierarchyIndex, int materialIndex) {
+		this->drawModel->SetTexture(texture, hierarchyIndex, materialIndex);
+	}
+
+
 	void MeshObject::UpdateAnimation(float timeSpeed) {
 		this->drawModel->UpdateAnimation(timeSpeed);
 	}

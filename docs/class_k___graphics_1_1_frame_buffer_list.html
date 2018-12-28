@@ -108,20 +108,24 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_frame_buffer_li
 <tr class="separator:a21a4bff7e956835548565d9b46c031b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0438b57525946605fd84f4a6496fc0df"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_frame_buffer_list.html#a0438b57525946605fd84f4a6496fc0df">CreateFrameBuffer</a> (const std::string &amp;name, int width, int height, <a class="el" href="namespace_k___graphics.html#a218722f1def83362c6b74680b8c1c529">TextureType</a> dataType, <a class="el" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955">TextureColorType</a> color, <a class="el" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955">TextureColorType</a> dataColor)</td></tr>
 <tr class="separator:a0438b57525946605fd84f4a6496fc0df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ba074b9922c099102a43e92b6815d4c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_frame_buffer_list.html#a0ba074b9922c099102a43e92b6815d4c">CreateFrameBuffer</a> (const std::string &amp;name, const std::string &amp;depthBuffer, int width, int height)</td></tr>
-<tr class="memdesc:a0ba074b9922c099102a43e92b6815d4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">テクスチャリストに新規作成を依頼し、フレームバッファ作成＆リスト登録 深度バッファを使いまわすときはそのフレームバッファの名前を引数に渡す  <a href="#a0ba074b9922c099102a43e92b6815d4c">[詳解]</a><br /></td></tr>
-<tr class="separator:a0ba074b9922c099102a43e92b6815d4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc6f910d13e1052ed37136afa30424b0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_frame_buffer_list.html#abc6f910d13e1052ed37136afa30424b0">CreateFrameBuffer</a> (const std::string &amp;name, const std::string &amp;depthBuffer, int width, int height, <a class="el" href="namespace_k___graphics.html#a218722f1def83362c6b74680b8c1c529">TextureType</a> dataType, <a class="el" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955">TextureColorType</a> color, <a class="el" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955">TextureColorType</a> dataColor)</td></tr>
-<tr class="separator:abc6f910d13e1052ed37136afa30424b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a867d020c0cafdb3469493e635b08b5ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_frame_buffer_list.html#a867d020c0cafdb3469493e635b08b5ec">BeginDraw</a> (const std::string &amp;name, float r, float g, float b, float a, bool notDeleteDepthStencil=false)</td></tr>
-<tr class="memdesc:a867d020c0cafdb3469493e635b08b5ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">指定色でフレームバッファをクリアする  <a href="#a867d020c0cafdb3469493e635b08b5ec">[詳解]</a><br /></td></tr>
-<tr class="separator:a867d020c0cafdb3469493e635b08b5ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d138f0a86765db911fdbb5b57bf5ac4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_frame_buffer_list.html#a2d138f0a86765db911fdbb5b57bf5ac4">BeginDraw</a> (int viewPortWidth, int viewPortHeight, float r, float g, float b, float a, bool notDeleteDepthStencil=false)</td></tr>
-<tr class="memdesc:a2d138f0a86765db911fdbb5b57bf5ac4"><td class="mdescLeft">&#160;</td><td class="mdescRight">ビューポートを設定し、指定色でバックバッファをクリアする  <a href="#a2d138f0a86765db911fdbb5b57bf5ac4">[詳解]</a><br /></td></tr>
-<tr class="separator:a2d138f0a86765db911fdbb5b57bf5ac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a258c19d3591adc1e4a4b660b798bd18e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_frame_buffer_list.html#a258c19d3591adc1e4a4b660b798bd18e">CreateFrameBuffer</a> (const std::string &amp;name, const std::string &amp;depthBufferTextureName, int width, int height)</td></tr>
+<tr class="memdesc:a258c19d3591adc1e4a4b660b798bd18e"><td class="mdescLeft">&#160;</td><td class="mdescRight">テクスチャリストに新規作成を依頼し、フレームバッファ作成＆リスト登録 深度バッファを使いまわすときはそのフレームバッファの名前を引数に渡す  <a href="#a258c19d3591adc1e4a4b660b798bd18e">[詳解]</a><br /></td></tr>
+<tr class="separator:a258c19d3591adc1e4a4b660b798bd18e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4c3df45cc7ad52234d82789a3d157e5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_frame_buffer_list.html#af4c3df45cc7ad52234d82789a3d157e5">CreateFrameBuffer</a> (const std::string &amp;name, const std::string &amp;depthBufferTextureName, int width, int height, <a class="el" href="namespace_k___graphics.html#a218722f1def83362c6b74680b8c1c529">TextureType</a> dataType, <a class="el" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955">TextureColorType</a> color, <a class="el" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955">TextureColorType</a> dataColor)</td></tr>
+<tr class="separator:af4c3df45cc7ad52234d82789a3d157e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62e6e91d02ae35922921eed79ff00378"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_frame_buffer_list.html#a62e6e91d02ae35922921eed79ff00378">BeginDraw</a> (const std::string &amp;name, float r, float g, float b, float a)</td></tr>
+<tr class="memdesc:a62e6e91d02ae35922921eed79ff00378"><td class="mdescLeft">&#160;</td><td class="mdescRight">指定色でフレームバッファをクリアする  <a href="#a62e6e91d02ae35922921eed79ff00378">[詳解]</a><br /></td></tr>
+<tr class="separator:a62e6e91d02ae35922921eed79ff00378"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bd59ad6ce3b49f069fa6617eaf419ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_frame_buffer_list.html#a7bd59ad6ce3b49f069fa6617eaf419ac">BeginDraw</a> (int viewPortWidth, int viewPortHeight, float r, float g, float b, float a)</td></tr>
+<tr class="memdesc:a7bd59ad6ce3b49f069fa6617eaf419ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">ビューポートを設定し、指定色でバックバッファをクリアする  <a href="#a7bd59ad6ce3b49f069fa6617eaf419ac">[詳解]</a><br /></td></tr>
+<tr class="separator:a7bd59ad6ce3b49f069fa6617eaf419ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34e1278edf425c32aefd3e2684886930"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_frame_buffer_list.html#a34e1278edf425c32aefd3e2684886930">EndDraw</a> ()</td></tr>
 <tr class="memdesc:a34e1278edf425c32aefd3e2684886930"><td class="mdescLeft">&#160;</td><td class="mdescRight">バインドを解いて描画終了  <a href="#a34e1278edf425c32aefd3e2684886930">[詳解]</a><br /></td></tr>
 <tr class="separator:a34e1278edf425c32aefd3e2684886930"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ed72c94a9935395a671872182713d24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_frame_buffer_list.html#a7ed72c94a9935395a671872182713d24">SetClearFlag</a> (bool color, bool depth, bool stencil)</td></tr>
+<tr class="separator:a7ed72c94a9935395a671872182713d24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acead897ef6f784fcac9eec4a3f107f77"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_k___graphics_1_1_framebuffer.html">Framebuffer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_frame_buffer_list.html#acead897ef6f784fcac9eec4a3f107f77">GetFrameBuffer</a> (const std::string &amp;name)</td></tr>
+<tr class="separator:acead897ef6f784fcac9eec4a3f107f77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">構築子と解体子</h2>
 <a id="adde18222008a5b4d2962b6432c9eea4f"></a>
@@ -164,8 +168,8 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_frame_buffer_li
 </div>
 </div>
 <h2 class="groupheader">関数詳解</h2>
-<a id="a867d020c0cafdb3469493e635b08b5ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a867d020c0cafdb3469493e635b08b5ec">&#9670;&nbsp;</a></span>BeginDraw() <span class="overload">[1/2]</span></h2>
+<a id="a62e6e91d02ae35922921eed79ff00378"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62e6e91d02ae35922921eed79ff00378">&#9670;&nbsp;</a></span>BeginDraw() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -198,13 +202,7 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_frame_buffer_li
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>notDeleteDepthStencil</em> = <code>false</code>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -228,8 +226,8 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_frame_buffer_li
 
 </div>
 </div>
-<a id="a2d138f0a86765db911fdbb5b57bf5ac4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d138f0a86765db911fdbb5b57bf5ac4">&#9670;&nbsp;</a></span>BeginDraw() <span class="overload">[2/2]</span></h2>
+<a id="a7bd59ad6ce3b49f069fa6617eaf419ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bd59ad6ce3b49f069fa6617eaf419ac">&#9670;&nbsp;</a></span>BeginDraw() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -268,13 +266,7 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_frame_buffer_li
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>notDeleteDepthStencil</em> = <code>false</code>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -395,8 +387,8 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_frame_buffer_li
 
 </div>
 </div>
-<a id="a0ba074b9922c099102a43e92b6815d4c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ba074b9922c099102a43e92b6815d4c">&#9670;&nbsp;</a></span>CreateFrameBuffer() <span class="overload">[3/4]</span></h2>
+<a id="a258c19d3591adc1e4a4b660b798bd18e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a258c19d3591adc1e4a4b660b798bd18e">&#9670;&nbsp;</a></span>CreateFrameBuffer() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -411,7 +403,7 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_frame_buffer_li
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>depthBuffer</em>, </td>
+          <td class="paramname"><em>depthBufferTextureName</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -446,8 +438,8 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_frame_buffer_li
 
 </div>
 </div>
-<a id="abc6f910d13e1052ed37136afa30424b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc6f910d13e1052ed37136afa30424b0">&#9670;&nbsp;</a></span>CreateFrameBuffer() <span class="overload">[4/4]</span></h2>
+<a id="af4c3df45cc7ad52234d82789a3d157e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4c3df45cc7ad52234d82789a3d157e5">&#9670;&nbsp;</a></span>CreateFrameBuffer() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -462,7 +454,7 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_frame_buffer_li
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>depthBuffer</em>, </td>
+          <td class="paramname"><em>depthBufferTextureName</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -520,6 +512,58 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_frame_buffer_li
 </div><div class="memdoc">
 
 <p>バインドを解いて描画終了 </p>
+
+</div>
+</div>
+<a id="acead897ef6f784fcac9eec4a3f107f77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acead897ef6f784fcac9eec4a3f107f77">&#9670;&nbsp;</a></span>GetFrameBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_k___graphics_1_1_framebuffer.html">Framebuffer</a> * K_Graphics::FrameBufferList::GetFrameBuffer </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7ed72c94a9935395a671872182713d24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ed72c94a9935395a671872182713d24">&#9670;&nbsp;</a></span>SetClearFlag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Graphics::FrameBufferList::SetClearFlag </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>depth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>stencil</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

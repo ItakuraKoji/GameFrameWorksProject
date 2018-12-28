@@ -14,7 +14,8 @@
 
 
 namespace K_Audio {
-
+	//前方宣言
+	class SoundClass;
 
 	//音源クラス。ループフラグが下りているときはファイル終端に到達した時点でストリーミングを終える
 	class DLL_DECLSPEC SoundSource {
@@ -25,7 +26,7 @@ namespace K_Audio {
 		};
 
 	public:
-		SoundSource(const char* sourceName, const char* filePass, LoadMode mode, float baseVolume, int numBuffer);
+		SoundSource(SoundClass* soundManager, int group, const char* sourceName, const char* filePass, LoadMode mode, float baseVolume, int numBuffer);
 		~SoundSource();
 		void Play(bool loop);
 		ALuint PlayCopy();
@@ -34,13 +35,21 @@ namespace K_Audio {
 		void Pause();
 		void Stop();
 
+		//PlayCopyも含めて全部止める
+		void StopAll();
+
+
 		void SetVolume(float volume);
 		void SetPitch(float pitch);
 		void SetPosition(float x, float y, float z);
 		void SetVelocity(float x, float y, float z);
 		bool IsPlay();
 
+		int GetSoundGroup();
+
 	private:
+		void SetSourceVolume(ALuint sourceID, float volume);
+
 		void Finalize();
 		void StreamingThread();
 		void AllReadThread();
@@ -50,6 +59,11 @@ namespace K_Audio {
 		int OggCommentValue(vorbis_comment* comment, const char* key);
 
 	private:
+		//マスターボリュームへのアクセス用
+		SoundClass* soundManager;
+		//このサウンドが属するグループ
+		int group;
+
 		const std::string name;
 		AudioData* audio;
 		LoadMode mode;
@@ -57,6 +71,7 @@ namespace K_Audio {
 		//CopyPlay用の管理リスト
 		std::list<ALuint> copySources;
 
+		//サウンドを流すスレッド
 		std::thread* thread;
 		std::recursive_mutex _mutex;
 
@@ -66,8 +81,10 @@ namespace K_Audio {
 
 		ALuint format;
 
+		//このサウンドのニュートラルの音量
 		float baseVolume;
 
+		//このサウンドの可変ボリューム
 		float volume;
 		float pitch;
 		float posX, posY, posZ;

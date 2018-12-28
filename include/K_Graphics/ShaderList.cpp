@@ -82,15 +82,16 @@ namespace K_Graphics {
 	//リストからシェーダーを取得、そしてUseProgram()、キーが存在しないときはNULLを返す
 	ShaderClass* ShaderList::UseShader(const std::string& name) {
 		if (this->shaderList.find(name) == shaderList.end()) {
-			return 0;
+			return nullptr;
 		}
-		this->shaderList[name]->UseShader();
+		auto shader = this->shaderList[name];
+		shader->UseShader();
 		return this->shaderList[name];
 	}
 	//リストからシェーダーを取得、キーが存在しないときはNULLを返す
 	ShaderClass* ShaderList::GetShader(const std::string& name) {
 		if (this->shaderList.find(name) == shaderList.end()) {
-			return 0;
+			return nullptr;
 		}
 		return this->shaderList[name];
 	}

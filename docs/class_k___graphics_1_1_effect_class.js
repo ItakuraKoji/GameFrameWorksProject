@@ -1,10 +1,11 @@
 var class_k___graphics_1_1_effect_class =
 [
-    [ "EffectClass", "class_k___graphics_1_1_effect_class.html#a33755c964db87d459d46c28788b19dd2", null ],
+    [ "EffectClass", "class_k___graphics_1_1_effect_class.html#a126033bdbd4127947b6a6b59a926a4cf", null ],
     [ "~EffectClass", "class_k___graphics_1_1_effect_class.html#ab51e3f43095aac4bb6f7826254c4723b", null ],
     [ "AddEffectSource", "class_k___graphics_1_1_effect_class.html#af7c120e2d75a861cf258ad6d8e74c076", null ],
     [ "DeleteEffectSource", "class_k___graphics_1_1_effect_class.html#abe5a20c2680329b045d3a60dddb886ed", null ],
     [ "Draw", "class_k___graphics_1_1_effect_class.html#aee527e320342f218b88293f41beec6e7", null ],
+    [ "GetNumEffectinstance", "class_k___graphics_1_1_effect_class.html#a997e5c588c73e4b20a8640322948a323", null ],
     [ "Play", "class_k___graphics_1_1_effect_class.html#ae01355e465b3ed7e944ea79ce35591a7", null ],
     [ "Run", "class_k___graphics_1_1_effect_class.html#a6461c19cc0b61fb6eacecd58c15682d5", null ],
     [ "SetMatrix", "class_k___graphics_1_1_effect_class.html#ac23549936fee9b53059d94dfd0679413", null ],

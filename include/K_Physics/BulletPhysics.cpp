@@ -31,7 +31,7 @@ namespace K_Physics {
 			this->solver = new btSequentialImpulseConstraintSolver;
 			this->bulletWorld = new btDiscreteDynamicsWorld(this->dispatcher, this->broadphase, this->solver, this->config);
 
-			this->debugDrawer.setDebugMode(btIDebugDraw::DBG_DrawWireframe | btIDebugDraw::DBG_DrawContactPoints);
+			this->debugDrawer.setDebugMode(btIDebugDraw::DBG_DrawWireframe | btIDebugDraw::DBG_DrawContactPoints | btIDebugDraw::DBG_DrawAabb);
 			this->bulletWorld->setDebugDrawer(&this->debugDrawer);
 
 			this->bulletWorld->setGravity(btVector3(0.0f, -10.0f, 0.0f));
@@ -78,7 +78,7 @@ namespace K_Physics {
 
 	//シミュレーションを進める
 	void BulletPhysics::Run() {
-		this->bulletWorld->stepSimulation(1 / 60.0f, 10, 1 / 60.0f);
+		this->bulletWorld->stepSimulation(1 / 60.0f, 4, 1 / 60.0f);
 	}
 	//デバッグ描画
 	void BulletPhysics::DebugDraw(K_Graphics::ShaderClass* shader, K_Graphics::CameraClass* camera, const K_Math::Matrix4x4& trans) {
@@ -288,7 +288,7 @@ namespace K_Physics {
 	}
 
 	//処理が　軽いほう
-	void BulletPhysics::MoveCharacterDiscrete(CollisionData* obj, const K_Math::Vector3& move, float moveDitail, bool vLimitDirection, bool hLimitDirection) {
+	void BulletPhysics::MoveCharacterDiscrete(CollisionData* obj, const K_Math::Vector3& move, float moveDitail, float vLimitAngle, float hLimitAngle) {
 		const btVector3& moveVec = btVector3(move.x, move.y, move.z);
 		btVector3 vMove;
 		btVector3 hMove;
@@ -315,50 +315,37 @@ namespace K_Physics {
 		//縦移動
 		btVector3 floorNormal;
 		if (vMove.norm() >= 0.001f) {
-			btVector3 fixVector(0.0f, 0.0f, 0.0f);
-			if (vLimitDirection) {
-				fixVector = -vMove.normalized();
-			}
-			K_Math::Vector3 prevPos = obj->GetCollisionPosition();
-			floorNormal = MoveDiscrete(obj, vMove, fixVector, moveDitail);
 
-			//坂を登れる角度かを確認
-			float angle_cos = (float)floorNormal.dot(this->toSkyVector);
-			float limit_cos = (float)btCos(btRadians(60.0f));
-			if (abs(angle_cos - limit_cos) < 0.0001f) {
-				angle_cos = limit_cos;
-			}
+			bool wallFollowResult;
+			floorNormal = MoveByDiscrete(obj, vMove, vLimitAngle, 0.001f, 0.05f, wallFollowResult);
+
 			//縦移動時に登れる床があった場合は、床の法線を使って床に沿って歩くようにする
-			if (floorNormal.norm() > 0.001f && angle_cos >= limit_cos) {
+			//(縦移動時に壁ずりがなかった場合)
+			if (!wallFollowResult && floorNormal.norm() >= 0.001f) {
 				btVector3 floorXAxis = floorNormal.cross(hMove);
 				if (floorXAxis.norm() > 0.001f) {
+					//床の法線から向きを調整
 					hMove = floorXAxis.cross(floorNormal);
 				}
 			}
-			if (angle_cos < limit_cos && vMove.norm() >= 0.001f) {
-				//逆に登れない壁はずるずるとずり落ちる
-				obj->SetCollisionPosition(prevPos);
-				floorNormal = MoveDiscrete(obj, vMove, btVector3(0.0f, 0.0f, 0.0f), moveDitail);
+			else if(floorNormal.norm() >= 0.001f) {
 			}
 		}
 		{
-			FixContactCallBack fix_cb(obj->GetCollision(), btVector3(0.0f, 0.0f, 0.0f));
+			//めり込みを解消
+			FixContactCallBack fix_cb(obj->GetCollision(), btVector3(0.0f, 1.0f, 0.0f));
 			this->bulletWorld->contactTest(obj->GetCollision(), fix_cb);
 		}
 
 
 		//横移動
 		if (hMove.norm() >= 0.001f) {
-			btVector3 fixVector(0.0f, 0.0f, 0.0f);
-			if (hLimitDirection) {
-				fixVector = -hMove.normalized();
-			}
-			FixContactCallBack fix_cb(obj->GetCollision(), btVector3(0.0f, 0.0f, 0.0f));
-			this->bulletWorld->contactTest(obj->GetCollision(), fix_cb);
-			MoveDiscrete(obj, hMove, fixVector, moveDitail);
+			bool wallFollowResult;
+			MoveByDiscrete(obj, hMove, hLimitAngle, 0.001f, 0.05f, wallFollowResult);
 		}
-		{
-			FixContactCallBack fix_cb(obj->GetCollision(), btVector3(0.0f, 0.0f, 0.0f));
+		if (hMove.norm() >= 0.001f) {
+			//めり込みを解消
+			FixContactCallBack fix_cb(obj->GetCollision(), -hMove.normalized());
 			this->bulletWorld->contactTest(obj->GetCollision(), fix_cb);
 		}
 	}
@@ -401,61 +388,7 @@ namespace K_Physics {
 		trans.setOrigin(trans.getOrigin() + moveVector);
 	}
 
-	btVector3 BulletPhysics::MoveDiscrete(CollisionData* obj, const btVector3& moveVector, const btVector3& limitDirection, float moveDitail) {
-		int numMove = 1 + moveVector.norm() / moveDitail;
-		int numFix = 35;
 
-		const btVector3& goVec = moveVector / (float)numMove;
-		btVector3 normal(0.0f, 0.0f, 0.0f);
-		//移動
-		DetectMaxDistance contact_cb(obj->GetCollision());
-		bool isHit = false;
-		//ちょっとずつ判定しながら前進
-		for (int i = 0; i < numMove; ++i) {
-			MoveCollisionObject(obj, goVec);
-			//一番深くめり込んだものを見つける
-			this->bulletWorld->contactTest(obj->GetCollision(), contact_cb);
-			if (!contact_cb.maxDistance) {
-				continue;
-			}
-			normal = contact_cb.fixVec;
-
-			//方向制限がない場合は法線方向に押し出し
-			if (limitDirection.norm() <= 0.0f) {
-				MoveCollisionObject(obj, contact_cb.fixVec * -contact_cb.maxDistance);
-				//押し出し2回目
-				for (int i = 0; i < 10; ++i) {
-					contact_cb = DetectMaxDistance(obj->GetCollision());
-					this->bulletWorld->contactTest(obj->GetCollision(), contact_cb);
-					if (contact_cb.maxDistance) {
-						if (contact_cb.fixVec.normalized().angle(goVec.normalized()) < btRadians(90.0f)) {
-							continue;
-						}
-
-						MoveCollisionObject(obj, contact_cb.fixVec * -contact_cb.maxDistance);
-					}
-				}
-				isHit = true;
-				continue;
-			}
-
-			//方向制限がかかっている場合はその方向に押し出し
-			auto contactObj = contact_cb.maxObject;
-			for (int j = 0; j < numFix; ++j) {
-				MoveCollisionObject(obj, limitDirection * 0.01f);
-				DetectMaxDistance callback(obj->GetCollision());
-				this->bulletWorld->contactPairTest(obj->GetCollision(), contactObj, callback);
-				if (!callback.maxDistance) {
-					break;
-				}
-				isHit = true;
-			}
-			if (isHit) {
-				break;
-			}
-		}
-		return normal;
-	}
 
 	btVector3 BulletPhysics::MoveSmooth(CollisionData *obj, const btVector3 &moveVector, float limitAngle, const btVector3& limitDirection) {
 		FixContactCallBack fix_cb(obj->GetCollision(), btVector3(0.0f, 1.0f, 0.0f));
@@ -522,24 +455,23 @@ namespace K_Physics {
 
 		//移動二回目
 		//MoveBySweep(obj, goVec, limitDirection, limitAngle, 0.01f);
-		MoveCharacterDiscrete(obj, K_Math::Vector3(goVec.x(), goVec.y(), goVec.z()), 0.01f, true, true);
-		//MoveDiscrete(obj, goVec, btVector3(0.0f, 0.0f, 0.0f), 0.1f);
+		//MoveCharacterDiscrete(obj, K_Math::Vector3(goVec.x(), goVec.y(), goVec.z()), 0.005f, true, true);
+		MoveDiscrete(obj, goVec, btVector3(0.0f, 0.0f, 0.0f), 0.01f);
 		return normal;
 	}
 
 	btVector3 BulletPhysics::MoveBySweep(CollisionData *obj, const btVector3 &moveVector, const btVector3& limitDirection, float limitAngle, float allowDistance) {
 		btConvexShape* shape = (btConvexShape*)obj->GetCollision()->getCollisionShape();
 
-		btTransform from = obj->GetCollision()->getWorldTransform();
-		btTransform to = from;
-		to.setOrigin(to.getOrigin() + moveVector);
-
-		//sweepTest
 		float allowDis = allowDistance;
 		SweepTestCallBack convex_cb(obj->GetCollision());
-		if(moveVector.norm() < allowDistance){
-			allowDis = 0.0f;
-		}
+
+		btTransform from = obj->GetCollision()->getWorldTransform();
+		btTransform to = from;
+		//余分に移動
+		to.setOrigin(to.getOrigin() + moveVector + moveVector.normalized() * allowDis);
+
+		//sweepTest
 		this->bulletWorld->convexSweepTest(shape, from, to, convex_cb, allowDis);
 
 		//sweep結果反映
@@ -557,6 +489,7 @@ namespace K_Physics {
 		btVector3 normal;
 		normal = callback.fixVec;
 
+		//オブジェクトの位置に反映
 		btVector3 objPos = obj->GetCollision()->getWorldTransform().getOrigin();
 		objPos -= moveVector.normalized() * allowDis;
 		to.setOrigin(objPos);
@@ -586,5 +519,149 @@ namespace K_Physics {
 		} while (t < 1.0f);
 
 	}
+
+
+	btVector3 BulletPhysics::MoveDiscrete(CollisionData* obj, const btVector3& moveVector, const btVector3& limitDirection, float moveDitail) {
+		int numMove = 1 + moveVector.norm() / moveDitail;
+		int numFix = 35;
+
+		const btVector3& goVec = moveVector / (float)numMove;
+		btVector3 normal(0.0f, 0.0f, 0.0f);
+		//移動
+		DetectMaxDistance contact_cb(obj->GetCollision());
+		bool isHit = false;
+		//ちょっとずつ判定しながら前進
+		for (int i = 0; i < numMove; ++i) {
+			MoveCollisionObject(obj, goVec);
+			//一番深くめり込んだものを見つける
+			this->bulletWorld->contactTest(obj->GetCollision(), contact_cb);
+			if (!contact_cb.maxDistance) {
+				continue;
+			}
+			normal = contact_cb.fixVec;
+
+			//方向制限がない場合は法線方向に押し出し
+			if (limitDirection.norm() <= 0.0f) {
+				MoveCollisionObject(obj, contact_cb.fixVec * -contact_cb.maxDistance);
+				//押し出し2回目
+				for (int i = 0; i < 10; ++i) {
+					contact_cb = DetectMaxDistance(obj->GetCollision());
+					this->bulletWorld->contactTest(obj->GetCollision(), contact_cb);
+					if (contact_cb.maxDistance) {
+						if (contact_cb.fixVec.normalized().angle(goVec.normalized()) < btRadians(90.0f)) {
+							continue;
+						}
+
+						MoveCollisionObject(obj, contact_cb.fixVec * -contact_cb.maxDistance);
+					}
+				}
+				isHit = true;
+				continue;
+			}
+
+			//方向制限がかかっている場合はその方向に押し出し
+			auto contactObj = contact_cb.maxObject;
+			for (int j = 0; j < numFix; ++j) {
+				MoveCollisionObject(obj, limitDirection * 0.01f);
+				DetectMaxDistance callback(obj->GetCollision());
+				this->bulletWorld->contactPairTest(obj->GetCollision(), contactObj, callback);
+				if (!callback.maxDistance) {
+					break;
+				}
+				isHit = true;
+			}
+			if (isHit) {
+				break;
+			}
+		}
+		return normal;
+	}
+
+	//移動をキャンセルする式のめり込まない移動
+	btVector3 BulletPhysics::MoveDiscrete2(CollisionData* obj, const btVector3& moveVector, float backDistance, float moveDitailRatio){
+
+		btVector3 normal(0.0f, 0.0f, 0.0f);
+		//移動
+		DetectMaxDistance contact_cb(obj->GetCollision());
+		bool isHit = false;
+
+
+		//コピー
+		btVector3 moveVec = moveVector;
+
+		//細かく進んでぶつかっては戻り、更に細かく進んでぶつかっては戻り、最適な位置を近似
+		for (int i = 0; i < 5; ++i) {
+			//ちょっとずつ判定しながら前進
+			int numMove = 1 + moveVec.norm() / moveDitailRatio;
+			const btVector3& goVec = moveVec / (float)numMove;
+
+			for (int i = 0; i < numMove; ++i) {
+				MoveCollisionObject(obj, goVec);
+				//一番深くめり込んだものを見つける
+				this->bulletWorld->contactTest(obj->GetCollision(), contact_cb);
+				if (!contact_cb.maxDistance) {
+					//ぶつかってないときは継続
+					moveVec -= goVec;
+					continue;
+				}
+				isHit = true;
+				//法線を記録
+				normal = contact_cb.fixVec;
+
+				//ぶつかった時は逆戻り
+				MoveCollisionObject(obj, -goVec);
+				break;
+			}
+		}
+		//めり込みを甘くするために定量の押し戻しを行う(壁ずりが引っかかるため)
+		MoveCollisionObject(obj, -moveVector.normalized() * backDistance);
+
+		return normal;
+	}
+
+	//壁ずりを含む離散移動
+	btVector3 BulletPhysics::MoveByDiscrete(CollisionData* obj, const btVector3& moveVector, float limitAngle, float allowDistance, float moveDitailRatio, bool& wallFollowResult) {
+		wallFollowResult = false;
+
+		//縦移動
+		btVector3 floorNormal = btVector3(0.0f, 0.0f, 0.0f);
+		if (moveVector.norm() >= 0.001f) {
+			btVector3 prevPos = obj->GetCollision()->getWorldTransform().getOrigin();
+			floorNormal = MoveDiscrete2(obj, moveVector, 0.0f, moveDitailRatio);
+
+			if (floorNormal.norm() < 0.001f) {
+				return floorNormal;
+			}
+
+			//坂を登れる角度かを確認
+			float angle_cos = (float)floorNormal.dot(this->toSkyVector);
+			float limit_cos = (float)btCos(btRadians(limitAngle));
+			if (abs(angle_cos - limit_cos) < 0.0001f) {
+				angle_cos = limit_cos;
+			}
+
+			//指定の角度を上回る法線角度が取れたとき、壁ずりベクトルを作成
+			if (angle_cos < limit_cos) {
+
+				//壁ずりを作る
+				float hitFraction = (obj->GetCollision()->getWorldTransform().getOrigin() - prevPos).norm() / moveVector.norm();
+				//残っている移動ベクトルを算出
+				btVector3 goVec = moveVector * (1.0f - hitFraction);
+				goVec += floorNormal * (-goVec.dot(floorNormal));
+
+				if (goVec.norm() < 0.001f) {
+					return floorNormal;
+				}
+				//壁に沿って移動
+				MoveDiscrete2(obj, goVec, allowDistance, moveDitailRatio);
+
+				//壁ずりした、という結果を記録
+				wallFollowResult = true;
+			}
+		}
+		return floorNormal;
+	}
+
+
 
 }

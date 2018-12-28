@@ -19,6 +19,16 @@ namespace K_Graphics {
 		}
 		//デフォルトのアニメーションに設定
 		SetAnimation(0, false, true, 0);
+
+
+		//blenderでの軸(X→X Y→Z Z→Y)に直す
+		glm::quat rot;
+		rot *= glm::angleAxis(K_Math::DegToRad(180.0f), K_Math::Vector3(0.0f, 1.0f, 0.0f));
+		rot *= glm::angleAxis(K_Math::DegToRad(-90.0f), K_Math::Vector3(1.0f, 0.0f, 0.0f));
+		//反転
+		const K_Math::Matrix4x4& scale = glm::scale(K_Math::Matrix4x4(), K_Math::Vector3(-1.0f, 1.0f, 1.0f));
+
+		this->fixMat = scale * glm::toMat4(rot);
 	}
 	AnimationData::~AnimationData() {
 
@@ -48,6 +58,7 @@ namespace K_Graphics {
 			int numBone = (int)this->currentBone[i].size();
 			for (int k = 0; k < numBone; ++k) {
 				this->currentBone[i][k].currentMat = this->bone->GetCurrentBoneMatrix(i, k, this->currentAnimID, (int)this->currentAnimTime);
+				this->currentBone[i][k].currentMat = this->currentBone[i][k].currentMat;
 				//補間中のみ補間
 				if (this->interporationMaxCount > 0.0f) {
 					BoneInterporation(i, k, this->interporationCount / this->interporationMaxCount);
@@ -126,6 +137,7 @@ namespace K_Graphics {
 	void AnimationData::BoneInterporation(int arrayIndex, int boneIndex, float ratio) {
 		BoneAnimation& bone = this->currentBone[arrayIndex][boneIndex];
 
+
 		//平行移動取り出し
 		const K_Math::Vector3& translationA = bone.interPolationMat[3];
 		const K_Math::Vector3& translationB = bone.currentMat[3];
@@ -179,11 +191,6 @@ namespace K_Graphics {
 		const K_Math::Matrix4x4& bind = this->bone->GetBindBoneMatrix(arrayIndex, boneIndex);
 		const K_Math::Matrix4x4& current = this->currentBone[arrayIndex][boneIndex].currentMat;
 
-		glm::quat rot;
-		rot *= glm::angleAxis(K_Math::DegToRad(180.0f), K_Math::Vector3(0.0f, 1.0f, 0.0f));
-		rot *= glm::angleAxis(K_Math::DegToRad(-90.0f), K_Math::Vector3(1.0f, 0.0f, 0.0f));
-		const K_Math::Matrix4x4& scale = glm::scale(K_Math::Matrix4x4(), K_Math::Vector3(-1.0f, 1.0f, 1.0f));
-
-		resultMat = scale * glm::toMat4(rot) * current * bind;
+		resultMat = this->fixMat * current * bind;
 	}
 }

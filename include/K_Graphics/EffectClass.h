@@ -4,7 +4,6 @@
 
 #include<Effekseer\Effekseer.h>
 #include<Effekseer\EffekseerRendererGL.h>
-#include<Effekseer\EffekseerSoundAL.h>
 #include<unordered_map>
 #include<string>
 #include<gl\GLU.h>
@@ -19,7 +18,7 @@ namespace K_Graphics {
 	class EffectClass {
 	public:
 		//!@brief Effekseerを初期化
-		EffectClass();
+		EffectClass(int numMaxEffect, int numMaxRender);
 		//!@brief Effekseerの終了処理
 		~EffectClass();
 
@@ -64,10 +63,13 @@ namespace K_Graphics {
 		//!@param[in] speed 再生速度（1.0fが等速）
 		void SetSpeed(EffectHandle handle, float speed);
 
+		//!@brief エフェクトの個数を取得（デバッグ用）
+		int GetNumEffectinstance();
+
 	private:
 		Effekseer::Manager* manager = nullptr;
 		EffekseerRenderer::Renderer* renderer = nullptr;
-		EffekseerSound::Sound* sound = nullptr;
+		//EffekseerSound::Sound* sound = nullptr;
 		std::unordered_map<std::string, Effekseer::Effect*> effect;
 		CameraClass* viewCamera;
 	};

@@ -3,6 +3,7 @@
 #include<iostream>
 #include<GLEW\glew.h>
 #include"K_Math\MyMathFanctions.h"
+#include<unordered_map>
 
 namespace K_Graphics {
 
@@ -112,10 +113,21 @@ namespace K_Graphics {
 		void SetFragmentShaderSubroutine(const std::string& subroutineFunctionName);
 
 	private:
+		GLint GetUniformLocation(const std::string& name);
+		GLuint GetVertexSubroutine(const std::string& name);
+		GLuint GetPixelSubroutine(const std::string& name);
+
+
+	private:
 		char* LoadTxtResource(const std::string& fileName);
 		void ShowShaderErrors(GLuint shaderID);
 		void ShowLinkErrors(GLuint shaderID);
 
 		GLuint shaderProgram;
+		//いちいちGPUに問い合わせると重いので位置保存
+		std::unordered_map<std::string, GLint> uniformLocation;
+		//シェーダー関数の切り替え時に関数名保存
+		std::unordered_map<std::string, GLuint> vertexSubroutine;
+		std::unordered_map<std::string, GLuint> pixelSubroutine;
 	};
 }

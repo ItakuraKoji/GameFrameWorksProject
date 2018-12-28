@@ -7,6 +7,6 @@ var searchData=
   ['fixcontactcallback',['FixContactCallBack',['../struct_k___physics_1_1_fix_contact_call_back.html#a235053f84fc4d455408b99e9433c7a3b',1,'K_Physics::FixContactCallBack']]],
   ['fontgenerator',['FontGenerator',['../class_k___graphics_1_1_font_generator.html#a47b1f0ca68617c6509a42f8fb230fc88',1,'K_Graphics::FontGenerator']]],
   ['fontrenderer',['FontRenderer',['../class_k___graphics_1_1_font_renderer.html#a1c3ac227f5eb40934d5d5ea84c80c96b',1,'K_Graphics::FontRenderer']]],
-  ['framebuffer',['Framebuffer',['../class_k___graphics_1_1_framebuffer.html#a3f5d49c84ad44a44ca9878620d8b646d',1,'K_Graphics::Framebuffer::Framebuffer(Texture *texture, const std::string &amp;name)'],['../class_k___graphics_1_1_framebuffer.html#a7c8f64070ecd55069b6964f1a5b48427',1,'K_Graphics::Framebuffer::Framebuffer(Texture *texture, const std::string &amp;name, GLuint depthBuffer)']]],
+  ['framebuffer',['Framebuffer',['../class_k___graphics_1_1_framebuffer.html#a5a84f34d722e813ba508ad26d5d2755a',1,'K_Graphics::Framebuffer::Framebuffer(TextureList *textureList, Texture *texture, const std::string &amp;name)'],['../class_k___graphics_1_1_framebuffer.html#ac1997ab77372cf57ca642b12d81c8c46',1,'K_Graphics::Framebuffer::Framebuffer(TextureList *textureList, Texture *texture, Texture *depthTexture, const std::string &amp;name)']]],
   ['framebufferlist',['FrameBufferList',['../class_k___graphics_1_1_frame_buffer_list.html#adde18222008a5b4d2962b6432c9eea4f',1,'K_Graphics::FrameBufferList']]]
 ];

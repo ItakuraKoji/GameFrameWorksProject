@@ -11,5 +11,6 @@ var class_k___graphics_1_1_mesh_object =
     [ "InstanceDraw", "class_k___graphics_1_1_mesh_object.html#a049000c7a45b4119fa4523ad1705bb9a", null ],
     [ "SetBoneAnimation", "class_k___graphics_1_1_mesh_object.html#a53fca52d8b8b1abb8d91f666f97bb9ea", null ],
     [ "SetSpeed", "class_k___graphics_1_1_mesh_object.html#ad45fbf9cf32b22335eeb994bfe3e1041", null ],
+    [ "SetTexture", "class_k___graphics_1_1_mesh_object.html#a3db489f5890e7afb07dc8e602b5ebd93", null ],
     [ "UpdateAnimation", "class_k___graphics_1_1_mesh_object.html#acd6df7e561a4012380e435a41aeb0994", null ]
 ];

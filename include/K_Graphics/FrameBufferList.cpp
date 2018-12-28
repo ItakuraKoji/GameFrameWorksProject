@@ -8,6 +8,9 @@ namespace K_Graphics {
 
 	FrameBufferList::FrameBufferList(TextureList* list) {
 		this->list = list;
+		this->colorClear = true;
+		this->depthClear = true;
+		this->stencilClear = true;
 	}
 	FrameBufferList::~FrameBufferList() {
 		for (auto i : this->frameBuffers) {
@@ -23,7 +26,7 @@ namespace K_Graphics {
 		}
 		this->list->AddEmptyTexture(name, width, height, TextureType::Float, TextureColorType::RGBA, TextureColorType::RGBA);
 
-		Framebuffer* frame = new Framebuffer(this->list->GetTexture(name), name);
+		Framebuffer* frame = new Framebuffer(this->list, this->list->GetTexture(name), name);
 		this->frameBuffers[name] = frame;
 		return true;
 	}
@@ -35,60 +38,70 @@ namespace K_Graphics {
 		}
 		this->list->AddEmptyTexture(name, width, height, dataType, color, dataColor);
 
-		Framebuffer* frame = new Framebuffer(this->list->GetTexture(name), name);
+		Framebuffer* frame = new Framebuffer(this->list, this->list->GetTexture(name), name);
 		this->frameBuffers[name] = frame;
 		return true;
 	}
 
 
 	//使いまわす場合
-	bool FrameBufferList::CreateFrameBuffer(const std::string& name, const std::string& depthBuffer, int width, int height) {
+	bool FrameBufferList::CreateFrameBuffer(const std::string& name, const std::string& depthBufferTextureName, int width, int height) {
 		//名前被りは失敗
 		if (this->frameBuffers.find(name) != this->frameBuffers.end()) {
 			throw std::runtime_error("FrameBufferListError name has already existed");
 		}
-		//使いまわすフレームバッファが見つからないのも失敗
-		if (this->frameBuffers.find(depthBuffer) == this->frameBuffers.end()) {
-			throw std::runtime_error("FrameBufferListError depthBuffer is not exists");
-		}
+
 		this->list->AddEmptyTexture(name, width, height);
 
-		Framebuffer* frame = new Framebuffer(this->list->GetTexture(name), name, this->frameBuffers[depthBuffer]->GetDepthBufferHandle());
+		this->list->AddEmptyTexture(depthBufferTextureName, width, height, TextureType::Unsigned_Byte, TextureColorType::DepthComponent, TextureColorType::DepthComponent);
+
+		Framebuffer* frame = new Framebuffer(this->list, this->list->GetTexture(name), this->list->GetTexture(depthBufferTextureName), name);
 		this->frameBuffers[name] = frame;
 		return true;
 	}
-	bool FrameBufferList::CreateFrameBuffer(const std::string& name, const std::string& depthBuffer, int width, int height, TextureType dataType, TextureColorType color, TextureColorType dataColor) {
+	bool FrameBufferList::CreateFrameBuffer(const std::string& name, const std::string& depthBufferTextureName, int width, int height, TextureType dataType, TextureColorType color, TextureColorType dataColor) {
 		//テクスチャ生成失敗＆名前被りは失敗
 		if (this->frameBuffers.find(name) != this->frameBuffers.end()) {
 			throw std::runtime_error("FrameBufferListError name has already existed");
 		}
-		//使いまわすフレームバッファが見つからないのも失敗
-		if (this->frameBuffers.find(depthBuffer) == this->frameBuffers.end()) {
-			throw std::runtime_error("FrameBufferListError depthBuffer is not exists");
-		}
-		this->list->AddEmptyTexture(name, width, height, dataType, color, dataColor);
 
-		Framebuffer* frame = new Framebuffer(this->list->GetTexture(name), name, this->frameBuffers[depthBuffer]->GetDepthBufferHandle());
+		this->list->AddEmptyTexture(name, width, height, dataType, color, dataColor);
+		this->list->AddEmptyTexture(depthBufferTextureName, width, height);
+
+		Framebuffer* frame = new Framebuffer(this->list, this->list->GetTexture(name), this->list->GetTexture(depthBufferTextureName), name);
 		this->frameBuffers[name] = frame;
 		return true;
 	}
 
 
-	void FrameBufferList::BeginDraw(const std::string& name, float r, float g, float b, float a, bool notDeleteDepthStencil) {
+	void FrameBufferList::BeginDraw(const std::string& name, float r, float g, float b, float a) {
 		if (this->frameBuffers.find(name) == this->frameBuffers.end()) {
 			throw std::runtime_error("FrameBufferListError name is not exists");
 		}
 		this->frameBuffers[name]->Bind();
-		ClearBuffer(this->frameBuffers[name]->GetWidth(), this->frameBuffers[name]->GetHeight(), r, g, b, a, notDeleteDepthStencil);
+		ClearBuffer(this->frameBuffers[name]->GetWidth(), this->frameBuffers[name]->GetHeight(), r, g, b, a);
 	}
 
-	void FrameBufferList::BeginDraw(int viewPortWidth, int viewPortHeight, float r, float g, float b, float a, bool notDeleteDepthStencil) {
+	void FrameBufferList::BeginDraw(int viewPortWidth, int viewPortHeight, float r, float g, float b, float a) {
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
-		ClearBuffer(viewPortWidth, viewPortHeight, r, g, b, a, notDeleteDepthStencil);
+		ClearBuffer(viewPortWidth, viewPortHeight, r, g, b, a);
 	}
 
 	void FrameBufferList::EndDraw() {
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	}
+
+	void FrameBufferList::SetClearFlag(bool color, bool depth, bool stencil){
+		this->colorClear = color;
+		this->depthClear = depth;
+		this->stencilClear = stencil;
+	}
+
+	Framebuffer* FrameBufferList::GetFrameBuffer(const std::string& name) {
+		if (this->frameBuffers.find(name) == this->frameBuffers.end()) {
+			throw std::runtime_error("FrameBufferListError name is not exists");
+		}
+		return this->frameBuffers[name];
 	}
 
 
@@ -96,14 +109,20 @@ namespace K_Graphics {
 	//private
 	////
 
-	void FrameBufferList::ClearBuffer(int viewPortWidth, int viewPortHeight, float r, float g, float b, float a, bool notDeleteDepthStencil) {
-		int bitFrag;
-		if (notDeleteDepthStencil) {
-			bitFrag = GL_COLOR_BUFFER_BIT;
+	void FrameBufferList::ClearBuffer(int viewPortWidth, int viewPortHeight, float r, float g, float b, float a) {
+		int bitFrag = 0;
+
+		//消去のフラグをチェック
+		if (this->colorClear) {
+			bitFrag |= GL_COLOR_BUFFER_BIT;
 		}
-		else {
-			bitFrag = GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT;
+		if (this->depthClear) {
+			bitFrag |= GL_DEPTH_BUFFER_BIT;
 		}
+		if (this->stencilClear) {
+			bitFrag |= GL_STENCIL_BUFFER_BIT;
+		}
+
 		glClearColor(r, g, b, a);
 		glClear(bitFrag);
 		glViewport(0, 0, viewPortWidth, viewPortHeight);

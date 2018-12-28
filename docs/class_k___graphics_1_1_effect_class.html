@@ -101,9 +101,9 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_effect_class.ht
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a33755c964db87d459d46c28788b19dd2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_effect_class.html#a33755c964db87d459d46c28788b19dd2">EffectClass</a> ()</td></tr>
-<tr class="memdesc:a33755c964db87d459d46c28788b19dd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Effekseerを初期化  <a href="#a33755c964db87d459d46c28788b19dd2">[詳解]</a><br /></td></tr>
-<tr class="separator:a33755c964db87d459d46c28788b19dd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a126033bdbd4127947b6a6b59a926a4cf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_effect_class.html#a126033bdbd4127947b6a6b59a926a4cf">EffectClass</a> (int numMaxEffect, int numMaxRender)</td></tr>
+<tr class="memdesc:a126033bdbd4127947b6a6b59a926a4cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Effekseerを初期化  <a href="#a126033bdbd4127947b6a6b59a926a4cf">[詳解]</a><br /></td></tr>
+<tr class="separator:a126033bdbd4127947b6a6b59a926a4cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab51e3f43095aac4bb6f7826254c4723b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_effect_class.html#ab51e3f43095aac4bb6f7826254c4723b">~EffectClass</a> ()</td></tr>
 <tr class="memdesc:ab51e3f43095aac4bb6f7826254c4723b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Effekseerの終了処理  <a href="#ab51e3f43095aac4bb6f7826254c4723b">[詳解]</a><br /></td></tr>
 <tr class="separator:ab51e3f43095aac4bb6f7826254c4723b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -143,13 +143,16 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_effect_class.ht
 <tr class="memitem:ac47c70207790c7715f52009f599f13e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_effect_class.html#ac47c70207790c7715f52009f599f13e2">SetSpeed</a> (<a class="el" href="namespace_k___graphics.html#afb3a0fd0adc77eb95104e697c9b6b7a9">EffectHandle</a> handle, float speed)</td></tr>
 <tr class="memdesc:ac47c70207790c7715f52009f599f13e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">エフェクトの再生速度  <a href="#ac47c70207790c7715f52009f599f13e2">[詳解]</a><br /></td></tr>
 <tr class="separator:ac47c70207790c7715f52009f599f13e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a997e5c588c73e4b20a8640322948a323"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_effect_class.html#a997e5c588c73e4b20a8640322948a323">GetNumEffectinstance</a> ()</td></tr>
+<tr class="memdesc:a997e5c588c73e4b20a8640322948a323"><td class="mdescLeft">&#160;</td><td class="mdescRight">エフェクトの個数を取得（デバッグ用）  <a href="#a997e5c588c73e4b20a8640322948a323">[詳解]</a><br /></td></tr>
+<tr class="separator:a997e5c588c73e4b20a8640322948a323"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>エフェクト管理クラス<br />
 ほぼEffekseerの機能をラッピングしただけにとどまっている </p>
 </div><h2 class="groupheader">構築子と解体子</h2>
-<a id="a33755c964db87d459d46c28788b19dd2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33755c964db87d459d46c28788b19dd2">&#9670;&nbsp;</a></span>EffectClass()</h2>
+<a id="a126033bdbd4127947b6a6b59a926a4cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a126033bdbd4127947b6a6b59a926a4cf">&#9670;&nbsp;</a></span>EffectClass()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -157,8 +160,19 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_effect_class.ht
         <tr>
           <td class="memname">K_Graphics::EffectClass::EffectClass </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numMaxEffect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numMaxRender</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -266,6 +280,25 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_effect_class.ht
 </div><div class="memdoc">
 
 <p>エフェクトはこの関数でまとめて描画される </p>
+
+</div>
+</div>
+<a id="a997e5c588c73e4b20a8640322948a323"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a997e5c588c73e4b20a8640322948a323">&#9670;&nbsp;</a></span>GetNumEffectinstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int K_Graphics::EffectClass::GetNumEffectinstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>エフェクトの個数を取得（デバッグ用） </p>
 
 </div>
 </div>

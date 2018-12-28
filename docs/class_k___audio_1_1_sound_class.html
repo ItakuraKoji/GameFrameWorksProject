@@ -86,6 +86,7 @@ $(document).ready(function(){initNavTree('class_k___audio_1_1_sound_class.html',
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">クラス</a> &#124;
 <a href="#pub-methods">公開メンバ関数</a> &#124;
 <a href="class_k___audio_1_1_sound_class-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle">
@@ -101,17 +102,31 @@ $(document).ready(function(){initNavTree('class_k___audio_1_1_sound_class.html',
 <tr class="separator:a9aba0743522979791ed9e6fe0d39c942"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2fe8f23da3db03d0fd664fc9dbb0caa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___audio_1_1_sound_class.html#ae2fe8f23da3db03d0fd664fc9dbb0caa">~SoundClass</a> ()</td></tr>
 <tr class="separator:ae2fe8f23da3db03d0fd664fc9dbb0caa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4932b4c807bb736f7511e34aea45b21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___audio_1_1_sound_class.html#aa4932b4c807bb736f7511e34aea45b21">CreateSource</a> (const char *sourceName, const char *filePass, <a class="el" href="class_k___audio_1_1_sound_source.html#ad0e58f4cea821bc4087ed13830b06f69">SoundSource::LoadMode</a> mode, float baseVolume=1.0f, int numBuffer=32)</td></tr>
-<tr class="memdesc:aa4932b4c807bb736f7511e34aea45b21"><td class="mdescLeft">&#160;</td><td class="mdescRight">ピッチを上げるとストリーミングが追い付かないことがある、そのときはnumBufferの値を大きくするといい  <a href="#aa4932b4c807bb736f7511e34aea45b21">[詳解]</a><br /></td></tr>
-<tr class="separator:aa4932b4c807bb736f7511e34aea45b21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a816e2e89b235d676828a96deeb82fcbb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___audio_1_1_sound_class.html#a816e2e89b235d676828a96deeb82fcbb">CreateSoundGroup</a> (int size)</td></tr>
+<tr class="separator:a816e2e89b235d676828a96deeb82fcbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afeef57a6a803d339b6cd01222a0d07e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___audio_1_1_sound_class.html#afeef57a6a803d339b6cd01222a0d07e7">CreateSource</a> (const char *sourceName, const char *filePass, <a class="el" href="class_k___audio_1_1_sound_source.html#ad0e58f4cea821bc4087ed13830b06f69">SoundSource::LoadMode</a> mode, int group=0, float baseVolume=1.0f, int numBuffer=32)</td></tr>
+<tr class="memdesc:afeef57a6a803d339b6cd01222a0d07e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">ピッチを上げるとストリーミングが追い付かないことがある、そのときはnumBufferの値を大きくするといい  <a href="#afeef57a6a803d339b6cd01222a0d07e7">[詳解]</a><br /></td></tr>
+<tr class="separator:afeef57a6a803d339b6cd01222a0d07e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7f65f8816604bdc37cb6e30671b2494"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___audio_1_1_sound_class.html#ab7f65f8816604bdc37cb6e30671b2494">DeleteSource</a> (const char *sourceName)</td></tr>
 <tr class="separator:ab7f65f8816604bdc37cb6e30671b2494"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9937bc5072d3e80a48730261108b6055"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___audio_1_1_sound_class.html#a9937bc5072d3e80a48730261108b6055">SetListnerPosition</a> (float x, float y, float z)</td></tr>
 <tr class="separator:a9937bc5072d3e80a48730261108b6055"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2dc820df216c53f8ed55f462a23c760"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___audio_1_1_sound_class.html#ae2dc820df216c53f8ed55f462a23c760">SetListnerVelocity</a> (float x, float y, float z)</td></tr>
 <tr class="separator:ae2dc820df216c53f8ed55f462a23c760"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7aa874b01a4043f8b2174562ce97060a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___audio_1_1_sound_class.html#a7aa874b01a4043f8b2174562ce97060a">SetMasterVolume</a> (float volume)</td></tr>
+<tr class="separator:a7aa874b01a4043f8b2174562ce97060a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5a9dd046159418001c99c17d29f9cf2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___audio_1_1_sound_class.html#ad5a9dd046159418001c99c17d29f9cf2">SetGroupVolume</a> (int group, float volume)</td></tr>
+<tr class="separator:ad5a9dd046159418001c99c17d29f9cf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83e8e27d32558399007f85483229e4c1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_k___audio_1_1_sound_source.html">SoundSource</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___audio_1_1_sound_class.html#a83e8e27d32558399007f85483229e4c1">GetSource</a> (const char *sourceName)</td></tr>
 <tr class="separator:a83e8e27d32558399007f85483229e4c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94e57cc9e4bf2189c32af8f9bce3fcf5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___audio_1_1_sound_class.html#a94e57cc9e4bf2189c32af8f9bce3fcf5">StopSoundGroup</a> (int group)</td></tr>
+<tr class="separator:a94e57cc9e4bf2189c32af8f9bce3fcf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b72597935f05f71606be2214260ab24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___audio_1_1_sound_class.html#a7b72597935f05f71606be2214260ab24">StopSoundAll</a> ()</td></tr>
+<tr class="separator:a7b72597935f05f71606be2214260ab24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bf8b1afd2ea4f235fab925c77c0ccd8"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___audio_1_1_sound_class.html#a7bf8b1afd2ea4f235fab925c77c0ccd8">GetMasterVolume</a> ()</td></tr>
+<tr class="separator:a7bf8b1afd2ea4f235fab925c77c0ccd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05b5dd322624b8fa8651ceef7e0ea34c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___audio_1_1_sound_class.html#a05b5dd322624b8fa8651ceef7e0ea34c">GetGroupVolume</a> (int group)</td></tr>
+<tr class="separator:a05b5dd322624b8fa8651ceef7e0ea34c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">構築子と解体子</h2>
 <a id="a9aba0743522979791ed9e6fe0d39c942"></a>
@@ -149,8 +164,26 @@ $(document).ready(function(){initNavTree('class_k___audio_1_1_sound_class.html',
 </div>
 </div>
 <h2 class="groupheader">関数詳解</h2>
-<a id="aa4932b4c807bb736f7511e34aea45b21"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4932b4c807bb736f7511e34aea45b21">&#9670;&nbsp;</a></span>CreateSource()</h2>
+<a id="a816e2e89b235d676828a96deeb82fcbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a816e2e89b235d676828a96deeb82fcbb">&#9670;&nbsp;</a></span>CreateSoundGroup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Audio::SoundClass::CreateSoundGroup </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afeef57a6a803d339b6cd01222a0d07e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afeef57a6a803d339b6cd01222a0d07e7">&#9670;&nbsp;</a></span>CreateSource()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -172,6 +205,12 @@ $(document).ready(function(){initNavTree('class_k___audio_1_1_sound_class.html',
           <td></td>
           <td class="paramtype"><a class="el" href="class_k___audio_1_1_sound_source.html#ad0e58f4cea821bc4087ed13830b06f69">SoundSource::LoadMode</a>&#160;</td>
           <td class="paramname"><em>mode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>group</em> = <code>0</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -215,6 +254,41 @@ $(document).ready(function(){initNavTree('class_k___audio_1_1_sound_class.html',
 
 </div>
 </div>
+<a id="a05b5dd322624b8fa8651ceef7e0ea34c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05b5dd322624b8fa8651ceef7e0ea34c">&#9670;&nbsp;</a></span>GetGroupVolume()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float K_Audio::SoundClass::GetGroupVolume </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>group</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7bf8b1afd2ea4f235fab925c77c0ccd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bf8b1afd2ea4f235fab925c77c0ccd8">&#9670;&nbsp;</a></span>GetMasterVolume()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float K_Audio::SoundClass::GetMasterVolume </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a83e8e27d32558399007f85483229e4c1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a83e8e27d32558399007f85483229e4c1">&#9670;&nbsp;</a></span>GetSource()</h2>
 
@@ -227,6 +301,34 @@ $(document).ready(function(){initNavTree('class_k___audio_1_1_sound_class.html',
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>sourceName</em></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad5a9dd046159418001c99c17d29f9cf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5a9dd046159418001c99c17d29f9cf2">&#9670;&nbsp;</a></span>SetGroupVolume()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Audio::SoundClass::SetGroupVolume </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>group</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>volume</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -295,6 +397,59 @@ $(document).ready(function(){initNavTree('class_k___audio_1_1_sound_class.html',
           <td></td>
           <td>)</td>
           <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7aa874b01a4043f8b2174562ce97060a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7aa874b01a4043f8b2174562ce97060a">&#9670;&nbsp;</a></span>SetMasterVolume()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Audio::SoundClass::SetMasterVolume </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>volume</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7b72597935f05f71606be2214260ab24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b72597935f05f71606be2214260ab24">&#9670;&nbsp;</a></span>StopSoundAll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Audio::SoundClass::StopSoundAll </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a94e57cc9e4bf2189c32af8f9bce3fcf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94e57cc9e4bf2189c32af8f9bce3fcf5">&#9670;&nbsp;</a></span>StopSoundGroup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Audio::SoundClass::StopSoundGroup </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>group</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">

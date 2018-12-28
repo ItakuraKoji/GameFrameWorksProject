@@ -119,6 +119,9 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_mesh_object.htm
 <tr class="memitem:ad45fbf9cf32b22335eeb994bfe3e1041"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#ad45fbf9cf32b22335eeb994bfe3e1041">SetSpeed</a> (float speed)</td></tr>
 <tr class="memdesc:ad45fbf9cf32b22335eeb994bfe3e1041"><td class="mdescLeft">&#160;</td><td class="mdescRight">アニメーションスピードを変更する  <a href="#ad45fbf9cf32b22335eeb994bfe3e1041">[詳解]</a><br /></td></tr>
 <tr class="separator:ad45fbf9cf32b22335eeb994bfe3e1041"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3db489f5890e7afb07dc8e602b5ebd93"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#a3db489f5890e7afb07dc8e602b5ebd93">SetTexture</a> (<a class="el" href="class_k___graphics_1_1_texture.html">Texture</a> *texture, int hierarchyIndex, int materialIndex)</td></tr>
+<tr class="memdesc:a3db489f5890e7afb07dc8e602b5ebd93"><td class="mdescLeft">&#160;</td><td class="mdescRight">テクスチャを変更する、基本は使わなくてもいい  <a href="#a3db489f5890e7afb07dc8e602b5ebd93">[詳解]</a><br /></td></tr>
+<tr class="separator:a3db489f5890e7afb07dc8e602b5ebd93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd6df7e561a4012380e435a41aeb0994"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#acd6df7e561a4012380e435a41aeb0994">UpdateAnimation</a> (float timeSpeed=1.0f)</td></tr>
 <tr class="memdesc:acd6df7e561a4012380e435a41aeb0994"><td class="mdescLeft">&#160;</td><td class="mdescRight">アニメーションを更新  <a href="#acd6df7e561a4012380e435a41aeb0994">[詳解]</a><br /></td></tr>
 <tr class="separator:acd6df7e561a4012380e435a41aeb0994"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -534,6 +537,50 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_mesh_object.htm
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">1を通常の速度としたアニメーションの速度</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3db489f5890e7afb07dc8e602b5ebd93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3db489f5890e7afb07dc8e602b5ebd93">&#9670;&nbsp;</a></span>SetTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Graphics::MeshObject::SetTexture </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_texture.html">Texture</a> *&#160;</td>
+          <td class="paramname"><em>texture</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>hierarchyIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>materialIndex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>テクスチャを変更する、基本は使わなくてもいい </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">texture</td><td>使用するテクスチャへのポインタ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">arrayIndex</td><td>対象となるメッシュ階層のインデックス </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">materialIndex</td><td>対象となるメッシュ階層のなかのマテリアルインデックス </td></tr>
   </table>
   </dd>
 </dl>

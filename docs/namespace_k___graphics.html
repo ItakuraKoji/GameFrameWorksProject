@@ -88,7 +88,8 @@ $(document).ready(function(){initNavTree('namespace_k___graphics.html','');});
   <div class="summary">
 <a href="#nested-classes">クラス</a> &#124;
 <a href="#typedef-members">型定義</a> &#124;
-<a href="#enum-members">列挙型</a>  </div>
+<a href="#enum-members">列挙型</a> &#124;
+<a href="#func-members">関数</a>  </div>
   <div class="headertitle">
 <div class="title">K_Graphics 名前空間</div>  </div>
 </div><!--header-->
@@ -122,6 +123,12 @@ $(document).ready(function(){initNavTree('namespace_k___graphics.html','');});
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_directional_light.html">DirectionalLight</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_drawable_object.html">DrawableObject</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_draw_pass.html">DrawPass</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_draw_pass_manager.html">DrawPassManager</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_effect_class.html">EffectClass</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">エフェクト管理クラス<br />
 ほぼEffekseerの機能をラッピングしただけにとどまっている  <a href="class_k___graphics_1_1_effect_class.html#details">[詳解]</a><br /></td></tr>
@@ -136,6 +143,8 @@ $(document).ready(function(){initNavTree('namespace_k___graphics.html','');});
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_framebuffer.html">Framebuffer</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_frame_buffer_list.html">FrameBufferList</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_index_vector.html">IndexVector</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_light_list.html">LightList</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">光源情報をまとめたクラス、複数光源はコストが高いので数を絞る アンビエント：１つ その他：４つ（まだ予定）  <a href="class_k___graphics_1_1_light_list.html#details">[詳解]</a><br /></td></tr>
@@ -170,9 +179,13 @@ $(document).ready(function(){initNavTree('namespace_k___graphics.html','');});
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_shader_list.html">ShaderList</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">シェーダークラスをリストとして持ち、解放責任をもつクラス  <a href="class_k___graphics_1_1_shader_list.html#details">[詳解]</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_sprite_data.html">SpriteData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_sprite_object.html">SpriteObject</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">長さ1.0fの板ポリゴンのModelClassを内部で生成し、2D画像の描画に利用できる機能を付け加えたクラス<br />
 描画には「K_Graphics::CameraClass」「K_Graphics::ShaderClass」の二つが必要  <a href="class_k___graphics_1_1_sprite_object.html#details">[詳解]</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_sprite_renderer.html">SpriteRenderer</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_texture.html">Texture</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">外部から読み込まれた、あるいは作られたテクスチャを保持する<br />
@@ -208,17 +221,26 @@ $(document).ready(function(){initNavTree('namespace_k___graphics.html','');});
 <tr class="memdesc:a218722f1def83362c6b74680b8c1c529"><td class="mdescLeft">&#160;</td><td class="mdescRight">テクスチャが扱う値の型  <a href="namespace_k___graphics.html#a218722f1def83362c6b74680b8c1c529">[詳解]</a><br /></td></tr>
 <tr class="separator:a218722f1def83362c6b74680b8c1c529"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9654dafb2cd6eaed24a292a6f8373955"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955">TextureColorType</a> { <br />
-&#160;&#160;<a class="el" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a3f86f41090b77da22356d9010d1c0f66">RGB</a> = GL_RGB, 
-<a class="el" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a5982abbb33a2de38202a6a14430bfbd7">BGR</a> = GL_BGR, 
+&#160;&#160;<a class="el" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a045a85865acc5879f5740d9c6bd6c146">DepthComponent</a> = GL_DEPTH_COMPONENT, 
+<a class="el" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955ac5f08ca3d27869f6129448a9c4c2301c">DepthComponent16</a> = GL_DEPTH_COMPONENT16, 
+<a class="el" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a4daca0bfe660665e3cf1381f37d23c07">DepthComponent24</a> = GL_DEPTH_COMPONENT24, 
+<a class="el" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a3f86f41090b77da22356d9010d1c0f66">RGB</a> = GL_RGB, 
+<br />
+&#160;&#160;<a class="el" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a5982abbb33a2de38202a6a14430bfbd7">BGR</a> = GL_BGR, 
 <a class="el" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a9e29ef1d15d53abfdf21fd7cc6730d25">RGBA32F</a> = GL_RGBA32F, 
 <a class="el" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a535fd8e72dc86d416c6a3f32923645d2">RGBA</a> = GL_RGBA, 
+<a class="el" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955ad1ca23636fb9354fdba2dac99e77f1f9">BGRA</a> = GL_BGRA, 
 <br />
-&#160;&#160;<a class="el" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955ad1ca23636fb9354fdba2dac99e77f1f9">BGRA</a> = GL_BGRA, 
-<a class="el" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a73b900220ca74e26dbc87b5baea6dd9c">RED</a> = GL_RED
+&#160;&#160;<a class="el" href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955a73b900220ca74e26dbc87b5baea6dd9c">RED</a> = GL_RED
 <br />
  }</td></tr>
 <tr class="memdesc:a9654dafb2cd6eaed24a292a6f8373955"><td class="mdescLeft">&#160;</td><td class="mdescRight">テクスチャに渡される情報の解釈  <a href="namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955">[詳解]</a><br /></td></tr>
 <tr class="separator:a9654dafb2cd6eaed24a292a6f8373955"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+関数</h2></td></tr>
+<tr class="memitem:a853cbad0337ed35ab098f2ac47df2f1d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_k___graphics.html#a853cbad0337ed35ab098f2ac47df2f1d">cmp</a> (<a class="el" href="class_k___graphics_1_1_sprite_data.html">SpriteData</a> *left, <a class="el" href="class_k___graphics_1_1_sprite_data.html">SpriteData</a> *right)</td></tr>
+<tr class="separator:a853cbad0337ed35ab098f2ac47df2f1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>グラフィック関連の名前空間<br />
@@ -281,7 +303,10 @@ $(document).ready(function(){initNavTree('namespace_k___graphics.html','');});
 
 <p>テクスチャに渡される情報の解釈 </p>
 <table class="fieldtable">
-<tr><th colspan="2">列挙値</th></tr><tr><td class="fieldname"><a id="a9654dafb2cd6eaed24a292a6f8373955a3f86f41090b77da22356d9010d1c0f66"></a>RGB&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">列挙値</th></tr><tr><td class="fieldname"><a id="a9654dafb2cd6eaed24a292a6f8373955a045a85865acc5879f5740d9c6bd6c146"></a>DepthComponent&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9654dafb2cd6eaed24a292a6f8373955ac5f08ca3d27869f6129448a9c4c2301c"></a>DepthComponent16&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9654dafb2cd6eaed24a292a6f8373955a4daca0bfe660665e3cf1381f37d23c07"></a>DepthComponent24&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9654dafb2cd6eaed24a292a6f8373955a3f86f41090b77da22356d9010d1c0f66"></a>RGB&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a9654dafb2cd6eaed24a292a6f8373955a5982abbb33a2de38202a6a14430bfbd7"></a>BGR&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a9654dafb2cd6eaed24a292a6f8373955a9e29ef1d15d53abfdf21fd7cc6730d25"></a>RGBA32F&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a9654dafb2cd6eaed24a292a6f8373955a535fd8e72dc86d416c6a3f32923645d2"></a>RGBA&#160;</td><td class="fielddoc"></td></tr>
@@ -308,6 +333,35 @@ $(document).ready(function(){initNavTree('namespace_k___graphics.html','');});
 <tr><th colspan="2">列挙値</th></tr><tr><td class="fieldname"><a id="a218722f1def83362c6b74680b8c1c529ab0721b13f0b6d56efb5b01ac5c7eb718"></a>Unsigned_Byte&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a218722f1def83362c6b74680b8c1c529ad9523c239c3ce59f58cc0fc4a6e8986c"></a>Float&#160;</td><td class="fielddoc"></td></tr>
 </table>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a853cbad0337ed35ab098f2ac47df2f1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a853cbad0337ed35ab098f2ac47df2f1d">&#9670;&nbsp;</a></span>cmp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool K_Graphics::cmp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_sprite_data.html">SpriteData</a> *&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_sprite_data.html">SpriteData</a> *&#160;</td>
+          <td class="paramname"><em>right</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

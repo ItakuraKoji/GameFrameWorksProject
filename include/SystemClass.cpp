@@ -1,4 +1,5 @@
 #include"SystemClass.h"
+#include <thread>
 
 //Escキーでアプリ終了
 void GLFWKeyEvent(GLFWwindow* window, int key, int scanCode, int action, int mods) {
@@ -71,8 +72,13 @@ namespace K_System {
 		//FPS計測
 		++this->framecount;
 		cullentTime = std::chrono::system_clock::now();
-		this->fps = (float)framecount / std::chrono::duration_cast<std::chrono::milliseconds>(cullentTime - startTime).count() * 1000;
-		this->startTime = std::chrono::system_clock::now();
+
+		int deltaTime = std::chrono::duration_cast<std::chrono::microseconds>(cullentTime - startTime).count();
+
+		if (deltaTime > 0) {
+			this->fps = (float)framecount / deltaTime * 1000000;
+		}
+		this->startTime = cullentTime;
 		this->framecount = 0;
 	}
 

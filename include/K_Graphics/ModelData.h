@@ -162,12 +162,14 @@ namespace K_Graphics {
 		float interporationMaxCount;
 		//借り物のボーンデータ情報
 		BoneData* bone;
+		//ボーンの計算時に使う辻褄合わせ変形
+		K_Math::Matrix4x4 fixMat;
 	};
 
 
 
 
-	//本当は分離できたらよかったんだが、FBXの情報量が思ったよりも多いのでFBXManagerたちはそのまま持っておいたほうがいいかもしれない
+	//FBXを使用時に必要となる
 	//FBXManagerの解放責任はここにある
 	class FbxData {
 	public:

@@ -1,12 +1,15 @@
 #include"SoundSource.h"
+#include"SoundClass.h"
 
 namespace K_Audio {
 
 	////////
 	//public
 	////
-	SoundSource::SoundSource(const char* sourceName, const char* filePass, LoadMode mode, float baseVolume, int numBuffer) : name(sourceName) {
+	SoundSource::SoundSource(SoundClass* soundManager, int group, const char* sourceName, const char* filePass, LoadMode mode, float baseVolume, int numBuffer) : name(sourceName) {
 		try {
+			this->soundManager = soundManager;
+			this->group = group;
 			this->bufferIDs = nullptr;
 			this->isPlayed = false;
 			this->isLoop = false;
@@ -103,7 +106,7 @@ namespace K_Audio {
 	ALuint SoundSource::PlayCopy() {
 		//ストリーミングモードでは利用できない
 		if (this->mode == LoadMode::Streaming) {
-			throw std::runtime_error("Streaming Sound Source can't use PlayCopy() :" + this->name);
+			throw std::runtime_error("Streaming Sound Source can't use PlayCopy() : " + this->name);
 		}
 		ALuint source;
 		{
@@ -112,18 +115,24 @@ namespace K_Audio {
 			this->isLoop = false;
 			alGenSources(1, &source);
 			alSourcei(source, AL_BUFFER, this->bufferIDs[0]);
+			//コピーしたサウンドを追加
 			this->copySources.push_back(source);
+
+			SetSourceVolume(source, this->volume);
+			alSourcef(source, AL_PITCH, this->pitch);
+			alSourcePlay(source);
 		}
-		alSourcef(source, AL_MAX_GAIN, this->volume);
-		alSourcef(source, AL_PITCH, this->pitch);
-		alSourcePlay(source);
+
 		return source;
 	}
 	ALuint SoundSource::PlayCopy(float volume, float pitch) {
 		//ストリーミングモードでは利用できない
 		ALuint source = PlayCopy();
-		alSourcef(source, AL_MAX_GAIN, volume);
+
+		std::lock_guard<std::recursive_mutex> lock(this->_mutex);
+		SetSourceVolume(source, volume);
 		alSourcef(source, AL_PITCH, pitch);
+
 		return source;
 	}
 	ALuint SoundSource::PlayCopy(float posX, float posY, float posZ, float volume, float pitch) {
@@ -165,13 +174,22 @@ namespace K_Audio {
 		alSourceQueueBuffers(this->sourceID, this->numBuffer, this->bufferIDs);
 	}
 
+	void SoundSource::StopAll() {
+		std::lock_guard<std::recursive_mutex> lock(this->_mutex);
+
+		Stop();
+		for (auto copySound : this->copySources) {
+			alSourceStop(copySound);
+		}
+	}
+
+
 	//音量変更
 	void SoundSource::SetVolume(float volume) {
-		alSourcef(this->sourceID, AL_MAX_GAIN, volume * this->baseVolume);
-		{
-			std::lock_guard<std::recursive_mutex> lock(this->_mutex);
-			this->volume = volume * this->baseVolume;
-		}
+		std::lock_guard<std::recursive_mutex> lock(this->_mutex);
+		//マスターボリューム、グループのボリューム、このサウンドのニュートラルボリュームの3つをかける
+		this->volume = volume;
+		SetSourceVolume(this->sourceID, volume);
 	}
 	//ピッチ変更、０以下はエラー
 	void SoundSource::SetPitch(float pitch) {
@@ -208,9 +226,21 @@ namespace K_Audio {
 		return this->isPlayed;
 	}
 
+	int SoundSource::GetSoundGroup() {
+		return this->group;
+	}
+
 	////////
 	//private
 	////
+
+	void SoundSource::SetSourceVolume(ALuint sourceID, float volume) {
+		std::lock_guard<std::recursive_mutex> lock(this->_mutex);
+
+		//マスターボリューム、グループのボリューム、このサウンドのニュートラルボリュームの3つをかける
+		float soundVolume =  volume * this->baseVolume * this->soundManager->GetMasterVolume() * this->soundManager->GetGroupVolume(this->group);
+		alSourcef(sourceID, AL_MAX_GAIN, soundVolume);
+	}
 
 	void SoundSource::Finalize() {
 		EndThread();

@@ -154,7 +154,9 @@ namespace K_Physics {
 		//!@param[in] moveDitail 判定が発生する距離
 		//!@param[in] vLimitDirection 縦方向の押し返しを、moveの直線上に限定するかのフラグ
 		//!@param[in] hLimitDirection 横方向の押し返しを、moveの直線上に限定するかのフラグ
-		void MoveCharacterDiscrete(CollisionData* obj, const K_Math::Vector3& move, float moveDitail, bool vLimitDirection = true, bool hLimitDirection = false);
+		void MoveCharacterDiscrete(CollisionData* obj, const K_Math::Vector3& move, float moveDitail, float vLimitAngle = 40.0f, float hLimitAngle = 0.0f);
+
+
 
 		//!@brief 判定しながらの回転
 		//!@param[in] obj 移動するコリジョンオブジェクト
@@ -184,6 +186,9 @@ namespace K_Physics {
 		void MoveCollisionObject(CollisionData* obj, const btVector3& moveVector);
 		//指定方向に移動（離散判定）
 		btVector3 MoveDiscrete(CollisionData* obj, const btVector3& moveVector, const btVector3& limitDirection, float moveDitail);
+		//!@brief （テスト中）離散的なコリジョンの移動、判定が MoveCharacter よりも大雑把(ただし軽い）
+		btVector3 MoveDiscrete2(CollisionData* obj, const btVector3& moveVector, float backDistance, float moveDitailRatio);
+		btVector3 MoveByDiscrete(CollisionData* obj, const btVector3& moveVector, float limitAngle, float allowDistance, float moveDitail, bool& wallFollowResult);
 		//指定方向に移動
 		btVector3 MoveSmooth(CollisionData* obj, const btVector3& moveVector, float limitAngle, const btVector3& limitDirection);
 		//移動部分をまとめ、allowDistanceはめり込み許容値、isCalcurateがtrueの時は法線を返す
@@ -242,6 +247,8 @@ namespace K_Physics {
 		btVector3 fixVec;
 		btCollisionObject* maxObject;
 
+		//めり込み許容値
+		float allowDistance;
 		int count;
 		bool isLoop;
 	};

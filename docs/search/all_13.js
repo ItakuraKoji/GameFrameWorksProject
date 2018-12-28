@@ -7,13 +7,16 @@ var searchData=
   ['tellcallback',['TellCallBack',['../class_k___audio_1_1_ogg_data.html#aba3cfca1a66a57c9ddca7e90c87b6ddd',1,'K_Audio::OggData']]],
   ['texcoord',['texcoord',['../struct_k___graphics_1_1_vertex.html#a7a357dec1339905adde9014df3ce469e',1,'K_Graphics::Vertex']]],
   ['texture',['Texture',['../class_k___graphics_1_1_texture.html',1,'K_Graphics::Texture'],['../struct_k___graphics_1_1_font_generator_1_1_font_atlas.html#a8baa5f2223d8b7d2c941f8b25dbe8bbb',1,'K_Graphics::FontGenerator::FontAtlas::texture()'],['../struct_k___graphics_1_1_material.html#a7dda4b3d5e5b22bafc4c51b8a898f85f',1,'K_Graphics::Material::texture()'],['../class_k___graphics_1_1_texture.html#a3d4fc11068626d4d981b37d1d5aead47',1,'K_Graphics::Texture::Texture()']]],
+  ['textureanimation',['TextureAnimation',['../class_k___graphics_1_1_sprite_data_1_1_texture_animation.html',1,'K_Graphics::SpriteData::TextureAnimation'],['../class_k___graphics_1_1_sprite_data_1_1_texture_animation.html#a53577ffbfb607e9da6cbabd64b0a664b',1,'K_Graphics::SpriteData::TextureAnimation::TextureAnimation()']]],
   ['texturecolortype',['TextureColorType',['../namespace_k___graphics.html#a9654dafb2cd6eaed24a292a6f8373955',1,'K_Graphics']]],
   ['textureheight',['textureHeight',['../struct_k___graphics_1_1_font_generator_1_1_font_atlas.html#a69fa52d8f8237fdd3fbe2e272bd7b832',1,'K_Graphics::FontGenerator::FontAtlas']]],
   ['texturelist',['TextureList',['../class_k___graphics_1_1_texture_list.html',1,'K_Graphics::TextureList'],['../class_k___graphics_1_1_texture_list.html#a32733fdf9b63714a2730fccfe6d4d39b',1,'K_Graphics::TextureList::TextureList()']]],
   ['texturepath',['texturePath',['../struct_k___loader_1_1_k3_m_d_material.html#a8330006b09f899be84564f250710529f',1,'K_Loader::K3MDMaterial']]],
+  ['textureposition',['texturePosition',['../struct_k___graphics_1_1_sprite_data_1_1_texture_animation_1_1_data.html#a5bff6181ee1cf0b4dd1cb07df834255d',1,'K_Graphics::SpriteData::TextureAnimation::Data']]],
   ['texturetype',['TextureType',['../namespace_k___graphics.html#a218722f1def83362c6b74680b8c1c529',1,'K_Graphics']]],
   ['texturewidth',['textureWidth',['../struct_k___graphics_1_1_font_generator_1_1_font_atlas.html#a1e7f96ad116e52c8f1f00c3df998931c',1,'K_Graphics::FontGenerator::FontAtlas']]],
   ['tgaloader',['TGALoader',['../class_k___loader_1_1_t_g_a_loader.html',1,'K_Loader']]],
   ['to',['to',['../struct_k___physics_1_1_debug_line.html#a98ef92ef62c0f70b7a192109ff5959e7',1,'K_Physics::DebugLine::to()'],['../struct_k___physics_1_1_debug_line_index.html#affc429e011dacadcf9eddd4d1fd51ef9',1,'K_Physics::DebugLineIndex::to()']]],
-  ['tocolor',['toColor',['../struct_k___physics_1_1_debug_line.html#a343f9569b5e49bd87690c41330229047',1,'K_Physics::DebugLine']]]
+  ['tocolor',['toColor',['../struct_k___physics_1_1_debug_line.html#a343f9569b5e49bd87690c41330229047',1,'K_Physics::DebugLine']]],
+  ['transform',['Transform',['../struct_k___graphics_1_1_sprite_data_1_1_transform.html',1,'K_Graphics::SpriteData::Transform'],['../struct_k___graphics_1_1_sprite_data_1_1_transform.html#a7ee5dd11876f949ac27e7f205623b21b',1,'K_Graphics::SpriteData::Transform::Transform()']]]
 ];

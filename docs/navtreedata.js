@@ -43,6 +43,7 @@ var NAVTREE =
         [ "全て", "functions.html", "functions_dup" ],
         [ "関数", "functions_func.html", "functions_func" ],
         [ "変数", "functions_vars.html", null ],
+        [ "型定義", "functions_type.html", null ],
         [ "列挙型", "functions_enum.html", null ],
         [ "列挙値", "functions_eval.html", null ]
       ] ]
@@ -53,9 +54,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"class_k___graphics_1_1_mesh_object.html#ad45fbf9cf32b22335eeb994bfe3e1041",
-"functions_enum.html",
-"struct_k___system_1_1_icon_image.html#aed3446c946e1162c1d1dea316b0afa00"
+"class_k___graphics_1_1_framebuffer.html#ad3a492836b1ced0414f6b3aa4718097f",
+"class_k___loader_1_1_k3_m_d_loader.html",
+"struct_k___graphics_1_1_sprite_data_1_1_texture_animation_1_1_data.html#a9f762654ff596b45344d5bd107a5931d"
 ];
 
 var SYNCONMSG = 'クリックで同期表示が無効になります';

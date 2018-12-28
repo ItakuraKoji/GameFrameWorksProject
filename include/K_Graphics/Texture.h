@@ -11,6 +11,10 @@ namespace K_Graphics {
 	};
 	//!@brief テクスチャに渡される情報の解釈
 	enum TextureColorType {
+		DepthComponent = GL_DEPTH_COMPONENT,
+		DepthComponent16 = GL_DEPTH_COMPONENT16,
+		DepthComponent24 = GL_DEPTH_COMPONENT24,
+
 		RGB = GL_RGB,
 		BGR = GL_BGR,
 		RGBA32F = GL_RGBA32F,

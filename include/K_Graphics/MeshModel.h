@@ -81,6 +81,12 @@ namespace K_Graphics {
 		//!@param[in] 1を通常の速度としたアニメーションの速度
 		void SetSpeed(float speed);
 
+		//!@brief テクスチャを変更する、基本は使わなくてもいい
+		//!@param[in] texture 使用するテクスチャへのポインタ
+		//!@param[in] arrayIndex 対象となるメッシュ階層のインデックス
+		//!@param[in] materialIndex 対象となるメッシュ階層のなかのマテリアルインデックス
+		void SetTexture(Texture* texture, int hierarchyIndex, int materialIndex);
+
 		//!@brief アニメーションを更新
 		//!@param[in] 時間経過速度（アニメーションそのものの速度とは別の時間経過の速さで、1.0fが等速）
 		void UpdateAnimation(float timeSpeed = 1.0f);
