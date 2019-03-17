@@ -6,6 +6,7 @@ var class_k___system_1_1_system_class =
     [ "Finalize", "class_k___system_1_1_system_class.html#a93d05d4f421da35f53c4969e53ca7d49", null ],
     [ "GetFPS", "class_k___system_1_1_system_class.html#a3a7f4940ac8f1e1a13d3aaa69617e093", null ],
     [ "GetInput", "class_k___system_1_1_system_class.html#ac0a92ee3670899123d05ed65a272cbb2", null ],
+    [ "GetWindowHandle", "class_k___system_1_1_system_class.html#a3cbe696fe9155a59f5de995192bd07b0", null ],
     [ "GetWindowHeight", "class_k___system_1_1_system_class.html#a77b2bd403ce58a63f48151054ee2402e", null ],
     [ "GetWindowWidth", "class_k___system_1_1_system_class.html#a8b1226fbf696428544adfa890430cac1", null ],
     [ "HideWindow", "class_k___system_1_1_system_class.html#ae262bb003d6eeefce9d9711fd7473ff0", null ],

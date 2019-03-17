@@ -21,8 +21,6 @@ namespace K_Audio {
 	SoundClass::SoundClass() {
 		//初期の状態でもサウンドグループの０番が使える
 		this->CreateSoundGroup(1);
-		//マスターボリュームは最初は１
-		this->masterVolume = 1.0f;
 
 		this->device = nullptr;
 		this->context = nullptr;

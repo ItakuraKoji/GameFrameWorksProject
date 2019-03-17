@@ -25,12 +25,11 @@ namespace K_Loader {
 			this->boneData = nullptr;
 		}
 	}
-
-	void K3MDLoader::CreateBinaryFile(K3MDHierarchy* data, const std::string& fileName, const std::string& outputFilePath){
+	void K3MDLoader::CreateBinaryFile(K3MDHierarchy* data, const std::string& outputFilePath) {
 		//K3MD形式の3Dモデルデータを吐き出す
-		std::ofstream ofs(outputFilePath + "/" + fileName + ".k3md", std::ios::binary | std::ios::trunc | std::ios::out);
+		std::ofstream ofs(outputFilePath, std::ios::binary | std::ios::trunc | std::ios::out);
 		if (!ofs) {
-			throw std::runtime_error("fileOpenFailed : " + outputFilePath + "/" + fileName + ".k3md");
+			throw std::runtime_error("fileOpenFailed : " + outputFilePath);
 		}
 		//階層数
 		int numHierarchy = (int)data->modelHierarchy.size();
@@ -51,14 +50,14 @@ namespace K_Loader {
 
 		for (auto& modelData : data->modelHierarchy) {
 			//頂点情報
-			int numVertex = modelData.vertexData.size();
+			int numVertex = (int)modelData.vertexData.size();
 			ofs.write((char*)&numVertex, sizeof(int));
 			ofs.write((char*)modelData.vertexData.data(), sizeof(K_Graphics::Vertex) * numVertex);
 			//マテリアル
-			int numMaterial = modelData.materialData.size();
+			int numMaterial = (int)modelData.materialData.size();
 			ofs.write((char*)&numMaterial, sizeof(int));
 			for (int i = 0; i < numMaterial; ++i) {
-				int numIndex = modelData.materialData[i].vertexIndex.size();
+				int numIndex = (int)modelData.materialData[i].vertexIndex.size();
 				ofs.write((char*)&numIndex, sizeof(int));
 				ofs.write((char*)modelData.materialData[i].vertexIndex.data(), sizeof(unsigned int) * numIndex);
 
@@ -101,6 +100,11 @@ namespace K_Loader {
 
 		}
 		ofs.close();
+	}
+
+	void K3MDLoader::CreateBinaryFile(K3MDHierarchy* data, const std::string& fileName, const std::string& outputFilePath){
+		//K3MD形式の3Dモデルデータを吐き出す
+		CreateBinaryFile(data, outputFilePath + "/" + fileName + ".k3md");
 	}
 
 	K_Graphics::ModelResource* K3MDLoader::LoadModel(const char* filepath, K_Graphics::TextureList* list){
@@ -156,7 +160,7 @@ namespace K_Loader {
 
 
 				std::vector<GLuint> IBOs;
-				CreateMaterial(&modelData, IBOs);
+				CreateMaterial(data->modelPath, &modelData, IBOs);
 				CreateBone(data, &modelData);
 				CreateVertex(&modelData, VAO, IBOs);
 			}
@@ -190,7 +194,7 @@ namespace K_Loader {
 		//ファイルパスを記録してモデルファイルを起点とした読み込みパスを作り出す
 		{
 			std::string path = std::string(filepath);
-			int position = path.find_last_of("\\/");
+			int position = (int)path.find_last_of("\\/");
 			if (position == std::string::npos) {
 				//見つからなかった場合は起点パスは空白
 				this->fileRoot = "";
@@ -199,6 +203,7 @@ namespace K_Loader {
 				this->fileRoot = path.substr(0, position + 1);
 			}
 		}
+
 
 		//ファイルサイズ取得
 		ifs.seekg(0, std::ios::end);
@@ -215,6 +220,7 @@ namespace K_Loader {
 
 			//メモリからデータ作成
 			data = LoadK3MDHierarchyFromMemory(binaryData);
+			data->modelPath = this->fileRoot;
 		}
 		catch (std::exception& e) {
 			//例外処理
@@ -296,7 +302,7 @@ namespace K_Loader {
 					data->modelHierarchy[i].materialData[j].texturePath.resize(numString);
 					ReadBinary((char*)data->modelHierarchy[i].materialData[j].texturePath.data(), binaryData, &binaryPosition, sizeof(char) * numString);
 					//モデルデータの場所を基準としたパスに変換
-					data->modelHierarchy[i].materialData[j].texturePath = this->fileRoot + data->modelHierarchy[i].materialData[j].texturePath;
+					data->modelHierarchy[i].materialData[j].texturePath = data->modelHierarchy[i].materialData[j].texturePath;
 
 
 					//マテリアル情報
@@ -382,11 +388,11 @@ namespace K_Loader {
 		buffer.VBO = VBO;
 		buffer.IBOs = IBOs;
 		buffer.numMaterial = (int)modelData->materialData.size();
-		buffer.numFace = modelData->vertexData.size() / 3;
+		buffer.numFace = (int)modelData->vertexData.size() / 3;
 		this->bufferData->Add(buffer);
 	}
 
-	void K3MDLoader::CreateMaterial(K3MDData * modelData, std::vector<GLuint>& IBOs){
+	void K3MDLoader::CreateMaterial(const std::string& fileRoot, K3MDData* modelData, std::vector<GLuint>& IBOs){
 		//マテリアル
 		this->materialData = new K_Graphics::MaterialData;
 
@@ -416,14 +422,14 @@ namespace K_Loader {
 			//テクスチャ
 			if (modelData->materialData[i].texturePath != "") {
 				try {
-					this->textureList->LoadTexture(modelData->materialData[i].texturePath, modelData->materialData[i].texturePath);
+					this->textureList->LoadTexture(fileRoot + modelData->materialData[i].texturePath, fileRoot + modelData->materialData[i].texturePath);
 
 				}
 				catch (std::exception& e) {
 					throw e;
 				}
 
-				material[i].texture = this->textureList->GetTexture(modelData->materialData[i].texturePath);
+				material[i].texture = this->textureList->GetTexture(fileRoot + modelData->materialData[i].texturePath);
 				printf("Texture : %s\n", modelData->materialData[i].texturePath.data());
 			}
 

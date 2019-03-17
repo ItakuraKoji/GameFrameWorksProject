@@ -7,6 +7,8 @@ namespace K_Physics {
 	//public
 	////
 	MapPolygon::MapPolygon(const char* fbxFilePath, BulletPhysics *physics, int myselfMask, int giveMask) {
+		this->collisionMesh = nullptr;
+
 		if (!Initialize(fbxFilePath, physics, myselfMask, giveMask)) {
 			throw("meshData Load Failed" + std::string(fbxFilePath));
 		}
@@ -110,7 +112,7 @@ namespace K_Physics {
 			}
 		}
 
-		this->collisionMesh = physics->CreateTriangleMesh(vectices.data(), polygonData.polygon.size());
+		this->collisionMesh = physics->CreateTriangleMesh(vectices.data(), (int)polygonData.polygon.size());
 		this->shape = physics->CreateTriangleMeshShape(this->collisionMesh);
 		this->rigid = physics->CreateRigidBody(shape, 0.0f, false, myselfMask, giveMask, K_Math::Vector3(0.0f, 0.0f, 0.0f));
 	}

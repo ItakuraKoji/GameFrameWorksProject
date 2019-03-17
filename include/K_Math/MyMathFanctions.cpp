@@ -114,6 +114,64 @@ void K_Math::MatrixLookAt(K_Math::Matrix4x4& result, K_Math::Vector3& position, 
 	result = mat;
 }
 
+void K_Math::CreateWorldMatrix(K_Math::Matrix4x4& out, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scaling) {
+	//移動
+	K_Math::Matrix4x4 transMat = glm::translate(out, position);
+	//回転順はYXZ
+	K_Math::Quaternion rot;
+	rot = glm::angleAxis(0.0f, K_Math::Vector3(0.0f, 0.0f, 0.0f));
+	rot = rot * glm::angleAxis(rotation.y, K_Math::Vector3(0.0f, 1.0f, 0.0f));
+	rot = rot * glm::angleAxis(rotation.x, K_Math::Vector3(1.0f, 0.0f, 0.0f));
+	rot = rot * glm::angleAxis(rotation.z, K_Math::Vector3(0.0f, 0.0f, 1.0f));
+	K_Math::Matrix4x4 rotMat = glm::toMat4(rot);
+
+	//スケール
+	K_Math::Matrix4x4 scaleMat = glm::scale(out, K_Math::Vector3(scaling.x, scaling.y, scaling.z));
+
+	out = transMat * rotMat * scaleMat;
+}
+void K_Math::CreateWorldMatrix(K_Math::Matrix4x4& out, const K_Math::Vector3& position, const K_Math::Quaternion& rotation, const K_Math::Vector3& scaling) {
+	//移動
+	//クォータニオンによる回転
+	//スケール
+	out = glm::translate(out, position) * glm::toMat4(rotation) *  glm::scale(out, scaling);
+}
+
+
+//平行移動前オフセット付き
+void K_Math::CreateWorldMatrix(K_Math::Matrix4x4 & out,
+	const K_Math::Vector3 & offset,
+	const K_Math::Vector3 & position, const K_Math::Quaternion & rotation, const K_Math::Vector3 & scaling) {
+	//行列作成
+	CreateWorldMatrix(out, position, rotation, scaling);
+	//平行移動する場合は平行移動を追加
+	if (K_Math::Norm(offset) > 0.0f) {
+		out = out * glm::translate(K_Math::Matrix4x4(), offset);
+	}
+}
+
+//ビルボード機能と平行移動前オフセット付き
+void K_Math::CreateWorldMatrix(K_Math::Matrix4x4 & out,
+	const K_Math::Matrix4x4 & viewMat,
+	const K_Math::Vector3 & offset,
+	const K_Math::Vector3 & position, const K_Math::Quaternion & rotation, const K_Math::Vector3 & scaling) {
+	//カメラ行列をコピー
+	K_Math::Matrix4x4 cameraMat = viewMat;
+	//平行移動打ち消し
+	cameraMat[3][0] = 0.0f;
+	cameraMat[3][1] = 0.0f;
+	cameraMat[3][2] = 0.0f;
+
+	//カメラに向く回転を加えて行列作成
+	out = glm::translate(out, position) * cameraMat * glm::toMat4(rotation) *  glm::scale(out, scaling);
+
+	//平行移動する場合は平行移動を追加
+	if (K_Math::Norm(offset) > 0.0f) {
+		out = out * glm::translate(K_Math::Matrix4x4(), offset);
+	}
+}
+
+
 K_Math::Box2D::Box2D() : x(0), y(0), w(0), h(0) {
 }
 K_Math::Box2D::Box2D(int x, int y, int w, int h) : x(x), y(y), w(w), h(h) {
@@ -219,10 +277,9 @@ K_Math::Quaternion K_Math::AngleAxis(float angle, const Vector3& axis) {
 	return glm::angleAxis(angle, axis);
 }
 K_Math::Quaternion K_Math::LookAt(const Vector3& vec1, const Vector3& vec2) {
-	Angle(vec1, vec2);
-
 	return glm::rotation(vec1, vec2);
 }
+
 float K_Math::Angle(const Vector3& vec1, const Vector3& vec2) {
 	return glm::angle(vec1, vec2);
 }

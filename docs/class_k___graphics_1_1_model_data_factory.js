@@ -1,6 +1,7 @@
 var class_k___graphics_1_1_model_data_factory =
 [
     [ "CreateK3MDModelFromFBX", "class_k___graphics_1_1_model_data_factory.html#a8449aece579a14fa109bc7e1e67eddd5", null ],
+    [ "CreateK3MDModelFromHierarchy", "class_k___graphics_1_1_model_data_factory.html#a42479c34a111ca533ede3b93e50440cb", null ],
     [ "CreateModelDataCopy", "class_k___graphics_1_1_model_data_factory.html#a4db46e0616d13b4f746a21028f40a119", null ],
     [ "CreateModelResourceFromFBX", "class_k___graphics_1_1_model_data_factory.html#abf8dfa489821c56d744ef148f2947e71", null ],
     [ "CreateModelResourceFromK3MD", "class_k___graphics_1_1_model_data_factory.html#a3bccfb7f41907721c9ab93e1f0f4f174", null ],

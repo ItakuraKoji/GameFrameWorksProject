@@ -15,6 +15,9 @@ namespace K_Graphics {
 		//!@brief Finalize()を呼ぶ
 		~MeshModel();
 
+		//!@brief 持っているアニメの一覧を取得する
+		void GetAnimList(std::vector<std::string>& out);
+
 		//!@brief モデルデータによって3Dモデルを初期化
 		//!@param[in] ModelDataFactoryクラスによって生成されたモデルデータへのポインタ
 		//!@return 成功するとtrue
@@ -64,6 +67,9 @@ namespace K_Graphics {
 		//!@brief Finalize()を呼ぶ
 		~MeshObject();
 
+		//!@brief 持っているアニメの一覧を取得する
+		void GetAnimList(std::vector<std::string>& out);
+
 		//!@brief MeshModelへのポインタを渡して初期化
 		//!@param[in] model MeshModelへのポインタ
 		//!@return 成功するとtrue
@@ -99,16 +105,14 @@ namespace K_Graphics {
 		//!@param[in] scale スケーリング
 		void Draw(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scale);
 		void Draw(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Quaternion& rotation, const K_Math::Vector3& scale);
+
+		//!@brief 直接変換行列をシェーダーに渡して描画を行う
+		//!@param[in] camera 使用するカメラクラスへのポインタ
+		//!@param[in] shader 使用するシェーダーへのポインタ
+		//!@param[in] scale 変換行列
+		void Draw(CameraClass* camera, ShaderClass* shader, const K_Math::Matrix4x4& mat);
 		//!@brief インスタンス描画は未実装
 		void InstanceDraw(CameraClass* camera, ShaderClass* shader, int numDraw, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scale);
-
-		//!@brief SRT姿勢からワールド変換行列を作成する
-		//!@param[in] position 3D空間上の位置座標
-		//!@param[in] rotation XYZそれぞれの軸に関する回転角度（Y→X→Zの順で回転する）
-		//!@param[in] scale スケーリング
-		//!@return ワールド変換行列
-		K_Math::Matrix4x4 CreateWorldMatrix(const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scale);
-		K_Math::Matrix4x4 CreateWorldMatrix(const K_Math::Vector3& position, const K_Math::Quaternion& rotation, const K_Math::Vector3& scale);
 
 	private:
 		void SetMatrix(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scale);
@@ -137,6 +141,14 @@ namespace K_Graphics {
 		//!@brief 表示するテクスチャを変更する
 		//!@param[in] texture 使用するテクスチャのポインタ
 		bool SetTexture(Texture* texture);
+
+		//!@brief 描画を行う、行列を渡すので2Dと3Dの区別がない
+		//!@param[in] camera 使用するカメラ（上記の条件に注意）
+		//!@param[in] shader 使用するシェーダー
+		//!@param[in] src テクスチャの切り取り情報\n「テクスチャのピクセル座標XY」「矩形の幅と高さ」をそれぞれ"x""y""w""h"に設定する
+		//!@param[in] worldMatrix 変換行列
+		void Draw(CameraClass* camera, ShaderClass* shader, const K_Math::Box2D& src, const K_Math::Matrix4x4& worldMatrix);
+
 		//!@brief 2D描画を行う
 		//!「スクリーンのサイズをカメラに設定している」「平行投影のカメラである」「Z軸方向を向きとZ軸と平行」
 		//!という３つの条件を満たしたカメラを設定するとスクリーン座標での描画ができる
@@ -146,6 +158,7 @@ namespace K_Graphics {
 		//!@param[in] draw 実際に描画する場所と大きさを指定する\n「位置座標XY」「矩形の幅と高さ」をそれぞれ"x""y""w""h"に設定する
 		//!@param[in] rotation 右回転の角度（度数法）
 		void Draw2D(CameraClass* camera, ShaderClass* shader, const K_Math::Box2D& src, const K_Math::Box2D& draw, float rotation);
+		void Draw2D(CameraClass* camera, ShaderClass* shader, const K_Math::Box2D& src, const K_Math::Box2D& draw, const K_Math::Quaternion& rotation);
 		//!@brief 3D空間上に描画する、ただし必ずカメラの方を向くビルボードになる
 		//!@param[in] camera 使用するカメラクラスへのポインタ
 		//!@param[in] shader 使用するシェーダーへのポインタ
@@ -154,6 +167,7 @@ namespace K_Graphics {
 		//!@param[in] rotation XYZそれぞれの軸に関する回転角度（Y→X→Zの順で回転する）
 		//!@param[in] scale スケーリング
 		void Draw3D(CameraClass* camera, ShaderClass* shader, const K_Math::Box2D& src, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scale);
+		void Draw3D(CameraClass* camera, ShaderClass* shader, const K_Math::Box2D& src, const K_Math::Vector3& position, const K_Math::Quaternion& rotation, const K_Math::Vector3& scale);
 
 		//!@brief SRT姿勢からワールド変換行列を作成する
 		//!@param[in] camera 使用するカメラクラスへのポインタ、ビルボード回転に必要
@@ -163,13 +177,18 @@ namespace K_Graphics {
 		//!@param[in] billBoard ビルボードとしてスプライトを扱うかのフラグ
 		//!@return ワールド変換行列
 		K_Math::Matrix4x4 CreateWorldMatrix(CameraClass* camera, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scale, const K_Math::Vector2& controlPoint, bool billBoard);
+		K_Math::Matrix4x4 CreateWorldMatrix(CameraClass* camera, const K_Math::Vector3& position, const K_Math::Quaternion& rotation, const K_Math::Vector3& scale, const K_Math::Vector2& controlPoint, bool billBoard);
 
 	private:
 		void SetMatrix(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scale, const K_Math::Vector2& controlPoint, bool billBoard);
+		void SetMatrix(CameraClass* camera, ShaderClass* shader, const K_Math::Vector3& position, const K_Math::Quaternion& rotation, const K_Math::Vector3& scale, const K_Math::Vector2& controlPoint, bool billBoard);
+		void SetMatrix(CameraClass* camera, ShaderClass* shader, const K_Math::Matrix4x4& worldMatrix, const K_Math::Vector2& controlPoint, bool billBoard);
 
 	public:
 		//!@brief コントロールポイントの座標
 		K_Math::Vector2 controlPoint;
+
+		bool isBlend;
 	private:
 		MeshModel* drawModel;
 		Texture* cullentTexture;

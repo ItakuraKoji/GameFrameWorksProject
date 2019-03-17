@@ -24,7 +24,7 @@ namespace K_Graphics {
 		this->color = K_Math::Vector4(1.0f, 1.0f, 1.0f, 1.0f);
 		this->isDraw = true;
 		if (textureImage != nullptr) {
-			this->src = K_Math::Box2D(0.0f, 0.0f, textureImage->GetWidth(), textureImage->GetHeight());
+			this->src = K_Math::Box2D(0, 0, textureImage->GetWidth(), textureImage->GetHeight());
 		}
 		this->fillMaxAngle = 360.0f;
 		this->fillRatio = 1.0f;
@@ -104,7 +104,7 @@ namespace K_Graphics {
 	void SpriteData::SetTexture(K_Graphics::Texture* texture) {
 		this->textureImage = texture;
 		if (textureImage != nullptr) {
-			this->src = K_Math::Box2D(0.0f, 0.0f, textureImage->GetWidth(), textureImage->GetHeight());
+			this->src = K_Math::Box2D(0, 0, textureImage->GetWidth(), textureImage->GetHeight());
 		}
 	}
 
@@ -153,13 +153,13 @@ namespace K_Graphics {
 		if (this->textureImage == nullptr) {
 			return 0;
 		}
-		return this->textureImage->GetWidth();
+		return (float)this->textureImage->GetWidth();
 	}
 	float SpriteData::GetImageHeight() {
 		if (this->textureImage == nullptr) {
 			return 0;
 		}
-		return this->textureImage->GetHeight();
+		return (float)this->textureImage->GetHeight();
 	}
 	float SpriteData::GetImageAspectHW() {
 		if (this->textureImage == nullptr) {
@@ -169,10 +169,10 @@ namespace K_Graphics {
 	}
 
 	float SpriteData::GetWidth() {
-		return src.w;
+		return (float)src.w;
 	}
 	float SpriteData::GetHeight() {
-		return src.h;
+		return (float)src.h;
 	}
 
 	bool SpriteData::IsDraw() {
@@ -190,9 +190,8 @@ namespace K_Graphics {
 	////////
 	//SpriteManager
 	////
-	SpriteRenderer::SpriteRenderer(DrawPassManager* drawPassManager) :
-		DrawableObject(drawPassManager)
-	{
+	SpriteRenderer::SpriteRenderer(DrawPassManager* drawPassManager){
+		SetDrawPassManager(drawPassManager);
 		this->sprite = new K_Graphics::SpriteObject(nullptr);
 	}
 
@@ -321,7 +320,7 @@ namespace K_Graphics {
 	}
 	void SpriteData::TextureAnimation::Stop() {
 		this->isPlay = false;
-		this->currentPosition = 0.0f;
+		this->currentPosition = 0;
 	}
 	void SpriteData::TextureAnimation::Pause() {
 		this->isPlay = false;
@@ -341,10 +340,10 @@ namespace K_Graphics {
 
 		if (this->currentPosition >= this->numAnimData) {
 			if (this->isLoop) {
-				this->currentPosition = 0.0f;
+				this->currentPosition = 0;
 			}
 			else {
-				this->currentPosition = 0.0f;
+				this->currentPosition = 0;
 				this->isPlay = false;
 			}
 		}
@@ -354,7 +353,7 @@ namespace K_Graphics {
 	}
 	void SpriteData::TextureAnimation::SetDataArray(const std::vector<Data>& dataArray) {
 		this->animData = dataArray;
-		this->numAnimData = this->animData.size();
+		this->numAnimData = (int)this->animData.size();
 	}
 	void SpriteData::TextureAnimation::AddData(const Data& data) {
 		this->animData.push_back(data);

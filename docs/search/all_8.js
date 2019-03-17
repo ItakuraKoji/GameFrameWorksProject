@@ -16,6 +16,7 @@ var searchData=
   ['interpolationmat',['interPolationMat',['../struct_k___graphics_1_1_bone_animation.html#a63befa77ed318c54020a33430ab0c898',1,'K_Graphics::BoneAnimation']]],
   ['intervaltype',['IntervalType',['../namespace_k___system.html#a876c3b9c8a1ea13281e25edbc35f1e6a',1,'K_System']]],
   ['isactive',['IsActive',['../class_k___physics_1_1_collision_data.html#a96ee24ac70437f2aab2ffa437c0b285e',1,'K_Physics::CollisionData']]],
+  ['isblend',['isBlend',['../class_k___graphics_1_1_sprite_object.html#aaac1e487ea4f0b5abcb06d8c865005df',1,'K_Graphics::SpriteObject']]],
   ['isdraw',['IsDraw',['../class_k___graphics_1_1_sprite_data.html#a43ba170d82291a7fc79c11371ef9e416',1,'K_Graphics::SpriteData']]],
   ['isenable',['IsEnable',['../class_k___graphics_1_1_index_vector.html#aa16142f6436c92f04866831a173ea89c',1,'K_Graphics::IndexVector']]],
   ['isenablepass',['IsEnablePass',['../class_k___graphics_1_1_draw_pass_manager.html#a2e1398b751237fcf928f3b1591a3cdc2',1,'K_Graphics::DrawPassManager']]],

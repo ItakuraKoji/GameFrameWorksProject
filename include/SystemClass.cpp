@@ -73,9 +73,11 @@ namespace K_System {
 		++this->framecount;
 		cullentTime = std::chrono::system_clock::now();
 
-		int deltaTime = std::chrono::duration_cast<std::chrono::microseconds>(cullentTime - startTime).count();
+		//マイクロ秒での、前フレームからの経過時間
+		int deltaTime = (int)std::chrono::duration_cast<std::chrono::microseconds>(cullentTime - startTime).count();
 
 		if (deltaTime > 0) {
+			//マイクロ秒を秒に変換
 			this->fps = (float)framecount / deltaTime * 1000000;
 		}
 		this->startTime = cullentTime;
@@ -199,6 +201,11 @@ namespace K_System {
 		else {
 			glDisable(GL_DEPTH_TEST);
 		}
+	}
+
+	GLFWwindow * SystemClass::GetWindowHandle()
+	{
+		return this->windowHandle;
 	}
 
 

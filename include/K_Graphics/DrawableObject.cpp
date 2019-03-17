@@ -3,9 +3,9 @@
 
 namespace K_Graphics {
 
-	//’l‚Æ‚µ‚Ä•`‰æƒpƒX‚ÌŠÇ—ƒNƒ‰ƒX‚ª•K{‚É‚È‚é
-	DrawableObject::DrawableObject(DrawPassManager* passManager) {
-		this->passManager = passManager;
+	//’l‚Æ‚µ‚Ä•`‰æƒpƒX‚ÌŠÇ—ƒNƒ‰ƒX‚ª•K{‚É‚È‚éASetDrawPassManager()‚ÅƒZƒbƒg‚µ‚È‚­‚Ä‚Í‚È‚ç‚È‚¢
+	DrawableObject::DrawableObject() {
+		this->passManager = nullptr;
 	}
 
 	DrawableObject::~DrawableObject(){
@@ -13,6 +13,11 @@ namespace K_Graphics {
 	}
 
 	void DrawableObject::RemoveDrawPass(int drawPassID) {
+		//ˆê“x‚à“o˜^‚³‚ê‚Ä‚¢‚È‚¢‚ÆA•`‰æƒpƒXŠÇ—ƒNƒ‰ƒX‚ªnull‚É‚È‚Á‚Ä‚¢‚é
+		if (this->passManager == nullptr) {
+			throw new std::runtime_error("nobody attach DrawPass : RemoveDrawPass()");
+		}
+
 		this->passManager->RemoveDrawableObject(drawPassID, this->passList[drawPassID]);
 		this->passList.erase(drawPassID);
 	}
@@ -20,6 +25,11 @@ namespace K_Graphics {
 
 
 	void DrawableObject::RemoveDrawPassAll() {
+		//ˆê“x‚à“o˜^‚³‚ê‚Ä‚¢‚È‚¢‚ÆA•`‰æƒpƒXŠÇ—ƒNƒ‰ƒX‚ªnull‚É‚È‚Á‚Ä‚¢‚é
+		if (this->passManager == nullptr) {
+			throw new std::runtime_error("nobody attach DrawPass : RemoveDrawPassAll()");
+		}
+
 		//‘S‚Ä‚Ì•`‰æƒpƒX‚Ö‚Ì“o˜^‚ğ‰ğœ
 		int count = 0;
 		for (auto id : this->passList) {
@@ -29,6 +39,11 @@ namespace K_Graphics {
 	}
 
 	void DrawableObject::AttachDrawPass(int passID) {
+		//ˆê“x‚à“o˜^‚³‚ê‚Ä‚¢‚È‚¢‚ÆA•`‰æƒpƒXŠÇ—ƒNƒ‰ƒX‚ªnull‚É‚È‚Á‚Ä‚¢‚é
+		if (this->passManager == nullptr) {
+			throw new std::runtime_error("nobody attach DrawPass : AttachDrawPass()");
+		}
+
 		//d•¡ƒ`ƒFƒbƒN
 		if (this->passList.find(passID) != this->passList.end()) {
 			return;
@@ -37,5 +52,22 @@ namespace K_Graphics {
 		//“o˜^
 		int objId = this->passManager->JoinDrawableObject(passID, this);
 		this->passList[passID] = objId;
+	}
+
+	void DrawableObject::SetDrawPassManager(DrawPassManager * passManager){
+		//‘½d“o˜^‚Ì‹Ö~
+		if (this->passManager != nullptr) {
+			throw new std::runtime_error("already set DrawPassManager: SetDrawPassManager()");
+		}
+		this->passManager = passManager;
+	}
+
+	//•`‰æ‘O‚Ìî•ñ“o˜^
+	void DrawableObject::SetCurrentDrawPass(DrawPass * currentPass){
+		this->currentPass = currentPass;
+	}
+	DrawPass * DrawableObject::GetCurrentDrawPass()
+	{
+		return this->currentPass;
 	}
 }

@@ -23,7 +23,7 @@ namespace K_Loader {
 			InitializeFBX(fileName);
 
 			//ファイルパスを記録してモデルファイルを起点とした読み込みパスを作り出す
-			int position = fileName.find_last_of("\\/");
+			int position = (int)fileName.find_last_of("\\/");
 			if (position == std::string::npos) {
 				//見つからなかった場合は起点パスは空白
 				this->fileRoot = "";
@@ -31,7 +31,7 @@ namespace K_Loader {
 			else {
 				this->fileRoot = fileName.substr(0, position + 1);
 			}
-
+			this->modelData->modelPath = this->fileRoot;
 
 			//ノード取得
 			FbxNode *rootNode = this->fbxData->GetScene()->GetRootNode();
@@ -337,7 +337,7 @@ namespace K_Loader {
 				char* fileName = new char[pathSize];
 				fileName[0] = '\0';
 
-				strcat_s(fileName, pathSize, this->fileRoot.data());
+				//strcat_s(fileName, pathSize, this->fileRoot.data());
 				strcat_s(fileName, pathSize, directory);
 				strcat_s(fileName, pathSize, name);
 				strcat_s(fileName, pathSize, ext);
@@ -598,8 +598,9 @@ namespace K_Loader {
 							mat44[y][x] = (float)mat.Get(y, x);
 						}
 					}
+
 					for (int lineIndex = 0; lineIndex < 4; ++lineIndex) {
-						bone[k].mat[animID][time].line[lineIndex] = mat44[lineIndex];
+						bone[k].mat[animID][time].line[lineIndex] =  mat44[lineIndex];
 					}
 				}
 			}

@@ -25,7 +25,8 @@ namespace K_Graphics {
 
 		//全てのオブジェクトを描画
 		for (int i = this->drawObjects.GetFirstIndex(); i >= 0; i = this->drawObjects.GetNextIndex(i)) {
-			this->drawObjects.Get(i)->Draw(this);
+			this->drawObjects.Get(i)->SetCurrentDrawPass(this);
+			this->drawObjects.Get(i)->Draw();
 		}
 	}
 

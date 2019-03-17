@@ -39,6 +39,8 @@ namespace K_Loader {
 	};
 	//階層モデルデータ
 	struct K3MDHierarchy {
+		//読みこまれているであろうモデルの位置
+		std::string modelPath;
 		std::vector<K3MDData> modelHierarchy;
 		//アニメーション情報
 		std::unordered_map<std::string, K_Graphics::AnimType> animList;
@@ -52,6 +54,7 @@ namespace K_Loader {
 		~K3MDLoader();
 
 		void CreateBinaryFile(K3MDHierarchy* data, const std::string& fileName, const std::string& outputFilePath);
+		void CreateBinaryFile(K3MDHierarchy* data, const std::string& outputFilePath);
 		
 		K_Graphics::ModelResource* LoadModel(K3MDHierarchy* data, K_Graphics::TextureList* list);
 		K_Graphics::ModelResource* LoadModel(const char* filepath, K_Graphics::TextureList* list);
@@ -61,7 +64,7 @@ namespace K_Loader {
 
 	private:
 		void CreateVertex(K3MDData* modelData, GLuint VAO, const std::vector<GLuint>& IBOs);
-		void CreateMaterial(K3MDData* modelData, std::vector<GLuint>& IBOs);
+		void CreateMaterial(const std::string& fileRoot, K3MDData* modelData, std::vector<GLuint>& IBOs);
 		void CreateBone(K3MDHierarchy* data, K3MDData* modelData);
 
 		void ReadBinary(char* dest, char* src, size_t* position, size_t size);

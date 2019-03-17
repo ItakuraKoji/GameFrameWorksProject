@@ -522,7 +522,7 @@ namespace K_Physics {
 
 
 	btVector3 BulletPhysics::MoveDiscrete(CollisionData* obj, const btVector3& moveVector, const btVector3& limitDirection, float moveDitail) {
-		int numMove = 1 + moveVector.norm() / moveDitail;
+		int numMove = 1 + (int)(moveVector.norm() / moveDitail);
 		int numFix = 35;
 
 		const btVector3& goVec = moveVector / (float)numMove;
@@ -592,7 +592,7 @@ namespace K_Physics {
 		//細かく進んでぶつかっては戻り、更に細かく進んでぶつかっては戻り、最適な位置を近似
 		for (int i = 0; i < 5; ++i) {
 			//ちょっとずつ判定しながら前進
-			int numMove = 1 + moveVec.norm() / moveDitailRatio;
+			int numMove = 1 + (int)(moveVec.norm() / moveDitailRatio);
 			const btVector3& goVec = moveVec / (float)numMove;
 
 			for (int i = 0; i < numMove; ++i) {

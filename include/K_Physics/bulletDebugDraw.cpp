@@ -129,7 +129,7 @@ namespace K_Physics {
 		glBindVertexArray(0);
 
 		glBindVertexArray(this->VAO);
-		glDrawArrays(GL_LINES, 0, this->lineData.size() * 2);
+		glDrawArrays(GL_LINES, 0, (GLsizei)this->lineData.size() * 2);
 		glBindVertexArray(0);
 	}
 

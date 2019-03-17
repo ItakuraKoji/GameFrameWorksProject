@@ -48,4 +48,8 @@ namespace K_Graphics {
 		return this->animList.at(animName);
 	}
 
+	const std::vector<std::string>& BoneData::GetAnimList(){
+		return this->animNameList;
+	}
+
 }

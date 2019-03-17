@@ -17,6 +17,15 @@ namespace K_Graphics {
 		Finalize();
 	}
 
+	void MeshModel::GetAnimList(std::vector<std::string>& out){
+		out.clear();
+		if (this->data->bone == nullptr) {
+			return;
+		}
+		//ƒRƒs[
+		out = std::vector<std::string>(this->data->bone->GetAnimList());
+	}
+
 	//‰Šú‰»
 	bool MeshModel::Initialize(ModelDataSuper* data) {
 		Finalize();

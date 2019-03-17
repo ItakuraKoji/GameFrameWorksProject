@@ -129,6 +129,8 @@ namespace K_System {
 		//!@param[in] active trueで有効に、falseで無効にする
 		static void SetDepthTest(bool active);
 
+		//外部のライブラリとの連携用
+		GLFWwindow* GetWindowHandle();
 
 	private:
 		bool CreateAppricationWindow(const char* windowName, int width, int height, bool fullScreen);

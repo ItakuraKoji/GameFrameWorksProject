@@ -10,8 +10,6 @@
 #define _USE_MATH_DEFINES
 #include<math.h>
 
-//Eigenはずいぶん複雑なヘッダのようで、こいつは最初のほうにインクルードするほうがいいっぽい
-
 namespace K_Math {
 	//!float型２要素ベクトル
 	typedef glm::vec2 Vector2;
@@ -74,6 +72,37 @@ namespace K_Math {
 	//!@param[in] up カメラの上を指す単位ベクトル
 	void  MatrixLookAt(Matrix4x4& result, Vector3& position, Vector3& lookAt, Vector3& up);
 
+	//!@brief SRT姿勢からワールド変換行列を作成する
+	//!@param[out] out 出来上がったワールド行列
+	//!@param[in] position 3D空間上の位置座標
+	//!@param[in] rotation XYZそれぞれの軸に関する回転角度（Y→X→Zの順で回転する）
+	//!@param[in] scale スケーリング
+	void CreateWorldMatrix(K_Math::Matrix4x4& out, const K_Math::Vector3& position, const K_Math::Vector3& rotation, const K_Math::Vector3& scaling);
+	//!@brief SRT姿勢からワールド変換行列を作成する
+	//!@param[out] out 出来上がったワールド行列
+	//!@param[in] position 3D空間上の位置座標
+	//!@param[in] rotation クォータニオンによる回転
+	//!@param[in] scale スケーリング
+	void CreateWorldMatrix(K_Math::Matrix4x4& out, const K_Math::Vector3& position, const K_Math::Quaternion& rotation, const K_Math::Vector3& scaling);
+
+
+	//!@brief SRT姿勢からワールド変換行列を作成する
+	//!@param[out] out 出来上がったワールド行列
+	//!@param[in] offset 原点の移動（拡大回転前の平行移動）
+	//!@param[in] position 3D空間上の位置座標
+	//!@param[in] rotation クォータニオンによる回転
+	//!@param[in] scale スケーリング
+	void CreateWorldMatrix(K_Math::Matrix4x4& out, const K_Math::Vector3& offset, const K_Math::Vector3& position, const K_Math::Quaternion& rotation, const K_Math::Vector3& scaling);
+	//!@brief SRT姿勢からワールド変換行列を作成する
+	//!@param[out] out 出来上がったワールド行列
+	//!@param[in] viewMat カメラの方を向く場合のビュー行列
+	//!@param[in] offset 原点の移動（拡大回転前の平行移動）
+	//!@param[in] position 3D空間上の位置座標
+	//!@param[in] rotation クォータニオンによる回転
+	//!@param[in] scale スケーリング
+	void CreateWorldMatrix(K_Math::Matrix4x4& out, const K_Math::Matrix4x4& viewMat, const K_Math::Vector3& offset, const K_Math::Vector3& position, const K_Math::Quaternion& rotation, const K_Math::Vector3& scaling);
+
+
 	//!@brief 回転成分からクォータニオンを作成する(Y軸→X軸→Z軸)
 	Quaternion RotationToQuaternion(const Vector3& rotation);
 	//!@brief クォータニオンから回転成分を作成する(Y軸→X軸→Z軸)
@@ -126,9 +155,11 @@ namespace K_Math {
 	Quaternion AngleAxis(float angle, const Vector3& axis);
 	//!@brief vec1からvec2へ向かう回転のクォータニオンを得る
 	Quaternion LookAt(const Vector3& vec1, const Vector3& vec2);
+	Quaternion LookAt(const K_Math::Quaternion& vec1, const K_Math::Quaternion& vec2);
 
 	//!@brief 二つのベクトルのなす角を得る
 	float Angle(const Vector3& vec1, const Vector3& vec2);
 	//!@brief 二つのベクトルの任意軸における回転角度を得る
 	float Angle(const Vector3& vec1, const Vector3& vec2, const Vector3& ref);
+
 }

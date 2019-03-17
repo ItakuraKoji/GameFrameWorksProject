@@ -122,6 +122,7 @@ namespace K_Graphics {
 		int GetNumBone(int hierarchyIndex) const;
 		const AnimType& GetAnimData(const std::string& animName) const;
 		const AnimType& GetAnimData(int animIndex) const;
+		const std::vector<std::string>& GetAnimList();
 
 	private:
 		//アニメーション情報
@@ -162,8 +163,8 @@ namespace K_Graphics {
 		float interporationMaxCount;
 		//借り物のボーンデータ情報
 		BoneData* bone;
-		//ボーンの計算時に使う辻褄合わせ変形
-		K_Math::Matrix4x4 fixMat;
+
+		std::vector<K_Math::Matrix4x4> calcuratedBoneMat;
 	};
 
 

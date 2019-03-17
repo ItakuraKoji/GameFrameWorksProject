@@ -110,18 +110,24 @@ K_Graphics::DrawableObject の継承関係図</div>
 <tr class="separator:a3364584d53f04d942d7e63172e2fc4bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9adfe995b6e05e533e43f65fb180567"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_drawable_object.html#aa9adfe995b6e05e533e43f65fb180567">operator=</a> (const <a class="el" href="class_k___graphics_1_1_drawable_object.html">DrawableObject</a> &amp;)=delete</td></tr>
 <tr class="separator:aa9adfe995b6e05e533e43f65fb180567"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8304d6618d4bda6e9fd35e2fd68b44ba"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_drawable_object.html#a8304d6618d4bda6e9fd35e2fd68b44ba">DrawableObject</a> (<a class="el" href="class_k___graphics_1_1_draw_pass_manager.html">DrawPassManager</a> *passManager)</td></tr>
-<tr class="separator:a8304d6618d4bda6e9fd35e2fd68b44ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52b65dde034cc182b5efe7eb0576fcde"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_drawable_object.html#a52b65dde034cc182b5efe7eb0576fcde">DrawableObject</a> ()</td></tr>
+<tr class="separator:a52b65dde034cc182b5efe7eb0576fcde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3440ed4eded6f72dca0d140967b75ec5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_drawable_object.html#a3440ed4eded6f72dca0d140967b75ec5">~DrawableObject</a> ()</td></tr>
 <tr class="separator:a3440ed4eded6f72dca0d140967b75ec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9ca8d87ae584e730b52c9f4bb378fa9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_drawable_object.html#af9ca8d87ae584e730b52c9f4bb378fa9">Draw</a> (<a class="el" href="class_k___graphics_1_1_draw_pass.html">DrawPass</a> *currentPass)=0</td></tr>
-<tr class="separator:af9ca8d87ae584e730b52c9f4bb378fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a929631c93e508b961a944615570f7ec0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_drawable_object.html#a929631c93e508b961a944615570f7ec0">Draw</a> ()=0</td></tr>
+<tr class="separator:a929631c93e508b961a944615570f7ec0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5cc9de835dc4bd6c87222d171bd2904"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_drawable_object.html#aa5cc9de835dc4bd6c87222d171bd2904">RemoveDrawPassAll</a> () final</td></tr>
 <tr class="separator:aa5cc9de835dc4bd6c87222d171bd2904"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfef75e36e7ef49b2a9b293e385f112a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_drawable_object.html#acfef75e36e7ef49b2a9b293e385f112a">RemoveDrawPass</a> (int passID) final</td></tr>
 <tr class="separator:acfef75e36e7ef49b2a9b293e385f112a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a5bd7e23ad58191a9d7ab93ac53a481"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_drawable_object.html#a4a5bd7e23ad58191a9d7ab93ac53a481">AttachDrawPass</a> (int passID) final</td></tr>
 <tr class="separator:a4a5bd7e23ad58191a9d7ab93ac53a481"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9219f2f178234303086cd9166f05ea22"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_drawable_object.html#a9219f2f178234303086cd9166f05ea22">SetDrawPassManager</a> (<a class="el" href="class_k___graphics_1_1_draw_pass_manager.html">DrawPassManager</a> *passManager) final</td></tr>
+<tr class="separator:a9219f2f178234303086cd9166f05ea22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85710b7129cbe827d4a3d3ddbeee3a2a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_drawable_object.html#a85710b7129cbe827d4a3d3ddbeee3a2a">SetCurrentDrawPass</a> (<a class="el" href="class_k___graphics_1_1_draw_pass.html">DrawPass</a> *currentPass) final</td></tr>
+<tr class="separator:a85710b7129cbe827d4a3d3ddbeee3a2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4958fe0ec5e1a5c876259a88ef536850"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_k___graphics_1_1_draw_pass.html">DrawPass</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_drawable_object.html#a4958fe0ec5e1a5c876259a88ef536850">GetCurrentDrawPass</a> () final</td></tr>
+<tr class="separator:a4958fe0ec5e1a5c876259a88ef536850"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">構築子と解体子</h2>
 <a id="a3364584d53f04d942d7e63172e2fc4bf"></a>
@@ -150,8 +156,8 @@ K_Graphics::DrawableObject の継承関係図</div>
 
 </div>
 </div>
-<a id="a8304d6618d4bda6e9fd35e2fd68b44ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8304d6618d4bda6e9fd35e2fd68b44ba">&#9670;&nbsp;</a></span>DrawableObject() <span class="overload">[2/2]</span></h2>
+<a id="a52b65dde034cc182b5efe7eb0576fcde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52b65dde034cc182b5efe7eb0576fcde">&#9670;&nbsp;</a></span>DrawableObject() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -159,8 +165,7 @@ K_Graphics::DrawableObject の継承関係図</div>
         <tr>
           <td class="memname">K_Graphics::DrawableObject::DrawableObject </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_draw_pass_manager.html">DrawPassManager</a> *&#160;</td>
-          <td class="paramname"><em>passManager</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -220,8 +225,8 @@ K_Graphics::DrawableObject の継承関係図</div>
 
 </div>
 </div>
-<a id="af9ca8d87ae584e730b52c9f4bb378fa9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9ca8d87ae584e730b52c9f4bb378fa9">&#9670;&nbsp;</a></span>Draw()</h2>
+<a id="a929631c93e508b961a944615570f7ec0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a929631c93e508b961a944615570f7ec0">&#9670;&nbsp;</a></span>Draw()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -232,14 +237,40 @@ K_Graphics::DrawableObject の継承関係図</div>
         <tr>
           <td class="memname">virtual void K_Graphics::DrawableObject::Draw </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_draw_pass.html">DrawPass</a> *&#160;</td>
-          <td class="paramname"><em>currentPass</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_k___graphics_1_1_sprite_renderer.html#a1ec526d7b456c01b92fb4279caa42c12">K_Graphics::SpriteRenderer</a>で実装されています。</p>
+
+</div>
+</div>
+<a id="a4958fe0ec5e1a5c876259a88ef536850"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4958fe0ec5e1a5c876259a88ef536850">&#9670;&nbsp;</a></span>GetCurrentDrawPass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_k___graphics_1_1_draw_pass.html">DrawPass</a> * K_Graphics::DrawableObject::GetCurrentDrawPass </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -311,6 +342,58 @@ K_Graphics::DrawableObject の継承関係図</div>
           <td class="memname">void K_Graphics::DrawableObject::RemoveDrawPassAll </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a85710b7129cbe827d4a3d3ddbeee3a2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85710b7129cbe827d4a3d3ddbeee3a2a">&#9670;&nbsp;</a></span>SetCurrentDrawPass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Graphics::DrawableObject::SetCurrentDrawPass </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_draw_pass.html">DrawPass</a> *&#160;</td>
+          <td class="paramname"><em>currentPass</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9219f2f178234303086cd9166f05ea22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9219f2f178234303086cd9166f05ea22">&#9670;&nbsp;</a></span>SetDrawPassManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Graphics::DrawableObject::SetDrawPassManager </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_draw_pass_manager.html">DrawPassManager</a> *&#160;</td>
+          <td class="paramname"><em>passManager</em></td><td>)</td>
           <td></td>
         </tr>
       </table>

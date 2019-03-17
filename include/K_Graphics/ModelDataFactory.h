@@ -10,7 +10,9 @@ namespace K_Graphics {
 	//!@brief モデルクラスの初期化に必要なパラメーターの製作を担当するクラス
 	class ModelDataFactory {
 	public:
-		//K3MDモデルを生成する
+		//K3MDモデルへコンバートする、rootPathはモデルデータの位置
+		void CreateK3MDModelFromHierarchy(K_Loader::K3MDHierarchy* hierarchy, const std::string& rootPath, const std::string& outputPath);
+		//K3MDモデルへコンバートする
 		void CreateK3MDModelFromFBX(const std::string& fbxFilePath, const std::string& outputPath, const std::string& outputFileName);
 
 

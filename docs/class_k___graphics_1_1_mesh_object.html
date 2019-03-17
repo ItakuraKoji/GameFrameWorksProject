@@ -107,6 +107,9 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_mesh_object.htm
 <tr class="memitem:ae8c3f648521b8c14da19fa53fe1656f3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#ae8c3f648521b8c14da19fa53fe1656f3">~MeshObject</a> ()</td></tr>
 <tr class="memdesc:ae8c3f648521b8c14da19fa53fe1656f3"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_k___graphics_1_1_mesh_object.html#a2d7f1695e98aeba276e2f61b0bca00ab" title="Initialize()で渡したMeshModelへのポインタを開放している ">Finalize()</a>を呼ぶ  <a href="#ae8c3f648521b8c14da19fa53fe1656f3">[詳解]</a><br /></td></tr>
 <tr class="separator:ae8c3f648521b8c14da19fa53fe1656f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff2d96edf2d0ed0c147fbdede37dd89e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#aff2d96edf2d0ed0c147fbdede37dd89e">GetAnimList</a> (std::vector&lt; std::string &gt; &amp;out)</td></tr>
+<tr class="memdesc:aff2d96edf2d0ed0c147fbdede37dd89e"><td class="mdescLeft">&#160;</td><td class="mdescRight">持っているアニメの一覧を取得する  <a href="#aff2d96edf2d0ed0c147fbdede37dd89e">[詳解]</a><br /></td></tr>
+<tr class="separator:aff2d96edf2d0ed0c147fbdede37dd89e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a248233630419973244851f5d2070b5aa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#a248233630419973244851f5d2070b5aa">Initialize</a> (<a class="el" href="class_k___graphics_1_1_mesh_model.html">MeshModel</a> *model)</td></tr>
 <tr class="memdesc:a248233630419973244851f5d2070b5aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">MeshModelへのポインタを渡して初期化  <a href="#a248233630419973244851f5d2070b5aa">[詳解]</a><br /></td></tr>
 <tr class="separator:a248233630419973244851f5d2070b5aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -130,14 +133,12 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_mesh_object.htm
 <tr class="separator:a86437d928a10a4ceaa0ccdb1ed174028"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e09c5a1a599c1501770966a90a2c65e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#a8e09c5a1a599c1501770966a90a2c65e">Draw</a> (<a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *camera, <a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *shader, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;position, const <a class="el" href="namespace_k___math.html#a034e586a2748ce9790ca7cb30efcd78f">K_Math::Quaternion</a> &amp;rotation, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;scale)</td></tr>
 <tr class="separator:a8e09c5a1a599c1501770966a90a2c65e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a692b0cd31b470d2f9d2668772aa253f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#a692b0cd31b470d2f9d2668772aa253f1">Draw</a> (<a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *camera, <a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *shader, const <a class="el" href="namespace_k___math.html#a457ce1b65536e8dcb2d6215eb12dc26a">K_Math::Matrix4x4</a> &amp;mat)</td></tr>
+<tr class="memdesc:a692b0cd31b470d2f9d2668772aa253f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">直接変換行列をシェーダーに渡して描画を行う  <a href="#a692b0cd31b470d2f9d2668772aa253f1">[詳解]</a><br /></td></tr>
+<tr class="separator:a692b0cd31b470d2f9d2668772aa253f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a049000c7a45b4119fa4523ad1705bb9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#a049000c7a45b4119fa4523ad1705bb9a">InstanceDraw</a> (<a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *camera, <a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *shader, int numDraw, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;position, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;rotation, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;scale)</td></tr>
 <tr class="memdesc:a049000c7a45b4119fa4523ad1705bb9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">インスタンス描画は未実装  <a href="#a049000c7a45b4119fa4523ad1705bb9a">[詳解]</a><br /></td></tr>
 <tr class="separator:a049000c7a45b4119fa4523ad1705bb9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a248b0d20160c8ad487b1c84f8e9e0d15"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_k___math.html#a457ce1b65536e8dcb2d6215eb12dc26a">K_Math::Matrix4x4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#a248b0d20160c8ad487b1c84f8e9e0d15">CreateWorldMatrix</a> (const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;position, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;rotation, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;scale)</td></tr>
-<tr class="memdesc:a248b0d20160c8ad487b1c84f8e9e0d15"><td class="mdescLeft">&#160;</td><td class="mdescRight">SRT姿勢からワールド変換行列を作成する  <a href="#a248b0d20160c8ad487b1c84f8e9e0d15">[詳解]</a><br /></td></tr>
-<tr class="separator:a248b0d20160c8ad487b1c84f8e9e0d15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94d8c5db70f49cb3d46a118068ec7de3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_k___math.html#a457ce1b65536e8dcb2d6215eb12dc26a">K_Math::Matrix4x4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k___graphics_1_1_mesh_object.html#a94d8c5db70f49cb3d46a118068ec7de3">CreateWorldMatrix</a> (const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;position, const <a class="el" href="namespace_k___math.html#a034e586a2748ce9790ca7cb30efcd78f">K_Math::Quaternion</a> &amp;rotation, const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;scale)</td></tr>
-<tr class="separator:a94d8c5db70f49cb3d46a118068ec7de3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>K_Graphics::MeshModelの描画を"position""rotation""scale"の３つで行えるようにしたもの<br />
@@ -183,87 +184,8 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_mesh_object.htm
 </div>
 </div>
 <h2 class="groupheader">関数詳解</h2>
-<a id="a248b0d20160c8ad487b1c84f8e9e0d15"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a248b0d20160c8ad487b1c84f8e9e0d15">&#9670;&nbsp;</a></span>CreateWorldMatrix() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespace_k___math.html#a457ce1b65536e8dcb2d6215eb12dc26a">K_Math::Matrix4x4</a> K_Graphics::MeshObject::CreateWorldMatrix </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;&#160;</td>
-          <td class="paramname"><em>position</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;&#160;</td>
-          <td class="paramname"><em>rotation</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;&#160;</td>
-          <td class="paramname"><em>scale</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>SRT姿勢からワールド変換行列を作成する </p>
-<dl class="params"><dt>引数</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">position</td><td>3D空間上の位置座標 </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">rotation</td><td>XYZそれぞれの軸に関する回転角度（Y→X→Zの順で回転する） </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">scale</td><td>スケーリング </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>戻り値</dt><dd>ワールド変換行列 </dd></dl>
-
-</div>
-</div>
-<a id="a94d8c5db70f49cb3d46a118068ec7de3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94d8c5db70f49cb3d46a118068ec7de3">&#9670;&nbsp;</a></span>CreateWorldMatrix() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespace_k___math.html#a457ce1b65536e8dcb2d6215eb12dc26a">K_Math::Matrix4x4</a> K_Graphics::MeshObject::CreateWorldMatrix </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;&#160;</td>
-          <td class="paramname"><em>position</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a034e586a2748ce9790ca7cb30efcd78f">K_Math::Quaternion</a> &amp;&#160;</td>
-          <td class="paramname"><em>rotation</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a85c019697536d58751ca3d87d064a7fb">K_Math::Vector3</a> &amp;&#160;</td>
-          <td class="paramname"><em>scale</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a86437d928a10a4ceaa0ccdb1ed174028"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86437d928a10a4ceaa0ccdb1ed174028">&#9670;&nbsp;</a></span>Draw() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a86437d928a10a4ceaa0ccdb1ed174028">&#9670;&nbsp;</a></span>Draw() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -321,7 +243,7 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_mesh_object.htm
 </div>
 </div>
 <a id="a8e09c5a1a599c1501770966a90a2c65e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e09c5a1a599c1501770966a90a2c65e">&#9670;&nbsp;</a></span>Draw() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e09c5a1a599c1501770966a90a2c65e">&#9670;&nbsp;</a></span>Draw() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -366,6 +288,50 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_mesh_object.htm
 
 </div>
 </div>
+<a id="a692b0cd31b470d2f9d2668772aa253f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a692b0cd31b470d2f9d2668772aa253f1">&#9670;&nbsp;</a></span>Draw() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Graphics::MeshObject::Draw </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_camera_class.html">CameraClass</a> *&#160;</td>
+          <td class="paramname"><em>camera</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_k___graphics_1_1_shader_class.html">ShaderClass</a> *&#160;</td>
+          <td class="paramname"><em>shader</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespace_k___math.html#a457ce1b65536e8dcb2d6215eb12dc26a">K_Math::Matrix4x4</a> &amp;&#160;</td>
+          <td class="paramname"><em>mat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>直接変換行列をシェーダーに渡して描画を行う </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">camera</td><td>使用するカメラクラスへのポインタ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">shader</td><td>使用するシェーダーへのポインタ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">scale</td><td>変換行列 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a2d7f1695e98aeba276e2f61b0bca00ab"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2d7f1695e98aeba276e2f61b0bca00ab">&#9670;&nbsp;</a></span>Finalize()</h2>
 
@@ -382,6 +348,26 @@ $(document).ready(function(){initNavTree('class_k___graphics_1_1_mesh_object.htm
 </div><div class="memdoc">
 
 <p><a class="el" href="class_k___graphics_1_1_mesh_object.html#a248233630419973244851f5d2070b5aa" title="MeshModelへのポインタを渡して初期化 ">Initialize()</a>で渡したMeshModelへのポインタを開放している </p>
+
+</div>
+</div>
+<a id="aff2d96edf2d0ed0c147fbdede37dd89e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff2d96edf2d0ed0c147fbdede37dd89e">&#9670;&nbsp;</a></span>GetAnimList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void K_Graphics::MeshObject::GetAnimList </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>out</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>持っているアニメの一覧を取得する </p>
 
 </div>
 </div>

@@ -5,6 +5,20 @@ namespace K_Graphics {
 	//public
 	////
 
+	void ModelDataFactory::CreateK3MDModelFromHierarchy(K_Loader::K3MDHierarchy * hierarchy, const std::string & rootPath, const std::string & outputPath){
+		////テクスチャの相対パスの基準を「アプリケーションの位置」から「モデルデータの位置」に変換
+		//int position = (int)rootPath.size();
+		//for (auto& modelData : hierarchy->modelHierarchy) {
+		//	for (auto& material : modelData.materialData) {
+		//		//全てのテクスチャパスに対して実行
+		//		material.texturePath = material.texturePath.substr(position);
+		//	}
+		//}
+
+		K_Loader::K3MDLoader k3mdLoader;
+		k3mdLoader.CreateBinaryFile(hierarchy, outputPath);
+	}
+
 	void ModelDataFactory::CreateK3MDModelFromFBX(const std::string& fbxFilePath, const std::string& outputPath, const std::string& outputFileName) {
 		//FBXからK3MDファイルを作成して保存
 		K_Loader::FbxModelLoader loader;
@@ -13,14 +27,14 @@ namespace K_Graphics {
 		}
 		K_Loader::K3MDHierarchy* hierarchy = loader.GetModelData();
 
-		//テクスチャの相対パスの基準を「アプリケーションの位置」から「モデルデータの位置」に変換
-		int position = fbxFilePath.find_last_of("\\/");
-		for (auto& modelData : hierarchy->modelHierarchy) {
-			for (auto& material : modelData.materialData) {
-				//全てのテクスチャパスに対して実行
-				material.texturePath = material.texturePath.substr(position + 1);
-			}
-		}
+		////テクスチャの相対パスの基準を「アプリケーションの位置」から「モデルデータの位置」に変換
+		//int position = (int)fbxFilePath.find_last_of("\\/");
+		//for (auto& modelData : hierarchy->modelHierarchy) {
+		//	for (auto& material : modelData.materialData) {
+		//		//全てのテクスチャパスに対して実行
+		//		material.texturePath = material.texturePath.substr(position + 1);
+		//	}
+		//}
 
 		K_Loader::K3MDLoader k3mdLoader;
 		k3mdLoader.CreateBinaryFile(hierarchy, outputFileName, outputPath);
